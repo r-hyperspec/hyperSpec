@@ -31,7 +31,7 @@ jobs:
   drat:
     runs-on: ${{ matrix.config.os }}
 
-    name: ${{ matrix.config.os }} (R-${{ matrix.config.r }})
+    name: "drat: ${{ matrix.config.os }} (R-${{ matrix.config.r }})"
 
     strategy:
       fail-fast: false
@@ -58,7 +58,7 @@ jobs:
       - name: Query dependencies
         run: |
           install.packages('remotes')
-          saveRDS(remotes::dev_package_deps("./hyperSpec", dependencies = TRUE), ".github/depends.Rds", version = 2)
+          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
         shell: Rscript {0}
 
@@ -82,19 +82,19 @@ jobs:
         shell: Rscript {0}
         run: |
           remotes::install_cran(c("roxygen2", "devtools", "drat"))
-          remotes::install_deps("./hyperSpec", dependencies = TRUE)
+          remotes::install_deps(dependencies = TRUE)
 
       - name: Roxygenize
         shell: Rscript {0}
         run: |
-          devtools::document("./hyperSpec", roclets = c('rd', 'collate', 'namespace'))
-          devtools::document("./hyperSpec", roclets = c('vignette'))
+          devtools::document(roclets = c('rd', 'collate', 'namespace'))
+          devtools::document(roclets = c('vignette'))
 
       - name: Build source package
         shell: Rscript {0}
         run: |
-          dir.create("hyperSpec/check", showWarnings = FALSE)
-          devtools::build("hyperSpec", path = "hyperSpec/check")
+          dir.create("check", showWarnings = FALSE)
+          devtools::build(path = "check")
 
 # Above are the steps to build package
 # Below are the steps to deploy to pkg-repo
@@ -113,7 +113,6 @@ jobs:
       - name: Drat -- clone r-hyperspec/pkg-repo
         if: success()
         run: |
-          cd hyperSpec
           rm -rf tmp-pkg-repo-dir
           git clone https://github.com/r-hyperspec/pkg-repo.git tmp-pkg-repo-dir
           cd tmp-pkg-repo-dir
@@ -124,21 +123,21 @@ jobs:
         shell: Rscript {0}
         run: |
           targz <- list.files(
-            path = "hyperSpec/check",
+            path = "check",
             pattern = "\\.tar\\.gz",
             full.names = TRUE
           )
 
           drat::insertPackage(
             file    = targz,
-            repodir = "hyperSpec/tmp-pkg-repo-dir",
+            repodir = "tmp-pkg-repo-dir",
             action  = "archive"
           )
 
       - name: Drat -- commit and push
         if: success()
         run: |
-          cd hyperSpec/tmp-pkg-repo-dir
+          cd tmp-pkg-repo-dir
           git add *
           # .tar.gz files are globally blocked (git ignored) by git,
           # must add manually and force it
