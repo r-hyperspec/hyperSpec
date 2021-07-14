@@ -31,6 +31,8 @@ vignettes/fileio
 man/*.Rd
 NAMESPACE
 NEWS.html
+README.html
 
 # Other
 _tmp/
+
