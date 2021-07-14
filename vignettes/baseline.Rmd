@@ -72,7 +72,8 @@ knitr::write_bib(
     "hyperSpec",
     "baseline"
   ),
-  file = "resources/baseline-pkg.bib"
+  file = "resources/baseline-pkg.bib",
+  prefix = "R_"
 )
 ```
 

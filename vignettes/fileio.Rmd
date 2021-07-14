@@ -101,7 +101,8 @@ knitr::write_bib(
     "hyperSpec",
     "R.matlab"
   ),
-  file = "resources/fileio-pkg.bib"
+  file = "resources/fileio-pkg.bib",
+  prefix = "R_"
 )
 ```
 

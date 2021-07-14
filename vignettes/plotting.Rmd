@@ -84,7 +84,8 @@ knitr::write_bib(
     "deldir",
     "tripack"
   ),
-  file = "resources/plotting-pkg.bib"
+  file = "resources/plotting-pkg.bib",
+  prefix = "R_"
 )
 ```
 

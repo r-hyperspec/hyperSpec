@@ -78,7 +78,8 @@ knitr::write_bib(
     "plotrix",
     "pls"
   ),
-  file = "resources/intro-pkg.bib"
+  file = "resources/intro-pkg.bib",
+  prefix = "R_"
 )
 ```
 

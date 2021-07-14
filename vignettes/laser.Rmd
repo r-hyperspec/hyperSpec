@@ -74,7 +74,8 @@ knitr::write_bib(
     "hyperSpec",
     "rgl"
   ),
-  file = "resources/laser-pkg.bib"
+  file = "resources/laser-pkg.bib",
+  prefix = "R_"
 )
 ```
 
