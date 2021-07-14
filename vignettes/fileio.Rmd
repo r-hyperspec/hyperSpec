@@ -167,7 +167,7 @@ If you need help finding out how to import your data, please search and eventual
 ```{block, type="note", echo=TRUE}
 **Reproducing the Examples in this Manual**
 
-To run the code examples, create a folder named "fileio" in your working directory and copy the contents of the directory <https://github.com/r-hyperspec/hyperSpec/tree/cbeleites/Vignettes/fileio>.
+To run the code examples, create a folder named "fileio" in your working directory and copy the contents of the directory <https://github.com/r-hyperspec/hyperSpec/tree/r-hyperspec/Vignettes/fileio>.
 This online directory contains the required datasets (via `git-lfs`).
 ```
 
