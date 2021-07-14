@@ -1,0 +1,12 @@
+pandoc: 2.7.3
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles:
+  baseline: baseline.html
+  fileio: fileio.html
+  flu: flu.html
+  hyperSpec: hyperSpec.html
+  laser: laser.html
+  plotting: plotting.html
+last_built: 2021-07-14T15:52Z
+
