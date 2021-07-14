@@ -64,7 +64,7 @@ You can install the development version of the package from [GitHub](https://git
 
 ```r 
 if (!require(remotes)) {install.packages("remotes")}
-remotes::install_github("r-hyperspec/hyperSpec/hyperSpec")
+remotes::install_github("r-hyperspec/hyperSpec")
 ```
 
 **NOTE 1:**
