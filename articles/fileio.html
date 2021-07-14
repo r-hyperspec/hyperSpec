@@ -161,7 +161,7 @@ From now on, all import functions have names starting with <code>read.*()</code>
 Package <strong>hyperSpec</strong> supports several file formats relevant for different types of spectroscopy. This file format is naturally only a subset of the file formats produced by different spectroscopic equipment.
 </p>
 <p>
-If you use package <strong>hyperSpec</strong> with data formats not mentioned in this document, please open a <a href="https://github.com/cbeleites/hyperSpec/issues" target="_blank">new issue</a> in <strong>hyperSpec</strong>’s GitHub repository so that this document can be updated. The information should include:
+If you use package <strong>hyperSpec</strong> with data formats not mentioned in this document, please open a <a href="https://github.com/r-hyperspec/hyperSpec/issues" target="_blank">new issue</a> in <strong>hyperSpec</strong>’s GitHub repository so that this document can be updated. The information should include:
 </p>
 <ul>
 <li>
@@ -189,12 +189,13 @@ If you need help finding out how to import your data, please search and eventual
 </div>
 <!-- ======================================================================= -->
 <!-- ======================================================================= -->
+<!-- FIXME: fix the link in the block blow, when time comes -->
 <div class="note">
 <p>
 <strong>Reproducing the Examples in this Manual</strong>
 </p>
 <p>
-To run the code examples, create a folder named “fileio” in your working directory and copy the contents of the directory <a href="https://github.com/cbeleites/hyperSpec/tree/develop/Vignettes/fileio" class="uri">https://github.com/cbeleites/hyperSpec/tree/develop/Vignettes/fileio</a>. This online directory contains the required datasets (via <code>git-lfs</code>).
+To run the code examples, create a folder named “fileio” in your working directory and copy the contents of the directory <a href="https://github.com/r-hyperspec/hyperSpec/tree/cbeleites/Vignettes/fileio" class="uri">https://github.com/r-hyperspec/hyperSpec/tree/cbeleites/Vignettes/fileio</a>. This online directory contains the required datasets (via <code>git-lfs</code>).
 </p>
 </div>
 <hr>
@@ -336,7 +337,7 @@ Note that this should be accounted for in the decreasing order of the original <
 <p>Note that in this particular case, the spectra are more efficiently read by <code class="sourceCode r"><span class="kw">read.spc.KaiserMap</span>()</code> (see section <a href="#sec:read-spc-KaiserMap">7.5.2</a><!--, p. \pageref{sec:read-spc-KaiserMap}-->).</p>
 <p>If one regularly imports huge maps or images, writing a customized import function is highly encouraged.
 Users may gain speed and memory by using the internal workhorse functions for the file import.
-In that case, please contact the package maintainer (<a href="https://github.com/cbeleites/hyperSpec/issues" target="_blank"><strong>hyperSpec</strong>’s GitHub repository</a>) for advise (contributions to package <strong>hyperSpec</strong> are welcome and all authors are listed appropriately in the function help page’s author section).</p>
+In that case, please contact the package maintainer (<a href="https://github.com/r-hyperspec/hyperSpec/issues" target="_blank"><strong>hyperSpec</strong>’s GitHub repository</a>) for advise (contributions to package <strong>hyperSpec</strong> are welcome and all authors are listed appropriately in the function help page’s author section).</p>
 </div>
 <div id="sec:ascii" class="section level1">
 <h1 class="hasAnchor">
@@ -578,14 +579,14 @@ The help page gives details on what elements the list should contain, see also t
 <strong>Official File Format Documentation</strong>
 </p>
 <p>
-The specification used to be available at Thermo Scientific. Anyone knowing where it moved please contact me (<a href="https://github.com/cbeleites/hyperSpec/issues" target="_blank"><strong>hyperSpec</strong>’s GitHub repository</a>) — I’m looking for a reasonably official website (i.e. at Thermo) rather than some random site with a copy.
+The specification used to be available at Thermo Scientific. Anyone knowing where it moved please contact me (<a href="https://github.com/r-hyperspec/hyperSpec/issues" target="_blank"><strong>hyperSpec</strong>’s GitHub repository</a>) — I’m looking for a reasonably official website (i.e. at Thermo) rather than some random site with a copy.
 </p>
 </div>
 <!-- ======================================================================= -->
 <!-- ======================================================================= -->
 <p>A variety of sub-formats exists. package <strong>hyperSpec</strong>’s import function <code class="sourceCode r"><span class="kw">read.spc</span>()</code> does <em>not</em> support the old file format that was used before 1996.
 In addition, no test data with <em>w planes</em> was available — thus, the import of such files could not be tested.
-If you come across such files, please contact the package maintainer (<a href="https://github.com/cbeleites/hyperSpec/issues" target="_blank"><strong>hyperSpec</strong>’s GitHub repository</a>).</p>
+If you come across such files, please contact the package maintainer (<a href="https://github.com/r-hyperspec/hyperSpec/issues" target="_blank"><strong>hyperSpec</strong>’s GitHub repository</a>).</p>
 <p>The header and subheader blocks of spc files store additional information of pre-defined types (see the file format specification<span class="citation">[<a href="#ref-Galactic1997" role="doc-biblioref">1</a>]</span>).
 Further information can be stored in the so-called log block at the end of the file and should be in a key-value format (although even the official example files do not always).
 This information is often useful (Kaiser’s Hologram software, e.g., stores the stage position in the log block).</p>
@@ -3978,7 +3979,7 @@ matrix
 <span class="co">#&gt;  sass             0.4.0      2021-05-12 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  scales           1.1.1      2020-05-11 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  sessioninfo      1.1.1      2018-11-05 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  stringi          1.6.2      2021-05-17 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  stringi          1.7.2      2021-07-14 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  stringr          1.4.0      2019-02-10 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  styler           1.5.1      2021-07-13 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  svglite          2.0.0      2021-02-20 [1] CRAN (R 4.1.0)</span>
