@@ -1,0 +1,275 @@
+
+# -------------------------------------------------------------------------
+
+template:
+  params:
+    bootswatch: cerulean
+    noindex: true
+
+# -------------------------------------------------------------------------
+
+development:
+  mode: auto
+
+# -------------------------------------------------------------------------
+
+navbar:
+  structure:
+    left:  [version, home, intro, articles, tutorials, reference, news]
+    right: [github]
+  components:
+    version:
+      icon: fa-book
+      menu:
+      - text: "Documentation for version of package:"
+      - text: Released
+        href: https://cbeleites.github.io/hyperSpec/
+      - text: In-development
+        href: https://cbeleites.github.io/hyperSpec/dev/
+#    intro:
+#      text: Get started
+#      href: articles/hyperSpec.html
+#    articles:
+#      text: Articles
+#      menu:
+#      - text: Introduction to Package "hyperSpec"
+#        href: articles/hyperSpec.html
+#      - text: Import and Export of Spectra Files
+#        href: articles/fileio.html
+#      - text: Plotting Functions in "hyperSpec"
+#        href: articles/plotting.html
+#      - text: Fitting Baselines to Spectra
+#        href: articles/baseline.html
+#      - text: ----------------------------------
+#      - text: More...
+#        href: articles/index.html
+
+# -------------------------------------------------------------------------
+
+articles:
+  - title: "Principles"
+    navbar: ~
+    desc: >
+      The main functionality of "hyperSpec".
+    contents:
+    - hyperSpec
+    - fileio
+    - plotting
+    - baseline
+  - title: "Case studies"
+    desc: >
+      The example workflows.
+    contents:
+    - flu
+    - laser
+
+# -------------------------------------------------------------------------
+
+authors:
+  Vilmantas Gegzna:
+    href: https://orcid.org/0000-0002-9500-5167
+
+# -------------------------------------------------------------------------
+
+reference:
+- title: '1. Package and class "hyperSpec"' # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- contents:
+  - has_keyword("package")
+  - has_keyword("classes")
+  - has_concept("hyperSpec-main")
+
+
+- title: '2. Utility functions' # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- contents:
+  - has_concept("utils")
+
+
+- title: '3. Datasets' # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  desc: "Datasets to try functionality of **hyperSpec** functions."
+- contents:
+  - has_concept("datasets")
+
+
+- title: '4. Create and convert `hyperSpec` objects' # ~~~~~~~~~~~~~~~~~~~~
+
+- subtitle: Create or convert from/into `hyperSpec`
+- contents:
+  - "initialize"
+  - has_concept("hyperSpec conversion")
+
+
+- title: '5. Import and export `hyperSpec` objects' # ~~~~~~~~~~~~~~~~~~~~~
+
+- subtitle: Read/Write from/to files
+- contents:
+  - has_concept("io")
+  - has_concept("IO")
+
+- subtitle: '! Moved to package hySpc.read.ENVI'
+  desc: |
+    You should use analogous functions from package
+    [**hySpc.read.ENVI**](https://r-hyperspec.github.io/hySpc.read.ENVI/reference/index.html)
+    as these functions will be removed soon.
+- contents:
+  - has_concept("moved to hySpc.read.ENVI", internal = TRUE)
+
+- subtitle: '! Moved to package hySpc.read.jdx'
+  desc: |
+    You should use analogous functions from package
+    [**hySpc.read.jdx**](https://r-hyperspec.github.io/hySpc.read.jdx/reference/index.html)
+    as these functions will be removed soon.
+- contents:
+  - has_concept("moved to hySpc.read.jdx", internal = TRUE)
+
+- subtitle: '! Moved to package hySpc.read.mat'
+  desc: |
+    You should use analogous functions from package
+    [**hySpc.read.mat**](https://r-hyperspec.github.io/hySpc.read.mat/reference/index.html)
+    as these functions will be removed soon.
+- contents:
+  - has_concept("moved to hySpc.read.mat", internal = TRUE)
+
+- subtitle: '! Moved to package hySpc.read.spc'
+  desc: |
+    You should use analogous functions from package
+    [**hySpc.read.spc**](https://r-hyperspec.github.io/hySpc.read.spc/reference/index.html)
+    as these functions will be removed soon.
+- contents:
+  - has_concept("moved to hySpc.read.spc", internal = TRUE)
+
+- subtitle: '! Moved to package hySpc.read.spe'
+  desc: |
+    You should use analogous functions from package
+    [**hySpc.read.spe**](https://r-hyperspec.github.io/hySpc.read.spe/reference/index.html)
+    as these functions will be removed soon.
+- contents:
+  - has_concept("moved to hySpc.read.spe", internal = TRUE)
+
+- subtitle: '! Moved to package hySpc.read.txt'
+  desc: |
+    You should use analogous functions from package
+    [**hySpc.read.txt**](https://r-hyperspec.github.io/hySpc.read.txt/reference/index.html)
+    as these functions will be removed soon.
+- contents:
+  - has_concept("moved to hySpc.read.txt", internal = TRUE)
+
+
+- title: '6. Plotting' # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- subtitle: Plots
+- contents:
+  - "plot-methods"
+  - has_concept("plot generation")
+
+- subtitle: Color palettes
+- contents:
+  - has_concept("color palette")
+
+- subtitle: Plotting tools
+- contents:
+  - has_concept("plotting tools")
+
+- subtitle: '! Moved to package hySpc.ggplot2'
+  desc: |
+    You should use analogous functions from package
+    [**hySpc.ggplot2**](https://r-hyperspec.github.io/hySpc.ggplot2/reference/index.html)
+    as these functions will be removed soon.
+- contents:
+  - has_concept("moved to hySpc.ggplot2", internal = TRUE)
+
+
+- title: '7. Data manipulation' # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- subtitle: Summary and data preview
+- contents:
+  - has_concept("summary")
+
+- subtitle: Manipulation
+- contents:
+  - has_concept("manipulation")
+
+- subtitle: Baseline manipulation
+- contents:
+  - has_concept("baseline")
+
+- subtitle: Binning and smoothing
+- contents:
+  - has_concept("spectra smoothing")
+
+- subtitle: Data generation functions
+- contents:
+  - has_concept("data generation")
+
+- subtitle: 'Statistics, analysis, randomization'
+- contents:
+  - has_concept("stats")
+
+- subtitle: Wavelength manipulation
+- contents:
+  - has_concept("wavelengths")
+
+- subtitle: Label manipulation
+- contents:
+  - has_concept("labels")
+
+- title: '8. Other functions' # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  desc: "Functions not mentioned above."
+- contents:
+  - lacks_concepts(c(
+    "hyperSpec-main",
+    "utils",
+    "datasets",
+    "hyperSpec conversion", "io", "IO",
+    "plot generation", "color palette", "plotting tools",
+
+    "summary", "manipulation", "spectra smoothing", "baseline", "labels",
+    "wavelengths", "data generation", "stats",
+
+    "moved to hySpc.ggplot2",
+    "moved to hySpc.read.ENVI",
+    "moved to hySpc.read.jdx",
+    "moved to hySpc.read.mat",
+    "moved to hySpc.read.spc",
+    "moved to hySpc.read.spe",
+    "moved to hySpc.read.txt",
+
+    "deprecated"
+    ))
+
+
+- title: '9. Removed or deprecated functions' # ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- subtitle: Functions moved to other packages
+  desc: >
+    The following functions were moved to other
+    **[r-hyperspec](https://r-hyperspec.github.io/)** family packages.
+    In most cases, the functions were also renamed.
+    Please, use the analogues of these functions, which are in appropriate
+    packages.
+- contents:
+  - has_concept("moved to hySpc.ggplot2",   internal = TRUE)
+  - has_concept("moved to hySpc.read.ENVI", internal = TRUE)
+  - has_concept("moved to hySpc.read.jdx",  internal = TRUE)
+  - has_concept("moved to hySpc.read.mat",  internal = TRUE)
+  - has_concept("moved to hySpc.read.spc",  internal = TRUE)
+  - has_concept("moved to hySpc.read.spe",  internal = TRUE)
+  - has_concept("moved to hySpc.read.txt",  internal = TRUE)
+
+- subtitle: Deprecated, renamed, or defunct functions
+  desc: "You should **not** use these functions any more."
+- contents:
+  - has_concept("deprecated", internal = TRUE)
+
+# -------------------------------------------------------------------------
+
+figures:
+  dev: grDevices::png
+  dpi: 96
+  dev.args: []
+  fig.ext: png
+  fig.width: 4.854
+  fig.height: 3
+  fig.retina: 2
+  fig.asp: 1.618
+
+# -------------------------------------------------------------------------
