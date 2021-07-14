@@ -23,9 +23,9 @@ navbar:
       menu:
       - text: "Documentation for version of package:"
       - text: Released
-        href: https://cbeleites.github.io/hyperSpec/
+        href: https://r-hyperspec.github.io/hyperSpec/
       - text: In-development
-        href: https://cbeleites.github.io/hyperSpec/dev/
+        href: https://r-hyperspec.github.io/hyperSpec/dev/
 #    intro:
 #      text: Get started
 #      href: articles/hyperSpec.html
