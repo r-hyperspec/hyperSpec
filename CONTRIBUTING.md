@@ -5,18 +5,18 @@ The following is a set of guidelines for contributing to the `R` package `hyperS
 ## Code Licensing
 
 We are in the (slow) process of transitioning the license of the **hyperspec** project to [MIT] (see https://github.com/r-hyperspec/hySpc.skeleton/issues/8).
-By contributing, you understand and agree that your work becomes the part of the **hyperSpec** project and you grant permission to the **hyperSpec** project to  license your contribution under the [GNU GPL v3](https://github.com/cbeleites/hyperSpec/blob/master/LICENSE) or a compatible license and/or under the [MIT license](https://opensource.org/licenses/MIT) or a compatible license.
+By contributing, you understand and agree that your work becomes the part of the **hyperSpec** project and you grant permission to the **hyperSpec** project to  license your contribution under the [GNU GPL v3](https://github.com/r-hyperspec/hyperSpec/blob/master/LICENSE) or a compatible license and/or under the [MIT license](https://opensource.org/licenses/MIT) or a compatible license.
 
 ## Reporting Bugs and Submitting Suggestions
 
-* Ensure the bug was not already reported by searching on GitHub under [Issues](https://github.com/cbeleites/hyperSpec/issues).
+* Ensure the bug was not already reported by searching on GitHub under [Issues](https://github.com/r-hyperspec/hyperSpec/issues).
 * If you're unable to find an open issue addressing the problem, open a new one. Be sure to include a title and clear description, as much relevant information as possible, and a code sample or an executable test case demonstrating the expected behavior that is not occurring.
 * Refer to the [Bug Reporting in R article](https://www.r-project.org/bugs.html) for guidance.
 * The ideal minimal working example is a unit test.
 
 ## Color Use (Vignettes & Perhaps Examples)
 
-* There is a built-in colorblind friendly qualitative palette `palette_colorblind`; please use whenever possible. 
+* There is a built-in colorblind friendly qualitative palette `palette_colorblind`; please use whenever possible.
 * These next two palettes are also colorblind-friendly:
   - For a diverging palette, please use `colorspace::diverging_hcl(n, palette = "Blue-Red2")`.
   - For a sequential palette, please use `colorspace::sequential_hcl(n, palette = "viridis")`.
@@ -69,7 +69,7 @@ The branch `develop` contains latest delivered development changes for the next 
 
 You *should not* directly contribute to `develop`, unless the change is trivial (e.g. a typo). Instead, for any new feature or bugfix, please create a separate supporting branch. We use a default naming convention for them:
 
-* `feature/###-<feature_name>` for new features. Generally, for a new feature you should open an issue which *at least* describes the intended feature; it may go further and allow for discussion and refinement before much effort is expended.  `###` is the corresponding [issue number](https://github.com/cbeleites/hyperSpec/issues).
+* `feature/###-<feature_name>` for new features. Generally, for a new feature you should open an issue which *at least* describes the intended feature; it may go further and allow for discussion and refinement before much effort is expended.  `###` is the corresponding [issue number](https://github.com/r-hyperspec/hyperSpec/issues).
 * `bugfix/###-<bugfix_name>` for bugfixes
 * `release/x.y.z` for release preparation, where `x.y.z.` is the version to be released. See section "Release process" below for details.
 
