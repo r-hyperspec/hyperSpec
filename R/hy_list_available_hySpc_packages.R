@@ -1,3 +1,24 @@
+# Helper function ------------------------------------------------------------
+
+#' Search if machine has IP
+#'
+#' This function searches for IP address in IP config.
+#' If there is IP, it is assumed that the machine has Internet connection.
+#' Otherwise it is assumed that machine is offline.
+#'
+#' @return `TRUE` if IP is found or `FALSE` otherwise.
+#'
+#' @noRd
+.is_ip_found <- function() {
+  ip_config_cmd <- switch(.Platform$OS.type,
+    "windows" = "ipconfig",
+    "ifconfig"
+  )
+  any(grep("(\\d{1,3}[.]){3}(\\d{1,3})$", system(ip_config_cmd, intern = TRUE)))
+}
+
+
+# Function -------------------------------------------------------------------
 
 #' List available *R hyperSpec* family packages
 #'
@@ -12,9 +33,12 @@
 #' If your machine is connected to the Internet and you receive issues due to
 #' overused limit of anonymous connections to GitHub, you may run alternative
 #' code that employs GitHub PAT (personal access token) for authentication.
-#' On how to set your GitHub PAT, see sections "Create a PAT" and
-#' "Add your PAT to `.Renviron`" in this book:
-#' [happygitwithr.com/github-pat.html](https://happygitwithr.com/github-pat.html#step-by-step).
+#' You have to have GitHub account (you can register here: https://github.com/).
+#' Then, on how to set your GitHub PAT, see sections "10.1.2 How to get a PAT?",
+#' "10.2.1 Call an R function to store your credentials", and (if you need more
+#' information) others on this chapter
+#' https://happygitwithr.com/credential-caching.htm and set PAT.
+#' Then use this code:
 #'
 #' ```r
 #' # install.pacakges("gh")
@@ -24,7 +48,7 @@
 #' package_names
 #' ```
 #'
-#' @return Character vector with the names of the pacakges.
+#' @return Character vector with the names of the packages.
 #' @export
 #'
 #' @concept utils
@@ -35,23 +59,45 @@
 #' \dontrun{\donttest{
 #' hy_list_available_hySpc_packages()
 #' }}
-
-
 hy_list_available_hySpc_packages <- function() {
+  if (.is_ip_found()) {
+    tryCatch(
+      {
+        # Gets data via GitHub API
+        gh_api_response <- readLines(
+          "https://api.github.com/orgs/r-hyperspec/repos?per_page=100",
+          warn = FALSE
+        )
+      },
+      error = function(e) {
+        # If connection fails due to other reasons
+        stop(
+          "Website https://api.github.com/ cannot be reached at the moment. \n",
+          "You may have reached the daily limit of annonymous connections to",
+          " GitHub. \n",
+          "The original error message: \n",
+          e,
+          call. = FALSE
+        )
+        message(e)
+      }
+    )
 
-  # TODO: Check if there is an access to the Internet. In case of no access,
-  #       a more user-friendly error message should be given.
-
-  gh_api_response <- readLines(
-    "https://api.github.com/orgs/r-hyperspec/repos?per_page=100",
-    warn = FALSE
-  )
-  one_line_per_repo <- strsplit(gh_api_response, "}}")[[1]]
-  pattern <- '(?<="name":")(hyperSpec|hySpc[.].*?)(?=",)'
-  matches <- regexpr(pattern = pattern, text = one_line_per_repo, perl = TRUE)
-  package_names <- regmatches(one_line_per_repo, m = matches)
-  package_names
+    # Parse downloaded data:
+    one_line_per_repo <- strsplit(gh_api_response, "}}")[[1]]
+    pattern <- '(?<="name":")(hyperSpec|hySpc[.].*?)(?=",)'
+    matches <- regexpr(pattern = pattern, text = one_line_per_repo, perl = TRUE)
+    package_names <- regmatches(one_line_per_repo, m = matches)
+    package_names
+  } else {
+    # If connection fails due to being offline (i.e., without IP):
+    stop(
+      "Website https://api.github.com/ cannot be reached at the moment. \n",
+      "Please, check your Internet connection."
+    )
+  }
 }
+
 
 # Unit tests -----------------------------------------------------------------
 
@@ -62,7 +108,7 @@ hySpc.testthat::test(hy_list_available_hySpc_packages) <- function() {
     testthat::skip_if_offline()
 
     # FIXME: The lines below should be fixed in the future
-    # Skip on GihHub Actions (as it usually fails to connet to GH on macOS):
+    # Skip on GihHub Actions (as it usually fails to connect to GH on macOS):
     testthat::skip_on_ci()
 
     expect_silent(pkgs <- hy_list_available_hySpc_packages())
