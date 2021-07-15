@@ -75,7 +75,7 @@ knitr::write_bib(
     "rgl"
   ),
   file = "resources/laser-pkg.bib",
-  prefix = "R_"
+  prefix = "R-"
 )
 ```
 

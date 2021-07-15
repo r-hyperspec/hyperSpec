@@ -85,7 +85,7 @@ knitr::write_bib(
     "tripack"
   ),
   file = "resources/plotting-pkg.bib",
-  prefix = "R_"
+  prefix = "R-"
 )
 ```
 
