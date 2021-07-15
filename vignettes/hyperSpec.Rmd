@@ -79,7 +79,7 @@ knitr::write_bib(
     "pls"
   ),
   file = "resources/intro-pkg.bib",
-  prefix = "R_"
+  prefix = "R-"
 )
 ```
 

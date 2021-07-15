@@ -102,7 +102,7 @@ knitr::write_bib(
     "R.matlab"
   ),
   file = "resources/fileio-pkg.bib",
-  prefix = "R_"
+  prefix = "R-"
 )
 ```
 

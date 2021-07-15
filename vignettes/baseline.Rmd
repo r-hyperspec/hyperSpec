@@ -73,7 +73,7 @@ knitr::write_bib(
     "baseline"
   ),
   file = "resources/baseline-pkg.bib",
-  prefix = "R_"
+  prefix = "R-"
 )
 ```
 
