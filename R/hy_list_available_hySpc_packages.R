@@ -94,7 +94,7 @@ hy_list_available_hySpc_packages <- function() {
     pattern <- '(?<="name":")(hyperSpec|hySpc[.].*?)(?=",)'
     matches <- regexpr(pattern = pattern, text = one_line_per_repo, perl = TRUE)
     package_names <- regmatches(one_line_per_repo, m = matches)
-    package_names
+    sort(package_names)
   } else {
     # If connection fails due to being offline (i.e., without IP):
     stop(
