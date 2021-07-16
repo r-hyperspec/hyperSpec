@@ -41,7 +41,7 @@
 #' Then use this code:
 #'
 #' ```r
-#' # install.pacakges("gh")
+#' # install.packages("gh")
 #' gh_api_response <- gh::gh("GET /users/r-hyperspec/repos?per_page=100")
 #' repo_names <- vapply(gh_api_response, "[[", "", "name")
 #' package_names <- grep("^hyperSpec|^hySpc[.]", repo_names, value = TRUE)
@@ -64,6 +64,8 @@ hy_list_available_hySpc_packages <- function() {
     tryCatch(
       {
         # Gets data via GitHub API
+        # On some machines the answer is a single-line text, on others -
+        # "beautified" JSON code that spans several rows.
         gh_api_response <- readLines(
           "https://api.github.com/orgs/r-hyperspec/repos?per_page=100",
           warn = FALSE
@@ -83,8 +85,11 @@ hy_list_available_hySpc_packages <- function() {
       }
     )
 
+    # convert JSON into a single string with unnecessary whitespace removed:
+    response_as_single_line <- paste(trimws(gh_api_response), collapse = "")
+
     # Parse downloaded data:
-    one_line_per_repo <- strsplit(gh_api_response, "}}")[[1]]
+    one_line_per_repo <- strsplit(response_as_single_line, "}}")[[1]]
     pattern <- '(?<="name":")(hyperSpec|hySpc[.].*?)(?=",)'
     matches <- regexpr(pattern = pattern, text = one_line_per_repo, perl = TRUE)
     package_names <- regmatches(one_line_per_repo, m = matches)
