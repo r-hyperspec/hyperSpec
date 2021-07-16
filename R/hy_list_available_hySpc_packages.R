@@ -85,8 +85,9 @@ hy_list_available_hySpc_packages <- function() {
       }
     )
 
-    # convert JSON into a single string with unnecessary whitespace removed:
-    response_as_single_line <- paste(trimws(gh_api_response), collapse = "")
+    # Convert JSON into a single string with unnecessary whitespace removed:
+    response_mod <- trimws(gsub('name":\\s*"', 'name":"', gh_api_response))
+    response_as_single_line <- paste(response_mod, collapse = "")
 
     # Parse downloaded data:
     one_line_per_repo <- strsplit(response_as_single_line, "}}")[[1]]
