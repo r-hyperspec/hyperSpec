@@ -135,7 +135,7 @@
 <a href="#documentation" class="anchor"></a>Documentation</h2>
 <p>There are two versions of <strong>hyperSpec</strong> online documentation:</p>
 <p>a. for the <a href="https://r-hyperspec.github.io/hyperSpec/">released version</a> and</p>
-<p>b. for the <a href="https://r-hyperspec.github.io/hyperSpec/dev/">development version</a> of <strong>hyperSpec</strong>.</p>
+<p>b. for the <a href="https://r-hyperspec.github.io/hyperSpec/dev/">in-development version</a> of <strong>hyperSpec</strong>.</p>
 <p>The documentation of the other <strong><code>r-hyperspec</code></strong> family packages can be found at <a href="https://r-hyperspec.github.io/">r-hyperspec.github.io</a>.</p>
 <!-- ---------------------------------------------------------------------- -->
 </div>
@@ -144,9 +144,9 @@
 <a href="#issues-bug-reports-and-feature-requests" class="anchor"></a>Issues, Bug Reports and Feature Requests</h2>
 <p>Issues, bug reports and feature requests should go <a href="https://github.com/r-hyperspec/hyperSpec/issues">here</a>! <!-- ---------------------------------------------------------------------- --></p>
 </div>
-<div id="installation" class="section level2">
+<div id="installation-of-released-version" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<a href="#installation-of-released-version" class="anchor"></a>Installation of Released Version</h2>
 <div id="install-from-cran" class="section level3">
 <h3 class="hasAnchor">
 <a href="#install-from-cran" class="anchor"></a>Install from CRAN</h3>
@@ -154,11 +154,23 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"hyperSpec"</span><span class="op">)</span></code></pre></div>
 </div>
+</div>
+<div id="installation-of-in-development-version" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installation-of-in-development-version" class="anchor"></a>Installation of In-Development Version</h2>
+<div id="install-from-cran-like-repository" class="section level3">
+<h3 class="hasAnchor">
+<a href="#install-from-cran-like-repository" class="anchor"></a>Install from CRAN-like Repository</h3>
+<p>The recommended way to install the in-development version:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">repos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"https://r-hyperspec.github.io/pkg-repo/"</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"hyperSpec"</span>, repos <span class="op">=</span> <span class="va">repos</span><span class="op">)</span></code></pre></div>
+</div>
 <div id="install-from-github" class="section level3">
 <h3 class="hasAnchor">
 <a href="#install-from-github" class="anchor"></a>Install from GitHub</h3>
 <p>You can install the development version of the package from <a href="https://github.com/r-hyperspec/hyperSpec">GitHub</a>:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org">remotes</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span><span class="op">}</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"r-hyperspec/hyperSpec"</span><span class="op">)</span></code></pre></div>
 <p><strong>NOTE 1:</strong> Usually, “Windows” users need to download, install and properly configure <strong>Rtools</strong> (see <a href="https://cran.r-project.org/bin/windows/Rtools/">these instructions</a>) to make the code above work.</p>
@@ -187,7 +199,7 @@ b. Install <strong>hyperSpec</strong>’s dependencies.
 c. Create <strong>hyperSpec</strong>’s documentation.
 d. Install package <strong>hyperSpec</strong>.</li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Do not abort installation even if some packages are not available</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html">Sys.setenv</a></span><span class="op">(</span>R_REMOTES_NO_ERRORS_FROM_WARNINGS <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
