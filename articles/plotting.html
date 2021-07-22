@@ -127,7 +127,7 @@
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 class="date">2021-07-15</h4>
+            <h4 class="date">2021-07-22</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/master/vignettes/plotting.Rmd"><code>vignettes/plotting.Rmd</code></a></small>
       <div class="hidden name"><code>plotting.Rmd</code></div>
@@ -1318,16 +1318,16 @@ As package <strong>rgl</strong>’s axis annotations are sometimes awkward, they
 <span class="va">laser</span> <span class="op">&lt;-</span> <span class="va">laser</span><span class="op">[</span>, , <span class="fl">404.8</span> <span class="op">~</span> <span class="fl">405.6</span><span class="op">]</span> <span class="op">/</span> <span class="fl">10000</span>
 <span class="va">laser</span><span class="op">$</span><span class="va">t</span> <span class="op">&lt;-</span> <span class="va">laser</span><span class="op">$</span><span class="va">t</span> <span class="op">/</span> <span class="fl">3600</span>
 <span class="va">cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="../reference/palette_matlab.html">palette_matlab</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">laser</span><span class="op">)</span><span class="op">)</span>, <span class="fu"><a href="../reference/ncol,hyperSpec-method.html">nwl</a></span><span class="op">(</span><span class="va">laser</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://dmurdoch.github.io/rgl/dev/reference/surface3d.html">surface3d</a></span><span class="op">(</span>
+<span class="fu"><a href="https://dmurdoch.github.io/rgl/reference/surface3d.html">surface3d</a></span><span class="op">(</span>
   y <span class="op">=</span> <span class="fu"><a href="../reference/wl.html">wl</a></span><span class="op">(</span><span class="va">laser</span><span class="op">)</span>, x <span class="op">=</span> <span class="va">laser</span><span class="op">$</span><span class="va">t</span>,
   z <span class="op">=</span> <span class="va">laser</span><span class="op">$</span><span class="va">spc</span>, col <span class="op">=</span> <span class="va">cols</span>
 <span class="op">)</span>
-<span class="fu"><a href="https://dmurdoch.github.io/rgl/dev/reference/aspect3d.html">aspect3d</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0.25</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://dmurdoch.github.io/rgl/dev/reference/axes3d.html">axes3d</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"x+-"</span>, <span class="st">"y--"</span>, <span class="st">"z--"</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://dmurdoch.github.io/rgl/dev/reference/axes3d.html">axes3d</a></span><span class="op">(</span><span class="st">"y--"</span>, nticks <span class="op">=</span> <span class="fl">25</span>, labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="fu"><a href="https://dmurdoch.github.io/rgl/dev/reference/axes3d.html">mtext3d</a></span><span class="op">(</span><span class="st">"t / h"</span>, <span class="st">"x+-"</span>, line <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span>
-<span class="fu"><a href="https://dmurdoch.github.io/rgl/dev/reference/axes3d.html">mtext3d</a></span><span class="op">(</span><span class="st">"lambda / nm"</span>, <span class="st">"y--"</span>, line <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span>
-<span class="fu"><a href="https://dmurdoch.github.io/rgl/dev/reference/axes3d.html">mtext3d</a></span><span class="op">(</span><span class="st">"I / a.u."</span>, edge <span class="op">=</span> <span class="st">"z--"</span>, line <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://dmurdoch.github.io/rgl/reference/aspect3d.html">aspect3d</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0.25</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://dmurdoch.github.io/rgl/reference/axes3d.html">axes3d</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"x+-"</span>, <span class="st">"y--"</span>, <span class="st">"z--"</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://dmurdoch.github.io/rgl/reference/axes3d.html">axes3d</a></span><span class="op">(</span><span class="st">"y--"</span>, nticks <span class="op">=</span> <span class="fl">25</span>, labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="fu"><a href="https://dmurdoch.github.io/rgl/reference/axes3d.html">mtext3d</a></span><span class="op">(</span><span class="st">"t / h"</span>, <span class="st">"x+-"</span>, line <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span>
+<span class="fu"><a href="https://dmurdoch.github.io/rgl/reference/axes3d.html">mtext3d</a></span><span class="op">(</span><span class="st">"lambda / nm"</span>, <span class="st">"y--"</span>, line <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span>
+<span class="fu"><a href="https://dmurdoch.github.io/rgl/reference/axes3d.html">mtext3d</a></span><span class="op">(</span><span class="st">"I / a.u."</span>, edge <span class="op">=</span> <span class="st">"z--"</span>, line <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span id="fig:rgl-plot-png"></span>
 <img src="plotting--fig-3D-01.png" alt="A snapshot of an **rgl** plot.  " width="100%"><p class="caption">
@@ -1409,13 +1409,13 @@ The same holds for package <strong>ggplot2</strong> graphics.</p>
 <span class="co">#&gt;  collate  en_US.UTF-8                 </span>
 <span class="co">#&gt;  ctype    en_US.UTF-8                 </span>
 <span class="co">#&gt;  tz       UTC                         </span>
-<span class="co">#&gt;  date     2021-07-15                  </span>
+<span class="co">#&gt;  date     2021-07-22                  </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span>
 <span class="co">#&gt;  package        * version      date       lib source        </span>
 <span class="co">#&gt;  brio             1.1.2        2021-04-23 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  callr            3.7.0        2021-04-20 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  cli              3.0.0        2021-06-30 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  cli              3.0.1        2021-07-17 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  colorspace       2.0-2        2021-06-24 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  crayon           1.4.1        2021-02-08 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  desc             1.3.0        2021-03-05 [1] CRAN (R 4.1.0)</span>
@@ -1430,7 +1430,7 @@ The same holds for package <strong>ggplot2</strong> graphics.</p>
 <span class="co">#&gt;  ggplot2        * 3.3.5        2021-06-25 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  glue             1.4.2        2020-08-27 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  gtable           0.3.0        2019-03-25 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  hyperSpec      * 0.100.0.9000 2021-07-15 [1] local         </span>
+<span class="co">#&gt;  hyperSpec      * 0.100.0.9000 2021-07-22 [1] local         </span>
 <span class="co">#&gt;  hySpc.testthat   0.2.1.9000   2021-07-14 [1] local         </span>
 <span class="co">#&gt;  isoband          0.2.5        2021-07-13 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  jpeg             0.1-8.1      2019-10-24 [1] CRAN (R 4.1.0)</span>
