@@ -37,7 +37,7 @@ More generally, any data that is recorded over a discretized variable, e.g. `abs
 There are two versions of **hyperSpec** online documentation:
 
 a. for the [released version](https://r-hyperspec.github.io/hyperSpec/) and
-b. for the [development version](https://r-hyperspec.github.io/hyperSpec/dev/) of **hyperSpec**.
+b. for the [in-development version](https://r-hyperspec.github.io/hyperSpec/dev/) of **hyperSpec**.
 
 The documentation of the other **`r-hyperspec`** family packages can be found at [r-hyperspec.github.io](https://r-hyperspec.github.io/).
 
@@ -48,7 +48,7 @@ The documentation of the other **`r-hyperspec`** family packages can be found at
 Issues, bug reports and feature requests should go [here](https://github.com/r-hyperspec/hyperSpec/issues)!
 <!-- ---------------------------------------------------------------------- -->
 
-## Installation
+## Installation of Released Version
 
 ### Install from CRAN
 
@@ -56,6 +56,18 @@ You can install the released version of **hyperSpec** from [CRAN](https://cran.r
 
 ```r
 install.packages("hyperSpec")
+```
+
+
+## Installation of In-Development Version
+
+### Install from CRAN-like Repository
+
+The recommended way to install the in-development version:
+
+```r
+repos <- c("https://r-hyperspec.github.io/pkg-repo/", getOption("repos"))
+install.packages("hyperSpec", repos = repos)
 ```
 
 
