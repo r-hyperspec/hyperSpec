@@ -7,12 +7,14 @@ The following is a set of guidelines for contributing to the `R` package `hyperS
 We are in the (slow) process of transitioning the license of the **hyperspec** project to [MIT] (see https://github.com/r-hyperspec/hySpc.skeleton/issues/8).
 By contributing, you understand and agree that your work becomes the part of the **hyperSpec** project and you grant permission to the **hyperSpec** project to  license your contribution under the [GNU GPL v3](https://github.com/r-hyperspec/hyperSpec/blob/master/LICENSE) or a compatible license and/or under the [MIT license](https://opensource.org/licenses/MIT) or a compatible license.
 
+
 ## Reporting Bugs and Submitting Suggestions
 
 * Ensure the bug was not already reported by searching on GitHub under [Issues](https://github.com/r-hyperspec/hyperSpec/issues).
 * If you're unable to find an open issue addressing the problem, open a new one. Be sure to include a title and clear description, as much relevant information as possible, and a code sample or an executable test case demonstrating the expected behavior that is not occurring.
 * Refer to the [Bug Reporting in R article](https://www.r-project.org/bugs.html) for guidance.
-* The ideal minimal working example is a unit test.
+* Include minimal working example of data and code that reproduces the problem.
+
 
 ## Color Use (Vignettes & Perhaps Examples)
 
@@ -31,11 +33,22 @@ By contributing, you understand and agree that your work becomes the part of the
     Large parts have been converted automatically from LaTeX, and may still need some manual polishing.
 
 * Use package [styler](http://styler.r-lib.org/) with RStudio add-in to easily re-style your code to comply with the guidelines.
+* When appropriate, prefer this naming scheme for the internal functions – `.<generic>_<x><y><...>` with `<x>`, `<y>`, etc. the first, second and later parameter/operand:
+    - _ ... missing
+    - a ... array
+    - d ... data frame
+    - f ... formula
+    - h ... hyperSpec object
+    - m ... matrix
+    - n ... numeric (scalar, vector, or matrix)
+
+* Each new function should be accompanied with appropriate unit tests.
 * If a unit test needs to be disabled temporarily, please use `skip("reason for switching off")`.
   This way, we'll be reminded that the test is switched off whenever the unit tests are run.
 
 
 ## Vignette Style and Standards
+
 * No multi-line sentences (enter/return after each sentence, extra return starts a new paragraph).  This facilitates comparison via version control.
 * Package names in text are written in **bold**.
 * Package names in section headings are in **_bold italic_**.
