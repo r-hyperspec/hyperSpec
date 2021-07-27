@@ -84,3 +84,21 @@ read.cytomat <- function(...) {
     msg = "read.mat.Cytospec is now defunct.\nPlease use read.mat.Cytospec instead."
   )
 }
+
+
+# Unit tests -----------------------------------------------------------------
+
+hySpc.testthat::test(scan.asc.Andor) <- function() {
+  context("Deprecated functions")
+
+
+  expect_error(expect_warning(scan.asc.Andor(),       "deprecated"))
+  expect_error(expect_warning(scan.txt.Renishaw(),    "deprecated"))
+  expect_error(expect_warning(scan.zip.Renishaw(),    "deprecated"))
+
+  expect_warning(scan.txt.Witec(),       "deprecated")
+  expect_warning(scan.dat.Witec(),       "deprecated")
+  expect_warning(scan.txt.Witec.Graph(), "deprecated")
+
+  expect_error(read.cytomat(), "defunct")
+}
