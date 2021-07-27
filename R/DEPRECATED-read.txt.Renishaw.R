@@ -169,52 +169,11 @@ read.txt.Renishaw <- function(file = stop("file is required"),
 hySpc.testthat::test(read.txt.Renishaw) <- function() {
   context("read.txt.Renishaw")
 
-  test_that("single spectrum", {
-    skip_if_not_fileio_available()
-    tmp <- read.txt.Renishaw("fileio/txt.Renishaw/paracetamol.txt", "spc")
-    expect_equal(dim(tmp), c(nrow = 1L, ncol = 2L, nwl = 4064L))
-  })
-
-  test_that("time series spectrum, gzipped", {
-    skip_if_not_fileio_available()
-    tmp <- read.txt.Renishaw("fileio/txt.Renishaw/laser.txt.gz", "ts")
-    expect_equal(dim(tmp), c(nrow = 84L, ncol = 3L, nwl = 140L))
-    expect_equal(colnames(tmp), c("t", "spc", "filename"))
-  })
-
-  test_that("map (= default)", {
-    skip_if_not_fileio_available()
-    tmp <- read.txt.Renishaw("fileio/txt.Renishaw/chondro.txt", "xyspc")
-    expect_equal(dim(tmp), c(nrow = 875L, ncol = 4L, nwl = 1272L))
-    expect_equal(colnames(tmp), c("y", "x", "spc", "filename"))
-
-    tmp <- read.txt.Renishaw("fileio/txt.Renishaw/chondro.txt")
-    expect_equal(dim(tmp), c(nrow = 875L, ncol = 4L, nwl = 1272L))
-    expect_equal(colnames(tmp), c("y", "x", "spc", "filename"))
-  })
-
-  test_that("chunked reading", {
-    skip_if_not_fileio_available()
-
-    ## error on too small chunk size
-    expect_error(
-      read.txt.Renishaw("fileio/txt.Renishaw/chondro.txt", nlines = 10),
-      "Wavelengths do not correspond"
-    )
-
-    tmp <- read.txt.Renishaw("fileio/txt.Renishaw/chondro.txt", nlines = 1e5)
-    expect_equal(dim(tmp), c(nrow = 875L, ncol = 4L, nwl = 1272L))
-  })
-
-  test_that("compressed files", {
-    skip_if_not_fileio_available()
-
-    files <- Sys.glob("fileio/txt.Renishaw/chondro.*")
-    files <- grep("[.]zip", files, invert = TRUE, value = TRUE) # .zip is tested with read.zip.Renishaw
-    for (f in files) {
-      expect_equal(dim(read.txt.Renishaw(!!f)), c(nrow = 875L, ncol = 4L, nwl = 1272L))
-    }
-  })
+  test_that("deprecated",
+            expect_warning(
+              expect_error(read.txt.Renishaw(file = ""), "cannot open"),
+              "deprecated")
+  )
 }
 
 #' @rdname DEPRECATED-read.txt.Renishaw
@@ -235,11 +194,9 @@ read.zip.Renishaw <- function(file = stop("filename is required"),
 hySpc.testthat::test(read.zip.Renishaw) <- function() {
   context("read.zip.Renishaw")
 
-  test_that("compressed files", {
-    skip_if_not_fileio_available()
-
-    expect_equal(
-      dim(read.zip.Renishaw("fileio/txt.Renishaw/chondro.zip")),
-      c(nrow = 875L, ncol = 4L, nwl = 1272L))
-  })
+  test_that("deprecated",
+            expect_warning(
+              expect_error(read.zip.Renishaw(file = ""), "cannot open"),
+              "deprecated")
+  )
 }

@@ -73,6 +73,18 @@ read.spc.Kaiser <- function(files, ..., glob = TRUE) {
   .spc_io_postprocess_optional(spc, file.keep.name = FALSE)
 }
 
+hySpc.testthat::test(read.spc.Kaiser) <- function() {
+  context("read.spc.Kaiser")
+
+  test_that("deprecated",
+            expect_warning(
+              read.spc.Kaiser(file = ""),
+              "deprecated|no files found")
+  )
+}
+
+
+
 #' `read.spc.KaiserMap` is a wrapper for `read.spc.Kaiser` with predefined `log2data`
 #' to fetch the stage position for each file.
 #' @rdname DEPRECATED-read.spc.Kaiser
@@ -101,6 +113,17 @@ read.spc.KaiserMap <- function(files, keys.log2data = NULL, ...) {
 
   spc
 }
+
+hySpc.testthat::test(read.spc.KaiserMap) <- function() {
+  context("read.spc.KaiserMap")
+
+  test_that("deprecated",
+            expect_warning(
+              read.spc.KaiserMap(file = ""),
+              "deprecated|[Nn]o files found")
+  )
+}
+
 
 #' `read.spc.KaiserLowHigh` is a wrapper for `read.spc.Kaiser` for raw data that is saved
 #' in separate files for low and high wavenumber range.  The wavelength axis holds the pixel
@@ -134,5 +157,15 @@ read.spc.KaiserLowHigh <- function(files = stop("file names needed"),
       read.spc.KaiserMap(files [1, ], ..., glob = FALSE),
       read.spc.KaiserMap(files [2, ], ..., glob = FALSE)
     )
+  )
+}
+
+hySpc.testthat::test(read.spc.KaiserLowHigh) <- function() {
+  context("read.spc.KaiserLowHigh")
+
+  test_that("deprecated",
+            expect_warning(
+              read.spc.KaiserLowHigh(file = ""),
+              "deprecated|no files found")
   )
 }

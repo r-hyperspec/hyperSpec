@@ -119,3 +119,13 @@ read.ENVI.Nicolet <- function(file = stop("read.ENVI: file name needed"),
 
   spc
 }
+
+hySpc.testthat::test(read.ENVI.Nicolet) <- function() {
+  context("read.ENVI.Nicolet")
+
+  test_that("deprecated",
+            expect_warning(
+              expect_error(read.ENVI.Nicolet(file = ""), "Cannot guess header"),
+              "deprecated")
+  )
+}

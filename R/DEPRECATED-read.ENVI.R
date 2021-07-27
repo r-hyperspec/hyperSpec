@@ -435,54 +435,9 @@ read.ENVI <- function(file = stop("read.ENVI: file name needed"), headerfile = N
 hySpc.testthat::test(read.ENVI) <- function() {
   context("read.ENVI")
 
-  test_that("full spectrum BIL", {
-    skip_if_not_fileio_available()
-    tmp <- read.ENVI("fileio/ENVI/toy.bil")
-    expect_equal(tmp$filename [1], "fileio/ENVI/toy.bil")
-    expect_equal(nrow(tmp), 21913)
-    expect_equal(ncol(tmp), 4)
-    expect_equal(nwl(tmp), 4)
-    expect_equal(range(tmp$x), c(0, 149))
-    expect_equal(range(tmp$y), c(0, 166))
-  })
-
-  test_that("block reading BIL", {
-    skip_if_not_fileio_available()
-    tmp <- read.ENVI("fileio/ENVI/toy.bil", block.lines.skip = 50, block.lines.size = 40)
-    expect_equal(nrow(tmp), 40 * 150)
-    expect_equal(ncol(tmp), 4)
-    expect_equal(nwl(tmp), 4)
-    expect_equal(range(tmp$x), c(0, 149))
-    expect_equal(range(tmp$y), c(50, 89))
-  })
-
-  test_that("block reading BIL: block longer than file", {
-    skip_if_not_fileio_available()
-    tmp <- read.ENVI("fileio/ENVI/toy.bil", block.lines.skip = 150, block.lines.size = 50)
-    expect_equal(tmp$filename [1], "fileio/ENVI/toy.bil")
-    expect_equal(nrow(tmp), 870) # ! not simple lines x samples multiplication as empty spectra are removed !
-    expect_equal(ncol(tmp), 4)
-    expect_equal(nwl(tmp), 4)
-    expect_equal(range(tmp$x), c(86, 149))
-    expect_equal(range(tmp$y), c(150, 166))
-  })
-
-  test_that("Guessing messages", {
-    skip_if_not_fileio_available()
-    expect_message(read.ENVI("fileio/ENVI/example2.img"), ".read.ENVI.bin: 'byte order' not given => Guessing 'little'")
-  })
-
-  test_that("empty spectra", {
-    skip_if_not_fileio_available()
-    old <- hy.getOption("file.remove.emptyspc")
-    on.exit(hy.setOptions(file.remove.emptyspc = old))
-
-    hy.setOptions(file.remove.emptyspc = TRUE)
-    expect_known_hash(read.ENVI("fileio/ENVI/example2.img"), "e987ac694ac1d6b81cd070f2f1680887")
-
-    hy.setOptions(file.remove.emptyspc = FALSE)
-    expect_known_hash(read.ENVI("fileio/ENVI/example2.img"), "9911a87b8c29c6d23af41a8de5a2508a")
-
-    hy.setOptions(file.remove.emptyspc = old)
-  })
+  test_that("deprecated",
+            expect_warning(
+              expect_error(read.ENVI(file = ""), "File not found"),
+              "deprecated")
+  )
 }
