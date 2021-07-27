@@ -58,3 +58,13 @@ read.asc.PerkinElmer <- function(file = stop("filename or connection needed"), .
   ## consistent file import behaviour across import functions
   .spc_io_postprocess_optional(spc, file)
 }
+
+hySpc.testthat::test(read.asc.PerkinElmer) <- function() {
+  context("read.asc.PerkinElmer")
+
+  test_that("deprecated",
+            expect_warning(
+              expect_error(read.asc.PerkinElmer(file = "")),
+              "deprecated")
+  )
+}

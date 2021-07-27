@@ -61,7 +61,10 @@ hySpc.testthat::test(wc) <- function() {
   writeLines("blabla\nblubb", con = tmpfile)
 
   test_that("wc defaults", {
-    skip_if_not_fileio_available() # see issue #97
+    ## MacOS wc doesn't seem to have the long arguments
+    ## since this function is anyways deprecated, it is not worth the hassle
+    ## to adapt.
+    skip_on_os("mac")
 
     suppressWarnings(res <- wc(tmpfile))
 
@@ -89,7 +92,11 @@ hySpc.testthat::test(wc) <- function() {
 
 
   test_that("wc --lines", {
-    skip_if_not_fileio_available() # see issue #97
+    ## MacOS wc doesn't seem to have the long arguments
+    ## since this function is anyways deprecated, it is not worth the hassle
+    ## to adapt.
+    skip_on_os("mac")
+
 
     suppressWarnings(res <- wc(tmpfile, flags = "lines"))
     if (is.null(res)) {

@@ -33,10 +33,10 @@ read.ENVI.HySpex <- function(file = stop("read.ENVI.HySpex: file name needed"),
 hySpc.testthat::test(read.ENVI.HySpex) <- function() {
   context("read.ENVI.HySpex")
 
-  test_that("Hyspex ENVI file", {
-    skip_if_not_fileio_available()
-    expect_known_hash(
-      read.ENVI.HySpex("fileio/ENVI/HySpexNIR.hyspex"),
-      "cf35ba92334f22513486f25c5d8ebe32")
-  })
+  test_that("deprecated",
+            expect_warning(
+              expect_error(read.ENVI.HySpex(file = ""), "Cannot guess header"),
+              "deprecated")
+  )
+
 }

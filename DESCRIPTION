@@ -162,7 +162,6 @@ Collate:
     'hy_list_available_hySpc_packages.R'
     'hy_list_installed_hySpc_packages.R'
     'hy_pastenames.R'
-    'hy_unittest.R'
     'paracetamol.R'
     'laser.R'
     'hyperspec-package.R'

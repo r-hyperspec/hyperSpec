@@ -163,3 +163,13 @@ read.txt.long <- function(file = stop("file is required"),
   ## consistent file import behaviour across import functions
   .spc_io_postprocess_optional(spc, filename = file)
 }
+
+hySpc.testthat::test(read.txt.long) <- function() {
+  context("read.txt.long")
+
+  test_that("deprecated",
+            expect_warning(
+              expect_error(read.txt.long(file = ""), "no lines available"),
+              "deprecated")
+  )
+}

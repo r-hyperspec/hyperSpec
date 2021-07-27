@@ -50,3 +50,14 @@ read.mat.Witec <- function(file = stop("filename or connection needed")) {
   ## consistent file import behaviour across import functions
   .spc_io_postprocess_optional(spc, file)
 }
+
+hySpc.testthat::test(read.mat.Witec) <- function() {
+  context("read.mat.Witec")
+
+  test_that("deprecated",
+            expect_warning(
+              expect_error(read.mat.Witec(file = ""), "Can only read a MAT file"),
+              "deprecated|supports")
+  )
+}
+

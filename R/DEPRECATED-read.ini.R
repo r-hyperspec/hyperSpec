@@ -64,6 +64,18 @@ read.ini <- function(con = stop("Connection con needed."), skip = NULL, encoding
   ini
 }
 
+hySpc.testthat::test(read.ini) <- function() {
+  context("read.ini")
+
+  test_that("deprecated",
+            expect_warning(
+              read.ini(""),
+              "deprecated|file")
+  )
+
+}
+
+
 .sanitize.name <- function(name) {
   gsub("[^a-zA-Z0-9._]", ".", name)
 }

@@ -45,6 +45,17 @@ read.txt.Horiba <- function(file, cols = c(
   spc
 }
 
+hySpc.testthat::test(read.txt.Horiba) <- function() {
+  context("read.txt.Horiba")
+
+  test_that("deprecated",
+            expect_warning(
+              expect_error(read.txt.Horiba(file = ""), "no lines available"),
+              "deprecated")
+  )
+}
+
+
 #' @rdname DEPRECATED-read.txt.Horiba
 #' @export
 #'
@@ -65,6 +76,16 @@ read.txt.Horiba.xy <- function(file, ...) {
       .wavelength = expression(Delta * tilde(nu) / cm^-1)
     ),
     ...
+  )
+}
+
+hySpc.testthat::test(read.txt.Horiba.xy) <- function() {
+  context("read.txt.Horiba.xy")
+
+  test_that("deprecated",
+            expect_warning(
+              expect_error(read.txt.Horiba.xy(file = ""), "no lines available"),
+              "deprecated")
   )
 }
 
@@ -91,5 +112,15 @@ read.txt.Horiba.t <- function(file, header = TRUE, sep = "\t", row.names = NULL,
       .wavelength = expression(Delta * tilde(nu) / cm^-1)
     ),
     ...
+  )
+}
+
+hySpc.testthat::test(read.txt.Horiba.t) <- function() {
+  context("read.txt.Horiba.t")
+
+  test_that("deprecated",
+            expect_warning(
+              expect_error(read.txt.Horiba.t(file = ""), "no lines available"),
+              "deprecated")
   )
 }

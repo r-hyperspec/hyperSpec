@@ -58,8 +58,10 @@ read.asc.Andor <- function(file = stop("filename or connection needed"),
 
 hySpc.testthat::test(read.asc.Andor) <- function() {
   context("read.asc.Andor")
-  test_that("Andor Solis .asc text files", {
-    skip_if_not_fileio_available()
-    expect_known_hash(read.asc.Andor("fileio/asc.Andor/ASCII-Andor-Solis.asc"), "9ead937f51")
-  })
+
+  test_that("deprecated",
+            expect_warning(
+              expect_error(read.asc.Andor(file = ""), "file not found"),
+              "deprecated")
+            )
 }

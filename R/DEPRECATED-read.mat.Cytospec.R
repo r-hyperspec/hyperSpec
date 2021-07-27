@@ -87,6 +87,17 @@ read.mat.Cytospec <- function(file, keys2data = FALSE, blocks = TRUE) {
   result
 }
 
+hySpc.testthat::test(read.mat.Cytospec) <- function() {
+  context("read.mat.Cytospec")
+
+  test_that("deprecated",
+            expect_warning(
+              expect_error(read.mat.Cytospec(file = ""), "Can only read a MAT file"),
+              "deprecated")
+  )
+}
+
+
 .block2hyperSpec <- function(spc, df, wn, block, file) {
   spc <- spc[, , , block]
 

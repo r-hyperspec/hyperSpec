@@ -225,3 +225,13 @@ read.txt.Shimadzu <- function(filename, encoding = "", quiet = TRUE) {
 
   return(list(peakInfo = m2, peakAnnotate = m3, peakMasses = m4))
 }
+
+hySpc.testthat::test(read.txt.Shimadzu) <- function() {
+  context("read.txt.Shimadzu")
+
+  test_that("deprecated",
+            expect_warning(
+              expect_error(read.txt.Shimadzu(file = ""), "attempt to select"),
+              "deprecated")
+  )
+}

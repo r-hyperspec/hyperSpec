@@ -134,3 +134,13 @@ read.txt.wide <- function(file = stop("file is required"),
   ## consistent file import behaviour across import functions
   .spc_io_postprocess_optional(spc, filename = file)
 }
+
+hySpc.testthat::test(read.txt.wide) <- function() {
+  context("read.txt.wide")
+
+  test_that("deprecated",
+            expect_warning(
+              expect_error(read.txt.wide(file = ""), "no lines available"),
+              "deprecated")
+  )
+}
