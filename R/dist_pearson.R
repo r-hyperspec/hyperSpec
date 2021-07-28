@@ -1,15 +1,20 @@
 #' Distance based on Pearson's \eqn{R^2}{R squared}
 #'
 #' The calculated distance is
-#' \eqn{D^2 = \frac{1 - COR (`x`')}{2}}{D^2 = (1 - COR (x')) / 2}
+#' \eqn{D^2 = \frac{1 - COR(`x`')}{2}}{D^2 = (1 - COR(x')) / 2}
 #'
-#' The distance between the rows of `x` is calculated.  The possible
-#' values range from 0 (perfectly correlated) over 0.5 (uncorrelated) to 1
-#' (perfectly anti-correlated).
+#' The distance between the rows of `x` is calculated.
+#' The possible values range
+#' from 0 (perfectly correlated)
+#' over 0.5 (uncorrelated)
+#' to 1 (perfectly anti-correlated).
 #'
 #' @param x a matrix
+#'
 #' @return distance matrix (distance object)
+#'
 #' @author C. Beleites
+#'
 #' @seealso [stats::as.dist()]
 #' @references S. Theodoridis and K. Koutroumbas: Pattern Recognition, 3rd ed., p. 495
 #'
@@ -20,9 +25,9 @@
 #'
 #' @examples
 #'
-#' pearson.dist(flu[[]])
-#' pearson.dist(flu)
-pearson.dist <- function(x) {
+#' dist_pearson(flu[[]])
+#' dist_pearson(flu)
+dist_pearson <- function(x) {
   x <- as.matrix(x)
 
   ## center & scale *row*s
@@ -42,23 +47,25 @@ pearson.dist <- function(x) {
 }
 
 
-hySpc.testthat::test(pearson.dist) <- function() {
-  context("pearson.dist")
+# Unit tests -----------------------------------------------------------------
 
-  test_that("pearson.dist against manual calculation", {
+hySpc.testthat::test(dist_pearson) <- function() {
+  context("dist_pearson")
+
+  test_that("dist_pearson against manual calculation", {
     expect_equivalent(
-      pearson.dist(flu),
+      dist_pearson(flu),
       as.dist(0.5 - cor(t(as.matrix(flu))) / 2)
     )
   })
 }
 
 ## benchmark
-# function (){
-#   m <- sample (faux_cell, 10000)[[]]
+# function() {
+#   m <- sample(faux_cell, 10000)[[]]
 #   microbenchmark(
-#     cor = as.dist (0.5 - cor (t (as.matrix (m))) / 2),
-#     tcross = pearson.dist (m),
+#     cor = as.dist(0.5 - cor(t(as.matrix(m))) / 2),
+#     tcross = dist_pearson(m),
 #     times = 10L
 #   )
 # }

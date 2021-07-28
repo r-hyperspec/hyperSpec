@@ -22,7 +22,7 @@
 #' @rdname mark.dendrogram
 #' @examples
 #'
-#' dend <- hclust(pearson.dist(laser[[]]))
+#' dend <- hclust(dist_pearson(laser[[]]))
 #' par(xpd = TRUE, mar = c(5.1, 4, 4, 3)) # allows plotting into the margin
 #' plot(dend, hang = -1, labels = FALSE)
 #'
