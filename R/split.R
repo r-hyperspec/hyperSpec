@@ -43,7 +43,7 @@
 #'
 #' @examples
 #'
-#' dist <- pearson.dist(faux_cell[[]])
+#' dist <- dist_pearson(faux_cell[[]])
 #' dend <- hclust(dist, method = "ward")
 #' z <- cutree(dend, h = 0.15)
 #'

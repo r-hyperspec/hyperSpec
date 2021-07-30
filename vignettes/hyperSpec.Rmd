@@ -1507,13 +1507,13 @@ Some `R` functions expect their input data in a matrix, including those related 
 Conveniently, the `[[]]`{.r} extraction function returns a matrix.
 
 ```{r hca}
-dist <- pearson.dist(faux_cell[[]])
+dist <- dist_pearson(faux_cell[[]])
 ```
 
 Again, many such functions coerce the data to a matrix automatically, so the `hyperSpec` object can be handed over without the explicit conversion above (as we saw for PCA):
 
 ```{r hca-asmatrix}
-dist <- pearson.dist(faux_cell)
+dist <- dist_pearson(faux_cell)
 dendrogram <- hclust(dist, method = "ward.D")
 ```
 

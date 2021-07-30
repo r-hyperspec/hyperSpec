@@ -74,7 +74,7 @@ Suggests:
     styler,
     tibble,
     tripack,
-    vdiffr
+    vdiffr (>= 1.0.0)
 URL: 
     https://r-hyperspec.github.io/hyperSpec,
     https://github.com/r-hyperspec/hyperSpec
@@ -88,6 +88,7 @@ Collate:
     'Arith.R'
     'Compare.R'
     'DEPRECATED-count_lines.R'
+    'DEPRECATED-dist_pearson.R'
     'hy_options.R'
     'constants-regexps.R'
     'extract_numbers.R'

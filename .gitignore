@@ -19,7 +19,6 @@
 docs
 
 # Unit tests
-tests/testthat/_snaps/attached/
 tests/testthat/Rplots.pdf
 tests/testthat/fileio
 
