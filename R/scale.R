@@ -71,9 +71,10 @@ hySpc.testthat::test(.scale) <- function() {
 
   # Perform tests
   test_that("scale() returnts output silently", {
-    expect_silent(scale(flu))
-    expect_silent(scale(flu, scale = FALSE))
-    expect_silent(scale(flu, center = FALSE))
+    expect_silent(spc_1 <- scale(flu))
+    expect_silent(spc_2 <- scale(flu, scale = FALSE))
+    expect_silent(spc_3 <- scale(flu, center = FALSE))
+    expect_silent(spc_4 <- scale(flu, center = rep(0, 181), scale = rep(1, 181)))
   })
 
   # FIXME (tests): add tests to check the correctness of the output!!!
