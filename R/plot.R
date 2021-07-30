@@ -223,7 +223,8 @@ hySpc.testthat::test(.plot) <- function() {
     plot_depth <- plot(hy_profile, "depth")
 
     plot_map <- plot(hy_map, "map")
-    plot_voronoi <- plot(hy_map, "voronoi")
+    plot_voronoi_1 <- plot(hy_map, "voronoi")
+    plot_voronoi_2 <- plot(hy_map, "voronoi", use.tripack = TRUE, mix = TRUE)
 
     # Perform tests ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -233,7 +234,8 @@ hySpc.testthat::test(.plot) <- function() {
     expect_silent(plot_depth)
 
     expect_silent(plot_map)
-    expect_silent(plot_voronoi)
+    expect_silent(plot_voronoi_1)
+    expect_silent(plot_voronoi_2)
 
     # Visual tests
     vdiffr::expect_doppelganger("plot-c", plot_c)
@@ -249,7 +251,8 @@ hySpc.testthat::test(.plot) <- function() {
     skip_if(r_version < "4.0.0", "R version is < 4.0.0")
 
     vdiffr::expect_doppelganger("plot-map", plot_map)
-    vdiffr::expect_doppelganger("plot-voronoi", plot_voronoi)
+    vdiffr::expect_doppelganger("plot-voronoi-01", plot_voronoi_1)
+    vdiffr::expect_doppelganger("plot-voronoi-02", plot_voronoi_2)
   })
 
 
