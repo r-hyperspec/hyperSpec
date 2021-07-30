@@ -17,6 +17,7 @@
 *.DS_Store
 
 # RStudio files
+.Rproj.user
 *.Rproj.user
 *.Rproj
 
