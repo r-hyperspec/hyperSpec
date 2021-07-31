@@ -127,6 +127,7 @@
 #' @concept plotting
 #' @concept plot generation
 #'
+#'
 #' @export
 #'
 #' @examples
@@ -162,8 +163,8 @@
 #'   axis.args = list(x = list(col = "magenta"), y = list(las = 1))
 #' )
 #'
-#' mean_pm_sd <- aggregate(faux_cell, faux_cell$region, mean_pm_sd)
-#' plot(mean_pm_sd, col = palette_matlab(3), fill = ".aggregate", stacked = ".aggregate")
+#' fc_mean_pm_sd <- aggregate(faux_cell, faux_cell$region, mean_pm_sd)
+#' plot(fc_mean_pm_sd, col = palette_matlab(3), fill = ".aggregate", stacked = ".aggregate")
 plotspc <- function(object,
                     ## what wavelengths to plot
                     wl.range = TRUE, wl.index = FALSE, wl.reverse = FALSE,
@@ -627,10 +628,10 @@ hySpc.testthat::test(plotspc) <- function() {
 #'
 #' @examples
 #'
-#' mean_pm_sd <- aggregate(faux_cell, faux_cell$region, mean_pm_sd)
+#' fc_mean_pm_sd <- aggregate(faux_cell, faux_cell$region, mean_pm_sd)
 #'
-#' offset <- stacked.offsets(mean_pm_sd, ".aggregate")
-#' plot(mean_pm_sd,
+#' offset <- stacked.offsets(fc_mean_pm_sd, ".aggregate")
+#' plot(fc_mean_pm_sd,
 #'   fill.col = palette_matlab(3), fill = ".aggregate",
 #'   stacked = ".aggregate"
 #' )
