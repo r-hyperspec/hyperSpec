@@ -48,10 +48,10 @@ split.line <- function(x, separator, trim.blank = TRUE) {
 
     tmp <- Sys.glob(headerfilename)
 
-    headerfilename <- tmp [!grepl(file, tmp)]
+    headerfilename <- tmp[!grepl(file, tmp)]
 
     if (length(headerfilename) > 1L) {
-      headerfilename <- headerfilename [grepl("[.][hH][dD][rR]$", headerfilename)]
+      headerfilename <- headerfilename[grepl("[.][hH][dD][rR]$", headerfilename)]
 
       if (length(headerfilename == 1L)) {
         message(".find.ENVI.header: Guessing header file name ", headerfilename)
@@ -78,7 +78,7 @@ split.line <- function(x, separator, trim.blank = TRUE) {
   if (!grepl("ENVI", header[1])) {
     stop("Not an ENVI header (ENVI keyword missing)")
   } else {
-    header <- header [-1]
+    header <- header[-1]
   }
 
   ## remove curly braces and put multi-line key-value-pairs into one line
@@ -101,9 +101,9 @@ split.line <- function(x, separator, trim.blank = TRUE) {
   if (pull.lines) {
     for (i in rev(seq_along(l))) {
       header <- c(
-        header [seq_len(l [i] - 1)],
-        paste(header [l [i]:r [i]], collapse = " "),
-        header [-seq_len(r [i])]
+        header[seq_len(l[i] - 1)],
+        paste(header[l[i]:r[i]], collapse = " "),
+        header[-seq_len(r[i])]
       )
     }
   }
@@ -114,7 +114,7 @@ split.line <- function(x, separator, trim.blank = TRUE) {
 
   ## process numeric values
   tmp <- names(header) %in% c("samples", "lines", "bands", "data type", "header offset")
-  header [tmp] <- lapply(header [tmp], as.numeric)
+  header[tmp] <- lapply(header[tmp], as.numeric)
 
   header
 }
@@ -128,8 +128,8 @@ split.line <- function(x, separator, trim.blank = TRUE) {
     header$interleave <- "bsq"
   }
 
-  if (any(is.null(header [c("samples", "lines", "bands", "data type")]) ||
-    is.na(header [c("samples", "lines", "bands", "data type")]))) {
+  if (any(is.null(header[c("samples", "lines", "bands", "data type")]) ||
+    is.na(header[c("samples", "lines", "bands", "data type")]))) {
     stop(
       "Error in ENVI header (required entry missing or incorrect)\n header: ",
       paste(names(header), " = ", header, collapse = ", ")
@@ -180,7 +180,7 @@ split.line <- function(x, separator, trim.blank = TRUE) {
   }
 
   ## size of data point in bytes
-  size <- DATA_TYPE_SIZES [header$`data type`]
+  size <- DATA_TYPE_SIZES[header$`data type`]
 
   ## read blocks of data
   if (block.lines.skip > 0) {
@@ -402,17 +402,17 @@ read.ENVI <- function(file = stop("read.ENVI: file name needed"), headerfile = N
   }
 
   ## set up spatial coordinates
-  x <- seq(0, header$samples - 1) * x [2] + x [1]
-  y <- seq(0, header$lines - 1) * y [2] + y [1]
+  x <- seq(0, header$samples - 1) * x[2] + x[1]
+  y <- seq(0, header$lines - 1) * y[2] + y[1]
 
   block.lines.size <- min(block.lines.size, nrow(spc) / header$samples)
   x <- rep(x, each = block.lines.size)
 
-  y <- y [block.lines.skip + seq_len(block.lines.size)]
+  y <- y[block.lines.skip + seq_len(block.lines.size)]
   y <- rep(y, header$samples)
 
   ## header lines => extra data columns
-  extra.data <- header [keys.hdr2data]
+  extra.data <- header[keys.hdr2data]
 
   if (.options$gc) gc()
 
@@ -435,9 +435,11 @@ read.ENVI <- function(file = stop("read.ENVI: file name needed"), headerfile = N
 hySpc.testthat::test(read.ENVI) <- function() {
   context("read.ENVI")
 
-  test_that("deprecated",
-            expect_warning(
-              expect_error(read.ENVI(file = ""), "File not found"),
-              "deprecated")
+  test_that(
+    "deprecated",
+    expect_warning(
+      expect_error(read.ENVI(file = ""), "File not found"),
+      "deprecated"
+    )
   )
 }

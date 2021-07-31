@@ -1,10 +1,10 @@
 # Function -------------------------------------------------------------------
 
-.cov_h_ <-  function(x, y, use, method) {
-    validObject(x)
+.cov_h_ <- function(x, y, use, method) {
+  validObject(x)
 
-    cov(x@data$spc, use = use, method = method)
-  }
+  cov(x@data$spc, use = use, method = method)
+}
 
 #' Covariance matrices for `hyperSpec` objects
 #'

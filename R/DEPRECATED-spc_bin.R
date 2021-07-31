@@ -78,7 +78,6 @@ spc.bin <- function(spc, by = stop("reduction factor needed"), na.rm = TRUE, ...
     if (na.rm == 1) {
       na <- apply(!na, 1, tapply, bin, sum, na.rm = FALSE)
       spc@data$spc <- t(apply(spc@data$spc, 1, tapply, bin, sum, na.rm = TRUE) / na)
-
     } else {
       # faster for small numbers of NA
       tmp <- t(apply(spc@data$spc, 1, tapply, bin, sum, na.rm = FALSE))
@@ -93,7 +92,6 @@ spc.bin <- function(spc, by = stop("reduction factor needed"), na.rm = TRUE, ...
       }
       spc@data$spc <- tmp
     }
-
   } else {
     # considerably faster
     spc@data$spc <- t(apply(spc@data$spc, 1, tapply, bin, sum, na.rm = FALSE))
@@ -117,7 +115,7 @@ hySpc.testthat::test(spc.bin) <- function() {
 
   # Perform tests
   test_that("spc.bin() returnts output silently", {
-    expect_warning(spc.bin(sp, 1),  "deprecated")
+    expect_warning(spc.bin(sp, 1), "deprecated")
     expect_warning(spc.bin(sp, 10), "deprecated")
   })
 
@@ -151,12 +149,12 @@ hySpc.testthat::test(spc.bin) <- function() {
 
     # Wavelengths should be identical
     expect_silent(wl_regular <- wl(sp))
-    expect_silent(wl_binned  <- wl(sp_binned))
+    expect_silent(wl_binned <- wl(sp_binned))
     expect_equal(wl_regular, wl_binned)
 
     # Column names in wide-format dataset should be identical too (issue #237)
     expect_silent(names_regular <- colnames(as.wide.df(sp)))
-    expect_silent(names_binned  <- colnames(as.wide.df(sp_binned)))
+    expect_silent(names_binned <- colnames(as.wide.df(sp_binned)))
     expect_equal(names_regular, names_binned)
   })
 

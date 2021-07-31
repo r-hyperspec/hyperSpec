@@ -17,7 +17,7 @@
 #' wl_convert_units(3200, "Raman shift", "nm", ref_wl = 785.04)
 #' wl_convert_units(785, "nm", "invcm")
 wl_convert_units <- function(x, from, to, ref_wl = NULL) {
-  src  <- .wl_fix_unit_name(from)
+  src <- .wl_fix_unit_name(from)
   dest <- .wl_fix_unit_name(to)
 
   if (src == dest) {
@@ -33,26 +33,26 @@ wl_convert_units <- function(x, from, to, ref_wl = NULL) {
   return(f(x, ref_wl))
 }
 
-wl_ev2freq     <- function(x, ...)    wl_nm2freq(wl_ev2nm(x))
-wl_ev2invcm    <- function(x, ...)    q * x / (100 * h * c)
-wl_ev2nm       <- function(x, ...)    1e9 * h * c / (q * x)
-wl_ev2raman    <- function(x, ref_wl) 1e7 / ref_wl - x * q / (100 * h * c)
-wl_freq2ev     <- function(x, ...)    wl_nm2ev(wl_freq2nm(x))
-wl_freq2invcm  <- function(x, ...)    wl_nm2invcm(wl_freq2nm(x))
-wl_freq2nm     <- function(x, ...)    1e-3 * c / x
-wl_freq2raman  <- function(x, ref_wl) wl_nm2raman(wl_freq2nm(x), ref_wl)
-wl_invcm2ev    <- function(x, ...)    100 * x * c * h / q
-wl_invcm2freq  <- function(x, ...)    wl_nm2freq(wl_invcm2nm(x))
-wl_invcm2nm    <- function(x, ...)    1e7 / x
+wl_ev2freq <- function(x, ...) wl_nm2freq(wl_ev2nm(x))
+wl_ev2invcm <- function(x, ...) q * x / (100 * h * c)
+wl_ev2nm <- function(x, ...) 1e9 * h * c / (q * x)
+wl_ev2raman <- function(x, ref_wl) 1e7 / ref_wl - x * q / (100 * h * c)
+wl_freq2ev <- function(x, ...) wl_nm2ev(wl_freq2nm(x))
+wl_freq2invcm <- function(x, ...) wl_nm2invcm(wl_freq2nm(x))
+wl_freq2nm <- function(x, ...) 1e-3 * c / x
+wl_freq2raman <- function(x, ref_wl) wl_nm2raman(wl_freq2nm(x), ref_wl)
+wl_invcm2ev <- function(x, ...) 100 * x * c * h / q
+wl_invcm2freq <- function(x, ...) wl_nm2freq(wl_invcm2nm(x))
+wl_invcm2nm <- function(x, ...) 1e7 / x
 wl_invcm2raman <- function(x, ref_wl) 1e7 / ref_wl - x
-wl_nm2ev       <- function(x, ...)    1e9 * h * c / (q * x)
-wl_nm2freq     <- function(x, ...)    1e-3 * c / x
-wl_nm2invcm    <- function(x, ...)    1e7 / x
-wl_nm2raman    <- function(x, ref_wl) 1e7 * (1 / ref_wl - 1 / x)
-wl_raman2ev    <- function(x, ref_wl) 100 * h * c * (1e7 / ref_wl - x) / q
-wl_raman2freq  <- function(x, ref_wl) wl_nm2freq(wl_raman2nm(x, ref_wl))
+wl_nm2ev <- function(x, ...) 1e9 * h * c / (q * x)
+wl_nm2freq <- function(x, ...) 1e-3 * c / x
+wl_nm2invcm <- function(x, ...) 1e7 / x
+wl_nm2raman <- function(x, ref_wl) 1e7 * (1 / ref_wl - 1 / x)
+wl_raman2ev <- function(x, ref_wl) 100 * h * c * (1e7 / ref_wl - x) / q
+wl_raman2freq <- function(x, ref_wl) wl_nm2freq(wl_raman2nm(x, ref_wl))
 wl_raman2invcm <- function(x, ref_wl) 1e7 / ref_wl - x
-wl_raman2nm    <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
+wl_raman2nm <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
 
 
 # Bring the argument to a conventional name
@@ -98,7 +98,6 @@ c <- 299792458 # speed of light
 # Unit tests -----------------------------------------------------------------
 
 hySpc.testthat::test(wl) <- function() {
-
   context("get wl")
 
   test_that("wl() works", {
@@ -132,25 +131,21 @@ hySpc.testthat::test(wl) <- function() {
     expect_equal(hy_obj@wavelength, 101:200)
     expect_equal(labels(hy_obj, ".wavelength"), "new label")
   })
-
 }
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 hySpc.testthat::test(.wl_fix_unit_name) <- function() {
-
   context(".wl_fix_unit_name")
 
   test_that(".wl_fix_unit_name() works", {
-
     expect_equal(.wl_fix_unit_name("raman"), "raman")
     expect_equal(.wl_fix_unit_name("invcm"), "invcm")
-    expect_equal(.wl_fix_unit_name("nm"),    "nm")
-    expect_equal(.wl_fix_unit_name("ev"),    "ev")
-    expect_equal(.wl_fix_unit_name("freq"),  "freq")
-    expect_equal(.wl_fix_unit_name("px"),    "px")
-    expect_equal(.wl_fix_unit_name("file"),  "file")
-    expect_error(.wl_fix_unit_name("ddd"),   "Unknown unit type")
-
+    expect_equal(.wl_fix_unit_name("nm"), "nm")
+    expect_equal(.wl_fix_unit_name("ev"), "ev")
+    expect_equal(.wl_fix_unit_name("freq"), "freq")
+    expect_equal(.wl_fix_unit_name("px"), "px")
+    expect_equal(.wl_fix_unit_name("file"), "file")
+    expect_error(.wl_fix_unit_name("ddd"), "Unknown unit type")
   })
 
   # TODO (tests): add more specific tests.
@@ -158,7 +153,6 @@ hySpc.testthat::test(.wl_fix_unit_name) <- function() {
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 hySpc.testthat::test(wl_convert_units) <- function() {
-
   context("wl_convert_units")
 
   test_that("wl_convert_units() throws error", {
@@ -177,14 +171,13 @@ hySpc.testthat::test(wl_convert_units) <- function() {
     # No conversion is expected
     expect_equal(wl_convert_units(1000, "raman", "raman"), 1000)
     expect_equal(wl_convert_units(1000, "invcm", "invcm"), 1000)
-    expect_equal(wl_convert_units(1000, "nm",    "nm"),    1000)
-    expect_equal(wl_convert_units(1000, "ev",    "ev"),    1000)
-    expect_equal(wl_convert_units(1000, "freq", "freq"),   1000)
+    expect_equal(wl_convert_units(1000, "nm", "nm"), 1000)
+    expect_equal(wl_convert_units(1000, "ev", "ev"), 1000)
+    expect_equal(wl_convert_units(1000, "freq", "freq"), 1000)
   })
 
 
   test_that("wl_convert_units() returns correct data type", {
-
     x <- c("raman", "invcm", "nm", "ev", "freq")
     y <- expand.grid(x, x)
     y <- y[y[[1]] != y[[2]], ]
@@ -204,6 +197,4 @@ hySpc.testthat::test(wl_convert_units) <- function() {
   #  # ...
   #
   # })
-
 }
-

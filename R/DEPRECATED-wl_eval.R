@@ -60,7 +60,6 @@ wl.eval.numeric <- function(x, ..., normalize.wl = I) {
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   wl_eval.numeric(x, ..., normalize.wl = normalize.wl)
-
 }
 
 

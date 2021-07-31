@@ -39,5 +39,4 @@
 #' op <- par(mar = c(0, 0, 0, 0))
 #' pie(rep(1, 7), col = palette_colorblind)
 #' par(op)
-#'
 NULL

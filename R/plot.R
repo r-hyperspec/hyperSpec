@@ -213,16 +213,18 @@ hySpc.testthat::test(.plot) <- function() {
   test_that("lattice-based plot() gives expected output", {
 
     # Data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
     expect_silent(hy_spectra <- generate_hy_spectra())
     expect_silent(hy_profile <- generate_hy_profile())
-    expect_silent(hy_map <- generate_hy_map())
+    expect_silent(hy_map     <- generate_hy_map())
 
     # Preparation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    plot_c <- plot(hy_profile, "c")
-    plot_ts <- plot(hy_profile, "ts")
+
+    plot_c     <- plot(hy_profile, "c")
+    plot_ts    <- plot(hy_profile, "ts")
     plot_depth <- plot(hy_profile, "depth")
 
-    plot_map <- plot(hy_map, "map")
+    plot_map       <- plot(hy_map, "map")
     plot_voronoi_1 <- plot(hy_map, "voronoi")
     plot_voronoi_2 <- plot(hy_map, "voronoi", use.tripack = TRUE, mix = TRUE)
 
@@ -266,6 +268,7 @@ hySpc.testthat::test(.plot) <- function() {
 
 
     # Preparation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
     plot_1           <- function() plot(hy_spectra)
     plot_spc         <- function() plot(hy_spectra, "spc")
     plot_spcmeansd   <- function() plot(hy_spectra, "spcmeansd")
@@ -273,7 +276,6 @@ hySpc.testthat::test(.plot) <- function() {
     plot_spcprctl5   <- function() plot(hy_spectra, "spcprctl5")
     plot_mat         <- function() plot(hy_spectra, "mat")
     plot_mat_contour <- function() plot(hy_spectra, "mat", contour = TRUE)
-
     plot_1_rev       <- function() plot(hy_spectra, wl.reverse = TRUE)
     plot_1_fill      <- function() plot(hy_spectra, fill = TRUE)
 
