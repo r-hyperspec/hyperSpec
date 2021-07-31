@@ -33,16 +33,16 @@ setGeneric("rmmvnorm", .rmmvnorm)
 # Function -------------------------------------------------------------------
 
 .rmmvnorm_nhm <- function(n, mean, sigma) {
-    tmp <- .rmmvnorm(n, mean@data$spc, sigma)
+  tmp <- .rmmvnorm(n, mean@data$spc, sigma)
 
-    data <- mean[attr(tmp, "group"), , drop = FALSE]
-    if (hy.getOption("gc")) gc()
-    data@data$spc <- tmp
-    if (hy.getOption("gc")) gc()
-    data$.group <- attr(tmp, "group")
-    if (hy.getOption("gc")) gc()
-    data
-  }
+  data <- mean[attr(tmp, "group"), , drop = FALSE]
+  if (hy.getOption("gc")) gc()
+  data@data$spc <- tmp
+  if (hy.getOption("gc")) gc()
+  data$.group <- attr(tmp, "group")
+  if (hy.getOption("gc")) gc()
+  data
+}
 
 #' Multivariate normal random numbers
 #'
@@ -79,7 +79,8 @@ setGeneric("rmmvnorm", .rmmvnorm)
 #'   rnd <- rmmvnorm(rep(10, 3), mean = pcov$mean, sigma = pcov$COV)
 #'   plot(rnd, col = rnd$.group)
 #' }
-setMethod("rmmvnorm",
+setMethod(
+  "rmmvnorm",
   signature(n = "numeric", mean = "hyperSpec", sigma = "matrix"),
   .rmmvnorm_nhm
 )
@@ -101,7 +102,8 @@ setMethod("rmmvnorm",
 
 #' @rdname rmmvnorm
 #' @export
-setMethod("rmmvnorm",
+setMethod(
+  "rmmvnorm",
   signature(n = "numeric", mean = "hyperSpec", sigma = "array"),
   .rmmvnorm_nha
 )
@@ -111,7 +113,8 @@ setMethod("rmmvnorm",
 
 #' @rdname rmmvnorm
 #' @export
-setMethod("rmmvnorm",
+setMethod(
+  "rmmvnorm",
   signature(n = "numeric", mean = "matrix", sigma = "matrix"),
   .rmmvnorm
 )
@@ -121,7 +124,8 @@ setMethod("rmmvnorm",
 
 #' @rdname rmmvnorm
 #' @export
-setMethod("rmmvnorm",
+setMethod(
+  "rmmvnorm",
   signature(n = "numeric", mean = "matrix", sigma = "array"),
   .rmmvnorm
 )
