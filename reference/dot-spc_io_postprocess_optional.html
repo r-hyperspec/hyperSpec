@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Helper Function to Harmonize Treatment of File Import Results — .spc_io_postprocess_optional • hyperSpec</title>
+<title>Helper function to harmonize treatment of file import results — .spc_io_postprocess_optional • hyperSpec</title>
 
 
 <!-- jquery -->
@@ -41,7 +41,7 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Helper Function to Harmonize Treatment of File Import Results — .spc_io_postprocess_optional" />
+<meta property="og:title" content="Helper function to harmonize treatment of file import results — .spc_io_postprocess_optional" />
 <meta property="og:description" content="This function provides two ways of post-processing imported spectra:" />
 
 <meta name="robots" content="noindex" />
@@ -155,7 +155,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Helper Function to Harmonize Treatment of File Import Results</h1>
+    <h1>Helper function to harmonize treatment of file import results</h1>
     <small class="dont-index">Source: <a href='https://github.com/r-hyperspec/hyperSpec/blob/master/R/spc_io_postprocess_optional.R'><code>R/spc_io_postprocess_optional.R</code></a></small>
     <div class="hidden name"><code>dot-spc_io_postprocess_optional.Rd</code></div>
     </div>
@@ -178,15 +178,15 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>spc</th>
-      <td><p>hyperSpec object for file import post-processing</p></td>
+      <td><p><code>hyperSpec</code> object for file import post-processing.</p></td>
     </tr>
     <tr>
       <th>filename</th>
-      <td><p>filename(s) to become extra data column of <code>spc</code></p></td>
+      <td><p>filename(s) to become extra data column of <code>spc</code>.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>(ignored)</p></td>
+      <td><p>(ignored).</p></td>
     </tr>
     <tr>
       <th>file.remove.emptyspc</th>
@@ -200,13 +200,13 @@ removed?</p></td>
     <tr>
       <th>tolerance</th>
       <td><p>intensities in +/- <code>tolerance</code> are considered <code>0</code> for
-<code>file.remove.emptyspc = TRUE</code></p></td>
+<code>file.remove.emptyspc = TRUE</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>hyperSpec object</p>
+    <p><code>hyperSpec</code> object.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     
@@ -216,9 +216,9 @@ empty spectra when measurements are cancelled)</p></li>
 <li><p>optionally keep the filenames in column <code>spc$filename</code></p></li>
 </ul>
 
-<p>The desired overall behavior can be set by options via <code><a href='hy.getOptions.html'>hy.setOptions()</a></code>. All
-file import filters should call <code>.spc_io_postprocess_optional()</code> to ensure the same
-behavior.</p>
+<p>The desired overall behavior can be set by options via <code><a href='hy.getOptions.html'>hy.setOptions()</a></code>.
+All file import filters should call <code>.spc_io_postprocess_optional()</code> to
+ensure the same behavior.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
