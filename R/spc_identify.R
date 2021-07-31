@@ -46,6 +46,9 @@
 #' You may want to adjust the plot's `ylim` to ensure that the labels are
 #' not clipped. As a dirty shortcut, `xpd = NA` may help.
 #'
+#'
+#' @rdname spc-identify
+#'
 #' @aliases spc.identify spc.label.default spc.label.wlonly spc.point.default
 #'   spc.point.max spc.point.min spc.point.sqr
 #'
@@ -91,8 +94,8 @@
 #' @concept plotting
 #' @concept plotting tools
 #'
-#' @rdname spc-identify
 #' @export
+#'
 #' @examples
 #'
 #' \dontrun{\donttest{
@@ -117,7 +120,8 @@
 #'   )
 #'
 #'   ## looking for minima
-#'   spc.identify(plot(-paracetamol, wl.reverse = TRUE),
+#'   spc.identify(
+#'     plot(-paracetamol, wl.reverse = TRUE),
 #'     point.fn = spc.point.min, adj = c(1, 0.5)
 #'   )
 #' }}
