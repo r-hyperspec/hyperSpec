@@ -38,8 +38,8 @@
 
 
 .extract_h <- function(x, i, j, l, ...,
-                        wl.index = FALSE,
-                        drop = FALSE # drop has to be at end
+                       wl.index = FALSE,
+                       drop = FALSE # drop has to be at end
 ) {
   validObject(x)
 
