@@ -24,7 +24,8 @@ pearson.dist <- function(...) {
 hySpc.testthat::test(pearson.dist) <- function() {
   context("pearson.dist")
 
-  test_that("deprecated",
+  test_that(
+    "deprecated",
     expect_warning(pearson.dist(flu), "deprecated")
   )
 }
