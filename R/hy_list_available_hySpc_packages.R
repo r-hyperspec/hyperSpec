@@ -9,11 +9,13 @@
 #' @return `TRUE` if IP is found or `FALSE` otherwise.
 #'
 #' @noRd
+#'
 .is_ip_found <- function() {
-  ip_config_cmd <- switch(.Platform$OS.type,
-    "windows" = "ipconfig",
-    "ifconfig"
-  )
+  ip_config_cmd <-
+    switch(.Platform$OS.type,
+      "windows" = "ipconfig",
+      "ifconfig" # Other
+    )
   any(grep("(\\d{1,3}[.]){3}(\\d{1,3})$", system(ip_config_cmd, intern = TRUE)))
 }
 
