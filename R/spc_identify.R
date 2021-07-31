@@ -10,25 +10,33 @@
 #' In a second step, `max.fn` searches for the actual point to label
 #' within the specified wavelength window of that spectrum. This allows to
 #' label maxima (or minima) without demanding too precise clicks. Currently,
-#' the following functions to determine the precise point: \tabular{ll}{
-#' spc.point.default \tab uses the clicked wavelength together with its
-#' spectral intensity\cr spc.point.max \tab the point with the highest
-#' intensity in the wavelength window \cr spc.point.min \tab the point with
-#' the lowest intensity in the wavelength window \cr spc.point.sqr \tab
-#' maximum of a parabola fit throug the point with highest intensity and the
-#' two surrounding points \cr } `point.fn` is called with the arguments
-#' `wl` containing the considered wavelength window, `spc` the
-#' respective intensities of the closest spectrum, and `wlclick` the
-#' wavelength that was clicked. They return a vector of two elements
-#' (wavelength and intensity).
+#' the following functions to determine the precise point:
+#' \tabular{ll}{
+#' spc.point.default \tab uses the clicked wavelength together with its spectral
+#' intensity\cr
+#'  spc.point.max \tab the point with the highest intensity in the wavelength
+#'   window \cr
+#' spc.point.min \tab the point with the lowest intensity in the wavelength
+#' window \cr
+#' spc.point.sqr \tab maximum of a parabola fit through the point with highest
+#' intensity and the two surrounding points \cr
+#' }
+#' `point.fn` is called with the arguments
+#' `wl` containing the considered wavelength window,
+#' `spc` the respective intensities of the closest spectrum, and
+#' `wlclick` the wavelength that was clicked.
+#' They return a vector of two elements (wavelength and intensity).
 #'
 #' As a last step, a label for the point produced by `formatter` and plotted
 #' using [graphics::text()]. Currently, the following `formatter`s are
-#' available: \tabular{ll}{spc.label.default \tab
-#' spectrum number, wavelength \cr spc.label.wlonly \tab wavelength\cr }
+#' available:
+#' \tabular{ll}
+#' {spc.label.default \tab spectrum number, wavelength \cr
+#' spc.label.wlonly \tab wavelength\cr
+#' }
 #' `formatter` functions receive the number of the spectrum `ispc`,
 #' the wavelength `wl`, and the spectral intensity `spc` and produce
-#' a character variable suitable for labelling. The predefined formatters
+#' a character variable suitable for labeling. The predefined formatters
 #' surround the label text by spaces in order to easily have an appropriate
 #' offset from the point of the spectrum.
 #'
@@ -84,7 +92,9 @@
 #' If `ispc` is given, `ispc [i]` is returned rather than `i`.
 #'   } \item{wavelengths}{the wavelengths of the identified points}
 #'   \item{spc}{the intensities of the identified points}
+#'
 #' @author C. Beleites
+#'
 #' @seealso [graphics::locator()], [plotspc()],
 #'   [`hyperSpec options()`][hyperSpec::options]
 #'
@@ -97,33 +107,34 @@
 #' @export
 #'
 #' @examples
-#'
 #' \dontrun{\donttest{
-#'   ispc <- sample(nrow(laser), 10)
-#'   ispc
 #'
-#'   identified <- spc.identify(plotspc(laser[ispc]))
+#' ispc <- sample(nrow(laser), 10)
+#' ispc
 #'
-#'   ## convert to the "real" spectra indices
-#'   ispc [identified$ispc]
-#'   identified$wl
-#'   identified$spc
+#' identified <- spc.identify(plotspc(laser[ispc]))
 #'
-#'   ## allow the labels to be plotted into the plot margin
-#'   spc.identify(plotspc(laser[ispc]), ispc = ispc, xpd = NA)
+#' ## convert to the "real" spectra indices
+#' ispc[identified$ispc]
+#' identified$wl
+#' identified$spc
 #'
-#'   spc.identify(plotspc(paracetamol,
-#'     xoffset = 1100,
-#'     wl.range = c(600 ~ 1700, 2900 ~ 3150)
-#'   ),
-#'   formatter = spc.label.wlonly
-#'   )
+#' ## allow the labels to be plotted into the plot margin
+#' spc.identify(plotspc(laser[ispc]), ispc = ispc, xpd = NA)
 #'
-#'   ## looking for minima
-#'   spc.identify(
-#'     plot(-paracetamol, wl.reverse = TRUE),
-#'     point.fn = spc.point.min, adj = c(1, 0.5)
-#'   )
+#' spc.identify(plotspc(paracetamol,
+#'   xoffset = 1100,
+#'   wl.range = c(600 ~ 1700, 2900 ~ 3150)
+#' ),
+#' formatter = spc.label.wlonly
+#' )
+#'
+#' ## looking for minima
+#' spc.identify(
+#'   plot(-paracetamol, wl.reverse = TRUE),
+#'   point.fn = spc.point.min, adj = c(1, 0.5)
+#' )
+#'
 #' }}
 spc.identify <- function(x, y = NULL, wavelengths = NULL, ispc = NULL,
                          tol.wl = diff(range(x)) / 200,
