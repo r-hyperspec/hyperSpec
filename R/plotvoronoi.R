@@ -1,27 +1,38 @@
-#################################################################################
+########################################################################## ~
 ###
 ###  plotvoronoi - plot spectral maps with irregular point pattern
 ###
 ###  plots intensity or extra data column over 2 extra data columns
+###
+########################################################################## ~
 
+
+# Function -------------------------------------------------------------------
+
+#' @rdname levelplot
+#'
 #' @param use.tripack Whether package \pkg{tripack} should be used for
-#'        calculating the voronoi polygons. If `FALSE`, package \pkg{deldir}
+#'        calculating the Voronoi polygons. If `FALSE`, package \pkg{deldir}
 #'        is used instead.
 #'        See details.
 #' @param mix For Voronoi plots using package \pkg{tripack}, I experienced
 #'        errors if the data was spatially ordered. Randomly rearranging the
 #'        rows of the hyperSpec object circumvents this problem.
-#' @rdname levelplot
-#' @include levelplot.R
+#'
+#'
+#' @seealso [latticeExtra::panel.voronoi()]
 #'
 #' @concept plotting
 #' @concept plot generation
 #'
-#' @export
-#' @seealso [latticeExtra::panel.voronoi()]
+#' @include levelplot.R
+#'
 #' @importFrom latticeExtra panel.voronoi
 #' @importFrom lattice prepanel.default.levelplot
 #' @importFrom utils modifyList
+#'
+#' @export
+#'
 plotvoronoi <- function(object, model = spc ~ x * y,
                         use.tripack = FALSE, mix = FALSE, ...) {
   if (!requireNamespace("latticeExtra")) {
