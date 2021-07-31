@@ -58,8 +58,8 @@ setMethod("Summary", signature(x = "hyperSpec"), .Summary)
 # Function -------------------------------------------------------------------
 
 .is.na <- function(x) {
-    is.na(x@data$spc)
-  }
+  is.na(x@data$spc)
+}
 
 #' @rdname summary
 #' @aliases is.na,hyperSpec-method
