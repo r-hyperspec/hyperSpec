@@ -42,11 +42,10 @@
   
 
 <meta property="og:title" content="Plotting spectra — plotspc" />
-<meta property="og:description" content="Plot the spectra of a hyperSpec object, i.e. intensity over
-wavelength. Instead of the intensity values of the spectra matrix summary
-values calculated from these may be used.
-Usually, the stacked argument of plotspc() will do fine, but if you
-need fine control over the stacking, you may calculate the y offsets yourself." />
+<meta property="og:description" content="Plot spectra of a hyperSpec object, i.e. intensity over wavelength.
+Instead of the intensity values of the spectra matrix summary values
+calculated from these may be used.
+Calculate appropriate yoffset values for stacking in plotspc()." />
 
 <meta name="robots" content="noindex" />
 
@@ -165,11 +164,10 @@ need fine control over the stacking, you may calculate the y offsets yourself." 
     </div>
 
     <div class="ref-description">
-    <p>Plot the spectra of a <code>hyperSpec</code> object, i.e. intensity over
-wavelength. Instead of the intensity values of the spectra matrix summary
-values calculated from these may be used.</p>
-<p>Usually, the <code>stacked</code> argument of <code>plotspc()</code> will do fine, but if you
-need fine control over the stacking, you may calculate the y offsets yourself.</p>
+    <p>Plot spectra of a <code>hyperSpec</code> object, i.e. intensity over wavelength.
+Instead of the intensity values of the spectra matrix summary values
+calculated from these may be used.</p>
+<p>Calculate appropriate <code>yoffset</code> values for stacking in <code>plotspc()</code>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>plotspc</span><span class='op'>(</span>
@@ -216,11 +214,11 @@ need fine control over the stacking, you may calculate the y offsets yourself.</
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>object</th>
-      <td><p>the <code>hyperSpec</code> object</p></td>
+      <td><p><code>hyperSpec</code> object.</p></td>
     </tr>
     <tr>
       <th>wl.range</th>
-      <td><p>the wavelength range to be plotted.</p>
+      <td><p>The wavelength range to be plotted.</p>
 <p>Either a numeric vector or a list of vectors with different wavelength
 ranges to be plotted separately.</p>
 <p>The values can be either wavelengths or wavelength indices (according to
@@ -229,8 +227,8 @@ ranges to be plotted separately.</p>
     <tr>
       <th>wl.index</th>
       <td><p>if <code>TRUE</code>, <code>wl.range</code> is considered to give
-column indices into the spectra matrix. Defaults to specifying wavelength
-values rather than indices.</p></td>
+column indices into the spectra matrix. Defaults to specifying
+wavelength values rather than indices.</p></td>
     </tr>
     <tr>
       <th>wl.reverse</th>
@@ -259,8 +257,7 @@ interpreted as the name of the extra data column that holds the groups.</p></td>
     </tr>
     <tr>
       <th>stacked.args</th>
-      <td><p>a list with further arguments to
-<code>stacked.offsets()</code>.</p></td>
+      <td><p>a list with further arguments to <code>stacked.offsets()</code>.</p></td>
     </tr>
     <tr>
       <th>add</th>
@@ -272,28 +269,26 @@ interpreted as the name of the extra data column that holds the groups.</p></td>
     </tr>
     <tr>
       <th>plot.args</th>
-      <td><p><code>list</code> with further arguments to
-<code><a href='https://rdrr.io/r/graphics/plot.default.html'>graphics::plot()</a></code></p></td>
+      <td><p><code>list</code> with further arguments to <code><a href='https://rdrr.io/r/graphics/plot.default.html'>graphics::plot()</a></code>.</p></td>
     </tr>
     <tr>
       <th>col</th>
-      <td><p>see <code><a href='https://rdrr.io/r/graphics/par.html'>graphics::par()</a></code>. <code>col</code> might be a vector
-giving individual colors for the spectra.</p></td>
+      <td><p>see <code><a href='https://rdrr.io/r/graphics/par.html'>graphics::par()</a></code>. <code>col</code> might be a vector giving individual
+colors for the spectra.</p></td>
     </tr>
     <tr>
       <th>lines.args</th>
-      <td><p>list with further arguments to
-<code><a href='https://rdrr.io/r/graphics/lines.html'>graphics::lines()</a></code>.</p>
-<p><code>lines.args$type</code> defaults to "l".</p></td>
+      <td><p>list with further arguments to <code><a href='https://rdrr.io/r/graphics/lines.html'>graphics::lines()</a></code>.</p>
+<p><code>lines.args$type</code> defaults to <code>"l"</code>.</p></td>
     </tr>
     <tr>
       <th>xoffset</th>
-      <td><p>vector with abscissa offsets for each of the
-<code>wl.range</code>s. If it has one element less than there are
-<code>wl.range</code>s, 0 is padded at the beginning.</p>
+      <td><p>vector with abscissa offsets for each of the <code>wl.range</code>s.
+If it has one element less than there are <code>wl.range</code>s, 0 is padded
+at the beginning.</p>
 <p>The values are interpreted as the distance along the wavelength axis that
-the following parts of the spectra are shifted towards the origin. E.g.
-if <code>wl.range = list (600 ~ 1800, 2800 ~ 3200)</code>, <code>xoffset = 750</code>
+the following parts of the spectra are shifted towards the origin.
+E.g. if <code>wl.range = list(600 ~ 1800, 2800 ~ 3200)</code>, <code>xoffset = 750</code>
 would result in a reasonable plot. See also the examples.</p></td>
     </tr>
     <tr>
@@ -308,29 +303,27 @@ spectra, one per spectrum or one per group in <code>stacked</code>.</p></td>
     </tr>
     <tr>
       <th>axis.args</th>
-      <td><p><code>list</code> with further arguments for
-<code><a href='https://rdrr.io/r/graphics/axis.html'>graphics::axis()</a></code>. <code>axis.args$x</code> should contain arguments
-for plotting the abscissa, <code>axis.args$y</code> those for the ordinate
-(again as <code>lists</code>).</p></td>
+      <td><p><code>list</code> with further arguments for <code><a href='https://rdrr.io/r/graphics/axis.html'>graphics::axis()</a></code>.
+<code>axis.args$x</code> should contain arguments for plotting the abscissa,
+<code>axis.args$y</code> those for the ordinate (again as <code>lists</code>).</p></td>
     </tr>
     <tr>
       <th>break.args</th>
-      <td><p>list with arguments for
-<code><a href='https://rdrr.io/pkg/plotrix/man/axis.break.html'>plotrix::axis.break()</a></code>.</p></td>
+      <td><p>list with arguments for <code><a href='https://rdrr.io/pkg/plotrix/man/axis.break.html'>plotrix::axis.break()</a></code>.</p></td>
     </tr>
     <tr>
       <th>title.args</th>
-      <td><p>list with further arguments to
-<code><a href='https://rdrr.io/r/graphics/title.html'>graphics::title()</a></code>.</p>
-<p><code>title.args</code> may contain two lists, <code>$x</code>, and <code>$y</code> to set
-parameters individually for each axis.</p></td>
+      <td><p>list with further arguments to <code><a href='https://rdrr.io/r/graphics/title.html'>graphics::title()</a></code>.</p>
+<p><code>title.args</code> may contain two lists, <code>$x</code>, and <code>$y</code> to set parameters
+individually for each axis.</p></td>
     </tr>
     <tr>
       <th>fill</th>
       <td><p>if not <code>NULL</code>, the area between the specified spectra is
 filled with color <code>col</code>. The grouping can be given as factor or
-numeric, or as a character with the name of the extra data column to use.
-If a group contains more than 2 spectra, the first and the last are used.</p>
+numeric, or as a character with the name of the extra data column
+to use. If a group contains more than 2 spectra, the first and the
+last are used.</p>
 <p>If <code>TRUE</code> spectra n and nrow (spc) - n build a group.</p></td>
     </tr>
     <tr>
@@ -345,44 +338,45 @@ line color <code>col</code> to <code>NA</code> in order see the effect.</p></td>
     </tr>
     <tr>
       <th>polygon.args</th>
-      <td><p>list with further arguments to
-<code><a href='https://rdrr.io/r/graphics/polygon.html'>graphics::polygon()</a></code> which draws the filled areas.</p></td>
+      <td><p>list with further arguments to <code><a href='https://rdrr.io/r/graphics/polygon.html'>graphics::polygon()</a></code>,
+which draws the filled areas.</p></td>
     </tr>
     <tr>
       <th>zeroline</th>
-      <td><p><code>NA</code> or a list with arguments
-<code><a href='https://rdrr.io/r/graphics/abline.html'>graphics::abline()</a></code>, used to plot line (s) marking I = 0.</p>
+      <td><p><code>NA</code> or a list with arguments <code><a href='https://rdrr.io/r/graphics/abline.html'>graphics::abline()</a></code>, used
+to plot line(s) marking <code>I = 0</code>.</p>
 <p><code>NA</code> suppresses plotting of the line.  The line is by default turned
 off if <code>yoffset</code> is not 0.</p></td>
     </tr>
     <tr>
       <th>debuglevel</th>
-      <td><p>if &gt; 0, additional debug output is produced,
-see <code><a href='https://rdrr.io/r/base/options.html'>options()</a></code> for details</p></td>
+      <td><p>if &gt; 0, additional debug output is produced, see
+<code><a href='https://rdrr.io/r/base/options.html'>options()</a></code> for details.</p></td>
     </tr>
     <tr>
       <th>x</th>
-      <td><p>a <code>hyperSpec</code> object</p></td>
+      <td><p><code>hyperSpec</code> object.</p></td>
     </tr>
     <tr>
       <th>min.zero</th>
-      <td><p>if <code>TRUE</code>, the lesser of zero and the minimum intensity of the spectrum is
-used as minimum.</p></td>
+      <td><p>If <code>TRUE</code>, the lesser of zero and the minimum intensity of
+the spectrum is used as minimum.</p></td>
     </tr>
     <tr>
       <th>add.factor, add.sum</th>
-      <td><p>proportion and absolute amount of space that should be added.</p></td>
+      <td><p>proportion and absolute amount of space that
+should be added.</p></td>
     </tr>
     <tr>
       <th>.spc</th>
-      <td><p>for internal use. If given, the ranges are evaluated on <code>.spc</code>. However, this
-may change in future.</p></td>
+      <td><p>for internal use. If given, the ranges are evaluated on <code>.spc</code>.
+However, this may change in future.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>plotspc</code> invisibly returns a list with</p>
+    <p><code>plotspc</code> invisibly returns a list with:</p>
 <dt>x</dt><dd><p>the abscissa coordinates of the plotted spectral data points</p></dd>
 
 <dt>y</dt><dd><p>a matrix the ordinate coordinates of the plotted spectral data
@@ -392,9 +386,10 @@ points</p></dd>
 
 This can be used together with <a href='spc.identify.html'>spc.identify()</a>.
 
-a list containing <dt>offsets</dt><dd><p>numeric with the yoffset for each group in
-<code>stacked</code></p></dd> <dt>groups</dt><dd><p>numeric with the group number for each spectrum</p></dd> <dt>levels</dt><dd><p>if
-<code>stacked</code> is a factor, the levels of the groups</p></dd>
+a list containing
+<dt>offsets</dt><dd><p>numeric with the yoffset for each group in <code>stacked</code></p></dd>
+<dt>groups</dt><dd><p>numeric with the group number for each spectrum</p></dd>
+<dt>levels</dt><dd><p>if <code>stacked</code> is a factor, the levels of the groups</p></dd>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -406,19 +401,20 @@ axis labels. This allows fine-grained customization of the plots.</p>
 <p>If package plotrix is available, its function
 <code><a href='https://rdrr.io/pkg/plotrix/man/axis.break.html'>plotrix::axis.break()</a></code> is used to produce break marks for cut
 wavelength axes.</p>
-<p>Empty levels of the stacking factor are dropped (as no stacking offset can be calculated in that
-case.)</p>
+<p>Usually, the <code>stacked</code> argument of <code>plotspc()</code> will do fine, but
+if you need fine control over the stacking, you may calculate the y offsets
+yourself.</p>
+<p>Empty levels of the stacking factor are dropped (as no stacking offset can
+be calculated in that case.)</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/r/graphics/plot.default.html'>graphics::plot()</a></code>, <code><a href='https://rdrr.io/r/graphics/axis.html'>graphics::axis()</a></code>,
-<code><a href='https://rdrr.io/r/graphics/title.html'>graphics::title()</a></code>, <code><a href='https://rdrr.io/r/graphics/lines.html'>graphics::lines()</a></code>,
-<code><a href='https://rdrr.io/r/graphics/polygon.html'>graphics::polygon()</a></code>, <code><a href='https://rdrr.io/r/graphics/par.html'>graphics::par()</a></code> for the
-description of the respective arguments.</p>
-<p><code><a href='https://rdrr.io/pkg/plotrix/man/axis.break.html'>plotrix::axis.break()</a></code> for cut marks</p>
-<p>See <code><a href='plot-methods.html'>plot()</a></code> for some predefined spectra plots such as mean
-spectrum +/- one standard deviation and the like.</p>
-<p><code><a href='https://rdrr.io/r/graphics/identify.html'>graphics::identify()</a></code> and <code><a href='https://rdrr.io/r/graphics/locator.html'>graphics::locator()</a></code> about
-interaction with plots.</p>
+    <div class='dont-index'><p><code><a href='https://rdrr.io/r/graphics/plot.default.html'>graphics::plot()</a></code>, <code><a href='https://rdrr.io/r/graphics/axis.html'>graphics::axis()</a></code>, <code><a href='https://rdrr.io/r/graphics/title.html'>graphics::title()</a></code>,
+<code><a href='https://rdrr.io/r/graphics/lines.html'>graphics::lines()</a></code>, <code><a href='https://rdrr.io/r/graphics/polygon.html'>graphics::polygon()</a></code>, <code><a href='https://rdrr.io/r/graphics/par.html'>graphics::par()</a></code>
+for the description of the respective arguments;</p>
+<p><code><a href='https://rdrr.io/pkg/plotrix/man/axis.break.html'>plotrix::axis.break()</a></code> for cut marks;</p>
+<p>See <code><a href='plot-methods.html'>plot()</a></code> for some predefined spectra plots such as mean spectrum +/- one
+standard deviation and the like.</p>
+<p><code><a href='https://rdrr.io/r/graphics/identify.html'>graphics::identify()</a></code> and <code><a href='https://rdrr.io/r/graphics/locator.html'>graphics::locator()</a></code> about interaction with plots.</p>
 <p><code>plotspc()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
@@ -426,10 +422,9 @@ interaction with plots.</p>
 <p>C. Beleites</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='fu'>plotspc</span><span class='op'>(</span><span class='va'>flu</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='fu'>plotspc</span><span class='op'>(</span><span class='va'>flu</span><span class='op'>)</span>
 </div><div class='img'><img src='plotspc-1.png' alt='' width='466' height='288' /></div><div class='input'>
-<span class='co'>## artificial example to show wavelength axis cutting</span>
+<span class='co'>## Artificial example to show wavelength axis cutting</span>
 <span class='fu'>plotspc</span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>)</span>, <span class='fl'>50</span><span class='op'>)</span><span class='op'>]</span>,
   wl.range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fl'>600</span> <span class='op'>~</span> <span class='fl'>650</span>, <span class='fl'>1000</span> <span class='op'>~</span> <span class='fl'>1100</span>, <span class='fl'>1600</span> <span class='op'>~</span> <span class='fl'>1700</span><span class='op'>)</span>,
   xoffset <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>300</span>, <span class='fl'>450</span><span class='op'>)</span>
@@ -459,13 +454,13 @@ interaction with plots.</p>
   axis.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>col <span class='op'>=</span> <span class='st'>"magenta"</span><span class='op'>)</span>, y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>las <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
 <span class='op'>)</span>
 </div><div class='img'><img src='plotspc-6.png' alt='' width='466' height='288' /></div><div class='input'>
-<span class='va'>mean.pm.sd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='aggregate.html'>aggregate</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='va'>faux_cell</span><span class='op'>$</span><span class='va'>region</span>, <span class='va'>mean_pm_sd</span><span class='op'>)</span>
-<span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>mean.pm.sd</span>, col <span class='op'>=</span> <span class='fu'><a href='palette_matlab.html'>palette_matlab</a></span><span class='op'>(</span><span class='fl'>3</span><span class='op'>)</span>, fill <span class='op'>=</span> <span class='st'>".aggregate"</span>, stacked <span class='op'>=</span> <span class='st'>".aggregate"</span><span class='op'>)</span>
+<span class='va'>mean_pm_sd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='aggregate.html'>aggregate</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='va'>faux_cell</span><span class='op'>$</span><span class='va'>region</span>, <span class='va'>mean_pm_sd</span><span class='op'>)</span>
+<span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>mean_pm_sd</span>, col <span class='op'>=</span> <span class='fu'><a href='palette_matlab.html'>palette_matlab</a></span><span class='op'>(</span><span class='fl'>3</span><span class='op'>)</span>, fill <span class='op'>=</span> <span class='st'>".aggregate"</span>, stacked <span class='op'>=</span> <span class='st'>".aggregate"</span><span class='op'>)</span>
 </div><div class='img'><img src='plotspc-7.png' alt='' width='466' height='288' /></div><div class='input'>
-<span class='va'>mean.pm.sd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='aggregate.html'>aggregate</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='va'>faux_cell</span><span class='op'>$</span><span class='va'>region</span>, <span class='va'>mean_pm_sd</span><span class='op'>)</span>
-
-<span class='va'>offset</span> <span class='op'>&lt;-</span> <span class='fu'>stacked.offsets</span><span class='op'>(</span><span class='va'>mean.pm.sd</span>, <span class='st'>".aggregate"</span><span class='op'>)</span>
-<span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>mean.pm.sd</span>,
+<span class='va'>mean_pm_sd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='aggregate.html'>aggregate</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='va'>faux_cell</span><span class='op'>$</span><span class='va'>region</span>, <span class='va'>mean_pm_sd</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in get(as.character(FUN), mode = "function", envir = envir): object 'FUN' of mode 'function' was not found</span></div><div class='input'>
+<span class='va'>offset</span> <span class='op'>&lt;-</span> <span class='fu'>stacked.offsets</span><span class='op'>(</span><span class='va'>mean_pm_sd</span>, <span class='st'>".aggregate"</span><span class='op'>)</span>
+<span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>mean_pm_sd</span>,
   fill.col <span class='op'>=</span> <span class='fu'><a href='palette_matlab.html'>palette_matlab</a></span><span class='op'>(</span><span class='fl'>3</span><span class='op'>)</span>, fill <span class='op'>=</span> <span class='st'>".aggregate"</span>,
   stacked <span class='op'>=</span> <span class='st'>".aggregate"</span>
 <span class='op'>)</span>
