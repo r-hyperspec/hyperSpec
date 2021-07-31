@@ -47,18 +47,24 @@ setGeneric("rmmvnorm", .rmmvnorm)
 #' Multivariate normal random numbers
 #'
 #' Interface functions to use [mvtnorm::rmvnorm()] for
-#' [hyperSpec::hyperSpec-class()] objects.
+#' [hyperSpec][hyperSpec::hyperSpec-class()] objects.
 #'
-#' The `mvtnorm` method for `hyperSpec` objects supports producing multivariate
+#' The `mvtnorm()` method for `hyperSpec` objects supports producing multivariate
 #' normal data for groups with different mean but common covariance matrix,
 #' see the examples.
 #'
+#' - `mvtnorm::rmvnorm()` (with 1 'm') allows a single covariance matrix.
+#' - `hyperSpec::rmmvnorm()` (with 2 'm') allows *m*ultiple covariance matrices
+#'    for multiple groups. It has methods not only for `hyperSpec` objects but
+#'    also such a multi-group extension for numeric objects.
+#'
 #' @rdname rmmvnorm
 #' @aliases rmmvnorm rmmvnorm,hyperSpec-method
+#'
 #' @docType methods
 #'
-#' @param n vector giving the number of cases to generate for each group
-#' @param mean matrix with mean cases in rows
+#' @param n vector giving the number of cases to generate for each group.
+#' @param mean matrix with mean cases in rows.
 #' @param sigma common covariance matrix or array
 #' (`ncol(mean)` x `ncol(mean)` x `nrow(mean)`) with individual covariance
 #' matrices for the groups.
