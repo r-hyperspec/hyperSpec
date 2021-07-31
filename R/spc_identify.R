@@ -275,10 +275,10 @@ spc.point.sqr <- function(wl, spc, wlclick, delta = 1L) {
   }
 }
 
-#' @param ispc if a selection of spectra was plotted, their indices can be
-#'        given in `ispc`. In this case `ispc [i]` is returned rather than `i`.
-#' @param digits how many digits of the wavelength should be displayed?
 #' @rdname spc-identify
+#' @param ispc if a selection of spectra was plotted, their indices can be
+#'        given in `ispc`. In this case `ispc[i]` is returned rather than `i`.
+#' @param digits how many digits of the wavelength should be displayed?
 #' @export
 spc.label.default <- function(ispc, wl, spc, digits = 3) {
   sprintf(" %i, %s ", ispc, format(wl, digits = digits))
