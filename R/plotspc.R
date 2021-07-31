@@ -815,7 +815,7 @@ hySpc.testthat::test(.cut.ticks) <- function() {
   context(".cut.ticks")
 
   ## bugfix:
-  ## plotspc (paracetamol, wl.range = c (min ~ 1800, 2800 ~ max), xoffset = 900)
+  ## plotspc(paracetamol, wl.range = c(min ~ 1800, 2800 ~ max), xoffset = 900)
   ## had 2600 1/cm label printed in low wavelength range
   test_that("labels not too far outside wl.range", {
     expect_equal(
