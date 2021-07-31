@@ -246,5 +246,8 @@ i2wl <- function(x, i) {
   x@wavelength[i]
 }
 
-## check for wrong complex invocation
-## grepl("[(][[:digit:].]+[+-][[:digit:].]+i[)]", deparse (substitute (1i %~% max - 3i | 2800 %~% 3000, list (max = 3000))))
+## Check for wrong complex invocation
+##
+## grepl("[(][[:digit:].]+[+-][[:digit:].]+i[)]",
+##      deparse(substitute(1i %~% max - 3i | 2800 %~% 3000, list(max = 3000)))
+## )
