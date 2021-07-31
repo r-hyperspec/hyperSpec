@@ -172,7 +172,6 @@ wl2i <- function(x, wavelength = stop("wavelengths are required."), unlist = TRU
 hySpc.testthat::test(wl2i) <- function() {
   context("wl2i")
   test_that(": sequence of wavelengths", {
-    skip("skip")
     expect_equal(wl2i(flu, 405:407), c(1, 3, 5))
   })
 
