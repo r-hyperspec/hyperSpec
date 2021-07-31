@@ -57,7 +57,9 @@ hySpc.testthat::test(read.mat.Witec) <- function() {
   test_that(
     "deprecated",
     expect_warning(
-      expect_error(read.mat.Witec(file = ""), "Can only read a MAT file"),
+      expect_error(
+        with_envvar(list (LANGUAGE = "en_US"), read.mat.Witec(file = "")),
+        "Can only read a MAT file"),
       "deprecated|supports"
     )
   )

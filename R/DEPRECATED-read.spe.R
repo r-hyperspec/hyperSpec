@@ -361,7 +361,8 @@ hySpc.testthat::test(read.spe) <- function() {
   test_that(
     "deprecated",
     expect_warning(
-      expect_error(read.spe(filename = ""), "can only read"),
+      expect_error(with_envvar(list (LANGUAGE = "en_US"), read.spe(filename = "")), 
+        "can only read"),
       "deprecated"
     )
   )

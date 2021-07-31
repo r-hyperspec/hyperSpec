@@ -48,7 +48,8 @@ Imports:
     rlang,
     testthat,
     utils,
-    xml2
+    xml2,
+    withr
 Suggests:
     baseline,
     bookdown,
