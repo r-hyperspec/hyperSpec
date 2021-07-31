@@ -94,7 +94,7 @@ hySpc.testthat::test(.spc_io_postprocess_optional) <- function() {
 
   test_that("option treatment", {
     hy.setOptions(file.remove.emptyspc = FALSE)
-    skip("TODO: implement")
+    skip("FIXME: not implemented")
     do.call(hy.setOptions, options.state)
   })
 }
