@@ -128,6 +128,9 @@
 #' @concept plot generation
 #'
 #'
+#' @importFrom utils modifyList relist head tail
+#' @importFrom grDevices rgb col2rgb
+#'
 #' @export
 #'
 #' @examples
