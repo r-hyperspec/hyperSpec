@@ -39,7 +39,6 @@ NULL
 #'
 #' @examples
 #' qplotspc(flu)
-#'
 qplotspc <- function(x,
                      wl.range = TRUE, ...,
                      mapping = aes_string(
@@ -126,7 +125,6 @@ qplotspc <- function(x,
 #'
 #' @examples
 #' qplotmap(faux_cell[, , 1200])
-#'
 qplotmap <- function(object,
                      mapping = aes_string(x = "x", y = "y", fill = "spc"),
                      ...,
@@ -198,7 +196,6 @@ qplotmap <- function(object,
 #'
 #' @examples
 #' qplotc(flu)
-#'
 qplotc <- function(object, mapping = aes_string(x = "c", y = "spc"), ...,
                    func = NULL, func.args = list(),
                    map.pointonly = FALSE) {
@@ -311,17 +308,15 @@ make.fn.expr <- function(fn, l = list()) {
 #' @examples
 #' faux_cell <- faux_cell - spc_fit_poly_below(faux_cell)
 #'
-#' qplotmixmap(faux_cell [, , c(800, 1200, 1500)],
+#' qplotmixmap(faux_cell[, , c(800, 1200, 1500)],
 #'   purecol = c(A = "green4", B = "yellow", C = "royalblue")
 #' )
-#'
 qplotmixmap <- function(object, ...) {
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   deprecated_ggplot2(new = "qplotmixmap")
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Suppress excessive deprecation warnings from internally used functions.
   suppress_warnings(classes = "deprecatedWarning", expr = {
-
     p <- qmixtile(object@data, ...) +
       coord_equal()
 
