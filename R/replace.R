@@ -253,7 +253,7 @@ hySpc.testthat::test(.replace) <- function() {
 
     # $
     spc <- spc0
-    expect_is(spc$.,  "data.frame")
+    expect_is(spc$., "data.frame")
     expect_is(spc$.., "data.frame")
 
     spc <- spc0
@@ -263,12 +263,12 @@ hySpc.testthat::test(.replace) <- function() {
 
     spc <- spc0
     expect_silent(spc$z <- list(1:6, "z / a.u."))
-    expect_equal(labels(spc, "z"),   "z / a.u.")
+    expect_equal(labels(spc, "z"), "z / a.u.")
     expect_true("z" %in% colnames(spc))
 
     spc <- spc0
     expect_silent(spc$.. <- NULL)
     expect_equal(ncol(spc$..), 0) # empty data frame.
-    expect_equal(ncol(spc),    1) # only "spc" column is left.
+    expect_equal(ncol(spc), 1) # only "spc" column is left.
   })
 }
