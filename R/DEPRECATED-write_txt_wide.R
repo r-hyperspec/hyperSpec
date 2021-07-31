@@ -28,7 +28,7 @@ write.txt.wide <- function(object,
   validObject(object)
 
   if (!is.null(cols)) {
-    object <- object [, cols]
+    object <- object[, cols]
   }
 
   if (col.names) {
@@ -36,8 +36,8 @@ write.txt.wide <- function(object,
 
     if (col.labels) {
       cln <- match(colnames(object@data), names(object@label))
-      cln[!is.na(cln)] <- object@label [cln[!is.na(cln)]]
-      cln[is.na(cln)] <- colnames(object@data) [is.na(cln)]
+      cln[!is.na(cln)] <- object@label[cln[!is.na(cln)]]
+      cln[is.na(cln)] <- colnames(object@data)[is.na(cln)]
       cln <- sapply(cln, as.character)
       # cln [-col.spc] <- object@label []
     } else {
@@ -49,9 +49,9 @@ write.txt.wide <- function(object,
     if (header.lines == 1) {
       write.table(matrix(c(
         if (row.names) "" else NULL,
-        cln [i < col.spc],
+        cln[i < col.spc],
         object@wavelength,
-        cln [i > col.spc]
+        cln[i > col.spc]
       ), nrow = 1),
       file = file, append = append, quote = quote, sep = sep,
       row.names = FALSE, col.names = FALSE
@@ -61,10 +61,10 @@ write.txt.wide <- function(object,
       ## 1st line
       write.table(matrix(c(
         if (row.names) "" else NULL,
-        cln [i < col.spc],
-        if (col.labels) cln [col.spc] else "",
+        cln[i < col.spc],
+        if (col.labels) cln[col.spc] else "",
         rep("", length(object@wavelength) - 1),
-        cln [i > col.spc]
+        cln[i > col.spc]
       ), nrow = 1),
       file = file, append = append, quote = quote, sep = sep,
       row.names = FALSE, col.names = FALSE

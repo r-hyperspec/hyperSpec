@@ -38,7 +38,6 @@
 #' @importFrom utils read.table unstack
 #'
 #' @examples
-#'
 #' \dontrun{
 #' vignette("fileio")
 #' }
@@ -102,7 +101,6 @@
 #'   ),
 #'   header = TRUE
 #' )
-
 read.txt.long <- function(file = stop("file is required"),
                           cols = list(
                             .wavelength = expression(lambda / nm),
@@ -154,7 +152,7 @@ read.txt.long <- function(file = stop("file is required"),
 
   colnames(spc) <- levels(txtfile$.wavelength)
 
-  txtfile <- txtfile [txtfile$.wavelength == txtfile$.wavelength[1], ]
+  txtfile <- txtfile[txtfile$.wavelength == txtfile$.wavelength[1], ]
   txtfile$.wavelength <- NULL
   txtfile$spc <- I(spc)
 
@@ -167,9 +165,11 @@ read.txt.long <- function(file = stop("file is required"),
 hySpc.testthat::test(read.txt.long) <- function() {
   context("read.txt.long")
 
-  test_that("deprecated",
-            expect_warning(
-              expect_error(read.txt.long(file = ""), "no lines available"),
-              "deprecated")
+  test_that(
+    "deprecated",
+    expect_warning(
+      expect_error(read.txt.long(file = ""), "no lines available"),
+      "deprecated"
+    )
   )
 }

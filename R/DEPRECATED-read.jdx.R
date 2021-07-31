@@ -64,7 +64,9 @@ read.jdx <- function(filename = NULL, encoding = "",
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   hySpc_deprecated(new = "read_jdx()", package = "hySpc.read.jdx")
 
-  if (is.null(filename)) return(NA)
+  if (is.null(filename)) {
+    return(NA)
+  }
 
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -120,7 +122,6 @@ read.jdx <- function(filename = NULL, encoding = "",
     spc[[s]] <- switch(hdr$.format,
       `(X++(Y..Y))` = .jdx.TABULAR.PAC(hdr, jdx[datastart[s]:spcend[s]], ...),
       `(XY..XY)` = .jdx.TABULAR.AFFN(hdr, jdx[datastart[s]:spcend[s]], ...),
-
       stop("unknown JCAMP-DX data format: ", hdr$xydata)
     )
 
@@ -369,5 +370,4 @@ hySpc.testthat::test(read.jdx) <- function() {
     "deprecated",
     expect_warning(read.jdx(), "deprecated.*hySpc.read.jdx")
   )
-
 }

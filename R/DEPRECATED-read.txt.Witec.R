@@ -52,7 +52,9 @@ read.txt.Witec <- function(file = NULL,
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   deprecated_read_txt()
 
-  if (is.null (file)) return (NA) # allow checking for deprecation w/o failure
+  if (is.null(file)) {
+    return(NA)
+  } # allow checking for deprecation w/o failure
 
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -75,11 +77,11 @@ read.txt.Witec <- function(file = NULL,
   hdr <- head(tmp, skip)
 
   ## fix: Witec/Andor may have final comma without values
-  if (all(is.na(txt [nrow(txt), ]))) {
-    txt <- txt [-nrow(txt), ]
+  if (all(is.na(txt[nrow(txt), ]))) {
+    txt <- txt[-nrow(txt), ]
   }
 
-  spc <- new("hyperSpec", wavelength = txt [1, ], spc = txt [-1, ])
+  spc <- new("hyperSpec", wavelength = txt[1, ], spc = txt[-1, ])
 
   ## add header information
   if (hdr.label | hdr.units) {
@@ -98,7 +100,7 @@ read.txt.Witec <- function(file = NULL,
 hySpc.testthat::test(read.txt.Witec) <- function() {
   context("read.txt.Witec")
 
-  test_that("deprecated", expect_warning(read.txt.Witec (), "deprecated"))
+  test_that("deprecated", expect_warning(read.txt.Witec(), "deprecated"))
 }
 
 #' @rdname DEPRECATED-read.txt.Witec
@@ -120,7 +122,9 @@ read.dat.Witec <- function(filex = NULL,
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   deprecated_read_txt()
 
-  if (is.null (filex)) return (NA) # allow checking for deprecation w/o failure
+  if (is.null(filex)) {
+    return(NA)
+  } # allow checking for deprecation w/o failure
 
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -153,8 +157,7 @@ read.dat.Witec <- function(filex = NULL,
 hySpc.testthat::test(read.dat.Witec) <- function() {
   context("read.dat.Witec")
 
-  test_that("deprecated", expect_warning(read.dat.Witec (), "deprecated"))
-
+  test_that("deprecated", expect_warning(read.dat.Witec(), "deprecated"))
 }
 
 
@@ -173,7 +176,9 @@ read.txt.Witec.Graph <- function(headerfile = NULL,
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   deprecated_read_txt()
 
-  if (is.null (headerfile)) return (NA) # allow checking for deprecation w/o failure
+  if (is.null(headerfile)) {
+    return(NA)
+  } # allow checking for deprecation w/o failure
 
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -222,7 +227,7 @@ read.txt.Witec.Graph <- function(headerfile = NULL,
 hySpc.testthat::test(read.txt.Witec.Graph) <- function() {
   context("read.txt.Witec.Graph")
 
-  test_that("deprecated", expect_warning(read.txt.Witec.Graph (), "deprecated"))
+  test_that("deprecated", expect_warning(read.txt.Witec.Graph(), "deprecated"))
 }
 
 ### -------- helpers ------------------------
@@ -260,7 +265,7 @@ hySpc.testthat::test(read.txt.Witec.Graph) <- function() {
     warning("lines.per.image != 1 are defined for single spectrum")
   }
 
-  if (type == "single" && !missing(hdr) && !is.null(hdr) && hdr ["SizeY", ] != 1) {
+  if (type == "single" && !missing(hdr) && !is.null(hdr) && hdr["SizeY", ] != 1) {
     warning("header provides spatial information in y direction for single spectra")
   }
 
@@ -274,22 +279,22 @@ hySpc.testthat::test(read.txt.Witec.Graph) <- function() {
 
     if (length(hdr) == 2) {
       spc@data$spcname <- hdr[[1]][-1]
-      labels(spc, ".wavelength") <- hdr[[2]] [1]
-      labels(spc, "spc") <- unique(hdr[[2]] [-1])
+      labels(spc, ".wavelength") <- hdr[[2]][1]
+      labels(spc, "spc") <- unique(hdr[[2]][-1])
     } else if (length(hdr) == 1 && hdr.label) {
       spc@data$spcname <- hdr[[1]][-1]
     } else {
-      labels(spc, ".wavelength") <- hdr[[1]] [1]
-      labels(spc, "spc") <- unique(hdr[[1]] [-1])
+      labels(spc, ".wavelength") <- hdr[[1]][1]
+      labels(spc, "spc") <- unique(hdr[[1]][-1])
     }
   }
 
   if (!missing(hdr) && missing(hdr.label)) {
-    spc@data$spcname <- hdr ["GraphName", ]
+    spc@data$spcname <- hdr["GraphName", ]
     if ("FileName" %in% rownames(hdr)) {
-      spc@data$WIPname <- hdr ["FileName", ]
+      spc@data$WIPname <- hdr["FileName", ]
     }
-    labels(spc, "spc") <- hdr ["DataUnit", ]
+    labels(spc, "spc") <- hdr["DataUnit", ]
   }
   return(spc)
 }
@@ -317,8 +322,8 @@ hySpc.testthat::test(read.txt.Witec.Graph) <- function() {
     lines.per.image <- as.numeric(y) + 1
   } else if ((missing(points.per.line) || missing(lines.per.image)) &&
     !missing(hdr) && missing(hdr.label)) { # TODO: only read, if not yet calculated?
-    points.per.line <- as.numeric(hdr ["SizeX", ])
-    lines.per.image <- as.numeric(hdr ["SizeY", ])
+    points.per.line <- as.numeric(hdr["SizeX", ])
+    lines.per.image <- as.numeric(hdr["SizeY", ])
   } else if (is.null(points.per.line) && is.null(lines.per.image)) {
     warning("no spatial information provided")
     return(spc)

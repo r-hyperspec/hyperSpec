@@ -30,12 +30,12 @@
 #' @author Claudia Beleites
 #' @examples
 #' fluNA <- hyperSpec:::fluNA
-#' spc.NA.approx(fluNA [, , min ~ 410], debuglevel = 1)
-#' spc.NA.approx(fluNA [1, , min ~ 410], debuglevel = 2)
-#' spc.NA.approx(fluNA [4, , min ~ 410], neighbours = 3, df = 4, debuglevel = 2)
+#' spc.NA.approx(fluNA[, , min ~ 410], debuglevel = 1)
+#' spc.NA.approx(fluNA[1, , min ~ 410], debuglevel = 2)
+#' spc.NA.approx(fluNA[4, , min ~ 410], neighbours = 3, df = 4, debuglevel = 2)
 spc.NA.approx <- function(spc, neighbours = 1, w = rep(1, 2 * neighbours),
-  df = 1 + .Machine$double.eps, spar = NULL,
-  debuglevel = hy.getOption("debuglevel")) {
+                          df = 1 + .Machine$double.eps, spar = NULL,
+                          debuglevel = hy.getOption("debuglevel")) {
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   hySpc_deprecated("spc_na_approx")
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -72,7 +72,7 @@ spc.NA.approx <- function(spc, neighbours = 1, w = rep(1, 2 * neighbours),
 
       xneighbours <- c(
         -(1:neighbours) + nas[start[j]],
-        (1:neighbours)  + nas[end[j]]
+        (1:neighbours) + nas[end[j]]
       )
       mask <- xneighbours > 0 & xneighbours <= nwl(spc)
       xneighbours <- xneighbours[mask]
@@ -85,7 +85,7 @@ spc.NA.approx <- function(spc, neighbours = 1, w = rep(1, 2 * neighbours),
         if (debuglevel == 2L) {
           points(x = spc@wavelength[xneighbours], y = spc@data$spc[i, xneighbours])
         }
-      } else if (sum(mask) < 4) {# old behaviour using linear interpolation
+      } else if (sum(mask) < 4) { # old behaviour using linear interpolation
         spc@data$spc[i, pts] <- approx(
           x = spc@wavelength[xneighbours],
           y = spc@data$spc[i, xneighbours],
@@ -96,7 +96,7 @@ spc.NA.approx <- function(spc, neighbours = 1, w = rep(1, 2 * neighbours),
         if (debuglevel == 2L) {
           lines(x = spc@wavelength[xneighbours], y = spc@data$spc[i, xneighbours])
         }
-      } else {# more neighbours: interpolation spline
+      } else { # more neighbours: interpolation spline
         spline <- smooth.spline(
           x = spc@wavelength[xneighbours],
           y = spc@data$spc[i, xneighbours],
@@ -116,12 +116,16 @@ spc.NA.approx <- function(spc, neighbours = 1, w = rep(1, 2 * neighbours),
       }
 
       if (debuglevel == 2L) {
-        plot(spc[i, , xneighbours, wl.index = TRUE], add = TRUE,
-          lines.args = list(type = "p", pch = 20), col = 1)
+        plot(spc[i, , xneighbours, wl.index = TRUE],
+          add = TRUE,
+          lines.args = list(type = "p", pch = 20), col = 1
+        )
       }
       if (debuglevel >= 1L) {
-        plot(spc[i, , pts, wl.index = TRUE], add = TRUE,
-          lines.args = list(type = "p", pch = 20), col = 2)
+        plot(spc[i, , pts, wl.index = TRUE],
+          add = TRUE,
+          lines.args = list(type = "p", pch = 20), col = 2
+        )
       }
     }
   }
@@ -153,7 +157,8 @@ hySpc.testthat::test(spc.NA.approx) <- function() {
 
     expect_true(
       all(abs(tmp[[, , 406]] - rowMeans(fluNA[[-2, , 405 ~ 407]],
-        na.rm = TRUE)) <= 1e-5)
+        na.rm = TRUE
+      )) <= 1e-5)
     )
     # version on CRAN throws error on `expect_equal(tolerance = 1e-5)`
     # TODO => change back ASAP

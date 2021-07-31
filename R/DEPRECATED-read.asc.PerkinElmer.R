@@ -62,9 +62,11 @@ read.asc.PerkinElmer <- function(file = stop("filename or connection needed"), .
 hySpc.testthat::test(read.asc.PerkinElmer) <- function() {
   context("read.asc.PerkinElmer")
 
-  test_that("deprecated",
-            expect_warning(
-              expect_error(read.asc.PerkinElmer(file = "")),
-              "deprecated")
+  test_that(
+    "deprecated",
+    expect_warning(
+      expect_error(read.asc.PerkinElmer(file = "")),
+      "deprecated"
+    )
   )
 }

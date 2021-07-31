@@ -102,7 +102,7 @@ read.txt.Renishaw <- function(file = stop("file is required"),
   ## wavelength axis
   wl <- rep(TRUE, nrow(fbuf))
   for (i in seq_len(ncol(fbuf) - 2)) {
-    wl [wl] <- fbuf [wl, i] == fbuf [1, i]
+    wl[wl] <- fbuf[wl, i] == fbuf[1, i]
   }
 
   wl <- fbuf[wl, ncol - 1]
@@ -132,12 +132,12 @@ read.txt.Renishaw <- function(file = stop("file is required"),
 
   while (length(fbuf > 0)) {
     if (nlines > 0) cat(".")
-    spc [pos.spc + seq_len(nrow(fbuf))] <- fbuf [, ncol]
+    spc[pos.spc + seq_len(nrow(fbuf))] <- fbuf[, ncol]
     pos.spc <- pos.spc + nrow(fbuf)
 
-    tmp <- fbuf [fbuf[, ncol - 1] == wl [1], seq_len(ncol - 2), drop = FALSE]
+    tmp <- fbuf[fbuf[, ncol - 1] == wl[1], seq_len(ncol - 2), drop = FALSE]
 
-    data [pos.data + seq_len(nrow(tmp)), ] <- tmp
+    data[pos.data + seq_len(nrow(tmp)), ] <- tmp
     pos.data <- pos.data + nrow(tmp)
 
     fbuf <- matrix(scan(file, quiet = TRUE, nlines = nlines),
@@ -169,10 +169,12 @@ read.txt.Renishaw <- function(file = stop("file is required"),
 hySpc.testthat::test(read.txt.Renishaw) <- function() {
   context("read.txt.Renishaw")
 
-  test_that("deprecated",
-            expect_warning(
-              expect_error(read.txt.Renishaw(file = ""), "cannot open"),
-              "deprecated")
+  test_that(
+    "deprecated",
+    expect_warning(
+      expect_error(read.txt.Renishaw(file = ""), "cannot open"),
+      "deprecated"
+    )
   )
 }
 
@@ -194,9 +196,11 @@ read.zip.Renishaw <- function(file = stop("filename is required"),
 hySpc.testthat::test(read.zip.Renishaw) <- function() {
   context("read.zip.Renishaw")
 
-  test_that("deprecated",
-            expect_warning(
-              expect_error(read.zip.Renishaw(file = ""), "cannot open"),
-              "deprecated")
+  test_that(
+    "deprecated",
+    expect_warning(
+      expect_error(read.zip.Renishaw(file = ""), "cannot open"),
+      "deprecated"
+    )
   )
 }

@@ -22,9 +22,9 @@
 read.mat.Witec <- function(file = stop("filename or connection needed")) {
   if (!requireNamespace("R.matlab")) {
 
-  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  deprecated_read_mat()
-  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    deprecated_read_mat()
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     stop("package 'R.matlab' needed.")
   }
@@ -54,10 +54,11 @@ read.mat.Witec <- function(file = stop("filename or connection needed")) {
 hySpc.testthat::test(read.mat.Witec) <- function() {
   context("read.mat.Witec")
 
-  test_that("deprecated",
-            expect_warning(
-              expect_error(read.mat.Witec(file = ""), "Can only read a MAT file"),
-              "deprecated|supports")
+  test_that(
+    "deprecated",
+    expect_warning(
+      expect_error(read.mat.Witec(file = ""), "Can only read a MAT file"),
+      "deprecated|supports"
+    )
   )
 }
-

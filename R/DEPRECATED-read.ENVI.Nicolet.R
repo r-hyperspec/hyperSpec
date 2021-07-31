@@ -31,7 +31,7 @@ read.ENVI.Nicolet <- function(file = stop("read.ENVI: file name needed"),
   headerfile <- .find.ENVI.header(file, headerfile)
   keys <- readLines(headerfile)
   keys <- .read.ENVI.split.header(keys)
-  keys <- keys [c("description", "z plot titles", "pixel size")]
+  keys <- keys[c("description", "z plot titles", "pixel size")]
 
   header <- modifyList(keys, header)
 
@@ -90,25 +90,25 @@ read.ENVI.Nicolet <- function(file = stop("read.ENVI: file name needed"),
   if (is.na(x) && is.na(y) &&
     !is.null(header$description) && grepl(p.description, header$description) &&
     !is.null(header$"pixel size") && grepl(p.pixel.size, header$"pixel size")) {
-    x [1] <- as.numeric(sub(p.description, "\\1", header$description))
-    y [1] <- as.numeric(sub(p.description, "\\2", header$description))
+    x[1] <- as.numeric(sub(p.description, "\\1", header$description))
+    y[1] <- as.numeric(sub(p.description, "\\2", header$description))
 
-    x [2] <- as.numeric(sub(p.pixel.size, "\\1", header$"pixel size"))
-    y [2] <- as.numeric(sub(p.pixel.size, "\\2", header$"pixel size"))
+    x[2] <- as.numeric(sub(p.pixel.size, "\\1", header$"pixel size"))
+    y[2] <- as.numeric(sub(p.pixel.size, "\\2", header$"pixel size"))
 
     ## it seems that the step size is given in mm while the offset is in micron
     if (nicolet.correction) {
-      x [2] <- x [2] * 1000
-      y [2] <- y [2] * 1000
+      x[2] <- x[2] * 1000
+      y[2] <- y[2] * 1000
     }
 
     ## now calculate and set the x and y coordinates
-    x <- x [2] * spc$x + x [1]
+    x <- x[2] * spc$x + x[1]
     if (!any(is.na(x))) {
       spc@data$x <- x
     }
 
-    y <- y [2] * spc$y + y [1]
+    y <- y[2] * spc$y + y[1]
     if (!any(is.na(y))) {
       spc@data$y <- y
     }
@@ -123,9 +123,11 @@ read.ENVI.Nicolet <- function(file = stop("read.ENVI: file name needed"),
 hySpc.testthat::test(read.ENVI.Nicolet) <- function() {
   context("read.ENVI.Nicolet")
 
-  test_that("deprecated",
-            expect_warning(
-              expect_error(read.ENVI.Nicolet(file = ""), "Cannot guess header"),
-              "deprecated")
+  test_that(
+    "deprecated",
+    expect_warning(
+      expect_error(read.ENVI.Nicolet(file = ""), "Cannot guess header"),
+      "deprecated"
+    )
   )
 }

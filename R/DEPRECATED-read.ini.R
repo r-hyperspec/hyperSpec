@@ -39,12 +39,12 @@ read.ini <- function(con = stop("Connection con needed."), skip = NULL, encoding
   Lines <- readLines(con, encoding = encoding)
   ## remove leading lines, if they are not a section
   if (!is.null(skip)) {
-    Lines <- Lines [-seq_len(skip)]
+    Lines <- Lines[-seq_len(skip)]
   }
 
   sections <- grep("[[].*[]]", Lines)
 
-  content <- Lines [-sections]
+  content <- Lines[-sections]
   ini <- as.list(gsub("^.*=[[:blank:]]*", "", content)) # removes blanks behind equal sign
   names(ini) <- .sanitize.name(gsub("[[:blank:]]*=.*$", "", content)) # see above: removes in front of equal sign
 
@@ -52,12 +52,12 @@ read.ini <- function(con = stop("Connection con needed."), skip = NULL, encoding
   tmp <- lapply(ini, function(x) strsplit(x, ",")[[1]])
   tmp <- suppressWarnings(lapply(tmp, as.numeric))
   numbers <- !sapply(tmp, function(x) any(is.na(x)))
-  ini [numbers] <- tmp [numbers]
+  ini[numbers] <- tmp[numbers]
 
   tmp <- rep.int(seq_along(sections), diff(c(sections, length(Lines) + 1)) - 1)
   ini <- split(ini, tmp)
 
-  sections <- Lines [sections]
+  sections <- Lines[sections]
   sections <- .sanitize.name(gsub("^.(.*).$", "\\1", sections))
   names(ini) <- sections
 
@@ -67,12 +67,13 @@ read.ini <- function(con = stop("Connection con needed."), skip = NULL, encoding
 hySpc.testthat::test(read.ini) <- function() {
   context("read.ini")
 
-  test_that("deprecated",
-            expect_warning(
-              read.ini(""),
-              "deprecated|file")
+  test_that(
+    "deprecated",
+    expect_warning(
+      read.ini(""),
+      "deprecated|file"
+    )
   )
-
 }
 
 

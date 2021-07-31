@@ -74,7 +74,6 @@ spc.fit.poly.below <- function(...) {
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   spc_fit_poly_below(...)
-
 }
 
 hySpc.testthat::test(spc.fit.poly.below) <- function() {

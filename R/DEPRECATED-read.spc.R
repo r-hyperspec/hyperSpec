@@ -55,7 +55,7 @@
   if (is.character(x)) {
     x
   } else if (x <= length(.spc.FXTYPE) + 1) {
-    .spc.FXTYPE [x + 1]
+    .spc.FXTYPE[x + 1]
   } else {
     ## x = 255 is for double interferogram and supposed not to have a label.
     ## Thus, returning NA is appropriate
@@ -102,9 +102,9 @@
   if (is.character(x)) {
     x
   } else if (x <= 26) {
-    .spc.FYTYPE [x + 2]
+    .spc.FYTYPE[x + 2]
   } else if (x %in% 128:131) {
-    .spc.FYTYPE [x - 99]
+    .spc.FYTYPE[x - 99]
   } else {
     NA
   }
@@ -117,17 +117,17 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
   # todo make better truncation
   trunc <- rep(trunc, length.out = 2)
 
-  if (trunc [1] && raw [1] == .nul) {
-    raw <- raw [-1]
+  if (trunc[1] && raw[1] == .nul) {
+    raw <- raw[-1]
   }
-  if (trunc [2]) {
+  if (trunc[2]) {
     tmp <- which(raw > .nul)
     if (length(tmp) == 0) {
       return("")
     }
-    raw <- raw [1:tail(tmp, 1)]
+    raw <- raw[1:tail(tmp, 1)]
   }
-  if (raw [length(raw)] != .nul) {
+  if (raw[length(raw)] != .nul) {
     raw <- c(raw, .nul)
   }
 
@@ -135,15 +135,15 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
 
   out <- character(length(tmp) - 1)
   for (i in 1:(length(tmp) - 1)) {
-    if (tmp [i] + 1 < tmp [i + 1] - 1) {
-      out [i] <- rawToChar(raw [(tmp [i] + 1):(tmp [i + 1] - 1)])
+    if (tmp[i] + 1 < tmp[i + 1] - 1) {
+      out[i] <- rawToChar(raw[(tmp[i] + 1):(tmp[i + 1] - 1)])
     }
   }
 
   if (length(out) > 1L) {
     if (firstonly) {
       message("multiple strings encountered in spc file ", paste(out, collapse = ", "), ": using only the first one.")
-      out <- out [1]
+      out <- out[1]
     } else if (!is.null(paste.collapse)) {
       if (hy.getOption("debuglevel") > 2L) {
         message("multiple strings encountered in spc file ", paste(out, collapse = ", "), " => pasting.")
@@ -177,7 +177,7 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
   ## NEW.LSB = 75 supported,
   ## NEW.MSB = 76 not supported (neither by many Grams software according to spc doc)
   ## OLD     = 77 not supported (replaced by new format in 1996)
-  if (raw.data [2] != 75) {
+  if (raw.data[2] != 75) {
     stop(
       "Wrong spc file format version (or no spc file at all).\n",
       "Only 'new' spc files (1996 file format) with LSB word order are supported."
@@ -185,42 +185,42 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
   }
 
   hdr <- list(
-    ftflgs = readBin(raw.data [1], "integer", 1, 1, signed = FALSE),
+    ftflgs = readBin(raw.data[1], "integer", 1, 1, signed = FALSE),
     ## byte 2 is already interpreted
-    fexper = readBin(raw.data [3], "integer", 1, 1, signed = TRUE),
-    fexp = readBin(raw.data [4], "integer", 1, 1, signed = TRUE),
-    fnpts = readBin(raw.data [5:8], "integer", 1, 4),
-    ffirst = readBin(raw.data [9:16], "double", 1, 8),
-    flast = readBin(raw.data [17:24], "double", 1, 8),
-    fnsub = readBin(raw.data [25:28], "integer", 1, 4),
-    fxtype = readBin(raw.data [29], "integer", 1, 1, signed = FALSE),
-    fytype = readBin(raw.data [30], "integer", 1, 1, signed = FALSE),
-    fztype = readBin(raw.data [31], "integer", 1, 1, signed = FALSE),
-    fpost = readBin(raw.data [32], "integer", 1, 1, signed = TRUE),
-    fdate = readBin(raw.data [33:36], "integer", 1, 4),
-    fres = raw.split.nul(raw.data [37:45], paste.collapse = "\r\n"),
-    fsource = raw.split.nul(raw.data [46:54], paste.collapse = "\r\n"),
-    fpeakpt = readBin(raw.data [55:56], "integer", 1, 2, signed = FALSE),
-    fspare = readBin(raw.data [57:88], "numeric", 8, 4),
-    fcmnt = raw.split.nul(raw.data [89:218], paste.collapse = "\r\n"),
-    fcatxt = raw.split.nul(raw.data [219:248], trunc = c(FALSE, TRUE)),
-    flogoff = readBin(raw.data [249:252], "integer", 1, 4), # , signed = FALSE),
-    fmods = readBin(raw.data [253:256], "integer", 1, 4), # , signed = FALSE),
-    fprocs = readBin(raw.data [257], "integer", 1, 1, signed = TRUE),
-    flevel = readBin(raw.data [258], "integer", 1, 1, signed = TRUE),
-    fsampin = readBin(raw.data [259:260], "integer", 1, 2, signed = FALSE),
-    ffactor = readBin(raw.data [261:264], "numeric", 1, 4),
-    fmethod = raw.split.nul(raw.data [265:312]),
-    fzinc = readBin(raw.data [313:316], "numeric", 1, 4), # , signed = FALSE),
-    fwplanes = readBin(raw.data [317:320], "integer", 1, 4), # , signed = FALSE),
-    fwinc = readBin(raw.data [321:324], "numeric", 1, 4),
-    fwtype = readBin(raw.data [325], "integer", 1, 1, signed = TRUE),
+    fexper = readBin(raw.data[3], "integer", 1, 1, signed = TRUE),
+    fexp = readBin(raw.data[4], "integer", 1, 1, signed = TRUE),
+    fnpts = readBin(raw.data[5:8], "integer", 1, 4),
+    ffirst = readBin(raw.data[9:16], "double", 1, 8),
+    flast = readBin(raw.data[17:24], "double", 1, 8),
+    fnsub = readBin(raw.data[25:28], "integer", 1, 4),
+    fxtype = readBin(raw.data[29], "integer", 1, 1, signed = FALSE),
+    fytype = readBin(raw.data[30], "integer", 1, 1, signed = FALSE),
+    fztype = readBin(raw.data[31], "integer", 1, 1, signed = FALSE),
+    fpost = readBin(raw.data[32], "integer", 1, 1, signed = TRUE),
+    fdate = readBin(raw.data[33:36], "integer", 1, 4),
+    fres = raw.split.nul(raw.data[37:45], paste.collapse = "\r\n"),
+    fsource = raw.split.nul(raw.data[46:54], paste.collapse = "\r\n"),
+    fpeakpt = readBin(raw.data[55:56], "integer", 1, 2, signed = FALSE),
+    fspare = readBin(raw.data[57:88], "numeric", 8, 4),
+    fcmnt = raw.split.nul(raw.data[89:218], paste.collapse = "\r\n"),
+    fcatxt = raw.split.nul(raw.data[219:248], trunc = c(FALSE, TRUE)),
+    flogoff = readBin(raw.data[249:252], "integer", 1, 4), # , signed = FALSE),
+    fmods = readBin(raw.data[253:256], "integer", 1, 4), # , signed = FALSE),
+    fprocs = readBin(raw.data[257], "integer", 1, 1, signed = TRUE),
+    flevel = readBin(raw.data[258], "integer", 1, 1, signed = TRUE),
+    fsampin = readBin(raw.data[259:260], "integer", 1, 2, signed = FALSE),
+    ffactor = readBin(raw.data[261:264], "numeric", 1, 4),
+    fmethod = raw.split.nul(raw.data[265:312]),
+    fzinc = readBin(raw.data[313:316], "numeric", 1, 4), # , signed = FALSE),
+    fwplanes = readBin(raw.data[317:320], "integer", 1, 4), # , signed = FALSE),
+    fwinc = readBin(raw.data[321:324], "numeric", 1, 4),
+    fwtype = readBin(raw.data[325], "integer", 1, 1, signed = TRUE),
     ## 187 bytes reserved
-    .last.read = .spc.size ["hdr"]
+    .last.read = .spc.size["hdr"]
   )
 
   ## R doesn't have unsigned long int .................................
-  if (any(unlist(hdr [c("flogoff", "fmods", "fwplanes")]) < 0)) {
+  if (any(unlist(hdr[c("flogoff", "fmods", "fwplanes")]) < 0)) {
     stop(
       "error reading header: R does not support unsigned long integers.",
       "Please contact the maintainer of the package."
@@ -261,15 +261,15 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
   }
 
   ## set the axis labels
-  if (hdr$ftflgs ["TALABS"]) {
+  if (hdr$ftflgs["TALABS"]) {
     # TODO: find test data
     tmp <- rep(0, 4)
-    tmp [seq_along(hdr$fcatxt)] <- nchar(hdr$fcatxt)
+    tmp[seq_along(hdr$fcatxt)] <- nchar(hdr$fcatxt)
 
-    if (tmp [1] > 0) hdr$fxtype <- hdr$fcatxt[1]
-    if (tmp [2] > 0) hdr$fytype <- hdr$fcatxt[2]
-    if (tmp [3] > 0) hdr$fztype <- hdr$fcatxt[3]
-    if (tmp [4] > 0) hdr$fwtype <- hdr$fcatxt[4]
+    if (tmp[1] > 0) hdr$fxtype <- hdr$fcatxt[1]
+    if (tmp[2] > 0) hdr$fytype <- hdr$fcatxt[2]
+    if (tmp[3] > 0) hdr$fztype <- hdr$fcatxt[3]
+    if (tmp[4] > 0) hdr$fwtype <- hdr$fcatxt[4]
   }
   hdr$fxtype <- .spc.xlab(hdr$fxtype)
   hdr$fytype <- .spc.ylab(hdr$fytype)
@@ -279,7 +279,7 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
 
   ## File with subfiles with individual x axes?
   ## Then there should be a subfile directory:
-  if (hdr$ftflgs ["TXYXYS"] && hdr$ftflgs ["TMULTI"]) {
+  if (hdr$ftflgs["TXYXYS"] && hdr$ftflgs["TMULTI"]) {
     ## try to reject impossible values for the subfiledir offset
     if (hdr$fnpts > length(raw.data) ||
       (hdr$fnpts > hdr$flogoff && hdr$flogoff > 0) ||
@@ -289,9 +289,9 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
         "file header flags specify TXYXYS and TMULTI, ",
         "but fnpts does not give a valid offset for the subfile directory.\n hdr$ftflgs = ",
         paste(names(hdr$ftflgs)[hdr$ftflgs], collapse = " | "),
-        " (", sum(2^(0:7) [hdr$ftflgs]), ")\n",
+        " (", sum(2^(0:7)[hdr$ftflgs]), ")\n",
         "You can try to read the file using hdr$ftflgs & ! TXYXYS (",
-        sum(2^(0:7) [hdr$ftflgs & c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE)]),
+        sum(2^(0:7)[hdr$ftflgs & c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE)]),
         "). This assumes that all subfiles do have the same x axis.\n\n"
       )
     }
@@ -305,7 +305,7 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
 
   ## some checks ......................................................
 
-  if (hdr$ftflgs ["TMULTI"]) {
+  if (hdr$ftflgs["TMULTI"]) {
     ## multiple spectra in file
     if (hdr$fnsub <= 1) {
       if (hy.getOption("debuglevel") >= 2L) {
@@ -326,22 +326,22 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
       hdr$fnsub <- 1
     }
 
-    if (hdr$ftflgs ["TRANDM"]) {
+    if (hdr$ftflgs["TRANDM"]) {
       message("spc file header: file type flag TRANDM encountered => Enforcing TMULTI.")
     }
 
-    if (hdr$ftflgs ["TORDRD"]) {
+    if (hdr$ftflgs["TORDRD"]) {
       message("spc file header: file type flag TORDRD encountered => Enforcing TMULTI.")
     }
 
-    if ((hdr$ftflgs ["TRANDM"] || hdr$ftflgs ["TORDRD"]) && hdr$fnsub > 1) {
-      hdr$ftflgs ["TMULTI"] <- TRUE
+    if ((hdr$ftflgs["TRANDM"] || hdr$ftflgs["TORDRD"]) && hdr$fnsub > 1) {
+      hdr$ftflgs["TMULTI"] <- TRUE
     }
   }
 
-  if (hdr$ftflgs ["TXYXYS"] && !hdr$ftflgs ["TXVALS"]) {
+  if (hdr$ftflgs["TXYXYS"] && !hdr$ftflgs["TXVALS"]) {
     warning("spc file header: file type flag TXYXYS encountered => Enforcing TXVALS.")
-    hdr$ftflgs ["TXVALS"] <- TRUE
+    hdr$ftflgs["TXVALS"] <- TRUE
   }
 
   if (hdr$fwplanes > 0) {
@@ -362,27 +362,27 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
 
 .spc.subhdr <- function(raw.data, pos, hdr) {
   subhdr <- list(
-    subflgs = raw.data [pos + (1)],
-    subexp = readBin(raw.data [pos + (2)], "integer", 1, 1, signed = TRUE),
-    subindx = readBin(raw.data [pos + (3:4)], "integer", 1, 2, signed = FALSE),
-    subtime = readBin(raw.data [pos + (5:8)], "numeric", 1, 4),
-    subnext = readBin(raw.data [pos + (9:12)], "numeric", 1, 4),
-    subnois = readBin(raw.data [pos + (13:16)], "numeric", 1, 4),
-    subnpts = readBin(raw.data [pos + (17:20)], "integer", 1, 4), # , signed = FALSE),
-    subscan = readBin(raw.data [pos + (21:24)], "integer", 1, 4), # , signed = FALSE),
-    subwlevel = readBin(raw.data [pos + (25:28)], "numeric", 1, 4)
+    subflgs = raw.data[pos + (1)],
+    subexp = readBin(raw.data[pos + (2)], "integer", 1, 1, signed = TRUE),
+    subindx = readBin(raw.data[pos + (3:4)], "integer", 1, 2, signed = FALSE),
+    subtime = readBin(raw.data[pos + (5:8)], "numeric", 1, 4),
+    subnext = readBin(raw.data[pos + (9:12)], "numeric", 1, 4),
+    subnois = readBin(raw.data[pos + (13:16)], "numeric", 1, 4),
+    subnpts = readBin(raw.data[pos + (17:20)], "integer", 1, 4), # , signed = FALSE),
+    subscan = readBin(raw.data[pos + (21:24)], "integer", 1, 4), # , signed = FALSE),
+    subwlevel = readBin(raw.data[pos + (25:28)], "numeric", 1, 4)
   )
   ## 4 bytes reserved
 
   ## R doesn't have unsigned long int .................................
-  if (any(unlist(subhdr [c("subnpts", "subscan")]) < 0)) {
+  if (any(unlist(subhdr[c("subnpts", "subscan")]) < 0)) {
     stop(
       "error reading subheader: R does not support unsigned long integers.",
       "Please contact the maintainer of the package."
     )
   }
 
-  hdr$.last.read <- pos + .spc.size ["subhdr"]
+  hdr$.last.read <- pos + .spc.size["subhdr"]
 
   ## checking
   if (subhdr$subexp == -128 && hdr$fexp != -128) {
@@ -392,7 +392,7 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
     )
   }
 
-  if (subhdr$subnpts > 0 && subhdr$subnpts != hdr$fnpts && !hdr$ftflgs ["TXYXYS"]) {
+  if (subhdr$subnpts > 0 && subhdr$subnpts != hdr$fnpts && !hdr$ftflgs["TXYXYS"]) {
     message(
       "subfile ", subhdr$subindx, ": number of points in file header and subfile header ",
       "inconsistent. => Going to use subheader."
@@ -400,7 +400,7 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
   }
 
   if (subhdr$subnpts == 0) {
-    if (hdr$ftflgs ["TXYXYS"]) {
+    if (hdr$ftflgs["TXYXYS"]) {
       message(
         "subfile ", subhdr$subindx, ": number of data points per spectrum not specified. ",
         "=> Using file header information (", hdr$fnpts, ")."
@@ -409,16 +409,16 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
     subhdr$subnpts <- hdr$fnpts
   }
 
-  if (!hdr$ftflgs ["TXYXYS"]) {
+  if (!hdr$ftflgs["TXYXYS"]) {
     if (hdr$fnpts != subhdr$subnpts) {
       .spc.error(
         ".spc.read.subhdr", list(hdr = hdr, subhdr = subhdr),
         "hdr and subhdr differ in number of points per spectrum, ",
         "but TXYXYS is not specified.\n hdr$ftflgs = ",
         paste(names(hdr$ftflgs)[hdr$ftflgs], collapse = " | "),
-        " (", sum(2^(0:7) [hdr$ftflgs]), ")\n",
+        " (", sum(2^(0:7)[hdr$ftflgs]), ")\n",
         "You can try to read the file using hdr$ftflgs | TMULTI | TXYXYS (",
-        sum(2^(0:7) [hdr$ftflgs |
+        sum(2^(0:7)[hdr$ftflgs |
           c(FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, TRUE, FALSE)]),
         ").\n\n"
       )
@@ -427,7 +427,7 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
 
   #  str (subhdr)
   ## according to .spc file documentation:
-  if (!hdr$ftflgs ["TMULTI"]) {
+  if (!hdr$ftflgs["TMULTI"]) {
     subhdr$subexp <- hdr$fexp
   } else if (hdr$fexp == -128 && subhdr$subexp != -128) {
     message(
@@ -481,16 +481,16 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
   )
 
   for (s in seq_len(nsub)) {
-    dir [s, ] <- c(
-      readBin(raw.data [pos + (1:4)], "integer", 1, 4), # , signed = FALSE),
-      readBin(raw.data [pos + (5:8)], "integer", 1, 4), # , signed = FALSE),
-      readBin(raw.data [pos + (9:12)], "numeric", 1, 4)
+    dir[s, ] <- c(
+      readBin(raw.data[pos + (1:4)], "integer", 1, 4), # , signed = FALSE),
+      readBin(raw.data[pos + (5:8)], "integer", 1, 4), # , signed = FALSE),
+      readBin(raw.data[pos + (9:12)], "numeric", 1, 4)
     )
-    pos <- pos + .spc.size ["subfiledir"]
+    pos <- pos + .spc.size["subfiledir"]
   }
 
   ## R doesn't have unsigned long int .................................
-  if (any(dir [, 1:2] < 0)) {
+  if (any(dir[, 1:2] < 0)) {
     stop(
       "error reading subfiledir: R does not support unsigned long integers.",
       "Please contact the maintainer of the package."
@@ -514,13 +514,13 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
   }
 
   loghdr <- list(
-    logsizd = readBin(raw.data [pos + (1:4)], "integer", 1, 4), #  , signed = FALSE),
-    logsizm = readBin(raw.data [pos + (5:8)], "integer", 1, 4), # , signed = FALSE),
-    logtxto = readBin(raw.data [pos + (9:12)], "integer", 1, 4), # , signed = FALSE),
-    logbins = readBin(raw.data [pos + (13:16)], "integer", 1, 4), # , signed = FALSE),
-    logdsks = readBin(raw.data [pos + (17:20)], "integer", 1, 4), # , signed = FALSE),
+    logsizd = readBin(raw.data[pos + (1:4)], "integer", 1, 4), #  , signed = FALSE),
+    logsizm = readBin(raw.data[pos + (5:8)], "integer", 1, 4), # , signed = FALSE),
+    logtxto = readBin(raw.data[pos + (9:12)], "integer", 1, 4), # , signed = FALSE),
+    logbins = readBin(raw.data[pos + (13:16)], "integer", 1, 4), # , signed = FALSE),
+    logdsks = readBin(raw.data[pos + (17:20)], "integer", 1, 4), # , signed = FALSE),
     ## 44 bytes reserved
-    .last.read = pos + .spc.size ["loghdr"]
+    .last.read = pos + .spc.size["loghdr"]
   )
 
   ## R doesn't have unsigned long int .................................
@@ -536,21 +536,21 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
 
   ## read binary part of log
   if (log.bin) {
-    log$.log.bin <- raw.data [loghdr$.last.read + seq_len(loghdr$logbins)]
+    log$.log.bin <- raw.data[loghdr$.last.read + seq_len(loghdr$logbins)]
   }
 
   ## read binary on-disk-only part of log
   if (log.disk) {
-    log$.log.disk <- raw.data [loghdr$.last.read + loghdr$logbins + seq_len(loghdr$logdsks)]
+    log$.log.disk <- raw.data[loghdr$.last.read + loghdr$logbins + seq_len(loghdr$logdsks)]
   }
 
   ## read text part of log
   if (log.txt & loghdr$logsizd > loghdr$logtxto) {
-    log.txt <- raw.data [pos + loghdr$logtxto + seq_len(loghdr$logsizd - loghdr$logtxto)]
+    log.txt <- raw.data[pos + loghdr$logtxto + seq_len(loghdr$logsizd - loghdr$logtxto)]
     if (tail(log.txt, 1) == .nul) { # throw away nul at the end
       log.txt <- head(log.txt, -1)
     }
-    log.txt [log.txt == .nul] <- replace.nul
+    log.txt[log.txt == .nul] <- replace.nul
     log.txt <- readChar(log.txt, length(log.txt), useBytes = T)
     log.txt <- gsub(rawToChar(replace.nul), "\r\n", log.txt)
     log.txt <- iconv(log.txt, iconv.from, iconv.to)
@@ -570,19 +570,19 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
   if (exponent == -128) { # 4 byte float
 
     list(
-      y = readBin(raw.data [pos + seq_len(npts * 4)], "numeric", npts, 4),
+      y = readBin(raw.data[pos + seq_len(npts * 4)], "numeric", npts, 4),
       .last.read = pos + npts * 4
     )
   } else if (word) { # 2 byte fixed point integer = word
 
     list(
-      y = readBin(raw.data [pos + seq_len(npts * 2)], "integer", npts, 2, signed = TRUE) *
+      y = readBin(raw.data[pos + seq_len(npts * 2)], "integer", npts, 2, signed = TRUE) *
         2^(exponent - 16),
       .last.read = pos + npts * 2
     )
   } else { # 4 byte fixed point integer = dword
     list(
-      y = readBin(raw.data [pos + seq_len(npts * 4)], "integer", npts, 4) *
+      y = readBin(raw.data[pos + seq_len(npts * 4)], "integer", npts, 4) *
         2^(exponent - 32),
       .last.read = pos + npts * 4
     )
@@ -594,7 +594,7 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
 
 .spc.read.x <- function(raw.data, pos, npts) {
   list(
-    x = readBin(raw.data [pos + seq_len(npts * 4)], "numeric", npts, 4),
+    x = readBin(raw.data[pos + seq_len(npts * 4)], "numeric", npts, 4),
     .last.read = pos + 4 * npts
   )
 }
@@ -604,7 +604,7 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
 .spc.error <- function(fname, objects, ...) {
   cat("ERROR in read.spc function ", fname, "\n\n")
   for (i in seq_along(objects)) {
-    cat(names(objects) [i], ":\n")
+    cat(names(objects)[i], ":\n")
     str(objects[[i]], vec.len = 20)
   }
   stop(...)
@@ -717,8 +717,8 @@ read.spc <- function(filename,
   hdr <- modifyList(.spc.filehdr(f), hdr)
   fpos <- hdr$.last.read
 
-  if (!hdr$ftflgs ["TXYXYS"]) {
-    if (!hdr$ftflgs ["TXVALS"]) {
+  if (!hdr$ftflgs["TXYXYS"]) {
+    if (!hdr$ftflgs["TXVALS"]) {
       ## spectra with common evenly spaced wavelength axis
       wavelength <- seq(hdr$ffirst, hdr$flast, length.out = hdr$fnpts)
     } else {
@@ -762,7 +762,7 @@ read.spc <- function(filename,
 
   ## preallocate spectra matrix or list for multispectra file with separate wavelength axes
   ## populate extra data
-  if (hdr$ftflgs ["TXYXYS"] && hdr$ftflgs ["TMULTI"]) {
+  if (hdr$ftflgs["TXYXYS"] && hdr$ftflgs["TMULTI"]) {
     spc <- list()
     data <- .prepare.hdr.df(data, nsubfiles = 1L)
   } else {
@@ -775,14 +775,14 @@ read.spc <- function(filename,
     hdr$subfiledir <- .spc.subfiledir(f, hdr$subfiledir, hdr$fnsub)
 
     for (s in seq_len(hdr$fnsub)) {
-      hdr <- .spc.subhdr(f, hdr$subfiledir$ssfposn [s], hdr)
+      hdr <- .spc.subhdr(f, hdr$subfiledir$ssfposn[s], hdr)
       fpos <- hdr$.last.read
       wavelength <- .spc.read.x(f, fpos, hdr$subhdr$subnpts)
       fpos <- wavelength$.last.read
 
       y <- .spc.read.y(f, fpos,
         npts = hdr$subhdr$subnpts, exponent = hdr$subhdr$subexp,
-        word = hdr$ftflgs ["TSPREC"]
+        word = hdr$ftflgs["TSPREC"]
       )
       fpos <- y$.last.read
 
@@ -813,21 +813,21 @@ read.spc <- function(filename,
       fpos <- hdr$.last.read
       tmp <- .spc.read.y(f, fpos,
         npts = hdr$subhdr$subnpts, exponent = hdr$subhdr$subexp,
-        word = hdr$ftflgs ["TSPREC"]
+        word = hdr$ftflgs["TSPREC"]
       )
       fpos <- tmp$.last.read
 
-      spc [s, ] <- tmp$y
+      spc[s, ] <- tmp$y
 
-      data [s, c("z", "z.end")] <- unlist(hdr$subhdr [c("subtime", "subnext")])
+      data[s, c("z", "z.end")] <- unlist(hdr$subhdr[c("subtime", "subnext")])
 
       if (hdr$fwplanes > 0) {
-        data [s, "w"] <- hdr$subhdr$w
+        data[s, "w"] <- hdr$subhdr$w
       }
     }
   }
 
-  if (hdr$ftflgs ["TXYXYS"] && hdr$ftflgs ["TMULTI"]) {
+  if (hdr$ftflgs["TXYXYS"] && hdr$ftflgs["TMULTI"]) {
     ## list of hyperSpec objects
     ## consistent file import behaviour across import functions
     lapply(spc, .spc_io_postprocess_optional, filename = filename)
@@ -835,7 +835,7 @@ read.spc <- function(filename,
     list(spc = spc, wavelength = wavelength, data = data, labels = label)
   } else {
     if (hdr$fnsub > 1L && nrow(data) == 1L) {
-      data <- data [rep(1L, hdr$fnsub), ]
+      data <- data[rep(1L, hdr$fnsub), ]
     }
 
     spc <- new("hyperSpec",
@@ -852,12 +852,13 @@ read.spc <- function(filename,
 hySpc.testthat::test(read.spc) <- function() {
   context("read.spc")
 
-  test_that("deprecated",
-            expect_warning(
-              expect_error(read.spc(file = ""), "can only read"),
-              "deprecated")
+  test_that(
+    "deprecated",
+    expect_warning(
+      expect_error(read.spc(file = ""), "can only read"),
+      "deprecated"
+    )
   )
-
 }
 
 
@@ -880,7 +881,7 @@ hySpc.testthat::test(read.spc) <- function() {
   }
 
   data <- as.data.frame(data, stringsAsFactors = FALSE)
-  data <- data [rep(1L, nsubfiles), ]
+  data <- data[rep(1L, nsubfiles), ]
 
   for (v in vector.entries) {
     data[[v]] <- unclass(data[[v]])
@@ -968,18 +969,15 @@ getbynames <- function(x, e) {
 
 # Unit tests -----------------------------------------------------------------
 hySpc.testthat::test(getbynames) <- function() {
-
   context("getbynames")
 
   # Perform tests
   test_that("getbynames() works", {
-
     lst <- list(a = 1, b = "b", c = 2i)
 
     expect_equal(getbynames(lst, "a"), list(a = 1))
-    expect_equal(getbynames(lst, 1),   list(a = 1))
-    expect_equal(getbynames(lst, 2),   list(b = "b"))
+    expect_equal(getbynames(lst, 1), list(a = 1))
+    expect_equal(getbynames(lst, 2), list(b = "b"))
     expect_equal(getbynames(lst, 6)[[1]], NA)
-
   })
 }

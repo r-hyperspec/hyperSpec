@@ -47,19 +47,19 @@ read.spc.Kaiser <- function(files, ..., glob = TRUE) {
     return(new("hyperSpec"))
   }
 
-  f <- files [1]
+  f <- files[1]
 
   spc <- read.spc(f, no.object = TRUE, ...)
 
-  data <- spc$data [rep(1L, length(files)), , drop = FALSE]
+  data <- spc$data[rep(1L, length(files)), , drop = FALSE]
 
-  spc$spc <- spc$spc  [rep(1L, length(files)), , drop = FALSE]
+  spc$spc <- spc$spc[rep(1L, length(files)), , drop = FALSE]
 
   for (f in seq_along(files)) {
-    tmp <- read.spc(files [f], no.object = TRUE, ...)
+    tmp <- read.spc(files[f], no.object = TRUE, ...)
 
-    data [f, ] <- tmp$data
-    spc$spc  [f, ] <- tmp$spc
+    data[f, ] <- tmp$data
+    spc$spc[f, ] <- tmp$spc
   }
 
   data$filename <- files
@@ -76,10 +76,12 @@ read.spc.Kaiser <- function(files, ..., glob = TRUE) {
 hySpc.testthat::test(read.spc.Kaiser) <- function() {
   context("read.spc.Kaiser")
 
-  test_that("deprecated",
-            expect_warning(
-              read.spc.Kaiser(file = ""),
-              "deprecated|no files found")
+  test_that(
+    "deprecated",
+    expect_warning(
+      read.spc.Kaiser(file = ""),
+      "deprecated|no files found"
+    )
   )
 }
 
@@ -99,7 +101,7 @@ read.spc.KaiserMap <- function(files, keys.log2data = NULL, ...) {
 
   spc <- read.spc.Kaiser(files, keys.log2data = keys.log2data, ...)
 
-  spc@data <- spc@data [, !colnames(spc@data) %in% c("z", "z.end"), drop = FALSE]
+  spc@data <- spc@data[, !colnames(spc@data) %in% c("z", "z.end"), drop = FALSE]
 
   colnames(spc@data) <- gsub("Stage_(.)_Position", "\\L\\1", colnames(spc@data), perl = TRUE)
   for (cln in c("x", "y", "z")) {
@@ -117,10 +119,12 @@ read.spc.KaiserMap <- function(files, keys.log2data = NULL, ...) {
 hySpc.testthat::test(read.spc.KaiserMap) <- function() {
   context("read.spc.KaiserMap")
 
-  test_that("deprecated",
-            expect_warning(
-              read.spc.KaiserMap(file = ""),
-              "deprecated|[Nn]o files found")
+  test_that(
+    "deprecated",
+    expect_warning(
+      read.spc.KaiserMap(file = ""),
+      "deprecated|[Nn]o files found"
+    )
   )
 }
 
@@ -150,12 +154,12 @@ read.spc.KaiserLowHigh <- function(files = stop("file names needed"),
   type <- match.arg(type)
   switch(type,
     single = cbind(
-      read.spc.Kaiser(files [1, ], ..., glob = FALSE),
-      read.spc.Kaiser(files [2, ], ..., glob = FALSE)
+      read.spc.Kaiser(files[1, ], ..., glob = FALSE),
+      read.spc.Kaiser(files[2, ], ..., glob = FALSE)
     ),
     map = cbind(
-      read.spc.KaiserMap(files [1, ], ..., glob = FALSE),
-      read.spc.KaiserMap(files [2, ], ..., glob = FALSE)
+      read.spc.KaiserMap(files[1, ], ..., glob = FALSE),
+      read.spc.KaiserMap(files[2, ], ..., glob = FALSE)
     )
   )
 }
@@ -163,9 +167,11 @@ read.spc.KaiserLowHigh <- function(files = stop("file names needed"),
 hySpc.testthat::test(read.spc.KaiserLowHigh) <- function() {
   context("read.spc.KaiserLowHigh")
 
-  test_that("deprecated",
-            expect_warning(
-              read.spc.KaiserLowHigh(file = ""),
-              "deprecated|no files found")
+  test_that(
+    "deprecated",
+    expect_warning(
+      read.spc.KaiserLowHigh(file = ""),
+      "deprecated|no files found"
+    )
   )
 }

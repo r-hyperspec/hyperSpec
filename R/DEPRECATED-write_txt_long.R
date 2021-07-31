@@ -47,7 +47,6 @@
 #' @export
 #'
 #' @examples
-#'
 #' \dontrun{
 #' vignette("fileio")
 #' }
@@ -111,7 +110,6 @@
 #'   ),
 #'   header = TRUE
 #' )
-
 write.txt.long <- function(object,
                            file = "",
                            order = c(".rownames", ".wavelength"),
@@ -139,7 +137,7 @@ write.txt.long <- function(object,
       if (any(is.na(tmp))) {
         stop(
           "write.txt.long: no such columns: ",
-          paste(order [is.na(tmp)], collapse = ", ")
+          paste(order[is.na(tmp)], collapse = ", ")
         )
       }
       order <- tmp
@@ -150,14 +148,14 @@ write.txt.long <- function(object,
       decreasing <- rep(decreasing, length.out = length(order))
     }
 
-    order.data <- as.list(X [, order, drop = FALSE])
+    order.data <- as.list(X[, order, drop = FALSE])
 
     for (i in seq_along(order)) {
       if (is.factor(order.data[[i]])) {
         order.data[[i]] <- rank(order.data[[i]], na.last = na.last | is.na(na.last))
       }
 
-      if (decreasing [i]) {
+      if (decreasing[i]) {
         order.data[[i]] <- -order.data[[i]]
       }
     }
@@ -173,20 +171,20 @@ write.txt.long <- function(object,
   }
 
   if (!is.null(cols)) {
-    X <- X [, cols, drop = FALSE]
+    X <- X[, cols, drop = FALSE]
   }
 
   if (!row.names) {
     X$.rownames <- NULL
   } else {
-    cln [match(".rownames", cln)] <- "row"
+    cln[match(".rownames", cln)] <- "row"
   }
 
   if (col.names) {
     if (col.labels) {
       cln <- match(colnames(X), names(object@label))
-      cln[!is.na(cln)] <- object@label [cln[!is.na(cln)]]
-      cln[is.na(cln)] <- colnames(X) [is.na(cln)]
+      cln[!is.na(cln)] <- object@label[cln[!is.na(cln)]]
+      cln[is.na(cln)] <- colnames(X)[is.na(cln)]
       cln <- sapply(cln, as.character)
     } else {
       cln <- colnames(X)

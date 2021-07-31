@@ -54,22 +54,22 @@ read.mat.Cytospec <- function(file, keys2data = FALSE, blocks = TRUE) {
   wn <- seq(lwn, hwn, length.out = dim(spc)[3])
 
   ## x + y coordinates
-  x <- rep(1:d [1], d [2])
-  y <- rep(1:d [2], each = d [1])
+  x <- rep(1:d[1], d[2])
+  y <- rep(1:d[2], each = d[1])
 
   extra.data <- data.frame(x = x, y = y)
 
-  nblocks <- d [4]
+  nblocks <- d[4]
   if (is.na(nblocks)) { # only one block => 3d array
     nblocks <- 1
     dim(spc) <- c(dim(spc), 1L)
   }
 
-  blocks <- seq(nblocks) [blocks]
+  blocks <- seq(nblocks)[blocks]
 
   if (any(is.na(blocks))) {
     warning("Dropping requests to unavailable blocks.")
-    blocks <- blocks [!is.na(blocks)]
+    blocks <- blocks[!is.na(blocks)]
   }
 
   if (length(blocks) == 1L) {
@@ -90,10 +90,12 @@ read.mat.Cytospec <- function(file, keys2data = FALSE, blocks = TRUE) {
 hySpc.testthat::test(read.mat.Cytospec) <- function() {
   context("read.mat.Cytospec")
 
-  test_that("deprecated",
-            expect_warning(
-              expect_error(read.mat.Cytospec(file = ""), "Can only read a MAT file"),
-              "deprecated")
+  test_that(
+    "deprecated",
+    expect_warning(
+      expect_error(read.mat.Cytospec(file = ""), "Can only read a MAT file"),
+      "deprecated"
+    )
   )
 }
 
@@ -102,7 +104,7 @@ hySpc.testthat::test(read.mat.Cytospec) <- function() {
   spc <- spc[, , , block]
 
   d <- dim(spc)
-  dim(spc) <- c(d [1] * d[2], d [3])
+  dim(spc) <- c(d[1] * d[2], d[3])
 
   df$block <- block
 

@@ -46,11 +46,11 @@ read.asc.Andor <- function(file = stop("filename or connection needed"),
   dim(txt) <- c(length(txt) / nwl, nwl)
 
   ## fix: Andor Solis may have final comma without values
-  if (all(is.na(txt [nrow(txt), ]))) {
-    txt <- txt [-nrow(txt), ]
+  if (all(is.na(txt[nrow(txt), ]))) {
+    txt <- txt[-nrow(txt), ]
   }
 
-  spc <- new("hyperSpec", wavelength = txt [1, ], spc = txt [-1, ])
+  spc <- new("hyperSpec", wavelength = txt[1, ], spc = txt[-1, ])
 
   ## consistent file import behaviour across import functions
   .spc_io_postprocess_optional(spc, file)
@@ -59,9 +59,11 @@ read.asc.Andor <- function(file = stop("filename or connection needed"),
 hySpc.testthat::test(read.asc.Andor) <- function() {
   context("read.asc.Andor")
 
-  test_that("deprecated",
-            expect_warning(
-              expect_error(read.asc.Andor(file = ""), "file not found"),
-              "deprecated")
-            )
+  test_that(
+    "deprecated",
+    expect_warning(
+      expect_error(read.asc.Andor(file = ""), "file not found"),
+      "deprecated"
+    )
+  )
 }

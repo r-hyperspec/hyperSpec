@@ -199,7 +199,7 @@ read.txt.Shimadzu <- function(filename, encoding = "", quiet = TRUE) {
     if (tmpMat[i, 1] != "NULL") tmp <- c(tmp, rep(x = i, times = tmpMat[i, 1]))
   }
   m3 <- cbind(header = tmp, m3)
-  m3 <- m3 [, c(
+  m3 <- m3[, c(
     "header", "Spectrum.", "Hit..", "SI", "CAS..", "Name", "Mol.Weight", "Mol.Form",
     "Retention.Index"
   )] # select most important columns
@@ -229,9 +229,11 @@ read.txt.Shimadzu <- function(filename, encoding = "", quiet = TRUE) {
 hySpc.testthat::test(read.txt.Shimadzu) <- function() {
   context("read.txt.Shimadzu")
 
-  test_that("deprecated",
-            expect_warning(
-              expect_error(read.txt.Shimadzu(file = ""), "attempt to select"),
-              "deprecated")
+  test_that(
+    "deprecated",
+    expect_warning(
+      expect_error(read.txt.Shimadzu(file = ""), "attempt to select"),
+      "deprecated"
+    )
   )
 }

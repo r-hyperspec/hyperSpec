@@ -107,7 +107,7 @@ read.txt.wide <- function(file = stop("file is required"),
     cols <- as.list(c(cols, .wavelength = expression(lambda / nm)))
   } else
   if (.wavelength != length(cols)) { # .wavelength should be at the end of cols
-    cols <- cols [c(seq_along(cols)[-.wavelength], .wavelength)]
+    cols <- cols[c(seq_along(cols)[-.wavelength], .wavelength)]
   }
 
   ## columns containing the spectra
@@ -124,10 +124,10 @@ read.txt.wide <- function(file = stop("file is required"),
   ispc <- 0:(ncol(txtfile) - length(cols) + 1) + spc
 
   spc.data <- as.matrix(txtfile[, ispc])
-  txtfile <- txtfile [, -ispc, drop = FALSE]
+  txtfile <- txtfile[, -ispc, drop = FALSE]
 
   ## enforce colnames given by cols
-  colnames(txtfile) <- head(names(cols) [-spc], -1)
+  colnames(txtfile) <- head(names(cols)[-spc], -1)
 
   spc <- new("hyperSpec", spc = spc.data, data = txtfile, labels = cols)
 
@@ -138,9 +138,11 @@ read.txt.wide <- function(file = stop("file is required"),
 hySpc.testthat::test(read.txt.wide) <- function() {
   context("read.txt.wide")
 
-  test_that("deprecated",
-            expect_warning(
-              expect_error(read.txt.wide(file = ""), "no lines available"),
-              "deprecated")
+  test_that(
+    "deprecated",
+    expect_warning(
+      expect_error(read.txt.wide(file = ""), "no lines available"),
+      "deprecated"
+    )
   )
 }
