@@ -1,11 +1,11 @@
 # Function -------------------------------------------------------------------
 
-.Compare_hh <-  function(e1, e2) {
-    validObject(e1)
-    validObject(e2)
+.Compare_hh <- function(e1, e2) {
+  validObject(e1)
+  validObject(e2)
 
-    callGeneric(e1[[]], e2[[]])
-  }
+  callGeneric(e1[[]], e2[[]])
+}
 
 
 #' @title Comparison of `hyperSpec` objects
@@ -115,4 +115,3 @@ setMethod("Compare", signature(e1 = "matrix", e2 = "hyperSpec"), .compy)
 # Unit tests -----------------------------------------------------------------
 
 # TODO: add unit tests
-
