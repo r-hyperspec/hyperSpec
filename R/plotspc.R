@@ -571,7 +571,6 @@ plotspc <- function(object,
 # Unit tests -----------------------------------------------------------------
 
 hySpc.testthat::test(plotspc) <- function() {
-
   context("plotspc")
 
   test_that("BARBITURATES are plotted", {
