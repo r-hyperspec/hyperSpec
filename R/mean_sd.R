@@ -43,7 +43,7 @@ setGeneric("mean_pm_sd", function(x, na.rm = TRUE, ...) standardGeneric("mean_pm
 #'
 #' @examples
 #'
-#' mean_sd(flu [, , 405 ~ 410])
+#' mean_sd(flu[, , 405 ~ 410])
 setMethod("mean_sd", signature = signature(x = "numeric"), .mean_sd_num)
 
 
@@ -85,10 +85,10 @@ setMethod("mean_sd", signature = signature(x = "hyperSpec"), .mean_sd_hy)
 # Function -------------------------------------------------------------------
 
 .mean_pm_sd_num <- function(x, na.rm = TRUE, ...) {
-    m <- mean(x, na.rm = na.rm)
-    s <- sd(x, na.rm = na.rm)
-    c("mean.minus.sd" = m - s, "mean" = m, "mean.plus.sd" = m + s)
-  }
+  m <- mean(x, na.rm = na.rm)
+  s <- sd(x, na.rm = na.rm)
+  c("mean.minus.sd" = m - s, "mean" = m, "mean.plus.sd" = m + s)
+}
 
 #' @rdname mean_sd
 #' @aliases mean_pm_sd
@@ -100,7 +100,8 @@ setMethod("mean_sd", signature = signature(x = "hyperSpec"), .mean_sd_hy)
 #'
 #' mean_pm_sd(flu$c)
 setMethod("mean_pm_sd",
-  signature = signature(x = "numeric"), .mean_pm_sd_num)
+  signature = signature(x = "numeric"), .mean_pm_sd_num
+)
 
 # Function -------------------------------------------------------------------
 
