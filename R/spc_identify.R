@@ -47,7 +47,7 @@
 #' not clipped. As a dirty shortcut, `xpd = NA` may help.
 #'
 #'
-#' @rdname spc-identify
+#' @rdname spc_identify
 #'
 #' @aliases spc.identify spc.label.default spc.label.wlonly spc.point.default
 #'   spc.point.max spc.point.min spc.point.sqr
@@ -229,7 +229,7 @@ spc.identify <- function(x, y = NULL, wavelengths = NULL, ispc = NULL,
   pts[seq_len(pos - 1), ]
 }
 
-#' @rdname spc-identify
+#' @rdname spc_identify
 #' @param wl the wavelength to label
 #' @param spc the intensity to label
 #' @param wlclick the clicked wavelength
@@ -239,21 +239,21 @@ spc.point.max <- function(wl, spc, wlclick) {
   c(wl = wl[i], spc = spc[i])
 }
 
-#' @rdname spc-identify
+#' @rdname spc_identify
 #' @export
 spc.point.default <- function(wl, spc, wlclick) {
   i <- round(approx(wl, seq_along(wl), wlclick, rule = 2)$y)
   c(wl = wl[], spc = spc[i])
 }
 
-#' @rdname spc-identify
+#' @rdname spc_identify
 #' @export
 spc.point.min <- function(wl, spc, wlclick) {
   i <- which.min(spc)
   c(wl = wl[i], spc = spc[i])
 }
 
-#' @rdname spc-identify
+#' @rdname spc_identify
 #' @export
 spc.point.sqr <- function(wl, spc, wlclick, delta = 1L) {
   i <- which.max(spc)
@@ -275,7 +275,7 @@ spc.point.sqr <- function(wl, spc, wlclick, delta = 1L) {
   }
 }
 
-#' @rdname spc-identify
+#' @rdname spc_identify
 #' @param ispc if a selection of spectra was plotted, their indices can be
 #'        given in `ispc`. In this case `ispc[i]` is returned rather than `i`.
 #' @param digits how many digits of the wavelength should be displayed?
@@ -284,7 +284,7 @@ spc.label.default <- function(ispc, wl, spc, digits = 3) {
   sprintf(" %i, %s ", ispc, format(wl, digits = digits))
 }
 
-#' @rdname spc-identify
+#' @rdname spc_identify
 #' @export
 spc.label.wlonly <- function(ispc, wl, spc, digits = 3) {
   sprintf(" %s ", format(wl, digits = digits))
