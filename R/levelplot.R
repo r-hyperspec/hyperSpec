@@ -3,12 +3,12 @@
 #' @importFrom lattice latticeParseFormula
 setGeneric("levelplot", package = "lattice")
 
-###--------------------------------------------------------------------------~
+### --------------------------------------------------------------------------~
 ###  levelplot.R - everything that has to do with levelplot-like plotting:
 ###
 ###  levelplot is used by plotmap, plotvoronoi
 ###
-###--------------------------------------------------------------------------~
+### --------------------------------------------------------------------------~
 
 # Function -------------------------------------------------------------------
 # the workhorse function
@@ -132,4 +132,3 @@ hySpc.testthat::test(.levelplot) <- function() {
     expect_silent(plotmap(faux_cell, region ~ x * y, col.regions = gray(seq(0, 1, 0.05))))
   })
 }
-
