@@ -43,7 +43,7 @@
 
 <meta property="og:title" content="Multivariate normal random numbers — rmmvnorm" />
 <meta property="og:description" content="Interface functions to use mvtnorm::rmvnorm() for
-hyperSpec-class() objects." />
+hyperSpec objects." />
 
 <meta name="robots" content="noindex" />
 
@@ -163,7 +163,7 @@ hyperSpec-class() objects." />
 
     <div class="ref-description">
     <p>Interface functions to use <code><a href='https://rdrr.io/pkg/mvtnorm/man/Mvnorm.html'>mvtnorm::rmvnorm()</a></code> for
-<code><a href='hyperSpec-class.html'>hyperSpec-class()</a></code> objects.</p>
+<a href='hyperSpec-class.html'>hyperSpec</a> objects.</p>
     </div>
 
     <pre class="usage"><span class='fu'>rmmvnorm</span><span class='op'>(</span><span class='va'>n</span>, <span class='va'>mean</span>, <span class='va'>sigma</span><span class='op'>)</span>
@@ -185,11 +185,11 @@ hyperSpec-class() objects." />
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>n</th>
-      <td><p>vector giving the number of cases to generate for each group</p></td>
+      <td><p>vector giving the number of cases to generate for each group.</p></td>
     </tr>
     <tr>
       <th>mean</th>
-      <td><p>matrix with mean cases in rows</p></td>
+      <td><p>matrix with mean cases in rows.</p></td>
     </tr>
     <tr>
       <th>sigma</th>
@@ -201,9 +201,15 @@ matrices for the groups.</p></td>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The <code>mvtnorm</code> method for <code>hyperSpec</code> objects supports producing multivariate
+    <p>The <code>mvtnorm()</code> method for <code>hyperSpec</code> objects supports producing multivariate
 normal data for groups with different mean but common covariance matrix,
-see the examples.</p>
+see the examples.</p><ul>
+<li><p><code><a href='https://rdrr.io/pkg/mvtnorm/man/Mvnorm.html'>mvtnorm::rmvnorm()</a></code> (with 1 'm') allows a single covariance matrix.</p></li>
+<li><p><code>hyperSpec::rmmvnorm()</code> (with 2 'm') allows <em>m</em>ultiple covariance matrices
+for multiple groups. It has methods not only for <code>hyperSpec</code> objects but
+also such a multi-group extension for numeric objects.</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/mvtnorm/man/Mvnorm.html'>mvtnorm::rmvnorm()</a></code></p>
