@@ -10,33 +10,25 @@
 #' In a second step, `max.fn` searches for the actual point to label
 #' within the specified wavelength window of that spectrum. This allows to
 #' label maxima (or minima) without demanding too precise clicks. Currently,
-#' the following functions to determine the precise point:
-#' \tabular{ll}{
-#' spc.point.default \tab uses the clicked wavelength together with its spectral
-#' intensity\cr
-#'  spc.point.max \tab the point with the highest intensity in the wavelength
-#'   window \cr
-#' spc.point.min \tab the point with the lowest intensity in the wavelength
-#' window \cr
-#' spc.point.sqr \tab maximum of a parabola fit through the point with highest
-#' intensity and the two surrounding points \cr
-#' }
-#' `point.fn` is called with the arguments
-#' `wl` containing the considered wavelength window,
-#' `spc` the respective intensities of the closest spectrum, and
-#' `wlclick` the wavelength that was clicked.
-#' They return a vector of two elements (wavelength and intensity).
+#' the following functions to determine the precise point: \tabular{ll}{
+#' spc.point.default \tab uses the clicked wavelength together with its
+#' spectral intensity\cr spc.point.max \tab the point with the highest
+#' intensity in the wavelength window \cr spc.point.min \tab the point with
+#' the lowest intensity in the wavelength window \cr spc.point.sqr \tab
+#' maximum of a parabola fit throug the point with highest intensity and the
+#' two surrounding points \cr } `point.fn` is called with the arguments
+#' `wl` containing the considered wavelength window, `spc` the
+#' respective intensities of the closest spectrum, and `wlclick` the
+#' wavelength that was clicked. They return a vector of two elements
+#' (wavelength and intensity).
 #'
 #' As a last step, a label for the point produced by `formatter` and plotted
 #' using [graphics::text()]. Currently, the following `formatter`s are
-#' available:
-#' \tabular{ll}
-#' {spc.label.default \tab spectrum number, wavelength \cr
-#' spc.label.wlonly \tab wavelength\cr
-#' }
+#' available: \tabular{ll}{spc.label.default \tab
+#' spectrum number, wavelength \cr spc.label.wlonly \tab wavelength\cr }
 #' `formatter` functions receive the number of the spectrum `ispc`,
 #' the wavelength `wl`, and the spectral intensity `spc` and produce
-#' a character variable suitable for labeling. The predefined formatters
+#' a character variable suitable for labelling. The predefined formatters
 #' surround the label text by spaces in order to easily have an appropriate
 #' offset from the point of the spectrum.
 #'
@@ -55,7 +47,7 @@
 #' not clipped. As a dirty shortcut, `xpd = NA` may help.
 #'
 #'
-#' @rdname spc-identify
+#' @rdname spc_identify
 #'
 #' @aliases spc.identify spc.label.default spc.label.wlonly spc.point.default
 #'   spc.point.max spc.point.min spc.point.sqr
@@ -92,9 +84,7 @@
 #' If `ispc` is given, `ispc [i]` is returned rather than `i`.
 #'   } \item{wavelengths}{the wavelengths of the identified points}
 #'   \item{spc}{the intensities of the identified points}
-#'
 #' @author C. Beleites
-#'
 #' @seealso [graphics::locator()], [plotspc()],
 #'   [`hyperSpec options()`][hyperSpec::options]
 #'
@@ -108,7 +98,6 @@
 #'
 #' @examples
 #' \dontrun{\donttest{
-#'
 #' ispc <- sample(nrow(laser), 10)
 #' ispc
 #'
@@ -240,7 +229,7 @@ spc.identify <- function(x, y = NULL, wavelengths = NULL, ispc = NULL,
   pts[seq_len(pos - 1), ]
 }
 
-#' @rdname spc-identify
+#' @rdname spc_identify
 #' @param wl the wavelength to label
 #' @param spc the intensity to label
 #' @param wlclick the clicked wavelength
@@ -250,21 +239,21 @@ spc.point.max <- function(wl, spc, wlclick) {
   c(wl = wl[i], spc = spc[i])
 }
 
-#' @rdname spc-identify
+#' @rdname spc_identify
 #' @export
 spc.point.default <- function(wl, spc, wlclick) {
   i <- round(approx(wl, seq_along(wl), wlclick, rule = 2)$y)
   c(wl = wl[], spc = spc[i])
 }
 
-#' @rdname spc-identify
+#' @rdname spc_identify
 #' @export
 spc.point.min <- function(wl, spc, wlclick) {
   i <- which.min(spc)
   c(wl = wl[i], spc = spc[i])
 }
 
-#' @rdname spc-identify
+#' @rdname spc_identify
 #' @export
 spc.point.sqr <- function(wl, spc, wlclick, delta = 1L) {
   i <- which.max(spc)
@@ -286,16 +275,16 @@ spc.point.sqr <- function(wl, spc, wlclick, delta = 1L) {
   }
 }
 
+#' @rdname spc_identify
 #' @param ispc if a selection of spectra was plotted, their indices can be
-#'        given in `ispc`. In this case `ispc [i]` is returned rather than `i`.
+#'        given in `ispc`. In this case `ispc[i]` is returned rather than `i`.
 #' @param digits how many digits of the wavelength should be displayed?
-#' @rdname spc-identify
 #' @export
 spc.label.default <- function(ispc, wl, spc, digits = 3) {
   sprintf(" %i, %s ", ispc, format(wl, digits = digits))
 }
 
-#' @rdname spc-identify
+#' @rdname spc_identify
 #' @export
 spc.label.wlonly <- function(ispc, wl, spc, digits = 3) {
   sprintf(" %s ", format(wl, digits = digits))
