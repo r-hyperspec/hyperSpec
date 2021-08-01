@@ -233,8 +233,9 @@ hySpc.testthat::test(read.txt.Shimadzu) <- function() {
     "deprecated",
     expect_warning(
       expect_error(
-        with_envvar(list (LANGUAGE = "en_US"), read.txt.Shimadzu(file = "")),
-        "attempt to select"),
+        with_envvar(list(LANGUAGE = "en_US"), read.txt.Shimadzu(file = "")),
+        "attempt to select"
+      ),
       "deprecated"
     )
   )

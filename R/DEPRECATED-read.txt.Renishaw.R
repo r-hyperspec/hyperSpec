@@ -173,8 +173,9 @@ hySpc.testthat::test(read.txt.Renishaw) <- function() {
     "deprecated",
     expect_warning(
       expect_error(
-        with_envvar(list (LANGUAGE = "en_US"), read.txt.Renishaw(file = "")),
-        "cannot open"),
+        with_envvar(list(LANGUAGE = "en_US"), read.txt.Renishaw(file = "")),
+        "cannot open"
+      ),
       "deprecated"
     )
   )
@@ -202,9 +203,12 @@ hySpc.testthat::test(read.zip.Renishaw) <- function() {
     "deprecated",
     expect_warning(
       expect_error(
-        with_envvar(list (LANGUAGE = "en_US"),
-                    read.zip.Renishaw(file = "")),
-        "cannot open"),
+        with_envvar(
+          list(LANGUAGE = "en_US"),
+          read.zip.Renishaw(file = "")
+        ),
+        "cannot open"
+      ),
       "deprecated"
     )
   )

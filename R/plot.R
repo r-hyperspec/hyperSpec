@@ -200,8 +200,10 @@ hySpc.testthat::test(.plot) <- function() {
     expect_warning(plot(hy_spectra, "c"), "Intensity at first wavelengh only is used.")
 
     # Regular tests: errors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    expect_error(with_envvar(list (LANGUAGE = "en_US"), plot(hy_spectra, "depth")),
-                 "object 'z' not found")
+    expect_error(
+      with_envvar(list(LANGUAGE = "en_US"), plot(hy_spectra, "depth")),
+      "object 'z' not found"
+    )
     expect_error(plot(hy_spectra[0, ]), "No spectra.")
     expect_error(plot(hy_spectra, xoffset = "a"), "xoffset must be a numeric")
     expect_error(plot(hy_spectra, func = "a"), "func needs to be a function")
