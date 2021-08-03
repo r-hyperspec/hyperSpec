@@ -1,15 +1,16 @@
+# Function -------------------------------------------------------------------
 
 #' Convert between different wavelength units
 #'
 #' The following units can be converted into each other:
 #' *nm*, \emph{\eqn{cm^{-1}}{inverse cm}}, *eV*, *THz* and *Raman shift*.
 #'
-#' @param x data for conversion
-#' @param from source unit
-#' @param to destination unit
-#' @param ref_wl laser wavelength (required for work with Raman shift)
+#' @param x Data for conversion.
+#' @param from Source unit.
+#' @param to Destination unit.
+#' @param ref_wl Laser/Reference wavelength (required for work with Raman shift).
 #'
-#' @author R. Kiselev
+#' @author R. Kiselev, V. Gegzna
 #'
 #' @concept wavelengths
 #'
@@ -19,6 +20,14 @@
 #' wl_convert_units(3200, "Raman shift", "nm", ref_wl = 785.04)
 #' wl_convert_units(785, "nm", "invcm")
 wl_convert_units <- function(x, from, to, ref_wl = NULL) {
+  UseMethod("wl_convert_units", x)
+}
+
+# Method ---------------------------------------------------------------------
+
+#' @rdname wl_convert_units
+#' @export
+wl_convert_units.default <- function(x, from, to, ref_wl = NULL) {
   src <- .wl_fix_unit_name(from)
   dest <- .wl_fix_unit_name(to)
 
@@ -34,6 +43,9 @@ wl_convert_units <- function(x, from, to, ref_wl = NULL) {
   f <- get(f)
   return(f(x, ref_wl))
 }
+
+
+# Helper functions -----------------------------------------------------------
 
 wl_ev2freq <- function(x, ...) wl_nm2freq(wl_ev2nm(x))
 wl_ev2invcm <- function(x, ...) q * x / (100 * h * c)
