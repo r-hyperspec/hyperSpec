@@ -5,12 +5,20 @@
 #' The following units can be converted into each other:
 #' *nm*, \emph{\eqn{cm^{-1}}{inverse cm}}, *eV*, *THz* and *Raman shift*.
 #'
+#' For `hyperSpec` objects, values of `@wavelength` and label of wavelengths
+#' (`@label$.wavelength`) are changed.
+#'
+#'
 #' @param x Data for conversion.
-#' @param from Source unit.
-#' @param to Destination unit.
-#' @param ref_wl Laser/Reference wavelength (required for work with Raman shift).
+#' @param from (character): Source units. E.g. "nm", "1/cm", "eV", "tHz",
+#'       "Raman shift".
+#' @param to (character): Destination units.
+#' @param ref_wl (numeric): Laser/Reference wavelength
+#'        (required for work with Raman shift).
 #'
 #' @author R. Kiselev, V. Gegzna
+#'
+#' @return Object of the same class as input `x`.
 #'
 #' @concept wavelengths
 #'
@@ -105,6 +113,7 @@ wl_raman2nm <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
       return(unit)
     }
   }
+
 
   unit <- gsub(" .*$", "", tolower(unit))
   if (unit %in% c("raman", "stokes", "rel", "rel.", "relative", "rel.cm-1", "rel.cm", "rel.1/cm", "raman shift")) {
