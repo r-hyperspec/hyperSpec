@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Options for package hyperSpec — hy.getOptions • hyperSpec</title>
+<title>Options for package hyperSpec — hy_get_options • hyperSpec</title>
 
 
 <!-- jquery -->
@@ -41,7 +41,7 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Options for package hyperSpec — hy.getOptions" />
+<meta property="og:title" content="Options for package hyperSpec — hy_get_options" />
 <meta property="og:description" content="Functions to access and set hyperSpec's options." />
 
 <meta name="robots" content="noindex" />
@@ -164,19 +164,19 @@
     <p>Functions to access and set <span class="pkg">hyperSpec</span>'s options.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>hy.getOptions</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>hy_get_options</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>hy.getOption</span><span class='op'>(</span><span class='va'>name</span><span class='op'>)</span>
+<span class='fu'>hy_get_option</span><span class='op'>(</span><span class='va'>name</span><span class='op'>)</span>
 
-<span class='fu'>hy.setOptions</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
+<span class='fu'>hy_set_options</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p><code>hy.setOptions</code>: pairs of argument names and values.</p>
-<p><code>hy.getOptions</code>: indices (or names) of the options.</p></td>
+      <td><p><code>hy_set_options</code>: pairs of argument names and values.</p>
+<p><code>hy_get_options</code>: indices (or names) of the options.</p></td>
     </tr>
     <tr>
       <th>name</th>
@@ -188,9 +188,9 @@
 
     
 <table class='table'>
-<tr><td><code>hy.getOptions</code></td><td>returns a list of all options</td></tr>
-<tr><td><code>hy.setOptions</code></td><td>invisibly returns a list with the options</td></tr>
-<tr><td><code>hy.getOption</code></td><td>returns the value of the requested option</td></tr>
+<tr><td><code>hy_get_options</code></td><td>returns a list of all options</td></tr>
+<tr><td><code>hy_set_options</code></td><td>invisibly returns a list with the options</td></tr>
+<tr><td><code>hy_get_option</code></td><td>returns the value of the requested option</td></tr>
 </table>
 
 
@@ -211,14 +211,14 @@
 </table>
 
 
-<p><code>hy.setOptions</code> will discard any values that were given without a  name.</p>
+<p><code>hy_set_options</code> will discard any values that were given without a  name.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>C. Beleites</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='fu'>hy.getOptions</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>hy_get_options</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $debuglevel
 #&gt; [1] 0
 #&gt; 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>(DEPRECATED)
-Rubberband baseline correction — DEPRECATED-spc-rubberband • hyperSpec</title>
+Options for package hyperSpec — DEPRECATED-options • hyperSpec</title>
 
 
 <!-- jquery -->
@@ -43,16 +43,9 @@ Rubberband baseline correction — DEPRECATED-spc-rubberband • hyperSpec</titl
   
 
 <meta property="og:title" content="(DEPRECATED)
-Rubberband baseline correction — DEPRECATED-spc-rubberband" />
-<meta property="og:description" content="These hyperSpec functions are deprecated and not maintained any
-more. You should not use these.
-Currently they are present due to back-compatibility reasons and will be
-removed in the next release of the package.
-Please, use the suggested alternative functions instead.
-_____________
-Baseline with support points determined from a convex hull of the spectrum.
-Use debuglevel &amp;gt;= 1 to obtain debug plots, either directly via function
-argument or by setting hyperSpec's debuglevel option." />
+Options for package hyperSpec — DEPRECATED-options" />
+<meta property="og:description" content="These functions are deprecated.
+Use hy_get_option(), hy_get_options(), or hy_set_options() instead." />
 
 <meta name="robots" content="noindex" />
 
@@ -166,45 +159,32 @@ argument or by setting hyperSpec's debuglevel option." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>(DEPRECATED)
-Rubberband baseline correction</h1>
-    <small class="dont-index">Source: <a href='https://github.com/r-hyperspec/hyperSpec/blob/master/R/DEPRECATED-spc_rubberband.R'><code>R/DEPRECATED-spc_rubberband.R</code></a></small>
-    <div class="hidden name"><code>DEPRECATED-spc-rubberband.Rd</code></div>
+Options for package <span class="pkg">hyperSpec</span></h1>
+    <small class="dont-index">Source: <a href='https://github.com/r-hyperspec/hyperSpec/blob/master/R/DEPRECATED-hy_options.R'><code>R/DEPRECATED-hy_options.R</code></a></small>
+    <div class="hidden name"><code>DEPRECATED-options.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>These <span class="pkg">hyperSpec</span> functions are <strong>deprecated</strong> and not maintained any
-more. You should not use these.
-Currently they are present due to back-compatibility reasons and will be
-removed in the next release of the package.
-Please, use the suggested alternative functions instead.</p>
-<p><code>_____________</code></p>
-<p>Baseline with support points determined from a convex hull of the spectrum.</p>
-<p>Use <code>debuglevel &gt;= 1</code> to obtain debug plots, either directly via function
-argument or by setting hyperSpec's <code>debuglevel</code> option.</p>
+    <p>These functions are <strong>deprecated</strong>.
+Use <code><a href='hy_get_options.html'>hy_get_option()</a></code>, <code><a href='hy_get_options.html'>hy_get_options()</a></code>, or <code><a href='hy_get_options.html'>hy_set_options()</a></code> instead.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>spc.rubberband</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>hy.getOptions</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span>
+
+<span class='fu'>hy.getOption</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span>
+
+<span class='fu'>hy.setOptions</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>handed to <code><a href='spc_rubberband.html'>spc_rubberband()</a></code></p></td>
+      <td><p>Passed to <code><a href='hy_get_options.html'>hy_get_option()</a></code>, <code><a href='hy_get_options.html'>hy_get_options()</a></code>,
+or <code><a href='hy_get_options.html'>hy_set_options()</a></code>.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p><code>hyperSpec</code> object containing the baselines</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='spc_rubberband.html'>spc_rubberband()</a></code></p>
-<p><code><a href='../articles/baseline.html'>vignette ("baseline")</a></code></p>
-<p><code><a href='hy_get_options.html'>hy_set_options()</a></code></p></div>
-    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
-
-    <p>Claudia Beleites</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
