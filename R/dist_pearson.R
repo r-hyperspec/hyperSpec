@@ -35,14 +35,14 @@ dist_pearson <- function(x) {
   x <- x - rowMeans(x)
   x <- x / sqrt(rowSums(x^2))
 
-  if (hy.getOption("gc")) gc()
+  if (hy_get_option("gc")) gc()
   x <- tcrossprod(x)
 
   ## keep only lower triagonal
-  if (hy.getOption("gc")) gc()
+  if (hy_get_option("gc")) gc()
   x <- as.dist(x)
 
-  if (hy.getOption("gc")) gc()
+  if (hy_get_option("gc")) gc()
   0.5 - x / 2
 }
 

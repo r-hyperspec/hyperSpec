@@ -18,7 +18,7 @@
 #'
 #' `vignette ("baseline")`
 #'
-#' [hyperSpec::hy.setOptions()]
+#' [hyperSpec::hy_set_options()]
 #'
 #' @note This function is still experimental
 #' @export
@@ -46,7 +46,7 @@ spc_rubberband <- function(spc, ..., upper = FALSE, noise = 0, spline = TRUE) {
 }
 
 #' @importFrom grDevices chull
-.rubberband <- function(x, y, noise, spline, ..., debuglevel = hy.getOption("debuglevel")) {
+.rubberband <- function(x, y, noise, spline, ..., debuglevel = hy_get_option("debuglevel")) {
   for (s in seq_len(nrow(y))) {
     use <- which(!is.na(y[s, ]))
 

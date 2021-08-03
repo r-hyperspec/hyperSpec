@@ -8,7 +8,7 @@
 #'   empty spectra when measurements are cancelled)
 #' - optionally keep the filenames in column `spc$filename`
 #'
-#' The desired overall behavior can be set by options via [hy.setOptions()].
+#' The desired overall behavior can be set by options via [hy_set_options()].
 #' All file import filters should call `.spc_io_postprocess_optional()` to
 #' ensure the same behavior.
 #'
@@ -31,9 +31,9 @@
 #' @export
 #'
 .spc_io_postprocess_optional <- function(spc, filename, ...,
-                                         file.remove.emptyspc = hy.getOption("file.remove.emptyspc"),
-                                         file.keep.name = hy.getOption("file.keep.name"),
-                                         tolerance = hy.getOption("tolerance")) {
+                                         file.remove.emptyspc = hy_get_option("file.remove.emptyspc"),
+                                         file.keep.name = hy_get_option("file.keep.name"),
+                                         tolerance = hy_get_option("tolerance")) {
   tolerance <- .checkpos(tolerance, "tolerance")
 
   if (file.remove.emptyspc) {
@@ -72,8 +72,8 @@ hySpc.testthat::test(.spc_io_postprocess_optional) <- function() {
     tmp <- fluNA # spectrum 2 is all NA
     tmp[[3]] <- 0
     tmp[[5]] <- runif(nwl(tmp),
-      min = -hy.getOption("tolerance") / 2,
-      max = hy.getOption("tolerance") / 2
+      min = -hy_get_option("tolerance") / 2,
+      max = hy_get_option("tolerance") / 2
     )
     tmp[[, , 450 ~ 455]] <- NA
 
@@ -105,11 +105,11 @@ hySpc.testthat::test(.spc_io_postprocess_optional) <- function() {
 
 
   options.state <- .options
-  on.exit(do.call(hy.setOptions, options.state))
+  on.exit(do.call(hy_set_options, options.state))
 
   test_that("option treatment", {
-    hy.setOptions(file.remove.emptyspc = FALSE)
+    hy_set_options(file.remove.emptyspc = FALSE)
     skip("FIXME: not implemented")
-    do.call(hy.setOptions, options.state)
+    do.call(hy_set_options, options.state)
   })
 }
