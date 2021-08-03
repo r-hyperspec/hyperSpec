@@ -188,6 +188,7 @@ hySpc.testthat::test(.plot) <- function() {
   # vdiffr::manage_cases(package = "./hyperSpec")
 
   test_that("warnings and errors in plot()", {
+    local_edition(3)
 
     # Data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     expect_silent(hy_spectra <- generate_hy_spectra())
