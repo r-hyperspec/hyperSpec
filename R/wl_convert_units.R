@@ -45,6 +45,28 @@ wl_convert_units.default <- function(x, from, to, ref_wl = NULL) {
 }
 
 
+# Method ---------------------------------------------------------------------
+
+#' @rdname wl_convert_units
+#' @export
+wl_convert_units.hyperSpec <- function(x, from, to, ref_wl = NULL) {
+  wl_old <- wl(x)
+  wl_new <- wl_convert_units(wl_old, from, to, ref_wl)
+  wl(x) <- wl_new
+
+  x@label$.wavelength <-
+    switch(.wl_fix_unit_name(to),
+      nm    = expression("Wavelength, nm"),
+      invcm = expression(tilde(nu) / cm^-1),
+      ev    = expression("Energy / eV"),
+      freq  = expression(nu / THz),
+      raman = expression(Raman ~ shift / cm^-1),
+      to
+    )
+
+  x
+}
+
 # Helper functions -----------------------------------------------------------
 
 wl_ev2freq <- function(x, ...) wl_nm2freq(wl_ev2nm(x))
@@ -219,4 +241,20 @@ hySpc.testthat::test(wl_convert_units) <- function() {
   #  # ...
   #
   # })
+
+
+  test_that("wl_convert_units.hyperSpec works", {
+    local_edition(3)
+
+    # hyperSpec:
+    expect_silent(spc <- wl_convert_units(flu, from = "nm", to = "1/cm"))
+
+    expect_s4_class(spc, "hyperSpec")
+    expect_equal(as.character(labels(spc, ".wavelength")), "tilde(nu)/cm^-1")
+
+    # Integer vector:
+    expect_silent(wls <- wl_convert_units(wl(flu), from = "nm", to = "1/cm"))
+    expect_equal(wls, wl(spc))
+
+  })
 }
