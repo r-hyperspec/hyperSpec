@@ -8,10 +8,12 @@
 #' @param from source unit
 #' @param to destination unit
 #' @param ref_wl laser wavelength (required for work with Raman shift)
+#'
 #' @author R. Kiselev
-#' @export
 #'
 #' @concept wavelengths
+#'
+#' @export
 #'
 #' @examples
 #' wl_convert_units(3200, "Raman shift", "nm", ref_wl = 785.04)
