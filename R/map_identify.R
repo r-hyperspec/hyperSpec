@@ -53,7 +53,7 @@ map.identify <- function(object, model = spc ~ x * y, voronoi = FALSE, ...,
   x <- as.numeric(convertX(unit(xn, "native"), "npc"))
   y <- as.numeric(convertY(unit(yn, "native"), "npc"))
 
-  debuglevel <- hy.getOption("debuglevel")
+  debuglevel <- hy_get_option("debuglevel")
 
   res <- numeric(0)
   repeat {

@@ -117,7 +117,7 @@ read.dat.Witec <- function(filex = NULL,
                            type = c("single", "map"),
                            encoding = "unknown",
                            ...,
-                           quiet = hy.getOption("debuglevel") < 1L) {
+                           quiet = hy_get_option("debuglevel") < 1L) {
 
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   deprecated_read_txt()

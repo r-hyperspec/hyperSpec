@@ -55,7 +55,7 @@
 #' collapse(a, b, c)
 #'
 #' collapse(barbiturates[1:3], collapse.equal = FALSE)
-collapse <- function(..., wl.tolerance = hy.getOption("wl.tolerance"), collapse.equal = TRUE) {
+collapse <- function(..., wl.tolerance = hy_get_option("wl.tolerance"), collapse.equal = TRUE) {
   wl.tolerance <- .checkpos(wl.tolerance, "wl.tolerance")
   dots <- list(...)
 

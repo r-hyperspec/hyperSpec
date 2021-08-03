@@ -182,7 +182,7 @@ It is therefore recommended to look up the methods in the `R` help system using 
 \index{options!debuglevel}
 \index{options!gc}
 The global behaviour of package **hyperSpec** can be configured via options.
-The values of the options are retrieved with `hy.getOptions()`{.r} and `hy.getOption()`{.r}, and changed with `hy.setOptions()`{.r}.
+The values of the options are retrieved with `hy_get_options()`{.r} and `hy_get_option()`{.r}, and changed with `hy.setOptions()`{.r}.
 Table \@ref(tab:options) gives an overview of the options.  You should not worry about these at the start of your exploration of **hyperSpec**.
 
 
@@ -1839,7 +1839,7 @@ name  | default value (range)  | description | used by
 
 
 ```{r checkCompleteOptionTable, echo = FALSE, results = "hide"}
-stopifnot(all(names(hy.getOptions(TRUE)) %in% c(
+stopifnot(all(names(hy_get_options(TRUE)) %in% c(
   "debuglevel", "gc", "file.remove.emptyspc",
   "file.keep.name", "tolerance", "wl.tolerance", "plot.spc.nmax", "ggplot.spc.nmax"
 )))

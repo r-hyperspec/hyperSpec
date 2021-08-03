@@ -336,7 +336,7 @@ hySpc.testthat::test(.initialize) <- function() {
 
 
   test_that("gc option", {
-    option <- hy.getOption("gc")
+    option <- hy_get_option("gc")
     on.exit(hy.setOptions(gc = option))
     hy.setOptions(gc = TRUE)
 

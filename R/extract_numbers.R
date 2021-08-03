@@ -27,7 +27,7 @@ extract_numbers <- function(X) {
   wl <- as.numeric(wl)
 
   if (is.null(wl) || length(wl) == 0L || any(is.na(wl))) {
-    if (hy.getOption("debuglevel") >= 1L) {
+    if (hy_get_option("debuglevel") >= 1L) {
       message("could not guess wavelengths")
     }
     wl <- NULL

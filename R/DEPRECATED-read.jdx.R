@@ -58,7 +58,7 @@ read.jdx <- function(filename = NULL, encoding = "",
                      header = list(), keys.hdr2data = FALSE, ...,
                      NA.symbols = c("NA", "N/A", "N.A."),
                      collapse.multi = TRUE,
-                     wl.tolerance = hy.getOption("wl.tolerance"),
+                     wl.tolerance = hy_get_option("wl.tolerance"),
                      collapse.equal = TRUE) {
 
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
