@@ -8,10 +8,12 @@
 #' @param from source unit
 #' @param to destination unit
 #' @param ref_wl laser wavelength (required for work with Raman shift)
+#'
 #' @author R. Kiselev
-#' @export
 #'
 #' @concept wavelengths
+#'
+#' @export
 #'
 #' @examples
 #' wl_convert_units(3200, "Raman shift", "nm", ref_wl = 785.04)
@@ -56,12 +58,20 @@ wl_raman2nm <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
 
 
 # Bring the argument to a conventional name
-# FIXME: This function should be exported when `read.spe()` function is moved to
-#        another package.
+
 # FIXME: This function should be documented.
 #        Even if it used for internal purposes.
+#
 #' @export
-.wl_fix_unit_name <- function(unit) {
+.wl_fix_unit_name <- function(unit, null_ok = FALSE) {
+
+  # Allow NULL as the default value
+  if (isTRUE(null_ok)) {
+    if (is.null(unit)) {
+      return(unit)
+    }
+  }
+
   unit <- gsub(" .*$", "", tolower(unit))
   if (unit %in% c("raman", "stokes", "rel", "rel.", "relative", "rel.cm-1", "rel.cm", "rel.1/cm", "raman shift")) {
     return("raman")
