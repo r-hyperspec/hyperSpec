@@ -1,4 +1,5 @@
 
+# Function -------------------------------------------------------------------
 
 .options <- list(
   debuglevel = 0L,
@@ -61,6 +62,7 @@ hy.getOptions <- function(...) {
   }
 }
 
+# Unit tests -----------------------------------------------------------------
 
 hySpc.testthat::test(hy.getOptions) <- function() {
   context("hy.getOptions")
@@ -79,6 +81,9 @@ hySpc.testthat::test(hy.getOptions) <- function() {
   })
 }
 
+
+# Function -------------------------------------------------------------------
+
 #' @rdname options
 #' @export
 #'
@@ -88,6 +93,8 @@ hySpc.testthat::test(hy.getOptions) <- function() {
 hy.getOption <- function(name) {
   .options[[name]]
 }
+
+# Function -------------------------------------------------------------------
 
 #' @rdname options
 #' @export
@@ -128,6 +135,9 @@ hy.setOptions <- function(...) {
 
   opt
 }
+
+
+# Unit tests -----------------------------------------------------------------
 
 hySpc.testthat::test(hy.setOptions) <- function() {
   context("hy.setOptions")
