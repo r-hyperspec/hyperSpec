@@ -156,7 +156,7 @@
 #' The `hyperSpec` object is then `initialize`d using the given parameters.
 #' As an alias, function `new_hyperSpec()` can be used.
 #'
-#' If option `gc` is `TRUE` (see [hy.setOptions()]), the initialization will
+#' If option `gc` is `TRUE` (see [hy_set_options()]), the initialization will
 #' have frequent calls to [gc()], which can help to avoid swapping or running
 #' out of memory.
 #'
@@ -204,7 +204,7 @@
 #'
 #' - [methods::new()] for more information on creating and initializing S4 objects.
 #' - [grDevices::plotmath()] on expressions for math annotations as for slot `label`.
-#' - [hy.setOptions()]
+#' - [hy_set_options()]
 #'
 #' @keywords methods datagen
 #' @concept hyperSpec conversion
@@ -337,8 +337,8 @@ hySpc.testthat::test(.initialize) <- function() {
 
   test_that("gc option", {
     option <- hy_get_option("gc")
-    on.exit(hy.setOptions(gc = option))
-    hy.setOptions(gc = TRUE)
+    on.exit(hy_set_options(gc = option))
+    hy_set_options(gc = TRUE)
 
     spc <- new("hyperSpec", spc = flu[[]])
     expect_equal(spc[[]], flu[[]])

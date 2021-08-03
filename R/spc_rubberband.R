@@ -18,7 +18,7 @@
 #'
 #' `vignette ("baseline")`
 #'
-#' [hyperSpec::hy.setOptions()]
+#' [hyperSpec::hy_set_options()]
 #'
 #' @note This function is still experimental
 #' @export

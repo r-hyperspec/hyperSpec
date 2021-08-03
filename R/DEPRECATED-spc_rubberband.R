@@ -32,7 +32,7 @@
 #'
 #' `vignette ("baseline")`
 #'
-#' [hyperSpec::hy.setOptions()]
+#' [hyperSpec::hy_set_options()]
 #'
 #' @export
 #' @include spc_rubberband.R

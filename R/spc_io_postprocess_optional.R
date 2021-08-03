@@ -8,7 +8,7 @@
 #'   empty spectra when measurements are cancelled)
 #' - optionally keep the filenames in column `spc$filename`
 #'
-#' The desired overall behavior can be set by options via [hy.setOptions()].
+#' The desired overall behavior can be set by options via [hy_set_options()].
 #' All file import filters should call `.spc_io_postprocess_optional()` to
 #' ensure the same behavior.
 #'
@@ -105,11 +105,11 @@ hySpc.testthat::test(.spc_io_postprocess_optional) <- function() {
 
 
   options.state <- .options
-  on.exit(do.call(hy.setOptions, options.state))
+  on.exit(do.call(hy_set_options, options.state))
 
   test_that("option treatment", {
-    hy.setOptions(file.remove.emptyspc = FALSE)
+    hy_set_options(file.remove.emptyspc = FALSE)
     skip("FIXME: not implemented")
-    do.call(hy.setOptions, options.state)
+    do.call(hy_set_options, options.state)
   })
 }

@@ -182,7 +182,7 @@ It is therefore recommended to look up the methods in the `R` help system using 
 \index{options!debuglevel}
 \index{options!gc}
 The global behaviour of package **hyperSpec** can be configured via options.
-The values of the options are retrieved with `hy_get_options()`{.r} and `hy_get_option()`{.r}, and changed with `hy.setOptions()`{.r}.
+The values of the options are retrieved with `hy_get_options()`{.r} and `hy_get_option()`{.r}, and changed with `hy_set_options()`{.r}.
 Table \@ref(tab:options) gives an overview of the options.  You should not worry about these at the start of your exploration of **hyperSpec**.
 
 
@@ -1890,7 +1890,7 @@ At certain points, package **hyperSpec** provides switches that allow working wi
 \mFun{`new ("hyperSpec")`{.r}, `read.ENVI*()`{.r},`read.txt.Renishaw()`{.r}}
 \index{options!gc}
 The initialization method `new("hyperSpec", ...)`{.r} takes particular care to avoid unneccessary copies of the spectra matrix.
-In addition, frequent calls to `gc()`{.r} can be requested by `hy.setOption(gc = TRUE)`{.r}.
+In addition, frequent calls to `gc()`{.r} can be requested by `hy_set_option(gc = TRUE)`{.r}.
 The same behaviour is triggered in `read.ENVI()`{.r} and its derivatives (`read.ENVI.`_`Manufacturer`_`()`{.r}).
 The memory consumption of `read.txt.Renishaw()`{.r} can be lowered by importing the data in chunks (argument `nlines`{.r}).
 
