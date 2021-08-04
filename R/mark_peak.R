@@ -18,7 +18,7 @@
 #' plot(faux_cell[7])
 #' markpeak(faux_cell[7], 1662)
 markpeak <- function(spc, xpos, col = "red") {
-  chk.hy(spc)
+  assert_hyperSpec(spc)
   validObject(spc)
 
   plot(spc[1, , xpos], add = T, lines.args = list(type = "p"), col = col)

@@ -26,7 +26,7 @@
 spc_na_approx <- function(spc, neighbours = 1, w = rep(1, 2 * neighbours),
                           df = 1 + .Machine$double.eps, spar = NULL,
                           debuglevel = hy_get_option("debuglevel")) {
-  chk.hy(spc)
+  assert_hyperSpec(spc)
   validObject(spc)
 
   all.na <- which(apply(is.na(spc@data$spc), 1, all))

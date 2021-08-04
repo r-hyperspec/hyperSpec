@@ -141,7 +141,7 @@ hySpc.testthat::test(.labels) <- function() {
 #'
 #' labels(flu, "c") <- expression("/"("c", "mg / l"))
 `labels<-` <- function(object, which = NULL, ..., value) {
-  chk.hy(object)
+  assert_hyperSpec(object)
   validObject(object)
 
   if (is.null(which)) {

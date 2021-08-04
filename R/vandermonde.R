@@ -92,7 +92,7 @@ hySpc.testthat::test(vanderMonde) <- function() {
   })
 
   test_that("hyperSpec objects", {
-    expect_true(chk.hy(vanderMonde(flu, 0)))
+    expect_true(assert_hyperSpec(vanderMonde(flu, 0)))
     expect_true(validObject(vanderMonde(flu, 0)))
 
     tmp <- vanderMonde(paracetamol, 3, normalize.wl = I)

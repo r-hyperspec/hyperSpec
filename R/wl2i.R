@@ -89,7 +89,7 @@
 #' wl2i(flu, 600 ~ 700) ## NULL: completely outside flu's wavelength range
 #' @importFrom lazyeval lazy lazy_eval is_formula f_eval_lhs f_eval_rhs
 wl2i <- function(x, wavelength = stop("wavelengths are required."), unlist = TRUE) {
-  chk.hy(x)
+  assert_hyperSpec(x)
   validObject(x)
 
   ## wavelength may have been forced already before.
@@ -239,7 +239,7 @@ hySpc.testthat::test(wl2i) <- function() {
 #'
 #' i2wl(faux_cell, 17:20)
 i2wl <- function(x, i) {
-  chk.hy(x)
+  assert_hyperSpec(x)
   validObject(x)
 
   x@wavelength[i]
