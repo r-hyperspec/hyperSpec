@@ -3,8 +3,8 @@
 .all.equal <- function(target, current, ..., check.attributes = FALSE,
                        check.names = FALSE, check.column.order = FALSE,
                        check.label = FALSE,
-                       tolerance = hy.getOption("tolerance"),
-                       wl.tolerance = hy.getOption("wl.tolerance")) {
+                       tolerance = hy_get_option("tolerance"),
+                       wl.tolerance = hy_get_option("wl.tolerance")) {
   validObject(target)
   validObject(current)
   tolerance <- .checkpos(tolerance, "tolerance")

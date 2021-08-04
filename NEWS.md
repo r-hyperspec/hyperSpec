@@ -30,6 +30,9 @@
      `.fix_spc_colnames()`   | `.spc_fix_colnames()`            |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `alois.palette()`       | `palette_alois()`                |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#299, @sangttruong 
      `guess.wavelength()`    | `extract_numbers()`              |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#309
+     `hy.getOption()`        | `hy_get_option()`                |  #21
+     `hy.getOptions()`       | `hy_get_options()`               |  #21
+     `hy.setOptions()`       | `hy_set_options()`               |  #21
      `matlab.dark.palette()` | `palette_matlab_dark()`          |  cbeleites/hyperSpec#299, cbeleites/hyperSpec#299, @sangttruong
      `matlab.palette()`      | `palette_matlab()`               |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#299, @sangttruong
      `mergeextra()`          | `merge_data()`                   |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#302

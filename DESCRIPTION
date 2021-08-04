@@ -94,6 +94,7 @@ Collate:
     'extract_numbers.R'
     'DEPRECATED-extract_numbers.R'
     'DEPRECATED-ggplot2.R'
+    'DEPRECATED-hy_options.R'
     'DEPRECATED-read.ENVI.R'
     'DEPRECATED-read.ENVI.HySpex.R'
     'DEPRECATED-read.ENVI.Nicolet.R'

@@ -35,7 +35,7 @@
 #' spc.NA.approx(fluNA[4, , min ~ 410], neighbours = 3, df = 4, debuglevel = 2)
 spc.NA.approx <- function(spc, neighbours = 1, w = rep(1, 2 * neighbours),
                           df = 1 + .Machine$double.eps, spar = NULL,
-                          debuglevel = hy.getOption("debuglevel")) {
+                          debuglevel = hy_get_option("debuglevel")) {
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   hySpc_deprecated("spc_na_approx")
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -172,7 +172,7 @@ plotspc <- function(object,
                     ## what wavelengths to plot
                     wl.range = TRUE, wl.index = FALSE, wl.reverse = FALSE,
                     ## what spectra to plot
-                    spc.nmax = hy.getOption("plot.spc.nmax"),
+                    spc.nmax = hy_get_option("plot.spc.nmax"),
                     func = NULL, func.args = list(),
                     stacked = NULL, stacked.args = list(),
                     ## plot area
@@ -188,7 +188,7 @@ plotspc <- function(object,
                     fill = NULL, fill.col = NULL, border = NA, polygon.args = list(),
                     ## line indicating zero intensity
                     zeroline = list(lty = 2, col = col),
-                    debuglevel = hy.getOption("debuglevel")) {
+                    debuglevel = hy_get_option("debuglevel")) {
   force(zeroline) # otherwise stacking messes up colors
 
   chk.hy(object)
@@ -655,7 +655,7 @@ stacked.offsets <- function(x,
                             add.sum = 0,
                             # TODO: # tight = FALSE,
                             .spc = NULL,
-                            debuglevel = hy.getOption("debuglevel")) {
+                            debuglevel = hy_get_option("debuglevel")) {
   lvl <- NULL
 
   if (is.null(.spc)) {

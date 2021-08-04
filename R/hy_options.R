@@ -1,4 +1,5 @@
 
+# Function -------------------------------------------------------------------
 
 .options <- list(
   debuglevel = 0L,
@@ -30,17 +31,17 @@
 #' ggplot.spc.nmax      \tab 10                                \tab                                                  \tab [`qplotspc()`](https://r-hyperspec.github.io/hySpc.ggplot2/reference/qplotspc.html)\cr
 #' }
 #'
-#' `hy.setOptions` will discard any values that were given without a  name.
+#' `hy_set_options` will discard any values that were given without a  name.
 #'
 #' @rdname options
-#' @param ... `hy.setOptions`: pairs of argument names and values.
+#' @param ... `hy_set_options`: pairs of argument names and values.
 #'
-#' `hy.getOptions`: indices (or names) of the options.
+#' `hy_get_options`: indices (or names) of the options.
 #' @return
 #' \tabular{ll}{
-#' `hy.getOptions` \tab returns a list of all options\cr
-#' `hy.setOptions` \tab invisibly returns a list with the options \cr
-#' `hy.getOption`  \tab returns the value of the requested option \cr
+#' `hy_get_options` \tab returns a list of all options\cr
+#' `hy_set_options` \tab invisibly returns a list with the options \cr
+#' `hy_get_option`  \tab returns the value of the requested option \cr
 #' }
 #' @author C. Beleites
 #'
@@ -51,8 +52,8 @@
 #'
 #' @examples
 #'
-#' hy.getOptions()
-hy.getOptions <- function(...) {
+#' hy_get_options()
+hy_get_options <- function(...) {
   dots <- c(...)
   if (length(dots) == 0L) {
     .options
@@ -61,23 +62,27 @@ hy.getOptions <- function(...) {
   }
 }
 
+# Unit tests -----------------------------------------------------------------
 
-hySpc.testthat::test(hy.getOptions) <- function() {
-  context("hy.getOptions")
+hySpc.testthat::test(hy_get_options) <- function() {
+  context("hy_get_options")
 
   test_that("proper return", {
     hy.opts <- get(".options", asNamespace("hyperSpec"))
-    expect_equal(hy.getOptions(), hy.opts)
+    expect_equal(hy_get_options(), hy.opts)
 
     expect_equal(
-      hy.getOptions("debuglevel"),
+      hy_get_options("debuglevel"),
       hy.opts["debuglevel"]
     )
 
     .options <- list()
-    expect_equal(hy.getOptions(), hy.opts)
+    expect_equal(hy_get_options(), hy.opts)
   })
 }
+
+
+# Function -------------------------------------------------------------------
 
 #' @rdname options
 #' @export
@@ -85,9 +90,11 @@ hySpc.testthat::test(hy.getOptions) <- function() {
 #' @concept utils
 #'
 #' @param name the name of the option
-hy.getOption <- function(name) {
+hy_get_option <- function(name) {
   .options[[name]]
 }
+
+# Function -------------------------------------------------------------------
 
 #' @rdname options
 #' @export
@@ -95,7 +102,7 @@ hy.getOption <- function(name) {
 #' @concept utils
 #'
 #' @importFrom utils modifyList
-hy.setOptions <- function(...) {
+hy_set_options <- function(...) {
   new <- list(...)
 
   ## if called with list in 1st argument, use that list
@@ -129,60 +136,63 @@ hy.setOptions <- function(...) {
   opt
 }
 
-hySpc.testthat::test(hy.setOptions) <- function() {
-  context("hy.setOptions")
 
-  old <- hy.getOptions()
-  on.exit(hy.setOptions(old))
+# Unit tests -----------------------------------------------------------------
+
+hySpc.testthat::test(hy_set_options) <- function() {
+  context("hy_set_options")
+
+  old <- hy_get_options()
+  on.exit(hy_set_options(old))
 
   test_that("new option and proper return value", {
-    expect_equal(hy.setOptions(bla = 1)$bla, 1)
-    expect_equal(hy.getOption("bla"), 1)
+    expect_equal(hy_set_options(bla = 1)$bla, 1)
+    expect_equal(hy_get_option("bla"), 1)
   })
 
   test_that("setting", {
-    tmp <- hy.setOptions(debuglevel = 27)
+    tmp <- hy_set_options(debuglevel = 27)
     expect_equal(tmp$debuglevel, 27)
 
-    tmp <- hy.setOptions(list(debuglevel = 20))
+    tmp <- hy_set_options(list(debuglevel = 20))
     expect_equal(tmp$debuglevel, 20)
 
-    tmp <- hy.setOptions(debuglevel = 27, tolerance = 4)
+    tmp <- hy_set_options(debuglevel = 27, tolerance = 4)
     expect_equal(tmp$debuglevel, 27)
     expect_equal(tmp$tolerance, 4)
 
-    tmp <- hy.setOptions(list(debuglevel = 20, tolerance = 5))
+    tmp <- hy_set_options(list(debuglevel = 20, tolerance = 5))
     expect_equal(tmp$debuglevel, 20)
     expect_equal(tmp$tolerance, 5)
   })
 
   test_that("restrictions on tolerances", {
     for (o in c("tolerance", "wl.tolerance")) {
-      expect_warning(hy.setOptions(structure(list(0), .Names = o)))
-      expect_equal(hy.getOption(o), .Machine$double.eps, label = o)
+      expect_warning(hy_set_options(structure(list(0), .Names = o)))
+      expect_equal(hy_get_option(o), .Machine$double.eps, label = o)
 
-      hy.setOptions(structure(list(1), .Names = o))
-      expect_equal(hy.getOption(o), 1)
-      expect_warning(hy.setOptions(structure(list(-1), .Names = o)))
-      expect_equal(hy.getOption(o), .Machine$double.eps, label = o)
+      hy_set_options(structure(list(1), .Names = o))
+      expect_equal(hy_get_option(o), 1)
+      expect_warning(hy_set_options(structure(list(-1), .Names = o)))
+      expect_equal(hy_get_option(o), .Machine$double.eps, label = o)
 
-      hy.setOptions(structure(list(1), .Names = o))
-      expect_equal(hy.getOption(o), 1)
-      expect_warning(hy.setOptions(structure(list(NA), .Names = o)))
-      expect_equal(hy.getOption(o), .Machine$double.eps, label = o)
+      hy_set_options(structure(list(1), .Names = o))
+      expect_equal(hy_get_option(o), 1)
+      expect_warning(hy_set_options(structure(list(NA), .Names = o)))
+      expect_equal(hy_get_option(o), .Machine$double.eps, label = o)
     }
 
-    expect_warning(hy.setOptions(tolerance = NULL))
-    expect_equal(hy.getOption("tolerance"), .Machine$double.eps)
+    expect_warning(hy_set_options(tolerance = NULL))
+    expect_equal(hy_get_option("tolerance"), .Machine$double.eps)
 
-    expect_warning(hy.setOptions(wl.tolerance = NULL))
-    expect_equal(hy.getOption("wl.tolerance"), .Machine$double.eps)
+    expect_warning(hy_set_options(wl.tolerance = NULL))
+    expect_equal(hy_get_option("wl.tolerance"), .Machine$double.eps)
   })
 
 
   test_that("options must be named", {
-    tmp.a <- hy.getOptions()
-    expect_warning(tmp.b <- hy.setOptions(1))
+    tmp.a <- hy_get_options()
+    expect_warning(tmp.b <- hy_set_options(1))
     expect_equal(tmp.a, tmp.b)
   })
 }

@@ -28,7 +28,7 @@ setGeneric("normalize01", function(x, ...) standardGeneric("normalize01"))
 
 # Function -------------------------------------------------------------------
 
-.normalize01_mat <- function(x, tolerance = hy.getOption("tolerance")) {
+.normalize01_mat <- function(x, tolerance = hy_get_option("tolerance")) {
   m <- apply(x, 1, min)
   x <- sweep(x, 1, m, `-`)
   m <- apply(x, 1, max)
@@ -45,7 +45,7 @@ setMethod(normalize01, signature(x = "matrix"), .normalize01_mat)
 
 # Function -------------------------------------------------------------------
 
-.normalize01_num <- function(x, tolerance = hy.getOption("tolerance")) {
+.normalize01_num <- function(x, tolerance = hy_get_option("tolerance")) {
   x <- x - min(x)
 
   m <- max(x)
