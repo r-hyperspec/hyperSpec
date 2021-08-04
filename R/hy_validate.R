@@ -69,4 +69,18 @@ assert_hyperSpec <- function(object) {
 
 # Unit tests -----------------------------------------------------------------
 
-# FIXME: add unit tests
+hySpc.testthat::test(is_hyperSpec) <- function() {
+  local_edition(3)
+
+  test_that("is_hyperSpec() works", {
+     expect_true(is_hyperSpec(flu))
+     expect_false(is_hyperSpec(1:5))
+  })
+
+  test_that("assert_hyperSpec() works", {
+     expect_true(assert_hyperSpec(flu))
+     expect_error(assert_hyperSpec(1:5), "Not a 'hyperSpec' object!")
+     expect_error(assert_hyperSpec(1L:5L), "integer")
+     expect_error(assert_hyperSpec("A"), "character")
+  })
+}
