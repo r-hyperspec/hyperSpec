@@ -12,8 +12,7 @@
 #' This function is **deprecated**.
 #' Use [assert_hyperSpec()] or [is_hyperSpec()].
 #'
-#' @param ... Passed to [hy_get_option()], [hy_get_options()],
-#'        or [hy_set_options()].
+#' @param object See argument `object` in [assert_hyperSpec()].
 #'
 #' @export
 
