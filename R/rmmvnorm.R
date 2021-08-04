@@ -36,11 +36,11 @@ setGeneric("rmmvnorm", .rmmvnorm)
   tmp <- .rmmvnorm(n, mean@data$spc, sigma)
 
   data <- mean[attr(tmp, "group"), , drop = FALSE]
-  if (hy.getOption("gc")) gc()
+  if (hy_get_option("gc")) gc()
   data@data$spc <- tmp
-  if (hy.getOption("gc")) gc()
+  if (hy_get_option("gc")) gc()
   data$.group <- attr(tmp, "group")
-  if (hy.getOption("gc")) gc()
+  if (hy_get_option("gc")) gc()
   data
 }
 
@@ -98,11 +98,11 @@ setMethod(
   tmp <- .rmmvnorm(n, mean@data$spc, sigma)
 
   data <- mean[attr(tmp, "group"), , drop = FALSE]
-  if (hy.getOption("gc")) gc()
+  if (hy_get_option("gc")) gc()
   data@data$spc <- tmp
-  if (hy.getOption("gc")) gc()
+  if (hy_get_option("gc")) gc()
   data$.group <- attr(tmp, "group")
-  if (hy.getOption("gc")) gc()
+  if (hy_get_option("gc")) gc()
   data
 }
 

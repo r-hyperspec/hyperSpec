@@ -145,7 +145,7 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
       message("multiple strings encountered in spc file ", paste(out, collapse = ", "), ": using only the first one.")
       out <- out[1]
     } else if (!is.null(paste.collapse)) {
-      if (hy.getOption("debuglevel") > 2L) {
+      if (hy_get_option("debuglevel") > 2L) {
         message("multiple strings encountered in spc file ", paste(out, collapse = ", "), " => pasting.")
       }
 
@@ -308,7 +308,7 @@ raw.split.nul <- function(raw, trunc = c(TRUE, TRUE), firstonly = FALSE, paste.c
   if (hdr$ftflgs["TMULTI"]) {
     ## multiple spectra in file
     if (hdr$fnsub <= 1) {
-      if (hy.getOption("debuglevel") >= 2L) {
+      if (hy_get_option("debuglevel") >= 2L) {
         message("spc file header specifies multiple spectra but only zero or one subfile.")
       }
     }

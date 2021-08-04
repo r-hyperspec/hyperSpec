@@ -78,7 +78,7 @@
 #' do.call("rbind", lhy)
 #' bind("r", lhy)
 bind <- function(direction = stop("direction('c' or 'r') required"), ...,
-                 wl.tolerance = hy.getOption("wl.tolerance")) {
+                 wl.tolerance = hy_get_option("wl.tolerance")) {
   wl.tolerance <- .checkpos(wl.tolerance, "wl.tolerance")
   dots <- list(...)
 
@@ -361,7 +361,7 @@ hySpc.testthat::test(.cbind2) <- function() {
 
 # Function -------------------------------------------------------------------
 
-.rbind2 <- function(x, y, wl.tolerance = hy.getOption("wl.tolerance")) {
+.rbind2 <- function(x, y, wl.tolerance = hy_get_option("wl.tolerance")) {
   validObject(x)
   validObject(y)
   wl.tolerance <- .checkpos(wl.tolerance, "wl.tolerance")

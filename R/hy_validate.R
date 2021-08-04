@@ -16,27 +16,39 @@
 }
 
 
-#' @title Validation of `hyperSpec` objects
-#' @description
-#' Check whether an object is a `hyperSpec` object and validate the object.
+#' Check and validate `hyperSpec` objects
+#'
+#' Check whether an object is a [hyperSpec][hyperSpec::hyperSpec-class()]
+#' object and validate the object.
 #'
 #' @aliases validObject validObject,hyperSpec-method chk.hy
-#' @author C. Beleites
-#' @seealso [methods::validObject()]
-#' @param object the object to check
+#'
+#' @param object The object to check.
+#'
+#'
 #' @return `TRUE` if the check passes, otherwise stop with an error.
-#' @export
+#'
+#'
+#' @author C. Beleites
+#'
+#' @seealso [methods::validObject()], [base::inherits()]
 #'
 #' @keywords methods
 #' @concept utils
+#'
+#' @export
 #'
 #' @examples
 #' chk.hy(faux_cell)
 #' validObject(faux_cell)
 chk.hy <- function(object) {
-  if (!is(object, "hyperSpec")) {
-    stop("no hyperSpec object")
+  if (!inherits(object, "hyperSpec")) {
+    stop(
+      "Not a 'hyperSpec' object! \n",
+      "Class(es) of the object: ", paste0(class(object), collapse = ", ")
+    )
   }
 
   TRUE
 }
+
