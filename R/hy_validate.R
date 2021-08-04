@@ -16,12 +16,16 @@
 }
 
 
+# Function -------------------------------------------------------------------
+
 #' Check and validate `hyperSpec` objects
 #'
 #' Check whether an object is a [hyperSpec][hyperSpec::hyperSpec-class()]
 #' object and validate the object.
 #'
-#' @aliases validObject validObject,hyperSpec-method chk.hy
+#' @name is_hyperSpec
+#' @aliases is_hyperSpec assert_hyperSpec
+#'          validObject validObject,hyperSpec-method
 #'
 #' @param object The object to check.
 #'
@@ -39,10 +43,20 @@
 #' @export
 #'
 #' @examples
-#' chk.hy(faux_cell)
+#' is_hyperSpec(faux_cell)
+#'
+#' assert_hyperSpec(faux_cell)
+#'
 #' validObject(faux_cell)
-chk.hy <- function(object) {
-  if (!inherits(object, "hyperSpec")) {
+is_hyperSpec <- function(object) {
+  inherits(object, "hyperSpec")
+}
+
+
+#' @rdname is_hyperSpec
+#' @export
+assert_hyperSpec <- function(object) {
+  if (!is_hyperSpec(object)) {
     stop(
       "Not a 'hyperSpec' object! \n",
       "Class(es) of the object: ", paste0(class(object), collapse = ", ")
@@ -52,3 +66,7 @@ chk.hy <- function(object) {
   TRUE
 }
 
+
+# Unit tests -----------------------------------------------------------------
+
+# FIXME: add unit tests
