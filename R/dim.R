@@ -71,7 +71,7 @@ setMethod("nrow", signature = signature("hyperSpec"), .nrow)
 #'
 #' nwl(faux_cell)
 nwl <- function(x) {
-  chk.hy(x)
+  assert_hyperSpec(x)
   validObject(x)
 
   ncol(x@data$spc)

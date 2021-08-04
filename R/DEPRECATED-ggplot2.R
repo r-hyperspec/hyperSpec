@@ -53,7 +53,7 @@ qplotspc <- function(x,
   deprecated_ggplot2(new = "qplotspc")
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  chk.hy(x)
+  assert_hyperSpec(x)
   validObject(x)
 
   ## cut away everything that isn't asked for before transforming to data.frame
@@ -133,7 +133,7 @@ qplotmap <- function(object,
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   deprecated_ggplot2(new = "qplotmap")
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  chk.hy(object)
+  assert_hyperSpec(object)
   validObject(object)
 
   if (nwl(object) > 1 & !is.null(func)) {
@@ -202,7 +202,7 @@ qplotc <- function(object, mapping = aes_string(x = "c", y = "spc"), ...,
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   deprecated_ggplot2(new = "qplotc")
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  chk.hy(object)
+  assert_hyperSpec(object)
   validObject(object)
 
   if (!is.null(func)) {

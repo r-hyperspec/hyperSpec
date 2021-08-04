@@ -1,7 +1,7 @@
 
 # Function -------------------------------------------------------------------
 
-#' @name DEPRECATED-chk.hy
+#' @name DEPRECATED-assert_hyperSpec
 #' @concept Deprecated
 #'
 #' @title (DEPRECATED)
@@ -17,7 +17,7 @@
 #'
 #' @export
 
-chk.hy <- function(object) {
+assert_hyperSpec <- function(object) {
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   hySpc_deprecated("assert_hyperSpec")
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -27,8 +27,8 @@ chk.hy <- function(object) {
 
 # Unit tests -----------------------------------------------------------------
 
-hySpc.testthat::test(chk.hy) <- function() {
-  context("chk.hy")
+hySpc.testthat::test(assert_hyperSpec) <- function() {
+  context("assert_hyperSpec")
 
-  test_that("deprecated",  expect_warning(chk.hy(flu), "deprecated"))
+  test_that("deprecated",  expect_warning(assert_hyperSpec(flu), "deprecated"))
 }

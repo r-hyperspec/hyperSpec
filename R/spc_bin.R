@@ -43,7 +43,7 @@
 #' nwl(flu)
 #' nwl(spc)
 spc_bin <- function(spc, by = stop("reduction factor needed"), na.rm = TRUE, ...) {
-  chk.hy(spc)
+  assert_hyperSpec(spc)
   validObject(spc)
 
   n <- ceiling(nwl(spc) / by)

@@ -108,7 +108,7 @@
 #' @importFrom utils modifyList
 plotmap <- function(object, model = spc ~ x * y,
                     func = mean, func.args = list(), ...) {
-  chk.hy(object)
+  assert_hyperSpec(object)
   validObject(object)
 
   if (!is.null(func) & !any(grepl("[.]wavelength", model))) {

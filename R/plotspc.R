@@ -191,7 +191,7 @@ plotspc <- function(object,
                     debuglevel = hy_get_option("debuglevel")) {
   force(zeroline) # otherwise stacking messes up colors
 
-  chk.hy(object)
+  assert_hyperSpec(object)
   validObject(object)
   if (nrow(object) == 0) stop("No spectra.")
 
