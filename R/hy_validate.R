@@ -25,7 +25,9 @@
 #'
 #' @param object The object to check.
 #'
+#'
 #' @return `TRUE` if the check passes, otherwise stop with an error.
+#'
 #'
 #' @author C. Beleites
 #'
