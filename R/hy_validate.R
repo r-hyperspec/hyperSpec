@@ -43,7 +43,10 @@
 #' validObject(faux_cell)
 chk.hy <- function(object) {
   if (!is(object, "hyperSpec")) {
-    stop("no hyperSpec object")
+    stop(
+      "Not a 'hyperSpec' object! \n",
+      "Class(es) of the object: ", paste0(class(object), collapse = ", ")
+    )
   }
 
   TRUE
