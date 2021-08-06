@@ -34,7 +34,7 @@ spc_smooth_spline <- function(spc, newx = wl(spc), ...) {
     predict(fit, newx, deriv = 0)$y
   }
 
-  spc <- wl_sort(spc) # includes chk.hy and validObject
+  spc <- wl_sort(spc) # includes assert_hyperSpec and validObject
 
   newspc <- matrix(NA_real_, ncol = length(newx), nrow = nrow(spc))
   i <- rowSums(is.na(spc@data$spc)) < nwl(spc)

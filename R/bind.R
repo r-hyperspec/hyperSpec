@@ -92,7 +92,7 @@ bind <- function(direction = stop("direction('c' or 'r') required"), ...,
     validObject(dots[[1]])
     dots[[1]]
   } else { # binding is actually needed.
-    lapply(dots, chk.hy)
+    lapply(dots, assert_hyperSpec)
     lapply(dots, validObject)
 
     for (i in seq_along(dots)[-1]) {

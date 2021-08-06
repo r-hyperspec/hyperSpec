@@ -41,7 +41,7 @@
 #' lines(seq_len(nwl(spc_sorted)), spc_sorted[[]], type = "l", col = "red")
 #' spc_sorted[[]]
 wl_sort <- function(x, na.last = TRUE, decreasing = FALSE) {
-  chk.hy(x)
+  assert_hyperSpec(x)
   validObject(x)
 
   ord <- order(x@wavelength, na.last = na.last, decreasing = decreasing)

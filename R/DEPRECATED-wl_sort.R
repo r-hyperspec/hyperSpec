@@ -53,7 +53,7 @@ orderwl <- function(x, na.last = TRUE, decreasing = FALSE) {
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   hySpc_deprecated("wl_sort")
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  chk.hy(x)
+  assert_hyperSpec(x)
   validObject(x)
 
   ord <- order(x@wavelength, na.last = na.last, decreasing = decreasing)

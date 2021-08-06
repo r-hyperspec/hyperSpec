@@ -87,6 +87,7 @@ Collate:
     'expand.R'
     'Arith.R'
     'Compare.R'
+    'DEPRECATED-chk.hy.R'
     'DEPRECATED-count_lines.R'
     'DEPRECATED-dist_pearson.R'
     'hy_options.R'

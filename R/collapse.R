@@ -65,7 +65,7 @@ collapse <- function(..., wl.tolerance = hy_get_option("wl.tolerance"), collapse
   }
 
   ## check the arguments
-  lapply(dots, chk.hy)
+  lapply(dots, assert_hyperSpec)
   lapply(dots, validObject)
 
   dots <- lapply(dots, wl_sort)

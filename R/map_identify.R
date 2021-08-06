@@ -21,7 +21,7 @@ map.identify <- function(object, model = spc ~ x * y, voronoi = FALSE, ...,
     stop("map.identify works only on interactive graphics devices.")
   }
 
-  chk.hy(object)
+  assert_hyperSpec(object)
   validObject(object)
 
   dots <- modifyList(

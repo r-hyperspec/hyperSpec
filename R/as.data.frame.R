@@ -83,7 +83,7 @@ as.matrix.hyperSpec <- function(x, ...) {
 #' as.wide.df(faux_cell[1:5, , 600 ~ 610])
 #' summary(as.wide.df(faux_cell[1:5, , 600 ~ 610]))
 as.wide.df <- function(x, wl.prefix = "") {
-  chk.hy(x)
+  assert_hyperSpec(x)
   validObject(x)
 
   ispc <- match("spc", colnames(x@data))
@@ -171,7 +171,7 @@ hySpc.testthat::test(as.wide.df) <- function() {
 #' summary(as.long.df(flu[, , 405 ~ 410], rownames = TRUE))
 #' summary(as.long.df(flu[, , 405 ~ 410], wl.factor = TRUE))
 as.long.df <- function(x, rownames = FALSE, wl.factor = FALSE, na.rm = TRUE) {
-  chk.hy(x)
+  assert_hyperSpec(x)
   validObject(x)
 
   ispc <- match("spc", colnames(x@data))
@@ -242,7 +242,7 @@ as.long.df <- function(x, rownames = FALSE, wl.factor = FALSE, na.rm = TRUE) {
 #'     geom_line(aes(y = mean))
 #' }
 as.t.df <- function(x) {
-  chk.hy(x)
+  assert_hyperSpec(x)
   validObject(x)
 
   df <- as.data.frame(t(unclass(x@data$spc)))

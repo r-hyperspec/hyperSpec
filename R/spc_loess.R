@@ -66,7 +66,7 @@ spc_loess <- function(spc, newx, enp.target = nwl(spc) / 4, surface = "direct",
     }
   }
 
-  chk.hy(spc)
+  assert_hyperSpec(spc)
   validObject(spc)
 
   loess <- apply(t(spc[[]]), 2, .loess, spc@wavelength)

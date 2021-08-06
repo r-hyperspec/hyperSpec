@@ -40,7 +40,7 @@ spc.NA.approx <- function(spc, neighbours = 1, w = rep(1, 2 * neighbours),
   hySpc_deprecated("spc_na_approx")
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  chk.hy(spc)
+  assert_hyperSpec(spc)
   validObject(spc)
 
   all.na <- which(apply(is.na(spc@data$spc), 1, all))

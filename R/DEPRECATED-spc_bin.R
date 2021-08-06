@@ -59,7 +59,7 @@ spc.bin <- function(spc, by = stop("reduction factor needed"), na.rm = TRUE, ...
   hySpc_deprecated("spc_bin")
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  chk.hy(spc)
+  assert_hyperSpec(spc)
   validObject(spc)
 
   n <- ceiling(nwl(spc) / by)
