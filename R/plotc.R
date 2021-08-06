@@ -93,7 +93,7 @@
 #' @importFrom utils modifyList
 plotc <- function(object, model = spc ~ c, groups = NULL,
                   func = NULL, func.args = list(), ...) {
-  chk.hy(object)
+  assert_hyperSpec(object)
   validObject(object)
 
   dots <- list(...)

@@ -43,9 +43,9 @@
 #' plot(spc - baselines)
 spc_fit_poly <- function(fit.to, apply.to = NULL, poly.order = 1,
                          offset.wl = !(is.null(apply.to))) {
-  chk.hy(fit.to)
+  assert_hyperSpec(fit.to)
   if (!is.null(apply.to)) {
-    chk.hy(apply.to)
+    assert_hyperSpec(apply.to)
   }
 
   validObject(fit.to)
@@ -180,9 +180,9 @@ spc_fit_poly_below <- function(fit.to, apply.to = fit.to, poly.order = 1,
   ## for debuglevel >= 2L
   cols <- palette_matlab_dark(max.iter)
 
-  chk.hy(fit.to)
+  assert_hyperSpec(fit.to)
   if (!is.null(apply.to)) {
-    chk.hy(apply.to)
+    assert_hyperSpec(apply.to)
   }
 
   validObject(fit.to)

@@ -45,7 +45,7 @@ setMethod("cov", signature = signature(x = "hyperSpec", y = "missing"), .cov_h_)
 #' plot(pcov$means)
 #' image(pcov$COV)
 pooled.cov <- function(x, groups, ..., regularize = 1e-5 * max(abs(COV))) {
-  chk.hy(x)
+  assert_hyperSpec(x)
   validObject(x)
 
   if (!is.factor(groups)) {

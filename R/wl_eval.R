@@ -34,7 +34,7 @@ wl_eval <- function(x, ..., normalize.wl = I) {
 #' @rdname wl_eval
 #' @export
 wl_eval.hyperSpec <- function(x, ..., normalize.wl = I) {
-  chk.hy(x)
+  assert_hyperSpec(x)
   validObject(x)
 
   fun <- list(...)

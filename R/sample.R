@@ -99,7 +99,7 @@ setMethod("sample", signature = signature(x = "hyperSpec"), .sample)
 #' isample(flu, 3, replace = TRUE)
 #' isample(flu, 8, replace = TRUE)
 isample <- function(x, size = nrow(x), replace = FALSE, prob = NULL) {
-  chk.hy(x)
+  assert_hyperSpec(x)
   validObject(x)
 
   sample.int(nrow(x), size = size, replace = replace, prob = prob)

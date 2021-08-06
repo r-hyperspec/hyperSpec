@@ -37,7 +37,7 @@
 #' @importFrom utils modifyList
 plotmat <- function(object, y = ".row", ylab, col = palette_alois(20), ...,
                     contour = FALSE) {
-  chk.hy(object)
+  assert_hyperSpec(object)
   validObject(object)
   object <- wl_sort(object)
 

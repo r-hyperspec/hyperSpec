@@ -38,7 +38,7 @@
 #'
 #' wl(laser)
 wl <- function(x) {
-  chk.hy(x)
+  assert_hyperSpec(x)
   validObject(x)
 
   x@wavelength
@@ -87,7 +87,7 @@ wl <- function(x) {
 #' )
 #' plot(faux_cell[1])
 "wl<-" <- function(x, label = NULL, digits = 6, value) {
-  chk.hy(x)
+  assert_hyperSpec(x)
   validObject(x)
 
   if (is.list(value)) {
