@@ -13,8 +13,12 @@
 #' @param ... additional parameters that should be handed over to
 #'       `new("hyperSpec")` (initialize).
 #'
+#'
 #' @return hyperSpec object
+#'
+#'
 #' @seealso [hyperSpec::initialize()]
+#'
 #' @export
 #'
 #' @concept hyperSpec conversion
@@ -33,9 +37,11 @@ setGeneric("as.hyperSpec", function(X, ...) {
 }
 
 #' @rdname as.hyperSpec
+#'
 #' @param wl wavelength vector. Defaults to guessing from the column names in `X`.
 #' @param spc spectra matrix.
 #' @param labels list with labels.
+#'
 #' @export
 #'
 #' @concept hyperSpec conversion
@@ -88,7 +94,6 @@ setMethod("as.hyperSpec", "hyperSpec", .as.hyperSpec.hyperSpec)
 
 
 # Unit tests -----------------------------------------------------------------
-
 
 hySpc.testthat::test(as.hyperSpec) <- function() {
   context("as.hyperSpec")
