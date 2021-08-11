@@ -348,11 +348,11 @@ A random subset of spectra can be conveniently selected by `sample()`{.r}:
 sample(faux_cell, 3)
 ```
 
-\mFun{`isample()`{.r}}
-If indices into the selected spectra are needed instead, use `isample()`{.r}:
+\mFun{`sample(..., index = TRUE)`{.r}}
+If indices into the selected spectra are needed instead, use `sample(..., index = TRUE)`{.r}:
 
 ```{r isample}
-isample(faux_cell, 3)
+sample(faux_cell, 3, index = TRUE)
 ```
 
 
