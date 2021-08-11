@@ -20,6 +20,10 @@
 #' [sample()] takes a random sample of rows from the object `x` drawn with or
 #' without replacement.
 #'
+#' @name sample
+#' @rdname sample
+#'
+#'
 #' @param x `hyperSpec` object, `data.frame` or `matrix` to sample rows from.
 #'
 #' @param size (integer): Positive integer giving the number of spectra (rows)
