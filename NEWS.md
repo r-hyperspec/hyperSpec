@@ -64,7 +64,7 @@
 * Functions `show()` and `print()` give more concise default output now (@GegznaV, cbeleites/hyperSpec#211).
 * The default output of function `summary()` was changed (@GegznaV, cbeleites/hyperSpec#211).
 * New color palette `palette_colorblind` introduced (@bryanhanson).
-
+* Function `sample()` gains new argument `index`; `sample(..., index = TRUE)` replaced function `isample()` (@GegznaV, #17).
 
 
 ## Non-User-Facing Changes from 0.99 Series
