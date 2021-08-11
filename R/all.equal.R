@@ -83,18 +83,27 @@ hySpc.testthat::test(.all.equal) <- function() {
 
   test_that("column order", {
     expect_true(all.equal(flu, --flu, check.column.order = TRUE))
-    expect_true(!isTRUE(all.equal(flu, flu[, rev(colnames(flu))], check.column.order = TRUE)))
-    expect_true(all.equal(flu, flu[, rev(colnames(flu))], check.column.order = FALSE))
+    expect_true(!isTRUE(all.equal(
+      flu,
+      flu[, rev(colnames(flu))],
+      check.column.order = TRUE
+    )))
+    expect_true(all.equal(
+      flu,
+      flu[, rev(colnames(flu))],
+      check.column.order = FALSE
+    ))
   })
 }
 
 # Function -------------------------------------------------------------------
 
 #' @rdname Comparison
-#' @aliases all.equal  all.equal,hyperSpec,hyperSpec-method
+#' @aliases all.equal
+#'          all.equal,hyperSpec,hyperSpec-method
 #'
 #' @param target,current two `hyperSpec` objects that are tested for
-#'        equality
+#'        equality.
 #' @param ... handed to [base::all.equal()] when testing the slots of the
 #'        `hyperSpec` objects
 #' @param check.column.order If two objects have the same data, but the order
@@ -107,13 +116,19 @@ hySpc.testthat::test(.all.equal) <- function() {
 #' @param tolerance,wl.tolerance tolerances for checking wavelengths and data,
 #'        respectively
 #'
+#'
 #' @return `all.equal` returns either `TRUE`, or a character vector describing
 #'          the differences. In conditions, the result must therefore be tested
-#'          with  [base::isTRUE()].
+#'          with [base::isTRUE()].
+#'
 #'
 #' @seealso [base::all.equal()] and [base::isTRUE()]
 #'
 #' @concept manipulation
 #'
 #' @export
-setMethod("all.equal", signature(target = "hyperSpec", current = "hyperSpec"), .all.equal)
+setMethod(
+  "all.equal",
+  signature(target = "hyperSpec", current = "hyperSpec"),
+  .all.equal
+)
