@@ -82,7 +82,7 @@ setGeneric("plot")
 
 
 
-#' Plotting `hyperSpec` objects
+#' Plot `hyperSpec` objects
 #'
 #' @description
 #' The `plot` method for `hyperSpec` objects is a switchyard to [plotspc()],
@@ -129,8 +129,10 @@ setGeneric("plot")
 #'
 #' @name plot-methods
 #' @rdname plot
-#' @aliases plot plot,ANY,ANY-method plot,hyperSpec,character-method
-#'   plot,hyperSpec,missing-method
+#' @aliases plot
+#'          plot,ANY,ANY-method
+#'          plot,hyperSpec,character-method
+#'          plot,hyperSpec,missing-method
 #' @docType methods
 #'
 #' @param x `hyperSpec` object.
@@ -156,6 +158,7 @@ setGeneric("plot")
 #' @concept plot generation
 #'
 #' @export
+#'
 #' @examples
 #'
 #' plot(flu)
