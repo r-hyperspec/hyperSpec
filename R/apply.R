@@ -124,11 +124,11 @@
 
 #' Compute summary statistics for the spectra of a `hyperSpec` object
 #'
-#' `apply()` gives the functionality of [base::apply()] for `hyperSpec` objects.
+#' [apply()] gives the functionality of [base::apply()] for `hyperSpec` objects.
 #'
 #' The generic functions of group [methods::Math()] are not defined
 #' for `hyperSpec` objects. Instead, `apply` can be used. For
-#' functions like `log()` that work on scalars, `MARGIN = 1 : 2` gives
+#' functions like `log()` that work on scalars, `MARGIN = 1:2` gives
 #' the appropriate behavior.
 #'
 #' `spcapply` does the same as `apply` with `MARGIN = 1`, but
@@ -139,7 +139,8 @@
 #'
 #' @name apply
 #' @rdname apply
-#' @aliases apply apply,hyperSpec-method
+#' @aliases apply
+#'          apply,hyperSpec-method
 #' @docType methods
 #'
 #' @param X,spc a `hyperSpec` object
@@ -162,26 +163,33 @@
 #' @param new.wavelength for `MARGIN = 2`: numeric vector or name of the
 #'   argument in \dots{} that is to be used (character) as wavelength axis of
 #'   the resulting object.
+#'
 #' @return A `hyperSpec` object
-#' @author C. Beleites
+#'
+#'
 #' @seealso [base::apply()], for applying `FUN` to subgroups of
 #'   the `hyperSpec` object: [hyperSpec::aggregate()].
-#' @export
+#'
+#'
+#' @author C. Beleites
+#'
 #'
 #' @keywords methods iteration
 #' @concept manipulation
 #' @concept stats
+#'
+#' @export
 #'
 #' @examples
 #'
 #'
 #' plotspc(apply(faux_cell, 2, range))
 #'
-#' avgflu <- apply(flu, 1, mean,
+#' avg_flu <- apply(flu, 1, mean,
 #'   label.spc = expression(bar(I)),
 #'   new.wavelength = mean(wl(flu))
 #' )
-#' avgflu
+#' avg_flu
 #'
 #' flu[[, , 405:407]]
 #' apply(flu, 1:2, "*", -1)[[, , 405:407]]
@@ -189,7 +197,8 @@
 #' ## without MARGIN the whole matrix is handed to FUN
 #' apply(flu[, , 405:407], , print)[[]]
 #'
-#' ## whereas MARGIN = 1 : 2 leads to FUN being called for each element separately
+#' ## whereas MARGIN = 1 : 2 leads to FUN being called
+#' ## for each element separately
 #' apply(flu[, , 405:407], 1:2, print)[[]]
 setMethod("apply", signature = signature(X = "hyperSpec"), .apply)
 

@@ -1,34 +1,59 @@
+# Function -------------------------------------------------------------------
+
 #' Identifying spectra and spectral data points
 #'
-#' This function allows to identify the spectrum and the wavelength of a point
-#' in a plot produced by [plotspc()].
+#' Function [spc.identify()] allows to identify the spectrum and the wavelength
+#' of a point in a plot produced by [plotspc()].
 #'
-#' This function first finds the spectrum with a point closest to the clicked
-#' position (see [graphics::locator()]). The distance to the clicked
-#' point is evaluated relative to the size of the tolerance window.
+#' @rdname spc_identify
+#'
+#' @aliases spc.identify
+#'          spc.label.default
+#'          spc.label.wlonly
+#'          spc.point.default
+#'          spc.point.max
+#'          spc.point.min
+#'          spc.point.sqr
+#'
+#' @details
+#' Function [spc.identify()] first finds the spectrum with a point closest
+#' to the clicked  position (see [locator()][graphics::locator()]).
+#' The distance to the clicked  point is evaluated relative to the size
+#' of the tolerance window.
 #'
 #' In a second step, `max.fn` searches for the actual point to label
 #' within the specified wavelength window of that spectrum. This allows to
 #' label maxima (or minima) without demanding too precise clicks. Currently,
-#' the following functions to determine the precise point: \tabular{ll}{
-#' spc.point.default \tab uses the clicked wavelength together with its
-#' spectral intensity\cr spc.point.max \tab the point with the highest
-#' intensity in the wavelength window \cr spc.point.min \tab the point with
-#' the lowest intensity in the wavelength window \cr spc.point.sqr \tab
-#' maximum of a parabola fit throug the point with highest intensity and the
-#' two surrounding points \cr } `point.fn` is called with the arguments
-#' `wl` containing the considered wavelength window, `spc` the
-#' respective intensities of the closest spectrum, and `wlclick` the
-#' wavelength that was clicked. They return a vector of two elements
-#' (wavelength and intensity).
+#' the following functions to determine the precise point:
+#'
+#' - [spc.point.default()]
+#'   uses the clicked wavelength together with its spectral intensity;
+#' - [spc.point.max()]
+#'   the point with the highest intensity in the wavelength window;
+#' - [spc.point.min()]
+#'   the point with the lowest intensity in the wavelength window;
+#' - [spc.point.sqr()]
+#'   maximum of a parabola fit through the point with highest intensity
+#'   and the two surrounding points.
+#'
+#'
+#' `point.fn` is called with the arguments
+#' `wl` containing the considered wavelength window,
+#' `spc` the  respective intensities of the closest spectrum, and
+#' `wlclick` the  wavelength that was clicked.
+#' They return a vector of two elements (wavelength and intensity).
 #'
 #' As a last step, a label for the point produced by `formatter` and plotted
-#' using [graphics::text()]. Currently, the following `formatter`s are
-#' available: \tabular{ll}{spc.label.default \tab
-#' spectrum number, wavelength \cr spc.label.wlonly \tab wavelength\cr }
+#' using [text()][graphics::text()]. Currently, the following `formatter`s are
+#' available:
+#'  \tabular{ll}{
+#'  [spc.label.default()] \tab spectrum number, wavelength \cr
+#'  [spc.label.wlonly()]  \tab wavelength \cr
+#' }
+#'
 #' `formatter` functions receive the number of the spectrum `ispc`,
 #' the wavelength `wl`, and the spectral intensity `spc` and produce
-#' a character variable suitable for labelling. The predefined formatters
+#' a character variable suitable for labeling. The predefined formatters
 #' surround the label text by spaces in order to easily have an appropriate
 #' offset from the point of the spectrum.
 #'
@@ -36,21 +61,18 @@
 #' be switched of by `warn = FALSE`. In that case, the click will produce
 #' a row of `NA`s in the resulting data.frame.
 #'
-#' `spc.identify` uses option `debuglevel` to determine whether debugging output
-#' should be produced. `debuglevel == 2` will plot the tolerance window for
-#' every clicked point, `debuglevel == 1` will plot the tolerance window only
-#' if no data point was inside. See [`hyperSpec options`][hyperSpec::options]
-#' for details about retrieving and setting
-#' options.
+#' [spc.identify()] uses option `debuglevel` to determine whether debugging
+#' output  should be produced.
+#' - `debuglevel == 2` will plot the tolerance window for every clicked point,
+#' - `debuglevel == 1` will plot the tolerance window only if no data point was
+#' inside.
+#'
+#' See ['hyperSpec' options][hyperSpec::options] for details about retrieving
+#' and setting options.
 #'
 #' You may want to adjust the plot's `ylim` to ensure that the labels are
 #' not clipped. As a dirty shortcut, `xpd = NA` may help.
 #'
-#'
-#' @rdname spc_identify
-#'
-#' @aliases spc.identify spc.label.default spc.label.wlonly spc.point.default
-#'   spc.point.max spc.point.min spc.point.sqr
 #'
 #' @param x either the abscissa coordinates or the list returned by [plotspc()]
 #'
@@ -77,18 +99,23 @@
 #' @param delta `spc.point.sqr` fits the parabola in the window wlclick
 #'   \eqn{\pm}{+-} delta points.
 #'
-#' @return a `data.frame` with columns \item{ispc}{spectra indices of the
-#'   identified points, i.e. the rows of the `hyperSpec` object that was
-#'   plotted.
+#' @return [spc.identify()] returnsa `data.frame` with columns:
+#'  \item{ispc}{spectra indices of the identified points, i.e. the rows of the
+#'               `hyperSpec` object that was  plotted.
 #'
-#' If `ispc` is given, `ispc [i]` is returned rather than `i`.
-#'   } \item{wavelengths}{the wavelengths of the identified points}
-#'   \item{spc}{the intensities of the identified points}
+#'  If `ispc` is given, `ispc [i]` is returned rather than `i`.
+#' }
+#'  \item{wavelengths}{the wavelengths of the identified points.}
+#'  \item{spc}{the intensities of the identified points.}
+#'
+#'
 #' @author C. Beleites
-#' @seealso [graphics::locator()], [plotspc()],
-#'   [`hyperSpec options()`][hyperSpec::options]
 #'
-#' [map.identify()], [map.sel.poly()]
+#' @seealso
+#' - [graphics::locator()];
+#' - [plotspc()];
+#' - ['hyperSpec' options()][hyperSpec::options];
+#' - [map.identify()], [map.sel.poly()]
 #'
 #' @keywords iplot
 #' @concept plotting
@@ -98,6 +125,7 @@
 #'
 #' @examples
 #' \dontrun{\donttest{
+#'
 #' ispc <- sample(nrow(laser), 10)
 #' ispc
 #'
@@ -125,12 +153,17 @@
 #' )
 #'
 #' }}
-spc.identify <- function(x, y = NULL, wavelengths = NULL, ispc = NULL,
+spc.identify <- function(x, y = NULL,
+                         wavelengths = NULL,
+                         ispc = NULL,
                          tol.wl = diff(range(x)) / 200,
                          tol.spc = diff(range(y)) / 50,
                          point.fn = spc.point.max, # function to find the maximum
                          formatter = spc.label.default, # NULL: suppress labels
-                         ..., cex = 0.7, adj = c(0, 0.5), srt = 90, # for the label text
+                         ...,
+                         cex = 0.7,
+                         adj = c(0, 0.5),
+                         srt = 90, # for the label text
                          warn = TRUE) {
   if (!interactive()) {
     stop("spc.identify works only on interactive graphics devices.")
@@ -162,7 +195,8 @@ spc.identify <- function(x, y = NULL, wavelengths = NULL, ispc = NULL,
   pos <- 1
 
   while (!is.null(tmp <- locator(n = 1))) {
-    wl <- approx(x, wavelengths, tmp$x, rule = 2)$y # return wl_min / wl_max for outside pts.
+    # return wl_min / wl_max for outside pts.:
+    wl <- approx(x, wavelengths, tmp$x, rule = 2)$y
 
     if (debuglevel == 2L) {
       points(tmp$x, tmp$y, pch = ".", col = "red")
@@ -171,7 +205,8 @@ spc.identify <- function(x, y = NULL, wavelengths = NULL, ispc = NULL,
       )
     }
 
-    i.window <- wavelengths >= wl - tol.wl & # window to search for the closest spectrum
+    # window to search for the closest spectrum:
+    i.window <- wavelengths >= wl - tol.wl &
       wavelengths <= wl + tol.wl &
       y >= tmp$y - tol.spc &
       y <= tmp$y + tol.spc
@@ -229,10 +264,15 @@ spc.identify <- function(x, y = NULL, wavelengths = NULL, ispc = NULL,
   pts[seq_len(pos - 1), ]
 }
 
+
+# Function -------------------------------------------------------------------
+
 #' @rdname spc_identify
-#' @param wl the wavelength to label
-#' @param spc the intensity to label
-#' @param wlclick the clicked wavelength
+#'
+#' @param wl The wavelength to label.
+#' @param spc The intensity to label.
+#' @param wlclick The clicked wavelength.
+#'
 #' @export
 spc.point.max <- function(wl, spc, wlclick) {
   i <- which.max(spc)
@@ -275,10 +315,15 @@ spc.point.sqr <- function(wl, spc, wlclick, delta = 1L) {
   }
 }
 
+
+# Function -------------------------------------------------------------------
+
 #' @rdname spc_identify
-#' @param ispc if a selection of spectra was plotted, their indices can be
+#'
+#' @param ispc If a selection of spectra was plotted, their indices can be
 #'        given in `ispc`. In this case `ispc[i]` is returned rather than `i`.
-#' @param digits how many digits of the wavelength should be displayed?
+#' @param digits How many digits of the wavelength should be displayed?
+#'
 #' @export
 spc.label.default <- function(ispc, wl, spc, digits = 3) {
   sprintf(" %i, %s ", ispc, format(wl, digits = digits))

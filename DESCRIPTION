@@ -46,7 +46,7 @@ Imports:
     lazyeval,
     methods,
     rlang,
-    testthat,
+    testthat (>= 3.0.0),
     utils,
     xml2
 Suggests:
@@ -116,7 +116,6 @@ Collate:
     'DEPRECATED-read.txt.long.R'
     'DEPRECATED-read.txt.wide.R'
     'DEPRECATED-scan.R'
-    'DEPRECATED-spc-various.R'
     'DEPRECATED-spc_bin.R'
     'spc_fit_poly.R'
     'DEPRECATED-spc_fit_poly.R'
@@ -145,7 +144,7 @@ Collate:
     'colMeans.R'
     'collapse.R'
     'constants-units.R'
-    'cov.R'
+    'cov_pooled.R'
     'decomposition.R'
     'dim.R'
     'dimnames.R'
@@ -164,7 +163,7 @@ Collate:
     'hy_deprecation-messages.R'
     'hy_list_available_hySpc_packages.R'
     'hy_list_installed_hySpc_packages.R'
-    'hy_pastenames.R'
+    'hy_paste_names.R'
     'paracetamol.R'
     'laser.R'
     'hyperspec-package.R'

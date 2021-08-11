@@ -38,7 +38,9 @@ setGeneric("plot")
   }
 
   switch(tolower(y),
+    spectra = ,
     spc = plotspc(x, ...),
+    spc_mean_sd = ,
     spcmeansd = {
       dots <- modifyList(
         list(object = mean_pm_sd(x), fill = c(1, NA, 1)),
@@ -47,6 +49,9 @@ setGeneric("plot")
 
       do.call(plotspc, dots)
     },
+    spc_prctile = ,
+    spc_prctl_3 = ,
+    spc_prctile_3 = ,
     spcprctile = {
       dots <- modifyList(
         list(object = quantile(x, probs = c(0.16, 0.5, 0.84)), fill = c(1, NA, 1)),
@@ -55,6 +60,8 @@ setGeneric("plot")
 
       do.call(plotspc, dots)
     },
+    spc_prctl_5 = ,
+    spc_prctile_5 = ,
     spcprctl5 = {
       dots <- modifyList(
         list(
@@ -68,9 +75,12 @@ setGeneric("plot")
     },
     map = plotmap(x, ...),
     voronoi = plotvoronoi(x, ...),
+    matrix = ,
     mat = plotmat(x, ...),
     c = plotc(x, ...),
+    t = ,
     ts = plotc(x, spc ~ t, ...),
+    z = ,
     depth = plotc(x, spc ~ z, ...),
     stop(paste("y = ", y, "unknown.", collapse = " "))
   )
@@ -82,7 +92,7 @@ setGeneric("plot")
 
 
 
-#' Plotting `hyperSpec` objects
+#' Plot `hyperSpec` objects
 #'
 #' @description
 #' The `plot` method for `hyperSpec` objects is a switchyard to [plotspc()],
@@ -129,8 +139,10 @@ setGeneric("plot")
 #'
 #' @name plot-methods
 #' @rdname plot
-#' @aliases plot plot,ANY,ANY-method plot,hyperSpec,character-method
-#'   plot,hyperSpec,missing-method
+#' @aliases plot
+#'          plot,ANY,ANY-method
+#'          plot,hyperSpec,character-method
+#'          plot,hyperSpec,missing-method
 #' @docType methods
 #'
 #' @param x `hyperSpec` object.
@@ -156,6 +168,7 @@ setGeneric("plot")
 #' @concept plot generation
 #'
 #' @export
+#'
 #' @examples
 #'
 #' plot(flu)
@@ -188,6 +201,7 @@ hySpc.testthat::test(.plot) <- function() {
   # vdiffr::manage_cases(package = "./hyperSpec")
 
   test_that("warnings and errors in plot()", {
+    local_edition(3)
 
     # Data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     expect_silent(hy_spectra <- generate_hy_spectra())
@@ -220,9 +234,9 @@ hySpc.testthat::test(.plot) <- function() {
 
     # Preparation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    plot_c     <- plot(hy_profile, "c")
-    plot_ts    <- plot(hy_profile, "ts")
-    plot_depth <- plot(hy_profile, "depth")
+    plot_c         <- plot(hy_profile, "c")
+    plot_ts        <- plot(hy_profile, "ts")
+    plot_depth     <- plot(hy_profile, "depth")
 
     plot_map       <- plot(hy_map, "map")
     plot_voronoi_1 <- plot(hy_map, "voronoi")
@@ -264,7 +278,7 @@ hySpc.testthat::test(.plot) <- function() {
     # Data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     expect_silent(hy_spectra <- generate_hy_spectra())
     expect_silent(hy_profile <- generate_hy_profile())
-    expect_silent(hy_map <- generate_hy_map())
+    expect_silent(hy_map     <- generate_hy_map())
 
 
     # Preparation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -19,7 +19,7 @@
   x
 }
 
-#' @rdname extractreplace
+#' @rdname extract-and-replace
 #' @name [<-
 #' @aliases [<-,hyperSpec-method
 #'
@@ -100,7 +100,7 @@ setReplaceMethod("[", signature = signature(x = "hyperSpec"), .replace)
 }
 
 
-#' @rdname extractreplace
+#' @rdname extract-and-replace
 #' @name [[<-
 #' @aliases [[<-,hyperSpec-method
 #'
@@ -180,7 +180,7 @@ setReplaceMethod("[[", signature = signature(x = "hyperSpec"), .replace2)
 }
 
 
-#' @rdname extractreplace
+#' @rdname extract-and-replace
 #' @name $<-
 #' @aliases $<-,hyperSpec-method
 #'

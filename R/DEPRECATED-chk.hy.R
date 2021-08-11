@@ -2,7 +2,7 @@
 # Function -------------------------------------------------------------------
 
 #' @name DEPRECATED-chk.hy
-#' @concept Deprecated
+#' @concept deprecated
 #'
 #' @title (DEPRECATED)
 #'        Validate `hyperSpec` objects

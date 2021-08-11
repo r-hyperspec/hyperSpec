@@ -1,45 +1,64 @@
+# Function -------------------------------------------------------------------
+
 #' @title Collapse/bind several `hyperSpec` objects into one object
 #' @description
 #' The spectra from all objects will be put into one object.
-#' The resulting object has all wavelengths that occur in any of the input objects,
-#' `wl.tolerance` is used to determine which difference in the wavelengths is
-#' tolerated as equal: clusters of approximately equal wavelengths will span at most `2 * wl.tolerance`.
+#' The resulting object has all wavelengths that occur in any of the input
+#' objects, `wl.tolerance` is used to determine which difference in the
+#' wavelengths is tolerated as equal: clusters of approximately equal
+#' wavelengths will span at most `2 * wl.tolerance`.
 #' Differences up to +/- `wl.tolerance` are considered equal.
 #'
 #' The returned object has wavelengths that are the weighted average
-#' (by number of spectra) of the wavelengths within any such cluster of approximately
-#' equal wavelengths.
+#' (by number of spectra) of the wavelengths within any such cluster of
+#' approximately equal wavelengths.
 #'
-#' Labels will be taken from the first object where they are encountered. However,
-#' the order of processing objects is not necessarily the same as the order of objects
-#' in the input: `collapse` first processes groups of input objects that share all
-#' wavelengths (within `wl.tolerance`).
+#' Labels will be taken from the first object where they are encountered.
+#' However, the order of processing objects is not necessarily the same as
+#' the order of objects in the input: `collapse` first processes groups of
+#' input objects that share all wavelengths (within `wl.tolerance`).
 #'
-#' Data points corresponding to wavelengths not in the original spectrum will be set to NA.
+#' Data points corresponding to wavelengths not in the original spectrum will
+#' be set to NA.
 #' Extra data is combined in the same manner.
 #'
-#' If the objects are named, the names will be preserved in extra data column `$.name`.
-#' If the wavelengths are names, names are preserved and taken from the first object where they were encountered,
-#' the same applies to possible column names of the spectra matrix.
+#' If the objects are named, the names will be preserved in extra data column
+#' `$.name`.
+#' If the wavelengths are names, names are preserved and taken from the first
+#' object where they were encountered, the same applies to possible column
+#' names of the spectra matrix.
+#'
+#'
+#' @aliases collapse
+#'          collapse.hyperSpec
+#'
+#'
+#' @param ... `hyperSpec` objects to be collapsed into one object.
+#'        Instead of giving several arguments, a list with all objects to be
+#'        collapsed may be given.
+#' @param wl.tolerance Tolerance to decide which wavelengths are considered
+#'        equal.
+#' @param collapse.equal Logical indicating whether to try first finding
+#'        groups of spectra with (approximately) equal wavelength axes. If the
+#'        data is known to contain few or no such groups, `collapse()` will be
+#'        faster with this first pass being turned off.
+#'
+#'
+#' @return a hyperSpec object
+#'
+#'
+#' @seealso [merge()],  [rbind()], and [plyr::rbind.fill()]
 #'
 #' @author C. Beleites
 #'
-#' @param ... hyperSpec objects to be collapsed into one object. Instead of giving several
-#' arguments, a list with all objects to be collapsed may be given.
-#' @param wl.tolerance tolerance to decide which wavelengths are considered equal.
-#' @param collapse.equal logical indicating whether to try first finding groups of spectra
-#' with (approximately) equal wavelength axes. If the data is known to contain few or no
-#' such groups, `collapse()` will be faster with this first pass being turned off.
-#' @aliases collapse collapse.hyperSpec
-#' @seealso [merge()],  [rbind()], and [plyr::rbind.fill()]
-#' @return a hyperSpec object
 #' @importFrom dplyr group_by
 #' @importFrom dplyr summarise
 #'
-#' @export
 #'
 #' @keywords manip
 #' @concept manipulation
+#'
+#' @export
 #'
 #' @examples
 #' barbiturates[1:3]
@@ -50,12 +69,17 @@
 #' c <- barbiturates[[3]]
 #'
 #' a
+#'
 #' b
+#'
 #' c
+#'
 #' collapse(a, b, c)
 #'
 #' collapse(barbiturates[1:3], collapse.equal = FALSE)
-collapse <- function(..., wl.tolerance = hy_get_option("wl.tolerance"), collapse.equal = TRUE) {
+collapse <- function(...,
+                     wl.tolerance = hy_get_option("wl.tolerance"),
+                     collapse.equal = TRUE) {
   wl.tolerance <- .checkpos(wl.tolerance, "wl.tolerance")
   dots <- list(...)
 
@@ -70,12 +94,14 @@ collapse <- function(..., wl.tolerance = hy_get_option("wl.tolerance"), collapse
 
   dots <- lapply(dots, wl_sort)
 
-  ## check: wl.tolerance should be smaller than *half* of the smallest wavelength difference within each object
-  ## half because we later check for distance <= wl.tolerance, so ± => window size is 2 wl.tolerance
-  .assert.suitable.tolerance(dots, wl.tolerance)
+  ## check: wl.tolerance should be smaller than *half* of the smallest
+  ## wavelength difference within each object
+  ## half because we later check for distance <= wl.tolerance,
+  ## so ± => window size is 2 wl.tolerance
+  .assert_suitable_tolerance(dots, wl.tolerance)
 
   ## make sure there aren't any NAs in wavelength
-  dots <- .assert.noNA.wl(dots)
+  dots <- .assert_no_na_wl(dots)
 
   ## names cause problems with unlisting labels.
   ## preserve them in column .name
@@ -87,9 +113,10 @@ collapse <- function(..., wl.tolerance = hy_get_option("wl.tolerance"), collapse
     names(dots) <- NULL
   }
 
-  ## shall we do a first round collapsing objects that have their whole wavelength axes approximately equal?
+  ## shall we do a first round collapsing objects that have their
+  ## whole wavelength axes approximately equal?
   if (collapse.equal) {
-    dots <- .collapse.equal(dots, wl.tolerance)
+    dots <- .collapse_equal(dots, wl.tolerance)
 
     if (length(dots) == 1L) {
       return(dots[[1]])
@@ -101,13 +128,16 @@ collapse <- function(..., wl.tolerance = hy_get_option("wl.tolerance"), collapse
   ## prepare new labels
   labels <- unlist(lapply(dots, slot, "label"))
   labels <- labels[unique(names(labels))]
-  labels <- lapply(labels, function(l) if (is.language(l)) l <- as.expression(l) else l)
+  labels <- lapply(labels, function(l) {
+    if (is.language(l)) l <- as.expression(l) else l
+  })
 
   ## cluster wavelengths into groups of ± wl.tolerance from center
-  wl.df <- .cluster.wavelengths(dots, wl.tolerance)
+  wl.df <- .cluster_wavelengths(dots, wl.tolerance)
 
   ## assign cluster number to columns
-  # wl.df is ordered by wavelength, each object in dots is ordered by wavelength, so
+  # wl.df is ordered by wavelength, each object in dots is ordered
+  # by wavelength, so
   for (i in seq_along(dots)) {
     colnames(dots[[i]]@data$spc) <- wl.df$wlcluster[wl.df$iobj == i]
   }
@@ -115,7 +145,8 @@ collapse <- function(..., wl.tolerance = hy_get_option("wl.tolerance"), collapse
   ## now we're ready for the  actual work of collapsing the objects
   dots <- rbind.fill(lapply(dots, slot, "data"))
 
-  ## careful with constructing the wavelength vector: the columns in $spc are in no particular order,
+  ## careful with constructing the wavelength vector:
+  ## the columns in $spc are in no particular order,
   ## but the colnames indicate wavelength rank.
   ## so reorder $spc accor
   dots$spc <- dots$spc[, order(as.numeric(colnames(dots$spc)))]
@@ -137,6 +168,8 @@ collapse <- function(..., wl.tolerance = hy_get_option("wl.tolerance"), collapse
   new("hyperSpec", wavelength = wl, data = dots, labels = labels)
 }
 
+
+# Unit tests -----------------------------------------------------------------
 
 hySpc.testthat::test(collapse) <- function() {
   context("collapse")
@@ -192,7 +225,10 @@ hySpc.testthat::test(collapse) <- function() {
     tmp2 <- list(a = flu, b = flu)
     tmp2 <- collapse(a = flu, b = flu)
     expect_equal(tmp, tmp2,
-      check.attributes = TRUE, check.names = TRUE, check.column.order = FALSE, check.label = TRUE
+      check.attributes = TRUE,
+      check.names = TRUE,
+      check.column.order = FALSE,
+      check.label = TRUE
     )
   })
 
@@ -315,21 +351,27 @@ hySpc.testthat::test(collapse) <- function() {
   })
 }
 
-## warn if wl.tolerance is too large, i.e. it would lead to cluster multiple wavelengths of the same object together.
-.assert.suitable.tolerance <- function(dots, wl.tolerance) {
-  wl.diff <- sapply(dots, function(x) if (nwl(x) < 2L) NA else min(diff(wl(x)))) # wavelengths are ordered => no abs needed
+
+# Helper function -------------------------------------------------------------
+
+## warn if wl.tolerance is too large, i.e. it would lead to cluster
+## multiple wavelengths of the same object together.
+.assert_suitable_tolerance <- function(dots, wl.tolerance) {
+  # wavelengths are ordered => no abs needed
+  wl.diff <- sapply(dots, function(x) if (nwl(x) < 2L) NA else min(diff(wl(x))))
 
   i.warn <- wl.diff < 2 * wl.tolerance
 
   if (any(isTRUE(i.warn))) {
     warning(sprintf(
-      "object %i: wl.tolerance (%g) too large compared to smallest wavelength difference within object (%f). Columns will be lost.",
+      paste0("object %i: wl.tolerance (%g) too large compared to smallest ",
+        "wavelength difference within object (%f). Columns will be lost."),
       which(i.warn), wl.tolerance, wl.diff[i.warn]
     ))
   }
 }
 
-.assert.noNA.wl <- function(dots) {
+.assert_no_na_wl <- function(dots) {
   i.NA <- sapply(dots, function(x) any(is.na(wl(x))))
 
   if (any(i.NA)) {
@@ -347,14 +389,14 @@ hySpc.testthat::test(collapse) <- function() {
 
 #' Try finding groups of hyperSpec objects with (approximately) equal wavelength axes
 #'
-#' ... and directly rbind.fill them.
+#' ... and directly [rbind.fill()] them.
 #'
-#' @param dots list with hyperSpec object to collapse
-#' @param wl.tolerance wavelength difference tolerance
+#' @param dots List with hyperSpec object to collapse
+#' @param wl.tolerance Wavelength difference tolerance
 #'
-#' @return possible shorter list of dots
+#' @return Possible shorter list of dots
 #' @noRd
-.collapse.equal <- function(dots, wl.tolerance) {
+.collapse_equal <- function(dots, wl.tolerance) {
   ## bind groups of objects that have *all* wavelengths equal
   ## within wl.tolerance from 1st object of potential group
 
@@ -379,11 +421,14 @@ hySpc.testthat::test(collapse) <- function() {
       }
       wl <- wl / n
 
-      dots[[i]]@data <- rbind.fill(lapply(dots[c(i, i + bind_directly)], slot, "data"))
+      dots[[i]]@data <- rbind.fill(
+        lapply(dots[c(i, i + bind_directly)], slot, "data"))
+
       .wl(dots[[i]]) <- structure(wl, names = names(wl(dots[[i]])))
 
       labels <- unlist(lapply(dots[c(i, i + bind_directly)], labels))
-      labels <- lapply(labels, function(l) if (is.language(l)) l <- as.expression(l) else l)
+      labels <- lapply(labels, function(l)
+        if (is.language(l)) l <- as.expression(l) else l)
 
       labels(dots[[i]]) <- labels[!duplicated(names(labels))]
 
@@ -404,9 +449,9 @@ hySpc.testthat::test(collapse) <- function() {
 #'
 #' @concept wavelengths
 #'
-#' @return data.frame with information about suitable wavelength bins
+#' @return `data.frame` with information about suitable wavelength bins
 #' @noRd
-.cluster.wavelengths <- function(dots, wl.tolerance) {
+.cluster_wavelengths <- function(dots, wl.tolerance) {
 
   # set up data.frame to hold relevant information
   wl.df <- lapply(seq_along(dots), function(i) {
@@ -479,15 +524,21 @@ hySpc.testthat::test(collapse) <- function() {
     wl.df$wlcluster[wl.df$wlcluster == i] <- tmp$wlcluster
   }
 
-  ## cluster numbers so far are in no particular order => rename them so they correspond to increasing wavelengths
+  ## cluster numbers so far are in no particular order => rename them so
+  ## they correspond to increasing wavelengths
   ## this saves one call to wl_sort () later on.
-  wl.df$wlcluster <- as.numeric(factor(wl.df$wlcluster, levels = unique(wl.df$wlcluster)))
+  wl.df$wlcluster <- as.numeric(
+    factor(wl.df$wlcluster, levels = unique(wl.df$wlcluster))
+    )
 
   wl.df
 }
 
-hySpc.testthat::test(.cluster.wavelengths) <- function() {
-  context(".cluster.wavelengths")
+
+# Unit tests -----------------------------------------------------------------
+
+hySpc.testthat::test(.cluster_wavelengths) <- function() {
+  context(".cluster_wavelengths")
 
   test_that("clustering with last window being long", {
     a <- as.hyperSpec(matrix(1:6, ncol = 3), wl = c(0, 2, 4))

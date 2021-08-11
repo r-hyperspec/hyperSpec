@@ -850,15 +850,15 @@ read.spc <- function(filename,
 
 
 hySpc.testthat::test(read.spc) <- function() {
-  context("read.spc")
 
-  test_that(
-    "deprecated",
-    expect_warning(
-      expect_error(read.spc(file = ""), "can only read"),
-      "deprecated"
-    )
-  )
+  test_that("deprecated", {
+    local_edition(3)
+
+    expect_warning(expect_warning(
+        expect_error(read.spc(file = ""), "can only read"),
+        "deprecated"
+      ))
+  })
 }
 
 

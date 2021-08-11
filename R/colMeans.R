@@ -10,12 +10,12 @@
 #' @rdname colSums
 #'
 #'
-#' @param x `hyperSpec` object
-#' @param label.spc labels for the intensity axis for loadings-like (col)
-#'        statistics
-#' @param label.wavelength labels for the wavelength axis for scores-like (row)
-#'        statistics
-#' @param na.rm,... further parameters to the base functions
+#' @param x `hyperSpec` object.
+#' @param label.spc Labels for the intensity axis for loadings-like (col)
+#'        statistics.
+#' @param label.wavelength Labels for the wavelength axis for scores-like (row)
+#'        statistics.
+#' @param na.rm,... Further parameters to the base functions.
 #'
 #' `na.rm` defaults to `TRUE` for `hyperSpec` objects.
 #'
