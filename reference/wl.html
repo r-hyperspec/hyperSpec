@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Getting and setting the wavelength axis — wl • hyperSpec</title>
+<title>Get and set the wavelength axis — wl • hyperSpec</title>
 
 
 <!-- jquery -->
@@ -41,7 +41,7 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Getting and setting the wavelength axis — wl" />
+<meta property="og:title" content="Get and set the wavelength axis — wl" />
 <meta property="og:description" content="wl() returns the wavelength axis, wl&amp;lt;- sets it." />
 
 
@@ -155,7 +155,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Getting and setting the wavelength axis</h1>
+    <h1>Get and set the wavelength axis</h1>
     <small class="dont-index">Source: <a href='https://github.com/r-hyperspec/hyperSpec/blob/master/R/wl.R'><code>R/wl.R</code></a></small>
     <div class="hidden name"><code>wl.Rd</code></div>
     </div>
@@ -173,7 +173,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>a <code>hyperSpec</code> object</p></td>
+      <td><p><code>hyperSpec</code> object</p></td>
     </tr>
     <tr>
       <th>label</th>
@@ -199,7 +199,7 @@ list with <code>value$wl</code> containing the new wavelength vector and
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The wavelength axis of a <code>hyperSpec</code> object can be retrieved and
-replaced with <code>wl</code> and <code>wl&lt;-</code>, respectively.</p>
+replaced with <code>wl()</code> and <code>wl&lt;-</code>, respectively.</p>
 <p>When the wavelength axis is replaced, the colnames of <code>x@data$spc</code> are
 replaced by the rounded new wavelengths.  <code>digits</code> specifies the how
 many significant digits should be used.</p>
@@ -209,14 +209,14 @@ examples.  If no label is given, a warning will be issued.</p>
 
     <p><code>wl&lt;-</code> always sets the complete wavelength axis, without
 changing the columns of the spectra matrix. If you rather want to cut the
-spectral range, use <code><a href='[,hyperSpec-method.html'>[</a></code>, for
+spectral range, use extract-and-replace, for
 interpolation along the spectral axis see
 <code><a href='spc_loess.html'>spc_loess()</a></code> and for spectral binning
 <code><a href='spc-bin.html'>spc_bin()</a></code>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='https://rdrr.io/r/base/Round.html'>base::signif()</a></code></p>
-<p>cutting the spectral range: <code><a href='[,hyperSpec-method.html'>[</a></code></p>
+<p>cutting the spectral range: 'Extract and replace'</p>
 <p>interpolation along the spectral axis: <code><a href='spc_loess.html'>spc_loess()</a></code></p>
 <p>spectral binning: <code><a href='spc-bin.html'>spc_bin()</a></code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
@@ -243,7 +243,8 @@ interpolation along the spectral axis see
   label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/expression.html'>expression</a></span><span class='op'>(</span><span class='va'>lambda</span> <span class='op'>/</span> <span class='va'>nm</span><span class='op'>)</span>
 <span class='op'>)</span>
 <span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
-</div><div class='img'><img src='wl-4.png' alt='' width='466' height='288' /></div></pre>
+</div><div class='img'><img src='wl-4.png' alt='' width='466' height='288' /></div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
