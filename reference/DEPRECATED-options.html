@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>(DEPRECATED)
-Import Raman spectra/maps from Andor cameras/solis ASCII files — DEPRECATED-read.asc.Andor • hyperSpec</title>
+Options for package hyperSpec — DEPRECATED-options • hyperSpec</title>
 
 
 <!-- jquery -->
@@ -43,12 +43,9 @@ Import Raman spectra/maps from Andor cameras/solis ASCII files — DEPRECATED-re
   
 
 <meta property="og:title" content="(DEPRECATED)
-Import Raman spectra/maps from Andor cameras/solis ASCII files — DEPRECATED-read.asc.Andor" />
-<meta property="og:description" content="These data input functions are deprecated and they will be removed in
-the next release of hyperspec package.
-Now functions in package hySpc.read.txt
-(link)
-should be used as the alternatives." />
+Options for package hyperSpec — DEPRECATED-options" />
+<meta property="og:description" content="These functions are deprecated.
+Use hy_get_option(), hy_get_options(), or hy_set_options() instead." />
 
 <meta name="robots" content="noindex" />
 
@@ -162,54 +159,32 @@ should be used as the alternatives." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>(DEPRECATED)
-Import Raman spectra/maps from Andor cameras/solis ASCII files</h1>
-    <small class="dont-index">Source: <a href='https://github.com/r-hyperspec/hyperSpec/blob/master/R/DEPRECATED-read.asc.Andor.R'><code>R/DEPRECATED-read.asc.Andor.R</code></a></small>
-    <div class="hidden name"><code>DEPRECATED-read.asc.Andor.Rd</code></div>
+Options for package <span class="pkg">hyperSpec</span></h1>
+    <small class="dont-index">Source: <a href='https://github.com/r-hyperspec/hyperSpec/blob/master/R/DEPRECATED-hy_options.R'><code>R/DEPRECATED-hy_options.R</code></a></small>
+    <div class="hidden name"><code>DEPRECATED-options.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>These data input functions are <strong>deprecated</strong> and they will be removed in
-the next release of <span class="pkg">hyperspec</span> package.
-Now functions in package <span class="pkg">hySpc.read.txt</span>
-(<a href='https://r-hyperspec.github.io/hySpc.read.txt/reference/index.html'>link</a>)
-should be used as the alternatives.</p>
+    <p>These functions are <strong>deprecated</strong>.
+Use <code><a href='hy_get_options.html'>hy_get_option()</a></code>, <code><a href='hy_get_options.html'>hy_get_options()</a></code>, or <code><a href='hy_get_options.html'>hy_set_options()</a></code> instead.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>read.asc.Andor</span><span class='op'>(</span>
-  file <span class='op'>=</span> <span class='kw'><a href='https://rdrr.io/r/base/stop.html'>stop</a></span><span class='op'>(</span><span class='st'>"filename or connection needed"</span><span class='op'>)</span>,
-  <span class='va'>...</span>,
-  quiet <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  dec <span class='op'>=</span> <span class='st'>"."</span>,
-  sep <span class='op'>=</span> <span class='st'>","</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>hy.getOptions</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span>
+
+<span class='fu'>hy.getOption</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span>
+
+<span class='fu'>hy.setOptions</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>file</th>
-      <td><p>filename or connection to ASCII file</p></td>
-    </tr>
-    <tr>
-      <th>..., quiet, dec, sep</th>
-      <td><p>handed to <code><a href='https://rdrr.io/r/base/scan.html'>base::scan()</a></code></p></td>
+      <th>...</th>
+      <td><p>Passed to <code><a href='hy_get_options.html'>hy_get_option()</a></code>, <code><a href='hy_get_options.html'>hy_get_options()</a></code>,
+or <code><a href='hy_get_options.html'>hy_set_options()</a></code>.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>a hyperSpec object</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p><code>read.asc.Andor()</code> reads Andor Solis ASCII (<code>.asc</code>) files where the first
-column gives the wavelength axes and the other columns the spectra.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='../articles/fileio.html'>vignette ("fileio")</a></code> for more information on file import and</p>
-<p><code><a href='https://rdrr.io/r/base/options.html'>options()</a></code> for details on options.</p></div>
-    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
-
-    <p>Claudia Beleites</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

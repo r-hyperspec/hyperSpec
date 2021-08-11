@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hyperSpec</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.100.0.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.100.0.9001</span>
       </span>
     </div>
 
@@ -205,12 +205,6 @@
       <tr>
         
         <td>
-          <p><code><a href="chk.hy.html">chk.hy()</a></code> </p>
-        </td>
-        <td><p>Validation of <code>hyperSpec</code> objects</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="dollarnames.html">.DollarNames(<i>&lt;hyperSpec&gt;</i>)</a></code> </p>
         </td>
         <td><p>Command line completion for <code>$</code></p></td>
@@ -241,7 +235,13 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="options.html">hy.getOptions()</a></code> <code><a href="options.html">hy.getOption()</a></code> <code><a href="options.html">hy.setOptions()</a></code> </p>
+          <p><code><a href="is_hyperSpec.html">is_hyperSpec()</a></code> <code><a href="is_hyperSpec.html">assert_hyperSpec()</a></code> </p>
+        </td>
+        <td><p>Check and validate <code>hyperSpec</code> objects</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="options.html">hy_get_options()</a></code> <code><a href="options.html">hy_get_option()</a></code> <code><a href="options.html">hy_set_options()</a></code> </p>
         </td>
         <td><p>Options for package <span class="pkg">hyperSpec</span></p></td>
       </tr>
@@ -689,7 +689,7 @@ Line/word/character count of ASCII files</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="spc-identify.html">spc.identify()</a></code> <code><a href="spc-identify.html">spc.point.max()</a></code> <code><a href="spc-identify.html">spc.point.default()</a></code> <code><a href="spc-identify.html">spc.point.min()</a></code> <code><a href="spc-identify.html">spc.point.sqr()</a></code> <code><a href="spc-identify.html">spc.label.default()</a></code> <code><a href="spc-identify.html">spc.label.wlonly()</a></code> </p>
+          <p><code><a href="spc_identify.html">spc.identify()</a></code> <code><a href="spc_identify.html">spc.point.max()</a></code> <code><a href="spc_identify.html">spc.point.default()</a></code> <code><a href="spc_identify.html">spc.point.min()</a></code> <code><a href="spc_identify.html">spc.point.sqr()</a></code> <code><a href="spc_identify.html">spc.label.default()</a></code> <code><a href="spc_identify.html">spc.label.wlonly()</a></code> </p>
         </td>
         <td><p>Identifying spectra and spectral data points</p></td>
       </tr><tr>
@@ -1051,15 +1051,15 @@ for <code>hyperSpec</code> objects</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="mean_sd.html">mean_sd(<i>&lt;numeric&gt;</i>)</a></code> <code><a href="mean_sd.html">mean_sd(<i>&lt;matrix&gt;</i>)</a></code> <code><a href="mean_sd.html">mean_sd(<i>&lt;hyperSpec&gt;</i>)</a></code> <code><a href="mean_sd.html">mean_pm_sd(<i>&lt;numeric&gt;</i>)</a></code> <code><a href="mean_sd.html">mean_pm_sd(<i>&lt;matrix&gt;</i>)</a></code> <code><a href="mean_sd.html">mean_pm_sd(<i>&lt;hyperSpec&gt;</i>)</a></code> <code><a href="mean_sd.html">mean(<i>&lt;hyperSpec&gt;</i>)</a></code> <code><a href="mean_sd.html">quantile(<i>&lt;hyperSpec&gt;</i>)</a></code> </p>
+          <p><code><a href="dist_pearson.html">dist_pearson()</a></code> </p>
         </td>
-        <td><p>Mean and standard deviation</p></td>
+        <td><p>Distance based on Pearson's \(R^2\)</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="pearson.dist.html">pearson.dist()</a></code> </p>
+          <p><code><a href="mean_sd.html">mean_sd(<i>&lt;numeric&gt;</i>)</a></code> <code><a href="mean_sd.html">mean_sd(<i>&lt;matrix&gt;</i>)</a></code> <code><a href="mean_sd.html">mean_sd(<i>&lt;hyperSpec&gt;</i>)</a></code> <code><a href="mean_sd.html">mean_pm_sd(<i>&lt;numeric&gt;</i>)</a></code> <code><a href="mean_sd.html">mean_pm_sd(<i>&lt;matrix&gt;</i>)</a></code> <code><a href="mean_sd.html">mean_pm_sd(<i>&lt;hyperSpec&gt;</i>)</a></code> <code><a href="mean_sd.html">mean(<i>&lt;hyperSpec&gt;</i>)</a></code> <code><a href="mean_sd.html">quantile(<i>&lt;hyperSpec&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Distance based on Pearson's \(R^2\)</p></td>
+        <td><p>Mean and standard deviation</p></td>
       </tr><tr>
         
         <td>
@@ -1159,7 +1159,28 @@ for <code>hyperSpec</code> objects</p></td>
     </tbody><tbody>
       
       
-      
+      <tr>
+        
+        <td>
+          <p><code><a href="DEPRECATED-chk.hy.html">chk.hy()</a></code> </p>
+        </td>
+        <td><p>(DEPRECATED)
+Validate <code>hyperSpec</code> objects</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="DEPRECATED-options.html">hy.getOptions()</a></code> <code><a href="DEPRECATED-options.html">hy.getOption()</a></code> <code><a href="DEPRECATED-options.html">hy.setOptions()</a></code> </p>
+        </td>
+        <td><p>(DEPRECATED)
+Options for package <span class="pkg">hyperSpec</span></p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="DEPRECATED-pearson.dist.html">pearson.dist()</a></code> </p>
+        </td>
+        <td><p>(DEPRECATED)
+Distance based on Pearson's \(R^2\)</p></td>
+      </tr>
     </tbody><tbody>
       <tr>
         <th colspan="2">

@@ -77,7 +77,7 @@ and y@data must have the same elements.  Rows are ordered before checking." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hyperSpec</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.100.0.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.100.0.9001</span>
       </span>
     </div>
 
@@ -173,7 +173,7 @@ and <code>y@data</code> must have the same elements.  Rows are ordered before ch
     <pre class="usage"><span class='fu'>bind</span><span class='op'>(</span>
   direction <span class='op'>=</span> <span class='kw'><a href='https://rdrr.io/r/base/stop.html'>stop</a></span><span class='op'>(</span><span class='st'>"direction('c' or 'r') required"</span><span class='op'>)</span>,
   <span class='va'>...</span>,
-  wl.tolerance <span class='op'>=</span> <span class='fu'><a href='hy.getOptions.html'>hy.getOption</a></span><span class='op'>(</span><span class='st'>"wl.tolerance"</span><span class='op'>)</span>
+  wl.tolerance <span class='op'>=</span> <span class='fu'><a href='hy_get_options.html'>hy_get_option</a></span><span class='op'>(</span><span class='st'>"wl.tolerance"</span><span class='op'>)</span>
 <span class='op'>)</span>
 
 <span class='co'># S3 method for hyperSpec</span>
@@ -189,7 +189,7 @@ and <code>y@data</code> must have the same elements.  Rows are ordered before ch
 <span class='fu'>cbind2</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span>
 
 <span class='co'># S4 method for hyperSpec,hyperSpec</span>
-<span class='fu'>rbind2</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, wl.tolerance <span class='op'>=</span> <span class='fu'><a href='hy.getOptions.html'>hy.getOption</a></span><span class='op'>(</span><span class='st'>"wl.tolerance"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>rbind2</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, wl.tolerance <span class='op'>=</span> <span class='fu'><a href='hy_get_options.html'>hy_get_option</a></span><span class='op'>(</span><span class='st'>"wl.tolerance"</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'># S4 method for hyperSpec,missing</span>
 <span class='fu'>rbind2</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, <span class='va'>wl.tolerance</span><span class='op'>)</span></pre>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Validation of hyperSpec objects — chk.hy • hyperSpec</title>
+<title>Check and validate hyperSpec objects — chk.hy • hyperSpec</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Validation of hyperSpec objects — chk.hy" />
-<meta property="og:description" content="Check whether an object is a hyperSpec object and validate the object." />
+<meta property="og:title" content="Check and validate hyperSpec objects — chk.hy" />
+<meta property="og:description" content="Check whether an object is a hyperSpec
+object and validate the object." />
 
 <meta name="robots" content="noindex" />
 
@@ -74,7 +75,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hyperSpec</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.100.0.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.100.0.9001</span>
       </span>
     </div>
 
@@ -155,13 +156,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Validation of <code>hyperSpec</code> objects</h1>
+    <h1>Check and validate <code>hyperSpec</code> objects</h1>
     <small class="dont-index">Source: <a href='https://github.com/r-hyperspec/hyperSpec/blob/master/R/hy_validate.R'><code>R/hy_validate.R</code></a></small>
     <div class="hidden name"><code>chk.hy.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Check whether an object is a <code>hyperSpec</code> object and validate the object.</p>
+    <p>Check whether an object is a <a href='hyperSpec-class.html'>hyperSpec</a>
+object and validate the object.</p>
     </div>
 
     <pre class="usage"><span class='fu'>chk.hy</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></pre>
@@ -171,7 +173,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>object</th>
-      <td><p>the object to check</p></td>
+      <td><p>The object to check.</p></td>
     </tr>
     </table>
 
@@ -180,7 +182,7 @@
     <p><code>TRUE</code> if the check passes, otherwise stop with an error.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/r/methods/validObject.html'>methods::validObject()</a></code></p></div>
+    <div class='dont-index'><p><code><a href='https://rdrr.io/r/methods/validObject.html'>methods::validObject()</a></code>, <code><a href='https://rdrr.io/r/base/class.html'>base::inherits()</a></code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>C. Beleites</p>

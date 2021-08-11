@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">hyperSpec</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.100.0.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.100.0.9001</span>
       </span>
     </div>
 
@@ -172,7 +172,7 @@
 <li>Ensure the bug was not already reported by searching on GitHub under <a href="https://github.com/r-hyperspec/hyperSpec/issues">Issues</a>.</li>
 <li>If you’re unable to find an open issue addressing the problem, open a new one. Be sure to include a title and clear description, as much relevant information as possible, and a code sample or an executable test case demonstrating the expected behavior that is not occurring.</li>
 <li>Refer to the <a href="https://www.r-project.org/bugs.html">Bug Reporting in R article</a> for guidance.</li>
-<li>The ideal minimal working example is a unit test.</li>
+<li>Include minimal working example of data and code that reproduces the problem.</li>
 </ul>
 </div>
 <div id="color-use-vignettes--perhaps-examples" class="section level2">
@@ -201,6 +201,18 @@
 </ul>
 </li>
 <li>Use package <a href="http://styler.r-lib.org/">styler</a> with RStudio add-in to easily re-style your code to comply with the guidelines.</li>
+<li>When appropriate, prefer this naming scheme for the internal functions – <code>.&lt;generic&gt;_&lt;x&gt;&lt;y&gt;&lt;...&gt;</code> with <code>&lt;x&gt;</code>, <code>&lt;y&gt;</code>, etc. the first, second and later parameter/operand:
+<ul>
+<li>_ … missing</li>
+<li>a … array</li>
+<li>d … data frame</li>
+<li>f … formula</li>
+<li>h … hyperSpec object</li>
+<li>m … matrix</li>
+<li>n … numeric (scalar, vector, or matrix)</li>
+</ul>
+</li>
+<li>Each new function should be accompanied with appropriate unit tests.</li>
 <li>If a unit test needs to be disabled temporarily, please use <code>skip("reason for switching off")</code>. This way, we’ll be reminded that the test is switched off whenever the unit tests are run.</li>
 </ul>
 </div>

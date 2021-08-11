@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hyperSpec</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.100.0.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.100.0.9001</span>
       </span>
     </div>
 
@@ -128,7 +128,7 @@
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 class="date">2021-07-27</h4>
+            <h4 class="date">2021-08-11</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/master/vignettes/hyperSpec.Rmd"><code>vignettes/hyperSpec.Rmd</code></a></small>
       <div class="hidden name"><code>hyperSpec.Rmd</code></div>
@@ -308,7 +308,7 @@ It is therefore recommended to look up the methods in the <code>R</code> help sy
 
 
 The global behaviour of package <strong>hyperSpec</strong> can be configured via options.
-The values of the options are retrieved with <code class="sourceCode r"><span class="kw">hy.getOptions</span>()</code> and <code class="sourceCode r"><span class="kw">hy.getOption</span>()</code>, and changed with <code class="sourceCode r"><span class="kw">hy.setOptions</span>()</code>.
+The values of the options are retrieved with <code class="sourceCode r"><span class="kw">hy_get_options</span>()</code> and <code class="sourceCode r"><span class="kw">hy_get_option</span>()</code>, and changed with <code class="sourceCode r"><span class="kw">hy_set_options</span>()</code>.
 Table <a href="#tab:options">9.1</a> gives an overview of the options. You should not worry about these at the start of your exploration of <strong>hyperSpec</strong>.</p>
 </div>
 </div>
@@ -1866,10 +1866,10 @@ Mathematically speaking, the rank of the new 875 <span class="math inline">\(×\
 <p>Some <code>R</code> functions expect their input data in a matrix, including those related to HCA.
 Conveniently, the <code class="sourceCode r">[[]]</code> extraction function returns a matrix.</p>
 <div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dist</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/pearson.dist.html">pearson.dist</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">dist</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dist_pearson.html">dist_pearson</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <p>Again, many such functions coerce the data to a matrix automatically, so the <code>hyperSpec</code> object can be handed over without the explicit conversion above (as we saw for PCA):</p>
 <div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dist</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/pearson.dist.html">pearson.dist</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">dist</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dist_pearson.html">dist_pearson</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span>
 <span class="va">dendrogram</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html">hclust</a></span><span class="op">(</span><span class="va">dist</span>, method <span class="op">=</span> <span class="st">"ward.D"</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">dendrogram</span>, labels <span class="op">=</span> <span class="cn">FALSE</span>, hang <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></code></pre></div>
@@ -2287,7 +2287,7 @@ Please refer to the documentation of the respective functions for details about 
   <span class="op">}</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.054   0.002   0.056</span></code></pre></div>
+<span class="co">#&gt;   0.068   0.002   0.070</span></code></pre></div>
 <p>Calculations that involve a lot of subsetting (i.e., extracting or changing the spectra matrix or extra data) can be sped up considerably if the required parts of the <code>hyperSpec</code> object are extracted beforehand.
 This is somewhat similar to model fitting in <code>R</code> in general: many model fitting functions in <code>R</code> are much faster if the formula interface is avoided and the appropriate <code class="sourceCode r">data.frame</code>s or matrices are handed over directly.</p>
 <div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
@@ -2301,7 +2301,7 @@ This is somewhat similar to model fitting in <code>R</code> in general: many mod
   <span class="va">tmp</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">tmp.matrix</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.018   0.000   0.017</span></code></pre></div>
+<span class="co">#&gt;   0.019   0.000   0.027</span></code></pre></div>
 </div>
 <div id="additional-packages" class="section level2">
 <h2 class="hasAnchor">
@@ -2317,7 +2317,7 @@ At certain points, package <strong>hyperSpec</strong> provides switches that all
 
 <p>
 The initialization method <code class="sourceCode r"><span class="kw">new</span>(<span class="st">"hyperSpec"</span>, ...)</code> takes particular care to avoid unneccessary copies of the spectra matrix.
-In addition, frequent calls to <code class="sourceCode r"><span class="kw">gc</span>()</code> can be requested by <code class="sourceCode r"><span class="kw">hy.setOption</span>(<span class="dt">gc =</span> <span class="ot">TRUE</span>)</code>.
+In addition, frequent calls to <code class="sourceCode r"><span class="kw">gc</span>()</code> can be requested by <code class="sourceCode r"><span class="kw">hy_set_option</span>(<span class="dt">gc =</span> <span class="ot">TRUE</span>)</code>.
 The same behaviour is triggered in <code class="sourceCode r"><span class="kw">read.ENVI</span>()</code> and its derivatives (<code>read.ENVI.</code><em><code>Manufacturer</code></em><code class="sourceCode r">()</code>).
 The memory consumption of <code class="sourceCode r"><span class="kw">read.txt.Renishaw</span>()</code> can be lowered by importing the data in chunks (argument <code class="sourceCode r">nlines</code>).</p>
 </div>
@@ -2336,7 +2336,7 @@ The memory consumption of <code class="sourceCode r"><span class="kw">read.txt.R
 <span class="co">#&gt;  collate  en_US.UTF-8                 </span>
 <span class="co">#&gt;  ctype    en_US.UTF-8                 </span>
 <span class="co">#&gt;  tz       UTC                         </span>
-<span class="co">#&gt;  date     2021-07-27                  </span>
+<span class="co">#&gt;  date     2021-08-11                  </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span>
 <span class="co">#&gt;  package        * version      date       lib source        </span>
@@ -2357,7 +2357,7 @@ The memory consumption of <code class="sourceCode r"><span class="kw">read.txt.R
 <span class="co">#&gt;  ggplot2        * 3.3.5        2021-06-25 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  glue             1.4.2        2020-08-27 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  gtable           0.3.0        2019-03-25 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  hyperSpec      * 0.100.0.9000 2021-07-27 [1] local         </span>
+<span class="co">#&gt;  hyperSpec      * 0.100.0.9001 2021-08-11 [1] local         </span>
 <span class="co">#&gt;  hySpc.testthat   0.2.1.9000   2021-07-14 [1] local         </span>
 <span class="co">#&gt;  isoband          0.2.5        2021-07-13 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  jpeg             0.1-9        2021-07-24 [1] CRAN (R 4.1.0)</span>
@@ -2373,7 +2373,7 @@ The memory consumption of <code class="sourceCode r"><span class="kw">read.txt.R
 <span class="co">#&gt;  mgcv             1.8-35       2021-04-18 [2] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  munsell          0.5.0        2018-06-12 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  nlme             3.1-152      2021-02-04 [2] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  pillar           1.6.1        2021-05-16 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  pillar           1.6.2        2021-07-29 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  pkgconfig        2.0.3        2019-09-22 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  pkgload          1.2.1        2021-04-06 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  png              0.1-7        2013-12-03 [1] CRAN (R 4.1.0)</span>
