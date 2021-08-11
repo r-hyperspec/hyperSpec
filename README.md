@@ -11,7 +11,15 @@
 <!-- badges: end -->
 
 <!-- ---------------------------------------------------------------------- -->
+<br><br>
+<center>
+<font color="red" size=4>
+**Package `hyperSpec` is under overhaul now.**  
+So this website is still under construction too and the contents and resources are not fully updated yet.
+</font>
+</center>
 
+<!-- ---------------------------------------------------------------------- -->
 
 # R Package **hyperSpec**
 
