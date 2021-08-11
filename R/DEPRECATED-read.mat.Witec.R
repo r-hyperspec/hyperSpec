@@ -52,13 +52,13 @@ read.mat.Witec <- function(file = stop("filename or connection needed")) {
 }
 
 hySpc.testthat::test(read.mat.Witec) <- function() {
-  context("read.mat.Witec")
 
-  test_that(
-    "deprecated",
+  test_that("deprecated", {
+    local_edition(3)
+
     expect_warning(
       expect_error(read.mat.Witec(file = ""), "Can only read a MAT file"),
       "deprecated|supports"
     )
-  )
+  })
 }

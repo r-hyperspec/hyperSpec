@@ -358,11 +358,13 @@ spe.showcalpoints <- function(filename, xaxis = "file", acc2avg = F, cts_sec = F
 
 ############# UNIT TESTS ################
 hySpc.testthat::test(read.spe) <- function() {
-  test_that(
-    "deprecated",
-    expect_warning(
+
+  test_that("deprecated", {
+    local_edition(3)
+
+    expect_warning(expect_warning(
       expect_error(read.spe(filename = ""), "can only read"),
       "deprecated"
-    )
-  )
+    ))
+  })
 }

@@ -167,15 +167,15 @@ read.txt.Renishaw <- function(file = stop("file is required"),
 }
 
 hySpc.testthat::test(read.txt.Renishaw) <- function() {
-  context("read.txt.Renishaw")
 
-  test_that(
-    "deprecated",
-    expect_warning(
+  test_that("deprecated", {
+    local_edition(3)
+
+    expect_warning(expect_warning(
       expect_error(read.txt.Renishaw(file = ""), "cannot open"),
       "deprecated"
-    )
-  )
+    ))
+  })
 }
 
 #' @rdname DEPRECATED-read.txt.Renishaw
@@ -194,13 +194,13 @@ read.zip.Renishaw <- function(file = stop("filename is required"),
 }
 
 hySpc.testthat::test(read.zip.Renishaw) <- function() {
-  context("read.zip.Renishaw")
 
-  test_that(
-    "deprecated",
-    expect_warning(
+  test_that("deprecated", {
+    local_edition(3)
+
+    expect_warning(expect_warning(expect_warning(
       expect_error(read.zip.Renishaw(file = ""), "cannot open"),
       "deprecated"
-    )
-  )
+    )))
+  })
 }
