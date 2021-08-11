@@ -43,22 +43,26 @@
 
 <meta property="og:title" content="Collapse/bind several hyperSpec objects into one object — collapse" />
 <meta property="og:description" content="The spectra from all objects will be put into one object.
-The resulting object has all wavelengths that occur in any of the input objects,
-wl.tolerance is used to determine which difference in the wavelengths is
-tolerated as equal: clusters of approximately equal wavelengths will span at most 2 * wl.tolerance.
+The resulting object has all wavelengths that occur in any of the input
+objects, wl.tolerance is used to determine which difference in the
+wavelengths is tolerated as equal: clusters of approximately equal
+wavelengths will span at most 2 * wl.tolerance.
 Differences up to +/- wl.tolerance are considered equal.
 The returned object has wavelengths that are the weighted average
-(by number of spectra) of the wavelengths within any such cluster of approximately
-equal wavelengths.
-Labels will be taken from the first object where they are encountered. However,
-the order of processing objects is not necessarily the same as the order of objects
-in the input: collapse first processes groups of input objects that share all
-wavelengths (within wl.tolerance).
-Data points corresponding to wavelengths not in the original spectrum will be set to NA.
+(by number of spectra) of the wavelengths within any such cluster of
+approximately equal wavelengths.
+Labels will be taken from the first object where they are encountered.
+However, the order of processing objects is not necessarily the same as
+the order of objects in the input: collapse first processes groups of
+input objects that share all wavelengths (within wl.tolerance).
+Data points corresponding to wavelengths not in the original spectrum will
+be set to NA.
 Extra data is combined in the same manner.
-If the objects are named, the names will be preserved in extra data column $.name.
-If the wavelengths are names, names are preserved and taken from the first object where they were encountered,
-the same applies to possible column names of the spectra matrix." />
+If the objects are named, the names will be preserved in extra data column
+$.name.
+If the wavelengths are names, names are preserved and taken from the first
+object where they were encountered, the same applies to possible column
+names of the spectra matrix." />
 
 
 
@@ -178,22 +182,26 @@ the same applies to possible column names of the spectra matrix." />
 
     <div class="ref-description">
     <p>The spectra from all objects will be put into one object.
-The resulting object has all wavelengths that occur in any of the input objects,
-<code>wl.tolerance</code> is used to determine which difference in the wavelengths is
-tolerated as equal: clusters of approximately equal wavelengths will span at most <code>2 * wl.tolerance</code>.
+The resulting object has all wavelengths that occur in any of the input
+objects, <code>wl.tolerance</code> is used to determine which difference in the
+wavelengths is tolerated as equal: clusters of approximately equal
+wavelengths will span at most <code>2 * wl.tolerance</code>.
 Differences up to +/- <code>wl.tolerance</code> are considered equal.</p>
 <p>The returned object has wavelengths that are the weighted average
-(by number of spectra) of the wavelengths within any such cluster of approximately
-equal wavelengths.</p>
-<p>Labels will be taken from the first object where they are encountered. However,
-the order of processing objects is not necessarily the same as the order of objects
-in the input: <code>collapse</code> first processes groups of input objects that share all
-wavelengths (within <code>wl.tolerance</code>).</p>
-<p>Data points corresponding to wavelengths not in the original spectrum will be set to NA.
+(by number of spectra) of the wavelengths within any such cluster of
+approximately equal wavelengths.</p>
+<p>Labels will be taken from the first object where they are encountered.
+However, the order of processing objects is not necessarily the same as
+the order of objects in the input: <code>collapse</code> first processes groups of
+input objects that share all wavelengths (within <code>wl.tolerance</code>).</p>
+<p>Data points corresponding to wavelengths not in the original spectrum will
+be set to NA.
 Extra data is combined in the same manner.</p>
-<p>If the objects are named, the names will be preserved in extra data column <code>$.name</code>.
-If the wavelengths are names, names are preserved and taken from the first object where they were encountered,
-the same applies to possible column names of the spectra matrix.</p>
+<p>If the objects are named, the names will be preserved in extra data column
+<code>$.name</code>.
+If the wavelengths are names, names are preserved and taken from the first
+object where they were encountered, the same applies to possible column
+names of the spectra matrix.</p>
     </div>
 
     <pre class="usage"><span class='fu'>collapse</span><span class='op'>(</span>
@@ -207,18 +215,21 @@ the same applies to possible column names of the spectra matrix.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>hyperSpec objects to be collapsed into one object. Instead of giving several
-arguments, a list with all objects to be collapsed may be given.</p></td>
+      <td><p><code>hyperSpec</code> objects to be collapsed into one object.
+Instead of giving several arguments, a list with all objects to be
+collapsed may be given.</p></td>
     </tr>
     <tr>
       <th>wl.tolerance</th>
-      <td><p>tolerance to decide which wavelengths are considered equal.</p></td>
+      <td><p>tolerance to decide which wavelengths are considered
+equal.</p></td>
     </tr>
     <tr>
       <th>collapse.equal</th>
-      <td><p>logical indicating whether to try first finding groups of spectra
-with (approximately) equal wavelength axes. If the data is known to contain few or no
-such groups, <code>collapse()</code> will be faster with this first pass being turned off.</p></td>
+      <td><p>logical indicating whether to try first finding
+groups of spectra with (approximately) equal wavelength axes. If the
+data is known to contain few or no such groups, <code>collapse()</code> will be
+faster with this first pass being turned off.</p></td>
     </tr>
     </table>
 
@@ -264,15 +275,18 @@ such groups, <code>collapse()</code> will be faster with this first pass being t
 </div><div class='output co'>#&gt; hyperSpec object
 #&gt;    1 spectra
 #&gt;    4 data columns
-#&gt;    37 data points / spectrum</div><div class='input'><span class='va'>b</span>
+#&gt;    37 data points / spectrum</div><div class='input'>
+<span class='va'>b</span>
 </div><div class='output co'>#&gt; hyperSpec object
 #&gt;    1 spectra
 #&gt;    4 data columns
-#&gt;    34 data points / spectrum</div><div class='input'><span class='va'>c</span>
+#&gt;    34 data points / spectrum</div><div class='input'>
+<span class='va'>c</span>
 </div><div class='output co'>#&gt; hyperSpec object
 #&gt;    1 spectra
 #&gt;    4 data columns
-#&gt;    29 data points / spectrum</div><div class='input'><span class='fu'>collapse</span><span class='op'>(</span><span class='va'>a</span>, <span class='va'>b</span>, <span class='va'>c</span><span class='op'>)</span>
+#&gt;    29 data points / spectrum</div><div class='input'>
+<span class='fu'>collapse</span><span class='op'>(</span><span class='va'>a</span>, <span class='va'>b</span>, <span class='va'>c</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; hyperSpec object
 #&gt;    3 spectra
 #&gt;    4 data columns
