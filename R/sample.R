@@ -5,9 +5,9 @@
 
   if (missing(size)) size <- nrow(x) # normal default does not work!
 
-  s <- sample.int(nrow(x@data), size = size, replace = replace, prob = prob)
-
-  x[s]
+  rows_i <-
+    sample.int(nrow(x@data), size = size, replace = replace, prob = prob)
+  x[rows_i]
 }
 
 #' Random samples and permutations
@@ -84,9 +84,11 @@ hySpc.testthat::test(.sample) <- function() {
 
 # Function -------------------------------------------------------------------
 
-.sample.data.frame <- function(x, size, replace = FALSE, prob = NULL, drop = FALSE) {
+.sample.data.frame <- function(x, size, replace = FALSE, prob = NULL,
+                               drop = FALSE) {
   if (missing(size)) size <- nrow(x)
-  x[sample.int(nrow(x), size = size, replace = replace, prob = prob), , drop = drop]
+  rows_i <- sample.int(nrow(x), size = size, replace = replace, prob = prob)
+  x[rows_i, , drop = drop]
 }
 
 #' @rdname sample
@@ -138,7 +140,8 @@ hySpc.testthat::test(.sample.data.frame) <- function() {
 
 .sample.matrix <- function(x, size, replace = FALSE, prob = NULL, drop = FALSE) {
   if (missing(size)) size <- nrow(x)
-  x[sample.int(nrow(x), size = size, replace = replace, prob = prob), , drop = drop]
+  rows_i <- sample.int(nrow(x), size = size, replace = replace, prob = prob)
+  x[rows_i, , drop = drop]
 }
 
 #' @rdname sample
