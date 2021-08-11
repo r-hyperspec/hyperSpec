@@ -15,7 +15,7 @@
   }
 }
 
-#' Random samples and permutations
+#' Sample or permute rows
 #'
 #' [sample()] takes a random sample of rows from the object `x` drawn with or
 #' without replacement.
