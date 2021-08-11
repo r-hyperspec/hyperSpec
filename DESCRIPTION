@@ -144,7 +144,7 @@ Collate:
     'colMeans.R'
     'collapse.R'
     'constants-units.R'
-    'cov.R'
+    'cov_pooled.R'
     'decomposition.R'
     'dim.R'
     'dimnames.R'
