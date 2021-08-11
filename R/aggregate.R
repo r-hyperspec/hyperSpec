@@ -1,7 +1,11 @@
 # Function -------------------------------------------------------------------
 
-.aggregate <- function(x, by = stop("by is needed"), FUN = stop("FUN is needed."),
-                       ..., out.rows = NULL, append.rows = NULL,
+.aggregate <- function(x,
+                       by = stop("by is needed"),
+                       FUN = stop("FUN is needed."),
+                       ...,
+                       out.rows = NULL,
+                       append.rows = NULL,
                        by.isindex = FALSE) {
   validObject(x)
 
@@ -59,7 +63,8 @@
   }
 
   x@data <- data[seq_len(r - 1), , drop = FALSE]
-  x@data[, col.aggregate] <- factor(x@data[, col.aggregate], levels = seq_along(by))
+  x@data[, col.aggregate] <-
+    factor(x@data[, col.aggregate], levels = seq_along(by))
 
   if (!is.null(names(by)) && !any(is.na(names(by)))) {
     levels(x@data[, col.aggregate]) <- names(by)
@@ -73,32 +78,33 @@
 #'
 #' Compute summary statistics for subsets of a `hyperSpec` object.
 #'
-#' `aggregate()` applies `FUN` to each of the subgroups given by `by`.
+#' [aggregate()] applies `FUN` to each of the subgroups given by `by`.
 #' It combines the functionality of [stats::aggregate()], [base::tapply()],
 #' and [stats::ave()] for `hyperSpec` objects.
 #'
-#' `aggregate` avoids splitting `x@data`.
+#' [aggregate()] avoids splitting `x@data`.
 #'
 #' `FUN` does not need to return exactly one value.  The number of
 #' returned values needs to be the same for all wavelengths (otherwise the
 #' result could not be a matrix), see the examples.
 #'
-#' If the initially preallocated `data.frame` turns out to be too small,
+#' If the initially pre-allocated `data.frame` turns out to be too small,
 #' more rows are appended and a warning is issued.
 #'
 #' @name aggregate
 #' @rdname aggregate
-#' @aliases aggregate,hyperSpec-method ave,hyperSpec-method
+#' @aliases aggregate,hyperSpec-method
+#'          ave,hyperSpec-method
 #'
 #' @docType methods
 #'
-#' @param x a `hyperSpec` object
+#' @param x `hyperSpec` object.
 #' @param by grouping for the rows of `x@@data`. \cr
 #'        Either a list containing an index vector for each of the subgroups
 #'        or a vector that can be `split` in such a list.
 #' @param FUN function to compute the summary statistics
 #' @param out.rows number of rows in the resulting `hyperSpec` object,
-#'        for memory preallocation.
+#'        for memory pre-allocation.
 #' @param append.rows If more rows are needed, how many should be appended? \cr
 #'        Defaults to 100 or an estimate based on the percentage of groups that
 #'        are still to be done, whatever is larger.
@@ -107,8 +113,10 @@
 #'        `by` is computed first (as in [stats::aggregate()]).
 #' @param ... further arguments passed to `FUN`
 #'
+#'
 #' @return A `hyperSpec` object with an additional column `@data$.aggregate`
 #'         tracing which group the rows belong to.
+#'
 #'
 #' @author C. Beleites
 #' @seealso [base::tapply()], [stats::aggregate()],
