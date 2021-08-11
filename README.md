@@ -11,17 +11,19 @@
 <!-- badges: end -->
 
 <!-- ---------------------------------------------------------------------- -->
-<br><br>
+# R Package **hyperSpec**
+<!-- ---------------------------------------------------------------------- -->
+<br>
 <center>
 <font color="red" size=4>
-**Package `hyperSpec` is under overhaul now.**  
+<b>Package `hyperSpec` is under overhaul now.</b>  
 So this website is still under construction too and the contents and resources are not fully updated yet.
 </font>
 </center>
-
+<br>
 <!-- ---------------------------------------------------------------------- -->
 
-# R Package **hyperSpec**
+
 
 [**R**](https://www.r-project.org/) package **hyperSpec** is the main package in the [**`r-hyperspec`**](https://r-hyperspec.github.io/) family of packages.
 The goal of **hyperSpec** (and whole **`r-hyperspec`**) is to make the work with hyperspectral data sets, (i.e. spatially or time-resolved spectra, or spectra with any other kind of information associated with each of the spectra) more comfortable.
