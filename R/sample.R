@@ -54,9 +54,9 @@ hySpc.testthat::test(.sample) <- function() {
 #' @param prob A vector of probability weights for obtaining the elements of
 #'        the vector being sampled.
 #'
-#' @return a hyperSpec object, data.frame or matrix with `size` rows for
-#'        `sample`, and an integer vector for `isample` that is suitable for
-#'        indexing (into the spectra) of x.
+#' @return [sample()] returns a `hyperSpec` object, `data.frame` or `matrix`
+#'         with `size` rows for `sample`, and an integer vector for `isample`
+#'         that is suitable for indexing (into the spectra) of x.
 #'
 #' @author C. Beleites
 #'
@@ -85,18 +85,22 @@ setMethod("sample", signature = signature(x = "hyperSpec"), .sample)
 
 # Function -------------------------------------------------------------------
 
-#' `isample()` returns an vector of indices, `sample()` returns the
-#' corresponding hyperSpec object.
-#'
 #' @rdname sample
-#' @return vector with indices suitable for row-indexing x
+#' @description
+#' [isample()] returns an vector of indices, `sample()` returns the
+#' corresponding `hyperSpec` object.
+#'
+#' @return [isample()] returns vector with indices suitable for row-indexing x.
 #' @export
 #'
 #' @concept stats
 #'
 #' @examples
+#'
 #' isample(flu, 3)
+#'
 #' isample(flu, 3, replace = TRUE)
+#'
 #' isample(flu, 8, replace = TRUE)
 isample <- function(x, size = nrow(x), replace = FALSE, prob = NULL) {
   assert_hyperSpec(x)
@@ -144,12 +148,16 @@ hySpc.testthat::test(isample) <- function() {
 }
 
 #' @rdname sample
-#' @param drop see [base::drop()]: by default, do not drop dimensions of the result
-#' @export
+#'
+#' @param drop See [base::drop()]: by default, do not drop dimensions of the
+#'        result.
 #'
 #' @concept stats
 #'
+#' @export
+#'
 #' @examples
+#'
 #' sample(cars, 2)
 setMethod("sample", signature = signature(x = "data.frame"), .sample.data.frame)
 
@@ -197,6 +205,7 @@ hySpc.testthat::test(.sample.data.frame) <- function() {
 #' @concept stats
 #'
 #' @examples
+#'
 #' sample(matrix(1:24, 6), 2)
 setMethod("sample", signature = signature(x = "matrix"), .sample.matrix)
 
