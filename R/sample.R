@@ -127,7 +127,10 @@ hySpc.testthat::test(isample) <- function() {
   })
 
   test_that("replace", {
-    expect_equal(sample(flu, size = 3, replace = TRUE, prob = c(1, rep(0, 5))), flu[rep(1L, 3)])
+    expect_equal(
+      sample(flu, size = 3, replace = TRUE, prob = c(1, rep(0, 5))),
+      flu[rep(1L, 3)]
+    )
   })
 }
 
