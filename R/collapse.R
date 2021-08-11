@@ -101,7 +101,7 @@ collapse <- function(...,
   .assert.suitable.tolerance(dots, wl.tolerance)
 
   ## make sure there aren't any NAs in wavelength
-  dots <- .assert.noNA.wl(dots)
+  dots <- .assert_no_na_wl(dots)
 
   ## names cause problems with unlisting labels.
   ## preserve them in column .name
@@ -371,7 +371,7 @@ hySpc.testthat::test(collapse) <- function() {
   }
 }
 
-.assert.noNA.wl <- function(dots) {
+.assert_no_na_wl <- function(dots) {
   i.NA <- sapply(dots, function(x) any(is.na(wl(x))))
 
   if (any(i.NA)) {
