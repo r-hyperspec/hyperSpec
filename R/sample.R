@@ -168,6 +168,7 @@ hySpc.testthat::test(.sample.matrix) <- function() {
 # Function -------------------------------------------------------------------
 
 #' @rdname sample
+#'
 #' @description
 #' [isample()] returns an vector of indices, `sample()` returns the
 #' corresponding `hyperSpec` object.
