@@ -76,7 +76,7 @@
 #'
 #' @rdname merge
 #' @aliases merge
-#' @aliases merge,hyperSpec,hyperSpec-method merge
+#'          merge,hyperSpec,hyperSpec-method merge
 #' @docType methods
 #'
 #' @concept manipulation
