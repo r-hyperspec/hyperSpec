@@ -1,6 +1,6 @@
 # Function -------------------------------------------------------------------
 
-#' Binding `hyperSpec` objects
+#' Bind `hyperSpec` objects
 #'
 #' Functions to bind `hyperSpec` objects.
 #'
@@ -19,7 +19,8 @@
 #' `bind()` does the common work for both column- and row-wise binding.
 #'
 #'
-#' @aliases bind bind,hyperSpec
+#' @aliases bind
+#'          bind,hyperSpec
 #'
 #' @param ... The `hyperSpec` objects to be combined. \cr
 #'        Alternatively, *one* list of `hyperSpec` objects can be given to
@@ -48,8 +49,8 @@
 #'
 #'
 #' @include paste_row.R
-#' @export
 #'
+#' @export
 #'
 #' @examples
 #'
@@ -154,15 +155,18 @@ hySpc.testthat::test(bind) <- function() {
 
 # Function -------------------------------------------------------------------
 
+#' @rdname bind
 #' @description `cbind2()` binds the spectral matrices of two `hyperSpec`
 #' objects by column. All columns besides `spc` with the same name in `x@data`
 #' and `y@data` must have the same elements.  Rows are ordered before checking.
 #'
-#' @rdname bind
-#' @aliases bind cbind.hyperSpec rbind.hyperSpec
-#'   cbind2,hyperSpec,hyperSpec-method rbind2,hyperSpec,hyperSpec-method
-#'   cbind2,hyperSpec,missing-method rbind2,hyperSpec,missing-method
-#' @aliases cbind.hyperSpec
+#' @aliases bind
+#'          cbind.hyperSpec
+#'          rbind.hyperSpec
+#'          cbind2,hyperSpec,hyperSpec-method
+#'          rbind2,hyperSpec,hyperSpec-method
+#'          cbind2,hyperSpec,missing-method
+#'          rbind2,hyperSpec,missing-method
 #'
 #' @param x,y `hyperSpec` objects
 #'
@@ -174,11 +178,13 @@ cbind.hyperSpec <- function(...) {
 }
 
 
+#' @rdname bind
+#' @aliases rbind.hyperSpec
+#'
+#' @description
 #' `rbind2()` binds two `hyperSpec` objects by row. They need to have the same
 #' columns.
 #'
-#' @rdname bind
-#' @aliases rbind.hyperSpec
 #'
 #' @concept manipulation
 #'
@@ -271,6 +277,7 @@ hySpc.testthat::test(cbind.hyperSpec) <- function() {
   })
 }
 
+
 # Function -------------------------------------------------------------------
 
 .cbind2 <- function(x, y) {
@@ -312,11 +319,11 @@ hySpc.testthat::test(cbind.hyperSpec) <- function() {
 }
 
 #' @rdname bind
-#' @export
+#' @aliases cbind2,hyperSpec,hyperSpec-method
 #'
 #' @concept manipulation
 #'
-#' @aliases cbind2,hyperSpec,hyperSpec-method
+#' @export
 setMethod("cbind2", signature = signature(x = "hyperSpec", y = "hyperSpec"), .cbind2)
 
 
@@ -379,11 +386,11 @@ hySpc.testthat::test(.cbind2) <- function() {
 }
 
 #' @rdname bind
-#' @export
+#' @aliases rbind2,hyperSpec,hyperSpec-method
 #'
 #' @concept manipulation
 #'
-#' @aliases rbind2,hyperSpec,hyperSpec-method
+#' @export
 setMethod("rbind2", signature = signature(x = "hyperSpec", y = "hyperSpec"), .rbind2)
 
 
@@ -394,11 +401,11 @@ setMethod("rbind2", signature = signature(x = "hyperSpec", y = "hyperSpec"), .rb
 }
 
 #' @rdname bind
-#' @export
+#' @aliases rbind2,hyperSpec,missing-method
 #'
 #' @concept manipulation
 #'
-#' @aliases rbind2,hyperSpec,missing-method
+#' @export
 setMethod("rbind2", signature = signature(x = "hyperSpec", y = "missing"), .rbind2_h_)
 
 # Unit tests -----------------------------------------------------------------
