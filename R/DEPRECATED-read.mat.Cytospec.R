@@ -29,7 +29,6 @@
 #' @export
 #'
 #' @keywords IO file
-#' @concept io
 #'
 read.mat.Cytospec <- function(file, keys2data = FALSE, blocks = TRUE) {
 
