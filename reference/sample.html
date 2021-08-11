@@ -42,7 +42,7 @@
   
 
 <meta property="og:title" content="Random samples and permutations — sample,hyperSpec-method" />
-<meta property="og:description" content="sample() take a sample of the specified size from the elements of x with
+<meta property="og:description" content="sample() takes a specified size sample of rows from the object x with
 or without replacement.
 isample() returns an vector of indices, sample() returns the
 corresponding hyperSpec object." />
@@ -164,7 +164,7 @@ corresponding hyperSpec object." />
     </div>
 
     <div class="ref-description">
-    <p><code><a href='https://rdrr.io/r/base/sample.html'>sample()</a></code> take a sample of the specified size from the elements of x with
+    <p><code><a href='https://rdrr.io/r/base/sample.html'>sample()</a></code> takes a specified size sample of rows from the object <code>x</code> with
 or without replacement.</p>
 <p><code>isample()</code> returns an vector of indices, <code><a href='https://rdrr.io/r/base/sample.html'>sample()</a></code> returns the
 corresponding <code>hyperSpec</code> object.</p>
@@ -192,16 +192,18 @@ For <code>isample()</code>: <code>hyperSpec</code> object.</p></td>
     </tr>
     <tr>
       <th>size</th>
-      <td><p>positive integer giving the number of spectra (rows) to choose.</p></td>
+      <td><p>(integer): Positive integer giving the number of spectra (rows)
+to choose. Id missing, defaults to number of rows in the object:
+<code>size = nrow(x)</code>.</p></td>
     </tr>
     <tr>
       <th>replace</th>
-      <td><p>Should sampling be with replacement?</p></td>
+      <td><p>(logical): Should sampling be with replacement?</p></td>
     </tr>
     <tr>
       <th>prob</th>
-      <td><p>A vector of probability weights for obtaining the elements of
-the vector being sampled.</p></td>
+      <td><p>(numeric): A vector of probability weights for obtaining the
+elements of the vector being sampled.</p></td>
     </tr>
     <tr>
       <th>drop</th>
