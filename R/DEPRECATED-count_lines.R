@@ -2,7 +2,7 @@
 #' @concept moved to hySpc.read.txt
 #'
 #' @title (DEPRECATED)
-#'        Count lines (of an ASCII File)
+#'        Count lines (of an ASCII file)
 #'
 #' @description
 #'
