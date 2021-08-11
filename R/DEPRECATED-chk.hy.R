@@ -26,8 +26,8 @@ chk.hy <- function(object) {
 
 # Unit tests -----------------------------------------------------------------
 
-hySpc.testthat::test(assert_hyperSpec) <- function() {
-  context("assert_hyperSpec")
+hySpc.testthat::test(chk.hy) <- function() {
+  context("chk.hy")
 
   test_that("deprecated",  expect_warning(chk.hy(flu), "deprecated"))
 }
