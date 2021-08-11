@@ -64,6 +64,7 @@
 
 #' @title Extract and replace parts of `hyperSpec` objects
 #'
+#' @name extract-and-replace
 #' @rdname extract-and-replace
 #' @docType methods
 #' @aliases [
