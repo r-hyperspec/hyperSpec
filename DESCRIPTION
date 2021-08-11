@@ -116,7 +116,6 @@ Collate:
     'DEPRECATED-read.txt.long.R'
     'DEPRECATED-read.txt.wide.R'
     'DEPRECATED-scan.R'
-    'DEPRECATED-spc-various.R'
     'DEPRECATED-spc_bin.R'
     'spc_fit_poly.R'
     'DEPRECATED-spc_fit_poly.R'
