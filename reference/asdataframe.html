@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Conversion of a hyperSpec object into a data frame or matrix — as.data.frame • hyperSpec</title>
+<title>Convert hyperSpec object into a data frame or matrix — as.data.frame • hyperSpec</title>
 
 
 <!-- jquery -->
@@ -41,12 +41,17 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Conversion of a hyperSpec object into a data frame or matrix — as.data.frame" />
-<meta property="og:description" content="as.data.frame() returns x@data (as data.frame), as.matrix()
-returns the spectra matrix x@data$spc as matrix.
-The data.frame returned by as.long.df is guaranteed to have columns
-spc and .wavelength. If nwl (x) == 0 these columns
-will be NA." />
+<meta property="og:title" content="Convert hyperSpec object into a data frame or matrix — as.data.frame" />
+<meta property="og:description" content="as.data.frame() returns x@data (as data.frame).
+as.matrix() returns the spectra matrix x@data$spc as matrix.
+as.wide.df() converts the spectra matrix to a data.frame. The extra
+data together with this data is returned. The column names of the spectra
+matrix are retained (if they are numbers, without preceding letters).
+as.long.df() returns a long-format data.frame.
+The data.frame returned by as.long.df() is guaranteed to have columns
+spc and .wavelength. If nwl(x) == 0 these columns will be NA.
+as.t.df() produces a 'transposed' data.frame with columns containing
+the spectra." />
 
 
 
@@ -159,17 +164,22 @@ will be NA." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Conversion of a <code>hyperSpec</code> object into a data frame or matrix</h1>
+    <h1>Convert <code>hyperSpec</code> object into a data frame or matrix</h1>
     <small class="dont-index">Source: <a href='https://github.com/r-hyperspec/hyperSpec/blob/master/R/as.data.frame.R'><code>R/as.data.frame.R</code></a></small>
     <div class="hidden name"><code>asdataframe.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><code>as.data.frame()</code> returns <code>x@data</code> (as data.frame), <code>as.matrix()</code>
-returns the spectra matrix <code>x@data$spc</code> as matrix.</p>
-<p>The data.frame returned by <code>as.long.df</code> is guaranteed to have columns
-<code>spc</code> and <code>.wavelength</code>. If <code>nwl (x) == 0</code> these columns
-will be <code>NA</code>.</p>
+    <p><code>as.data.frame()</code> returns <code>x@data</code> (as data.frame).</p>
+<p><code>as.matrix()</code> returns the spectra matrix <code>x@data$spc</code> as matrix.</p>
+<p><code>as.wide.df()</code> converts the spectra matrix to a <code>data.frame</code>. The extra
+data together with this data is returned. The column names of the spectra
+matrix are retained (if they are numbers, without preceding letters).</p>
+<p><code>as.long.df()</code> returns a long-format <code>data.frame</code>.
+The <code>data.frame</code> returned by <code>as.long.df()</code> is guaranteed to have columns
+<code>spc</code> and <code>.wavelength</code>. If <code>nwl(x) == 0</code> these columns will be <code>NA</code>.</p>
+<p><code>as.t.df()</code> produces a 'transposed' <code>data.frame</code> with columns containing
+the spectra.</p>
     </div>
 
     <pre class="usage"><span class='co'># S3 method for hyperSpec</span>
@@ -189,70 +199,97 @@ will be <code>NA</code>.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>a <code>hyperSpec</code> object</p></td>
+      <td><p>A <code>hyperSpec</code> object.</p></td>
     </tr>
     <tr>
       <th>row.names</th>
-      <td><p>if <code>TRUE</code>, a column <code>.row</code> is created containing row names or row
-indices if no rownames are set. If character vector, the rownames are set accordingly.</p></td>
+      <td><ul>
+<li><p>If <code>TRUE</code>, a column <code>.row</code> is created containing
+row names or row indices if no rownames are set.</p></li>
+<li><p>If character vector, the rownames are set accordingly.</p></li>
+</ul></td>
     </tr>
     <tr>
       <th>optional</th>
-      <td><p>ignored</p></td>
+      <td><p><em>(Ignored)</em></p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>ignored</p></td>
+      <td><p><em>(Ignored)</em></p></td>
     </tr>
     <tr>
       <th>wl.prefix</th>
-      <td><p>prefix to prepend wavelength column names</p></td>
+      <td><p>Prefix to prepend wavelength column names.</p></td>
     </tr>
     <tr>
       <th>rownames</th>
-      <td><p>should the rownames be in column <code>.rownames</code> of the
+      <td><p>Should the rownames be in column <code>.rownames</code> of the
 long-format data.frame?</p></td>
     </tr>
     <tr>
       <th>wl.factor</th>
-      <td><p>should the wavelengths be returned as a factor (instead of
-numeric)?</p></td>
+      <td><p>Should the wavelengths be returned as a factor
+(instead of numeric)?</p></td>
     </tr>
     <tr>
       <th>na.rm</th>
-      <td><p>if <code>TRUE</code>, rows where spc is not <code>NA</code> are deleted.</p></td>
+      <td><p>If <code>TRUE</code>, rows where spc is not <code>NA</code> are deleted.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>x@data</code> and <code>x@data$spc</code> (== <code>x$spc</code> == <code>x[[]]</code>), respectively.</p>
-<p><code>as.wide.df</code> returns a data.frame that consists of the extra data and
+    
+<ul>
+<li><p><code>as.data.frame()</code> returns <code>x@data</code> as <code>data.frame</code>;</p></li>
+<li><p><code>as.matrix()</code> returns <code>x@data$spc</code> (== <code>x$spc</code> == <code>x[[]]</code>) as <code>matrix</code>;</p></li>
+</ul>
+
+<ul>
+<li><p><code>as.wide.df()</code> returns a <code>data.frame</code> that consists of the extra data and
 the spectra matrix converted to a data.frame. The spectra matrix is
-expanded <em>in place</em>.</p>
-<p><code>as.long.df</code> returns the stacked or molten version of <code>x@data</code>. The
-wavelengths are in column <code>.wavelength</code>.</p>
-<p><code>as.t.df</code> returns a data.frame similar to <code>as.long.df</code>, but each
+expanded <em>in place</em>.</p></li>
+</ul>
+
+<ul>
+<li><p><code>as.long.df()</code> returns the stacked or molten version of <code>x@data</code>.
+The wavelengths are in column <code>.wavelength</code>.</p></li>
+</ul>
+
+<ul>
+<li><p><code>as.t.df()</code> returns a data.frame similar to <code>as.long.df</code>, but each
 spectrum in its own column. This is useful for exporting summary spectra,
-see the example.</p>
+see the example.</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/r/base/as.data.frame.html'>base::as.data.frame()</a></code></p>
-<p>and <code><a href='https://rdrr.io/r/base/matrix.html'>base::as.matrix()</a></code></p>
-<p><code>[[]]</code> for a shortcut to <code>as.matrix</code></p>
-<p><code><a href='https://rdrr.io/r/utils/stack.html'>utils::stack()</a></code> and <code><a href='https://rdrr.io/pkg/reshape/man/melt-24.html'>reshape::melt()</a></code> or <code><a href='https://rdrr.io/pkg/reshape2/man/melt.html'>reshape2::melt()</a></code> for
-other functions producing long-format data.frames.</p></div>
+    <div class='dont-index'>
+<ul>
+<li><p><code><a href='https://rdrr.io/r/base/as.data.frame.html'>base::as.data.frame()</a></code></p></li>
+</ul>
+
+<ul>
+<li><p><code><a href='https://rdrr.io/r/base/matrix.html'>base::as.matrix()</a></code></p></li>
+<li><p><code>[[]]</code> for a shortcut to <code>as.matrix()</code></p></li>
+</ul>
+
+<ul>
+<li><p><code><a href='https://rdrr.io/r/utils/stack.html'>utils::stack()</a></code> and <code><a href='https://rdrr.io/pkg/reshape/man/melt-24.html'>reshape::melt()</a></code> or <code><a href='https://rdrr.io/pkg/reshape2/man/melt.html'>reshape2::melt()</a></code> for
+other functions producing long-format data frames.</p></li>
+</ul>
+</div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>C. Beleites</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='fu'>as.data.frame</span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, , <span class='fl'>600</span> <span class='op'>~</span> <span class='fl'>620</span><span class='op'>]</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='fu'>as.data.frame</span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, , <span class='fl'>600</span> <span class='op'>~</span> <span class='fl'>620</span><span class='op'>]</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;        x     y region spc.602 spc.606 spc.610 spc.614 spc.618 .row
 #&gt; 1 -11.55 -4.77 matrix      15      22      15      13      15    1
 #&gt; 2 -10.55 -4.77 matrix     168     166     159     175     160    2
-#&gt; 3  -9.55 -4.77 matrix     112     113      99     115     119    3</div><div class='input'><span class='fu'>as.matrix</span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, , <span class='fl'>600</span> <span class='op'>~</span> <span class='fl'>620</span><span class='op'>]</span><span class='op'>)</span>
+#&gt; 3  -9.55 -4.77 matrix     112     113      99     115     119    3</div><div class='input'>
+<span class='fu'>as.matrix</span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, , <span class='fl'>600</span> <span class='op'>~</span> <span class='fl'>620</span><span class='op'>]</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;      602 606 610 614 618
 #&gt; [1,]  15  22  15  13  15
 #&gt; [2,] 168 166 159 175 160
@@ -375,7 +412,8 @@ other functions producing long-format data.frames.</p></div>
 #&gt;  406.5  : 6   Mean   :137.80                      Mean   :0.175  
 #&gt;  407    : 6   3rd Qu.:196.02                      3rd Qu.:0.250  
 #&gt;  407.5  : 6   Max.   :281.83                      Max.   :0.300  
-#&gt;  (Other):30                                                      </div><div class='input'><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'>as.t.df</span><span class='op'>(</span><span class='fu'><a href='apply.html'>apply</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='fl'>2</span>, <span class='va'>mean_pm_sd</span><span class='op'>)</span><span class='op'>)</span>
+#&gt;  (Other):30                                                      </div><div class='input'>
+<span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'>as.t.df</span><span class='op'>(</span><span class='fu'><a href='apply.html'>apply</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='fl'>2</span>, <span class='va'>mean_pm_sd</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;         .wavelength mean.minus.sd     mean mean.plus.sd
 #&gt; spc.602         602      42.04492 101.5691     161.0934
