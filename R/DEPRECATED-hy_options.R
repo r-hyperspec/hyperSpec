@@ -2,7 +2,7 @@
 # Function -------------------------------------------------------------------
 
 #' @name DEPRECATED-options
-#' @concept Deprecated
+#' @concept deprecated
 #'
 #' @title (DEPRECATED)
 #'        Options for package \pkg{hyperSpec}

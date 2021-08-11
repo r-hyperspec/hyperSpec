@@ -1,5 +1,5 @@
 #' @name DEPRECATED-pearson.dist
-#' @concept Deprecated
+#' @concept deprecated
 #'
 #' @title (DEPRECATED)
 #'        Distance based on Pearson's \eqn{R^2}{R squared}

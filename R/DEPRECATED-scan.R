@@ -1,7 +1,8 @@
 #' @name deprecated
 #' @concept deprecated
 #'
-#' @title Deprecated and defunct functions
+#' @title (DEPRECATED)
+#'        Deprecated and defunct functions
 #'
 #' @description
 #' These \pkg{hyperSpec} functions are **deprecated** and not maintained any
