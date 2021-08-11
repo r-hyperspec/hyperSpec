@@ -133,7 +133,7 @@ collapse <- function(...,
   })
 
   ## cluster wavelengths into groups of ± wl.tolerance from center
-  wl.df <- .cluster.wavelengths(dots, wl.tolerance)
+  wl.df <- .cluster_wavelengths(dots, wl.tolerance)
 
   ## assign cluster number to columns
   # wl.df is ordered by wavelength, each object in dots is ordered
@@ -451,7 +451,7 @@ hySpc.testthat::test(collapse) <- function() {
 #'
 #' @return data.frame with information about suitable wavelength bins
 #' @noRd
-.cluster.wavelengths <- function(dots, wl.tolerance) {
+.cluster_wavelengths <- function(dots, wl.tolerance) {
 
   # set up data.frame to hold relevant information
   wl.df <- lapply(seq_along(dots), function(i) {
@@ -537,8 +537,8 @@ hySpc.testthat::test(collapse) <- function() {
 
 # Unit tests -----------------------------------------------------------------
 
-hySpc.testthat::test(.cluster.wavelengths) <- function() {
-  context(".cluster.wavelengths")
+hySpc.testthat::test(.cluster_wavelengths) <- function() {
+  context(".cluster_wavelengths")
 
   test_that("clustering with last window being long", {
     a <- as.hyperSpec(matrix(1:6, ncol = 3), wl = c(0, 2, 4))
