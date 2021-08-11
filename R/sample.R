@@ -35,14 +35,14 @@
 #' @param prob (numeric): A vector of probability weights for obtaining the
 #'        elements of the vector being sampled.
 #'
-#' @param replace (logical): If `FALSE`, object of `class(x)` is returned,
+#' @param index (logical): If `FALSE`, object of `class(x)` is returned,
 #'        if `TRUE`, numeric vector is returned.
 #'
 #'
 #' @return
-#' - [sample(..., index = FALSE)] returns a `hyperSpec` object, `data.frame` or
+#' - `sample(..., index = FALSE)` returns a `hyperSpec` object, `data.frame` or
 #'   `matrix` with `size` rows.
-#' - [sample(..., index = TRUE)] returns a vector with row indices of size
+#' - `sample(..., index = TRUE)` returns a vector with row indices of size
 #'   `size` suitable for subsetting rows of `x`.
 #'
 #' @author C. Beleites, V. Gegzna
