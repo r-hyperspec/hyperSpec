@@ -49,7 +49,7 @@
 
   dots <- list(...)
   if (length(dots) > 0L) {
-    warning("Ignoring additional parameters: ", .pastenames(dots))
+    warning("Ignoring additional parameters: ", .paste_names(dots))
   }
 
   x <- .extract(x, i, j, l, wl.index = wl.index)
@@ -256,7 +256,7 @@ setMethod("[", signature = signature(x = "hyperSpec"), .extract_h)
 
   dots <- list(...)
   if (length(dots) > 0L) {
-    warning("Ignoring additional parameters: ", .pastenames(dots))
+    warning("Ignoring additional parameters: ", .paste_names(dots))
   }
 
   ## check wheter a index matrix is used

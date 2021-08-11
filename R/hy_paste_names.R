@@ -1,4 +1,4 @@
-.pastenames <- function(...) {
+.paste_names <- function(...) {
   if (nargs() == 1L & is.list(..1)) {
     dots <- ..1
   } else {
