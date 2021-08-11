@@ -64,7 +64,7 @@
 
 #' @title Extract and replace parts of `hyperSpec` objects
 #'
-#' @rdname extractreplace
+#' @rdname extract-and-replace
 #' @docType methods
 #' @aliases [
 #'          [,hyperSpec-method
@@ -299,7 +299,7 @@ setMethod("[", signature = signature(x = "hyperSpec"), .extract_h)
   }
 }
 
-#' @rdname extractreplace
+#' @rdname extract-and-replace
 #'
 #' @concept manipulation
 #'
@@ -326,7 +326,7 @@ setMethod("[[", signature = signature(x = "hyperSpec"), .extract2_h)
 }
 
 
-#' @rdname extractreplace
+#' @rdname extract-and-replace
 #' @aliases $
 #'          $,hyperSpec-method
 #'

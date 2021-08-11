@@ -17,7 +17,7 @@
 #' @return a numeric vector
 #' @note `wl<-` always sets the complete wavelength axis, without
 #'   changing the columns of the spectra matrix. If you rather want to cut the
-#'   spectral range, use \code{\link[hyperSpec:extractreplace]{[}}, for
+#'   spectral range, use \code{\link[hyperSpec:extract-and-replace]{[}}, for
 #'   interpolation along the spectral axis see
 #'   [hyperSpec::spc_loess()] and for spectral binning
 #'   [hyperSpec::spc_bin()].
@@ -29,7 +29,7 @@
 #'
 #' @seealso [base::signif()]
 #'
-#' cutting the spectral range: \code{\link[hyperSpec:extractreplace]{[}}
+#' cutting the spectral range: \code{\link[hyperSpec:extract-and-replace]{[}}
 #'
 #' interpolation along the spectral axis: [hyperSpec::spc_loess()]
 #'
