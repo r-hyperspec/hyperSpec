@@ -98,7 +98,7 @@ collapse <- function(...,
   ## wavelength difference within each object
   ## half because we later check for distance <= wl.tolerance,
   ## so ± => window size is 2 wl.tolerance
-  .assert.suitable.tolerance(dots, wl.tolerance)
+  .assert_suitable_tolerance(dots, wl.tolerance)
 
   ## make sure there aren't any NAs in wavelength
   dots <- .assert_no_na_wl(dots)
@@ -356,7 +356,7 @@ hySpc.testthat::test(collapse) <- function() {
 
 ## warn if wl.tolerance is too large, i.e. it would lead to cluster
 ## multiple wavelengths of the same object together.
-.assert.suitable.tolerance <- function(dots, wl.tolerance) {
+.assert_suitable_tolerance <- function(dots, wl.tolerance) {
   # wavelengths are ordered => no abs needed
   wl.diff <- sapply(dots, function(x) if (nwl(x) < 2L) NA else min(diff(wl(x))))
 
