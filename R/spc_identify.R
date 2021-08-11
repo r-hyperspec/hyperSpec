@@ -112,9 +112,9 @@
 #' @author C. Beleites
 #'
 #' @seealso
-#' - [graphics::locator()],
-#' - [plotspc()],
-#' - ['hyperSpec' options()][hyperSpec::options]
+#' - [graphics::locator()];
+#' - [plotspc()];
+#' - ['hyperSpec' options()][hyperSpec::options];
 #' - [map.identify()], [map.sel.poly()]
 #'
 #' @keywords iplot
