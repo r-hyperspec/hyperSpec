@@ -34,9 +34,10 @@ setMethod("cov", signature = signature(x = "hyperSpec", y = "missing"), .cov_h_)
 #' @rdname cov
 #'
 #' @param ... ignored
-#' @param regularize regularization of the covariance matrix. Set `0` to switch off
+#' @param regularize regularization of the covariance matrix.
+#'        Set `0` to switch off.
 #'
-#' `pooled.cov` calculates pooled covariance like e.g. in LDA.
+#' [pooled.cov()] calculates pooled covariance like e.g. in LDA.
 #' @param groups factor indicating the groups
 #'
 #' @export
@@ -67,3 +68,7 @@ pooled.cov <- function(x, groups, ..., regularize = 1e-5 * max(abs(COV))) {
     means = means
   )
 }
+
+# Function -------------------------------------------------------------------
+
+# FIXME: add unit tests
