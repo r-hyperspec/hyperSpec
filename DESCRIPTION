@@ -46,7 +46,7 @@ Imports:
     lazyeval,
     methods,
     rlang,
-    testthat,
+    testthat (>= 3.0.0),
     utils,
     xml2
 Suggests:
