@@ -116,7 +116,7 @@ collapse <- function(...,
   ## shall we do a first round collapsing objects that have their
   ## whole wavelength axes approximately equal?
   if (collapse.equal) {
-    dots <- .collapse.equal(dots, wl.tolerance)
+    dots <- .collapse_equal(dots, wl.tolerance)
 
     if (length(dots) == 1L) {
       return(dots[[1]])
@@ -396,7 +396,7 @@ hySpc.testthat::test(collapse) <- function() {
 #'
 #' @return possible shorter list of dots
 #' @noRd
-.collapse.equal <- function(dots, wl.tolerance) {
+.collapse_equal <- function(dots, wl.tolerance) {
   ## bind groups of objects that have *all* wavelengths equal
   ## within wl.tolerance from 1st object of potential group
 
