@@ -12,7 +12,7 @@
 #' This function is **deprecated**.
 #' Use [sample(..., index = TRUE)()][sample()] instead.
 #'
-#' @param object Arguments to [hyperSpec::sample()].
+#' @param ... Arguments to [hyperSpec::sample()].
 #'
 #' @export
 
