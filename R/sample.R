@@ -22,7 +22,10 @@
 #'
 #' @name sample
 #' @rdname sample
+#' @aliases sample
+#'          sample.hyperSpec
 #'
+#' @docType methods
 #'
 #' @param x `hyperSpec` object, `data.frame` or `matrix` to sample rows from.
 #'
@@ -148,6 +151,7 @@ hySpc.testthat::test(.sample_h) <- function() {
 }
 
 #' @rdname sample
+#' @aliases sample.data.frame
 #'
 #' @param drop (logical): See [base::drop()], by default, do not drop dimensions
 #'        of the result. Applicable only if `index = FALSE`.
@@ -216,10 +220,11 @@ hySpc.testthat::test(.sample.data.frame) <- function() {
 }
 
 #' @rdname sample
-#' @export
+#' @aliases sample.matrix
 #'
 #' @concept stats
 #'
+#' @export
 #' @examples
 #'
 #' sample(matrix(1:24, 6), 2)
