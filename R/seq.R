@@ -13,23 +13,34 @@
 #' of the object. As `hyperSpec` provides a Method [length()], it can be used.
 #' The result is a sequence of indices for the spectra.
 #'
-#' @aliases seq seq,hyperSpec-method
+#'
+#' @rdname seq
+#' @aliases seq
+#'          seq,hyperSpec-method
+#' @method seq hyperSpec
+#'
+#'
 #' @param x the `hyperSpec` object
 #' @param from,to arguments handed to [base::seq.int()]
 #' @param ... arguments for [base::seq()], namely `by`, `length.out`
-#' @param index should a vector with indices be returned rather than a hyperSpec object?
-#' @return a numeric or hyperSpec object, depending on `index`.
+#' @param index should a vector with indices be returned rather than a
+#'        `hyperSpec` object?
+#'
+#'
+#' @return a numeric or `hyperSpec` object, depending on `index`.
+#'
+#'
 #' @author C. Beleites
+#'
 #' @seealso [wl2i()] to construct sequences of wavelength indices.
 #'
 #' [base::seq()]
-#' @rdname seq
-#' @method seq hyperSpec
 #'
-#' @export
 #'
 #' @keywords manip
 #' @concept manipulation
+#'
+#' @export
 #'
 #' @examples
 #'
@@ -42,7 +53,8 @@
 #' plot(seq(flu, by = 2), add = TRUE, col = "red")
 #' plot(seq(flu, length.out = 2), add = TRUE, col = "blue")
 #'
-#' ### needs to be an S3 function as S4 ... dispatch has to have the same signature for all parameters
+#' ### needs to be an S3 function as S4 ... dispatch has to have the same
+#' ### signature for all parameters
 seq.hyperSpec <- function(x, from = 1, to = nrow(x), ..., index = FALSE) {
   validObject(x)
 
