@@ -13,11 +13,11 @@
 #' examples.  If no label is given, a warning will be issued.
 #'
 #' @note `wl<-` always sets the complete wavelength axis, without
-#'   changing the columns of the spectra matrix. If you rather want to cut the
-#'   spectral range, use [hyperSpec::extract-and-replace], for
-#'   interpolation along the spectral axis see
-#'   [hyperSpec::spc_loess()] and for spectral binning
-#'   [hyperSpec::spc_bin()].
+#'   changing the columns of the spectra matrix.
+#'   If you rather want to cut the spectral range, use
+#'   [extraction operator][hyperSpec::extract-and-replace],
+#'   for interpolation along the spectral axis see [hyperSpec::spc_loess()] and
+#'   for spectral binning use [hyperSpec::spc_bin()].
 #'
 #'
 #' @aliases wl
@@ -34,7 +34,8 @@
 #'
 #' @seealso [base::signif()]
 #'
-#' cutting the spectral range: ['Extract and replace'][hyperSpec::extract-and-replace]
+#' cutting the spectral range:
+#' ['Extract and replace'][hyperSpec::extract-and-replace]
 #'
 #' interpolation along the spectral axis: [spc_loess()]
 #'
