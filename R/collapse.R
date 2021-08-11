@@ -36,9 +36,9 @@
 #' @param ... `hyperSpec` objects to be collapsed into one object.
 #'        Instead of giving several arguments, a list with all objects to be
 #'        collapsed may be given.
-#' @param wl.tolerance tolerance to decide which wavelengths are considered
+#' @param wl.tolerance Tolerance to decide which wavelengths are considered
 #'        equal.
-#' @param collapse.equal logical indicating whether to try first finding
+#' @param collapse.equal Logical indicating whether to try first finding
 #'        groups of spectra with (approximately) equal wavelength axes. If the
 #'        data is known to contain few or no such groups, `collapse()` will be
 #'        faster with this first pass being turned off.
@@ -389,12 +389,12 @@ hySpc.testthat::test(collapse) <- function() {
 
 #' Try finding groups of hyperSpec objects with (approximately) equal wavelength axes
 #'
-#' ... and directly rbind.fill them.
+#' ... and directly [rbind.fill()] them.
 #'
-#' @param dots list with hyperSpec object to collapse
-#' @param wl.tolerance wavelength difference tolerance
+#' @param dots List with hyperSpec object to collapse
+#' @param wl.tolerance Wavelength difference tolerance
 #'
-#' @return possible shorter list of dots
+#' @return Possible shorter list of dots
 #' @noRd
 .collapse_equal <- function(dots, wl.tolerance) {
   ## bind groups of objects that have *all* wavelengths equal
@@ -449,7 +449,7 @@ hySpc.testthat::test(collapse) <- function() {
 #'
 #' @concept wavelengths
 #'
-#' @return data.frame with information about suitable wavelength bins
+#' @return `data.frame` with information about suitable wavelength bins
 #' @noRd
 .cluster_wavelengths <- function(dots, wl.tolerance) {
 
