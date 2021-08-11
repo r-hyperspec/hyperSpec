@@ -12,7 +12,7 @@
 
 #' Random samples and permutations
 #'
-#' [sample()] take a sample of the specified size from the elements of x with
+#' [sample()] takes a specified size sample of rows from the object `x` with
 #' or without replacement.
 #'
 #' @rdname sample
@@ -21,10 +21,12 @@
 #' @param x For [sample()]: `hyperSpec` object, `data.frame` or `matrix` to
 #'          sample from.
 #'          For [isample()]: `hyperSpec` object.
-#' @param size positive integer giving the number of spectra (rows) to choose.
-#' @param replace Should sampling be with replacement?
-#' @param prob A vector of probability weights for obtaining the elements of
-#'        the vector being sampled.
+#' @param size (integer): Positive integer giving the number of spectra (rows)
+#'        to choose. Id missing, defaults to number of rows in the object:
+#'        `size = nrow(x)`.
+#' @param replace (logical): Should sampling be with replacement?
+#' @param prob (numeric): A vector of probability weights for obtaining the
+#'        elements of the vector being sampled.
 #'
 #' @return
 #' [sample()] returns a `hyperSpec` object, `data.frame` or `matrix` with `size`
