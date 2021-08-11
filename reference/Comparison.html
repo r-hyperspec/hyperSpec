@@ -44,15 +44,14 @@
 <meta property="og:title" content="Comparison of hyperSpec objects — Comparison" />
 <meta property="og:description" content="The comparison operators &amp;gt;, &amp;lt;, &amp;gt;=, &amp;lt;=, ==, and != for hyperSpec
 objects.
-all.equal checks the equality of two hyperSpec objects.
-The comparison operators &amp;gt;, &amp;lt;, &amp;gt;=, &amp;lt;=,
-==, and != work on the spectra matrix of the hyperSpec
-object. They have their usual meaning (see base::Comparison()).
+all.equal() checks the equality of two hyperSpec objects.
+The comparison operators &amp;gt;, &amp;lt;, &amp;gt;=, &amp;lt;=, ==, and != work on the
+spectra matrix of the hyperSpec object. They have their usual meaning
+(see base::Comparison()).
 The operators work also with one hyperSpec object and a numeric
 (scalar) object or a matrices of the same size as the spectra matrix of the
 hyperSpec object.
-With numeric vectors sweep() might be more
-appropriate.
+With numeric vectors sweep() might be more appropriate.
 If you want to calculate on the data.frame hyperSpec@data,
 you have to do this directly on hyperSpec@data." />
 
@@ -175,15 +174,14 @@ you have to do this directly on hyperSpec@data." />
     <div class="ref-description">
     <p>The comparison operators <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code><a href='https://rdrr.io/r/base/Comparison.html'>==</a></code>, and <code><a href='https://rdrr.io/r/base/Comparison.html'>!=</a></code> for <code>hyperSpec</code>
 objects.</p>
-<p><code>all.equal</code> checks the equality of two <code>hyperSpec</code> objects.</p>
-<p>The comparison operators <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>,
-<code><a href='https://rdrr.io/r/base/Comparison.html'>==</a></code>, and <code><a href='https://rdrr.io/r/base/Comparison.html'>!=</a></code> work on the spectra matrix of the <code>hyperSpec</code>
-object. They have their usual meaning (see <code><a href='https://rdrr.io/r/base/Comparison.html'>base::Comparison()</a></code>).
+<p><code>all.equal()</code> checks the equality of two <code>hyperSpec</code> objects.</p>
+<p>The comparison operators <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code><a href='https://rdrr.io/r/base/Comparison.html'>==</a></code>, and <code><a href='https://rdrr.io/r/base/Comparison.html'>!=</a></code> work on the
+spectra matrix of the <code>hyperSpec</code> object. They have their usual meaning
+(see <code><a href='https://rdrr.io/r/base/Comparison.html'>base::Comparison()</a></code>).
 The operators work also with one <code>hyperSpec</code> object and a numeric
 (scalar) object or a matrices of the same size as the spectra matrix of the
 <code>hyperSpec</code> object.</p>
-<p>With numeric vectors <code><a href='sweep.html'>sweep()</a></code> might be more
-appropriate.</p>
+<p>With numeric vectors <code><a href='sweep.html'>sweep()</a></code> might be more appropriate.</p>
 <p>If you want to calculate on the <code>data.frame</code> <code>hyperSpec@data</code>,
 you have to do this directly on <code>hyperSpec@data</code>.</p>
     </div>
@@ -221,8 +219,8 @@ you have to do this directly on <code>hyperSpec@data</code>.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>e1, e2</th>
-      <td><p>Either two <code>hyperSpec</code> objects or one <code>hyperSpec</code>
-object and matrix of same size as <code>hyperSpec[[]]</code> or a scalar
+      <td><p>Either two <code>hyperSpec</code> objects or one <code>hyperSpec</code> object and
+matrix of same size as <code>hyperSpec[[]]</code> or a scalar
 (numeric of length 1).</p>
 <p>As <code>hyperSpec</code> objects must have numeric spectra matrices, the
 resulting matrix of the comparison is returned directly.</p></td>
@@ -262,19 +260,23 @@ respectively</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a logical matrix for the comparison operators.</p>
+    <p>A logical <code>matrix</code> for the comparison operators.</p>
 <p><code>all.equal</code> returns either <code>TRUE</code>, or a character vector describing
 the differences. In conditions, the result must therefore be tested
 with  <code><a href='https://rdrr.io/r/base/Logic.html'>base::isTRUE()</a></code>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='sweep.html'>sweep-methods()</a></code> for calculations involving
-a vector and the spectral matrix.</p>
-<p><code><a href='https://rdrr.io/r/methods/S4groupGeneric.html'>methods::S4groupGeneric()</a></code> for group generic methods.</p>
-<p><code><a href='https://rdrr.io/r/base/Comparison.html'>base::Comparison()</a></code> for the base comparison functions.</p>
-<p><code>Arith()</code> for arithmetic operators,
-<code><a href='Math2,hyperSpec-method.html'>Math()</a></code> for mathematical group generic functions
-(groups Math and Math2) working on <code>hyperSpec</code> objects.</p>
+    <div class='dont-index'>
+<ul>
+<li><p><code><a href='sweep.html'>sweep-methods()</a></code> for calculations involving a vector and
+the spectral matrix.</p></li>
+<li><p><code><a href='https://rdrr.io/r/methods/S4groupGeneric.html'>methods::S4groupGeneric()</a></code> for group generic methods.</p></li>
+<li><p><code><a href='https://rdrr.io/r/base/Comparison.html'>base::Comparison()</a></code> for the base comparison functions.</p></li>
+<li><p><code>Arith()</code> for arithmetic operators,</p></li>
+<li><p><code><a href='Math2,hyperSpec-method.html'>Math()</a></code> for mathematical group generic functions
+(groups Math and Math2) working on <code>hyperSpec</code> objects.</p></li>
+</ul>
+
 <p><code><a href='https://rdrr.io/r/base/all.equal.html'>base::all.equal()</a></code> and <code><a href='https://rdrr.io/r/base/Logic.html'>base::isTRUE()</a></code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
