@@ -1,0 +1,34 @@
+
+# Function -------------------------------------------------------------------
+
+#' @name DEPRECATED-chk.hy
+#' @concept deprecated
+#'
+#' @title (DEPRECATED)
+#'        Return vector of row indices
+#'
+#' @description
+#'
+#' This function is **deprecated**.
+#' Use [sample(..., index = TRUE)()][sample()] instead.
+#'
+#' @param object Arguments to [hyperSpec::sample()].
+#'
+#' @export
+
+isample <- function(...) {
+  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  hySpc_deprecated("sample(..., index = TRUE)")
+  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  assert_hyperSpec(object)
+  sample(..., index = TRUE)
+}
+
+
+# Unit tests -----------------------------------------------------------------
+
+hySpc.testthat::test(assert_hyperSpec) <- function() {
+  context("isample")
+
+  test_that("deprecated",  expect_warning(isample(flu), "deprecated"))
+}
