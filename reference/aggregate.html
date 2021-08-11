@@ -180,7 +180,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>a <code>hyperSpec</code> object</p></td>
+      <td><p><code>hyperSpec</code> object.</p></td>
     </tr>
     <tr>
       <th>by</th>
@@ -199,7 +199,7 @@ or a vector that can be <code>split</code> in such a list.</p></td>
     <tr>
       <th>out.rows</th>
       <td><p>number of rows in the resulting <code>hyperSpec</code> object,
-for memory preallocation.</p></td>
+for memory pre-allocation.</p></td>
     </tr>
     <tr>
       <th>append.rows</th>
@@ -224,11 +224,11 @@ tracing which group the rows belong to.</p>
     <p><code>aggregate()</code> applies <code>FUN</code> to each of the subgroups given by <code>by</code>.
 It combines the functionality of <code><a href='https://rdrr.io/r/stats/aggregate.html'>stats::aggregate()</a></code>, <code><a href='https://rdrr.io/r/base/tapply.html'>base::tapply()</a></code>,
 and <code><a href='https://rdrr.io/r/stats/ave.html'>stats::ave()</a></code> for <code>hyperSpec</code> objects.</p>
-<p><code>aggregate</code> avoids splitting <code>x@data</code>.</p>
+<p><code>aggregate()</code> avoids splitting <code>x@data</code>.</p>
 <p><code>FUN</code> does not need to return exactly one value.  The number of
 returned values needs to be the same for all wavelengths (otherwise the
 result could not be a matrix), see the examples.</p>
-<p>If the initially preallocated <code>data.frame</code> turns out to be too small,
+<p>If the initially pre-allocated <code>data.frame</code> turns out to be too small,
 more rows are appended and a warning is issued.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
