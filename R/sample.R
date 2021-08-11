@@ -85,19 +85,20 @@ hySpc.testthat::test(.sample_h) <- function() {
   })
 
   test_that("size", {
-    expect_length(isample(flu, size = 3), 3L)
+    expect_length(sample(flu, size = 3), 3L)
   })
 
   test_that("prob", {
-    expect_equal(isample(flu, size = 1, prob = c(1, rep(0, 5))), 1L)
+    expect_equal(sample(flu, size = 1, prob = c(1, rep(0, 5))), flu[1L])
   })
 
   test_that("replace", {
     expect_equal(
-      isample(flu, size = 3, replace = TRUE, prob = c(1, rep(0, 5))),
-      rep(1L, 3)
+      sample(flu, size = 3, replace = TRUE, prob = c(1, rep(0, 5))),
+      flu[rep(1L, 3)]
     )
   })
+
 
   test_that("defaults, index = TRUE", {
     expect_equal(sort(sample(flu, index = TRUE)), 1:nrow(flu))
