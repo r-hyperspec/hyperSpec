@@ -33,7 +33,10 @@ hySpc.testthat::test(.sample) <- function() {
   })
 
   test_that("replace", {
-    expect_equal(isample(flu, size = 3, replace = TRUE, prob = c(1, rep(0, 5))), rep(1L, 3))
+    expect_equal(
+      isample(flu, size = 3, replace = TRUE, prob = c(1, rep(0, 5))),
+      rep(1L, 3)
+    )
   })
 }
 
@@ -48,7 +51,7 @@ hySpc.testthat::test(.sample) <- function() {
 #' @rdname sample
 #' @docType methods
 #'
-#' @param x The hyperSpec object, data.frame or matrix to sample fromto sample from
+#' @param x The `hyperSpec` object, `data.frame` or `matrix` to sample from.
 #' @param size positive integer giving the number of spectra (rows) to choose.
 #' @param replace Should sampling be with replacement?
 #' @param prob A vector of probability weights for obtaining the elements of
