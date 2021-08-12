@@ -1,7 +1,7 @@
 
 # Function -------------------------------------------------------------------
 
-#' @name DEPRECATED-chk.hy
+#' @name DEPRECATED-isample
 #' @concept deprecated
 #'
 #' @title (DEPRECATED)
@@ -10,7 +10,7 @@
 #' @description
 #'
 #' This function is **deprecated**.
-#' Use [sample(..., index = TRUE)()][sample()] instead.
+#' Use `sample(..., index = TRUE)` instead.
 #'
 #' @param ... Arguments to [hyperSpec::sample()].
 #'
@@ -26,7 +26,7 @@ isample <- function(...) {
 
 # Unit tests -----------------------------------------------------------------
 
-hySpc.testthat::test(assert_hyperSpec) <- function() {
+hySpc.testthat::test(isample) <- function() {
   context("isample")
 
   test_that("deprecated",  expect_warning(isample(flu), "deprecated"))
