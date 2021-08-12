@@ -1,15 +1,25 @@
+# Function -------------------------------------------------------------------
 
 #' Convert between different wavelength units
 #'
 #' The following units can be converted into each other:
 #' *nm*, \emph{\eqn{cm^{-1}}{inverse cm}}, *eV*, *THz* and *Raman shift*.
 #'
-#' @param x data for conversion
-#' @param from source unit
-#' @param to destination unit
-#' @param ref_wl laser wavelength (required for work with Raman shift)
+#' For `hyperSpec` objects, values of `@wavelength` and label of wavelengths
+#' (`@label$.wavelength`) are changed.
 #'
-#' @author R. Kiselev
+#'
+#' @param x Data to be converted.
+#'        Either a `hyperSpec` object or a numeric or integer vector.
+#' @param from (character): Source units. E.g. "nm", "1/cm", "eV", "tHz",
+#'       "Raman shift".
+#' @param to (character): Destination units.
+#' @param ref_wl (numeric): Laser/Reference wavelength
+#'        (required for work with Raman shift).
+#'
+#' @author R. Kiselev, V. Gegzna
+#'
+#' @return Object of the same class as input `x`.
 #'
 #' @concept wavelengths
 #'
@@ -19,6 +29,14 @@
 #' wl_convert_units(3200, "Raman shift", "nm", ref_wl = 785.04)
 #' wl_convert_units(785, "nm", "invcm")
 wl_convert_units <- function(x, from, to, ref_wl = NULL) {
+  UseMethod("wl_convert_units", x)
+}
+
+# Method ---------------------------------------------------------------------
+
+#' @rdname wl_convert_units
+#' @export
+wl_convert_units.default <- function(x, from, to, ref_wl = NULL) {
   src <- .wl_fix_unit_name(from)
   dest <- .wl_fix_unit_name(to)
 
@@ -34,6 +52,31 @@ wl_convert_units <- function(x, from, to, ref_wl = NULL) {
   f <- get(f)
   return(f(x, ref_wl))
 }
+
+
+# Method ---------------------------------------------------------------------
+
+#' @rdname wl_convert_units
+#' @export
+wl_convert_units.hyperSpec <- function(x, from, to, ref_wl = NULL) {
+  wl_old <- wl(x)
+  wl_new <- wl_convert_units(wl_old, from, to, ref_wl)
+  wl(x) <- wl_new
+
+  x@label$.wavelength <-
+    switch(.wl_fix_unit_name(to),
+      nm    = expression("Wavelength, nm"),
+      invcm = expression(tilde(nu) / cm^-1),
+      ev    = expression("Energy / eV"),
+      freq  = expression(nu / THz),
+      raman = expression(Raman ~ shift / cm^-1),
+      to
+    )
+
+  x
+}
+
+# Helper functions -----------------------------------------------------------
 
 wl_ev2freq <- function(x, ...) wl_nm2freq(wl_ev2nm(x))
 wl_ev2invcm <- function(x, ...) q * x / (100 * h * c)
@@ -72,11 +115,12 @@ wl_raman2nm <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
     }
   }
 
+
   unit <- gsub(" .*$", "", tolower(unit))
   if (unit %in% c("raman", "stokes", "rel", "rel.", "relative", "rel.cm-1", "rel.cm", "rel.1/cm", "raman shift")) {
     return("raman")
   }
-  if (unit %in% c("invcm", "energy", "wavenumber", "cm-1", "inverted", "cm", "1/cm")) {
+  if (unit %in% c("invcm", "energy", "wavenumber", "cm-1", "cm^-1", "cm^{-1}", "inverted", "cm", "1/cm")) {
     return("invcm")
   }
   if (unit %in% c("nm", "nanometer", "wavelength")) {
@@ -201,10 +245,32 @@ hySpc.testthat::test(wl_convert_units) <- function() {
   })
 
 
-  # TODO (tests): Add expected results to the conversion grid and check against them.
+  # TODO (tests): Add expected results to the conversion grid and
+  #      check against them.
 
   # test_that("wl_convert_units() performs conversion correctly", {
   #  # ...
   #
   # })
+
+  test_that("wl_convert_units.hyperSpec works", {
+    local_edition(3)
+
+    # hyperSpec:
+    expect_silent(spc <- wl_convert_units(flu, from = "nm", to = "1/cm"))
+
+    expect_s4_class(spc, "hyperSpec")
+    expect_equal(as.character(labels(spc, ".wavelength")), "tilde(nu)/cm^-1")
+  })
+
+  test_that("wl_convert_units.default works", {
+    local_edition(3)
+
+    spc <- wl_convert_units(flu, from = "nm", to = "1/cm")
+
+    # Integer vector:
+    x <- wl(flu)
+    expect_silent(wls <- wl_convert_units(x, from = "nm", to = "1/cm"))
+    expect_equal(wls, wl(spc))
+  })
 }
