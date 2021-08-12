@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Random samples and permutations — sample,hyperSpec-method • hyperSpec</title>
+<title>Sample or permute rows of hyperSpec, data.frame, or matrix — sample • hyperSpec</title>
 
 
 <!-- jquery -->
@@ -41,11 +41,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Random samples and permutations — sample,hyperSpec-method" />
-<meta property="og:description" content="sample() takes a specified size sample of rows from the object x with
-or without replacement.
-isample() returns an vector of indices, sample() returns the
-corresponding hyperSpec object." />
+<meta property="og:title" content="Sample or permute rows of hyperSpec, data.frame, or matrix — sample" />
+<meta property="og:description" content="hyperSprc::sample() takes a random sample (drawn with or  without
+replacement) of rows from the object x." />
 
 
 
@@ -158,42 +156,36 @@ corresponding hyperSpec object." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Random samples and permutations</h1>
+    <h1>Sample or permute rows of <code>hyperSpec</code>, <code>data.frame</code>, or <code>matrix</code></h1>
     <small class="dont-index">Source: <a href='https://github.com/r-hyperspec/hyperSpec/blob/master/R/sample.R'><code>R/sample.R</code></a></small>
     <div class="hidden name"><code>sample.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><code><a href='https://rdrr.io/r/base/sample.html'>sample()</a></code> takes a specified size sample of rows from the object <code>x</code> with
-or without replacement.</p>
-<p><code>isample()</code> returns an vector of indices, <code><a href='https://rdrr.io/r/base/sample.html'>sample()</a></code> returns the
-corresponding <code>hyperSpec</code> object.</p>
+    <p><code>hyperSprc::sample()</code> takes a random sample (drawn with or  without
+replacement) of rows from the object <code>x</code>.</p>
     </div>
 
     <pre class="usage"><span class='co'># S4 method for hyperSpec</span>
-<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>size</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span>, prob <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+<span class='fu'>sample</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>size</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span>, prob <span class='op'>=</span> <span class='cn'>NULL</span>, index <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
 <span class='co'># S4 method for data.frame</span>
-<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>size</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span>, prob <span class='op'>=</span> <span class='cn'>NULL</span>, drop <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='fu'>sample</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>size</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span>, prob <span class='op'>=</span> <span class='cn'>NULL</span>, index <span class='op'>=</span> <span class='cn'>FALSE</span>, drop <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
 <span class='co'># S4 method for matrix</span>
-<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>size</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span>, prob <span class='op'>=</span> <span class='cn'>NULL</span>, drop <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-
-<span class='fu'>isample</span><span class='op'>(</span><span class='va'>x</span>, size <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span>, prob <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+<span class='fu'>sample</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>size</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span>, prob <span class='op'>=</span> <span class='cn'>NULL</span>, index <span class='op'>=</span> <span class='cn'>FALSE</span>, drop <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>For <code><a href='https://rdrr.io/r/base/sample.html'>sample()</a></code>: <code>hyperSpec</code> object, <code>data.frame</code> or <code>matrix</code> to
-sample from.
-For <code>isample()</code>: <code>hyperSpec</code> object.</p></td>
+      <td><p><code>hyperSpec</code> object, <code>data.frame</code> or <code>matrix</code> to sample rows from.</p></td>
     </tr>
     <tr>
       <th>size</th>
       <td><p>(integer): Positive integer giving the number of spectra (rows)
-to choose. Id missing, defaults to number of rows in the object:
+to choose. If missing, defaults to the number of rows in the object:
 <code>size = nrow(x)</code>.</p></td>
     </tr>
     <tr>
@@ -206,54 +198,70 @@ to choose. Id missing, defaults to number of rows in the object:
 elements of the vector being sampled.</p></td>
     </tr>
     <tr>
+      <th>index</th>
+      <td><p>(logical): If <code>FALSE</code>, object of <code><a href='https://rdrr.io/r/base/class.html'>class(x)</a></code> is returned,
+if <code>TRUE</code>, numeric vector is returned.</p></td>
+    </tr>
+    <tr>
       <th>drop</th>
-      <td><p>See <code><a href='https://rdrr.io/r/base/drop.html'>base::drop()</a></code>: by default, do not drop dimensions of the
-result.</p></td>
+      <td><p>(logical): See <code><a href='https://rdrr.io/r/base/drop.html'>base::drop()</a></code>, by default, do not drop dimensions
+of the result. Applicable only if <code>index = FALSE</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code><a href='https://rdrr.io/r/base/sample.html'>sample()</a></code> returns a <code>hyperSpec</code> object, <code>data.frame</code> or <code>matrix</code> with <code>size</code>
-rows.</p>
-<p><code>isample()</code> returns vector with indices suitable for row-indexing <code>x</code>.</p>
+    
+<ul>
+<li><p>If <code>index = FALSE</code>, function returns a <code>hyperSpec</code> object, <code>data.frame</code> or
+<code>matrix</code> (object of the same class as <code>x</code>) with <code>size</code> rows.</p></li>
+<li><p>If <code>index = TRUE</code>, function returns a vector with row indices of size
+<code>size</code> suitable for subsetting rows of <code>x</code>.</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='https://rdrr.io/r/base/sample.html'>base::sample()</a></code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <p>C. Beleites</p>
+    <p>C. Beleites, V. Gegzna</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>2021</span><span class='op'>)</span>
+
+<span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; hyperSpec object
 #&gt;    3 spectra
 #&gt;    3 data columns
 #&gt;    181 data points / spectrum</div><div class='input'>
+<span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span>, index <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 4 6 2</div><div class='input'>
+<span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span>, index <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 6 3 6</div><div class='input'>
+<span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>8</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span>, index <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 6 5 1 4 3 4 2 3</div><div class='input'>
+
 <span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>flu</span>, col <span class='op'>=</span> <span class='st'>"darkgray"</span><span class='op'>)</span>
-</div><div class='input'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='st'>"red"</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='input'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='st'>"red"</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 </div><div class='img'><img src='sample-1.png' alt='' width='466' height='288' /></div><div class='input'>
 <span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>flu</span>, col <span class='op'>=</span> <span class='st'>"darkgray"</span><span class='op'>)</span>
-</div><div class='input'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,
+</div><div class='input'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,
   col <span class='op'>=</span> <span class='st'>"#0000FF80"</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span>,
   lines.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>lwd <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
 <span class='op'>)</span>
 </div><div class='img'><img src='sample-2.png' alt='' width='466' height='288' /></div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>cars</span>, <span class='fl'>2</span><span class='op'>)</span>
+<span class='fu'>sample</span><span class='op'>(</span><span class='va'>cars</span>, <span class='fl'>2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;    speed dist
-#&gt; 34    18   76
-#&gt; 47    24   92</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>24</span>, <span class='fl'>6</span><span class='op'>)</span>, <span class='fl'>2</span><span class='op'>)</span>
+#&gt; 37    19   46
+#&gt; 22    14   60</div><div class='input'>
+<span class='fu'>sample</span><span class='op'>(</span><span class='va'>cars</span>, <span class='fl'>2</span>, index <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 31 48</div><div class='input'>
+<span class='fu'>sample</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>24</span>, <span class='fl'>6</span><span class='op'>)</span>, <span class='fl'>2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
-#&gt; [1,]    6   12   18   24
-#&gt; [2,]    4   10   16   22</div><div class='input'>
-<span class='fu'>isample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 1 6 5</div><div class='input'>
-<span class='fu'>isample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 1 5 3</div><div class='input'>
-<span class='fu'>isample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>8</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 5 4 5 1 5 6 4 6</div></pre>
+#&gt; [1,]    2    8   14   20
+#&gt; [2,]    3    9   15   21</div><div class='input'>
+<span class='fu'>sample</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>24</span>, <span class='fl'>6</span><span class='op'>)</span>, <span class='fl'>2</span>, index <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 4 5</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

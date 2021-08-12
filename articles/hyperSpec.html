@@ -529,7 +529,7 @@ Figure 3.3: An example with <code>[]</code> operator and logical indices.
 
 <p>A random subset of spectra can be conveniently selected by <code class="sourceCode r"><span class="kw">sample</span>()</code>:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="fl">3</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="fl">3</span><span class="op">)</span>
 <span class="co">#&gt; hyperSpec object</span>
 <span class="co">#&gt;    3 spectra</span>
 <span class="co">#&gt;    4 data columns</span>
@@ -537,7 +537,7 @@ Figure 3.3: An example with <code>[]</code> operator and logical indices.
 
 <p>If indices into the selected spectra are needed instead, use <code class="sourceCode r"><span class="kw">sample</span>(..., <span class="dt">index =</span> <span class="ot">TRUE</span>)</code>:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="fl">3</span>, index <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="fl">3</span>, index <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; [1] 183 797 279</span></code></pre></div>
 </div>
 <div id="sec:seq" class="section level3">
@@ -1398,7 +1398,7 @@ Figure 5.4: Filtering data: mean <span class="math inline">\(\pm\)</span> sd fil
 <p>Assume the data occasionally has a detector readout of 0:</p>
 <div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">spc</span> <span class="op">&lt;-</span> <span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, , <span class="va">min</span> <span class="op">~</span> <span class="va">min</span> <span class="op">+</span> <span class="fl">15i</span><span class="op">]</span>
-<span class="va">spc</span><span class="op">[[</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="../reference/ncol,hyperSpec-method.html">nwl</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>, wl.index <span class="op">=</span> <span class="cn">TRUE</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0</span>
+<span class="va">spc</span><span class="op">[[</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fu"><a href="../reference/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="../reference/ncol,hyperSpec-method.html">nwl</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>, wl.index <span class="op">=</span> <span class="cn">TRUE</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0</span>
 <span class="va">spc</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span>
 <span class="co">#&gt;         602     606     610     614    618     622     626    630     634     638     642     646</span>
 <span class="co">#&gt; [1,] 138.13 129.659 138.745 144.504 131.23 136.949 111.078 124.11 123.946   0.000 126.461 136.325</span>
@@ -1974,11 +1974,11 @@ For details, see also the help on the base function <code class="sourceCode r"><
 <p>As an example, let’s construct a version of the <code class="sourceCode r">faux_cell</code> data like being taken as two maps with different spectral ranges.
 In each data set, some spectra are missing.</p>
 <div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">faux_cell_low</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="va">min</span> <span class="op">~</span> <span class="fl">1200</span><span class="op">]</span>, <span class="fl">700</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">faux_cell_low</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="va">min</span> <span class="op">~</span> <span class="fl">1200</span><span class="op">]</span>, <span class="fl">700</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">faux_cell_low</span><span class="op">)</span>
 <span class="co">#&gt; [1] 700</span></code></pre></div>
 <div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">faux_cell_high</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1400</span> <span class="op">~</span> <span class="va">max</span><span class="op">]</span>, <span class="fl">700</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">faux_cell_high</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1400</span> <span class="op">~</span> <span class="va">max</span><span class="op">]</span>, <span class="fl">700</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">faux_cell_high</span><span class="op">)</span>
 <span class="co">#&gt; [1] 700</span></code></pre></div>
 <p>As all extra data columns are the same, no special declarations are needed for merging the data:</p>
@@ -2286,7 +2286,7 @@ Please refer to the documentation of the respective functions for details about 
   <span class="op">}</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.065   0.003   0.075</span></code></pre></div>
+<span class="co">#&gt;   0.054   0.002   0.056</span></code></pre></div>
 <p>Calculations that involve a lot of subsetting (i.e., extracting or changing the spectra matrix or extra data) can be sped up considerably if the required parts of the <code>hyperSpec</code> object are extracted beforehand.
 This is somewhat similar to model fitting in <code>R</code> in general: many model fitting functions in <code>R</code> are much faster if the formula interface is avoided and the appropriate <code class="sourceCode r">data.frame</code>s or matrices are handed over directly.</p>
 <div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
@@ -2300,7 +2300,7 @@ This is somewhat similar to model fitting in <code>R</code> in general: many mod
   <span class="va">tmp</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">tmp.matrix</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.021   0.000   0.022</span></code></pre></div>
+<span class="co">#&gt;   0.018   0.000   0.018</span></code></pre></div>
 </div>
 <div id="additional-packages" class="section level2">
 <h2 class="hasAnchor">

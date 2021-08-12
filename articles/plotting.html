@@ -314,7 +314,7 @@ Figure 1.5: False colour map created with <code class="sourceCode r"><span class
 </h2>
 <p>Function <code class="sourceCode r"><span class="kw">plotvoronoi</span>()</code> is a special version of <code class="sourceCode r"><span class="kw">plotmap</span>()</code> that produces Voronoi diagram of the <code>hyperSpec</code> object (Fig. <a href="#fig:voronoi">1.6</a>).</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plotmap.html">plotvoronoi</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="fl">300</span><span class="op">)</span>, <span class="va">region</span> <span class="op">~</span> <span class="va">x</span> <span class="op">*</span> <span class="va">y</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="../reference/plotmap.html">plotvoronoi</a></span><span class="op">(</span><span class="fu"><a href="../reference/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="fl">300</span><span class="op">)</span>, <span class="va">region</span> <span class="op">~</span> <span class="va">x</span> <span class="op">*</span> <span class="va">y</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span id="fig:voronoi"></span>
 <img src="plotting_files/figure-html/voronoi-1.png" alt="Voronoi diagram: an example with `faux_cell` dataset.  "><p class="caption">
@@ -483,7 +483,7 @@ Figure 2.9: False color map: alternative R syntax.
 </h2>
 <p>Use <code class="sourceCode r"><span class="kw">plot</span>(x, <span class="st">"voronoi"</span>)</code> for a Voronoi plot (Fig. <a href="#fig:plotvoronoi">2.10</a>).</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span>, <span class="fl">300</span><span class="op">)</span>, <span class="st">"voronoi"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span>, <span class="fl">300</span><span class="op">)</span>, <span class="st">"voronoi"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span id="fig:plotvoronoi"></span>
 <img src="plotting_files/figure-html/plotvoronoi-1.png" alt="Voronoi plot: alternative R syntax.  "><p class="caption">
@@ -1203,7 +1203,7 @@ Package <strong>tripack</strong> seems to be faster in general, but may “hang�
 Furthermore, it is not FOSS (free and open-source software), so users are kindly asked to review package <strong>tripack</strong>’s license before using it.</p>
 <div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotmap.html">plotvoronoi</a></span><span class="op">(</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="fl">300</span><span class="op">)</span>, <span class="va">region</span> <span class="op">~</span> <span class="va">x</span> <span class="op">*</span> <span class="va">y</span>,
+  <span class="fu"><a href="../reference/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="fl">300</span><span class="op">)</span>, <span class="va">region</span> <span class="op">~</span> <span class="va">x</span> <span class="op">*</span> <span class="va">y</span>,
   col.regions <span class="op">=</span> <span class="fu"><a href="../reference/palette_matlab.html">palette_matlab</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -1228,7 +1228,7 @@ Figure 8.7: Voronoi plot that uses non-default discrette colour palette.
 <span class="op">}</span></code></pre></div>
 <p>Fig. <a href="#fig:missing">8.8</a> shows the result.</p>
 <div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plotmap.html">plotmap</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span> <span class="op">-</span> <span class="fl">20</span><span class="op">)</span>,
+<code class="sourceCode R"><span class="fu"><a href="../reference/plotmap.html">plotmap</a></span><span class="op">(</span><span class="fu"><a href="../reference/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span> <span class="op">-</span> <span class="fl">20</span><span class="op">)</span>,
   col.regions <span class="op">=</span> <span class="fu"><a href="../reference/palette_matlab.html">palette_matlab</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span>,
   col <span class="op">=</span> <span class="st">"black"</span>,
   panel <span class="op">=</span> <span class="va">mark.missing</span>
