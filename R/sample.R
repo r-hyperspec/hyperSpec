@@ -30,7 +30,7 @@
 #' @param x `hyperSpec` object, `data.frame` or `matrix` to sample rows from.
 #'
 #' @param size (integer): Positive integer giving the number of spectra (rows)
-#'        to choose. Id missing, defaults to number of rows in the object:
+#'        to choose. If missing, defaults to the number of rows in the object:
 #'        `size = nrow(x)`.
 #'
 #' @param replace (logical): Should sampling be with replacement?
