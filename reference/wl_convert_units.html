@@ -166,32 +166,48 @@ nm, \(cm^{-1}\), eV, THz and Raman shift." />
 <em>nm</em>, <em>\(cm^{-1}\)</em>, <em>eV</em>, <em>THz</em> and <em>Raman shift</em>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>wl_convert_units</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>from</span>, <span class='va'>to</span>, ref_wl <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>wl_convert_units</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>from</span>, <span class='va'>to</span>, ref_wl <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+
+<span class='co'># S3 method for default</span>
+<span class='fu'>wl_convert_units</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>from</span>, <span class='va'>to</span>, ref_wl <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+
+<span class='co'># S3 method for hyperSpec</span>
+<span class='fu'>wl_convert_units</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>from</span>, <span class='va'>to</span>, ref_wl <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>data for conversion</p></td>
+      <td><p>Data to be converted.
+Either a <code>hyperSpec</code> object or a numeric or integer vector.</p></td>
     </tr>
     <tr>
       <th>from</th>
-      <td><p>source unit</p></td>
+      <td><p>(character): Source units. E.g. "nm", "1/cm", "eV", "tHz",
+"Raman shift".</p></td>
     </tr>
     <tr>
       <th>to</th>
-      <td><p>destination unit</p></td>
+      <td><p>(character): Destination units.</p></td>
     </tr>
     <tr>
       <th>ref_wl</th>
-      <td><p>laser wavelength (required for work with Raman shift)</p></td>
+      <td><p>(numeric): Laser/Reference wavelength
+(required for work with Raman shift).</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Object of the same class as input <code>x</code>.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>For <code>hyperSpec</code> objects, values of <code>@wavelength</code> and label of wavelengths
+(<code>@label$.wavelength</code>) are changed.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <p>R. Kiselev</p>
+    <p>R. Kiselev, V. Gegzna</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>wl_convert_units</span><span class='op'>(</span><span class='fl'>3200</span>, <span class='st'>"Raman shift"</span>, <span class='st'>"nm"</span>, ref_wl <span class='op'>=</span> <span class='fl'>785.04</span><span class='op'>)</span>
