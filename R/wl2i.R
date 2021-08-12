@@ -1,15 +1,22 @@
-### -----------------------------------------------------------------------------
-###
-### .getindex
-###
-###
-## does the actual work of looking up the index for wl2i, .extract and .replace
-## extrapolate = TRUE returns first resp. last index for wavelength outside
-## hyperSpec@wavelength.
-## extrapolate = FALSE returns NA in this case
-
 
 # Function -------------------------------------------------------------------
+
+#' Get index
+#'
+#' `.getindex()` does the actual work of looking up the index for `wl2i()`,
+#' `.extract()` and `.replace()`.
+#'
+#' @param x `hyperSpec` object.
+#' @param wavelength Wavelength values.
+#' @param extrapolate (logical):
+#'  - `extrapolate = TRUE` returns first resp. last index for wavelength outside
+#'     `hyperSpec@wavelength`.
+#'
+#' - `extrapolate = FALSE` returns `NA` in this case.
+#'
+#' @return ...
+#'
+#' @noRd
 
 .getindex <- function(x, wavelength, extrapolate = TRUE) {
   if (!extrapolate) {
@@ -28,12 +35,16 @@
   wavelength
 }
 
+
+# Function -------------------------------------------------------------------
+
 #' Conversion between Wavelength and spectra matrix column
 #'
 #' Index [wl2i()] returns the column indices for the spectra matrix for the
 #' given wavelengths.
 #' [i2wl()] converts column indices into wavelengths.
 #'
+#' @details
 #' If `wavelength` is numeric, each of its elements is converted to the
 #' respective index.
 #' Values outside the range of `x@wavelength` become `NA`.
@@ -170,7 +181,8 @@ wl2i <- function(x, wavelength = stop("wavelengths are required."), unlist = TRU
 
       if (is.finite(from) && is.finite(to)) {
         ## crop indices to range:
-        ## outside range indices can happen with complex wavelength specifications like min - 1i
+        ## outside range indices can happen with complex wavelength
+        ## specifications like min - 1i
         if (from < 1L) from <- 1L
         if (to > nwl(x)) to <- nwl(x)
 
@@ -245,8 +257,14 @@ hySpc.testthat::test(wl2i) <- function() {
       c(wl2i(flu, 300:400), wl2i(flu, 405 ~ 407), wl2i(flu, min ~ min + 2i))
     )
 
-    expect_equal(wl2i(flu, c(min ~ min + 5i, 405 ~ 407), unlist = TRUE), c(1:6, 1:5))
-    expect_equal(wl2i(flu, c(min ~ min + 5i, 405 ~ 407), unlist = FALSE), list(1:6, 1:5))
+    expect_equal(
+      wl2i(flu, c(min ~ min + 5i, 405 ~ 407), unlist = TRUE),
+      c(1:6, 1:5)
+    )
+    expect_equal(
+      wl2i(flu, c(min ~ min + 5i, 405 ~ 407), unlist = FALSE),
+      list(1:6, 1:5)
+    )
   })
 
   test_that("inside extraction", {})
