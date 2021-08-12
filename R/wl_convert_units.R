@@ -245,13 +245,13 @@ hySpc.testthat::test(wl_convert_units) <- function() {
   })
 
 
-  # TODO (tests): Add expected results to the conversion grid and check against them.
+  # TODO (tests): Add expected results to the conversion grid and
+  #      check against them.
 
   # test_that("wl_convert_units() performs conversion correctly", {
   #  # ...
   #
   # })
-
 
   test_that("wl_convert_units.hyperSpec works", {
     local_edition(3)
@@ -261,10 +261,16 @@ hySpc.testthat::test(wl_convert_units) <- function() {
 
     expect_s4_class(spc, "hyperSpec")
     expect_equal(as.character(labels(spc, ".wavelength")), "tilde(nu)/cm^-1")
+  })
+
+  test_that("wl_convert_units.default works", {
+    local_edition(3)
+
+    spc <- wl_convert_units(flu, from = "nm", to = "1/cm")
 
     # Integer vector:
-    expect_silent(wls <- wl_convert_units(wl(flu), from = "nm", to = "1/cm"))
+    x <- wl(flu)
+    expect_silent(wls <- wl_convert_units(x, from = "nm", to = "1/cm"))
     expect_equal(wls, wl(spc))
-
   })
 }
