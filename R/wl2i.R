@@ -278,3 +278,13 @@ i2wl <- function(x, i) {
 ##      deparse(substitute(1i %~% max - 3i | 2800 %~% 3000, list(max = 3000)))
 ## )
 
+
+# Unit tests -----------------------------------------------------------------
+
+hySpc.testthat::test(i2wl) <- function() {
+  context("i2wl")
+
+  test_that("i2wl() works", {
+    expect_equal(i2wl(flu, c(1, 3, 5)), 405:407)
+  })
+}
