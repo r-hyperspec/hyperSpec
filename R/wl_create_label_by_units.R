@@ -48,3 +48,36 @@ wl_create_label_by_units <- function(wl_units, greek = FALSE, warn = TRUE, fail 
     }
   )
 }
+
+
+# Unit tests -----------------------------------------------------------------
+
+hySpc.testthat::test(wl_create_label_by_units) <- function() {
+  context("wl_create_label_by_units")
+
+  test_that("wl_create_label_by_units() works", {
+    expect_error(wl_create_label_by_units(), 'argument "wl_units" is missing')
+    expect_silent(wl_create_label_by_units("nm"))
+  })
+
+  test_that("wl_create_label_by_units() works with `'nm", {
+    # nm Greek
+    expect_silent(lbl <- wl_create_label_by_units("nm", greek = TRUE))
+    expect_equal(class(lbl), "expression")
+    expect_equal(lbl, expression(lambda / nm))
+
+    # nm Text
+    expect_silent(lbl <- wl_create_label_by_units("nm", greek = FALSE))
+    expect_equal(class(lbl), "expression")
+    expect_equal(lbl, expression("Wavelength, nm"))
+  })
+
+
+  # FIXME: does not work yet:
+
+  # expect_warning(
+  #   wl_create_label_by_units("WARNING!"),
+  #   "The value of 'wl_units' is not identified:"
+  # )
+}
+
