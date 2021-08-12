@@ -61,13 +61,12 @@
 #' @param wavelength wavelengths to be converted into column indices,
 #'        either numeric or a formula, see details.
 #' @param i the column indices into the spectra matrix for which the
-#'        wavelength is to be computed
+#'        wavelength is to be computed.
 #' @param unlist if multiple wavelength ranges are given, should the
 #'        indices be unlisted or kept in a list?
 #'
 #' @return
-#'
-#' - [wl2i()]:  A numeric vector containing the resulting indices.
+#' - [wl2i()] returns a numeric vector containing the resulting indices.
 #'
 #'
 #' @author C. Beleites
@@ -80,7 +79,9 @@
 #'
 #' @examples
 #' flu
+#'
 #' wl2i(flu, 405:407)
+#'
 #' wl2i(flu, 405 ~ 407)
 #'
 #' ## beginning of the spectrum to 407 nm
@@ -101,24 +102,24 @@
 #' ## get 450 nm +- 3 data points
 #' wl2i(flu, 450 - 3i ~ 450 + 3i)
 #'
-#' wl2i(flu, 300:400) ## all NA:
-#' wl2i(flu, 600 ~ 700) ## NULL: completely outside flu's wavelength range
+#' wl2i(flu, 300:400) ## all NA
 #'
+#' wl2i(flu, 600 ~ 700) ## NULL: completely outside flu's wavelength range
 wl2i <- function(x, wavelength = stop("wavelengths are required."), unlist = TRUE) {
   assert_hyperSpec(x)
   validObject(x)
 
   ## wavelength may have been forced already before.
   ## in that case, no special evaluation can be done.
-  ## However, we cannot know whether we have the experession forced already or not,
-  ## so we have to try
+  ## However, we cannot know whether we have the expression forced already
+  ## or not, so we have to try
   try(
     {
       wavelength <- lazy(wavelength)
 
       wavelength <- lazy_eval(wavelength,
         data = list(
-          max = max(x@wavelength), min = min(x@wavelength),
+          max   = max(x@wavelength), min   = min(x@wavelength),
           maxwl = max(x@wavelength), minwl = min(x@wavelength)
         )
       )
@@ -264,13 +265,13 @@ hySpc.testthat::test(wl2i) <- function() {
 #' @examples
 #'
 #' i2wl(faux_cell, 17:20)
-#'
 i2wl <- function(x, i) {
   assert_hyperSpec(x)
   validObject(x)
 
   x@wavelength[i]
 }
+
 
 ## Check for wrong complex invocation
 ##
