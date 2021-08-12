@@ -9,7 +9,8 @@
 #' (`@label$.wavelength`) are changed.
 #'
 #'
-#' @param x Data for conversion.
+#' @param x Data to be converted.
+#'        Either a `hyperSpec` object or a numeric or integer vector.
 #' @param from (character): Source units. E.g. "nm", "1/cm", "eV", "tHz",
 #'       "Raman shift".
 #' @param to (character): Destination units.
