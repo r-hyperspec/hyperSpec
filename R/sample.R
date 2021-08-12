@@ -15,10 +15,10 @@
   }
 }
 
-#' Sample or permute rows
+#' Sample or permute rows of `hyperSpec`, `data.frame`, or `matrix`
 #'
-#' [sample()] takes a random sample (drawn with or  without replacement)
-#' of rows from the object `x`.
+#' [hyperSprc::sample()] takes a random sample (drawn with or  without
+#' replacement) of rows from the object `x`.
 #'
 #' @name sample
 #' @rdname sample
@@ -43,9 +43,9 @@
 #'
 #'
 #' @return
-#' - `sample(..., index = FALSE)` returns a `hyperSpec` object, `data.frame` or
-#'   `matrix` with `size` rows.
-#' - `sample(..., index = TRUE)` returns a vector with row indices of size
+#' - If `index = FALSE`, function returns a `hyperSpec` object, `data.frame` or
+#'   `matrix` (object of the same class as `x`) with `size` rows.
+#' - If `index = TRUE`, function returns a vector with row indices of size
 #'   `size` suitable for subsetting rows of `x`.
 #'
 #' @seealso [base::sample()]
