@@ -87,6 +87,7 @@ hySpc.testthat::test(.sample_h) <- function() {
 
   test_that("defaults", {
     tmp <- sample(flu)
+    expect_s4_class(tmp, "hyperSpec")
     expect_equal(tmp[order(tmp$c)], flu)
 
     set.seed(101)
@@ -110,7 +111,10 @@ hySpc.testthat::test(.sample_h) <- function() {
 
 
   test_that("defaults, index = TRUE", {
-    expect_equal(sort(sample(flu, index = TRUE)), 1:nrow(flu))
+    tmp <- sort(sample(flu, index = TRUE))
+    expect_equal(tmp, 1:nrow(flu))
+    expect_type(tmp, "integer")
+    expect_equal(class(tmp), "integer")
 
     set.seed(101)
     expect_equal(sample(flu, index = TRUE), c(1L, 6L, 2L, 3L, 5L, 4L))
@@ -178,6 +182,7 @@ hySpc.testthat::test(.sample.data.frame) <- function() {
   test_that("data.frame", {
     set.seed(101)
     tmp <- sample(iris)
+    expect_s3_class(tmp, "data.frame")
     expect_equal(rownames(tmp), c(
       "73", "57", "95", "148", "61", "59", "99", "128", "131", "32",
       "9", "96", "144", "98", "60", "147", "145", "14", "97", "45",
@@ -202,6 +207,8 @@ hySpc.testthat::test(.sample.data.frame) <- function() {
   test_that("data.frame, index = TRUE", {
     set.seed(101)
     tmp <- sample(iris, index = TRUE)
+    expect_type(tmp, "integer")
+    expect_equal(class(tmp), "integer")
     expect_length(tmp, nrow(iris))
     expect_equal(tmp[1:3], c(73, 57, 95))
   })
@@ -244,6 +251,8 @@ hySpc.testthat::test(.sample.matrix) <- function() {
   test_that("matrix", {
     set.seed(101)
     tmp <- sample(flu[[]])
+    expect_equal(class(tmp)[1], "matrix")
+
     expect_equal(dim(tmp), dim(flu[[]]))
     expect_equal(tmp[c(1L, 3L, 4L, 6L, 5L, 2L), ], flu[[]])
   })
@@ -251,6 +260,9 @@ hySpc.testthat::test(.sample.matrix) <- function() {
   test_that("matrix, index = TRUE", {
     set.seed(101)
     tmp <- sample(flu[[]], index = TRUE)
+    expect_equal(class(tmp), "integer")
+    expect_type(tmp, "integer")
+
     expect_equal(length(tmp), nrow(flu[[]]))
     expect_equal(tmp,  c(1, 6, 2, 3, 5, 4))
   })
