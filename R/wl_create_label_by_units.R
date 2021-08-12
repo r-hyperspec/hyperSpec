@@ -1,5 +1,8 @@
+# Function -------------------------------------------------------------------
+
 #' @include wl_convert_units.R
-wl_create_label_by_units <- function(wl_units, greek = TRUE, warn = TRUE, fail = FALSE) {
+#' @author V. Gegzna
+wl_create_label_by_units <- function(wl_units, greek = FALSE, warn = TRUE, fail = FALSE) {
 
   u_fixed <- .wl_fix_unit_name(wl_units)
 
@@ -7,7 +10,7 @@ wl_create_label_by_units <- function(wl_units, greek = TRUE, warn = TRUE, fail =
     u_fixed <- paste0(u_fixed, "_greek")
   }
 
-  switch(
+  switch(u_fixed,
 
     nm               = expression("Wavelength, nm"),
     nm_greek         = expression(lambda / nm),
