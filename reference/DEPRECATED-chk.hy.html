@@ -45,7 +45,9 @@ Validate hyperSpec objects — DEPRECATED-chk.hy • hyperSpec</title>
 <meta property="og:title" content="(DEPRECATED)
 Validate hyperSpec objects — DEPRECATED-chk.hy" />
 <meta property="og:description" content="This function is deprecated.
-Use assert_hyperSpec() or is_hyperSpec()." />
+Use assert_hyperSpec() or is_hyperSpec().
+This function is deprecated.
+Use sample(..., index = TRUE)() instead." />
 
 
 
@@ -160,16 +162,20 @@ Use assert_hyperSpec() or is_hyperSpec()." />
     <div class="page-header">
     <h1>(DEPRECATED)
 Validate <code>hyperSpec</code> objects</h1>
-    <small class="dont-index">Source: <a href='https://github.com/r-hyperspec/hyperSpec/blob/master/R/DEPRECATED-chk.hy.R'><code>R/DEPRECATED-chk.hy.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/r-hyperspec/hyperSpec/blob/master/R/DEPRECATED-chk.hy.R'><code>R/DEPRECATED-chk.hy.R</code></a>, <a href='https://github.com/r-hyperspec/hyperSpec/blob/master/R/DEPRECATED-isample.R'><code>R/DEPRECATED-isample.R</code></a></small>
     <div class="hidden name"><code>DEPRECATED-chk.hy.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>This function is <strong>deprecated</strong>.
 Use <code><a href='is_hyperSpec.html'>assert_hyperSpec()</a></code> or <code><a href='is_hyperSpec.html'>is_hyperSpec()</a></code>.</p>
+<p>This function is <strong>deprecated</strong>.
+Use <a href='https://rdrr.io/r/base/sample.html'>sample(..., index = TRUE)()</a> instead.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>chk.hy</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>chk.hy</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+
+<span class='fu'>isample</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -177,6 +183,10 @@ Use <code><a href='is_hyperSpec.html'>assert_hyperSpec()</a></code> or <code><a 
     <tr>
       <th>object</th>
       <td><p>See argument <code>object</code> in <code><a href='is_hyperSpec.html'>assert_hyperSpec()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Arguments to <code><a href='https://rdrr.io/r/base/sample.html'>sample()</a></code>.</p></td>
     </tr>
     </table>
 
