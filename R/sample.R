@@ -15,15 +15,22 @@
   }
 }
 
-#' Random samples and permutations
+#' Sample or permute rows of `hyperSpec`, `data.frame`, or `matrix`
 #'
-#' [sample()] takes a random sample of rows from the object `x` drawn with or
-#' without replacement.
+#' [hyperSprc::sample()] takes a random sample (drawn with or  without
+#' replacement) of rows from the object `x`.
+#'
+#' @name sample
+#' @rdname sample
+#' @aliases sample.hyperSpec
+#'          sample,hyperSpec-method
+#'
+#' @docType methods
 #'
 #' @param x `hyperSpec` object, `data.frame` or `matrix` to sample rows from.
 #'
 #' @param size (integer): Positive integer giving the number of spectra (rows)
-#'        to choose. Id missing, defaults to number of rows in the object:
+#'        to choose. If missing, defaults to the number of rows in the object:
 #'        `size = nrow(x)`.
 #'
 #' @param replace (logical): Should sampling be with replacement?
@@ -31,15 +38,18 @@
 #' @param prob (numeric): A vector of probability weights for obtaining the
 #'        elements of the vector being sampled.
 #'
-#' @param replace (logical): If `FALSE`, object of `class(x)` is returned,
+#' @param index (logical): If `FALSE`, object of `class(x)` is returned,
 #'        if `TRUE`, numeric vector is returned.
 #'
 #'
 #' @return
-#' - [sample(..., index = FALSE)] returns a `hyperSpec` object, `data.frame` or
-#'   `matrix` with `size` rows.
-#' - [sample(..., index = TRUE)] returns a vector with row indices of size
+#' - If `index = FALSE`, function returns a `hyperSpec` object, `data.frame` or
+#'   `matrix` (object of the same class as `x`) with `size` rows.
+#' - If `index = TRUE`, function returns a vector with row indices of size
 #'   `size` suitable for subsetting rows of `x`.
+#'
+#' @seealso [base::sample()]
+#'
 #'
 #' @author C. Beleites, V. Gegzna
 #'
@@ -48,7 +58,6 @@
 #'
 #' @export
 #'
-#' @seealso [base::sample()]
 #' @examples
 #' set.seed(2021)
 #'
@@ -78,6 +87,7 @@ hySpc.testthat::test(.sample_h) <- function() {
 
   test_that("defaults", {
     tmp <- sample(flu)
+    expect_s4_class(tmp, "hyperSpec")
     expect_equal(tmp[order(tmp$c)], flu)
 
     set.seed(101)
@@ -101,7 +111,10 @@ hySpc.testthat::test(.sample_h) <- function() {
 
 
   test_that("defaults, index = TRUE", {
-    expect_equal(sort(sample(flu, index = TRUE)), 1:nrow(flu))
+    tmp <- sort(sample(flu, index = TRUE))
+    expect_equal(tmp, 1:nrow(flu))
+    expect_type(tmp, "integer")
+    expect_equal(class(tmp), "integer")
 
     set.seed(101)
     expect_equal(sample(flu, index = TRUE), c(1L, 6L, 2L, 3L, 5L, 4L))
@@ -132,7 +145,7 @@ hySpc.testthat::test(.sample_h) <- function() {
 # Function -------------------------------------------------------------------
 
 .sample.data.frame <- function(x, size, replace = FALSE, prob = NULL,
-                               drop = FALSE, index = FALSE) {
+                               index = FALSE, drop = FALSE) {
   if (missing(size)) size <- nrow(x)
   rows_i <- sample.int(nrow(x), size = size, replace = replace, prob = prob)
 
@@ -144,6 +157,8 @@ hySpc.testthat::test(.sample_h) <- function() {
 }
 
 #' @rdname sample
+#' @aliases sample.data.frame
+#'          sample,data.frame-method
 #'
 #' @param drop (logical): See [base::drop()], by default, do not drop dimensions
 #'        of the result. Applicable only if `index = FALSE`.
@@ -167,6 +182,7 @@ hySpc.testthat::test(.sample.data.frame) <- function() {
   test_that("data.frame", {
     set.seed(101)
     tmp <- sample(iris)
+    expect_s3_class(tmp, "data.frame")
     expect_equal(rownames(tmp), c(
       "73", "57", "95", "148", "61", "59", "99", "128", "131", "32",
       "9", "96", "144", "98", "60", "147", "145", "14", "97", "45",
@@ -191,6 +207,8 @@ hySpc.testthat::test(.sample.data.frame) <- function() {
   test_that("data.frame, index = TRUE", {
     set.seed(101)
     tmp <- sample(iris, index = TRUE)
+    expect_type(tmp, "integer")
+    expect_equal(class(tmp), "integer")
     expect_length(tmp, nrow(iris))
     expect_equal(tmp[1:3], c(73, 57, 95))
   })
@@ -200,7 +218,7 @@ hySpc.testthat::test(.sample.data.frame) <- function() {
 # Function -------------------------------------------------------------------
 
 .sample.matrix <- function(x, size, replace = FALSE, prob = NULL,
-                           drop = FALSE, index = FALSE) {
+                           index = FALSE, drop = FALSE) {
   if (missing(size)) size <- nrow(x)
   rows_i <- sample.int(nrow(x), size = size, replace = replace, prob = prob)
 
@@ -212,10 +230,12 @@ hySpc.testthat::test(.sample.data.frame) <- function() {
 }
 
 #' @rdname sample
-#' @export
+#' @aliases sample.matrix
+#'          sample,matrix-method
 #'
 #' @concept stats
 #'
+#' @export
 #' @examples
 #'
 #' sample(matrix(1:24, 6), 2)
@@ -231,6 +251,8 @@ hySpc.testthat::test(.sample.matrix) <- function() {
   test_that("matrix", {
     set.seed(101)
     tmp <- sample(flu[[]])
+    expect_equal(class(tmp)[1], "matrix")
+
     expect_equal(dim(tmp), dim(flu[[]]))
     expect_equal(tmp[c(1L, 3L, 4L, 6L, 5L, 2L), ], flu[[]])
   })
@@ -238,6 +260,9 @@ hySpc.testthat::test(.sample.matrix) <- function() {
   test_that("matrix, index = TRUE", {
     set.seed(101)
     tmp <- sample(flu[[]], index = TRUE)
+    expect_equal(class(tmp), "integer")
+    expect_type(tmp, "integer")
+
     expect_equal(length(tmp), nrow(flu[[]]))
     expect_equal(tmp,  c(1, 6, 2, 3, 5, 4))
   })
