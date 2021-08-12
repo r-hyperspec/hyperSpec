@@ -49,6 +49,7 @@
      `wl.eval()`             | `wl_eval()`                      |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#309
      `wlconv()`              | `wl_convert_units()`             |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#309
     - Wavelength unit conversion functions `ev2freq()`, `ev2invcm()`, `ev2nm()`, `ev2raman()`, `freq2ev()`, `freq2invcm()`, `freq2nm()`, `freq2raman()`, `invcm2ev()`, `invcm2freq()`, `invcm2nm()`, `invcm2raman()`, `nm2ev()`, `nm2freq()`, `nm2invcm()`, `nm2raman()`, `raman2ev()`, `raman2freq()`, `raman2invcm()`, `raman2nm()` are deprecated in favor of `wl_convert_units()` (cbeleites/hyperSpec#300).
+* Function `wl_convert_units()` converted to S3 generic. Default and hyperSpec methods were added (#29).
 * Function `spc.NA.linapprox()`, which was deprecated for long time, is now completely removed (cbeleites/hyperSpec#239).
 * Column names in spectra matrix (`$spc` column of `hyperSpec` object) are now returned correctly by functions `spc.bin()` (cbeleites/hyperSpec#237), and `spc.loess()` (cbeleites/hyperSpec#245).
 * New function `hy_list_available_hySpc_packages()` lists packages, that are available in GitHub organization `r-hyperSpec`.
