@@ -141,7 +141,7 @@ hySpc.testthat::test(.sample_h) <- function() {
 # Function -------------------------------------------------------------------
 
 .sample.data.frame <- function(x, size, replace = FALSE, prob = NULL,
-                               drop = FALSE, index = FALSE) {
+                               index = FALSE, drop = FALSE) {
   if (missing(size)) size <- nrow(x)
   rows_i <- sample.int(nrow(x), size = size, replace = replace, prob = prob)
 
@@ -211,7 +211,7 @@ hySpc.testthat::test(.sample.data.frame) <- function() {
 # Function -------------------------------------------------------------------
 
 .sample.matrix <- function(x, size, replace = FALSE, prob = NULL,
-                           drop = FALSE, index = FALSE) {
+                           index = FALSE, drop = FALSE) {
   if (missing(size)) size <- nrow(x)
   rows_i <- sample.int(nrow(x), size = size, replace = replace, prob = prob)
 
