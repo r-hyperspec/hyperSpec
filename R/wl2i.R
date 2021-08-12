@@ -8,6 +8,9 @@
 ## hyperSpec@wavelength.
 ## extrapolate = FALSE returns NA in this case
 
+
+# Function -------------------------------------------------------------------
+
 .getindex <- function(x, wavelength, extrapolate = TRUE) {
   if (!extrapolate) {
     wavelength[wavelength < min(x@wavelength)] <- -Inf
@@ -25,17 +28,19 @@
   wavelength
 }
 
-#' Conversion between Wavelength and Spectra Matrix Column.
+#' Conversion between Wavelength and spectra matrix column
 #'
-#' Index `wl2i()` returns the column indices for the spectra matrix for the given wavelengths.
-#' `i2wl()` converts column indices into wavelengths.
+#' Index [wl2i()] returns the column indices for the spectra matrix for the
+#' given wavelengths.
+#' [i2wl()] converts column indices into wavelengths.
 #'
-#' If `wavelength` is numeric, each of its elements is converted to the respective index.
-#' Values outside the range of `x@@wavelength` become `NA`.
+#' If `wavelength` is numeric, each of its elements is converted to the
+#' respective index.
+#' Values outside the range of `x@wavelength` become `NA`.
 #'
-#' If the range is given as a formula (i.e. `start ~ end`, a sequence
+#' If the range is given as a formula (i.e. `start ~ end`), a sequence
 #'
-#' index corresponding to start : index corresponding to end
+#' (index corresponding to `start`) : (index corresponding to `end`)
 #'
 #' is returned. If the wavelengths are not ordered, that may lead to chaos.
 #' In this case, call [hyperSpec::wl_sort()] first.
@@ -43,26 +48,37 @@
 #' Two special variables can be used: `min` and `max`, corresponding to the
 #' lowest and highest wavelength of `x`, respectively.
 #'
-#' start and end may be complex numbers. The resulting index for a complex x is then
+#' `start` and `end` may be complex numbers. The resulting index for a
+#' complex x is then:
 #'
-#' index (Re (x)) + Im (x)
+#' ```r
+#' index(Re(x)) + Im(x)
+#' ```
 #'
 #' @aliases wl2i
-#' @param x a `hyperSpec` object
-#' @param wavelength the wavelengths to be converted into column indices,
-#'   either numeric or a formula, see details.
-#' @param i the column indices into the spectra matrix for which the
-#'   wavelength is to be computed
-#' @param unlist if multiple wavelength ranges are given, should the indices be unlisted or kept in a list?
-#' @return A numeric containing the resulting indices for `wl2i`
-#' @author C. Beleites
 #'
-#' @export
+#' @param x `hyperSpec` object.
+#' @param wavelength wavelengths to be converted into column indices,
+#'        either numeric or a formula, see details.
+#' @param i the column indices into the spectra matrix for which the
+#'        wavelength is to be computed
+#' @param unlist if multiple wavelength ranges are given, should the
+#'        indices be unlisted or kept in a list?
+#'
+#' @return
+#'
+#' - [wl2i()]:  A numeric vector containing the resulting indices.
+#'
+#'
+#' @author C. Beleites
 #'
 #' @concept wavelengths
 #'
-#' @examples
 #'
+#' @importFrom lazyeval lazy lazy_eval is_formula f_eval_lhs f_eval_rhs
+#' @export
+#'
+#' @examples
 #' flu
 #' wl2i(flu, 405:407)
 #' wl2i(flu, 405 ~ 407)
@@ -87,7 +103,7 @@
 #'
 #' wl2i(flu, 300:400) ## all NA:
 #' wl2i(flu, 600 ~ 700) ## NULL: completely outside flu's wavelength range
-#' @importFrom lazyeval lazy lazy_eval is_formula f_eval_lhs f_eval_rhs
+#'
 wl2i <- function(x, wavelength = stop("wavelengths are required."), unlist = TRUE) {
   assert_hyperSpec(x)
   validObject(x)
@@ -169,8 +185,12 @@ wl2i <- function(x, wavelength = stop("wavelengths are required."), unlist = TRU
   }
 }
 
+
+# Unit tests -----------------------------------------------------------------
+
 hySpc.testthat::test(wl2i) <- function() {
   context("wl2i")
+
   test_that(": sequence of wavelengths", {
     expect_equal(wl2i(flu, 405:407), c(1, 3, 5))
   })
@@ -231,13 +251,20 @@ hySpc.testthat::test(wl2i) <- function() {
   test_that("inside extraction", {})
 }
 
+
+# Function -------------------------------------------------------------------
+
 #' @rdname wl2i
 #' @aliases i2wl
-#' @return `i2wl` returns a numeric with the wavelengths
+#'
+#' @return
+#' - [i2wl()] returns a numeric vector with the wavelengths.
+#'
 #' @export
 #' @examples
 #'
 #' i2wl(faux_cell, 17:20)
+#'
 i2wl <- function(x, i) {
   assert_hyperSpec(x)
   validObject(x)
@@ -250,3 +277,4 @@ i2wl <- function(x, i) {
 ## grepl("[(][[:digit:].]+[+-][[:digit:].]+i[)]",
 ##      deparse(substitute(1i %~% max - 3i | 2800 %~% 3000, list(max = 3000)))
 ## )
+
