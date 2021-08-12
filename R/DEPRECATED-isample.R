@@ -10,7 +10,7 @@
 #' @description
 #'
 #' This function is **deprecated**.
-#' Use [sample(..., index = TRUE)][sample()] instead.
+#' Use `sample(..., index = TRUE)` instead.
 #'
 #' @param ... Arguments to [hyperSpec::sample()].
 #'
