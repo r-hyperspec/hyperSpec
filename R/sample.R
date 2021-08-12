@@ -17,13 +17,13 @@
 
 #' Sample or permute rows
 #'
-#' [sample()] takes a random sample of rows from the object `x` drawn with or
-#' without replacement.
+#' [sample()] takes a random sample (drawn with or  without replacement)
+#' of rows from the object `x`.
 #'
 #' @name sample
 #' @rdname sample
-#' @aliases sample
-#'          sample.hyperSpec
+#' @aliases sample.hyperSpec
+#'          sample,hyperSpec-method
 #'
 #' @docType methods
 #'
@@ -48,6 +48,9 @@
 #' - `sample(..., index = TRUE)` returns a vector with row indices of size
 #'   `size` suitable for subsetting rows of `x`.
 #'
+#' @seealso [base::sample()]
+#'
+#'
 #' @author C. Beleites, V. Gegzna
 #'
 #' @keywords methods distribution
@@ -55,7 +58,6 @@
 #'
 #' @export
 #'
-#' @seealso [base::sample()]
 #' @examples
 #' set.seed(2021)
 #'
@@ -152,6 +154,7 @@ hySpc.testthat::test(.sample_h) <- function() {
 
 #' @rdname sample
 #' @aliases sample.data.frame
+#'          sample,data.frame-method
 #'
 #' @param drop (logical): See [base::drop()], by default, do not drop dimensions
 #'        of the result. Applicable only if `index = FALSE`.
@@ -221,6 +224,7 @@ hySpc.testthat::test(.sample.data.frame) <- function() {
 
 #' @rdname sample
 #' @aliases sample.matrix
+#'          sample,matrix-method
 #'
 #' @concept stats
 #'
