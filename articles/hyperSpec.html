@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hyperSpec</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.100.0.9001</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.200.0.9000</span>
       </span>
     </div>
 
@@ -127,7 +127,7 @@
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 class="date">2021-08-12</h4>
+            <h4 class="date">2021-08-21</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/master/vignettes/hyperSpec.Rmd"><code>vignettes/hyperSpec.Rmd</code></a></small>
       <div class="hidden name"><code>hyperSpec.Rmd</code></div>
@@ -244,7 +244,7 @@ Likewise, named elements of a <code>list</code> and columns of a <code>data.fram
 Even if there are no spectra, <code class="sourceCode r"><span class="op">$</span>spc</code> must still be present.
 It is then a matrix with zero columns.</p>
 <div class="figure" style="text-align: center">
-<span id="fig:structure"></span>
+<span style="display:block;" id="fig:structure"></span>
 <img src="intro--structure--hyperSpec--objects.png" alt="The structure of the data in a `hyperSpec` object.  In this example the 'extra data' are the `x`, `y` and `c` columns in `@data`." width="600"><p class="caption">
 Figure 1.1: The structure of the data in a <code>hyperSpec</code> object. In this example the ‘extra data’ are the <code>x</code>, <code>y</code> and <code>c</code> columns in <code>@data</code>.
 </p>
@@ -500,7 +500,7 @@ It may be a vector giving the indices of the spectra to extract (select), a vect
 <span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">flu</span>, col <span class="op">=</span> <span class="va">palette_colorblind</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span>
 <span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">flu</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:selspc"></span>
+<span style="display:block;" id="fig:selspc"></span>
 <img src="hyperSpec_files/figure-html/selspc-1.png" alt="An example with `[]` operator and positive indices.  "><p class="caption">
 Figure 3.1: An example with <code>[]</code> operator and positive indices.
 </p>
@@ -509,7 +509,7 @@ Figure 3.1: An example with <code>[]</code> operator and positive indices.
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">flu</span>, col <span class="op">=</span> <span class="va">palette_colorblind</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span>
 <span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">flu</span><span class="op">[</span><span class="op">-</span><span class="fl">3</span><span class="op">]</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:delspc"></span>
+<span style="display:block;" id="fig:delspc"></span>
 <img src="hyperSpec_files/figure-html/delspc-1.png" alt="An example with `[]` operator and negative indices.  "><p class="caption">
 Figure 3.2: An example with <code>[]</code> operator and negative indices.
 </p>
@@ -518,7 +518,7 @@ Figure 3.2: An example with <code>[]</code> operator and negative indices.
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">flu</span>, col <span class="op">=</span> <span class="va">palette_colorblind</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span>
 <span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">flu</span><span class="op">[</span><span class="va">flu</span><span class="op">$</span><span class="va">c</span> <span class="op">&gt;</span> <span class="fl">0.2</span><span class="op">]</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:selspc2"></span>
+<span style="display:block;" id="fig:selspc2"></span>
 <img src="hyperSpec_files/figure-html/selspc2-1.png" alt="An example with `[]` operator and logical indices.  "><p class="caption">
 Figure 3.3: An example with <code>[]</code> operator and logical indices.
 </p>
@@ -912,7 +912,7 @@ The imaginary part is added to the index calculated from the wavelength in the r
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">2800</span> <span class="op">~</span> <span class="fl">3200</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:paracetamol"></span>
+<span style="display:block;" id="fig:paracetamol"></span>
 <img src="hyperSpec_files/figure-html/paracetamol-1.png" alt="Spectra of `paracetamol` in range of 2800--3200 cm^-1^."><p class="caption">
 Figure 3.4: Spectra of <code>paracetamol</code> in range of 2800–3200 cm<sup>-1</sup>.
 </p>
@@ -922,7 +922,7 @@ If they are indices into the columns of the spectra matrix, use <code class="sou
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">2800</span><span class="op">:</span><span class="fl">3200</span>, wl.index <span class="op">=</span> <span class="cn">TRUE</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-7"></span>
+<span style="display:block;" id="fig:unnamed-chunk-7"></span>
 <img src="hyperSpec_files/figure-html/unnamed-chunk-7-1.png" alt="Spectra of `paracetamol`: from 2800^th^ to 3200^th^ point on *wavelength* axis.  "><p class="caption">
 Figure 3.5: Spectra of <code>paracetamol</code>: from 2800<sup>th</sup> to 3200<sup>th</sup> point on <em>wavelength</em> axis.
 </p>
@@ -936,7 +936,7 @@ Figure 3.5: Spectra of <code>paracetamol</code>: from 2800<sup>th</sup> to 3200<
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="op">-</span><span class="op">(</span><span class="fl">500</span><span class="op">:</span><span class="fl">1000</span><span class="op">)</span>, wl.index <span class="op">=</span> <span class="cn">TRUE</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-9"></span>
+<span style="display:block;" id="fig:unnamed-chunk-9"></span>
 <img src="hyperSpec_files/figure-html/unnamed-chunk-9-1.png" alt="Spectra of `paracetamol` with 500^th^ to 1000^th^ *wavelength* axis point removed.  "><p class="caption">
 Figure 3.6: Spectra of <code>paracetamol</code> with 500<sup>th</sup> to 1000<sup>th</sup><em>wavelength</em> axis point removed.
 </p>
@@ -947,7 +947,7 @@ To delete the spectral range from 1750 to 2800 cm<sup>-1</sup> of the paracetamo
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">min</span> <span class="op">~</span> <span class="fl">1750</span>, <span class="fl">2800</span> <span class="op">~</span> <span class="va">max</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:unnamed-chunk-11"></span>
+<span style="display:block;" id="fig:unnamed-chunk-11"></span>
 <img src="hyperSpec_files/figure-html/unnamed-chunk-11-1.png" alt="Spectra of `paracetamol` with range from 1750 to 2800 cm^-1^ removed.  "><p class="caption">
 Figure 3.7: Spectra of <code>paracetamol</code> with range from 1750 to 2800 cm<sup>-1</sup> removed.
 </p>
@@ -1201,7 +1201,7 @@ Mean spectra and pooled covariance matrix can be calculated using <code class="s
 <code class="sourceCode R"><span class="va">cluster.cols</span> <span class="op">&lt;-</span> <span class="va">palette_colorblind</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">7</span>, <span class="fl">4</span><span class="op">)</span><span class="op">]</span>
 <span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">rnd</span>, col <span class="op">=</span> <span class="va">cluster.cols</span><span class="op">[</span><span class="va">rnd</span><span class="op">$</span><span class="va">.group</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:sim-spc"></span>
+<span style="display:block;" id="fig:sim-spc"></span>
 <img src="hyperSpec_files/figure-html/sim-spc-1.png" alt="Multivariate normally distributed random spectra generated with `rmmvnorm()`{.r}."><p class="caption">
 Figure 4.1: Multivariate normally distributed random spectra generated with <code class="sourceCode r"><span class="kw">rmmvnorm</span>()</code>.
 </p>
@@ -1233,7 +1233,7 @@ Figure 4.1: Multivariate normally distributed random spectra generated with <cod
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">135</span><span class="op">]</span><span class="op">)</span>
 <span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">tmp</span><span class="op">[</span><span class="fl">135</span>, , <span class="op">]</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="va">palette_colorblind</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:shift-wl"></span>
+<span style="display:block;" id="fig:shift-wl"></span>
 <img src="hyperSpec_files/figure-html/shift-wl-1.png" alt="Shifting the spectra along the wavelength axis: changing the wavelength values.  "><p class="caption">
 Figure 5.1: Shifting the spectra along the wavelength axis: changing the wavelength values.
 </p>
@@ -1255,7 +1255,7 @@ It is convenient to set it up as a function:</p>
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">135</span><span class="op">]</span><span class="op">)</span>
 <span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">tmp</span><span class="op">[</span><span class="fl">135</span><span class="op">]</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="va">palette_colorblind</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:shift-interp"></span>
+<span style="display:block;" id="fig:shift-interp"></span>
 <img src="hyperSpec_files/figure-html/shift-interp-1.png" alt="Shifting the spectra along the wavelength axis: interpolation.  "><p class="caption">
 Figure 5.2: Shifting the spectra along the wavelength axis: interpolation.
 </p>
@@ -1275,7 +1275,7 @@ wl <span class="op">=</span> <span class="fu"><a href="../reference/wl.html">wl<
 <span class="op">)</span>
 <span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">tmp</span>, lines.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"b"</span>, pch <span class="op">=</span> <span class="fl">19</span>, cex <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="va">palette_colorblind</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:shift-untsch"></span>
+<span style="display:block;" id="fig:shift-untsch"></span>
 <img src="hyperSpec_files/figure-html/shift-untsch-1.png" alt="Shifting the spectra along the wavelength axis.
 Detail view of the phenylalanine band: shifting by `wl&lt;-`{.r} (red) does not affect the intensities, while the spectrum is slightly changed by interpolations (blue).  "><p class="caption">
 Figure 5.3: Shifting the spectra along the wavelength axis.
@@ -1386,7 +1386,7 @@ Class <code>hyperSpec</code>’s comparison operators return a logical matrix of
 <span class="va">i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="op">!</span><span class="va">OK</span>, arr.ind <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/points.html">points</a></span><span class="op">(</span><span class="fu"><a href="../reference/wl.html">wl</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span><span class="op">[</span><span class="va">i</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span><span class="op">]</span>, <span class="va">faux_cell</span><span class="op">[[</span><span class="op">!</span><span class="va">OK</span><span class="op">]</span><span class="op">]</span>, pch <span class="op">=</span> <span class="fl">19</span>, col <span class="op">=</span> <span class="va">palette_colorblind</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span>, cex <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:filter"></span>
+<span style="display:block;" id="fig:filter"></span>
 <img src="hyperSpec_files/figure-html/filter-1.png" alt="Filtering data: mean $\pm$ sd filter.  "><p class="caption">
 Figure 5.4: Filtering data: mean <span class="math inline">\(\pm\)</span> sd filter.
 </p>
@@ -1444,7 +1444,7 @@ Package <strong>hyperSpec</strong> provides three functions that can interpolate
   lines.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"b"</span>, pch <span class="op">=</span> <span class="fl">19</span>, cex <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:bad"></span>
+<span style="display:block;" id="fig:bad"></span>
 <img src="hyperSpec_files/figure-html/bad-1.png" alt="Filtering data: remove bad points.  "><p class="caption">
 Figure 5.5: Filtering data: remove bad points.
 </p>
@@ -1481,7 +1481,7 @@ Package <strong>hyperSpec</strong> provides two functions to do so: <code class=
   lines.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>pch <span class="op">=</span> <span class="fl">20</span>, cex <span class="op">=</span> <span class="fl">.3</span>, type <span class="op">=</span> <span class="st">"p"</span><span class="op">)</span>, col <span class="op">=</span> <span class="va">palette_colorblind</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, add <span class="op">=</span> <span class="cn">TRUE</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:fig-loess"></span>
+<span style="display:block;" id="fig:fig-loess"></span>
 <img src="hyperSpec_files/figure-html/fig-loess-1.png" alt="Smoothing interpolation by `spc_loess()`{.r} with new data point spacing of 2 cm^-1^ (red) and `spc_bin()`{.r} (blue).  "><p class="caption">
 Figure 5.6: Smoothing interpolation by <code class="sourceCode r"><span class="kw">spc_loess</span>()</code> with new data point spacing of 2 cm<sup>-1</sup> (red) and <code class="sourceCode r"><span class="kw">spc_bin</span>()</code> (blue).
 </p>
@@ -1491,7 +1491,7 @@ Figure 5.6: Smoothing interpolation by <code class="sourceCode r"><span class="k
 <span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">p</span><span class="op">[</span>, , <span class="fl">1600</span> <span class="op">~</span> <span class="fl">1670</span><span class="op">]</span>, col <span class="op">=</span> <span class="va">palette_colorblind</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">b</span><span class="op">[</span>, , <span class="fl">1600</span> <span class="op">~</span> <span class="fl">1670</span><span class="op">]</span>, col <span class="op">=</span> <span class="va">palette_colorblind</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:loess-kl"></span>
+<span style="display:block;" id="fig:loess-kl"></span>
 <img src="hyperSpec_files/figure-html/loess-kl-1.png" alt="The magnification of Fig. \@ref(fig:fig-loess) shows how interpolation may cause a loss in signal height.  "><p class="caption">
 Figure 5.7: The magnification of Fig. <a href="#fig:fig-loess">5.6</a> shows how interpolation may cause a loss in signal height.
 </p>
@@ -1562,7 +1562,7 @@ The result is a <code class="sourceCode r">baseline</code> object, but can easil
 <span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="fu">hyperSpec</span><span class="fu">::</span><span class="va"><a href="../reference/generate_faux_cell.html">faux_cell</a></span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, plot.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="fu">hyperSpec</span><span class="fu">::</span><span class="va"><a href="../reference/generate_faux_cell.html">faux_cell</a></span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">baseline</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="va">palette_colorblind</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:bl-baseline"></span>
+<span style="display:block;" id="fig:bl-baseline"></span>
 <img src="hyperSpec_files/figure-html/bl-baseline-1.png" alt="The first spectrum of `faux_cell`{.r} (raw data) with baseline.  "><p class="caption">
 Figure 5.8: The first spectrum of <code class="sourceCode r">faux_cell</code> (raw data) with baseline.
 </p>
@@ -1570,7 +1570,7 @@ Figure 5.8: The first spectrum of <code class="sourceCode r">faux_cell</code> (r
 <div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">corrected</span>, plot.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="fu">hyperSpec</span><span class="fu">::</span><span class="va"><a href="../reference/generate_faux_cell.html">faux_cell</a></span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:bl-baseline-2"></span>
+<span style="display:block;" id="fig:bl-baseline-2"></span>
 <img src="hyperSpec_files/figure-html/bl-baseline-2-1.png" alt='Baseline correction using the **baseline** package:
 the first spectrum of `faux_cell`{.r}  after baseline correction with method "odpolyfi".  '><p class="caption">
 Figure 5.9: Baseline correction using the <strong>baseline</strong> package:
@@ -1677,7 +1677,7 @@ Scaling usually makes sense only for centered data.</p>
 <code class="sourceCode R"><span class="va">flu.centered</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/scale,hyperSpec-method.html">scale</a></span><span class="op">(</span><span class="va">flu</span>, scale <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">flu.centered</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:centre-flu"></span>
+<span style="display:block;" id="fig:centre-flu"></span>
 <img src="hyperSpec_files/figure-html/centre-flu-1.png" alt="Mean-centered spectra of `flu`.  "><p class="caption">
 Figure 5.10: Mean-centered spectra of <code>flu</code>.
 </p>
@@ -1691,7 +1691,7 @@ In order to avoid that, using, e.g., the 5<sup>th</sup> percentile spectrum is m
 <code class="sourceCode R"><span class="va">faux_cell_tmp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/scale,hyperSpec-method.html">scale</a></span><span class="op">(</span><span class="va">faux_cell</span>, center <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="fl">0.05</span><span class="op">)</span>, scale <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">faux_cell_tmp</span>, <span class="st">"spcprctl5"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:perc"></span>
+<span style="display:block;" id="fig:perc"></span>
 <img src="hyperSpec_files/figure-html/perc-1.png" alt="The summary spectra of `faux_cell` with 5^th^ percentile subtracted.  "><p class="caption">
 Figure 5.11: The summary spectra of <code>faux_cell</code> with 5<sup>th</sup> percentile subtracted.
 </p>
@@ -1802,7 +1802,7 @@ If it is set to <code class="sourceCode r"><span class="ot">TRUE</span></code>, 
 <div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">loadings</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>, stacked <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:pca-load"></span>
+<span style="display:block;" id="fig:pca-load"></span>
 <img src="hyperSpec_files/figure-html/pca-load-1.png" alt="The first three loadings.  "><p class="caption">
 Figure 6.1: The first three loadings.
 </p>
@@ -1817,7 +1817,7 @@ Figure 6.1: The first three loadings.
 <div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotmap.html">plotmap</a></span><span class="op">(</span><span class="va">scores</span><span class="op">[</span>, , <span class="fl">3</span><span class="op">]</span>, col.regions <span class="op">=</span> <span class="fu">diverging_hcl</span><span class="op">(</span><span class="fl">20</span>, palette <span class="op">=</span> <span class="st">"Blue-Red2"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:pca-score"></span>
+<span style="display:block;" id="fig:pca-score"></span>
 <img src="hyperSpec_files/figure-html/pca-score-1.png" alt="The third score map.  "><p class="caption">
 Figure 6.2: The third score map.
 </p>
@@ -1873,7 +1873,7 @@ Conveniently, the <code class="sourceCode r">[[]]</code> extraction function ret
 <div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">dendrogram</span>, labels <span class="op">=</span> <span class="cn">FALSE</span>, hang <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:dend"></span>
+<span style="display:block;" id="fig:dend"></span>
 <img src="hyperSpec_files/figure-html/dend-1.png" alt="The results of the cluster analysis: the dendrogram.  "><p class="caption">
 Figure 6.3: The results of the cluster analysis: the dendrogram.
 </p>
@@ -1889,7 +1889,7 @@ Figure 6.3: The results of the cluster analysis: the dendrogram.
 <div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotmap.html">plotmap</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="va">region</span> <span class="op">~</span> <span class="va">x</span> <span class="op">*</span> <span class="va">y</span>, col.regions <span class="op">=</span> <span class="va">cluster.cols</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:clust-map"></span>
+<span style="display:block;" id="fig:clust-map"></span>
 <img src="hyperSpec_files/figure-html/clust-map-1.png" alt="The results of the cluster analysis: the map of the 3 clusters.  "><p class="caption">
 Figure 6.4: The results of the cluster analysis: the map of the 3 clusters.
 </p>
@@ -1905,7 +1905,7 @@ Figure 6.4: The results of the cluster analysis: the map of the 3 clusters.
 <code class="sourceCode R"><span class="va">means</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">faux_cell</span>, by <span class="op">=</span> <span class="va">faux_cell</span><span class="op">$</span><span class="va">region</span>, <span class="va">mean_pm_sd</span><span class="op">)</span>
 <span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">means</span>, col <span class="op">=</span> <span class="va">cluster.cols</span>, stacked <span class="op">=</span> <span class="st">".aggregate"</span>, fill <span class="op">=</span> <span class="st">".aggregate"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:clustmean"></span>
+<span style="display:block;" id="fig:clustmean"></span>
 <img src="hyperSpec_files/figure-html/clustmean-1.png" alt="The results of the cluster analysis: the the mean spectra.  "><p class="caption">
 Figure 6.5: The results of the cluster analysis: the the mean spectra.
 </p>
@@ -1999,7 +1999,7 @@ To keep all spectra replacing missing parts by <code class="sourceCode r"><span 
   aspect <span class="op">=</span> <span class="st">"iso"</span>, col.regions <span class="op">=</span> <span class="va">matcols</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:merge-map"></span>
+<span style="display:block;" id="fig:merge-map"></span>
 <img src="hyperSpec_files/figure-html/merge-map-1.png" alt="For both spectral ranges some spectra are missing. "><p class="caption">
 Figure 7.1: For both spectral ranges some spectra are missing.
 </p>
@@ -2007,7 +2007,7 @@ Figure 7.1: For both spectral ranges some spectra are missing.
 <div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">faux_cell_merged</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">]</span>, <span class="st">"mat"</span>, col <span class="op">=</span> <span class="va">matcols</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:merge-mat"></span>
+<span style="display:block;" id="fig:merge-mat"></span>
 <img src="hyperSpec_files/figure-html/merge-mat-1.png" alt="The missing parts of the spectra are filled with `NA`{.r}.  "><p class="caption">
 Figure 7.2: The missing parts of the spectra are filled with <code class="sourceCode r"><span class="ot">NA</span></code>.
 </p>
@@ -2286,7 +2286,7 @@ Please refer to the documentation of the respective functions for details about 
   <span class="op">}</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.057   0.002   0.061</span></code></pre></div>
+<span class="co">#&gt;   0.052   0.002   0.054</span></code></pre></div>
 <p>Calculations that involve a lot of subsetting (i.e., extracting or changing the spectra matrix or extra data) can be sped up considerably if the required parts of the <code>hyperSpec</code> object are extracted beforehand.
 This is somewhat similar to model fitting in <code>R</code> in general: many model fitting functions in <code>R</code> are much faster if the formula interface is avoided and the appropriate <code class="sourceCode r">data.frame</code>s or matrices are handed over directly.</p>
 <div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
@@ -2300,7 +2300,7 @@ This is somewhat similar to model fitting in <code>R</code> in general: many mod
   <span class="va">tmp</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">tmp.matrix</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.018   0.000   0.018</span></code></pre></div>
+<span class="co">#&gt;   0.017   0.000   0.017</span></code></pre></div>
 </div>
 <div id="additional-packages" class="section level2">
 <h2 class="hasAnchor">
@@ -2327,7 +2327,7 @@ The memory consumption of <code class="sourceCode r"><span class="kw">read.txt.R
 <code class="sourceCode R"><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/sessioninfo/man/session_info.html">session_info</a></span><span class="op">(</span><span class="st">"hyperSpec"</span><span class="op">)</span>
 <span class="co">#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────</span>
 <span class="co">#&gt;  setting  value                       </span>
-<span class="co">#&gt;  version  R version 4.1.0 (2021-05-18)</span>
+<span class="co">#&gt;  version  R version 4.1.1 (2021-08-10)</span>
 <span class="co">#&gt;  os       macOS Catalina 10.15.7      </span>
 <span class="co">#&gt;  system   x86_64, darwin17.0          </span>
 <span class="co">#&gt;  ui       X11                         </span>
@@ -2335,7 +2335,7 @@ The memory consumption of <code class="sourceCode r"><span class="kw">read.txt.R
 <span class="co">#&gt;  collate  en_US.UTF-8                 </span>
 <span class="co">#&gt;  ctype    en_US.UTF-8                 </span>
 <span class="co">#&gt;  tz       UTC                         </span>
-<span class="co">#&gt;  date     2021-08-12                  </span>
+<span class="co">#&gt;  date     2021-08-21                  </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span>
 <span class="co">#&gt;  package        * version      date       lib source        </span>
@@ -2356,22 +2356,22 @@ The memory consumption of <code class="sourceCode r"><span class="kw">read.txt.R
 <span class="co">#&gt;  ggplot2        * 3.3.5        2021-06-25 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  glue             1.4.2        2020-08-27 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  gtable           0.3.0        2019-03-25 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  hyperSpec      * 0.100.0.9001 2021-08-12 [1] local         </span>
-<span class="co">#&gt;  hySpc.testthat   0.2.1.9000   2021-07-14 [1] local         </span>
+<span class="co">#&gt;  hyperSpec      * 0.200.0.9000 2021-08-21 [1] local         </span>
+<span class="co">#&gt;  hySpc.testthat   0.2.1.9000   2021-08-21 [1] local         </span>
 <span class="co">#&gt;  isoband          0.2.5        2021-07-13 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  jpeg             0.1-9        2021-07-24 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  jsonlite         1.7.2        2020-12-09 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  labeling         0.4.2        2020-10-20 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  lattice        * 0.20-44      2021-05-02 [2] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  lattice        * 0.20-44      2021-05-02 [2] CRAN (R 4.1.1)</span>
 <span class="co">#&gt;  latticeExtra     0.6-29       2019-12-19 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  lazyeval         0.2.2        2019-03-15 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  lifecycle        1.0.0        2021-02-15 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  magrittr         2.0.1        2020-11-17 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  MASS             7.3-54       2021-05-03 [2] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  Matrix           1.3-3        2021-05-04 [2] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  mgcv             1.8-35       2021-04-18 [2] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  MASS             7.3-54       2021-05-03 [2] CRAN (R 4.1.1)</span>
+<span class="co">#&gt;  Matrix           1.3-4        2021-06-01 [2] CRAN (R 4.1.1)</span>
+<span class="co">#&gt;  mgcv             1.8-36       2021-06-01 [2] CRAN (R 4.1.1)</span>
 <span class="co">#&gt;  munsell          0.5.0        2018-06-12 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  nlme             3.1-152      2021-02-04 [2] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  nlme             3.1-152      2021-02-04 [2] CRAN (R 4.1.1)</span>
 <span class="co">#&gt;  pillar           1.6.2        2021-07-29 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  pkgconfig        2.0.3        2019-09-22 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  pkgload          1.2.1        2021-04-06 [1] CRAN (R 4.1.0)</span>
@@ -2380,7 +2380,7 @@ The memory consumption of <code class="sourceCode r"><span class="kw">read.txt.R
 <span class="co">#&gt;  processx         3.5.2        2021-04-30 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  ps               1.6.0        2021-02-28 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  purrr            0.3.4        2020-04-17 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  R6               2.5.0        2020-10-28 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  R6               2.5.1        2021-08-19 [1] CRAN (R 4.1.1)</span>
 <span class="co">#&gt;  RColorBrewer     1.1-2        2014-12-07 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  rematch2         2.1.2        2020-05-01 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  rlang            0.4.11       2021-04-30 [1] CRAN (R 4.1.0)</span>

@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hyperSpec</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.100.0.9001</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.200.0.9000</span>
       </span>
     </div>
 
@@ -126,7 +126,7 @@
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 class="date">2021-08-12</h4>
+            <h4 class="date">2021-08-21</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/master/vignettes/plotting.Rmd"><code>vignettes/plotting.Rmd</code></a></small>
       <div class="hidden name"><code>plotting.Rmd</code></div>
@@ -238,7 +238,7 @@ More details in sections <a href="#exm-plotvoronoi">1.6</a>, and <a href="#arg-v
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotspc"></span>
+<span style="display:block;" id="fig:plotspc"></span>
 <img src="plotting_files/figure-html/plotspc-1.png" alt="Spectra in dataset `flu`.  "><p class="caption">
 Figure 1.1: Spectra in dataset <code>flu</code>.
 </p>
@@ -252,7 +252,7 @@ Figure 1.1: Spectra in dataset <code>flu</code>.
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotmat.html">plotmat</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmat-flu"></span>
+<span style="display:block;" id="fig:plotmat-flu"></span>
 <img src="plotting_files/figure-html/plotmat-flu-1.png" alt="Matrix of spectra: the colour coded intensities over the wavelengths and the row number.  "><p class="caption">
 Figure 1.2: Matrix of spectra: the colour coded intensities over the wavelengths and the row number.
 </p>
@@ -267,7 +267,7 @@ Figure 1.2: Matrix of spectra: the colour coded intensities over the wavelengths
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotc.html">plotc</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span>
 <span class="co">#&gt; Warning in plotc(flu): Intensity at first wavelengh only is used.</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotflu"></span>
+<span style="display:block;" id="fig:plotflu"></span>
 <img src="plotting_files/figure-html/plotflu-1.png" alt="Calibration plot: an intensity over concentration.  "><p class="caption">
 Figure 1.3: Calibration plot: an intensity over concentration.
 </p>
@@ -284,7 +284,7 @@ Figure 1.3: Calibration plot: an intensity over concentration.
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">levelplot</span><span class="op">(</span><span class="va">spc</span> <span class="op">~</span> <span class="va">x</span> <span class="op">*</span> <span class="va">y</span>, <span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span>, aspect <span class="op">=</span> <span class="st">"iso"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:levelplot-1"></span>
+<span style="display:block;" id="fig:levelplot-1"></span>
 <img src="plotting_files/figure-html/levelplot-1-1.png" alt="False colour map (1).  "><p class="caption">
 Figure 1.4: False colour map (1).
 </p>
@@ -302,7 +302,7 @@ It uses a single value (e.g., average intensity or cluster membership) over two 
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotmap.html">plotmap</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmap"></span>
+<span style="display:block;" id="fig:plotmap"></span>
 <img src="plotting_files/figure-html/plotmap-1.png" alt="False colour map created with `plotmap()`{.r}.  "><p class="caption">
 Figure 1.5: False colour map created with <code class="sourceCode r"><span class="kw">plotmap</span>()</code>.
 </p>
@@ -316,7 +316,7 @@ Figure 1.5: False colour map created with <code class="sourceCode r"><span class
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotmap.html">plotvoronoi</a></span><span class="op">(</span><span class="fu"><a href="../reference/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="fl">300</span><span class="op">)</span>, <span class="va">region</span> <span class="op">~</span> <span class="va">x</span> <span class="op">*</span> <span class="va">y</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:voronoi"></span>
+<span style="display:block;" id="fig:voronoi"></span>
 <img src="plotting_files/figure-html/voronoi-1.png" alt="Voronoi diagram: an example with `faux_cell` dataset.  "><p class="caption">
 Figure 1.6: Voronoi diagram: an example with <code>faux_cell</code> dataset.
 </p>
@@ -338,7 +338,7 @@ All further arguments are handed over to the function actually producing the plo
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">flu</span>, <span class="st">"spc"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotspcflu"></span>
+<span style="display:block;" id="fig:plotspcflu"></span>
 <img src="plotting_files/figure-html/plotspcflu-1.png" alt="All spectra of dataset `flu`.  "><p class="caption">
 Figure 2.1: All spectra of dataset <code>flu</code>.
 </p>
@@ -352,7 +352,7 @@ Figure 2.1: All spectra of dataset <code>flu</code>.
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">faux_cell_preproc</span>, <span class="st">"spcmeansd"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotchomean"></span>
+<span style="display:block;" id="fig:plotchomean"></span>
 <img src="plotting_files/figure-html/plotchomean-1.png" alt="Summary spectra: mean $\pm$ one standard deviation at each wavelength (wavenumber).  "><p class="caption">
 Figure 2.2: Summary spectra: mean <span class="math inline">\(\pm\)</span> one standard deviation at each wavelength (wavenumber).
 </p>
@@ -370,7 +370,7 @@ They are also less sensitive to outliers.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">faux_cell_preproc</span>, <span class="st">"spcprctile"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotchoprctl"></span>
+<span style="display:block;" id="fig:plotchoprctl"></span>
 <img src="plotting_files/figure-html/plotchoprctl-1.png" alt="Summary spectra: median, 16^th^ and 84^th^ percentiles at each wavelength (wavenumber).  "><p class="caption">
 Figure 2.3: Summary spectra: median, 16<sup>th</sup> and 84<sup>th</sup> percentiles at each wavelength (wavenumber).
 </p>
@@ -384,7 +384,7 @@ Figure 2.3: Summary spectra: median, 16<sup>th</sup> and 84<sup>th</sup> percent
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">faux_cell_preproc</span>, <span class="st">"spcprctl5"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotchoprctl5"></span>
+<span style="display:block;" id="fig:plotchoprctl5"></span>
 <img src="plotting_files/figure-html/plotchoprctl5-1.png" alt="Summary spectra: median, 5^th^, 16^th^, 84^th^, 95^th^ percentiles at each wavelength (wavenumber).  "><p class="caption">
 Figure 2.4: Summary spectra: median, 5<sup>th</sup>, 16<sup>th</sup>, 84<sup>th</sup>, 95<sup>th</sup> percentiles at each wavelength (wavenumber).
 </p>
@@ -399,7 +399,7 @@ Figure 2.4: Summary spectra: median, 5<sup>th</sup>, 16<sup>th</sup>, 84<sup>th<
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">flu</span>, <span class="st">"c"</span><span class="op">)</span>
 <span class="co">#&gt; Warning in plotc(x, ...): Intensity at first wavelengh only is used.</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotflu2"></span>
+<span style="display:block;" id="fig:plotflu2"></span>
 <img src="plotting_files/figure-html/plotflu2-1.png" alt="Calibration plot: spectra intensities over concentration.  "><p class="caption">
 Figure 2.5: Calibration plot: spectra intensities over concentration.
 </p>
@@ -413,7 +413,7 @@ Figure 2.5: Calibration plot: spectra intensities over concentration.
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">laser</span><span class="op">[</span>, , <span class="fl">405</span><span class="op">]</span>, <span class="st">"ts"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotts"></span>
+<span style="display:block;" id="fig:plotts"></span>
 <img src="plotting_files/figure-html/plotts-1.png" alt="Time series plot: spectra intensities over time.  "><p class="caption">
 Figure 2.6: Time series plot: spectra intensities over time.
 </p>
@@ -437,7 +437,7 @@ Figure 2.6: Time series plot: spectra intensities over time.
 
 <span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">depth.profile</span>, <span class="st">"depth"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotdepth"></span>
+<span style="display:block;" id="fig:plotdepth"></span>
 <img src="plotting_files/figure-html/plotdepth-1.png" alt="Depth profile plot.  "><p class="caption">
 Figure 2.7: Depth profile plot.
 </p>
@@ -451,7 +451,7 @@ Figure 2.7: Depth profile plot.
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">laser</span>, <span class="st">"mat"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmat"></span>
+<span style="display:block;" id="fig:plotmat"></span>
 <img src="plotting_files/figure-html/plotmat-1.png" alt="Spectra matrix.  "><p class="caption">
 Figure 2.8: Spectra matrix.
 </p>
@@ -471,7 +471,7 @@ Figure 2.8: Spectra matrix.
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span>, <span class="st">"map"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmapcho2"></span>
+<span style="display:block;" id="fig:plotmapcho2"></span>
 <img src="plotting_files/figure-html/plotmapcho2-1.png" alt="False color map: alternative R syntax.   "><p class="caption">
 Figure 2.9: False color map: alternative R syntax.
 </p>
@@ -485,7 +485,7 @@ Figure 2.9: False color map: alternative R syntax.
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span>, <span class="fl">300</span><span class="op">)</span>, <span class="st">"voronoi"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotvoronoi"></span>
+<span style="display:block;" id="fig:plotvoronoi"></span>
 <img src="plotting_files/figure-html/plotvoronoi-1.png" alt="Voronoi plot: alternative R syntax.  "><p class="caption">
 Figure 2.10: Voronoi plot: alternative R syntax.
 </p>
@@ -506,7 +506,7 @@ Figure 2.10: Voronoi plot: alternative R syntax.
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">700</span> <span class="op">~</span> <span class="fl">1200</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:wavelength"></span>
+<span style="display:block;" id="fig:wavelength"></span>
 <img src="plotting_files/figure-html/wavelength-1.png" alt="Plot of wavelength (wavenumber) range from 700 to 1200 $cm^{-1}.$  "><p class="caption">
 Figure 3.1: Plot of wavelength (wavenumber) range from 700 to 1200 <span class="math inline">\(cm^{-1}.\)</span>
 </p>
@@ -527,7 +527,7 @@ If available, the package package <strong>plotrix</strong><span class="citation"
   xoffset <span class="op">=</span> <span class="fl">750</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:wavelength-2"></span>
+<span style="display:block;" id="fig:wavelength-2"></span>
 <img src="plotting_files/figure-html/wavelength-2-1.png" alt="Plot of several wavelength (wavenumber) ranges.  "><p class="caption">
 Figure 3.2: Plot of several wavelength (wavenumber) ranges.
 </p>
@@ -540,7 +540,7 @@ Figure 3.2: Plot of several wavelength (wavenumber) ranges.
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">paracetamol</span>, wl.reverse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:abscissa"></span>
+<span style="display:block;" id="fig:abscissa"></span>
 <img src="plotting_files/figure-html/abscissa-1.png" alt="Plot with reversed/descending wavelength (wavenumber) range.  "><p class="caption">
 Figure 3.3: Plot with reversed/descending wavelength (wavenumber) range.
 </p>
@@ -553,7 +553,7 @@ Figure 3.3: Plot with reversed/descending wavelength (wavenumber) range.
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">flu</span>, col <span class="op">=</span> <span class="fu"><a href="../reference/palette_matlab.html">palette_matlab_dark</a></span><span class="op">(</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:colours"></span>
+<span style="display:block;" id="fig:colours"></span>
 <img src="plotting_files/figure-html/colours-1.png" alt="Spectra plotted in different colours.  "><p class="caption">
 Figure 3.4: Spectra plotted in different colours.
 </p>
@@ -568,7 +568,7 @@ Figure 3.4: Spectra plotted in different colours.
   lines.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>pch <span class="op">=</span> <span class="fl">20</span>, type <span class="op">=</span> <span class="st">"p"</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:dots"></span>
+<span style="display:block;" id="fig:dots"></span>
 <img src="plotting_files/figure-html/dots-1.png" alt="Spectrum with dots instead of lines.  "><p class="caption">
 Figure 3.5: Spectrum with dots instead of lines.
 </p>
@@ -581,7 +581,7 @@ Figure 3.5: Spectrum with dots instead of lines.
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">barbiturates</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, lines.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:mass"></span>
+<span style="display:block;" id="fig:mass"></span>
 <img src="plotting_files/figure-html/mass-1.png" alt="An example of mass spectrum.  "><p class="caption">
 Figure 3.6: An example of mass spectrum.
 </p>
@@ -595,7 +595,7 @@ Figure 3.6: An example of mass spectrum.
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">30</span>, , <span class="op">]</span><span class="op">)</span>
 <span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">35</span>, , <span class="op">]</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:add"></span>
+<span style="display:block;" id="fig:add"></span>
 <img src="plotting_files/figure-html/add-1.png" alt="A spectrum added to an existing plot.  "><p class="caption">
 Figure 3.7: A spectrum added to an existing plot.
 </p>
@@ -609,7 +609,7 @@ To plot, e.g., the standard deviation of the spectra, use <code class="sourceCod
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">faux_cell_preproc</span>, func <span class="op">=</span> <span class="va">sd</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:sd"></span>
+<span style="display:block;" id="fig:sd"></span>
 <img src="plotting_files/figure-html/sd-1.png" alt="A spectrum of summary statistics calculated via `func` parameter.
 In the example, the standard deviation is used.  "><p class="caption">
 Figure 3.8: A spectrum of summary statistics calculated via <code>func</code> parameter.
@@ -628,7 +628,7 @@ Argument <code class="sourceCode r">zeroline</code> takes a list with parameters
   zeroline <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:diffline"></span>
+<span style="display:block;" id="fig:diffline"></span>
 <img src="plotting_files/figure-html/diffline-1.png" alt="Spectrum with added zero-intensity line.  "><p class="caption">
 Figure 3.9: Spectrum with added zero-intensity line.
 </p>
@@ -646,7 +646,7 @@ After plotting the spectra, more content may be added to the graphic by <code cl
   col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"darkgreen"</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:add-line"></span>
+<span style="display:block;" id="fig:add-line"></span>
 <img src="plotting_files/figure-html/add-line-1.png" alt="A summary spectrum with annotation lines.  "><p class="caption">
 Figure 3.10: A summary spectrum with annotation lines.
 </p>
@@ -666,7 +666,7 @@ Figure 3.10: A summary spectrum with annotation lines.
   stacked <span class="op">=</span> <span class="cn">TRUE</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:stacked1"></span>
+<span style="display:block;" id="fig:stacked1"></span>
 <img src="plotting_files/figure-html/stacked1-1.png" alt="Stacked spectra of means.  "><p class="caption">
 Figure 3.11: Stacked spectra of means.
 </p>
@@ -689,7 +689,7 @@ Alternatively, the name of an extra data column can be used for grouping (Fig. <
   col     <span class="op">=</span> <span class="va">cluster_cols</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:stacked2"></span>
+<span style="display:block;" id="fig:stacked2"></span>
 <img src="plotting_files/figure-html/stacked2-1.png" alt="Stacked summary spectra (mean $\pm$ one standard deviation).  "><p class="caption">
 Figure 3.12: Stacked summary spectra (mean <span class="math inline">\(\pm\)</span> one standard deviation).
 </p>
@@ -707,7 +707,7 @@ Figure 3.12: Stacked summary spectra (mean <span class="math inline">\(\pm\)</sp
   col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">cluster_cols</span>, each <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:stacked3"></span>
+<span style="display:block;" id="fig:stacked3"></span>
 <img src="plotting_files/figure-html/stacked3-1.png" alt="Stacked spectra with customized y offset.  "><p class="caption">
 Figure 3.13: Stacked spectra with customized y offset.
 </p>
@@ -725,7 +725,7 @@ Figure 3.13: Stacked spectra with customized y offset.
   col <span class="op">=</span> <span class="va">cluster_cols</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:stacked4"></span>
+<span style="display:block;" id="fig:stacked4"></span>
 <img src="plotting_files/figure-html/stacked4-1.png" alt="Dense-stacked spectra.  "><p class="caption">
 Figure 3.14: Dense-stacked spectra.
 </p>
@@ -757,7 +757,7 @@ The arguments for these functions should be given in lists as <code class="sourc
   <span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:stacked5"></span>
+<span style="display:block;" id="fig:stacked5"></span>
 <img src="plotting_files/figure-html/stacked5-1.png" alt="An example of highly customized spectra.  "><p class="caption">
 Figure 3.15: An example of highly customized spectra.
 </p>
@@ -777,7 +777,7 @@ Figure 3.15: An example of highly customized spectra.
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotc.html">plotc</a></span><span class="op">(</span><span class="va">flu</span><span class="op">[</span>, , <span class="fl">450</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:lin-cal-1"></span>
+<span style="display:block;" id="fig:lin-cal-1"></span>
 <img src="plotting_files/figure-html/lin-cal-1-1.png" alt="Intensities at 450 nm over concentration.  "><p class="caption">
 Figure 4.1: Intensities at 450 nm over concentration.
 </p>
@@ -791,7 +791,7 @@ Figure 4.1: Intensities at 450 nm over concentration.
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotc.html">plotc</a></span><span class="op">(</span><span class="va">flu</span>, func <span class="op">=</span> <span class="va">range</span>, groups <span class="op">=</span> <span class="va">.wavelength</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:lin-cal-3"></span>
+<span style="display:block;" id="fig:lin-cal-3"></span>
 <img src="plotting_files/figure-html/lin-cal-3-1.png" alt="The summary (minimum and maximum) of intensities at each measured concentration.  "><p class="caption">
 Figure 4.2: The summary (minimum and maximum) of intensities at each measured concentration.
 </p>
@@ -807,7 +807,7 @@ Figure 4.2: The summary (minimum and maximum) of intensities at each measured co
   cex <span class="op">=</span> <span class="fl">.3</span>, scales <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>alternating <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotc2"></span>
+<span style="display:block;" id="fig:plotc2"></span>
 <img src="plotting_files/figure-html/plotc2-1.png" alt="Conditioning: several calibration spectra on separate subplots.  "><p class="caption">
 Figure 4.3: Conditioning: several calibration spectra on separate subplots.
 </p>
@@ -820,7 +820,7 @@ Figure 4.3: Conditioning: several calibration spectra on separate subplots.
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotc.html">plotc</a></span><span class="op">(</span><span class="va">flu</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">405</span>, <span class="fl">445</span><span class="op">)</span><span class="op">]</span>, groups <span class="op">=</span> <span class="va">.wavelength</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotc3"></span>
+<span style="display:block;" id="fig:plotc3"></span>
 <img src="plotting_files/figure-html/plotc3-1.png" alt="Grouping: several calibration spectra on one plot.  "><p class="caption">
 Figure 4.4: Grouping: several calibration spectra on one plot.
 </p>
@@ -838,7 +838,7 @@ Figure 4.4: Grouping: several calibration spectra on one plot.
   pch <span class="op">=</span> <span class="fl">4</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:lin-cal-4"></span>
+<span style="display:block;" id="fig:lin-cal-4"></span>
 <img src="plotting_files/figure-html/lin-cal-4-1.png" alt="Modified axis labels and point characters.  "><p class="caption">
 Figure 4.5: Modified axis labels and point characters.
 </p>
@@ -867,7 +867,7 @@ Figure 4.5: Modified axis labels and point characters.
   pch <span class="op">=</span> <span class="fl">4</span>, clim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.35</span><span class="op">)</span>, level <span class="op">=</span> <span class="fl">.99</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:lin-cal-5"></span>
+<span style="display:block;" id="fig:lin-cal-5"></span>
 <img src="plotting_files/figure-html/lin-cal-5-1.png" alt="Plot that uses a customized paanel function.  "><p class="caption">
 Figure 4.6: Plot that uses a customized paanel function.
 </p>
@@ -885,7 +885,7 @@ Figure 4.6: Plot that uses a customized paanel function.
   col    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"darkgreen"</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotc4"></span>
+<span style="display:block;" id="fig:plotc4"></span>
 <img src="plotting_files/figure-html/plotc4-1.png" alt="Plot with abscissae explicitly indicated by model formula.  "><p class="caption">
 Figure 4.7: Plot with abscissae explicitly indicated by model formula.
 </p>
@@ -908,7 +908,7 @@ Particularly, the data is given as the <em>second</em> argument (Fig. <a href="#
 <div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">levelplot</span><span class="op">(</span><span class="va">spc</span> <span class="op">~</span> <span class="va">x</span> <span class="op">*</span> <span class="va">y</span>, data <span class="op">=</span> <span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">800</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:levelplot"></span>
+<span style="display:block;" id="fig:levelplot"></span>
 <img src="plotting_files/figure-html/levelplot-1.png" alt="An example of a levelplot.  "><p class="caption">
 Figure 5.1: An example of a levelplot.
 </p>
@@ -918,7 +918,7 @@ Figure 5.1: An example of a levelplot.
 <div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">levelplot</span><span class="op">(</span><span class="va">region</span> <span class="op">~</span> <span class="va">x</span> <span class="op">*</span> <span class="va">y</span>, data <span class="op">=</span> <span class="va">faux_cell</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:levelplot-factor"></span>
+<span style="display:block;" id="fig:levelplot-factor"></span>
 <img src="plotting_files/figure-html/levelplot-factor-1.png" alt="Levelplot when colour-coded value is a factor.  "><p class="caption">
 Figure 5.2: Levelplot when colour-coded value is a factor.
 </p>
@@ -939,7 +939,7 @@ The actual plotting is done by <code class="sourceCode r"><span class="kw">image
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">laser</span>, <span class="st">"mat"</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html">heat.colors</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmat1"></span>
+<span style="display:block;" id="fig:plotmat1"></span>
 <img src="plotting_files/figure-html/plotmat1-1.png" alt="Spectra matrix with non-default palette.  "><p class="caption">
 Figure 6.1: Spectra matrix with non-default palette.
 </p>
@@ -955,7 +955,7 @@ Figure 6.1: Spectra matrix with non-default palette.
 <div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotmat.html">plotmat</a></span><span class="op">(</span><span class="va">laser</span>, y <span class="op">=</span> <span class="st">"t"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmat2"></span>
+<span style="display:block;" id="fig:plotmat2"></span>
 <img src="plotting_files/figure-html/plotmat2-1.png" alt="Spectra matrix with time (in column `t`) on y axis.    "><p class="caption">
 Figure 6.2: Spectra matrix with time (in column <code>t</code>) on y axis.
 </p>
@@ -972,7 +972,7 @@ Figure 6.2: Spectra matrix with time (in column <code>t</code>) on y axis.
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotmat.html">plotmat</a></span><span class="op">(</span><span class="va">flu</span>, col <span class="op">=</span> <span class="fu"><a href="../reference/palette_matlab.html">palette_matlab_dark</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="../reference/plotmat.html">plotmat</a></span><span class="op">(</span><span class="va">flu</span>, col <span class="op">=</span> <span class="st">"white"</span>, contour <span class="op">=</span> <span class="cn">TRUE</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmat3"></span>
+<span style="display:block;" id="fig:plotmat3"></span>
 <img src="plotting_files/figure-html/plotmat3-1.png" alt="Spectra matrix with added contour lines.  "><p class="caption">
 Figure 6.3: Spectra matrix with added contour lines.
 </p>
@@ -994,7 +994,7 @@ Figure 6.3: Spectra matrix with added contour lines.
   col.regions <span class="op">=</span> <span class="va">palette_matlab</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmap-barb"></span>
+<span style="display:block;" id="fig:plotmap-barb"></span>
 <img src="plotting_files/figure-html/plotmap-barb-1.png" alt="Colour-coded points via special panel function.  "><p class="caption">
 Figure 6.4: Colour-coded points via special panel function.
 </p>
@@ -1014,7 +1014,7 @@ The same scale is used for x and y axes (<code class="sourceCode r">aspect =<spa
 <div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotmap.html">plotmap</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmap-faux-cell"></span>
+<span style="display:block;" id="fig:plotmap-faux-cell"></span>
 <img src="plotting_files/figure-html/plotmap-faux-cell-1.png" alt="An example of a false colour map.  "><p class="caption">
 Figure 7.1: An example of a false colour map.
 </p>
@@ -1027,7 +1027,7 @@ Figure 7.1: An example of a false colour map.
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotmap.html">plotmap</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span>, <span class="va">spc</span> <span class="op">~</span> <span class="va">y</span> <span class="op">*</span> <span class="va">x</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmap-yx"></span>
+<span style="display:block;" id="fig:plotmap-yx"></span>
 <img src="plotting_files/figure-html/plotmap-yx-1.png" alt="False colour map with an explicit specification of x and y axes.  "><p class="caption">
 Figure 7.2: False colour map with an explicit specification of x and y axes.
 </p>
@@ -1040,7 +1040,7 @@ Figure 7.2: False colour map with an explicit specification of x and y axes.
 <div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotmap.html">plotmap</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="va">region</span> <span class="op">~</span> <span class="va">x</span> <span class="op">*</span> <span class="va">y</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmap-clu"></span>
+<span style="display:block;" id="fig:plotmap-clu"></span>
 <img src="plotting_files/figure-html/plotmap-clu-1.png" alt="False colour map with colours defined by a factor variable.  "><p class="caption">
 Figure 7.3: False colour map with colours defined by a factor variable.
 </p>
@@ -1054,7 +1054,7 @@ Figure 7.3: False colour map with colours defined by a factor variable.
 <div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotmap.html">plotmap</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="va">region</span> <span class="op">~</span> <span class="va">x</span> <span class="op">*</span> <span class="va">y</span>, col.regions <span class="op">=</span> <span class="va">cluster_cols</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmap-col"></span>
+<span style="display:block;" id="fig:plotmap-col"></span>
 <img src="plotting_files/figure-html/plotmap-col-1.png" alt="False colour map with non-default colour palette.  "><p class="caption">
 Figure 7.4: False colour map with non-default colour palette.
 </p>
@@ -1089,7 +1089,7 @@ By changing these parameters you can create your own theme for plotting and pass
 <code class="sourceCode R"><span class="va">my_theme</span><span class="op">$</span><span class="va">regions</span><span class="op">$</span><span class="va">col</span> <span class="op">&lt;-</span> <span class="fu">grDevices</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/grDevices/palettes.html">terrain.colors</a></span>
 <span class="fu"><a href="../reference/plotmap.html">plotmap</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span>, par.settings <span class="op">=</span> <span class="va">my_theme</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmap-col-default"></span>
+<span style="display:block;" id="fig:plotmap-col-default"></span>
 <img src="plotting_files/figure-html/plotmap-col-default-1.png" alt="A false-colour map that uses `terrain.colors` palette.   "><p class="caption">
 Figure 8.1: A false-colour map that uses <code>terrain.colors</code> palette.
 </p>
@@ -1108,7 +1108,7 @@ This is done via a call to <code class="sourceCode r"><span class="kw">trellis.p
 <div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">show.settings</span><span class="op">(</span><span class="va">my_theme</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:lattice-settings"></span>
+<span style="display:block;" id="fig:lattice-settings"></span>
 <img src="plotting_files/figure-html/lattice-settings-1.png" alt="Show **lattice** settings.  "><p class="caption">
 Figure 8.2: Show <strong>lattice</strong> settings.
 </p>
@@ -1126,7 +1126,7 @@ in the <a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteC
   col.regions <span class="op">=</span> <span class="va">palette_matlab</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmap-wave"></span>
+<span style="display:block;" id="fig:plotmap-wave"></span>
 <img src="plotting_files/figure-html/plotmap-wave-1.png" alt="A map of average intensity at explicitly indicated wavelengths.  "><p class="caption">
 Figure 8.3: A map of average intensity at explicitly indicated wavelengths.
 </p>
@@ -1143,7 +1143,7 @@ Figure 8.3: A map of average intensity at explicitly indicated wavelengths.
   col.regions <span class="op">=</span> <span class="fu"><a href="../reference/palette_matlab.html">palette_matlab</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmap-pca"></span>
+<span style="display:block;" id="fig:plotmap-pca"></span>
 <img src="plotting_files/figure-html/plotmap-pca-1.png" alt="Subplots created by logical conditions.  "><p class="caption">
 Figure 8.4: Subplots created by logical conditions.
 </p>
@@ -1173,7 +1173,7 @@ This allows conditioning on the wavelengths.</p>
   col.regions <span class="op">=</span> <span class="fu"><a href="../reference/palette_matlab.html">palette_matlab</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmap-pca2"></span>
+<span style="display:block;" id="fig:plotmap-pca2"></span>
 <img src="plotting_files/figure-html/plotmap-pca2-1.png" alt="The maps of the scores of the first two principal components (I).  "><p class="caption">
 Figure 8.5: The maps of the scores of the first two principal components (I).
 </p>
@@ -1187,7 +1187,7 @@ Figure 8.5: The maps of the scores of the first two principal components (I).
   col.regions <span class="op">=</span> <span class="fu"><a href="../reference/palette_matlab.html">palette_matlab</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmap-pca3"></span>
+<span style="display:block;" id="fig:plotmap-pca3"></span>
 <img src="plotting_files/figure-html/plotmap-pca3-1.png" alt="The maps of the scores of the first two principal components (II).  "><p class="caption">
 Figure 8.6: The maps of the scores of the first two principal components (II).
 </p>
@@ -1207,7 +1207,7 @@ Furthermore, it is not FOSS (free and open-source software), so users are kindly
   col.regions <span class="op">=</span> <span class="fu"><a href="../reference/palette_matlab.html">palette_matlab</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:voronoi-2"></span>
+<span style="display:block;" id="fig:voronoi-2"></span>
 <img src="plotting_files/figure-html/voronoi-2-1.png" alt="Voronoi plot that uses non-default discrette colour palette.  "><p class="caption">
 Figure 8.7: Voronoi plot that uses non-default discrette colour palette.
 </p>
@@ -1234,7 +1234,7 @@ Figure 8.7: Voronoi plot that uses non-default discrette colour palette.
   panel <span class="op">=</span> <span class="va">mark.missing</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:missing"></span>
+<span style="display:block;" id="fig:missing"></span>
 <img src="plotting_files/figure-html/missing-1.png" alt="Marks of missing spectra in a false-colour map.  "><p class="caption">
 Figure 8.8: Marks of missing spectra in a false-colour map.
 </p>
@@ -1257,7 +1257,7 @@ This leads to weird-looking output with holes, and possibly wrong columns (Fig. 
 <span class="co">#&gt; Warning in (function (x, y, z, subscripts, at = pretty(z), ..., col.regions = regions$col, : 'y'</span>
 <span class="co">#&gt; values are not equispaced; output may be wrong</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:uneven-I"></span>
+<span style="display:block;" id="fig:uneven-I"></span>
 <img src="plotting_files/figure-html/uneven-I-1.png" alt="Unevenly spaced measurement grid: example I.
 Note warnings `values are not equispaced; output may be wrong`."><p class="caption">
 Figure 8.9: Unevenly spaced measurement grid: example I.
@@ -1269,7 +1269,7 @@ Note warnings <code>values are not equispaced; output may be wrong</code>.
 <div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotmap.html">plotvoronoi</a></span><span class="op">(</span><span class="va">uneven</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:uneven-II"></span>
+<span style="display:block;" id="fig:uneven-II"></span>
 <img src="plotting_files/figure-html/uneven-II-1.png" alt="Unevenly spaced measurement grid: example II.  "><p class="caption">
 Figure 8.10: Unevenly spaced measurement grid: example II.
 </p>
@@ -1283,7 +1283,7 @@ Figure 8.10: Unevenly spaced measurement grid: example II.
   col.symbol <span class="op">=</span> <span class="cn">NA</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:uneven-III"></span>
+<span style="display:block;" id="fig:uneven-III"></span>
 <img src="plotting_files/figure-html/uneven-III-1.png" alt="Unevenly spaced measurement grid: example III.  "><p class="caption">
 Figure 8.11: Unevenly spaced measurement grid: example III.
 </p>
@@ -1298,7 +1298,7 @@ Figure 8.11: Unevenly spaced measurement grid: example III.
 
 <span class="fu"><a href="../reference/plotmap.html">plotmap</a></span><span class="op">(</span><span class="va">uneven</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:uneven-IV"></span>
+<span style="display:block;" id="fig:uneven-IV"></span>
 <img src="plotting_files/figure-html/uneven-IV-1.png" alt="Unevenly spaced measurement grid: example IV.  "><p class="caption">
 Figure 8.12: Unevenly spaced measurement grid: example IV.
 </p>
@@ -1328,7 +1328,7 @@ As package <strong>rgl</strong>’s axis annotations are sometimes awkward, they
 <span class="fu"><a href="https://dmurdoch.github.io/rgl/reference/axes3d.html">mtext3d</a></span><span class="op">(</span><span class="st">"lambda / nm"</span>, <span class="st">"y--"</span>, line <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span>
 <span class="fu"><a href="https://dmurdoch.github.io/rgl/reference/axes3d.html">mtext3d</a></span><span class="op">(</span><span class="st">"I / a.u."</span>, edge <span class="op">=</span> <span class="st">"z--"</span>, line <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:rgl-plot-png"></span>
+<span style="display:block;" id="fig:rgl-plot-png"></span>
 <img src="plotting--fig-3D-01.png" alt="A snapshot of an **rgl** plot.  " width="100%"><p class="caption">
 Figure 9.1: A snapshot of an <strong>rgl</strong> plot.
 </p>
@@ -1400,7 +1400,7 @@ The same holds for package <strong>ggplot2</strong> graphics.</p>
 <code class="sourceCode R"><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/sessioninfo/man/session_info.html">session_info</a></span><span class="op">(</span><span class="st">"hyperSpec"</span><span class="op">)</span>
 <span class="co">#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────</span>
 <span class="co">#&gt;  setting  value                       </span>
-<span class="co">#&gt;  version  R version 4.1.0 (2021-05-18)</span>
+<span class="co">#&gt;  version  R version 4.1.1 (2021-08-10)</span>
 <span class="co">#&gt;  os       macOS Catalina 10.15.7      </span>
 <span class="co">#&gt;  system   x86_64, darwin17.0          </span>
 <span class="co">#&gt;  ui       X11                         </span>
@@ -1408,7 +1408,7 @@ The same holds for package <strong>ggplot2</strong> graphics.</p>
 <span class="co">#&gt;  collate  en_US.UTF-8                 </span>
 <span class="co">#&gt;  ctype    en_US.UTF-8                 </span>
 <span class="co">#&gt;  tz       UTC                         </span>
-<span class="co">#&gt;  date     2021-08-12                  </span>
+<span class="co">#&gt;  date     2021-08-21                  </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span>
 <span class="co">#&gt;  package        * version      date       lib source        </span>
@@ -1429,22 +1429,22 @@ The same holds for package <strong>ggplot2</strong> graphics.</p>
 <span class="co">#&gt;  ggplot2        * 3.3.5        2021-06-25 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  glue             1.4.2        2020-08-27 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  gtable           0.3.0        2019-03-25 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  hyperSpec      * 0.100.0.9001 2021-08-12 [1] local         </span>
-<span class="co">#&gt;  hySpc.testthat   0.2.1.9000   2021-07-14 [1] local         </span>
+<span class="co">#&gt;  hyperSpec      * 0.200.0.9000 2021-08-21 [1] local         </span>
+<span class="co">#&gt;  hySpc.testthat   0.2.1.9000   2021-08-21 [1] local         </span>
 <span class="co">#&gt;  isoband          0.2.5        2021-07-13 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  jpeg             0.1-9        2021-07-24 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  jsonlite         1.7.2        2020-12-09 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  labeling         0.4.2        2020-10-20 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  lattice        * 0.20-44      2021-05-02 [2] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  lattice        * 0.20-44      2021-05-02 [2] CRAN (R 4.1.1)</span>
 <span class="co">#&gt;  latticeExtra   * 0.6-29       2019-12-19 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  lazyeval         0.2.2        2019-03-15 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  lifecycle        1.0.0        2021-02-15 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  magrittr         2.0.1        2020-11-17 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  MASS             7.3-54       2021-05-03 [2] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  Matrix           1.3-3        2021-05-04 [2] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  mgcv             1.8-35       2021-04-18 [2] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  MASS             7.3-54       2021-05-03 [2] CRAN (R 4.1.1)</span>
+<span class="co">#&gt;  Matrix           1.3-4        2021-06-01 [2] CRAN (R 4.1.1)</span>
+<span class="co">#&gt;  mgcv             1.8-36       2021-06-01 [2] CRAN (R 4.1.1)</span>
 <span class="co">#&gt;  munsell          0.5.0        2018-06-12 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  nlme             3.1-152      2021-02-04 [2] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  nlme             3.1-152      2021-02-04 [2] CRAN (R 4.1.1)</span>
 <span class="co">#&gt;  pillar           1.6.2        2021-07-29 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  pkgconfig        2.0.3        2019-09-22 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  pkgload          1.2.1        2021-04-06 [1] CRAN (R 4.1.0)</span>
@@ -1453,7 +1453,7 @@ The same holds for package <strong>ggplot2</strong> graphics.</p>
 <span class="co">#&gt;  processx         3.5.2        2021-04-30 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  ps               1.6.0        2021-02-28 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  purrr            0.3.4        2020-04-17 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  R6               2.5.0        2020-10-28 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  R6               2.5.1        2021-08-19 [1] CRAN (R 4.1.1)</span>
 <span class="co">#&gt;  RColorBrewer     1.1-2        2014-12-07 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  rematch2         2.1.2        2020-05-01 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  rlang            0.4.11       2021-04-30 [1] CRAN (R 4.1.0)</span>

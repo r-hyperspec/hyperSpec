@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hyperSpec</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.100.0.9001</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.200.0.9000</span>
       </span>
     </div>
 
@@ -128,7 +128,7 @@
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 class="date">2021-08-12</h4>
+            <h4 class="date">2021-08-21</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/master/vignettes/laser.Rmd"><code>vignettes/laser.Rmd</code></a></small>
       <div class="hidden name"><code>laser.Rmd</code></div>
@@ -172,7 +172,7 @@ There is no Raman scattering involved in this data, but the Raman software recor
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">laser</span>, <span class="st">"spcprctl5"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:rawspc"></span>
+<span style="display:block;" id="fig:rawspc"></span>
 <img src="laser_files/figure-html/rawspc-1.png" alt="The raw laser emission spectra.  "><p class="caption">
 Figure 2.1: The raw laser emission spectra.
 </p>
@@ -185,7 +185,7 @@ The results are shown in figure <a href="#fig:cutspc">2.2</a>.</p>
 <code class="sourceCode R"><span class="va">laser</span> <span class="op">&lt;-</span> <span class="va">laser</span><span class="op">[</span>, , <span class="op">-</span><span class="fl">75</span> <span class="op">~</span> <span class="fl">0</span><span class="op">]</span>
 <span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">laser</span>, <span class="st">"spcprctl5"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:cutspc"></span>
+<span style="display:block;" id="fig:cutspc"></span>
 <img src="laser_files/figure-html/cutspc-1.png" alt="The cut spectra laser emission spectra.   "><p class="caption">
 Figure 2.2: The cut spectra laser emission spectra.
 </p>
@@ -223,7 +223,7 @@ The band at -50 cm<sup>-1</sup> is known to be at 405 nm.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">laser</span>, <span class="st">"spcprctl5"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:wlspc"></span>
+<span style="display:block;" id="fig:wlspc"></span>
 <img src="laser_files/figure-html/wlspc-1.png" alt="The spectra with wavelength axis. "><p class="caption">
 Figure 2.3: The spectra with wavelength axis.
 </p>
@@ -251,7 +251,7 @@ Figure 2.3: The spectra with wavelength axis.
 <span class="va">cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"darkgreen"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v <span class="op">=</span> <span class="va">wls</span>, col <span class="op">=</span> <span class="va">cols</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:markspc"></span>
+<span style="display:block;" id="fig:markspc"></span>
 <img src="laser_files/figure-html/markspc-1.png" alt="The spectral position of the bands in the laser emission time series. "><p class="caption">
 Figure 3.1: The spectral position of the bands in the laser emission time series.
 </p>
@@ -263,7 +263,7 @@ The resulting time series are shown in figure <a href="#fig:ts">3.2</a>.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotc.html">plotc</a></span><span class="op">(</span><span class="va">laser</span><span class="op">[</span>, , <span class="va">wls</span><span class="op">]</span>, <span class="va">spc</span> <span class="op">~</span> <span class="va">t</span>, groups <span class="op">=</span> <span class="va">.wavelength</span>, type <span class="op">=</span> <span class="st">"b"</span>, cex <span class="op">=</span> <span class="fl">0.3</span>, col <span class="op">=</span> <span class="va">cols</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:ts"></span>
+<span style="display:block;" id="fig:ts"></span>
 <img src="laser_files/figure-html/ts-1.png" alt="The time series data.
 The colors in this plot correspond to colors in fig. \@ref(fig:ts).  "><p class="caption">
 Figure 3.2: The time series data.
@@ -274,7 +274,7 @@ The colors in this plot correspond to colors in fig. <a href="#fig:ts">3.2</a>.
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plotc.html">plotc</a></span><span class="op">(</span><span class="va">laser</span><span class="op">[</span>, , <span class="va">wls</span><span class="op">]</span>, <span class="va">spc</span> <span class="op">~</span> <span class="va">t</span> <span class="op">|</span> <span class="va">.wavelength</span>, type <span class="op">=</span> <span class="st">"b"</span>, cex <span class="op">=</span> <span class="fl">0.3</span>, col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:tsextra"></span>
+<span style="display:block;" id="fig:tsextra"></span>
 <img src="laser_files/figure-html/tsextra-1.png" alt="The time series plots can also be conditioned on `$.wavelength`{.r}. "><p class="caption">
 Figure 3.3: The time series plots can also be conditioned on <code class="sourceCode r"><span class="op">$</span>.wavelength</code>.
 </p>
@@ -287,7 +287,7 @@ Figure 3.3: The time series plots can also be conditioned on <code class="source
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">laser</span>, <span class="st">"mat"</span>, contour <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="st">"#00000060"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmatr"></span>
+<span style="display:block;" id="fig:plotmatr"></span>
 <img src="laser_files/figure-html/plotmatr-1.png" alt="The spectra matrix of the `laser`{.r} data set.
 The ordinate of the plot may be the number of the spectrum accessed by `$.row`{.r} (here) or any other extra data column, as, e.g., `$t`{.r} in fig. \@ref(fig:plotmatt).  "><p class="caption">
 Figure 4.1: The spectra matrix of the <code class="sourceCode r">laser</code> data set.
@@ -299,7 +299,7 @@ Note that the <code class="sourceCode r">hyperSpec</code> object is the <em>seco
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">levelplot</span><span class="op">(</span><span class="va">spc</span> <span class="op">~</span> <span class="va">.wavelength</span> <span class="op">*</span> <span class="va">t</span>, <span class="va">laser</span>, contour <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="st">"#00000080"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:plotmatt"></span>
+<span style="display:block;" id="fig:plotmatt"></span>
 <img src="laser_files/figure-html/plotmatt-1.png" alt="The spectra matrix of the `laser`{.r} data set.
 The ordinate of the plot may be any extra data column, here `$t`{.r}.  "><p class="caption">
 Figure 4.2: The spectra matrix of the <code class="sourceCode r">laser</code> data set.
@@ -334,7 +334,7 @@ Handing over the appropriate data columns of the <code class="sourceCode r">hype
 <span class="fu"><a href="https://dmurdoch.github.io/rgl/reference/axes3d.html">mtext3d</a></span><span class="op">(</span><span class="st">"lambda / nm"</span>, <span class="st">"y--"</span>, line <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span>
 <span class="fu"><a href="https://dmurdoch.github.io/rgl/reference/axes3d.html">mtext3d</a></span><span class="op">(</span><span class="st">"I / a.u."</span>, <span class="st">"z--"</span>, line <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span id="fig:laser3d"></span>
+<span style="display:block;" id="fig:laser3d"></span>
 <img src="laser--rgl-3d.png" alt="The 3d plot of the laser data.  " width="400"><p class="caption">
 Figure 5.1: The 3d plot of the laser data.
 </p>
@@ -347,7 +347,7 @@ Figure 5.1: The 3d plot of the laser data.
 <code class="sourceCode R"><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/sessioninfo/man/session_info.html">session_info</a></span><span class="op">(</span><span class="st">"hyperSpec"</span><span class="op">)</span>
 <span class="co">#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────</span>
 <span class="co">#&gt;  setting  value                       </span>
-<span class="co">#&gt;  version  R version 4.1.0 (2021-05-18)</span>
+<span class="co">#&gt;  version  R version 4.1.1 (2021-08-10)</span>
 <span class="co">#&gt;  os       macOS Catalina 10.15.7      </span>
 <span class="co">#&gt;  system   x86_64, darwin17.0          </span>
 <span class="co">#&gt;  ui       X11                         </span>
@@ -355,7 +355,7 @@ Figure 5.1: The 3d plot of the laser data.
 <span class="co">#&gt;  collate  en_US.UTF-8                 </span>
 <span class="co">#&gt;  ctype    en_US.UTF-8                 </span>
 <span class="co">#&gt;  tz       UTC                         </span>
-<span class="co">#&gt;  date     2021-08-12                  </span>
+<span class="co">#&gt;  date     2021-08-21                  </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span>
 <span class="co">#&gt;  package        * version      date       lib source        </span>
@@ -376,22 +376,22 @@ Figure 5.1: The 3d plot of the laser data.
 <span class="co">#&gt;  ggplot2        * 3.3.5        2021-06-25 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  glue             1.4.2        2020-08-27 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  gtable           0.3.0        2019-03-25 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  hyperSpec      * 0.100.0.9001 2021-08-12 [1] local         </span>
-<span class="co">#&gt;  hySpc.testthat   0.2.1.9000   2021-07-14 [1] local         </span>
+<span class="co">#&gt;  hyperSpec      * 0.200.0.9000 2021-08-21 [1] local         </span>
+<span class="co">#&gt;  hySpc.testthat   0.2.1.9000   2021-08-21 [1] local         </span>
 <span class="co">#&gt;  isoband          0.2.5        2021-07-13 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  jpeg             0.1-9        2021-07-24 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  jsonlite         1.7.2        2020-12-09 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  labeling         0.4.2        2020-10-20 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  lattice        * 0.20-44      2021-05-02 [2] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  lattice        * 0.20-44      2021-05-02 [2] CRAN (R 4.1.1)</span>
 <span class="co">#&gt;  latticeExtra     0.6-29       2019-12-19 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  lazyeval         0.2.2        2019-03-15 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  lifecycle        1.0.0        2021-02-15 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  magrittr         2.0.1        2020-11-17 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  MASS             7.3-54       2021-05-03 [2] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  Matrix           1.3-3        2021-05-04 [2] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  mgcv             1.8-35       2021-04-18 [2] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  MASS             7.3-54       2021-05-03 [2] CRAN (R 4.1.1)</span>
+<span class="co">#&gt;  Matrix           1.3-4        2021-06-01 [2] CRAN (R 4.1.1)</span>
+<span class="co">#&gt;  mgcv             1.8-36       2021-06-01 [2] CRAN (R 4.1.1)</span>
 <span class="co">#&gt;  munsell          0.5.0        2018-06-12 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  nlme             3.1-152      2021-02-04 [2] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  nlme             3.1-152      2021-02-04 [2] CRAN (R 4.1.1)</span>
 <span class="co">#&gt;  pillar           1.6.2        2021-07-29 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  pkgconfig        2.0.3        2019-09-22 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  pkgload          1.2.1        2021-04-06 [1] CRAN (R 4.1.0)</span>
@@ -400,7 +400,7 @@ Figure 5.1: The 3d plot of the laser data.
 <span class="co">#&gt;  processx         3.5.2        2021-04-30 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  ps               1.6.0        2021-02-28 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  purrr            0.3.4        2020-04-17 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  R6               2.5.0        2020-10-28 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  R6               2.5.1        2021-08-19 [1] CRAN (R 4.1.1)</span>
 <span class="co">#&gt;  RColorBrewer     1.1-2        2014-12-07 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  rematch2         2.1.2        2020-05-01 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  rlang            0.4.11       2021-04-30 [1] CRAN (R 4.1.0)</span>
