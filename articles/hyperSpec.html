@@ -2286,7 +2286,7 @@ Please refer to the documentation of the respective functions for details about 
   <span class="op">}</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.052   0.002   0.054</span></code></pre></div>
+<span class="co">#&gt;   0.060   0.002   0.069</span></code></pre></div>
 <p>Calculations that involve a lot of subsetting (i.e., extracting or changing the spectra matrix or extra data) can be sped up considerably if the required parts of the <code>hyperSpec</code> object are extracted beforehand.
 This is somewhat similar to model fitting in <code>R</code> in general: many model fitting functions in <code>R</code> are much faster if the formula interface is avoided and the appropriate <code class="sourceCode r">data.frame</code>s or matrices are handed over directly.</p>
 <div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
@@ -2300,7 +2300,7 @@ This is somewhat similar to model fitting in <code>R</code> in general: many mod
   <span class="va">tmp</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">tmp.matrix</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.017   0.000   0.017</span></code></pre></div>
+<span class="co">#&gt;   0.019   0.001   0.019</span></code></pre></div>
 </div>
 <div id="additional-packages" class="section level2">
 <h2 class="hasAnchor">
@@ -2446,7 +2446,7 @@ Make sure to work on a copy of the spectra matrix, as that is much faster than r
 
 
       <footer><div class="copyright">
-  <p>Developed by Claudia Beleites, <a href="https://orcid.org/0000-0002-9500-5167">Vilmantas Gegzna</a>, Bryan Hanson, Roman Kiselev, Erick Oduniyi, Valter Sergo.</p>
+  <p>Developed by Claudia Beleites, <a href="https://orcid.org/0000-0002-9500-5167">Vilmantas Gegzna</a>, <a href="http://academic.depauw.edu/hanson_web/">Bryan A. Hanson</a>, Roman Kiselev, Erick Oduniyi, Valter Sergo.</p>
 </div>
 
 <div class="pkgdown">
