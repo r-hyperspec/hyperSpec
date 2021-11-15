@@ -39,9 +39,57 @@
 #'
 #' @examples
 #' .wl_fix_unit_name("wavelength")
+.wl_fix_unit_name <- function(unit, null_ok = FALSE, on_failure = "fail") {
+
+  on_failure <- match.arg(tolower(on_failure), c("fail", "warn", "pass"))
+  unit0 <- unit
+  # Allow NULL as the default value
+  if (isTRUE(null_ok)) {
+    if (is.null(unit)) {
+      return(unit)
+    }
+  }
 
 
-# Unit tests -----------------------------------------------------------------
+  unit <- gsub(" .*$", "", tolower(unit)) # remove everything after space
+  unit <- gsub("[ ._]*", "", unit) # remove spaces, dots and underscores
+
+  if (unit %in% c("raman", "stokes", "rel", "relative", "relcm-1", "relcm", "rel1/cm", "ramanshift")) {
+    return("raman")
+  }
+  if (unit %in% c("invcm", "invertedcm", "energy", "wavenumber", "cm-1", "cm^-1", "cm^{-1}", "inverted", "cm", "1/cm")) {
+    return("invcm")
+  }
+  if (unit %in% c("nm", "nanometer", "wavelength")) {
+    return("nm")
+  }
+  if (unit %in% c("ev", "electronvolt")) {
+    return("ev")
+  }
+  if (unit %in% c("freq", "frequency", "thz", "terahertz")) {
+    return("freq") # FIXME: why `freq` and not `THz`?
+  }
+  if (unit %in% c("pixel", "px", "sensor")) {
+    return("px")
+  }
+  if (unit == "file") {
+    return(unit)
+  }
+
+  msg <- paste0("'", unit0, "': Unknown unit type")
+  switch(
+    on_failure,
+    pass = return(unit0),
+    warn = {
+      warning(msg)
+      return(unit0)
+    },
+    fail = stop(msg)
+  )
+}
+
+
+#' # Unit tests -----------------------------------------------------------------
 
 hySpc.testthat::test(.wl_fix_unit_name) <- function() {
   context(".wl_fix_unit_name")
@@ -69,3 +117,4 @@ hySpc.testthat::test(.wl_fix_unit_name) <- function() {
   # TODO (tests): add more specific tests.
 }
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
