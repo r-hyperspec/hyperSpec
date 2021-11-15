@@ -1,7 +1,35 @@
 # Function -------------------------------------------------------------------
 
-#' @include wl_convert_units.R
+#' Create label from units for wavelength axis
+#'
+#' This function takes the name of units for wavelength axis and creates an
+#' R expression which can be used as a label for `@wavelength` axis for
+#' `hyperSpec` object.
+#'
+#' @param wl_units (character):
+#'        A name of unit for wavelength axis.
+#' @param greek (logical):
+#'        Should Greek symbols be preferred in the output expression?
+#' @param warn (logical):
+#'        Should a warning be issued if a value of `wl_units` is not recognized?
+#' @param fail (numeric):
+#'        Should an error be issued and execution of code be stopped if a value
+#'        of `wl_units` is not recognized?
+#' @param null_ok (logical):
+#'        Should value `NULL` be accepted as `wl_units`.
+#'        This argument is passed to [.wl_fix_unit_name()].
+#'
 #' @author V. Gegzna
+#'
+#' @concept wavelengths
+#' @include wl_convert_units.R
+#'
+#' @examples
+#' wl_create_label_from_units("nm")
+#' wl_create_label_from_units("nm", greek = TRUE)
+#'
+#' wl_create_label_from_units("1/cm", greek = TRUE)
+#'
 wl_create_label_from_units <- function(wl_units, greek = FALSE, warn = TRUE,
                                        fail = FALSE, null_ok = FALSE) {
 
