@@ -69,15 +69,18 @@ wl_create_label_from_units <- function(unit, greek = FALSE,
 
     # Otherwise:
     {
-      msg <- "The value of 'unit' is not recognized: "
+      msg <- paste0(
+        "Value '", unit,
+        "' of argument 'unit' cannot be converted to any standard value."
+      )
 
       switch(on_failure,
 
-        fail = stop(msg, unit),
+        fail = stop(msg),
 
         warn = {
           warning(
-            msg, unit, "\n",
+            msg, "\n",
             "So it will be converted to an expression and ",
             "returned as the output."
           )
@@ -120,12 +123,12 @@ hySpc.testthat::test(wl_create_label_from_units) <- function() {
 
     expect_error(
       wl_create_label_from_units("WARNING!", on_failure = "fail"),
-      "The value of 'unit' is not recognized:"
+      "'unit' cannot be converted to any standard value"
     )
 
     expect_warning(
       wl_create_label_from_units("WARNING!", on_failure = "warn"),
-      "The value of 'unit' is not recognized:"
+      "'unit' cannot be converted to any standard value"
     )
 
     expect_equal(
