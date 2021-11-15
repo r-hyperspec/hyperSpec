@@ -1,9 +1,12 @@
 #' Bring argument to a conventional name
 #'
+#' @description
 #' Fix a string with unit name (for wavelength axis) into a sting that
 #' can be used as a standardized argument value for other \pkg{hyperSpec}
 #' functions, e.g., [wl_convert_units()].
 #'
+#' **Note:** This function is usually used internally in other \pkg{hyperSpec}
+#'           functions.
 #'
 #' @param unit (sting):
 #'        A name, abbreviation or shot description of unit for wavelength axis.
