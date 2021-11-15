@@ -92,7 +92,7 @@
 }
 
 
-#' # Unit tests -----------------------------------------------------------------
+#' Unit tests -----------------------------------------------------------------
 
 hySpc.testthat::test(.wl_fix_unit_name) <- function() {
   context(".wl_fix_unit_name")
