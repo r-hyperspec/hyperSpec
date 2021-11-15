@@ -36,6 +36,7 @@
 wl_create_label_from_units <- function(unit, greek = FALSE,
                                        on_failure = "warn", null_ok = FALSE) {
 
+  if (missing(unit)) stop("The value of 'unit' is missing.")
   on_failure <- match.arg(tolower(on_failure), c("fail", "warn", "pass"))
 
   u_fixed <- .wl_fix_unit_name(unit, null_ok = null_ok, on_failure = "pass")
@@ -123,6 +124,11 @@ hySpc.testthat::test(wl_create_label_from_units) <- function() {
     expect_error(
       wl_create_label_from_units("WARNING!", on_failure = "fail"),
       "The value of 'unit' is not identified:"
+    )
+
+    expect_error(
+      wl_create_label_from_units(),
+      "The value of 'unit' is is missing."
     )
   })
 }
