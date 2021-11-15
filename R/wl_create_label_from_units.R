@@ -25,7 +25,8 @@
 #'
 #' @concept wavelengths
 #' @include wl_convert_units.R
-#' @include hyperspec-class.R
+#'
+#' @export
 #'
 #' @examples
 #' wl_create_label_from_units("nm")
