@@ -114,10 +114,10 @@ hySpc.testthat::test(wl_create_label_from_units) <- function() {
       expression(tilde(nu) / cm^-1)
     )
 
-    # expect_equal(
-    #   wl_create_label_from_units("Raman shift", greek = TRUE),
-    #   expression(Delta * tilde(nu) / cm^-1)
-    # )
+    expect_equal(
+      wl_create_label_from_units("Raman shift", greek = TRUE),
+      expression(Delta * tilde(nu) / cm^-1)
+    )
 
     expect_equal(
       wl_create_label_from_units("eV", greek = TRUE),
