@@ -61,9 +61,9 @@
                   "raman", "ramanshift", "stokes")) {
     return("raman")
   }
-  if (unit %in% c("1/cm", "cm-1", "cm^-1", "cm^{-1}", "cm",
+  if (unit %in% c("1/cm", "cm-1", "cm^-1", "cm^{-1}",
                   "invcm", "invertedcm", "inverted",
-                  "wavenumber", "wn", "energy")) {
+                  "wavenumber", "wn")) {
     return("invcm")
   }
   if (unit %in% c("nm", "nanometer", "wavelength")) {
