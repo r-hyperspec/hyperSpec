@@ -78,26 +78,26 @@ wl_convert_units.hyperSpec <- function(x, from, to, ref_wl = NULL) {
 
 # Helper functions -----------------------------------------------------------
 
-wl_ev2freq <- function(x, ...) wl_nm2freq(wl_ev2nm(x))
-wl_ev2invcm <- function(x, ...) q * x / (100 * h * c)
-wl_ev2nm <- function(x, ...) 1e9 * h * c / (q * x)
-wl_ev2raman <- function(x, ref_wl) 1e7 / ref_wl - x * q / (100 * h * c)
-wl_freq2ev <- function(x, ...) wl_nm2ev(wl_freq2nm(x))
-wl_freq2invcm <- function(x, ...) wl_nm2invcm(wl_freq2nm(x))
-wl_freq2nm <- function(x, ...) 1e-3 * c / x
-wl_freq2raman <- function(x, ref_wl) wl_nm2raman(wl_freq2nm(x), ref_wl)
-wl_invcm2ev <- function(x, ...) 100 * x * c * h / q
-wl_invcm2freq <- function(x, ...) wl_nm2freq(wl_invcm2nm(x))
-wl_invcm2nm <- function(x, ...) 1e7 / x
+wl_ev2freq     <- function(x, ...)    wl_nm2freq(wl_ev2nm(x))
+wl_ev2invcm    <- function(x, ...)    q * x / (100 * h * c)
+wl_ev2nm       <- function(x, ...)    1e9 * h * c / (q * x)
+wl_ev2raman    <- function(x, ref_wl) 1e7 / ref_wl - x * q / (100 * h * c)
+wl_freq2ev     <- function(x, ...)    wl_nm2ev(wl_freq2nm(x))
+wl_freq2invcm  <- function(x, ...)    wl_nm2invcm(wl_freq2nm(x))
+wl_freq2nm     <- function(x, ...)    1e-3 * c / x
+wl_freq2raman  <- function(x, ref_wl) wl_nm2raman(wl_freq2nm(x), ref_wl)
+wl_invcm2ev    <- function(x, ...)    100 * x * c * h / q
+wl_invcm2freq  <- function(x, ...)    wl_nm2freq(wl_invcm2nm(x))
+wl_invcm2nm    <- function(x, ...)    1e7 / x
 wl_invcm2raman <- function(x, ref_wl) 1e7 / ref_wl - x
-wl_nm2ev <- function(x, ...) 1e9 * h * c / (q * x)
-wl_nm2freq <- function(x, ...) 1e-3 * c / x
-wl_nm2invcm <- function(x, ...) 1e7 / x
-wl_nm2raman <- function(x, ref_wl) 1e7 * (1 / ref_wl - 1 / x)
-wl_raman2ev <- function(x, ref_wl) 100 * h * c * (1e7 / ref_wl - x) / q
-wl_raman2freq <- function(x, ref_wl) wl_nm2freq(wl_raman2nm(x, ref_wl))
+wl_nm2ev       <- function(x, ...)    1e9 * h * c / (q * x)
+wl_nm2freq     <- function(x, ...)    1e-3 * c / x
+wl_nm2invcm    <- function(x, ...)    1e7 / x
+wl_nm2raman    <- function(x, ref_wl) 1e7 * (1 / ref_wl - 1 / x)
+wl_raman2ev    <- function(x, ref_wl) 100 * h * c * (1e7 / ref_wl - x) / q
+wl_raman2freq  <- function(x, ref_wl) wl_nm2freq(wl_raman2nm(x, ref_wl))
 wl_raman2invcm <- function(x, ref_wl) 1e7 / ref_wl - x
-wl_raman2nm <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
+wl_raman2nm    <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
 
 
 # Bring the argument to a conventional name
@@ -105,6 +105,11 @@ wl_raman2nm <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
 # FIXME: This function should be documented.
 #        Even if it used for internal purposes.
 #
+#' Fix unit name into "standard" one
+#'
+#' Fix unit name so that it could be used as a standard argument value for other
+#' functions
+#'
 #' @export
 .wl_fix_unit_name <- function(unit, null_ok = FALSE) {
 
