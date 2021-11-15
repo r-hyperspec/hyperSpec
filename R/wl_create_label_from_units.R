@@ -36,7 +36,8 @@ wl_create_label_from_units <- function(wl_units, greek = FALSE, warn = TRUE,
   u_fixed <- .wl_fix_unit_name(wl_units, null_ok = null_ok)
 
   if (greek) {
-    u_fixed <- paste0(u_fixed, "_greek")
+    # At first, suffix "_greek" is removed if present to avoid duplication
+    u_fixed <- paste0(grep("_greek", "", u_fixed), "_greek")
   }
 
   switch(u_fixed,
