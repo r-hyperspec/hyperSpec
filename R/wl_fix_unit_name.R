@@ -84,8 +84,7 @@
 
   msg <- paste0("'", unit0, "': Unknown unit type")
 
-  switch(
-    on_failure,
+  switch(on_failure,
     pass = return(unit0),
     warn = {
       warning(msg)
