@@ -116,9 +116,11 @@ hySpc.testthat::test(wl_create_label_from_units) <- function() {
 
   test_that("wl_create_label_from_units() fails correnctly", {
 
-    expect_equal(
-      wl_create_label_from_units("WARNING!", on_failure = "pass"),
-      as.expression("WARNING!")
+    expect_error(wl_create_label_from_units(), "argument \"unit\" is missing")
+
+    expect_error(
+      wl_create_label_from_units("WARNING!", on_failure = "fail"),
+      "The value of 'unit' is not recognized:"
     )
 
     expect_warning(
@@ -126,11 +128,10 @@ hySpc.testthat::test(wl_create_label_from_units) <- function() {
       "The value of 'unit' is not recognized:"
     )
 
-    expect_error(
-      wl_create_label_from_units("WARNING!", on_failure = "fail"),
-      "The value of 'unit' is not recognized:"
+    expect_equal(
+      wl_create_label_from_units("WARNING!", on_failure = "pass"),
+      as.expression("WARNING!")
     )
 
-    expect_error(wl_create_label_from_units(), "argument \"unit\" is missing")
   })
 }
