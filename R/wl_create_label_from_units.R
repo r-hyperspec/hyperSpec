@@ -105,9 +105,16 @@ hySpc.testthat::test(wl_create_label_from_units) <- function() {
 
   # FIXME: does not work yet:
 
-  # expect_warning(
-  #   wl_create_label_from_units("WARNING!"),
-  #   "The value of 'wl_units' is not identified:"
-  # )
-}
+  test_that("wl_create_label_from_units() fails correnctly", {
 
+    expect_warning(
+      wl_create_label_from_units("WARNING!", warn = TRUE),
+      "The value of 'wl_units' is not identified:"
+    )
+
+    expect_error(
+      wl_create_label_from_units("WARNING!", fail = TRUE),
+      "The value of 'wl_units' is not identified:"
+    )
+  })
+}
