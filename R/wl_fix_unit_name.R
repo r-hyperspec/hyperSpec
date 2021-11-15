@@ -58,12 +58,12 @@
   unit <- gsub("[ ._]*", "", unit) # remove spaces, dots and underscores
 
   if (unit %in% c("rel", "relative", "relcm-1",  "rel1/cm", "relcm",
-                  "raman", "ramanshift", "stokes")) {
+                  "raman", "ramanshift", "stokes", "stokesshift")) {
     return("raman")
   }
-  if (unit %in% c("1/cm", "cm-1", "cm^-1", "cm^{-1}", "cm",
+  if (unit %in% c("1/cm", "cm-1", "cm^-1", "cm^{-1}",
                   "invcm", "invertedcm", "inverted",
-                  "wavenumber", "wn", "energy")) {
+                  "wavenumber", "wn")) {
     return("invcm")
   }
   if (unit %in% c("nm", "nanometer", "wavelength")) {
