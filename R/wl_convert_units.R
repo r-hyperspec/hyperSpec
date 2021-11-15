@@ -22,6 +22,7 @@
 #' @return Object of the same class as input `x`.
 #'
 #' @concept wavelengths
+#' @include wl_fix_unit_name.R
 #'
 #' @export
 #'
