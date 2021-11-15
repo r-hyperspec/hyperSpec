@@ -190,7 +190,7 @@ function can be given.  See the examples.</p></td>
     </tr>
     <tr>
       <th>FUN</th>
-      <td><p>the function to do the sweeping, e.g. <code><a href='https://rdrr.io/r/base/Arithmetic.html'>-</a></code> or <code><a href='https://rdrr.io/r/base/Arithmetic.html'>/</a></code>.</p></td>
+      <td><p>the function to do the sweeping, e.g. <code>-</code> or <code>/</code>.</p></td>
     </tr>
     <tr>
       <th>check.margin</th>
@@ -222,32 +222,36 @@ spectra.</p>
     <p>C. Beleites</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'>## Subtract the background / slide / blank spectrum</span>
-<span class='co'># the example data does not have spectra of the empty slide,</span>
-<span class='co'># so instead the overall composition of the sample is subtracted</span>
-<span class='va'>background</span> <span class='op'>&lt;-</span> <span class='fu'><a href='apply.html'>apply</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='fl'>2</span>, <span class='va'>quantile</span>, probs <span class='op'>=</span> <span class='fl'>0.05</span><span class='op'>)</span>
-<span class='va'>corrected</span> <span class='op'>&lt;-</span> <span class='fu'>sweep</span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='fl'>2</span>, <span class='va'>background</span>, <span class='st'>"-"</span><span class='op'>)</span>
-<span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>corrected</span>, <span class='st'>"spcprctl5"</span><span class='op'>)</span>
-</div><div class='img'><img src='sweep-1.png' alt='' width='466' height='288' /></div><div class='input'>
-<span class='co'>## Offset correction</span>
-<span class='va'>offsets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='apply.html'>apply</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='fl'>1</span>, <span class='va'>min</span><span class='op'>)</span>
-<span class='va'>corrected</span> <span class='op'>&lt;-</span> <span class='fu'>sweep</span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='fl'>1</span>, <span class='va'>offsets</span>, <span class='st'>"-"</span><span class='op'>)</span>
-<span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>corrected</span>, <span class='st'>"spcprctl5"</span><span class='op'>)</span>
-</div><div class='img'><img src='sweep-2.png' alt='' width='466' height='288' /></div><div class='input'>
-<span class='co'>## Min-max normalization (on max amide I)</span>
-<span class='co'># the minimum is set to zero by the offset correction.</span>
-<span class='va'>factor</span> <span class='op'>&lt;-</span> <span class='fu'><a href='apply.html'>apply</a></span><span class='op'>(</span><span class='va'>corrected</span>, <span class='fl'>1</span>, <span class='va'>max</span><span class='op'>)</span>
-<span class='va'>mm.corrected</span> <span class='op'>&lt;-</span> <span class='fu'>sweep</span><span class='op'>(</span><span class='va'>corrected</span>, <span class='fl'>1</span>, <span class='va'>factor</span>, <span class='st'>"/"</span><span class='op'>)</span>
-<span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>mm.corrected</span>, <span class='st'>"spcprctl5"</span><span class='op'>)</span>
-</div><div class='img'><img src='sweep-3.png' alt='' width='466' height='288' /></div><div class='input'>
-<span class='co'>## convenience: give function to compute STATS:</span>
-<span class='va'>mm.corrected2</span> <span class='op'>&lt;-</span> <span class='fu'>sweep</span><span class='op'>(</span><span class='va'>corrected</span>, <span class='fl'>1</span>, <span class='va'>max</span>, <span class='st'>"/"</span><span class='op'>)</span>
-<span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>mm.corrected2</span><span class='op'>)</span>
-</div><div class='img'><img src='sweep-4.png' alt='' width='466' height='288' /></div><div class='input'>
-<span class='co'>## checking</span>
-<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/all.html'>all</a></span><span class='op'>(</span><span class='va'>mm.corrected2</span> <span class='op'>==</span> <span class='va'>mm.corrected</span><span class='op'>)</span><span class='op'>)</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='co'>## Subtract the background / slide / blank spectrum</span></span>
+<span class='r-in'><span class='co'># the example data does not have spectra of the empty slide,</span></span>
+<span class='r-in'><span class='co'># so instead the overall composition of the sample is subtracted</span></span>
+<span class='r-in'><span class='va'>background</span> <span class='op'>&lt;-</span> <span class='fu'><a href='apply.html'>apply</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='fl'>2</span>, <span class='va'>quantile</span>, probs <span class='op'>=</span> <span class='fl'>0.05</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>corrected</span> <span class='op'>&lt;-</span> <span class='fu'>sweep</span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='fl'>2</span>, <span class='va'>background</span>, <span class='st'>"-"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>corrected</span>, <span class='st'>"spcprctl5"</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='sweep-1.png' alt='' width='466' height='288' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Offset correction</span></span>
+<span class='r-in'><span class='va'>offsets</span> <span class='op'>&lt;-</span> <span class='fu'><a href='apply.html'>apply</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='fl'>1</span>, <span class='va'>min</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>corrected</span> <span class='op'>&lt;-</span> <span class='fu'>sweep</span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='fl'>1</span>, <span class='va'>offsets</span>, <span class='st'>"-"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>corrected</span>, <span class='st'>"spcprctl5"</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='sweep-2.png' alt='' width='466' height='288' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Min-max normalization (on max amide I)</span></span>
+<span class='r-in'><span class='co'># the minimum is set to zero by the offset correction.</span></span>
+<span class='r-in'><span class='va'>factor</span> <span class='op'>&lt;-</span> <span class='fu'><a href='apply.html'>apply</a></span><span class='op'>(</span><span class='va'>corrected</span>, <span class='fl'>1</span>, <span class='va'>max</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>mm.corrected</span> <span class='op'>&lt;-</span> <span class='fu'>sweep</span><span class='op'>(</span><span class='va'>corrected</span>, <span class='fl'>1</span>, <span class='va'>factor</span>, <span class='st'>"/"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>mm.corrected</span>, <span class='st'>"spcprctl5"</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='sweep-3.png' alt='' width='466' height='288' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## convenience: give function to compute STATS:</span></span>
+<span class='r-in'><span class='va'>mm.corrected2</span> <span class='op'>&lt;-</span> <span class='fu'>sweep</span><span class='op'>(</span><span class='va'>corrected</span>, <span class='fl'>1</span>, <span class='va'>max</span>, <span class='st'>"/"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>mm.corrected2</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='sweep-4.png' alt='' width='466' height='288' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## checking</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/all.html'>all</a></span><span class='op'>(</span><span class='va'>mm.corrected2</span> <span class='op'>==</span> <span class='va'>mm.corrected</span><span class='op'>)</span><span class='op'>)</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

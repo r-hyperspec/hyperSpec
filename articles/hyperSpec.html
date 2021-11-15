@@ -127,7 +127,7 @@
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 class="date">2021-08-21</h4>
+            <h4 class="date">2021-11-15</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/master/vignettes/hyperSpec.Rmd"><code>vignettes/hyperSpec.Rmd</code></a></small>
       <div class="hidden name"><code>hyperSpec.Rmd</code></div>
@@ -1347,8 +1347,8 @@ This was expected, as the spectra are hardly or not oversampled, but are very si
     each <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span>
   <span class="op">)</span>
 <span class="op">)</span>
-<span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="fu">histogram</span><span class="op">(</span><span class="op">~</span> <span class="va">shift</span> <span class="op">|</span> <span class="va">method</span>,
-  data <span class="op">=</span> <span class="va">df</span>, breaks <span class="op">=</span> <span class="fu">do.breaks</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">shift</span><span class="op">)</span>, <span class="fl">25</span><span class="op">)</span>,
+<span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/lattice/man/histogram.html">histogram</a></span><span class="op">(</span><span class="op">~</span> <span class="va">shift</span> <span class="op">|</span> <span class="va">method</span>,
+  data <span class="op">=</span> <span class="va">df</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/histogram.html">do.breaks</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">shift</span><span class="op">)</span>, <span class="fl">25</span><span class="op">)</span>,
   layout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span>
 <span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
@@ -1705,7 +1705,7 @@ Figure 5.11: The summary spectra of <code>faux_cell</code> with 5<sup>th</sup> p
 <p>Multiplicative scatter correction (MSC) can be done using <code class="sourceCode r"><span class="kw">msc</span>()</code> from package package <strong>pls</strong> <span class="citation">[<a href="#ref-R-pls" role="doc-biblioref">5</a>]</span>.
 It operates on the spectra matrix:</p>
 <div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mevik.net/work/software/pls.html">pls</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/khliland/pls">pls</a></span><span class="op">)</span>
 <span class="va">faux_cell_msc</span> <span class="op">&lt;-</span> <span class="va">faux_cell</span>
 <span class="va">faux_cell_msc</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pls/man/msc.html">msc</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 </div>
@@ -1724,7 +1724,7 @@ You may convert spectra to their log:</p>
 <p>Be careful: <code>R</code>’s <code class="sourceCode r"><span class="kw">log</span>()</code> function calculates the <em>natural</em> logarithm if no base is given.</p>
 <p>The basic arithmetic operators work element-wise in <code>R</code>.
 Thus they all need either a scalar, or a matrix (or <code>hyperSpec</code> object) of the correct size.</p>
-<p>Matrix multiplication is done by <code><a href="https://rdrr.io/r/base/matmult.html">%*%</a></code>, again each of the operands may be a matrix or a <code>hyperSpec</code> object, and must have the correct dimensions.</p>
+<p>Matrix multiplication is done by <code>%*%</code>, again each of the operands may be a matrix or a <code>hyperSpec</code> object, and must have the correct dimensions.</p>
 <p>There are many more mathematical functions that understand a <code>hyperSpec</code> object.
 See <code>?Arith</code> for more details.</p>
 </div>
@@ -1852,7 +1852,7 @@ The matrix formulation puts the <span class="math inline">\(n\)</span> spectra i
 
 <p>If we decide that only the first 10 components actually carry spectroscopic information, we can reconstruct spectra with better signal to noise ratio:</p>
 <div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">smoothed</span> <span class="op">&lt;-</span> <span class="va">scores</span><span class="op">[</span>, , <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span> <span class="op">%*%</span> <span class="va">loadings</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span class="va">smoothed</span> <span class="op">&lt;-</span> <span class="va">scores</span><span class="op">[</span>, , <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">loadings</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span></code></pre></div>
 <p>Keep in mind, though, that we cannot be sure how much <em>useful</em> information was discarded with the higher components.
 This kind of noise reduction may influence further modeling of the data.
 Mathematically speaking, the rank of the new 875 <span class="math inline">\(×\)</span> 300 spectra matrix is only 10.</p>
@@ -1994,7 +1994,7 @@ To keep all spectra replacing missing parts by <code class="sourceCode r"><span 
 <span class="co">#&gt; [1] 841</span></code></pre></div>
 <div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">matcols</span> <span class="op">&lt;-</span> <span class="fu">sequential_hcl</span><span class="op">(</span><span class="fl">20</span>, palette <span class="op">=</span> <span class="st">"viridis"</span><span class="op">)</span>
-<span class="fu">levelplot</span><span class="op">(</span><span class="va">spc</span> <span class="op">~</span> <span class="va">x</span> <span class="op">*</span> <span class="va">y</span> <span class="op">|</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">.wavelength</span>, <span class="st">"  1/cm"</span><span class="op">)</span><span class="op">)</span>,
+<span class="fu"><a href="https://rdrr.io/pkg/lattice/man/levelplot.html">levelplot</a></span><span class="op">(</span><span class="va">spc</span> <span class="op">~</span> <span class="va">x</span> <span class="op">*</span> <span class="va">y</span> <span class="op">|</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">.wavelength</span>, <span class="st">"  1/cm"</span><span class="op">)</span><span class="op">)</span>,
   <span class="va">faux_cell_merged</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">1650</span><span class="op">)</span><span class="op">]</span>,
   aspect <span class="op">=</span> <span class="st">"iso"</span>, col.regions <span class="op">=</span> <span class="va">matcols</span>
 <span class="op">)</span></code></pre></div>
@@ -2286,7 +2286,7 @@ Please refer to the documentation of the respective functions for details about 
   <span class="op">}</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.060   0.002   0.069</span></code></pre></div>
+<span class="co">#&gt;   0.054   0.002   0.056</span></code></pre></div>
 <p>Calculations that involve a lot of subsetting (i.e., extracting or changing the spectra matrix or extra data) can be sped up considerably if the required parts of the <code>hyperSpec</code> object are extracted beforehand.
 This is somewhat similar to model fitting in <code>R</code> in general: many model fitting functions in <code>R</code> are much faster if the formula interface is avoided and the appropriate <code class="sourceCode r">data.frame</code>s or matrices are handed over directly.</p>
 <div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
@@ -2300,7 +2300,7 @@ This is somewhat similar to model fitting in <code>R</code> in general: many mod
   <span class="va">tmp</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">tmp.matrix</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.019   0.001   0.019</span></code></pre></div>
+<span class="co">#&gt;   0.018   0.000   0.017</span></code></pre></div>
 </div>
 <div id="additional-packages" class="section level2">
 <h2 class="hasAnchor">
@@ -2324,81 +2324,86 @@ The memory consumption of <code class="sourceCode r"><span class="kw">read.txt.R
 <h2 class="hasAnchor">
 <a href="#session-info" class="anchor"></a>Session Info</h2>
 <div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/sessioninfo/man/session_info.html">session_info</a></span><span class="op">(</span><span class="st">"hyperSpec"</span><span class="op">)</span>
-<span class="co">#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────</span>
-<span class="co">#&gt;  setting  value                       </span>
-<span class="co">#&gt;  version  R version 4.1.1 (2021-08-10)</span>
-<span class="co">#&gt;  os       macOS Catalina 10.15.7      </span>
-<span class="co">#&gt;  system   x86_64, darwin17.0          </span>
-<span class="co">#&gt;  ui       X11                         </span>
-<span class="co">#&gt;  language (EN)                        </span>
-<span class="co">#&gt;  collate  en_US.UTF-8                 </span>
-<span class="co">#&gt;  ctype    en_US.UTF-8                 </span>
-<span class="co">#&gt;  tz       UTC                         </span>
-<span class="co">#&gt;  date     2021-08-21                  </span>
+<code class="sourceCode R"><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html">session_info</a></span><span class="op">(</span><span class="st">"hyperSpec"</span><span class="op">)</span>
+<span class="co">#&gt; ─ Session info  🇲🇪  🌾  🔸   ─────────────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt;  hash: flag: Montenegro, sheaf of rice, small orange diamond</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;  setting  value</span>
+<span class="co">#&gt;  version  R version 4.1.2 (2021-11-01)</span>
+<span class="co">#&gt;  os       macOS Catalina 10.15.7</span>
+<span class="co">#&gt;  system   x86_64, darwin17.0</span>
+<span class="co">#&gt;  ui       X11</span>
+<span class="co">#&gt;  language (EN)</span>
+<span class="co">#&gt;  collate  en_US.UTF-8</span>
+<span class="co">#&gt;  ctype    en_US.UTF-8</span>
+<span class="co">#&gt;  tz       UTC</span>
+<span class="co">#&gt;  date     2021-11-15</span>
+<span class="co">#&gt;  pandoc   2.7.3 @ /usr/local/bin/ (via rmarkdown)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span>
-<span class="co">#&gt;  package        * version      date       lib source        </span>
+<span class="co">#&gt;  package        * version      date (UTC) lib source</span>
 <span class="co">#&gt;  brio             1.1.2        2021-04-23 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  callr            3.7.0        2021-04-20 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  cli              3.0.1        2021-07-17 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  cli              3.1.0        2021-10-27 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  colorspace     * 2.0-2        2021-06-24 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  crayon           1.4.1        2021-02-08 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  desc             1.3.0        2021-03-05 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  diffobj          0.3.4        2021-03-22 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  digest           0.6.27       2020-10-24 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  crayon           1.4.2        2021-10-29 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  desc             1.4.0        2021-09-28 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  diffobj          0.3.5        2021-10-05 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  digest           0.6.28       2021-09-23 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  dplyr            1.0.7        2021-06-18 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  ellipsis         0.3.2        2021-04-29 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  evaluate         0.14         2019-05-28 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  fansi            0.5.0        2021-05-25 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  farver           2.1.0        2021-02-28 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  generics         0.1.0        2020-10-31 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  generics         0.1.1        2021-10-25 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  ggplot2        * 3.3.5        2021-06-25 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  glue             1.4.2        2020-08-27 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  glue             1.5.0        2021-11-07 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  gtable           0.3.0        2019-03-25 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  hyperSpec      * 0.200.0.9000 2021-08-21 [1] local         </span>
-<span class="co">#&gt;  hySpc.testthat   0.2.1.9000   2021-08-21 [1] local         </span>
+<span class="co">#&gt;  hyperSpec      * 0.200.0.9000 2021-11-15 [1] local</span>
+<span class="co">#&gt;  hySpc.testthat   0.2.1.9000   2021-11-15 [1] local</span>
 <span class="co">#&gt;  isoband          0.2.5        2021-07-13 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  jpeg             0.1-9        2021-07-24 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  jsonlite         1.7.2        2020-12-09 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  labeling         0.4.2        2020-10-20 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  lattice        * 0.20-44      2021-05-02 [2] CRAN (R 4.1.1)</span>
+<span class="co">#&gt;  lattice        * 0.20-45      2021-09-22 [2] CRAN (R 4.1.2)</span>
 <span class="co">#&gt;  latticeExtra     0.6-29       2019-12-19 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  lazyeval         0.2.2        2019-03-15 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  lifecycle        1.0.0        2021-02-15 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  lifecycle        1.0.1        2021-09-24 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  magrittr         2.0.1        2020-11-17 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  MASS             7.3-54       2021-05-03 [2] CRAN (R 4.1.1)</span>
-<span class="co">#&gt;  Matrix           1.3-4        2021-06-01 [2] CRAN (R 4.1.1)</span>
-<span class="co">#&gt;  mgcv             1.8-36       2021-06-01 [2] CRAN (R 4.1.1)</span>
+<span class="co">#&gt;  MASS             7.3-54       2021-05-03 [2] CRAN (R 4.1.2)</span>
+<span class="co">#&gt;  Matrix           1.3-4        2021-06-01 [2] CRAN (R 4.1.2)</span>
+<span class="co">#&gt;  mgcv             1.8-38       2021-10-06 [2] CRAN (R 4.1.2)</span>
 <span class="co">#&gt;  munsell          0.5.0        2018-06-12 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  nlme             3.1-152      2021-02-04 [2] CRAN (R 4.1.1)</span>
-<span class="co">#&gt;  pillar           1.6.2        2021-07-29 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  nlme             3.1-153      2021-09-07 [2] CRAN (R 4.1.2)</span>
+<span class="co">#&gt;  pillar           1.6.4        2021-10-18 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  pkgconfig        2.0.3        2019-09-22 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  pkgload          1.2.1        2021-04-06 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  pkgload          1.2.3        2021-10-13 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  png              0.1-7        2013-12-03 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  praise           1.0.0        2015-08-11 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  processx         3.5.2        2021-04-30 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  ps               1.6.0        2021-02-28 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  purrr            0.3.4        2020-04-17 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  R6               2.5.1        2021-08-19 [1] CRAN (R 4.1.1)</span>
+<span class="co">#&gt;  R6               2.5.1        2021-08-19 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  RColorBrewer     1.1-2        2014-12-07 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  rematch2         2.1.2        2020-05-01 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  rlang            0.4.11       2021-04-30 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  rlang            0.4.12       2021-10-18 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  rprojroot        2.0.2        2020-11-15 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  rstudioapi       0.13         2020-11-12 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  scales           1.1.1        2020-05-11 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  testthat         3.0.4        2021-07-01 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  tibble           3.1.3        2021-07-23 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  testthat         3.1.0        2021-10-04 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  tibble           3.1.6        2021-11-07 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  tidyselect       1.1.1        2021-04-30 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  utf8             1.2.2        2021-07-24 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  vctrs            0.3.8        2021-04-29 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  viridisLite      0.4.0        2021-04-13 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  waldo            0.2.5        2021-03-08 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  waldo            0.3.1        2021-09-14 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  withr            2.4.2        2021-04-18 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  xml2             1.3.2        2020-04-23 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; [1] /Users/runner/work/_temp/Library</span>
-<span class="co">#&gt; [2] /Library/Frameworks/R.framework/Versions/4.1/Resources/library</span></code></pre></div>
+<span class="co">#&gt;  [1] /Users/runner/work/_temp/Library</span>
+<span class="co">#&gt;  [2] /Library/Frameworks/R.framework/Versions/4.1/Resources/library</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ──────────────────────────────────────────────────────────────────────────────────────────────────</span></code></pre></div>
 </div>
 </div>
 <div id="references" class="section level1 unnumbered">
@@ -2418,7 +2423,7 @@ The memory consumption of <code class="sourceCode r"><span class="kw">read.txt.R
 <p>[4] K.H. Liland, T. Almøy, B.-H. Mevik, Optimal choice of baseline correction for multivariate calibration of spectra, Applied Spectroscopy. 64 (2010) 1007–1016.</p>
 </div>
 <div id="ref-R-pls">
-<p>[5] B.-H. Mevik, R. Wehrens, K.H. Liland, Pls: Partial least squares and principal component regression, 2020. <a href="https://CRAN.R-project.org/package=pls">https://CRAN.R-project.org/package=pls</a>.</p>
+<p>[5] K.H. Liland, B.-H. Mevik, R. Wehrens, Pls: Partial least squares and principal component regression, 2021. <a href="https://github.com/khliland/pls">https://github.com/khliland/pls</a>.</p>
 </div>
 <div id="ref-R-matrixStats">
 <p>[6] H. Bengtsson, MatrixStats: Functions that apply to rows and columns of matrices (and to vectors), 2021. <a href="https://github.com/HenrikBengtsson/matrixStats">https://github.com/HenrikBengtsson/matrixStats</a>.</p>

@@ -366,23 +366,33 @@ wavelength is used</p></td>
     <p>Claudia Beleites</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>qplotspc</span><span class='op'>(</span><span class='va'>flu</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Function 'qplotspc' is deprecated. </span>
-#&gt; <span class='warning'>Use function 'qplotspc' from package 'hySpc.ggplot2' instead.</span>
-#&gt; <span class='warning'>https://r-hyperspec.github.io/hySpc.ggplot2</span></div><div class='img'><img src='DEPRECATED-ggplot2-1.png' alt='' width='466' height='288' /></div><div class='input'><span class='fu'>qplotmap</span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>[</span>, , <span class='fl'>1200</span><span class='op'>]</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Function 'qplotmap' is deprecated. </span>
-#&gt; <span class='warning'>Use function 'qplotmap' from package 'hySpc.ggplot2' instead.</span>
-#&gt; <span class='warning'>https://r-hyperspec.github.io/hySpc.ggplot2</span></div><div class='img'><img src='DEPRECATED-ggplot2-2.png' alt='' width='466' height='288' /></div><div class='input'><span class='fu'>qplotc</span><span class='op'>(</span><span class='va'>flu</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Function 'qplotc' is deprecated. </span>
-#&gt; <span class='warning'>Use function 'qplotc' from package 'hySpc.ggplot2' instead.</span>
-#&gt; <span class='warning'>https://r-hyperspec.github.io/hySpc.ggplot2</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Intensity at first wavelengh only is used.</span></div><div class='img'><img src='DEPRECATED-ggplot2-3.png' alt='' width='466' height='288' /></div><div class='input'><span class='va'>faux_cell</span> <span class='op'>&lt;-</span> <span class='va'>faux_cell</span> <span class='op'>-</span> <span class='fu'><a href='spc_fit_poly.html'>spc_fit_poly_below</a></span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>)</span>
-
-<span class='fu'>qplotmixmap</span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>[</span>, , <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>800</span>, <span class='fl'>1200</span>, <span class='fl'>1500</span><span class='op'>)</span><span class='op'>]</span>,
-  purecol <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>A <span class='op'>=</span> <span class='st'>"green4"</span>, B <span class='op'>=</span> <span class='st'>"yellow"</span>, C <span class='op'>=</span> <span class='st'>"royalblue"</span><span class='op'>)</span>
-<span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Function 'qplotmixmap' is deprecated. </span>
-#&gt; <span class='warning'>Use function 'qplotmixmap' from package 'hySpc.ggplot2' instead.</span>
-#&gt; <span class='warning'>https://r-hyperspec.github.io/hySpc.ggplot2</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 300 rows containing missing values (geom_point).</span></div><div class='img'><img src='DEPRECATED-ggplot2-4.png' alt='' width='466' height='288' /></div></pre>
+    <pre class="examples"><span class='r-in'><span class='fu'>qplotspc</span><span class='op'>(</span><span class='va'>flu</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Function 'qplotspc' is deprecated. </span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> Use function 'qplotspc' from package 'hySpc.ggplot2' instead.</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> https://r-hyperspec.github.io/hySpc.ggplot2</span>
+<span class='r-plt img'><img src='DEPRECATED-ggplot2-1.png' alt='' width='466' height='288' /></span>
+<span class='r-in'><span class='fu'>qplotmap</span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>[</span>, , <span class='fl'>1200</span><span class='op'>]</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Function 'qplotmap' is deprecated. </span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> Use function 'qplotmap' from package 'hySpc.ggplot2' instead.</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> https://r-hyperspec.github.io/hySpc.ggplot2</span>
+<span class='r-plt img'><img src='DEPRECATED-ggplot2-2.png' alt='' width='466' height='288' /></span>
+<span class='r-in'><span class='fu'>qplotc</span><span class='op'>(</span><span class='va'>flu</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Function 'qplotc' is deprecated. </span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> Use function 'qplotc' from package 'hySpc.ggplot2' instead.</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> https://r-hyperspec.github.io/hySpc.ggplot2</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Intensity at first wavelengh only is used.</span>
+<span class='r-plt img'><img src='DEPRECATED-ggplot2-3.png' alt='' width='466' height='288' /></span>
+<span class='r-in'><span class='va'>faux_cell</span> <span class='op'>&lt;-</span> <span class='va'>faux_cell</span> <span class='op'>-</span> <span class='fu'><a href='spc_fit_poly.html'>spc_fit_poly_below</a></span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>qplotmixmap</span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>[</span>, , <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>800</span>, <span class='fl'>1200</span>, <span class='fl'>1500</span><span class='op'>)</span><span class='op'>]</span>,</span>
+<span class='r-in'>  purecol <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>A <span class='op'>=</span> <span class='st'>"green4"</span>, B <span class='op'>=</span> <span class='st'>"yellow"</span>, C <span class='op'>=</span> <span class='st'>"royalblue"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Function 'qplotmixmap' is deprecated. </span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> Use function 'qplotmixmap' from package 'hySpc.ggplot2' instead.</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> https://r-hyperspec.github.io/hySpc.ggplot2</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Removed 300 rows containing missing values (geom_point).</span>
+<span class='r-plt img'><img src='DEPRECATED-ggplot2-4.png' alt='' width='466' height='288' /></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

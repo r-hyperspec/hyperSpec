@@ -214,38 +214,41 @@ Should this create names if they are <code>NULL</code>?</p></td>
     <p>C. Beleites</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>dimnames</span><span class='op'>(</span><span class='va'>flu</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $row
-#&gt; [1] "1" "2" "3" "4" "5" "6"
-#&gt; 
-#&gt; $data
-#&gt; [1] "spc"      "filename" "c"       
-#&gt; 
-#&gt; $wl
-#&gt;   [1] "405"   "405.5" "406"   "406.5" "407"   "407.5" "408"   "408.5" "409"  
-#&gt;  [10] "409.5" "410"   "410.5" "411"   "411.5" "412"   "412.5" "413"   "413.5"
-#&gt;  [19] "414"   "414.5" "415"   "415.5" "416"   "416.5" "417"   "417.5" "418"  
-#&gt;  [28] "418.5" "419"   "419.5" "420"   "420.5" "421"   "421.5" "422"   "422.5"
-#&gt;  [37] "423"   "423.5" "424"   "424.5" "425"   "425.5" "426"   "426.5" "427"  
-#&gt;  [46] "427.5" "428"   "428.5" "429"   "429.5" "430"   "430.5" "431"   "431.5"
-#&gt;  [55] "432"   "432.5" "433"   "433.5" "434"   "434.5" "435"   "435.5" "436"  
-#&gt;  [64] "436.5" "437"   "437.5" "438"   "438.5" "439"   "439.5" "440"   "440.5"
-#&gt;  [73] "441"   "441.5" "442"   "442.5" "443"   "443.5" "444"   "444.5" "445"  
-#&gt;  [82] "445.5" "446"   "446.5" "447"   "447.5" "448"   "448.5" "449"   "449.5"
-#&gt;  [91] "450"   "450.5" "451"   "451.5" "452"   "452.5" "453"   "453.5" "454"  
-#&gt; [100] "454.5" "455"   "455.5" "456"   "456.5" "457"   "457.5" "458"   "458.5"
-#&gt; [109] "459"   "459.5" "460"   "460.5" "461"   "461.5" "462"   "462.5" "463"  
-#&gt; [118] "463.5" "464"   "464.5" "465"   "465.5" "466"   "466.5" "467"   "467.5"
-#&gt; [127] "468"   "468.5" "469"   "469.5" "470"   "470.5" "471"   "471.5" "472"  
-#&gt; [136] "472.5" "473"   "473.5" "474"   "474.5" "475"   "475.5" "476"   "476.5"
-#&gt; [145] "477"   "477.5" "478"   "478.5" "479"   "479.5" "480"   "480.5" "481"  
-#&gt; [154] "481.5" "482"   "482.5" "483"   "483.5" "484"   "484.5" "485"   "485.5"
-#&gt; [163] "486"   "486.5" "487"   "487.5" "488"   "488.5" "489"   "489.5" "490"  
-#&gt; [172] "490.5" "491"   "491.5" "492"   "492.5" "493"   "493.5" "494"   "494.5"
-#&gt; [181] "495"  
-#&gt; </div><div class='input'><span class='fu'>rownames</span><span class='op'>(</span><span class='va'>flu</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "1" "2" "3" "4" "5" "6"</div><div class='input'><span class='fu'>colnames</span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "x"      "y"      "region" "spc"   </div></pre>
+    <pre class="examples"><span class='r-in'><span class='fu'>dimnames</span><span class='op'>(</span><span class='va'>flu</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $row</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "1" "2" "3" "4" "5" "6"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $data</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "spc"      "filename" "c"       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $wl</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [1] "405"   "405.5" "406"   "406.5" "407"   "407.5" "408"   "408.5" "409"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [10] "409.5" "410"   "410.5" "411"   "411.5" "412"   "412.5" "413"   "413.5"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [19] "414"   "414.5" "415"   "415.5" "416"   "416.5" "417"   "417.5" "418"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [28] "418.5" "419"   "419.5" "420"   "420.5" "421"   "421.5" "422"   "422.5"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [37] "423"   "423.5" "424"   "424.5" "425"   "425.5" "426"   "426.5" "427"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [46] "427.5" "428"   "428.5" "429"   "429.5" "430"   "430.5" "431"   "431.5"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [55] "432"   "432.5" "433"   "433.5" "434"   "434.5" "435"   "435.5" "436"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [64] "436.5" "437"   "437.5" "438"   "438.5" "439"   "439.5" "440"   "440.5"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [73] "441"   "441.5" "442"   "442.5" "443"   "443.5" "444"   "444.5" "445"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [82] "445.5" "446"   "446.5" "447"   "447.5" "448"   "448.5" "449"   "449.5"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [91] "450"   "450.5" "451"   "451.5" "452"   "452.5" "453"   "453.5" "454"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [100] "454.5" "455"   "455.5" "456"   "456.5" "457"   "457.5" "458"   "458.5"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [109] "459"   "459.5" "460"   "460.5" "461"   "461.5" "462"   "462.5" "463"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [118] "463.5" "464"   "464.5" "465"   "465.5" "466"   "466.5" "467"   "467.5"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [127] "468"   "468.5" "469"   "469.5" "470"   "470.5" "471"   "471.5" "472"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [136] "472.5" "473"   "473.5" "474"   "474.5" "475"   "475.5" "476"   "476.5"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [145] "477"   "477.5" "478"   "478.5" "479"   "479.5" "480"   "480.5" "481"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [154] "481.5" "482"   "482.5" "483"   "483.5" "484"   "484.5" "485"   "485.5"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [163] "486"   "486.5" "487"   "487.5" "488"   "488.5" "489"   "489.5" "490"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [172] "490.5" "491"   "491.5" "492"   "492.5" "493"   "493.5" "494"   "494.5"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [181] "495"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>rownames</span><span class='op'>(</span><span class='va'>flu</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "1" "2" "3" "4" "5" "6"</span>
+<span class='r-in'><span class='fu'>colnames</span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "x"      "y"      "region" "spc"   </span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

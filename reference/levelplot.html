@@ -169,7 +169,7 @@ value of each spectrum is plotted. Spectra may be identified by mouse click.</p>
     <pre class="usage"><span class='fu'>plotmap</span><span class='op'>(</span><span class='va'>object</span>, model <span class='op'>=</span> <span class='va'>spc</span> <span class='op'>~</span> <span class='va'>x</span> <span class='op'>*</span> <span class='va'>y</span>, func <span class='op'>=</span> <span class='va'>mean</span>, func.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for formula,hyperSpec</span>
-<span class='fu'>levelplot</span><span class='op'>(</span>
+<span class='fu'><a href='https://rdrr.io/pkg/lattice/man/levelplot.html'>levelplot</a></span><span class='op'>(</span>
   <span class='va'>x</span>,
   <span class='va'>data</span>,
   transform.factor <span class='op'>=</span> <span class='cn'>TRUE</span>,
@@ -179,7 +179,7 @@ value of each spectrum is plotted. Spectra may be identified by mouse click.</p>
 <span class='op'>)</span>
 
 <span class='co'># S4 method for hyperSpec,missing</span>
-<span class='fu'>levelplot</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>data</span>, <span class='va'>...</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/pkg/lattice/man/levelplot.html'>levelplot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>data</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='fu'>map.identify</span><span class='op'>(</span>
   <span class='va'>object</span>,
@@ -306,48 +306,66 @@ window.</p>
     <p>C. Beleites</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/vignette.html'>vignette</a></span><span class='op'>(</span><span class='va'>plotting</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/vignette.html'>vignette</a></span><span class='op'>(</span><span class='va'>hyperSpec</span><span class='op'>)</span>
-<span class='op'>}</span>
-
-<span class='fu'>levelplot</span><span class='op'>(</span><span class='va'>spc</span> <span class='op'>~</span> <span class='va'>y</span> <span class='op'>*</span> <span class='va'>x</span>, <span class='va'>faux_cell</span><span class='op'>[</span>, , <span class='fl'>1003</span><span class='op'>]</span><span class='op'>)</span> <span class='co'># properly rotated</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: device support for raster images unknown, ignoring 'raster=TRUE'</span></div><div class='img'><img src='levelplot-1.png' alt='' width='466' height='288' /></div><div class='input'><span class='fu'>plotmap</span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>[</span>, , <span class='fl'>1003</span><span class='op'>]</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: device support for raster images unknown, ignoring 'raster=TRUE'</span></div><div class='img'><img src='levelplot-2.png' alt='' width='466' height='288' /></div><div class='input'>
-<span class='co'># plot spectra matrix</span>
-<span class='fu'>levelplot</span><span class='op'>(</span><span class='va'>spc</span> <span class='op'>~</span> <span class='va'>.wavelength</span> <span class='op'>*</span> <span class='va'>t</span>, <span class='va'>laser</span>, contour <span class='op'>=</span> <span class='cn'>TRUE</span>, col <span class='op'>=</span> <span class='st'>"#00000080"</span><span class='op'>)</span>
-</div><div class='img'><img src='levelplot-3.png' alt='' width='466' height='288' /></div><div class='input'><span class='co'># see also plotmat</span>
-
-<span class='fu'>plotmap</span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='va'>region</span> <span class='op'>~</span> <span class='va'>x</span> <span class='op'>*</span> <span class='va'>y</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: device support for raster images unknown, ignoring 'raster=TRUE'</span></div><div class='img'><img src='levelplot-4.png' alt='' width='466' height='288' /></div><div class='input'>
-<span class='co'># Voronoi plots</span>
-<span class='va'>smpl</span> <span class='op'>&lt;-</span> <span class='fu'><a href='sample.html'>sample</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='fl'>300</span><span class='op'>)</span>
-<span class='fu'>plotmap</span><span class='op'>(</span><span class='va'>smpl</span>, <span class='va'>region</span> <span class='op'>~</span> <span class='va'>x</span> <span class='op'>*</span> <span class='va'>y</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: device support for raster images unknown, ignoring 'raster=TRUE'</span></div><div class='img'><img src='levelplot-5.png' alt='' width='466' height='288' /></div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'>tripack</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='fu'>plotvoronoi</span><span class='op'>(</span><span class='va'>smpl</span>, <span class='va'>region</span> <span class='op'>~</span> <span class='va'>x</span> <span class='op'>*</span> <span class='va'>y</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div><div class='output co'>#&gt; <span class='message'>Loading required package: tripack</span></div><div class='output co'>#&gt; <span class='message'>Loading required namespace: deldir</span></div><div class='output co'>#&gt; <span class='warning'>Warning: device support for raster images unknown, ignoring 'raster=TRUE'</span></div><div class='img'><img src='levelplot-6.png' alt='' width='466' height='288' /></div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'>deldir</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='fu'>plotvoronoi</span><span class='op'>(</span><span class='va'>smpl</span>, <span class='va'>region</span> <span class='op'>~</span> <span class='va'>x</span> <span class='op'>*</span> <span class='va'>y</span>,
-    use.tripack <span class='op'>=</span> <span class='cn'>FALSE</span>
-  <span class='op'>)</span>
-<span class='op'>}</span>
-</div><div class='output co'>#&gt; <span class='message'>Loading required package: deldir</span></div><div class='output co'>#&gt; <span class='message'>deldir 0.2-10      Nickname: "Morpheus and Euripides"</span></div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>     Note 1: As of version 0.2-1, error handling in this </span>
-#&gt; <span class='message'>     package was amended to conform to the usual R protocol. </span>
-#&gt; <span class='message'>     The deldir() function now actually throws an error </span>
-#&gt; <span class='message'>     when one occurs, rather than displaying an error number </span>
-#&gt; <span class='message'>     and returning a NULL.</span>
-#&gt; <span class='message'> </span>
-#&gt; <span class='message'>     Note 2:  As of version 0.1-29 the arguments "col" </span>
-#&gt; <span class='message'>     and "lty" of plot.deldir() had their names changed to </span>
-#&gt; <span class='message'>     "cmpnt_col" and "cmpnt_lty" respectively basically </span>
-#&gt; <span class='message'>     to allow "col" and and "lty" to be passed as "..." </span>
-#&gt; <span class='message'>     arguments.</span>
-#&gt; <span class='message'> </span>
-#&gt; <span class='message'>     Note 3: As of version 0.1-29 the "plotit" argument </span>
-#&gt; <span class='message'>     of deldir() was changed to (simply) "plot".</span>
-#&gt; <span class='message'> </span>
-#&gt; <span class='message'>     See the help for deldir() and plot.deldir().</span></div><div class='output co'>#&gt; <span class='warning'>Warning: device support for raster images unknown, ignoring 'raster=TRUE'</span></div><div class='img'><img src='levelplot-7.png' alt='' width='466' height='288' /></div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/vignette.html'>vignette</a></span><span class='op'>(</span><span class='va'>plotting</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/vignette.html'>vignette</a></span><span class='op'>(</span><span class='va'>hyperSpec</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/pkg/lattice/man/levelplot.html'>levelplot</a></span><span class='op'>(</span><span class='va'>spc</span> <span class='op'>~</span> <span class='va'>y</span> <span class='op'>*</span> <span class='va'>x</span>, <span class='va'>faux_cell</span><span class='op'>[</span>, , <span class='fl'>1003</span><span class='op'>]</span><span class='op'>)</span> <span class='co'># properly rotated</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>device support for raster images unknown, ignoring 'raster=TRUE'</span>
+<span class='r-plt img'><img src='levelplot-1.png' alt='' width='466' height='288' /></span>
+<span class='r-in'><span class='fu'>plotmap</span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>[</span>, , <span class='fl'>1003</span><span class='op'>]</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>device support for raster images unknown, ignoring 'raster=TRUE'</span>
+<span class='r-plt img'><img src='levelplot-2.png' alt='' width='466' height='288' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># plot spectra matrix</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/pkg/lattice/man/levelplot.html'>levelplot</a></span><span class='op'>(</span><span class='va'>spc</span> <span class='op'>~</span> <span class='va'>.wavelength</span> <span class='op'>*</span> <span class='va'>t</span>, <span class='va'>laser</span>, contour <span class='op'>=</span> <span class='cn'>TRUE</span>, col <span class='op'>=</span> <span class='st'>"#00000080"</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='levelplot-3.png' alt='' width='466' height='288' /></span>
+<span class='r-in'><span class='co'># see also plotmat</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>plotmap</span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='va'>region</span> <span class='op'>~</span> <span class='va'>x</span> <span class='op'>*</span> <span class='va'>y</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>device support for raster images unknown, ignoring 'raster=TRUE'</span>
+<span class='r-plt img'><img src='levelplot-4.png' alt='' width='466' height='288' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Voronoi plots</span></span>
+<span class='r-in'><span class='va'>smpl</span> <span class='op'>&lt;-</span> <span class='fu'><a href='sample.html'>sample</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='fl'>300</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>plotmap</span><span class='op'>(</span><span class='va'>smpl</span>, <span class='va'>region</span> <span class='op'>~</span> <span class='va'>x</span> <span class='op'>*</span> <span class='va'>y</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>device support for raster images unknown, ignoring 'raster=TRUE'</span>
+<span class='r-plt img'><img src='levelplot-5.png' alt='' width='466' height='288' /></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'>tripack</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>  <span class='fu'>plotvoronoi</span><span class='op'>(</span><span class='va'>smpl</span>, <span class='va'>region</span> <span class='op'>~</span> <span class='va'>x</span> <span class='op'>*</span> <span class='va'>y</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required package: tripack</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required namespace: deldir</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>device support for raster images unknown, ignoring 'raster=TRUE'</span>
+<span class='r-plt img'><img src='levelplot-6.png' alt='' width='466' height='288' /></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'>deldir</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>  <span class='fu'>plotvoronoi</span><span class='op'>(</span><span class='va'>smpl</span>, <span class='va'>region</span> <span class='op'>~</span> <span class='va'>x</span> <span class='op'>*</span> <span class='va'>y</span>,</span>
+<span class='r-in'>    use.tripack <span class='op'>=</span> <span class='cn'>FALSE</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required package: deldir</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> deldir 1.0-6      Nickname: "Mendacious Cosmonaut"</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>      The syntax of deldir() has had an important change. </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>      The arguments have been re-ordered (the first three </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>      are now "x, y, z") and some arguments have been </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>      eliminated.  The handling of the z ("tags") </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>      argument has been improved.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>  </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>      The "dummy points" facility has been removed. </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>      This facility was a historical artefact, was really </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>      of no use to anyone, and had hung around much too </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>      long.  Since there are no longer any "dummy points", </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>      the structure of the value returned by deldir() has </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>      changed slightly.  The arguments of plot.deldir() </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>      have been adjusted accordingly; e.g. the character </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>      string "wpoints" ("which points") has been </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>      replaced by the logical scalar "showpoints". </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>      The user should consult the help files.</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>device support for raster images unknown, ignoring 'raster=TRUE'</span>
+<span class='r-plt img'><img src='levelplot-7.png' alt='' width='466' height='288' /></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

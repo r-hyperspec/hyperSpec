@@ -182,8 +182,8 @@
 <li>There is a built-in colorblind friendly qualitative palette <code>palette_colorblind</code>; please use whenever possible.</li>
 <li>These next two palettes are also colorblind-friendly:
 <ul>
-<li>For a diverging palette, please use <code><a href="https://colorspace.R-Forge.R-project.org//reference/hcl_palettes.html">colorspace::diverging_hcl(n, palette = "Blue-Red2")</a></code>.</li>
-<li>For a sequential palette, please use <code><a href="https://colorspace.R-Forge.R-project.org//reference/hcl_palettes.html">colorspace::sequential_hcl(n, palette = "viridis")</a></code>.</li>
+<li>For a diverging palette, please use <code>colorspace::diverging_hcl(n, palette = "Blue-Red2")</code>.</li>
+<li>For a sequential palette, please use <code>colorspace::sequential_hcl(n, palette = "viridis")</code>.</li>
 </ul>
 </li>
 </ul>
@@ -233,7 +233,7 @@
 <li>Figure and Table should be capitalized when mentioned in text, e.g. Figure 1. Do not use “Fig.”.</li>
 <li>Mention of the software <code>R</code> should be formatted with backticks.</li>
 <li>Sourced files should make vignette authors’ life easier, and should not contain anything important to end users/readers.</li>
-<li>The first code block should start with <code><a href="https://rdrr.io/r/base/rm.html">rm(list = ls())</a></code> to ensure a clean, reproducible workspace.</li>
+<li>The first code block should start with <code>rm(list = ls())</code> to ensure a clean, reproducible workspace.</li>
 <li>If you need to leave a note in a vignette, please use this <a href="https://github.com/cbeleites/hyperSpec/pull/147#issuecomment-646685392">method</a>.</li>
 <li>Figure sizes are largely standardized, via the hook defined in <code>vignette-default-settings.R</code>. See the discussion there.</li>
 </ul>

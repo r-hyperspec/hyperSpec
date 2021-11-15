@@ -180,62 +180,71 @@ example data from Thermo Galactic's spc file format specification.</p>
     <p>C. Beleites and Thermo Galactic</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='va'>barbiturates</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt; hyperSpec object
-#&gt;    1 spectra
-#&gt;    4 data columns
-#&gt;    37 data points / spectrum
-#&gt; 
-#&gt; [[2]]
-#&gt; hyperSpec object
-#&gt;    1 spectra
-#&gt;    4 data columns
-#&gt;    34 data points / spectrum
-#&gt; 
-#&gt; [[3]]
-#&gt; hyperSpec object
-#&gt;    1 spectra
-#&gt;    4 data columns
-#&gt;    29 data points / spectrum
-#&gt; 
-#&gt; [[4]]
-#&gt; hyperSpec object
-#&gt;    1 spectra
-#&gt;    4 data columns
-#&gt;    26 data points / spectrum
-#&gt; 
-#&gt; [[5]]
-#&gt; hyperSpec object
-#&gt;    1 spectra
-#&gt;    4 data columns
-#&gt;    22 data points / spectrum
-#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>barbiturates</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 5</div><div class='input'>
-<span class='va'>barb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='collapse.html'>collapse</a></span><span class='op'>(</span><span class='va'>barbiturates</span>, collapse.equal <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-<span class='va'>barb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='wl_sort.html'>wl_sort</a></span><span class='op'>(</span><span class='va'>barb</span><span class='op'>)</span>
-
-<span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>barb</span>,
-  lines.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>type <span class='op'>=</span> <span class='st'>"h"</span><span class='op'>)</span>,
-  col <span class='op'>=</span> <span class='fu'><a href='palette_matlab.html'>palette_matlab_dark</a></span><span class='op'>(</span><span class='fl'>5</span><span class='op'>)</span>, stacked <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  stacked.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>add.factor <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span>
-<span class='op'>)</span>
-</div><div class='img'><img src='barbiturates-1.png' alt='' width='466' height='288' /></div><div class='input'>
-<span class='kw'>if</span> <span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'><a href='http://latticeextra.r-forge.r-project.org/'>latticeExtra</a></span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='fu'>levelplot</span><span class='op'>(</span><span class='va'>spc</span> <span class='op'>~</span> <span class='va'>.wavelength</span> <span class='op'>*</span> <span class='va'>z</span>, <span class='fu'><a href='Math2,hyperSpec-method.html'>log</a></span><span class='op'>(</span><span class='va'>barb</span><span class='op'>)</span>,
-    panel <span class='op'>=</span> <span class='va'>panel.levelplot.points</span>,
-    cex <span class='op'>=</span> <span class='fl'>0.3</span>, col <span class='op'>=</span> <span class='st'>"#00000000"</span>, col.regions <span class='op'>=</span> <span class='fu'><a href='palette_matlab.html'>palette_matlab</a></span><span class='op'>(</span><span class='fl'>20</span><span class='op'>)</span>
-  <span class='op'>)</span>
-<span class='op'>}</span>
-</div><div class='output co'>#&gt; <span class='message'>Loading required package: latticeExtra</span></div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘latticeExtra’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:ggplot2’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    layer</span></div><div class='output co'>#&gt; <span class='warning'>Warning: device support for raster images unknown, ignoring 'raster=TRUE'</span></div><div class='img'><img src='barbiturates-2.png' alt='' width='466' height='288' /></div><div class='input'>
-<span class='fu'><a href='plotc.html'>plotc</a></span><span class='op'>(</span><span class='fu'><a href='apply.html'>apply</a></span><span class='op'>(</span><span class='va'>barb</span><span class='op'>[</span>, , <span class='fl'>42.9</span> <span class='op'>~</span> <span class='fl'>43.2</span><span class='op'>]</span>, <span class='fl'>1</span>, <span class='va'>sum</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>, <span class='va'>spc</span> <span class='op'>~</span> <span class='va'>z</span>,
-  panel <span class='op'>=</span> <span class='va'>panel.lines</span>, ylab <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/expression.html'>expression</a></span><span class='op'>(</span><span class='va'>I</span><span class='op'>[</span><span class='va'>m</span> <span class='op'>/</span> <span class='va'>z</span> <span class='op'>==</span> <span class='fl'>43</span><span class='op'>]</span> <span class='op'>/</span> <span class='st'>"a.u."</span><span class='op'>)</span>
-<span class='op'>)</span>
-</div><div class='img'><img src='barbiturates-3.png' alt='' width='466' height='288' /></div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='va'>barbiturates</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[1]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    37 data points / spectrum</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[2]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    34 data points / spectrum</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[3]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    29 data points / spectrum</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[4]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    26 data points / spectrum</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[5]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    22 data points / spectrum</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>barbiturates</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 5</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>barb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='collapse.html'>collapse</a></span><span class='op'>(</span><span class='va'>barbiturates</span>, collapse.equal <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>barb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='wl_sort.html'>wl_sort</a></span><span class='op'>(</span><span class='va'>barb</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>barb</span>,</span>
+<span class='r-in'>  lines.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>type <span class='op'>=</span> <span class='st'>"h"</span><span class='op'>)</span>,</span>
+<span class='r-in'>  col <span class='op'>=</span> <span class='fu'><a href='palette_matlab.html'>palette_matlab_dark</a></span><span class='op'>(</span><span class='fl'>5</span><span class='op'>)</span>, stacked <span class='op'>=</span> <span class='cn'>TRUE</span>,</span>
+<span class='r-in'>  stacked.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>add.factor <span class='op'>=</span> <span class='fl'>.2</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-plt img'><img src='barbiturates-1.png' alt='' width='466' height='288' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'><a href='http://latticeextra.r-forge.r-project.org/'>latticeExtra</a></span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>  <span class='fu'><a href='https://rdrr.io/pkg/lattice/man/levelplot.html'>levelplot</a></span><span class='op'>(</span><span class='va'>spc</span> <span class='op'>~</span> <span class='va'>.wavelength</span> <span class='op'>*</span> <span class='va'>z</span>, <span class='fu'><a href='Math2,hyperSpec-method.html'>log</a></span><span class='op'>(</span><span class='va'>barb</span><span class='op'>)</span>,</span>
+<span class='r-in'>    panel <span class='op'>=</span> <span class='va'>panel.levelplot.points</span>,</span>
+<span class='r-in'>    cex <span class='op'>=</span> <span class='fl'>0.3</span>, col <span class='op'>=</span> <span class='st'>"#00000000"</span>, col.regions <span class='op'>=</span> <span class='fu'><a href='palette_matlab.html'>palette_matlab</a></span><span class='op'>(</span><span class='fl'>20</span><span class='op'>)</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required package: latticeExtra</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Attaching package: ‘latticeExtra’</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> The following object is masked from ‘package:ggplot2’:</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>     layer</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>device support for raster images unknown, ignoring 'raster=TRUE'</span>
+<span class='r-plt img'><img src='barbiturates-2.png' alt='' width='466' height='288' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='plotc.html'>plotc</a></span><span class='op'>(</span><span class='fu'><a href='apply.html'>apply</a></span><span class='op'>(</span><span class='va'>barb</span><span class='op'>[</span>, , <span class='fl'>42.9</span> <span class='op'>~</span> <span class='fl'>43.2</span><span class='op'>]</span>, <span class='fl'>1</span>, <span class='va'>sum</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>, <span class='va'>spc</span> <span class='op'>~</span> <span class='va'>z</span>,</span>
+<span class='r-in'>  panel <span class='op'>=</span> <span class='va'>panel.lines</span>, ylab <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/expression.html'>expression</a></span><span class='op'>(</span><span class='va'>I</span><span class='op'>[</span><span class='va'>m</span> <span class='op'>/</span> <span class='va'>z</span> <span class='op'>==</span> <span class='fl'>43</span><span class='op'>]</span> <span class='op'>/</span> <span class='st'>"a.u."</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-plt img'><img src='barbiturates-3.png' alt='' width='466' height='288' /></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -128,7 +128,7 @@
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 class="date">2021-08-21</h4>
+            <h4 class="date">2021-11-15</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/master/vignettes/flu.Rmd"><code>vignettes/flu.Rmd</code></a></small>
       <div class="hidden name"><code>flu.Rmd</code></div>
@@ -347,10 +347,10 @@ In order to draw the confidence interval into the calibration graph, we can eith
 <span class="va">ci</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">calibration</span>, newdata <span class="op">=</span> <span class="va">int</span>, interval <span class="op">=</span> <span class="st">"confidence"</span>, level <span class="op">=</span> <span class="fl">0.99</span><span class="op">)</span>
 
 <span class="va">panel.ci</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span>, <span class="va">intensity</span>, <span class="va">ci.lwr</span>, <span class="va">ci.upr</span>, <span class="va">ci.col</span> <span class="op">=</span> <span class="st">"#606060"</span><span class="op">)</span> <span class="op">{</span>
-  <span class="fu">panel.xyplot</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span><span class="op">)</span>
-  <span class="fu">panel.lmline</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span><span class="op">)</span>
-  <span class="fu">panel.lines</span><span class="op">(</span><span class="va">ci.lwr</span>, <span class="va">intensity</span>, col <span class="op">=</span> <span class="va">ci.col</span><span class="op">)</span>
-  <span class="fu">panel.lines</span><span class="op">(</span><span class="va">ci.upr</span>, <span class="va">intensity</span>, col <span class="op">=</span> <span class="va">ci.col</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.xyplot.html">panel.xyplot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.functions.html">panel.lmline</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/llines.html">panel.lines</a></span><span class="op">(</span><span class="va">ci.lwr</span>, <span class="va">intensity</span>, col <span class="op">=</span> <span class="va">ci.col</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/llines.html">panel.lines</a></span><span class="op">(</span><span class="va">ci.upr</span>, <span class="va">intensity</span>, col <span class="op">=</span> <span class="va">ci.col</span><span class="op">)</span>
 <span class="op">}</span>
 
 <span class="fu"><a href="../reference/plotc.html">plotc</a></span><span class="op">(</span><span class="va">flu</span>,
@@ -384,14 +384,14 @@ Our prediction example is handled by another customized panel function:</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">panel.predict</span> <span class="op">&lt;-</span>
   <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span>, <span class="va">intensity</span>, <span class="va">ci</span>, <span class="va">pred.col</span> <span class="op">=</span> <span class="st">"red"</span>, <span class="va">pred.pch</span> <span class="op">=</span> <span class="fl">19</span>, <span class="va">pred.cex</span> <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu">panel.xyplot</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.xyplot.html">panel.xyplot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span><span class="op">)</span>
     <span class="fu"><a href="https://rdrr.io/r/base/mapply.html">mapply</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">i</span>, <span class="va">lwr</span>, <span class="va">upr</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span>
-      <span class="fu">panel.lines</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">lwr</span>, <span class="va">upr</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">i</span>, <span class="fl">2</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/llines.html">panel.lines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">lwr</span>, <span class="va">upr</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">i</span>, <span class="fl">2</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span>
     <span class="op">}</span>,
     <span class="va">intensity</span>, <span class="va">ci</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span>, <span class="va">ci</span><span class="op">[</span>, <span class="fl">3</span><span class="op">]</span>,
     MoreArgs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>col <span class="op">=</span> <span class="va">pred.col</span><span class="op">)</span>
     <span class="op">)</span>
-    <span class="fu">panel.xyplot</span><span class="op">(</span><span class="va">ci</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span>, <span class="va">intensity</span>, col <span class="op">=</span> <span class="va">pred.col</span>, pch <span class="op">=</span> <span class="va">pred.pch</span>, cex <span class="op">=</span> <span class="va">pred.cex</span>, type <span class="op">=</span> <span class="st">"p"</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.xyplot.html">panel.xyplot</a></span><span class="op">(</span><span class="va">ci</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span>, <span class="va">intensity</span>, col <span class="op">=</span> <span class="va">pred.col</span>, pch <span class="op">=</span> <span class="va">pred.pch</span>, cex <span class="op">=</span> <span class="va">pred.cex</span>, type <span class="op">=</span> <span class="st">"p"</span><span class="op">)</span>
   <span class="op">}</span>
 
 <span class="fu"><a href="../reference/plotc.html">plotc</a></span><span class="op">(</span><span class="va">flu</span>,
@@ -416,81 +416,86 @@ Figure 4.4: calibration function and its 99% confidence interval and predicted p
 <h1 class="hasAnchor">
 <a href="#session-info" class="anchor"></a>Session Info</h1>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/sessioninfo/man/session_info.html">session_info</a></span><span class="op">(</span><span class="st">"hyperSpec"</span><span class="op">)</span>
-<span class="co">#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────</span>
-<span class="co">#&gt;  setting  value                       </span>
-<span class="co">#&gt;  version  R version 4.1.1 (2021-08-10)</span>
-<span class="co">#&gt;  os       macOS Catalina 10.15.7      </span>
-<span class="co">#&gt;  system   x86_64, darwin17.0          </span>
-<span class="co">#&gt;  ui       X11                         </span>
-<span class="co">#&gt;  language (EN)                        </span>
-<span class="co">#&gt;  collate  en_US.UTF-8                 </span>
-<span class="co">#&gt;  ctype    en_US.UTF-8                 </span>
-<span class="co">#&gt;  tz       UTC                         </span>
-<span class="co">#&gt;  date     2021-08-21                  </span>
+<code class="sourceCode R"><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html">session_info</a></span><span class="op">(</span><span class="st">"hyperSpec"</span><span class="op">)</span>
+<span class="co">#&gt; ─ Session info  👱  🎀  🏌🏿   ────────────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt;  hash: person: blond hair, ribbon, person golfing: dark skin tone</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;  setting  value</span>
+<span class="co">#&gt;  version  R version 4.1.2 (2021-11-01)</span>
+<span class="co">#&gt;  os       macOS Catalina 10.15.7</span>
+<span class="co">#&gt;  system   x86_64, darwin17.0</span>
+<span class="co">#&gt;  ui       X11</span>
+<span class="co">#&gt;  language (EN)</span>
+<span class="co">#&gt;  collate  en_US.UTF-8</span>
+<span class="co">#&gt;  ctype    en_US.UTF-8</span>
+<span class="co">#&gt;  tz       UTC</span>
+<span class="co">#&gt;  date     2021-11-15</span>
+<span class="co">#&gt;  pandoc   2.7.3 @ /usr/local/bin/ (via rmarkdown)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span>
-<span class="co">#&gt;  package        * version      date       lib source        </span>
+<span class="co">#&gt;  package        * version      date (UTC) lib source</span>
 <span class="co">#&gt;  brio             1.1.2        2021-04-23 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  callr            3.7.0        2021-04-20 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  cli              3.0.1        2021-07-17 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  cli              3.1.0        2021-10-27 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  colorspace       2.0-2        2021-06-24 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  crayon           1.4.1        2021-02-08 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  desc             1.3.0        2021-03-05 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  diffobj          0.3.4        2021-03-22 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  digest           0.6.27       2020-10-24 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  crayon           1.4.2        2021-10-29 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  desc             1.4.0        2021-09-28 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  diffobj          0.3.5        2021-10-05 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  digest           0.6.28       2021-09-23 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  dplyr            1.0.7        2021-06-18 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  ellipsis         0.3.2        2021-04-29 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  evaluate         0.14         2019-05-28 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  fansi            0.5.0        2021-05-25 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  farver           2.1.0        2021-02-28 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  generics         0.1.0        2020-10-31 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  generics         0.1.1        2021-10-25 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  ggplot2        * 3.3.5        2021-06-25 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  glue             1.4.2        2020-08-27 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  glue             1.5.0        2021-11-07 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  gtable           0.3.0        2019-03-25 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  hyperSpec      * 0.200.0.9000 2021-08-21 [1] local         </span>
-<span class="co">#&gt;  hySpc.testthat   0.2.1.9000   2021-08-21 [1] local         </span>
+<span class="co">#&gt;  hyperSpec      * 0.200.0.9000 2021-11-15 [1] local</span>
+<span class="co">#&gt;  hySpc.testthat   0.2.1.9000   2021-11-15 [1] local</span>
 <span class="co">#&gt;  isoband          0.2.5        2021-07-13 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  jpeg             0.1-9        2021-07-24 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  jsonlite         1.7.2        2020-12-09 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  labeling         0.4.2        2020-10-20 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  lattice        * 0.20-44      2021-05-02 [2] CRAN (R 4.1.1)</span>
+<span class="co">#&gt;  lattice        * 0.20-45      2021-09-22 [2] CRAN (R 4.1.2)</span>
 <span class="co">#&gt;  latticeExtra     0.6-29       2019-12-19 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  lazyeval         0.2.2        2019-03-15 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  lifecycle        1.0.0        2021-02-15 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  lifecycle        1.0.1        2021-09-24 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  magrittr         2.0.1        2020-11-17 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  MASS             7.3-54       2021-05-03 [2] CRAN (R 4.1.1)</span>
-<span class="co">#&gt;  Matrix           1.3-4        2021-06-01 [2] CRAN (R 4.1.1)</span>
-<span class="co">#&gt;  mgcv             1.8-36       2021-06-01 [2] CRAN (R 4.1.1)</span>
+<span class="co">#&gt;  MASS             7.3-54       2021-05-03 [2] CRAN (R 4.1.2)</span>
+<span class="co">#&gt;  Matrix           1.3-4        2021-06-01 [2] CRAN (R 4.1.2)</span>
+<span class="co">#&gt;  mgcv             1.8-38       2021-10-06 [2] CRAN (R 4.1.2)</span>
 <span class="co">#&gt;  munsell          0.5.0        2018-06-12 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  nlme             3.1-152      2021-02-04 [2] CRAN (R 4.1.1)</span>
-<span class="co">#&gt;  pillar           1.6.2        2021-07-29 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  nlme             3.1-153      2021-09-07 [2] CRAN (R 4.1.2)</span>
+<span class="co">#&gt;  pillar           1.6.4        2021-10-18 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  pkgconfig        2.0.3        2019-09-22 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  pkgload          1.2.1        2021-04-06 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  pkgload          1.2.3        2021-10-13 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  png              0.1-7        2013-12-03 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  praise           1.0.0        2015-08-11 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  processx         3.5.2        2021-04-30 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  ps               1.6.0        2021-02-28 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  purrr            0.3.4        2020-04-17 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  R6               2.5.1        2021-08-19 [1] CRAN (R 4.1.1)</span>
+<span class="co">#&gt;  R6               2.5.1        2021-08-19 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  RColorBrewer     1.1-2        2014-12-07 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  rematch2         2.1.2        2020-05-01 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  rlang            0.4.11       2021-04-30 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  rlang            0.4.12       2021-10-18 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  rprojroot        2.0.2        2020-11-15 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  rstudioapi       0.13         2020-11-12 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  scales           1.1.1        2020-05-11 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  testthat         3.0.4        2021-07-01 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  tibble           3.1.3        2021-07-23 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  testthat         3.1.0        2021-10-04 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  tibble           3.1.6        2021-11-07 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  tidyselect       1.1.1        2021-04-30 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  utf8             1.2.2        2021-07-24 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  vctrs            0.3.8        2021-04-29 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  viridisLite      0.4.0        2021-04-13 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  waldo            0.2.5        2021-03-08 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  waldo            0.3.1        2021-09-14 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  withr            2.4.2        2021-04-18 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt;  xml2             1.3.2        2020-04-23 [1] CRAN (R 4.1.0)</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; [1] /Users/runner/work/_temp/Library</span>
-<span class="co">#&gt; [2] /Library/Frameworks/R.framework/Versions/4.1/Resources/library</span></code></pre></div>
+<span class="co">#&gt;  [1] /Users/runner/work/_temp/Library</span>
+<span class="co">#&gt;  [2] /Library/Frameworks/R.framework/Versions/4.1/Resources/library</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ──────────────────────────────────────────────────────────────────────────────────────────────────</span></code></pre></div>
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1 class="hasAnchor">

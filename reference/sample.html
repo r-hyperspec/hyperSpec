@@ -42,7 +42,7 @@
   
 
 <meta property="og:title" content="Sample or permute rows of hyperSpec, data.frame, or matrix — sample" />
-<meta property="og:description" content="hyperSprc::sample() takes a random sample (drawn with or  without
+<meta property="og:description" content="sample() takes a random sample (drawn with or  without
 replacement) of rows from the object x." />
 
 
@@ -162,7 +162,7 @@ replacement) of rows from the object x." />
     </div>
 
     <div class="ref-description">
-    <p><code>hyperSprc::sample()</code> takes a random sample (drawn with or  without
+    <p><code>sample()</code> takes a random sample (drawn with or  without
 replacement) of rows from the object <code>x</code>.</p>
     </div>
 
@@ -199,7 +199,7 @@ elements of the vector being sampled.</p></td>
     </tr>
     <tr>
       <th>index</th>
-      <td><p>(logical): If <code>FALSE</code>, object of <code><a href='https://rdrr.io/r/base/class.html'>class(x)</a></code> is returned,
+      <td><p>(logical): If <code>FALSE</code>, object of <code>class(x)</code> is returned,
 if <code>TRUE</code>, numeric vector is returned.</p></td>
     </tr>
     <tr>
@@ -227,41 +227,51 @@ of the result. Applicable only if <code>index = FALSE</code>.</p></td>
     <p>C. Beleites, V. Gegzna</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>2021</span><span class='op'>)</span>
-
-<span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    3 spectra
-#&gt;    3 data columns
-#&gt;    181 data points / spectrum</div><div class='input'>
-<span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span>, index <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 4 6 2</div><div class='input'>
-<span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span>, index <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 6 3 6</div><div class='input'>
-<span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>8</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span>, index <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 6 5 1 4 3 4 2 3</div><div class='input'>
-
-<span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>flu</span>, col <span class='op'>=</span> <span class='st'>"darkgray"</span><span class='op'>)</span>
-</div><div class='input'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='st'>"red"</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='img'><img src='sample-1.png' alt='' width='466' height='288' /></div><div class='input'>
-<span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>flu</span>, col <span class='op'>=</span> <span class='st'>"darkgray"</span><span class='op'>)</span>
-</div><div class='input'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,
-  col <span class='op'>=</span> <span class='st'>"#0000FF80"</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  lines.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>lwd <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
-<span class='op'>)</span>
-</div><div class='img'><img src='sample-2.png' alt='' width='466' height='288' /></div><div class='input'>
-<span class='fu'>sample</span><span class='op'>(</span><span class='va'>cars</span>, <span class='fl'>2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    speed dist
-#&gt; 37    19   46
-#&gt; 22    14   60</div><div class='input'>
-<span class='fu'>sample</span><span class='op'>(</span><span class='va'>cars</span>, <span class='fl'>2</span>, index <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 31 48</div><div class='input'>
-<span class='fu'>sample</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>24</span>, <span class='fl'>6</span><span class='op'>)</span>, <span class='fl'>2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
-#&gt; [1,]    2    8   14   20
-#&gt; [2,]    3    9   15   21</div><div class='input'>
-<span class='fu'>sample</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>24</span>, <span class='fl'>6</span><span class='op'>)</span>, <span class='fl'>2</span>, index <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 4 5</div></pre>
+    <pre class="examples"><span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>2021</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    181 data points / spectrum</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span>, index <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 4 6 2</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span>, index <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 6 3 6</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>8</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span>, index <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 6 5 1 4 3 4 2 3</span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>flu</span>, col <span class='op'>=</span> <span class='st'>"darkgray"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='st'>"red"</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='sample-1.png' alt='' width='466' height='288' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>flu</span>, col <span class='op'>=</span> <span class='st'>"darkgray"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='fu'>sample</span><span class='op'>(</span><span class='va'>flu</span>, <span class='fl'>3</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
+<span class='r-in'>  col <span class='op'>=</span> <span class='st'>"#0000FF80"</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span>,</span>
+<span class='r-in'>  lines.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>lwd <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-plt img'><img src='sample-2.png' alt='' width='466' height='288' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>sample</span><span class='op'>(</span><span class='va'>cars</span>, <span class='fl'>2</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    speed dist</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 37    19   46</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22    14   60</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>sample</span><span class='op'>(</span><span class='va'>cars</span>, <span class='fl'>2</span>, index <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 31 48</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>sample</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>24</span>, <span class='fl'>6</span><span class='op'>)</span>, <span class='fl'>2</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1] [,2] [,3] [,4]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,]    2    8   14   20</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,]    3    9   15   21</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>sample</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>24</span>, <span class='fl'>6</span><span class='op'>)</span>, <span class='fl'>2</span>, index <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 4 5</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

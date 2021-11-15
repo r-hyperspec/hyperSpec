@@ -165,7 +165,7 @@ for <code>hyperSpec</code> objects</h1>
     </div>
 
     <div class="ref-description">
-    <p>The arithmetical operators <code><a href='https://rdrr.io/r/base/Arithmetic.html'>+</a></code>, <code><a href='https://rdrr.io/r/base/Arithmetic.html'>-</a></code>, <code><a href='https://rdrr.io/r/base/Arithmetic.html'>*</a></code>, <code><a href='https://rdrr.io/r/base/Arithmetic.html'>/</a></code>, <code><a href='https://rdrr.io/r/base/Arithmetic.html'>^</a></code>, <code><a href='https://rdrr.io/r/base/Arithmetic.html'>%%</a></code>, <code><a href='https://rdrr.io/r/base/Arithmetic.html'>%/%</a></code>, and <code><a href='https://rdrr.io/r/base/matmult.html'>%*%</a></code>
+    <p>The arithmetical operators <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>^</code>, <code>%%</code>, <code>%/%</code>, and <code>%*%</code>
 <code>hyperSpec</code> objects.</p>
     </div>
 
@@ -229,8 +229,8 @@ x &lt;!-- %*% y `%*%`(x, y) --&gt;
 
 -x </pre>
 
-<p>The arithmetical operators <code><a href='https://rdrr.io/r/base/Arithmetic.html'>+</a></code>, <code><a href='https://rdrr.io/r/base/Arithmetic.html'>-</a></code>, <code><a href='https://rdrr.io/r/base/Arithmetic.html'>*</a></code>, <code><a href='https://rdrr.io/r/base/Arithmetic.html'>/</a></code>, <code><a href='https://rdrr.io/r/base/Arithmetic.html'>^</a></code>, <code><a href='https://rdrr.io/r/base/Arithmetic.html'>%%</a></code>, <code><a href='https://rdrr.io/r/base/Arithmetic.html'>%/%</a></code>, and
-<code><a href='https://rdrr.io/r/base/matmult.html'>%*%</a></code> work on the  spectra matrix of the <code>hyperSpec</code> object. They have their
+<p>The arithmetical operators <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>^</code>, <code>%%</code>, <code>%/%</code>, and
+<code>%*%</code> work on the  spectra matrix of the <code>hyperSpec</code> object. They have their
 usual meaning (see <a href='https://rdrr.io/r/base/Arithmetic.html'>base::Arithmetic</a>).  The operators work also with
 one <code>hyperSpec</code> object and a numeric object or a matrix of the same
 size as the spectra matrix of the <code>hyperSpec</code> object.</p>
@@ -245,30 +245,35 @@ size as the spectra matrix of the <code>hyperSpec</code> object.</p>
 <p><a href='Comparison.html'>Comparison</a> for comparison operators,
 <a href='Math2,hyperSpec-method.html'>Math</a> for mathematical group generic functions (Math
 and Math2 groups) working on hyperSpec objects.</p>
-<p><a href='https://rdrr.io/r/base/matmult.html'>base::matmult</a> for matrix multiplications with <code><a href='https://rdrr.io/r/base/matmult.html'>%*%</a></code>.</p></div>
+<p><a href='https://rdrr.io/r/base/matmult.html'>base::matmult</a> for matrix multiplications with <code>%*%</code>.</p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>C. Beleites</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>flu</span> <span class='op'>+</span> <span class='va'>flu</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    6 spectra
-#&gt;    3 data columns
-#&gt;    181 data points / spectrum</div><div class='input'><span class='fl'>1</span> <span class='op'>/</span> <span class='va'>flu</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    6 spectra
-#&gt;    3 data columns
-#&gt;    181 data points / spectrum</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/all.html'>all</a></span><span class='op'>(</span><span class='op'>(</span><span class='va'>flu</span> <span class='op'>+</span> <span class='va'>flu</span> <span class='op'>-</span> <span class='fl'>2</span> <span class='op'>*</span> <span class='va'>flu</span><span class='op'>)</span><span class='op'>[[</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>==</span> <span class='fl'>0</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='op'>-</span><span class='va'>flu</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    6 spectra
-#&gt;    3 data columns
-#&gt;    181 data points / spectrum</div><div class='input'><span class='va'>flu</span> <span class='op'>/</span> <span class='va'>flu</span><span class='op'>$</span><span class='va'>c</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    6 spectra
-#&gt;    3 data columns
-#&gt;    181 data points / spectrum</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>flu</span> <span class='op'>+</span> <span class='va'>flu</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    6 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    181 data points / spectrum</span>
+<span class='r-in'><span class='fl'>1</span> <span class='op'>/</span> <span class='va'>flu</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    6 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    181 data points / spectrum</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/all.html'>all</a></span><span class='op'>(</span><span class='op'>(</span><span class='va'>flu</span> <span class='op'>+</span> <span class='va'>flu</span> <span class='op'>-</span> <span class='fl'>2</span> <span class='op'>*</span> <span class='va'>flu</span><span class='op'>)</span><span class='op'>[[</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>==</span> <span class='fl'>0</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] TRUE</span>
+<span class='r-in'><span class='op'>-</span><span class='va'>flu</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    6 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    181 data points / spectrum</span>
+<span class='r-in'><span class='va'>flu</span> <span class='op'>/</span> <span class='va'>flu</span><span class='op'>$</span><span class='va'>c</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    6 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    181 data points / spectrum</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

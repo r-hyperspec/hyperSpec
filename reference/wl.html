@@ -225,27 +225,32 @@ for spectral binning use <code><a href='spc-bin.html'>spc_bin()</a></code>.</p>
     <p>C. Beleites</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='fu'>wl</span><span class='op'>(</span><span class='va'>laser</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] 404.5828 404.6181 404.6534 404.6887 404.7240 404.7592 404.7945 404.8298
-#&gt;  [9] 404.8651 404.9004 404.9357 404.9710 405.0063 405.0416 405.0768 405.1121
-#&gt; [17] 405.1474 405.1827 405.2180 405.2532 405.2885 405.3238 405.3591 405.3944
-#&gt; [25] 405.4296 405.4649 405.5002 405.5355 405.5707 405.6060 405.6413 405.6765
-#&gt; [33] 405.7118 405.7471 405.7823 405.8176</div><div class='input'><span class='co'># convert from wavelength to frequency</span>
-<span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>laser</span><span class='op'>)</span>
-</div><div class='img'><img src='wl-1.png' alt='' width='466' height='288' /></div><div class='input'><span class='fu'>wl</span><span class='op'>(</span><span class='va'>laser</span>, <span class='st'>"f / Hz"</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fl'>2.998e8</span> <span class='op'>*</span> <span class='fu'>wl</span><span class='op'>(</span><span class='va'>laser</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>1e9</span>
-<span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>laser</span><span class='op'>)</span>
-</div><div class='img'><img src='wl-2.png' alt='' width='466' height='288' /></div><div class='input'>
-<span class='co'># convert from Raman shift to wavelength</span>
-<span class='co'># excitation was at 785 nm</span>
-<span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
-</div><div class='img'><img src='wl-3.png' alt='' width='466' height='288' /></div><div class='input'><span class='fu'>wl</span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
-  wl <span class='op'>=</span> <span class='fl'>1e7</span> <span class='op'>/</span> <span class='op'>(</span><span class='fl'>1e7</span> <span class='op'>/</span> <span class='fl'>785</span> <span class='op'>-</span> <span class='fu'>wl</span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>)</span><span class='op'>)</span>,
-  label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/expression.html'>expression</a></span><span class='op'>(</span><span class='va'>lambda</span> <span class='op'>/</span> <span class='va'>nm</span><span class='op'>)</span>
-<span class='op'>)</span>
-<span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
-</div><div class='img'><img src='wl-4.png' alt='' width='466' height='288' /></div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='fu'>wl</span><span class='op'>(</span><span class='va'>laser</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] 404.5828 404.6181 404.6534 404.6887 404.7240 404.7592 404.7945 404.8298</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [9] 404.8651 404.9004 404.9357 404.9710 405.0063 405.0416 405.0768 405.1121</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [17] 405.1474 405.1827 405.2180 405.2532 405.2885 405.3238 405.3591 405.3944</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [25] 405.4296 405.4649 405.5002 405.5355 405.5707 405.6060 405.6413 405.6765</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [33] 405.7118 405.7471 405.7823 405.8176</span>
+<span class='r-in'><span class='co'># convert from wavelength to frequency</span></span>
+<span class='r-in'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>laser</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='wl-1.png' alt='' width='466' height='288' /></span>
+<span class='r-in'><span class='fu'>wl</span><span class='op'>(</span><span class='va'>laser</span>, <span class='st'>"f / Hz"</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fl'>2.998e8</span> <span class='op'>*</span> <span class='fu'>wl</span><span class='op'>(</span><span class='va'>laser</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>1e9</span></span>
+<span class='r-in'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>laser</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='wl-2.png' alt='' width='466' height='288' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># convert from Raman shift to wavelength</span></span>
+<span class='r-in'><span class='co'># excitation was at 785 nm</span></span>
+<span class='r-in'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='wl-3.png' alt='' width='466' height='288' /></span>
+<span class='r-in'><span class='fu'>wl</span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span class='r-in'>  wl <span class='op'>=</span> <span class='fl'>1e7</span> <span class='op'>/</span> <span class='op'>(</span><span class='fl'>1e7</span> <span class='op'>/</span> <span class='fl'>785</span> <span class='op'>-</span> <span class='fu'>wl</span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span class='r-in'>  label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/expression.html'>expression</a></span><span class='op'>(</span><span class='va'>lambda</span> <span class='op'>/</span> <span class='va'>nm</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='wl-4.png' alt='' width='466' height='288' /></span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

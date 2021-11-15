@@ -244,58 +244,65 @@ faster with this first pass being turned off.</p></td>
     <p>C. Beleites</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>barbiturates</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>]</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt; hyperSpec object
-#&gt;    1 spectra
-#&gt;    4 data columns
-#&gt;    37 data points / spectrum
-#&gt; 
-#&gt; [[2]]
-#&gt; hyperSpec object
-#&gt;    1 spectra
-#&gt;    4 data columns
-#&gt;    34 data points / spectrum
-#&gt; 
-#&gt; [[3]]
-#&gt; hyperSpec object
-#&gt;    1 spectra
-#&gt;    4 data columns
-#&gt;    29 data points / spectrum
-#&gt; </div><div class='input'><span class='fu'>collapse</span><span class='op'>(</span><span class='va'>barbiturates</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>]</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    3 spectra
-#&gt;    4 data columns
-#&gt;    57 data points / spectrum</div><div class='input'>
-<span class='va'>a</span> <span class='op'>&lt;-</span> <span class='va'>barbiturates</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
-<span class='va'>b</span> <span class='op'>&lt;-</span> <span class='va'>barbiturates</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span>
-<span class='va'>c</span> <span class='op'>&lt;-</span> <span class='va'>barbiturates</span><span class='op'>[[</span><span class='fl'>3</span><span class='op'>]</span><span class='op'>]</span>
-
-<span class='va'>a</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    1 spectra
-#&gt;    4 data columns
-#&gt;    37 data points / spectrum</div><div class='input'>
-<span class='va'>b</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    1 spectra
-#&gt;    4 data columns
-#&gt;    34 data points / spectrum</div><div class='input'>
-<span class='va'>c</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    1 spectra
-#&gt;    4 data columns
-#&gt;    29 data points / spectrum</div><div class='input'>
-<span class='fu'>collapse</span><span class='op'>(</span><span class='va'>a</span>, <span class='va'>b</span>, <span class='va'>c</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    3 spectra
-#&gt;    4 data columns
-#&gt;    57 data points / spectrum</div><div class='input'>
-<span class='fu'>collapse</span><span class='op'>(</span><span class='va'>barbiturates</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>]</span>, collapse.equal <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    3 spectra
-#&gt;    4 data columns
-#&gt;    57 data points / spectrum</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>barbiturates</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>]</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[1]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    37 data points / spectrum</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[2]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    34 data points / spectrum</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[3]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    29 data points / spectrum</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>collapse</span><span class='op'>(</span><span class='va'>barbiturates</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>]</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    57 data points / spectrum</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>a</span> <span class='op'>&lt;-</span> <span class='va'>barbiturates</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span></span>
+<span class='r-in'><span class='va'>b</span> <span class='op'>&lt;-</span> <span class='va'>barbiturates</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span></span>
+<span class='r-in'><span class='va'>c</span> <span class='op'>&lt;-</span> <span class='va'>barbiturates</span><span class='op'>[[</span><span class='fl'>3</span><span class='op'>]</span><span class='op'>]</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>a</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    37 data points / spectrum</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>b</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    34 data points / spectrum</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>c</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    29 data points / spectrum</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>collapse</span><span class='op'>(</span><span class='va'>a</span>, <span class='va'>b</span>, <span class='va'>c</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    57 data points / spectrum</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>collapse</span><span class='op'>(</span><span class='va'>barbiturates</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>]</span>, collapse.equal <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    57 data points / spectrum</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

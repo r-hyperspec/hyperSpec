@@ -207,7 +207,7 @@ Set <code>0</code> to switch off.</p>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>covariance matrix of size <code><a href='ncol,hyperSpec-method.html'>nwl(x)</a></code> x <code><a href='ncol,hyperSpec-method.html'>nwl(x)</a></code></p>
+    <p>covariance matrix of size <code>nwl(x)</code> x <code>nwl(x)</code></p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='https://rdrr.io/r/stats/cor.html'>stats::cov()</a></code></p></div>
@@ -216,11 +216,14 @@ Set <code>0</code> to switch off.</p>
     <p>C. Beleites</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/image.html'>image</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cov</a></span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='img'><img src='cov-1.png' alt='' width='466' height='288' /></div><div class='input'><span class='va'>pcov</span> <span class='op'>&lt;-</span> <span class='fu'>pooled.cov</span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='va'>faux_cell</span><span class='op'>$</span><span class='va'>region</span><span class='op'>)</span>
-<span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>pcov</span><span class='op'>$</span><span class='va'>means</span><span class='op'>)</span>
-</div><div class='img'><img src='cov-2.png' alt='' width='466' height='288' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/image.html'>image</a></span><span class='op'>(</span><span class='va'>pcov</span><span class='op'>$</span><span class='va'>COV</span><span class='op'>)</span>
-</div><div class='img'><img src='cov-3.png' alt='' width='466' height='288' /></div></pre>
+    <pre class="examples"><span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/image.html'>image</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cov</a></span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='cov-1.png' alt='' width='466' height='288' /></span>
+<span class='r-in'><span class='va'>pcov</span> <span class='op'>&lt;-</span> <span class='fu'>pooled.cov</span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='va'>faux_cell</span><span class='op'>$</span><span class='va'>region</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='plot-methods.html'>plot</a></span><span class='op'>(</span><span class='va'>pcov</span><span class='op'>$</span><span class='va'>means</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='cov-2.png' alt='' width='466' height='288' /></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/image.html'>image</a></span><span class='op'>(</span><span class='va'>pcov</span><span class='op'>$</span><span class='va'>COV</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='cov-3.png' alt='' width='466' height='288' /></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

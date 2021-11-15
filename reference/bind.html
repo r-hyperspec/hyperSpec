@@ -252,59 +252,68 @@ or wavelengths, respectively.</p></div>
     <p>C. Beleites</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='va'>faux_cell</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    875 spectra
-#&gt;    4 data columns
-#&gt;    300 data points / spectrum</div><div class='input'>
-<span class='fu'>bind</span><span class='op'>(</span><span class='st'>"r"</span>, <span class='va'>faux_cell</span>, <span class='va'>faux_cell</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    1750 spectra
-#&gt;    4 data columns
-#&gt;    300 data points / spectrum</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='va'>faux_cell</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    1750 spectra
-#&gt;    4 data columns
-#&gt;    300 data points / spectrum</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='va'>faux_cell</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    875 spectra
-#&gt;    4 data columns
-#&gt;    600 data points / spectrum</div><div class='input'><span class='fu'>bind</span><span class='op'>(</span><span class='st'>"r"</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='va'>faux_cell</span>, <span class='va'>faux_cell</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    2625 spectra
-#&gt;    4 data columns
-#&gt;    300 data points / spectrum</div><div class='input'>
-<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='va'>faux_cell</span><span class='op'>[</span>, , <span class='fl'>600</span><span class='op'>:</span><span class='fl'>605</span><span class='op'>]</span>
-<span class='va'>x</span><span class='op'>$</span><span class='va'>a</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>
-<span class='va'>x</span><span class='op'>@</span><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='va'>x</span><span class='op'>@</span><span class='va'>data</span><span class='op'>[</span>, <span class='fu'><a href='sample.html'>sample</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>]</span> <span class='co'># reorder columns</span>
-
-<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='va'>faux_cell</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>)</span><span class='op'>:</span><span class='fl'>1</span>, , <span class='fl'>1730</span><span class='op'>:</span><span class='fl'>1750</span><span class='op'>]</span> <span class='co'># reorder rows</span>
-<span class='va'>y</span><span class='op'>$</span><span class='va'>b</span> <span class='op'>&lt;-</span> <span class='fl'>2</span>
-
-<span class='fu'>cbind2</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span> <span class='co'># works</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    875 spectra
-#&gt;    6 data columns
-#&gt;    27 data points / spectrum</div><div class='input'>
-<span class='va'>y</span><span class='op'>$</span><span class='va'>y</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fl'>5</span>
-<span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='fu'>cbind2</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># error</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    875 spectra
-#&gt;    6 data columns
-#&gt;    27 data points / spectrum</div><div class='input'>
-<span class='co'># list of hyperSpec objects</span>
-
-<span class='va'>lhy</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>flu</span>, <span class='va'>flu</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/do.call.html'>do.call</a></span><span class='op'>(</span><span class='st'>"rbind"</span>, <span class='va'>lhy</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    12 spectra
-#&gt;    3 data columns
-#&gt;    181 data points / spectrum</div><div class='input'><span class='fu'>bind</span><span class='op'>(</span><span class='st'>"r"</span>, <span class='va'>lhy</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; hyperSpec object
-#&gt;    12 spectra
-#&gt;    3 data columns
-#&gt;    181 data points / spectrum</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='va'>faux_cell</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    875 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    300 data points / spectrum</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>bind</span><span class='op'>(</span><span class='st'>"r"</span>, <span class='va'>faux_cell</span>, <span class='va'>faux_cell</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1750 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    300 data points / spectrum</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='va'>faux_cell</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1750 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    300 data points / spectrum</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='va'>faux_cell</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    875 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    600 data points / spectrum</span>
+<span class='r-in'><span class='fu'>bind</span><span class='op'>(</span><span class='st'>"r"</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>faux_cell</span>, <span class='va'>faux_cell</span>, <span class='va'>faux_cell</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2625 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    300 data points / spectrum</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='va'>faux_cell</span><span class='op'>[</span>, , <span class='fl'>600</span><span class='op'>:</span><span class='fl'>605</span><span class='op'>]</span></span>
+<span class='r-in'><span class='va'>x</span><span class='op'>$</span><span class='va'>a</span> <span class='op'>&lt;-</span> <span class='fl'>1</span></span>
+<span class='r-in'><span class='va'>x</span><span class='op'>@</span><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='va'>x</span><span class='op'>@</span><span class='va'>data</span><span class='op'>[</span>, <span class='fu'><a href='sample.html'>sample</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>]</span> <span class='co'># reorder columns</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='va'>faux_cell</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>faux_cell</span><span class='op'>)</span><span class='op'>:</span><span class='fl'>1</span>, , <span class='fl'>1730</span><span class='op'>:</span><span class='fl'>1750</span><span class='op'>]</span> <span class='co'># reorder rows</span></span>
+<span class='r-in'><span class='va'>y</span><span class='op'>$</span><span class='va'>b</span> <span class='op'>&lt;-</span> <span class='fl'>2</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>cbind2</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span> <span class='co'># works</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    875 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    6 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    27 data points / spectrum</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>y</span><span class='op'>$</span><span class='va'>y</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fl'>5</span></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='fu'>cbind2</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># error</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    875 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    6 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    27 data points / spectrum</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># list of hyperSpec objects</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>lhy</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>flu</span>, <span class='va'>flu</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/do.call.html'>do.call</a></span><span class='op'>(</span><span class='st'>"rbind"</span>, <span class='va'>lhy</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    12 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    181 data points / spectrum</span>
+<span class='r-in'><span class='fu'>bind</span><span class='op'>(</span><span class='st'>"r"</span>, <span class='va'>lhy</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hyperSpec object</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    12 spectra</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3 data columns</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    181 data points / spectrum</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
