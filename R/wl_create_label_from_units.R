@@ -33,7 +33,7 @@
 wl_create_label_from_units <- function(wl_units, greek = FALSE, warn = TRUE,
                                        fail = FALSE, null_ok = FALSE) {
 
-  u_fixed <- .wl_fix_unit_name(wl_units, null_ok = null_ok)
+  u_fixed <- .wl_fix_unit_name(wl_units, null_ok = null_ok, on_failure = "pass")
 
   if (greek) {
     # At first, suffix "_greek" is removed if present to avoid duplication
@@ -102,8 +102,6 @@ hySpc.testthat::test(wl_create_label_from_units) <- function() {
     expect_equal(lbl, expression("Wavelength, nm"))
   })
 
-
-  # FIXME: does not work yet:
 
   test_that("wl_create_label_from_units() fails correnctly", {
 
