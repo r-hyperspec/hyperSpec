@@ -102,18 +102,59 @@ hySpc.testthat::test(wl_create_label_from_units) <- function() {
     expect_silent(wl_create_label_from_units("nm"))
   })
 
-  test_that("wl_create_label_from_units() works with 'nm' (Greek)", {
+  test_that("wl_create_label_from_units() works with unit names (Greek)", {
     # nm Greek
     expect_silent(lbl <- wl_create_label_from_units("nm", greek = TRUE))
     expect_equal(class(lbl), "expression")
     expect_equal(lbl, expression(lambda / nm))
+
+    expect_equal(
+      wl_create_label_from_units("invcm", greek = TRUE),
+      expression(tilde(nu) / cm^-1)
+    )
+
+    # expect_equal(
+    #   wl_create_label_from_units("Raman shift", greek = TRUE),
+    #   expression(Delta * tilde(nu) / cm^-1)
+    # )
+
+    expect_equal(
+      wl_create_label_from_units("eV", greek = TRUE),
+      expression("E / eV")
+    )
+
+    expect_equal(
+      wl_create_label_from_units("THz", greek = TRUE),
+      expression(nu / THz)
+    )
   })
 
-  test_that("wl_create_label_from_units() works with 'nm' (text)", {
+  test_that("wl_create_label_from_units() works with unit names (text)", {
     # nm Text
     expect_silent(lbl <- wl_create_label_from_units("nm", greek = FALSE))
     expect_equal(class(lbl), "expression")
     expect_equal(lbl, expression("Wavelength, nm"))
+
+    expect_equal(
+      wl_create_label_from_units("invcm", greek = FALSE),
+      expression(Wavenumber / cm^-1)
+    )
+
+    expect_equal(
+      wl_create_label_from_units("Raman shift", greek = FALSE),
+      expression(Raman ~ shift / cm^-1)
+    )
+
+    expect_equal(
+      wl_create_label_from_units("eV", greek = FALSE),
+      expression("Energy, eV")
+    )
+
+    expect_equal(
+      wl_create_label_from_units("THz", greek = FALSE),
+      expression("Frequency, THz")
+    )
+
   })
 
 
