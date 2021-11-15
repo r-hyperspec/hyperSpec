@@ -66,6 +66,7 @@
 * The default output of function `summary()` was changed (@GegznaV, cbeleites/hyperSpec#211).
 * New color palette `palette_colorblind` introduced (@bryanhanson).
 * Function `sample()` gains new argument `index`; `sample(..., index = TRUE)` replaced function `isample()` (@GegznaV, #17).
+* New function `wl_create_label_from_units()` that creates labels for wavelength axis (@GegznaV).
 
 
 ## Non-User-Facing Changes from 0.99 Series
