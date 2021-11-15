@@ -90,7 +90,7 @@ hySpc.testthat::test(wl_create_label_from_units) <- function() {
     expect_silent(wl_create_label_from_units("nm"))
   })
 
-  test_that("wl_create_label_from_units() works with `'nm", {
+  test_that("wl_create_label_from_units() works with 'nm'", {
     # nm Greek
     expect_silent(lbl <- wl_create_label_from_units("nm", greek = TRUE))
     expect_equal(class(lbl), "expression")
