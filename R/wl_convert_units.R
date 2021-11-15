@@ -100,17 +100,22 @@ wl_raman2invcm <- function(x, ref_wl) 1e7 / ref_wl - x
 wl_raman2nm    <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
 
 
-# Bring the argument to a conventional name
-
-# FIXME: This function should be documented.
-#        Even if it used for internal purposes.
-#
-#' Fix unit name into "standard" one
+#' Bring argument to a conventional name
 #'
-#' Fix unit name so that it could be used as a standard argument value for other
-#' functions
+#' Fix a string with unit name (for wavelength axis) into a sting that
+#' can be used as a standardized argument value for other \pkg{hyperSpec}
+#' functions, e.g., [wl_convert_units()]. The "standardized" values are:
+#' - `"raman"` for Raman shift in relative 1/cm;
+#' - `"invcm"` for inverted centimeters (1/cm);
+#' - `"nm"`    for nanometers (nm);
+#' - `"ev"`    for electron volts (eV);
+#' - `"freq"`  for frequency (THz);
+#' - `"px"`    for pixels.
 #'
 #' @export
+#'
+#' @examples
+#' .wl_fix_unit_name("wavelength")
 .wl_fix_unit_name <- function(unit, null_ok = FALSE) {
 
   # Allow NULL as the default value
