@@ -2,7 +2,7 @@
 
 #' @include wl_convert_units.R
 #' @author V. Gegzna
-wl_create_label_by_units <- function(wl_units, greek = FALSE, warn = TRUE,
+wl_create_label_from_units <- function(wl_units, greek = FALSE, warn = TRUE,
                                      fail = FALSE) {
 
   u_fixed <- .wl_fix_unit_name(wl_units)
@@ -53,22 +53,22 @@ wl_create_label_by_units <- function(wl_units, greek = FALSE, warn = TRUE,
 
 # Unit tests -----------------------------------------------------------------
 
-hySpc.testthat::test(wl_create_label_by_units) <- function() {
-  context("wl_create_label_by_units")
+hySpc.testthat::test(wl_create_label_from_units) <- function() {
+  context("wl_create_label_from_units")
 
-  test_that("wl_create_label_by_units() works", {
-    expect_error(wl_create_label_by_units(), 'argument "wl_units" is missing')
-    expect_silent(wl_create_label_by_units("nm"))
+  test_that("wl_create_label_from_units() works", {
+    expect_error(wl_create_label_from_units(), 'argument "wl_units" is missing')
+    expect_silent(wl_create_label_from_units("nm"))
   })
 
-  test_that("wl_create_label_by_units() works with `'nm", {
+  test_that("wl_create_label_from_units() works with `'nm", {
     # nm Greek
-    expect_silent(lbl <- wl_create_label_by_units("nm", greek = TRUE))
+    expect_silent(lbl <- wl_create_label_from_units("nm", greek = TRUE))
     expect_equal(class(lbl), "expression")
     expect_equal(lbl, expression(lambda / nm))
 
     # nm Text
-    expect_silent(lbl <- wl_create_label_by_units("nm", greek = FALSE))
+    expect_silent(lbl <- wl_create_label_from_units("nm", greek = FALSE))
     expect_equal(class(lbl), "expression")
     expect_equal(lbl, expression("Wavelength, nm"))
   })
@@ -77,7 +77,7 @@ hySpc.testthat::test(wl_create_label_by_units) <- function() {
   # FIXME: does not work yet:
 
   # expect_warning(
-  #   wl_create_label_by_units("WARNING!"),
+  #   wl_create_label_from_units("WARNING!"),
   #   "The value of 'wl_units' is not identified:"
   # )
 }
