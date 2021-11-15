@@ -2,7 +2,8 @@
 
 #' @include wl_convert_units.R
 #' @author V. Gegzna
-wl_create_label_by_units <- function(wl_units, greek = FALSE, warn = TRUE, fail = FALSE) {
+wl_create_label_by_units <- function(wl_units, greek = FALSE, warn = TRUE,
+                                     fail = FALSE) {
 
   u_fixed <- .wl_fix_unit_name(wl_units)
 
