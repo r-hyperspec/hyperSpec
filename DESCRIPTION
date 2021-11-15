@@ -210,7 +210,7 @@ Collate:
     'vandermonde.R'
     'wl.R'
     'wl_convert_units.R'
-    'wl_create_label_from_units().R'
+    'wl_create_label_from_units.R'
     'wl_sort.R'
     'write_txt_long.R'
     'write_txt_wide.R'
