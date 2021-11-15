@@ -131,7 +131,7 @@ wl_raman2nm    <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
 .wl_fix_unit_name <- function(unit, null_ok = FALSE, on_failure = "fail") {
 
   on_failure <- match.arg(tolower(on_failure), c("fail", "warn", "pass"))
-
+  unit0 <- unit
   # Allow NULL as the default value
   if (isTRUE(null_ok)) {
     if (is.null(unit)) {
@@ -140,12 +140,13 @@ wl_raman2nm    <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
   }
 
 
-  unit <- gsub(" .*$", "", tolower(unit))
+  unit <- gsub(" .*$", "", tolower(unit)) # remove everything after space
+  unit <- gsub("[ ._]*", "", unit) # remove spaces, dots and underscores
 
-  if (unit %in% c("raman", "stokes", "rel", "rel.", "relative", "rel.cm-1", "rel.cm", "rel.1/cm", "raman shift")) {
+  if (unit %in% c("raman", "stokes", "rel", "relative", "relcm-1", "relcm", "rel1/cm", "ramanshift")) {
     return("raman")
   }
-  if (unit %in% c("invcm", "inv_cm", "inv cm", "inverted cm", "energy", "wavenumber", "cm-1", "cm^-1", "cm^{-1}", "inverted", "cm", "1/cm")) {
+  if (unit %in% c("invcm", "invertedcm", "energy", "wavenumber", "cm-1", "cm^-1", "cm^{-1}", "inverted", "cm", "1/cm")) {
     return("invcm")
   }
   if (unit %in% c("nm", "nanometer", "wavelength")) {
@@ -164,13 +165,13 @@ wl_raman2nm    <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
     return(unit)
   }
 
-  msg <- paste0("'", unit, "': Unknown unit type")
+  msg <- paste0("'", unit0, "': Unknown unit type")
   switch(
     on_failure,
-    pass = return(unit),
+    pass = return(unit0),
     warn = {
       warning(msg)
-      return(unit)
+      return(unit0)
     },
     fail = stop(msg)
   )
