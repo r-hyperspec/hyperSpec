@@ -36,7 +36,7 @@
 wl_create_label_from_units <- function(unit, greek = FALSE,
                                        on_failure = "warn", null_ok = FALSE) {
 
-  if (missing(unit)) stop("The value of 'unit' is missing.")
+  if (missing(unit)) stop("argument \"unit\" is missing")
   on_failure <- match.arg(tolower(on_failure), c("fail", "warn", "pass"))
 
   u_fixed <- .wl_fix_unit_name(unit, null_ok = null_ok, on_failure = "pass")
@@ -68,7 +68,7 @@ wl_create_label_from_units <- function(unit, greek = FALSE,
 
     # Otherwise:
     {
-      msg <- "The value of 'unit' is not identified: "
+      msg <- "The value of 'unit' is not recognized: "
       switch(
         on_failure,
         fail = stop(msg, unit),
@@ -92,7 +92,6 @@ hySpc.testthat::test(wl_create_label_from_units) <- function() {
   context("wl_create_label_from_units")
 
   test_that("wl_create_label_from_units() works", {
-    expect_error(wl_create_label_from_units(), 'argument "unit" is missing')
     expect_silent(wl_create_label_from_units("nm"))
   })
 
@@ -118,17 +117,14 @@ hySpc.testthat::test(wl_create_label_from_units) <- function() {
 
     expect_warning(
       wl_create_label_from_units("WARNING!", on_failure = "warn"),
-      "The value of 'unit' is not identified:"
+      "The value of 'unit' is not recognized:"
     )
 
     expect_error(
       wl_create_label_from_units("WARNING!", on_failure = "fail"),
-      "The value of 'unit' is not identified:"
+      "The value of 'unit' is not recognized:"
     )
 
-    expect_error(
-      wl_create_label_from_units(),
-      "The value of 'unit' is is missing."
-    )
+    expect_error(wl_create_label_from_units(), "argument \"unit\" is missing")
   })
 }
