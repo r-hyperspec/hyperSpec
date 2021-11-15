@@ -70,9 +70,11 @@ wl_create_label_from_units <- function(unit, greek = FALSE,
     # Otherwise:
     {
       msg <- "The value of 'unit' is not recognized: "
-      switch(
-        on_failure,
+
+      switch(on_failure,
+
         fail = stop(msg, unit),
+
         warn = {
           warning(
             msg, unit, "\n",
@@ -81,6 +83,7 @@ wl_create_label_from_units <- function(unit, greek = FALSE,
           )
           as.expression(units)
         },
+
         pass = as.expression(units)
       )
     }
