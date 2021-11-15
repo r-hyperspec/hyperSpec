@@ -22,6 +22,8 @@
 #' @return Object of the same class as input `x`.
 #'
 #' @concept wavelengths
+#' @include wl_fix_unit_name.R
+#' @include hyperspec-class.R
 #'
 #' @export
 #'
@@ -100,48 +102,6 @@ wl_raman2invcm <- function(x, ref_wl) 1e7 / ref_wl - x
 wl_raman2nm    <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
 
 
-# Bring the argument to a conventional name
-
-# FIXME: This function should be documented.
-#        Even if it used for internal purposes.
-#
-#
-#' @export
-.wl_fix_unit_name <- function(unit, null_ok = FALSE) {
-
-  # Allow NULL as the default value
-  if (isTRUE(null_ok)) {
-    if (is.null(unit)) {
-      return(unit)
-    }
-  }
-
-
-  unit <- gsub(" .*$", "", tolower(unit))
-  if (unit %in% c("raman", "stokes", "rel", "rel.", "relative", "rel.cm-1", "rel.cm", "rel.1/cm", "raman shift")) {
-    return("raman")
-  }
-  if (unit %in% c("invcm", "energy", "wavenumber", "cm-1", "cm^-1", "cm^{-1}", "inverted", "cm", "1/cm")) {
-    return("invcm")
-  }
-  if (unit %in% c("nm", "nanometer", "wavelength")) {
-    return("nm")
-  }
-  if (unit %in% c("ev", "electronvolt")) {
-    return("ev")
-  }
-  if (unit %in% c("freq", "frequency", "thz", "terahertz")) {
-    return("freq")
-  }
-  if (unit %in% c("pixel", "px", "sensor")) {
-    return("px")
-  }
-  if (unit == "file") {
-    return(unit)
-  }
-  stop(paste0("'", unit, "': Unknown unit type"))
-}
-
 
 # Some physical constants ----------------------------------------------------
 # @concept constants
@@ -188,23 +148,6 @@ hySpc.testthat::test(wl) <- function() {
   })
 }
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-hySpc.testthat::test(.wl_fix_unit_name) <- function() {
-  context(".wl_fix_unit_name")
-
-  test_that(".wl_fix_unit_name() works", {
-    expect_equal(.wl_fix_unit_name("raman"), "raman")
-    expect_equal(.wl_fix_unit_name("invcm"), "invcm")
-    expect_equal(.wl_fix_unit_name("nm"), "nm")
-    expect_equal(.wl_fix_unit_name("ev"), "ev")
-    expect_equal(.wl_fix_unit_name("freq"), "freq")
-    expect_equal(.wl_fix_unit_name("px"), "px")
-    expect_equal(.wl_fix_unit_name("file"), "file")
-    expect_error(.wl_fix_unit_name("ddd"), "Unknown unit type")
-  })
-
-  # TODO (tests): add more specific tests.
-}
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 hySpc.testthat::test(wl_convert_units) <- function() {
