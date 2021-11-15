@@ -3,9 +3,9 @@
 #' @include wl_convert_units.R
 #' @author V. Gegzna
 wl_create_label_from_units <- function(wl_units, greek = FALSE, warn = TRUE,
-                                       fail = FALSE) {
+                                       fail = FALSE, null_ok = FALSE) {
 
-  u_fixed <- .wl_fix_unit_name(wl_units)
+  u_fixed <- .wl_fix_unit_name(wl_units, null_ok = null_ok)
 
   if (greek) {
     u_fixed <- paste0(u_fixed, "_greek")
