@@ -55,7 +55,8 @@ wl_create_label_from_units <- function(unit, greek = FALSE,
     invcm            = expression(Wavenumber / cm^-1), # expression("Wavenumber, 1/cm"),
     invcm_greek      = expression(tilde(nu) / cm^-1),
 
-    wn_shift         = expression(Wavenumber ~ shift / cm^-1), # wavenumber_shift
+    # wavenumber_shift:
+    wn_shift         = expression(Wavenumber ~ shift / cm^-1),
     wn_shift_greek   = expression(Delta * tilde(nu) / cm^-1),
 
     raman            = expression(Raman ~ shift / cm^-1),
