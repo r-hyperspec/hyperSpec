@@ -6,19 +6,19 @@
 #' R expression which can be used as a label for `@wavelength` axis for
 #' `hyperSpec` object.
 #'
-#' @param wl_units (character):
+#' @param unit (character):
 #'        A name of unit for wavelength axis.
 #' @param greek (logical):
 #'        Should Greek symbols be preferred in the output expression?
 #' @param on_failure (string):
-#'        The type of behavior in case unrecognized value of `wl_units` is passed:
+#'        The type of behavior in case unrecognized value of `unit` is passed:
 #' - `"fail"` -- the code is stopped with an error message.
-#' - `"warn"` -- a warning is issued and the value of `wl_units` is converted to an
+#' - `"warn"` -- a warning is issued and the value of `unit` is converted to an
 #'               expression and returned as an output.
-#' - `"pass"` -- the value of `wl_units` is converted to an expression and returned
+#' - `"pass"` -- the value of `unit` is converted to an expression and returned
 #'               as an output and no error nor warning is issued.
 #' @param null_ok (logical):
-#'        Should value `NULL` be accepted as `wl_units`.
+#'        Should value `NULL` be accepted as `unit`.
 #'        This argument is passed to [.wl_fix_unit_name()].
 #'
 #' @author V. Gegzna
@@ -33,12 +33,12 @@
 #'
 #' wl_create_label_from_units("1/cm", greek = TRUE)
 #'
-wl_create_label_from_units <- function(wl_units, greek = FALSE,
+wl_create_label_from_units <- function(unit, greek = FALSE,
                                        on_failure = "warn", null_ok = FALSE) {
 
   on_failure <- match.arg(tolower(on_failure), c("fail", "warn", "pass"))
 
-  u_fixed <- .wl_fix_unit_name(wl_units, null_ok = null_ok, on_failure = "pass")
+  u_fixed <- .wl_fix_unit_name(unit, null_ok = null_ok, on_failure = "pass")
 
   if (greek) {
     # At first, suffix "_greek" is removed if present to avoid duplication
@@ -67,13 +67,13 @@ wl_create_label_from_units <- function(wl_units, greek = FALSE,
 
     # Otherwise:
     {
-      msg <- "The value of 'wl_units' is not identified: "
+      msg <- "The value of 'unit' is not identified: "
       switch(
         on_failure,
-        fail = stop(msg, wl_units),
+        fail = stop(msg, unit),
         warn = {
           warning(
-            msg, wl_units, "\n",
+            msg, unit, "\n",
             "So it will be converted to an expression and ",
             "returned as the output."
           )
@@ -91,7 +91,7 @@ hySpc.testthat::test(wl_create_label_from_units) <- function() {
   context("wl_create_label_from_units")
 
   test_that("wl_create_label_from_units() works", {
-    expect_error(wl_create_label_from_units(), 'argument "wl_units" is missing')
+    expect_error(wl_create_label_from_units(), 'argument "unit" is missing')
     expect_silent(wl_create_label_from_units("nm"))
   })
 
@@ -112,17 +112,17 @@ hySpc.testthat::test(wl_create_label_from_units) <- function() {
 
     expect_equal(
       wl_create_label_from_units("WARNING!", on_failure = "pass"),
-      "WARNING!"
+      as.expression("WARNING!")
     )
 
     expect_warning(
       wl_create_label_from_units("WARNING!", on_failure = "warn"),
-      "The value of 'wl_units' is not identified:"
+      "The value of 'unit' is not identified:"
     )
 
     expect_error(
       wl_create_label_from_units("WARNING!", on_failure = "fail"),
-      "The value of 'wl_units' is not identified:"
+      "The value of 'unit' is not identified:"
     )
   })
 }
