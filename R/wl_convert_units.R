@@ -23,6 +23,7 @@
 #'
 #' @concept wavelengths
 #' @include wl_fix_unit_name.R
+#' @include hyperspec-class.R
 #'
 #' @export
 #'
