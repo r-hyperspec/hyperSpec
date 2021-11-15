@@ -57,7 +57,7 @@ wl_create_label_from_units <- function(wl_units, greek = FALSE, warn = TRUE,
     ev               = expression("Energy, eV"),
     ev_greek         = expression("E / eV"),
 
-    freq             = expression("Frequency, THz"),
+    freq             = expression("Frequency, THz"), # FIXME: why `freq` and not THz?
     freq_greek       = expression(nu / THz),
 
     # Otherwise:
