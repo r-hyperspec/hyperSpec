@@ -135,7 +135,7 @@ wl_raman2nm    <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
     return("ev")
   }
   if (unit %in% c("freq", "frequency", "thz", "terahertz")) {
-    return("freq")
+    return("freq") # FIXME: why `freq` and not `THz`?
   }
   if (unit %in% c("pixel", "px", "sensor")) {
     return("px")
