@@ -57,10 +57,13 @@
   unit <- gsub(" .*$", "", tolower(unit)) # remove everything after space
   unit <- gsub("[ ._]*", "", unit) # remove spaces, dots and underscores
 
-  if (unit %in% c("raman", "stokes", "rel", "relative", "relcm-1", "relcm", "rel1/cm", "ramanshift")) {
+  if (unit %in% c("rel", "relative", "relcm-1",  "rel1/cm", "relcm",
+                  "raman", "ramanshift", "stokes")) {
     return("raman")
   }
-  if (unit %in% c("invcm", "invertedcm", "energy", "wavenumber", "cm-1", "cm^-1", "cm^{-1}", "inverted", "cm", "1/cm")) {
+  if (unit %in% c("1/cm", "cm-1", "cm^-1", "cm^{-1}", "cm",
+                  "invcm", "invertedcm", "inverted",
+                  "wavenumber", "wn", "energy")) {
     return("invcm")
   }
   if (unit %in% c("nm", "nanometer", "wavelength")) {
@@ -69,7 +72,7 @@
   if (unit %in% c("ev", "electronvolt")) {
     return("ev")
   }
-  if (unit %in% c("freq", "frequency", "thz", "terahertz")) {
+  if (unit %in% c("thz", "terahertz", "freq", "frequency")) {
     return("freq") # FIXME: why `freq` and not `THz`?
   }
   if (unit %in% c("pixel", "px", "sensor")) {
@@ -80,8 +83,8 @@
   }
 
   msg <- paste0("'", unit0, "': Unknown unit type")
-  switch(
-    on_failure,
+
+  switch(on_failure,
     pass = return(unit0),
     warn = {
       warning(msg)
