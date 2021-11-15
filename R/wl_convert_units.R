@@ -104,7 +104,10 @@ wl_raman2nm    <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
 #'
 #' Fix a string with unit name (for wavelength axis) into a sting that
 #' can be used as a standardized argument value for other \pkg{hyperSpec}
-#' functions, e.g., [wl_convert_units()]. The "standardized" values are:
+#' functions, e.g., [wl_convert_units()].
+#'
+#' @return
+#' The function returns one of these "standard" values:
 #' - `"raman"` for Raman shift in relative 1/cm;
 #' - `"invcm"` for inverted centimeters (1/cm);
 #' - `"nm"`    for nanometers (nm);
@@ -112,11 +115,22 @@ wl_raman2nm    <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
 #' - `"freq"`  for frequency (THz);
 #' - `"px"`    for pixels.
 #'
+#'
+#' @param on_failure (string)
+#'        The type of behavior in case unrecognized value of `unit` is passed:
+#' - `"fail"` -- the code is stopped with an error message.
+#' - `"warn"` -- a warning is issued and the value of `unit` is returned as
+#'               an output.
+#' - `"pass"` -- the value of `unit` is returned as an output and no error nor
+#'               warning is issued.
+#'
 #' @export
 #'
 #' @examples
 #' .wl_fix_unit_name("wavelength")
-.wl_fix_unit_name <- function(unit, null_ok = FALSE) {
+.wl_fix_unit_name <- function(unit, null_ok = FALSE, on_failure = "fail") {
+
+  on_failure <- match.arg(tolower(on_failure), c("fail", "warn", "pass"))
 
   # Allow NULL as the default value
   if (isTRUE(null_ok)) {
@@ -127,6 +141,7 @@ wl_raman2nm    <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
 
 
   unit <- gsub(" .*$", "", tolower(unit))
+
   if (unit %in% c("raman", "stokes", "rel", "rel.", "relative", "rel.cm-1", "rel.cm", "rel.1/cm", "raman shift")) {
     return("raman")
   }
@@ -148,7 +163,17 @@ wl_raman2nm    <- function(x, ref_wl) 1e7 / (1e7 / ref_wl - x)
   if (unit == "file") {
     return(unit)
   }
-  stop(paste0("'", unit, "': Unknown unit type"))
+
+  msg <- paste0("'", unit, "': Unknown unit type")
+  switch(
+    on_failure,
+    pass = return(unit),
+    warn = {
+      warning(msg)
+      return(unit)
+    },
+    fail = stop(msg)
+  )
 }
 
 
