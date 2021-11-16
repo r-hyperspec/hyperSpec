@@ -17,7 +17,7 @@
 <center>
 <font color="red" size=4>
 <b>Package `hyperSpec` is under overhaul now.</b>  
-So this website is still under construction too and the contents and resources are not fully updated yet.  
+So this website is still under construction and the contents as well as resources are not fully updated yet.  
 The documentation of version `0.100.0` is not present here too.
 </font>
 </center>
