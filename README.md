@@ -62,22 +62,21 @@ The documentation of the other **`r-hyperspec`** family packages can be found at
 Issues, bug reports and feature requests should go [here](https://github.com/r-hyperspec/hyperSpec/issues)!
 <!-- ---------------------------------------------------------------------- -->
 
-## Installation of Released Version
+
+## Installation
 
 ### Install from CRAN
 
-You can install the released version of **hyperSpec** from [CRAN](https://cran.r-project.org/package=hyperSpec) with:
+You can install the **released** version of **hyperSpec** from [CRAN](https://cran.r-project.org/package=hyperSpec) with:
 
 ```r
 install.packages("hyperSpec")
 ```
 
 
-## Installation of In-Development Version
-
 ### Install from CRAN-like Repository
 
-The recommended way to install the in-development version:
+The **recommended** way to install the in-development version:
 
 ```r
 repos <- c("https://r-hyperspec.github.io/pkg-repo/", getOption("repos"))
@@ -89,7 +88,7 @@ install.packages("hyperSpec", repos = repos)
 <details>
 <summary>Install from GitHub (details)</summary>
 
-You can install the development version of the package from [GitHub](https://github.com/r-hyperspec/hyperSpec):
+You can install the in-development version of the package from [GitHub](https://github.com/r-hyperspec/hyperSpec) too:
 
 ```r
 if (!require(remotes)) {install.packages("remotes")}
@@ -150,3 +149,8 @@ devtools::install(build_vignettes = TRUE)
 Usually, "Windows" users need to download, install and properly configure **Rtools** (see [these instructions](https://cran.r-project.org/bin/windows/Rtools/)) to make the code above work.
 
 </details>
+
+
+## For Developers
+
+Developers can find information about automatic deployment from this repo to `pkg-repo` [here](https://github.com/r-hyperspec/pkg-repo) in `CONTRIBUTING.md`.
