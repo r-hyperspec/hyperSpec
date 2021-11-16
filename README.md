@@ -17,7 +17,8 @@
 <center>
 <font color="red" size=4>
 <b>Package `hyperSpec` is under overhaul now.</b>  
-So this website is still under construction too and the contents and resources are not fully updated yet.
+So this website is still under construction too and the contents and resources are not fully updated yet.  
+The documentation of version `0.100.0` is not present here too.
 </font>
 </center>
 <br>
@@ -81,8 +82,10 @@ repos <- c("https://r-hyperspec.github.io/pkg-repo/", getOption("repos"))
 install.packages("hyperSpec", repos = repos)
 ```
 
-
 ### Install from GitHub
+
+<details>
+<summary>Install from GitHub (details)</summary>
 
 You can install the development version of the package from [GitHub](https://github.com/r-hyperspec/hyperSpec):
 
@@ -98,8 +101,15 @@ Usually, "Windows" users need to download, install and properly configure **Rtoo
 This method will **not** install package's documentation (help pages and vignettes) into your computer.
 So you can either use the [online documentation](https://r-hyperspec.github.io/hyperSpec/dev/) or build the package from source (see the next section).
 
+</details>
+
+
 
 ### Install from Source
+
+<details>
+<summary>Install from Source (details)</summary>
+
 
 1. From the **hyperSpec**'s GitHub [repository](https://github.com/r-hyperspec/hyperSpec):
     - If you use Git, `git clone` the branch of interest.
@@ -136,4 +146,4 @@ devtools::install("hyperSpec", build_vignettes = TRUE)
 
 **NOTE 1:**
 Usually, "Windows" users need to download, install and properly configure **Rtools** (see [these instructions](https://cran.r-project.org/bin/windows/Rtools/)) to make the code above work.
-
+</details>
