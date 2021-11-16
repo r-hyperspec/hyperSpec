@@ -130,7 +130,8 @@
 <!-- ---------------------------------------------------------------------- -->
 <br><center>
 <font color="red" size="4"> <b>Package <code>hyperSpec</code> is under overhaul now.</b><br>
-So this website is still under construction too and the contents and resources are not fully updated yet. </font>
+So this website is still under construction and the contents as well as resources are not fully updated yet.<br>
+The documentation of version <code>0.100.0</code> is not present here too. </font>
 </center>
 <p><br><!-- ---------------------------------------------------------------------- --></p>
 <p><a href="https://www.r-project.org/"><strong>R</strong></a> package <strong>hyperSpec</strong> is the main package in the <a href="https://r-hyperspec.github.io/"><strong><code>r-hyperspec</code></strong></a> family of packages. The goal of <strong>hyperSpec</strong> (and whole <strong><code>r-hyperspec</code></strong>) is to make the work with hyperspectral data sets, (i.e. spatially or time-resolved spectra, or spectra with any other kind of information associated with each of the spectra) more comfortable. The spectra can be data as obtained during <a href="https://en.wikipedia.org/wiki/X-ray_fluorescence">XRF</a>, <a href="https://en.wikipedia.org/wiki/Ultraviolet%E2%80%93visible_spectroscopy">UV/VIS</a>, <a href="https://en.wikipedia.org/wiki/Fluorescence_spectroscopy">Fluorescence</a>, <a href="https://en.wikipedia.org/wiki/Auger_electron_spectroscopy">AES</a>, <a href="https://en.wikipedia.org/wiki/Near-infrared_spectroscopy">NIR</a>, <a href="https://en.wikipedia.org/wiki/Infrared_spectroscopy">IR</a>, <a href="https://en.wikipedia.org/wiki/Raman_spectroscopy">Raman</a>, <a href="https://en.wikipedia.org/wiki/Nuclear_magnetic_resonance_spectroscopy">NMR</a>, <a href="https://en.wikipedia.org/wiki/Mass_spectrometry">MS</a>, etc. spectroscopy measurements. More generally, any data that is recorded over a discretized variable, e.g. <code>absorbance = f(wavelength)</code>, stored as a vector of absorbance values for discrete wavelengths is suitable.</p>
@@ -174,16 +175,19 @@ So this website is still under construction too and the contents and resources a
 <div id="install-from-github" class="section level3">
 <h3 class="hasAnchor">
 <a href="#install-from-github" class="anchor"></a>Install from GitHub</h3>
+<details><p><summary>Install from GitHub (details)</summary></p>
 <p>You can install the development version of the package from <a href="https://github.com/r-hyperspec/hyperSpec">GitHub</a>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org">remotes</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span><span class="op">}</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"r-hyperspec/hyperSpec"</span><span class="op">)</span></code></pre></div>
 <p><strong>NOTE 1:</strong> Usually, “Windows” users need to download, install and properly configure <strong>Rtools</strong> (see <a href="https://cran.r-project.org/bin/windows/Rtools/">these instructions</a>) to make the code above work.</p>
 <p><strong>NOTE 2:</strong> This method will <strong>not</strong> install package’s documentation (help pages and vignettes) into your computer. So you can either use the <a href="https://r-hyperspec.github.io/hyperSpec/dev/">online documentation</a> or build the package from source (see the next section).</p>
+</details>
 </div>
 <div id="install-from-source" class="section level3">
 <h3 class="hasAnchor">
 <a href="#install-from-source" class="anchor"></a>Install from Source</h3>
+<details><p><summary>Install from Source (details)</summary></p>
 <ol>
 <li>From the <strong>hyperSpec</strong>’s GitHub <a href="https://github.com/r-hyperspec/hyperSpec">repository</a>:
 <ul>
@@ -219,7 +223,8 @@ d. Install package <strong>hyperSpec</strong>.</li>
 
 <span class="co"># Install package hyperSpec and its dependencies</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/install.html">install</a></span><span class="op">(</span><span class="st">"hyperSpec"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<p><strong>NOTE 1:</strong> Usually, “Windows” users need to download, install and properly configure <strong>Rtools</strong> (see <a href="https://cran.r-project.org/bin/windows/Rtools/">these instructions</a>) to make the code above work.</p>
+<strong>NOTE 1:</strong> Usually, “Windows” users need to download, install and properly configure <strong>Rtools</strong> (see <a href="https://cran.r-project.org/bin/windows/Rtools/">these instructions</a>) to make the code above work.
+</details>
 </div>
 </div>
 </div>
