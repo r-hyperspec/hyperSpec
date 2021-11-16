@@ -181,7 +181,7 @@ The documentation of version <code>0.100.0</code> is not present here too. </fon
 <code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org">remotes</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span><span class="op">}</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"r-hyperspec/hyperSpec"</span><span class="op">)</span></code></pre></div>
 <p><strong>NOTE 1:</strong> Usually, “Windows” users need to download, install and properly configure <strong>Rtools</strong> (see <a href="https://cran.r-project.org/bin/windows/Rtools/">these instructions</a>) to make the code above work.</p>
-<p><strong>NOTE 2:</strong> This method will <strong>not</strong> install package’s documentation (help pages and vignettes) into your computer. So you can either use the <a href="https://r-hyperspec.github.io/hyperSpec/dev/">online documentation</a> or build the package from source (see the next section).</p>
+<p><strong>NOTE 2:</strong> This method will <strong>not</strong> install package’s documentation (help pages and vignettes) into your computer. So you can either use the <a href="https://r-hyperspec.github.io/">online documentation</a> or build the package from source (see the next section).</p>
 </details>
 </div>
 <div id="install-from-source" class="section level3">
@@ -198,7 +198,7 @@ The documentation of version <code>0.100.0</code> is not present here too. </fon
 </li>
 <li>Open the downloaded directory in RStudio (preferably, as an RStudio project).
 <ul>
-<li>The code below works correctly only if your current working directory coincides with the root of the repository, i.e., if it is in the directory that contains file <code>README.md</code> and sub-directory <code>hyperSpec</code>.</li>
+<li>The code below works correctly only if your current working directory coincides with the root of the repository, i.e., if it is in the directory that contains file <code>README.md</code>.</li>
 <li>If you open RStudio project correctly (e.g., by clicking <code>project.Rproj</code> icon <img src="https://user-images.githubusercontent.com/12725868/89340903-26621280-d6a9-11ea-8299-0ec5e9cf7e3e.png" alt="image"> in the directory), then the working directory is set correctly by default.</li>
 </ul>
 </li>
@@ -210,20 +210,20 @@ d. Install package <strong>hyperSpec</strong>.</li>
 </ol>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Do not abort installation even if some packages are not available</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html">Sys.setenv</a></span><span class="op">(</span>R_REMOTES_NO_ERRORS_FROM_WARNINGS <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html">Sys.setenv</a></span><span class="op">(</span>R_REMOTES_NO_ERRORS_FROM_WARNINGS <span class="op">=</span> <span class="st">"true"</span><span class="op">)</span>
 
 <span class="co"># Install packages remotes and devtools</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"remotes"</span>, <span class="st">"devtools"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="co"># Install hyperSpec's dependencies</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_deps.html">install_deps</a></span><span class="op">(</span><span class="st">"hyperSpec"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_deps.html">install_deps</a></span><span class="op">(</span>dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
 <span class="co"># Create hyperSpec's documentation</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/document.html">document</a></span><span class="op">(</span><span class="st">"hyperSpec"</span><span class="op">)</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/document.html">document</a></span><span class="op">(</span><span class="op">)</span>
 
-<span class="co"># Install package hyperSpec and its dependencies</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/install.html">install</a></span><span class="op">(</span><span class="st">"hyperSpec"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<strong>NOTE 1:</strong> Usually, “Windows” users need to download, install and properly configure <strong>Rtools</strong> (see <a href="https://cran.r-project.org/bin/windows/Rtools/">these instructions</a>) to make the code above work.
+<span class="co"># Install package hyperSpec</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/install.html">install</a></span><span class="op">(</span>build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<p><strong>NOTE 1:</strong> Usually, “Windows” users need to download, install and properly configure <strong>Rtools</strong> (see <a href="https://cran.r-project.org/bin/windows/Rtools/">these instructions</a>) to make the code above work.</p>
 </details>
 </div>
 </div>
