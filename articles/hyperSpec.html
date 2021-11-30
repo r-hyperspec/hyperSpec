@@ -2286,7 +2286,7 @@ Please refer to the documentation of the respective functions for details about 
   <span class="op">}</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.058   0.001   0.058</span></code></pre></div>
+<span class="co">#&gt;    0.06    0.00    0.06</span></code></pre></div>
 <p>Calculations that involve a lot of subsetting (i.e., extracting or changing the spectra matrix or extra data) can be sped up considerably if the required parts of the <code>hyperSpec</code> object are extracted beforehand.
 This is somewhat similar to model fitting in <code>R</code> in general: many model fitting functions in <code>R</code> are much faster if the formula interface is avoided and the appropriate <code class="sourceCode r">data.frame</code>s or matrices are handed over directly.</p>
 <div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
@@ -2300,7 +2300,7 @@ This is somewhat similar to model fitting in <code>R</code> in general: many mod
   <span class="va">tmp</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">tmp.matrix</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.025   0.000   0.025</span></code></pre></div>
+<span class="co">#&gt;   0.025   0.000   0.026</span></code></pre></div>
 </div>
 <div id="additional-packages" class="section level2">
 <h2 class="hasAnchor">
@@ -2326,7 +2326,7 @@ The memory consumption of <code class="sourceCode r"><span class="kw">read.txt.R
 <div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html">session_info</a></span><span class="op">(</span><span class="st">"hyperSpec"</span><span class="op">)</span>
 <span class="co">#&gt; ─ Session info  ──────────────────────────────────────────────────────────────────────────────────</span>
-<span class="co">#&gt;  hash: woman factory worker: medium skin tone, woman: bald, pile of poo</span>
+<span class="co">#&gt;  hash: victory hand: medium skin tone, national park, woman farmer: light skin tone</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;  setting  value</span>
 <span class="co">#&gt;  version  R version 4.1.2 (2021-11-01)</span>
@@ -2377,7 +2377,7 @@ The memory consumption of <code class="sourceCode r"><span class="kw">read.txt.R
 <span class="co">#&gt;  nlme             3.1-153      2021-09-07 [2] CRAN (R 4.1.2)</span>
 <span class="co">#&gt;  pillar           1.6.4        2021-10-18 [1] Custom</span>
 <span class="co">#&gt;  pkgconfig        2.0.3        2019-09-22 [1] Custom</span>
-<span class="co">#&gt;  pkgload          1.2.3        2021-10-13 [1] Custom</span>
+<span class="co">#&gt;  pkgload          1.2.4        2021-11-30 [1] CRAN (R 4.1.2)</span>
 <span class="co">#&gt;  png              0.1-7        2013-12-03 [1] Custom</span>
 <span class="co">#&gt;  praise           1.0.0        2015-08-11 [1] Custom</span>
 <span class="co">#&gt;  processx         3.5.2        2021-04-30 [1] Custom</span>
@@ -2397,8 +2397,8 @@ The memory consumption of <code class="sourceCode r"><span class="kw">read.txt.R
 <span class="co">#&gt;  vctrs            0.3.8        2021-04-29 [1] Custom</span>
 <span class="co">#&gt;  viridisLite      0.4.0        2021-04-13 [1] Custom</span>
 <span class="co">#&gt;  waldo            0.3.1        2021-09-14 [1] Custom</span>
-<span class="co">#&gt;  withr            2.4.2        2021-04-18 [1] Custom</span>
-<span class="co">#&gt;  xml2             1.3.2        2020-04-23 [1] Custom</span>
+<span class="co">#&gt;  withr            2.4.3        2021-11-30 [1] CRAN (R 4.1.2)</span>
+<span class="co">#&gt;  xml2             1.3.3        2021-11-30 [1] CRAN (R 4.1.2)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;  [1] /home/runner/work/_temp/Library</span>
 <span class="co">#&gt;  [2] /opt/R/4.1.2/lib/R/library</span>
