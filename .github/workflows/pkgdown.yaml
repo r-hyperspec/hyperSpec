@@ -1,3 +1,11 @@
+# READ-ONLY FILE
+#
+# Original file resides in r-hyperspec/pkg-skelton.
+# DO NOT EDIT in any other repo as these changes will be overwritten.
+# Edit at r-hyperspec/pkg-skelton, then push there and
+# this file will be deployed to the other repos.
+#
+
 on:
   push:
     branches:
@@ -5,13 +13,15 @@ on:
       - main
       - master
       - develop
+      - auto-update-test
     tags: ['*']
 
 name: Website (pkgdown)
 
 jobs:
   pkgdown:
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
+
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
@@ -23,13 +33,28 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
         with:
           use-public-rspm: true
+          r-version: 'release'
 
-      - uses: r-lib/actions/setup-r-dependencies@v1
+      - name: Query dependencies
+        run: |
+          install.packages('remotes')
+          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
+          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
+        shell: Rscript {0}
+
+      - name: Cache R packages
+        uses: actions/cache@v2
         with:
-          extra-packages: |
-            pkgdown
-            devtools
-          needs: website
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+
+      - name: Install dependencies
+        run: |
+          install.packages(c("remotes", "devtools"))
+          remotes::install_deps(dependencies = TRUE)
+          remotes::install_cran("pkgdown", type = "binary")
+        shell: Rscript {0}
 
       - name: Roxygenize
         # The vignettes will be built in step "Deploy package"
