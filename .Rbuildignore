@@ -1,30 +1,24 @@
-# Original file resides in r-hyperspec/pkg-skelton.
-# Do not edit in any other repo.
-# Edit at r-hyperspec/pkg-skelton, then push there and
-# this file will be deployed to the other repos.
 
 # IDE & editor files
 ^.*\.Rproj$
 ^\.Rproj\.user$
+
+# Directories
+^\.github$
 ^_tmp$
+^data-raw$
+^docs$
+^github-helpers$
+^pkgdown$
+
+# Helper files
+^_pkgdown\.yml$
+^codecov\.yml$
+^CONTRIBUTING\.md$
+^README\.md$
+^README\.Rmd$
+Makefile
 
 # Other/Broad
 ^.*\.html
 ^.*\.pdf
-
-# Directories
-^github-helpers$
-^\.github$
-^pkgdown$
-^data-raw$
-^docs$
-^_tmp$
-
-# Helper files
-Makefile
-^CONTRIBUTING\.md$
-^README\.md$
-^README\.Rmd$
-^codecov\.yml$
-^_pkgdown\.yml$
-
