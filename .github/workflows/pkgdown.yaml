@@ -14,8 +14,9 @@ on:
       - master
       - develop
 
-      # - auto-update
-      # - auto-update-test
+      - auto-update
+      - auto-update-test
+
     tags: ['*']
 
 name: Website (pkgdown)
