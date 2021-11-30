@@ -286,7 +286,7 @@ Thus one should also consider requiring more support points than the default val
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span><span class="fu"><a href="../reference/spc_fit_poly.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span>, <span class="cn">NULL</span>, npts.min <span class="op">=</span> <span class="fl">20</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.004   0.000   0.005</span>
+<span class="co">#&gt;   0.004   0.000   0.003</span>
 <span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span><span class="fu"><a href="../reference/spc_fit_poly.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">min</span> <span class="op">~</span> <span class="fl">700</span>, <span class="fl">1700</span> <span class="op">~</span> <span class="va">max</span><span class="op">)</span><span class="op">]</span>, <span class="cn">NULL</span>, npts.min <span class="op">=</span> <span class="fl">20</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
 <span class="co">#&gt;   0.004   0.000   0.004</span></code></pre></div>
@@ -445,83 +445,83 @@ Figure 3.4: Rubberband baselines for the paracetamol spectrum after bendin: corr
 <a href="#session-info" class="anchor"></a>Session Info</h1>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html">session_info</a></span><span class="op">(</span><span class="st">"hyperSpec"</span><span class="op">)</span>
-<span class="co">#&gt; ─ Session info  🤩  🇺🇸  🤝🏽   ─────────────────────────────────────────────────────────────────────</span>
-<span class="co">#&gt;  hash: star-struck, flag: United States, handshake: medium skin tone</span>
+<span class="co">#&gt; ─ Session info  ──────────────────────────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt;  hash: last quarter moon face, play or pause button, unlocked</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;  setting  value</span>
 <span class="co">#&gt;  version  R version 4.1.2 (2021-11-01)</span>
-<span class="co">#&gt;  os       macOS Catalina 10.15.7</span>
-<span class="co">#&gt;  system   x86_64, darwin17.0</span>
+<span class="co">#&gt;  os       Ubuntu 20.04.3 LTS</span>
+<span class="co">#&gt;  system   x86_64, linux-gnu</span>
 <span class="co">#&gt;  ui       X11</span>
 <span class="co">#&gt;  language (EN)</span>
-<span class="co">#&gt;  collate  en_US.UTF-8</span>
-<span class="co">#&gt;  ctype    en_US.UTF-8</span>
+<span class="co">#&gt;  collate  C.UTF-8</span>
+<span class="co">#&gt;  ctype    C.UTF-8</span>
 <span class="co">#&gt;  tz       UTC</span>
 <span class="co">#&gt;  date     2021-11-30</span>
-<span class="co">#&gt;  pandoc   2.7.3 @ /usr/local/bin/ (via rmarkdown)</span>
+<span class="co">#&gt;  pandoc   2.7.3 @ /usr/bin/ (via rmarkdown)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span>
 <span class="co">#&gt;  package        * version      date (UTC) lib source</span>
-<span class="co">#&gt;  brio             1.1.2        2021-04-23 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  callr            3.7.0        2021-04-20 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  cli              3.1.0        2021-10-27 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  colorspace       2.0-2        2021-06-24 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  crayon           1.4.2        2021-10-29 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  desc             1.4.0        2021-09-28 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  diffobj          0.3.5        2021-10-05 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  digest           0.6.28       2021-09-23 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  dplyr            1.0.7        2021-06-18 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  ellipsis         0.3.2        2021-04-29 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  evaluate         0.14         2019-05-28 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  fansi            0.5.0        2021-05-25 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  farver           2.1.0        2021-02-28 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  generics         0.1.1        2021-10-25 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  ggplot2        * 3.3.5        2021-06-25 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  brio             1.1.3        2021-11-30 [1] CRAN (R 4.1.2)</span>
+<span class="co">#&gt;  callr            3.7.0        2021-04-20 [1] Custom</span>
+<span class="co">#&gt;  cli              3.1.0        2021-10-27 [1] Custom</span>
+<span class="co">#&gt;  colorspace       2.0-2        2021-06-24 [1] Custom</span>
+<span class="co">#&gt;  crayon           1.4.2        2021-10-29 [1] Custom</span>
+<span class="co">#&gt;  desc             1.4.0        2021-09-28 [1] Custom</span>
+<span class="co">#&gt;  diffobj          0.3.5        2021-10-05 [1] Custom</span>
+<span class="co">#&gt;  digest           0.6.28       2021-09-23 [1] Custom</span>
+<span class="co">#&gt;  dplyr            1.0.7        2021-06-18 [1] Custom</span>
+<span class="co">#&gt;  ellipsis         0.3.2        2021-04-29 [1] Custom</span>
+<span class="co">#&gt;  evaluate         0.14         2019-05-28 [1] Custom</span>
+<span class="co">#&gt;  fansi            0.5.0        2021-05-25 [1] Custom</span>
+<span class="co">#&gt;  farver           2.1.0        2021-02-28 [1] Custom</span>
+<span class="co">#&gt;  generics         0.1.1        2021-10-25 [1] Custom</span>
+<span class="co">#&gt;  ggplot2        * 3.3.5        2021-06-25 [1] Custom</span>
 <span class="co">#&gt;  glue             1.5.1        2021-11-30 [1] CRAN (R 4.1.2)</span>
-<span class="co">#&gt;  gtable           0.3.0        2019-03-25 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  gtable           0.3.0        2019-03-25 [1] Custom</span>
 <span class="co">#&gt;  hyperSpec      * 0.200.0.9000 2021-11-30 [1] local</span>
-<span class="co">#&gt;  hySpc.testthat   0.2.1.9000   2021-11-30 [1] local</span>
-<span class="co">#&gt;  isoband          0.2.5        2021-07-13 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  jpeg             0.1-9        2021-07-24 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  jsonlite         1.7.2        2020-12-09 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  labeling         0.4.2        2020-10-20 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  hySpc.testthat   0.2.1        2020-06-24 [1] Custom</span>
+<span class="co">#&gt;  isoband          0.2.5        2021-07-13 [1] Custom</span>
+<span class="co">#&gt;  jpeg             0.1-9        2021-07-24 [1] Custom</span>
+<span class="co">#&gt;  jsonlite         1.7.2        2020-12-09 [1] Custom</span>
+<span class="co">#&gt;  labeling         0.4.2        2020-10-20 [1] Custom</span>
 <span class="co">#&gt;  lattice        * 0.20-45      2021-09-22 [2] CRAN (R 4.1.2)</span>
-<span class="co">#&gt;  latticeExtra     0.6-29       2019-12-19 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  lazyeval         0.2.2        2019-03-15 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  lifecycle        1.0.1        2021-09-24 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  magrittr         2.0.1        2020-11-17 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  latticeExtra     0.6-29       2019-12-19 [1] Custom</span>
+<span class="co">#&gt;  lazyeval         0.2.2        2019-03-15 [1] Custom</span>
+<span class="co">#&gt;  lifecycle        1.0.1        2021-09-24 [1] Custom</span>
+<span class="co">#&gt;  magrittr         2.0.1        2020-11-17 [1] Custom</span>
 <span class="co">#&gt;  MASS             7.3-54       2021-05-03 [2] CRAN (R 4.1.2)</span>
 <span class="co">#&gt;  Matrix           1.3-4        2021-06-01 [2] CRAN (R 4.1.2)</span>
 <span class="co">#&gt;  mgcv             1.8-38       2021-10-06 [2] CRAN (R 4.1.2)</span>
-<span class="co">#&gt;  munsell          0.5.0        2018-06-12 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  munsell          0.5.0        2018-06-12 [1] Custom</span>
 <span class="co">#&gt;  nlme             3.1-153      2021-09-07 [2] CRAN (R 4.1.2)</span>
-<span class="co">#&gt;  pillar           1.6.4        2021-10-18 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  pkgconfig        2.0.3        2019-09-22 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  pkgload          1.2.3        2021-10-13 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  png              0.1-7        2013-12-03 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  praise           1.0.0        2015-08-11 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  processx         3.5.2        2021-04-30 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  ps               1.6.0        2021-02-28 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  purrr            0.3.4        2020-04-17 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  R6               2.5.1        2021-08-19 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  RColorBrewer     1.1-2        2014-12-07 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  rematch2         2.1.2        2020-05-01 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  rlang            0.4.12       2021-10-18 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  rprojroot        2.0.2        2020-11-15 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  rstudioapi       0.13         2020-11-12 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  scales           1.1.1        2020-05-11 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  testthat         3.1.0        2021-10-04 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  tibble           3.1.6        2021-11-07 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  tidyselect       1.1.1        2021-04-30 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  utf8             1.2.2        2021-07-24 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  vctrs            0.3.8        2021-04-29 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  viridisLite      0.4.0        2021-04-13 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  waldo            0.3.1        2021-09-14 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  withr            2.4.2        2021-04-18 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  xml2             1.3.2        2020-04-23 [1] CRAN (R 4.1.0)</span>
+<span class="co">#&gt;  pillar           1.6.4        2021-10-18 [1] Custom</span>
+<span class="co">#&gt;  pkgconfig        2.0.3        2019-09-22 [1] Custom</span>
+<span class="co">#&gt;  pkgload          1.2.3        2021-10-13 [1] Custom</span>
+<span class="co">#&gt;  png              0.1-7        2013-12-03 [1] Custom</span>
+<span class="co">#&gt;  praise           1.0.0        2015-08-11 [1] Custom</span>
+<span class="co">#&gt;  processx         3.5.2        2021-04-30 [1] Custom</span>
+<span class="co">#&gt;  ps               1.6.0        2021-02-28 [1] Custom</span>
+<span class="co">#&gt;  purrr            0.3.4        2020-04-17 [1] Custom</span>
+<span class="co">#&gt;  R6               2.5.1        2021-08-19 [1] Custom</span>
+<span class="co">#&gt;  RColorBrewer     1.1-2        2014-12-07 [1] Custom</span>
+<span class="co">#&gt;  rematch2         2.1.2        2020-05-01 [1] Custom</span>
+<span class="co">#&gt;  rlang            0.4.12       2021-10-18 [1] Custom</span>
+<span class="co">#&gt;  rprojroot        2.0.2        2020-11-15 [1] Custom</span>
+<span class="co">#&gt;  rstudioapi       0.13         2020-11-12 [1] Custom</span>
+<span class="co">#&gt;  scales           1.1.1        2020-05-11 [1] Custom</span>
+<span class="co">#&gt;  testthat         3.1.0        2021-10-04 [1] Custom</span>
+<span class="co">#&gt;  tibble           3.1.6        2021-11-07 [1] Custom</span>
+<span class="co">#&gt;  tidyselect       1.1.1        2021-04-30 [1] Custom</span>
+<span class="co">#&gt;  utf8             1.2.2        2021-07-24 [1] Custom</span>
+<span class="co">#&gt;  vctrs            0.3.8        2021-04-29 [1] Custom</span>
+<span class="co">#&gt;  viridisLite      0.4.0        2021-04-13 [1] Custom</span>
+<span class="co">#&gt;  waldo            0.3.1        2021-09-14 [1] Custom</span>
+<span class="co">#&gt;  withr            2.4.2        2021-04-18 [1] Custom</span>
+<span class="co">#&gt;  xml2             1.3.2        2020-04-23 [1] Custom</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt;  [1] /Users/runner/work/_temp/Library</span>
-<span class="co">#&gt;  [2] /Library/Frameworks/R.framework/Versions/4.1/Resources/library</span>
+<span class="co">#&gt;  [1] /home/runner/work/_temp/Library</span>
+<span class="co">#&gt;  [2] /opt/R/4.1.2/lib/R/library</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ──────────────────────────────────────────────────────────────────────────────────────────────────</span></code></pre></div>
 </div>
@@ -530,7 +530,7 @@ Figure 3.4: Rubberband baselines for the paracetamol spectrum after bendin: corr
 <a href="#references" class="anchor"></a>References</h1>
 <div id="refs" class="references">
 <div id="ref-R-baseline">
-<p>[1] K.H. Liland, B.-H. Mevik, Baseline: Baseline correction of spectra, 2020. <a href="https://CRAN.R-project.org/package=baseline">https://CRAN.R-project.org/package=baseline</a>.</p>
+<p>[1] K.H. Liland, B.-H. Mevik, Baseline: Baseline correction of spectra, 2020.</p>
 </div>
 <div id="ref-baseline2010">
 <p>[2] K.H. Liland, T. Almøy, B.-H. Mevik, Optimal choice of baseline correction for multivariate calibration of spectra, Applied Spectroscopy. 64 (2010) 1007–1016.</p>
