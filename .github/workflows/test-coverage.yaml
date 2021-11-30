@@ -12,7 +12,8 @@ on:
       - main
       - master
       - develop
-      - auto-update-test
+      - auto-update
+      # - auto-update-test
 
   pull_request:
     branches:
