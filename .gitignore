@@ -39,6 +39,7 @@ vignettes/*.html
 vignettes/*.R
 vignettes/fileio
 vignettes/resources/*.bib
+inst/doc
 
 # Documentation
 man/*.Rd

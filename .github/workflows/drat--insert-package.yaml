@@ -33,13 +33,15 @@ on:
     branches:
       - develop
 
-      - auto-update
+      # - auto-update
       - auto-update-test
 
 name: Insert package (drat)
 
 jobs:
   drat:
+    if: github.actor != "pkg-skeleton Deploy Bot"
+
     runs-on: ${{ matrix.config.os }}
 
     name: "drat: ${{ matrix.config.os }} (R-${{ matrix.config.r }})"

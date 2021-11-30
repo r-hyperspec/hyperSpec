@@ -14,7 +14,7 @@ on:
       - master
       - develop
 
-      - auto-update
+      # - auto-update
       - auto-update-test
 
     tags: ['*']
