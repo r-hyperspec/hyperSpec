@@ -24,6 +24,8 @@ on:
   push:
     branches:
       - develop
+      - auto-update
+      - auto-update-test
 
 name: Insert package (drat)
 
@@ -37,13 +39,15 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        - {os: ubuntu-18.04,   r: 'release', rspm: "https://packagemanager.rstudio.com/cran/__linux__/bionic/latest"}
+           - {os: ubuntu-latest,   r: 'release'}
+          # - {os: macOS-latest,   r: 'release'}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: ${{ matrix.config.rspm }}
       REPO: ${{ github.event.repository.name }}
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      CACHE_VERSION: 1
 
     steps:
       - uses: actions/checkout@v2
@@ -62,13 +66,13 @@ jobs:
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
         shell: Rscript {0}
 
-      - name: Cache R packages
+      - name: Restore R package cache
         # if: runner.os != 'Windows'
         uses: actions/cache@v2
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-${CACHE_VERSION}-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-${CACHE_VERSION}-
 
       - name: Install system dependencies
         if: runner.os == 'Linux'
@@ -106,8 +110,7 @@ jobs:
         run: |
           git config --global url."https://${TOKEN}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
 
-          # CUST update the name of the local repo "bot"
-          git config --global user.email "${REPO}_Deploy_Bot@example.com"
+          git config --global user.email "$actions@github.com"
           git config --global user.name "${REPO} Deploy Bot"
 
       - name: Drat -- clone r-hyperspec/pkg-repo
@@ -142,5 +145,5 @@ jobs:
           # .tar.gz files are globally blocked (git ignored) by git,
           # must add manually and force it
           git add -f *.tar.gz
-          git commit -m "Automated deploy from ${REPO}" #CUST
+          git commit -m "Automated deploy from ${REPO}"
           git push origin gh-pages
