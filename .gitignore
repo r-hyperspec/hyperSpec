@@ -42,3 +42,6 @@ README.html
 # Other/Broad
 *.html
 _tmp/
+
+### Package-specific ###
+tests/testthat/fileio
