@@ -19,6 +19,3 @@
 ^README\.Rmd$
 Makefile
 
-# Other/Broad
-^.*\.html
-^.*\.pdf
