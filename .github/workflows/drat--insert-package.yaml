@@ -40,7 +40,7 @@ name: Insert package (drat)
 
 jobs:
   drat:
-    if: ${{ github.actor }} != "pkg-skeleton Deploy Bot"
+    if: ${{ github.event.head_commit.message }} != "Automated file update from pkg-skeleton"
 
     runs-on: ${{ matrix.config.os }}
 
