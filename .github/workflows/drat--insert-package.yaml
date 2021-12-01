@@ -1,3 +1,11 @@
+# READ-ONLY FILE
+#
+# Original file resides in r-hyperspec/pkg-skelton.
+# DO NOT EDIT in any other repo as these changes will be overwritten.
+# Edit at r-hyperspec/pkg-skelton, then push there and
+# this file will be deployed to the other repos.
+#
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # NOTE 1:
 # This script automatically detects the repository in which it is run.
@@ -24,13 +32,16 @@ on:
   push:
     branches:
       - develop
-      - auto-update
+
+      # - auto-update
       - auto-update-test
 
 name: Insert package (drat)
 
 jobs:
   drat:
+    if: ${{ github.event.head_commit.message }} != "Automated file update from pkg-skeleton"
+
     runs-on: ${{ matrix.config.os }}
 
     name: "drat: ${{ matrix.config.os }} (R-${{ matrix.config.r }})"
@@ -40,7 +51,7 @@ jobs:
       matrix:
         config:
            - {os: ubuntu-latest,   r: 'release'}
-          # - {os: macOS-latest,   r: 'release'}
+           # - {os: macOS-latest,   r: 'release'}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -51,6 +62,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Info
+        run: |
+          echo "GitHub actor: ${{ github.actor }}"
 
       - uses: r-lib/actions/setup-r@master
         with:
@@ -91,8 +106,8 @@ jobs:
       - name: Roxygenize
         shell: Rscript {0}
         run: |
-          devtools::document(roclets = c('rd', 'collate', 'namespace'))
-          devtools::document(roclets = c('vignette'))
+          roxygen2::roxygenize()
+
 
       - name: Build source package
         shell: Rscript {0}
