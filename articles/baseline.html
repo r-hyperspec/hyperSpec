@@ -20,6 +20,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -48,18 +50,12 @@
   <ul class="dropdown-menu" role="menu">
 <li class="dropdown-header">Documentation for version of package:</li>
     <li>
-      <a href="https://r-hyperspec.github.io/hyperSpec/">Released</a>
+      <a href="https://r-hyperspec.github.io/hyperSpec/" class="external-link">Released</a>
     </li>
     <li>
-      <a href="https://r-hyperspec.github.io/hyperSpec/dev/">In-development</a>
+      <a href="https://r-hyperspec.github.io/hyperSpec/dev/" class="external-link">In-development</a>
     </li>
   </ul>
-</li>
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
 </li>
 <li>
   <a href="../articles/hyperSpec.html">Get started</a>
@@ -81,8 +77,9 @@
       <a href="../articles/baseline.html">Fitting Baselines to Spectra</a>
     </li>
     <li class="divider">
-    <li>
-      <a href="../articles/index.html">More...</a>
+    </li>
+<li>
+      <a href="../articles/index.html">More articles...</a>
     </li>
   </ul>
 </li>
@@ -95,7 +92,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/r-hyperspec/hyperSpec/">
+  <a href="https://github.com/r-hyperspec/hyperSpec/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -110,12 +107,12 @@
 
       
 
-      </header><script src="baseline_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Fitting Baselines to Spectra</h1>
-            <h3 class="subtitle">Tutorial Explaining hyperSpec’s Baseline Fitting Functions</h3>
-                        <h4 class="author">Claudia Beleites<sup>1,2,3,4,5</sup>, Vilmantas Gegzna</h4>
+            <h3 data-toc-skip class="subtitle">Tutorial Explaining hyperSpec’s Baseline Fitting Functions</h3>
+                        <h4 data-toc-skip class="author">Claudia Beleites<sup>1,2,3,4,5</sup>, Vilmantas Gegzna</h4>
             <address class="author_afil">
       <ol style="list-style-type: decimal">
 <li>DIA Raman Spectroscopy Group, University of Trieste/Italy (2005–2008)</li>
@@ -127,18 +124,19 @@
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 class="date">2021-12-01</h4>
+            <h4 data-toc-skip class="date">2021-12-13</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/master/vignettes/baseline.Rmd"><code>vignettes/baseline.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/HEAD/vignettes/baseline.Rmd" class="external-link"><code>vignettes/baseline.Rmd</code></a></small>
       <div class="hidden name"><code>baseline.Rmd</code></div>
 
     </div>
 
     
     
-<div id="sec:introduction" class="section level1">
-<h1 class="hasAnchor">
-<a href="#sec:introduction" class="anchor"></a><span class="header-section-number">1</span> Introduction</h1>
+<div class="section level1">
+<h1 id="sec:introduction">
+<span class="header-section-number">1</span> Introduction<a class="anchor" aria-label="anchor" href="#sec:introduction"></a>
+</h1>
 <p>This document discusses baseline correction methods that can be used with package <strong>hyperSpec</strong>.
 Package <strong>hyperSpec</strong> provides two fitting functions for polynomial baselines, <code class="sourceCode r"><span class="kw">spc_fit_poly</span>()</code> and <code class="sourceCode r"><span class="kw">spc_fit_poly_below</span>()</code>.
 Another possibility is <code class="sourceCode r"><span class="kw">spc_rubberband</span>()</code>, a “rubberband” method that determines support points by finding the convex hull of each spectrum.
@@ -146,19 +144,21 @@ The baselines are then piecewise linear or (smoothing) splines through the suppo
 <p>Please note that a specialized package for baseline fitting, package <strong>baseline</strong><span class="citation">[<a href="#ref-R-baseline" role="doc-biblioref">1</a>,<a href="#ref-baseline2010" role="doc-biblioref">2</a>]</span>, exists that provides many more methods to fit baselines to spectroscopic data.
 Using package <strong>baseline</strong> with <code class="sourceCode r">hyperSpec</code> objects is demonstrated in <code class="sourceCode r"><span class="kw">vignette</span> (<span class="st">"hyperspec"</span>)</code>.</p>
 </div>
-<div id="sec:polynomial-baselines" class="section level1">
-<h1 class="hasAnchor">
-<a href="#sec:polynomial-baselines" class="anchor"></a><span class="header-section-number">2</span> Polynomial Baselines</h1>
+<div class="section level1">
+<h1 id="sec:polynomial-baselines">
+<span class="header-section-number">2</span> Polynomial Baselines<a class="anchor" aria-label="anchor" href="#sec:polynomial-baselines"></a>
+</h1>
 <p>In contrast to many other programs that provide baseline correction methods, package <strong>hyperSpec</strong>’s polynomial baseline functions do least squares fits.
 However, the baselines can be forced through particular points, if this behaviour is needed.</p>
 <p>The main difference between the two functions is that <code class="sourceCode r"><span class="kw">spc_fit_poly</span>()</code> returns a least squares fit through the complete spectrum that is given in <code class="sourceCode r">fit.to</code> whereas <code class="sourceCode r"><span class="kw">spc_fit_poly_below</span>()</code> tries to find appropriate spectral regions to fit the baseline to.</p>
-<div id="syntax-and-parameters" class="section level2">
-<h2 class="hasAnchor">
-<a href="#syntax-and-parameters" class="anchor"></a><span class="header-section-number">2.1</span> Syntax and Parameters</h2>
+<div class="section level2">
+<h2 id="syntax-and-parameters">
+<span class="header-section-number">2.1</span> Syntax and Parameters<a class="anchor" aria-label="anchor" href="#syntax-and-parameters"></a>
+</h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/spc_fit_poly.html">spc_fit_poly</a></span><span class="op">(</span><span class="va">fit.to</span>, apply.to <span class="op">=</span> <span class="va">fit.to</span>, poly.order <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/baselines.html">spc_fit_poly</a></span><span class="op">(</span><span class="va">fit.to</span>, apply.to <span class="op">=</span> <span class="va">fit.to</span>, poly.order <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 
-<span class="fu"><a href="../reference/spc_fit_poly.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">fit.to</span>, apply.to <span class="op">=</span> <span class="va">fit.to</span>, poly.order <span class="op">=</span> <span class="fl">1</span>, npts.min <span class="op">=</span> <span class="cn">NULL</span>, noise <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="../reference/baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">fit.to</span>, apply.to <span class="op">=</span> <span class="va">fit.to</span>, poly.order <span class="op">=</span> <span class="fl">1</span>, npts.min <span class="op">=</span> <span class="cn">NULL</span>, noise <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></code></pre></div>
 <ul>
 <li>
 <strong><code class="sourceCode r">fit.to</code>:</strong> <code class="sourceCode r">hyperSpec</code> object with the spectra whose baselines are to be fitted.</li>
@@ -175,34 +175,36 @@ If <code class="sourceCode r">npts.min</code> <span class="math inline">\(\leq\)
 <strong><code class="sourceCode r">noise</code>:</strong> a vector giving the amount of noise, see below.</li>
 </ul>
 </div>
-<div id="general-use" class="section level2">
-<h2 class="hasAnchor">
-<a href="#general-use" class="anchor"></a><span class="header-section-number">2.2</span> General Use</h2>
+<div class="section level2">
+<h2 id="general-use">
+<span class="header-section-number">2.2</span> General Use<a class="anchor" aria-label="anchor" href="#general-use"></a>
+</h2>
 <p>Both functions fit the polynomial to the spectral range given in <code class="sourceCode r">hyperSpec</code> object <code class="sourceCode r">fit.to</code>.
 If <code class="sourceCode r">apply.to</code> is not <code class="sourceCode r"><span class="ot">NULL</span></code>, the polynomials are evaluated on the spectral range of <code class="sourceCode r">apply.to</code>.
 Otherwise, the polynomial coefficients are returned.</p>
 <p>Subtracting the baseline is up to the user, it is easily done as <code class="sourceCode r">hyperSpec</code> provides the <code class="sourceCode r"><span class="op">-</span></code> (minus) operator.</p>
 </div>
-<div id="sec:fitt-polyn-basel" class="section level2">
-<h2 class="hasAnchor">
-<a href="#sec:fitt-polyn-basel" class="anchor"></a><span class="header-section-number">2.3</span> Fitting Polynomial Baselines Using Least Squares</h2>
+<div class="section level2">
+<h2 id="sec:fitt-polyn-basel">
+<span class="header-section-number">2.3</span> Fitting Polynomial Baselines Using Least Squares<a class="anchor" aria-label="anchor" href="#sec:fitt-polyn-basel"></a>
+</h2>
 <p>Commonly, baselines are fit using (single) support points that are specified by the user.
 Also, usually <span class="math inline">\(n + 1\)</span> support point is used for a polynomial of order <span class="math inline">\(n\)</span>.
 This approach is appropriate for spectra with high signal to noise ratio.</p>
 <p>Such a baseline can be obtained by restricting the spectra in <code class="sourceCode r">fit.to</code> to the respective points (see figure <a href="#fig:classical">2.1</a>):</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Load Raman spectra</span>
-<span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata/chondro_mini.rds"</span>, package <span class="op">=</span> <span class="st">"hyperSpec"</span><span class="op">)</span>
-<span class="va">chondro_mini</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></code></pre></div>
+<span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/chondro_mini.rds"</span>, package <span class="op">=</span> <span class="st">"hyperSpec"</span><span class="op">)</span>
+<span class="va">chondro_mini</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/spc_fit_poly.html">spc_fit_poly</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">633</span>, <span class="fl">1788</span><span class="op">)</span><span class="op">]</span>, <span class="va">chondro_mini</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/baselines.html">spc_fit_poly</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">633</span>, <span class="fl">1788</span><span class="op">)</span><span class="op">]</span>, <span class="va">chondro_mini</span><span class="op">)</span>
 
-<span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">chondro_mini</span>, plot.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">200</span>, <span class="fl">600</span><span class="op">)</span><span class="op">)</span>, col <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span>
-<span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">633</span>, <span class="fl">1788</span><span class="op">)</span><span class="op">]</span>,
+<span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="va">chondro_mini</span>, plot.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">200</span>, <span class="fl">600</span><span class="op">)</span><span class="op">)</span>, col <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">633</span>, <span class="fl">1788</span><span class="op">)</span><span class="op">]</span>,
   add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span>,
-  lines.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"p"</span>, pch <span class="op">=</span> <span class="fl">20</span><span class="op">)</span>
+  lines.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"p"</span>, pch <span class="op">=</span> <span class="fl">20</span><span class="op">)</span>
 <span class="op">)</span>
-<span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">bl</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="va">bl</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:classical"></span>
 <img src="baseline_files/figure-html/classical-1.png" alt="Fitting a linear baseline through two points.
@@ -221,9 +223,9 @@ Thus, for baseline fitting the spectra need to be cut to appropriate wavelength 
 A spectral region with many data points therefore has greater influence on the resulting baseline than a region with just a few data points.
 It is up to the user to decide whether this should be corrected for by selecting appropriate numbers of data points (e.g. by using replicates of the shorter spectral region).</p>
 </div>
-<div id="sec:autofit-baseline" class="section level2">
-<h2 class="hasAnchor">
-<a href="#sec:autofit-baseline" class="anchor"></a><span class="header-section-number">2.4</span> The Mechanism of Automatically Fitting the Baseline in <code>spc_fit_poly_below()</code>
+<div class="section level2">
+<h2 id="sec:autofit-baseline">
+<span class="header-section-number">2.4</span> The Mechanism of Automatically Fitting the Baseline in <code>spc_fit_poly_below()</code><a class="anchor" aria-label="anchor" href="#sec:autofit-baseline"></a>
 </h2>
 <p>Function <code class="sourceCode r"><span class="kw">spc_fit_poly_below</span>()</code> tries to automatically find appropriate spectral regions for baseline fitting.
 This is done by excluding spectral regions that contain signals from the baseline fitting.
@@ -241,7 +243,7 @@ The idea is that all data points that lie above a fitted polynomial (initially t
 </ul>
 <p>The baselines and respective supporting points for each iteration of <code class="sourceCode r"><span class="kw">spc_fit_poly_below</span>(chondro_mini[<span class="dv">1</span>], <span class="dt">poly.order =</span> <span class="dv">1</span>)</code> are shown in figure <a href="#fig:iter">2.2</a>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/spc_fit_poly.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, poly.order <span class="op">=</span> <span class="fl">1</span>, max.iter <span class="op">=</span> <span class="fl">8</span>, npts.min <span class="op">=</span> <span class="fl">2</span>, debuglevel <span class="op">=</span> <span class="fl">3L</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, poly.order <span class="op">=</span> <span class="fl">1</span>, max.iter <span class="op">=</span> <span class="fl">8</span>, npts.min <span class="op">=</span> <span class="fl">2</span>, debuglevel <span class="op">=</span> <span class="fl">3L</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:iter"></span>
 <img src="baseline_files/figure-html/iter-1.png" alt="Iterative fitting of the baseline. The dots give the supporting points for the next iteration's baseline, color: iterations.  "><p class="caption">
@@ -249,27 +251,28 @@ Figure 2.2: Iterative fitting of the baseline. The dots give the supporting poin
 </p>
 </div>
 </div>
-<div id="specifying-the-spectral-range" class="section level2">
-<h2 class="hasAnchor">
-<a href="#specifying-the-spectral-range" class="anchor"></a><span class="header-section-number">2.5</span> Specifying the Spectral Range</h2>
+<div class="section level2">
+<h2 id="specifying-the-spectral-range">
+<span class="header-section-number">2.5</span> Specifying the Spectral Range<a class="anchor" aria-label="anchor" href="#specifying-the-spectral-range"></a>
+</h2>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span>, , <span class="fl">1700</span> <span class="op">~</span> <span class="fl">1750</span><span class="op">]</span>,
-  lines.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"b"</span><span class="op">)</span>,
-  plot.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span>, , <span class="fl">1700</span> <span class="op">~</span> <span class="fl">1750</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">50</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span>, , <span class="fl">1700</span> <span class="op">~</span> <span class="fl">1750</span><span class="op">]</span>,
+  lines.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"b"</span><span class="op">)</span>,
+  plot.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span>, , <span class="fl">1700</span> <span class="op">~</span> <span class="fl">1750</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">50</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span>
 <span class="op">)</span>
 
-<span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/spc_fit_poly.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span>, , <span class="fl">1700</span> <span class="op">~</span> <span class="fl">1750</span><span class="op">]</span>, <span class="cn">NULL</span>, poly.order <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">bl</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span>, col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>
+<span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span>, , <span class="fl">1700</span> <span class="op">~</span> <span class="fl">1750</span><span class="op">]</span>, <span class="cn">NULL</span>, poly.order <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span><span class="va">bl</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span>, col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>
 
-<span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span>
+<span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span>
   <span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span>, , <span class="fl">1720</span> <span class="op">~</span> <span class="fl">1750</span><span class="op">]</span>,
-  lines.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"p"</span>, pch <span class="op">=</span> <span class="fl">19</span>, cex <span class="op">=</span> <span class="fl">.6</span><span class="op">)</span>,
+  lines.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"p"</span>, pch <span class="op">=</span> <span class="fl">19</span>, cex <span class="op">=</span> <span class="fl">.6</span><span class="op">)</span>,
   col <span class="op">=</span> <span class="st">"blue"</span>,
   add <span class="op">=</span> <span class="cn">T</span>
 <span class="op">)</span>
 
-<span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/spc_fit_poly.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span>, , <span class="fl">1720</span> <span class="op">~</span> <span class="fl">1750</span><span class="op">]</span>, <span class="cn">NULL</span>, poly.order <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">bl</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span>, col <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></code></pre></div>
+<span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span>, , <span class="fl">1720</span> <span class="op">~</span> <span class="fl">1750</span><span class="op">]</span>, <span class="cn">NULL</span>, poly.order <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span><span class="va">bl</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span>, col <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:spectralrange"></span>
 <img src="baseline_files/figure-html/spectralrange-1.png" alt="Influence of `fit.to`{.r} on the baseline polynomial.
@@ -284,21 +287,22 @@ But also <code class="sourceCode r"><span class="kw">spc_fit_poly_below</span>()
 The default value for <code class="sourceCode r">npts.min</code> depends on the number of data points per spectrum.
 Thus one should also consider requiring more support points than the default value suggests.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span><span class="fu"><a href="../reference/spc_fit_poly.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span>, <span class="cn">NULL</span>, npts.min <span class="op">=</span> <span class="fl">20</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/system.time.html" class="external-link">system.time</a></span><span class="op">(</span><span class="fu"><a href="../reference/baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span>, <span class="cn">NULL</span>, npts.min <span class="op">=</span> <span class="fl">20</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.003   0.000   0.004</span>
-<span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span><span class="fu"><a href="../reference/spc_fit_poly.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">min</span> <span class="op">~</span> <span class="fl">700</span>, <span class="fl">1700</span> <span class="op">~</span> <span class="va">max</span><span class="op">)</span><span class="op">]</span>, <span class="cn">NULL</span>, npts.min <span class="op">=</span> <span class="fl">20</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt;   0.004   0.000   0.003</span>
+<span class="fu"><a href="https://rdrr.io/r/base/system.time.html" class="external-link">system.time</a></span><span class="op">(</span><span class="fu"><a href="../reference/baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">min</span> <span class="op">~</span> <span class="fl">700</span>, <span class="fl">1700</span> <span class="op">~</span> <span class="va">max</span><span class="op">)</span><span class="op">]</span>, <span class="cn">NULL</span>, npts.min <span class="op">=</span> <span class="fl">20</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.005   0.000   0.004</span></code></pre></div>
+<span class="co">#&gt;   0.003   0.000   0.004</span></code></pre></div>
 <p>The choice of the spectral range in <code class="sourceCode r">fit.to</code> influences the resulting baselines to a certain extent, as becomes clear from figure <a href="#fig:spectralrange">2.3</a>.</p>
 </div>
-<div id="fitting-polynomials-of-different-orders" class="section level2">
-<h2 class="hasAnchor">
-<a href="#fitting-polynomials-of-different-orders" class="anchor"></a><span class="header-section-number">2.6</span> Fitting Polynomials of Different Orders</h2>
+<div class="section level2">
+<h2 id="fitting-polynomials-of-different-orders">
+<span class="header-section-number">2.6</span> Fitting Polynomials of Different Orders<a class="anchor" aria-label="anchor" href="#fitting-polynomials-of-different-orders"></a>
+</h2>
 <!-- ======================================================================= -->
 <!-- ======================================================================= -->
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/spc_fit_poly.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, poly.order <span class="op">=</span> <span class="fl">0</span>, debuglevel <span class="op">=</span> <span class="fl">2</span>, max.iter <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, poly.order <span class="op">=</span> <span class="fl">0</span>, debuglevel <span class="op">=</span> <span class="fl">2</span>, max.iter <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
 <span class="co">#&gt; Fitting with npts.min = 8</span>
 <span class="co">#&gt; start: 150 support points</span>
 <span class="co">#&gt; spectrum      1:    10 support points, noise = 0.0,   5 iterations</span></code></pre></div>
@@ -311,7 +315,7 @@ The dots indicate the points used for the fitting of the polynomial.
 </p>
 </div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/spc_fit_poly.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, poly.order <span class="op">=</span> <span class="fl">1</span>, debuglevel <span class="op">=</span> <span class="fl">2</span>, max.iter <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, poly.order <span class="op">=</span> <span class="fl">1</span>, debuglevel <span class="op">=</span> <span class="fl">2</span>, max.iter <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
 <span class="co">#&gt; Fitting with npts.min = 8</span>
 <span class="co">#&gt; start: 150 support points</span>
 <span class="co">#&gt; Warning in spc_fit_poly_below(chondro_mini[1], poly.order = 1, debuglevel = 2, : Stopped after 5</span>
@@ -326,7 +330,7 @@ The dots indicate the points used for the fitting of the polynomial.
 </p>
 </div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/spc_fit_poly.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, poly.order <span class="op">=</span> <span class="fl">2</span>, debuglevel <span class="op">=</span> <span class="fl">2</span>, max.iter <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, poly.order <span class="op">=</span> <span class="fl">2</span>, debuglevel <span class="op">=</span> <span class="fl">2</span>, max.iter <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
 <span class="co">#&gt; Fitting with npts.min = 9</span>
 <span class="co">#&gt; start: 150 support points</span>
 <span class="co">#&gt; spectrum      1:    11 support points, noise = 0.0,   5 iterations</span></code></pre></div>
@@ -340,19 +344,20 @@ The dots indicate the points used for the fitting of the polynomial.
 </div>
 <p>Figures <a href="#fig:figorder0">2.4</a>, <a href="#fig:figorder1">2.5</a>, <a href="#fig:figorder2">2.6</a> show the resulting baseline polynomial of <code class="sourceCode r"><span class="kw">spc_fit_poly_below</span> (chondro_mini [<span class="dv">1</span>], <span class="dt">poly.order =</span> order)</code> with <code class="sourceCode r">order</code> <span class="math inline">\(=\)</span> 0 to 3 for the first spectrum of the chondro_mini data set.</p>
 </div>
-<div id="the-noise-level" class="section level2">
-<h2 class="hasAnchor">
-<a href="#the-noise-level" class="anchor"></a><span class="header-section-number">2.7</span> The Noise Level</h2>
+<div class="section level2">
+<h2 id="the-noise-level">
+<span class="header-section-number">2.7</span> The Noise Level<a class="anchor" aria-label="anchor" href="#the-noise-level"></a>
+</h2>
 <!-- Upper part: -->
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/initialize.html">new</a></span><span class="op">(</span><span class="st">"hyperSpec"</span>, spc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, mean <span class="op">=</span> <span class="fl">100</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/initialize.html">new</a></span><span class="op">(</span><span class="st">"hyperSpec"</span>, spc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, mean <span class="op">=</span> <span class="fl">100</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span>
 <span class="va">noise</span> <span class="op">&lt;-</span> <span class="fl">4</span>
-<span class="fu"><a href="../reference/spc_fit_poly.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">spc</span>, poly.order <span class="op">=</span> <span class="fl">0</span>, noise <span class="op">=</span> <span class="va">noise</span>, debuglevel <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="../reference/baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">spc</span>, poly.order <span class="op">=</span> <span class="fl">0</span>, noise <span class="op">=</span> <span class="va">noise</span>, debuglevel <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
 <span class="co">#&gt; hyperSpec object</span>
 <span class="co">#&gt;    1 spectra</span>
 <span class="co">#&gt;    1 data columns</span>
 <span class="co">#&gt;    100 data points / spectrum</span>
-<span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/spc_fit_poly.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">spc</span>, poly.order <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"black"</span>, add <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">spc</span>, poly.order <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"black"</span>, add <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:fig3"></span>
 <img src="baseline_files/figure-html/fig3-1.png" alt="Iterative fitting of the baseline with noise level.
@@ -365,7 +370,7 @@ A noise level of 4 results in the blue baseline.
 </div>
 <!-- The lower part show -->
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/spc_fit_poly.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, poly.order <span class="op">=</span> <span class="fl">1</span>, noise <span class="op">=</span> <span class="fl">15</span>, max.iter <span class="op">=</span> <span class="fl">8</span>, debuglevel <span class="op">=</span> <span class="fl">3L</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, poly.order <span class="op">=</span> <span class="fl">1</span>, noise <span class="op">=</span> <span class="fl">15</span>, max.iter <span class="op">=</span> <span class="fl">8</span>, debuglevel <span class="op">=</span> <span class="fl">3L</span><span class="op">)</span>
 <span class="co">#&gt; Warning in spc_fit_poly_below(chondro_mini[1], poly.order = 1, noise = 15, : Stopped after 8</span>
 <span class="co">#&gt; iterations with 13 support points.</span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -391,18 +396,19 @@ The resulting baselines for <code class="sourceCode r"><span class="kw">spc_fit_
 <p>The <code class="sourceCode r">noise</code> may be a single value for all spectra, or a vector with the noise level for each of the spectra separately.</p>
 </div>
 </div>
-<div id="rubberband-method" class="section level1">
-<h1 class="hasAnchor">
-<a href="#rubberband-method" class="anchor"></a><span class="header-section-number">3</span> Rubberband Method</h1>
+<div class="section level1">
+<h1 id="rubberband-method">
+<span class="header-section-number">3</span> Rubberband Method<a class="anchor" aria-label="anchor" href="#rubberband-method"></a>
+</h1>
 <p>Particularly Raman spectra often show increasing background towards <span class="math inline">\(\Delta\tilde\nu = 0\)</span>.
 In this case, polynomial baselines often either need high order or residual background is left in the spectra.</p>
 <p>In that case, smoothing splines fitted through the supporting points are a good alternative.</p>
 <p>For the <code class="sourceCode r">paracetamol</code> spectrum (fig. <a href="#fig:rubberband-raw">3.1</a>, <a href="#fig:rubberband">3.2</a>), a noise level of 300 counts and the equivalent of 20 degrees of freedom work well.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/spc_rubberband.html">spc_rubberband</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">175</span> <span class="op">~</span> <span class="fl">1800</span><span class="op">]</span>, noise <span class="op">=</span> <span class="fl">300</span>, df <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/spc-rubberband.html">spc_rubberband</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">175</span> <span class="op">~</span> <span class="fl">1800</span><span class="op">]</span>, noise <span class="op">=</span> <span class="fl">300</span>, df <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">175</span> <span class="op">~</span> <span class="fl">1800</span><span class="op">]</span><span class="op">)</span>
-<span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">bl</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">175</span> <span class="op">~</span> <span class="fl">1800</span><span class="op">]</span><span class="op">)</span>
+<span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="va">bl</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:rubberband-raw"></span>
 <img src="baseline_files/figure-html/rubberband-raw-1.png" alt="Rubberband baselines for the paracetamol spectrum:`paracetamol`{.r} with the `rubberband()`{.r} fitted baseline.  "><p class="caption">
@@ -410,7 +416,7 @@ Figure 3.1: Rubberband baselines for the paracetamol spectrum:<code class="sourc
 </p>
 </div>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">175</span> <span class="op">~</span> <span class="fl">1800</span><span class="op">]</span> <span class="op">-</span> <span class="va">bl</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">175</span> <span class="op">~</span> <span class="fl">1800</span><span class="op">]</span> <span class="op">-</span> <span class="va">bl</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:rubberband"></span>
 <img src="baseline_files/figure-html/rubberband-1.png" alt="Rubberband baselines for the paracetamol spectrum: corrected spectrum.  "><p class="caption">
@@ -421,10 +427,10 @@ Figure 3.2: Rubberband baselines for the paracetamol spectrum: corrected spectru
 This can be corrected by bending the spectrum before applying the rubberband correction (fig. <a href="#fig:rubberband-bent-raw">3.3</a>, <a href="#fig:rubberband-bent-corrected">3.4</a>):</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">bend</span> <span class="op">&lt;-</span> <span class="fl">5e4</span> <span class="op">*</span> <span class="fu"><a href="../reference/wl_eval.html">wl_eval</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">175</span> <span class="op">~</span> <span class="fl">1800</span><span class="op">]</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span>, normalize.wl <span class="op">=</span> <span class="va">normalize01</span><span class="op">)</span>
-<span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/spc_rubberband.html">spc_rubberband</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">175</span> <span class="op">~</span> <span class="fl">1800</span><span class="op">]</span> <span class="op">+</span> <span class="va">bend</span><span class="op">)</span> <span class="op">-</span> <span class="va">bend</span></code></pre></div>
+<span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/spc-rubberband.html">spc_rubberband</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">175</span> <span class="op">~</span> <span class="fl">1800</span><span class="op">]</span> <span class="op">+</span> <span class="va">bend</span><span class="op">)</span> <span class="op">-</span> <span class="va">bend</span></code></pre></div>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">175</span> <span class="op">~</span> <span class="fl">1800</span><span class="op">]</span> <span class="op">+</span> <span class="va">bend</span><span class="op">)</span>
-<span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">bl</span> <span class="op">+</span> <span class="va">bend</span>, add <span class="op">=</span> <span class="cn">T</span>, col <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">175</span> <span class="op">~</span> <span class="fl">1800</span><span class="op">]</span> <span class="op">+</span> <span class="va">bend</span><span class="op">)</span>
+<span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="va">bl</span> <span class="op">+</span> <span class="va">bend</span>, add <span class="op">=</span> <span class="cn">T</span>, col <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:rubberband-bent-raw"></span>
 <img src="baseline_files/figure-html/rubberband-bent-raw-1.png" alt="Rubberband baselines for the paracetamol spectrum after bending: bent `paracetamol`{.r} spectrum and rubberband baseline. "><p class="caption">
@@ -432,7 +438,7 @@ Figure 3.3: Rubberband baselines for the paracetamol spectrum after bending: ben
 </p>
 </div>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">175</span> <span class="op">~</span> <span class="fl">1800</span><span class="op">]</span> <span class="op">-</span> <span class="va">bl</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">175</span> <span class="op">~</span> <span class="fl">1800</span><span class="op">]</span> <span class="op">-</span> <span class="va">bl</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:rubberband-bent-corrected"></span>
 <img src="baseline_files/figure-html/rubberband-bent-corrected-1.png" alt="Rubberband baselines for the paracetamol spectrum after bendin: corrected spectrum.  "><p class="caption">
@@ -440,97 +446,95 @@ Figure 3.4: Rubberband baselines for the paracetamol spectrum after bendin: corr
 </p>
 </div>
 </div>
-<div id="session-info" class="section level1 unnumbered">
-<h1 class="hasAnchor">
-<a href="#session-info" class="anchor"></a>Session Info</h1>
+<div class="section level1 unnumbered">
+<h1 id="session-info">Session Info<a class="anchor" aria-label="anchor" href="#session-info"></a>
+</h1>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html">session_info</a></span><span class="op">(</span><span class="st">"hyperSpec"</span><span class="op">)</span>
-<span class="co">#&gt; ─ Session info  🍉  🍊  🧞   ─────────────────────────────────────────────────────────────────────</span>
-<span class="co">#&gt;  hash: watermelon, tangerine, genie</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;  setting  value</span>
+<code class="sourceCode R"><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html" class="external-link">session_info</a></span><span class="op">(</span><span class="st">"hyperSpec"</span><span class="op">)</span>
+<span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────────────────────────</span></span>
+<span class="co">#&gt;  <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span></span>
 <span class="co">#&gt;  version  R version 4.1.2 (2021-11-01)</span>
 <span class="co">#&gt;  os       macOS Catalina 10.15.7</span>
 <span class="co">#&gt;  system   x86_64, darwin17.0</span>
 <span class="co">#&gt;  ui       X11</span>
-<span class="co">#&gt;  language (EN)</span>
+<span class="co">#&gt;  language en</span>
 <span class="co">#&gt;  collate  en_US.UTF-8</span>
 <span class="co">#&gt;  ctype    en_US.UTF-8</span>
 <span class="co">#&gt;  tz       UTC</span>
-<span class="co">#&gt;  date     2021-12-01</span>
+<span class="co">#&gt;  date     2021-12-13</span>
 <span class="co">#&gt;  pandoc   2.7.3 @ /usr/local/bin/ (via rmarkdown)</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; ─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span>
-<span class="co">#&gt;  package        * version      date (UTC) lib source</span>
-<span class="co">#&gt;  brio             1.1.3        2021-11-30 [1] CRAN (R 4.1.2)</span>
-<span class="co">#&gt;  callr            3.7.0        2021-04-20 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  cli              3.1.0        2021-10-27 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  colorspace       2.0-2        2021-06-24 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  crayon           1.4.2        2021-10-29 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  desc             1.4.0        2021-09-28 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  diffobj          0.3.5        2021-10-05 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  digest           0.6.29       2021-12-01 [1] CRAN (R 4.1.2)</span>
-<span class="co">#&gt;  dplyr            1.0.7        2021-06-18 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  ellipsis         0.3.2        2021-04-29 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  evaluate         0.14         2019-05-28 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  fansi            0.5.0        2021-05-25 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  farver           2.1.0        2021-02-28 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  generics         0.1.1        2021-10-25 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  ggplot2        * 3.3.5        2021-06-25 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  glue             1.5.1        2021-11-30 [1] CRAN (R 4.1.2)</span>
-<span class="co">#&gt;  gtable           0.3.0        2019-03-25 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  hyperSpec      * 0.200.0.9000 2021-12-01 [1] local</span>
-<span class="co">#&gt;  hySpc.testthat   0.2.1.9000   2021-12-01 [1] local</span>
-<span class="co">#&gt;  isoband          0.2.5        2021-07-13 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  jpeg             0.1-9        2021-07-24 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  jsonlite         1.7.2        2020-12-09 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  labeling         0.4.2        2020-10-20 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  lattice        * 0.20-45      2021-09-22 [2] CRAN (R 4.1.2)</span>
-<span class="co">#&gt;  latticeExtra     0.6-29       2019-12-19 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  lazyeval         0.2.2        2019-03-15 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  lifecycle        1.0.1        2021-09-24 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  magrittr         2.0.1        2020-11-17 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  MASS             7.3-54       2021-05-03 [2] CRAN (R 4.1.2)</span>
-<span class="co">#&gt;  Matrix           1.3-4        2021-06-01 [2] CRAN (R 4.1.2)</span>
-<span class="co">#&gt;  mgcv             1.8-38       2021-10-06 [2] CRAN (R 4.1.2)</span>
-<span class="co">#&gt;  munsell          0.5.0        2018-06-12 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  nlme             3.1-153      2021-09-07 [2] CRAN (R 4.1.2)</span>
-<span class="co">#&gt;  pillar           1.6.4        2021-10-18 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  pkgconfig        2.0.3        2019-09-22 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  pkgload          1.2.4        2021-11-30 [1] CRAN (R 4.1.2)</span>
-<span class="co">#&gt;  png              0.1-7        2013-12-03 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  praise           1.0.0        2015-08-11 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  processx         3.5.2        2021-04-30 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  ps               1.6.0        2021-02-28 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  purrr            0.3.4        2020-04-17 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  R6               2.5.1        2021-08-19 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  RColorBrewer     1.1-2        2014-12-07 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  rematch2         2.1.2        2020-05-01 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  rlang            0.4.12       2021-10-18 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  rprojroot        2.0.2        2020-11-15 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  rstudioapi       0.13         2020-11-12 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  scales           1.1.1        2020-05-11 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  testthat         3.1.0        2021-10-04 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  tibble           3.1.6        2021-11-07 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  tidyselect       1.1.1        2021-04-30 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  utf8             1.2.2        2021-07-24 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  vctrs            0.3.8        2021-04-29 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  viridisLite      0.4.0        2021-04-13 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  waldo            0.3.1        2021-09-14 [1] CRAN (R 4.1.0)</span>
-<span class="co">#&gt;  withr            2.4.3        2021-11-30 [1] CRAN (R 4.1.2)</span>
-<span class="co">#&gt;  xml2             1.3.3        2021-11-30 [1] CRAN (R 4.1.2)</span>
+<span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span></span>
+<span class="co">#&gt;  <span style="color: #555555; font-style: italic;">package       </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version     </span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span>
+<span class="co">#&gt;  brio             1.1.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  callr            3.7.0        <span style="color: #555555;">2021-04-20</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  cli              3.1.0        <span style="color: #555555;">2021-10-27</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  colorspace       2.0-2        <span style="color: #555555;">2021-06-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  crayon           1.4.2        <span style="color: #555555;">2021-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  desc             1.4.0        <span style="color: #555555;">2021-09-28</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  diffobj          0.3.5        <span style="color: #555555;">2021-10-05</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  digest           0.6.29       <span style="color: #555555;">2021-12-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  dplyr            1.0.7        <span style="color: #555555;">2021-06-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  ellipsis         0.3.2        <span style="color: #555555;">2021-04-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  evaluate         0.14         <span style="color: #555555;">2019-05-28</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  fansi            0.5.0        <span style="color: #555555;">2021-05-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  farver           2.1.0        <span style="color: #555555;">2021-02-28</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  generics         0.1.1        <span style="color: #555555;">2021-10-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  ggplot2        * 3.3.5        <span style="color: #555555;">2021-06-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  glue             1.5.1        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  gtable           0.3.0        <span style="color: #555555;">2019-03-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2021-12-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
+<span class="co">#&gt;  hySpc.testthat   <span style="color: #BB00BB; font-weight: bold;">0.2.1.9000  </span> <span style="color: #555555;">2021-12-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
+<span class="co">#&gt;  isoband          0.2.5        <span style="color: #555555;">2021-07-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  jpeg             0.1-9        <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  jsonlite         1.7.2        <span style="color: #555555;">2020-12-09</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  labeling         0.4.2        <span style="color: #555555;">2020-10-20</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  lattice        * 0.20-45      <span style="color: #555555;">2021-09-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  latticeExtra     0.6-29       <span style="color: #555555;">2019-12-19</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  lazyeval         0.2.2        <span style="color: #555555;">2019-03-15</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  lifecycle        1.0.1        <span style="color: #555555;">2021-09-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  magrittr         2.0.1        <span style="color: #555555;">2020-11-17</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  MASS             7.3-54       <span style="color: #555555;">2021-05-03</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  Matrix           1.3-4        <span style="color: #555555;">2021-06-01</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  mgcv             1.8-38       <span style="color: #555555;">2021-10-06</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  munsell          0.5.0        <span style="color: #555555;">2018-06-12</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  nlme             3.1-153      <span style="color: #555555;">2021-09-07</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  pillar           1.6.4        <span style="color: #555555;">2021-10-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  pkgconfig        2.0.3        <span style="color: #555555;">2019-09-22</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  pkgload          1.2.4        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  png              0.1-7        <span style="color: #555555;">2013-12-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  praise           1.0.0        <span style="color: #555555;">2015-08-11</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  processx         3.5.2        <span style="color: #555555;">2021-04-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  ps               1.6.0        <span style="color: #555555;">2021-02-28</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  purrr            0.3.4        <span style="color: #555555;">2020-04-17</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  R6               2.5.1        <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  RColorBrewer     1.1-2        <span style="color: #555555;">2014-12-07</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  rematch2         2.1.2        <span style="color: #555555;">2020-05-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  rlang            0.4.12       <span style="color: #555555;">2021-10-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  rprojroot        2.0.2        <span style="color: #555555;">2020-11-15</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  rstudioapi       0.13         <span style="color: #555555;">2020-11-12</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  scales           1.1.1        <span style="color: #555555;">2020-05-11</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  testthat         3.1.1        <span style="color: #555555;">2021-12-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  tibble           3.1.6        <span style="color: #555555;">2021-11-07</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  tidyselect       1.1.1        <span style="color: #555555;">2021-04-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  utf8             1.2.2        <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  vctrs            0.3.8        <span style="color: #555555;">2021-04-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  viridisLite      0.4.0        <span style="color: #555555;">2021-04-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  waldo            0.3.1        <span style="color: #555555;">2021-09-14</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  withr            2.4.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  xml2             1.3.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt;  [1] /Users/runner/work/_temp/Library</span>
-<span class="co">#&gt;  [2] /Library/Frameworks/R.framework/Versions/4.1/Resources/library</span>
+<span class="co">#&gt; <span style="color: #555555;"> [1] /Users/runner/work/_temp/Library</span></span>
+<span class="co">#&gt; <span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Versions/4.1/Resources/library</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; ──────────────────────────────────────────────────────────────────────────────────────────────────</span></code></pre></div>
+<span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
 </div>
-<div id="references" class="section level1 unnumbered">
-<h1 class="hasAnchor">
-<a href="#references" class="anchor"></a>References</h1>
+<div class="section level1 unnumbered">
+<h1 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h1>
 <div id="refs" class="references">
 <div id="ref-R-baseline">
-<p>[1] K.H. Liland, B.-H. Mevik, Baseline: Baseline correction of spectra, 2020. <a href="https://CRAN.R-project.org/package=baseline">https://CRAN.R-project.org/package=baseline</a>.</p>
+<p>[1] K.H. Liland, B.-H. Mevik, Baseline: Baseline correction of spectra, 2020. <a href="https://CRAN.R-project.org/package=baseline" class="external-link">https://CRAN.R-project.org/package=baseline</a>.</p>
 </div>
 <div id="ref-baseline2010">
 <p>[2] K.H. Liland, T. Almøy, B.-H. Mevik, Optimal choice of baseline correction for multivariate calibration of spectra, Applied Spectroscopy. 64 (2010) 1007–1016.</p>
@@ -550,11 +554,13 @@ Figure 3.4: Rubberband baselines for the paracetamol spectrum after bendin: corr
 
 
       <footer><div class="copyright">
-  <p>Developed by Claudia Beleites, <a href="https://orcid.org/0000-0002-9500-5167">Vilmantas Gegzna</a>, <a href="http://academic.depauw.edu/hanson_web/">Bryan A. Hanson</a>, Roman Kiselev, Erick Oduniyi, Valter Sergo.</p>
+  <p></p>
+<p>Developed by Claudia Beleites, <a href="https://orcid.org/0000-0002-9500-5167" class="external-link">Vilmantas Gegzna</a>, <a href="http://academic.depauw.edu/hanson_web/" class="external-link">Bryan A. Hanson</a>, Roman Kiselev, Erick Oduniyi, Valter Sergo.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -562,6 +568,8 @@ Figure 3.4: Rubberband baselines for the paracetamol spectrum after bendin: corr
 
   
 
+
+  
 
   </body>
 </html>
