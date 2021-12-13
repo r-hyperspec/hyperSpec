@@ -17,6 +17,8 @@
 #'               expression and returned as an output.
 #' - `"pass"` -- the value of `unit` is converted to an expression and returned
 #'               as an output and no error nor warning is issued.
+#' - `"pass as-is"` -- the same as `"pass"`, just output is not converted into
+#'               an expression.
 #' @param null_ok (logical):
 #'        Should value `NULL` be accepted as `unit`.
 #'        This argument is passed to [.wl_fix_unit_name()].
@@ -38,7 +40,7 @@ wl_create_label_from_units <- function(unit, greek = FALSE,
                                        on_failure = "warn", null_ok = FALSE) {
 
   if (missing(unit)) stop("argument \"unit\" is missing")
-  on_failure <- match.arg(tolower(on_failure), c("fail", "warn", "pass"))
+  on_failure <- match.arg(tolower(on_failure), c("fail", "warn", "pass", "as-is"))
 
   u_fixed <- .wl_fix_unit_name(unit, null_ok = null_ok, on_failure = "pass")
 
@@ -85,7 +87,9 @@ wl_create_label_from_units <- function(unit, greek = FALSE,
           as.expression(unit)
         },
 
-        pass = as.expression(unit)
+        pass = as.expression(unit),
+
+        "pass as-is" = unit
       )
     }
   )
