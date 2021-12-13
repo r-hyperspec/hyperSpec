@@ -179,5 +179,10 @@ hySpc.testthat::test(wl_create_label_from_units) <- function() {
       as.expression("WARNING!")
     )
 
+    expect_equal(
+      wl_create_label_from_units("WARNING!", on_failure = "pass as-is"),
+      "WARNING!"
+    )
+
   })
 }
