@@ -40,7 +40,7 @@ wl_create_label_from_units <- function(unit, greek = FALSE,
                                        on_failure = "warn", null_ok = FALSE) {
 
   if (missing(unit)) stop("argument \"unit\" is missing")
-  on_failure <- match.arg(tolower(on_failure), c("fail", "warn", "pass", "as-is"))
+  on_failure <- match.arg(tolower(on_failure), c("fail", "warn", "pass", "pass as-is"))
 
   u_fixed <- .wl_fix_unit_name(unit, null_ok = null_ok, on_failure = "pass")
 
