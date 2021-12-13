@@ -140,7 +140,7 @@
 <strong>Note</strong>: <a name="list-of-vignettes"></a>
 </p>
 <p>
-Package <strong>hyperSpec</strong> and it’s friends provide a number of vignettes to help you get started.
+Package <strong><code>hyperSpec</code></strong> and it’s friends provide a number of vignettes to help you get started.
 </p>
 <ul>
 <li>
@@ -149,16 +149,16 @@ You can access the vignettes via these links:
 </p>
 <ul>
 <li>
-<a href="http://r-hyperspec.github.io/hyperSpec/articles/hyperSpec.html" class="external-link">Introduction to <strong>hyperSpec</strong></a>
+<a href="http://r-hyperspec.github.io/hyperSpec/articles/hyperSpec.html" class="external-link">Introduction to <strong><code>hyperSpec</code></strong></a>
 </li>
 <li>
-<a href="http://r-hyperspec.github.io/hyperSpec/articles/plotting.html" class="external-link">Plotting Functions in <strong>hyperSpec</strong></a>
+<a href="http://r-hyperspec.github.io/hyperSpec/articles/plotting.html" class="external-link">Plotting Functions in <strong><code>hyperSpec</code></strong></a>
 </li>
 <li>
 <a href="http://r-hyperspec.github.io/hyperSpec/articles/baseline.html" class="external-link">Fitting Baselines to Spectra</a>
 </li>
 <li>
-<a href="http://r-hyperspec.github.io/hyperSpec/articles/fileio.html" class="external-link">Importing Files into <strong>hyperSpec</strong></a>
+<a href="http://r-hyperspec.github.io/hyperSpec/articles/fileio.html" class="external-link">Importing Files into <strong><code>hyperSpec</code></strong></a>
 </li>
 <li>
 <a href="http://r-hyperspec.github.io/hyperSpec/articles/flu.html" class="external-link">flu: Example Workflow for Fluorescene Emission</a>
@@ -170,7 +170,7 @@ You can access the vignettes via these links:
 </li>
 <li>
 <p>
-Alternatively, if you are offline or prefer accessing the vignettes with <code>R</code>, simply type <code class="sourceCode r"><span class="kw">browseVignettes</span>(<span class="st">“hyperSpec”</span>)</code> to get a clickable list in a browser window.
+Alternatively, if you are offline or prefer accessing the vignettes with <em>R</em>, simply type <code class="sourceCode r"><span class="kw">browseVignettes</span>(<span class="st">“hyperSpec”</span>)</code> to get a clickable list in a browser window.
 </p>
 </li>
 <li>
@@ -182,10 +182,10 @@ Vignettes in other packages:
 <a href="https://r-hyperspec.github.io/hySpc.chondro/articles/hySpc-chondro.html" class="external-link">Example Workflow for 2D Raman Spectra</a> (<code>chondro</code> dataset)
 </li>
 <li>
-<a href="https://r-hyperspec.github.io/hySpc.ggplot2/articles/hySpc-ggplot2.html" class="external-link">Plotting <code>hyperSpec</code> objects with <strong>ggplot2</strong></a>
+<a href="https://r-hyperspec.github.io/hySpc.ggplot2/articles/hySpc-ggplot2.html" class="external-link">Plotting <code>hyperSpec</code> objects with <strong><code>ggplot2</code></strong></a>
 </li>
 <li>
-<a href="https://r-hyperspec.github.io/hySpc.dplyr/articles/hySpc-dplyr.html" class="external-link">Using <strong>dplyr</strong> functions with <code>hyperSpec</code> objects</a>
+<a href="https://r-hyperspec.github.io/hySpc.dplyr/articles/hySpc-dplyr.html" class="external-link">Using <strong><code>dplyr</code></strong> functions with <code>hyperSpec</code> objects</a>
 </li>
 </ul>
 </li>
@@ -2343,7 +2343,7 @@ Please refer to the documentation of the respective functions for details about 
   <span class="op">}</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.052   0.002   0.052</span></code></pre></div>
+<span class="co">#&gt;   0.056   0.003   0.059</span></code></pre></div>
 <p>Calculations that involve a lot of subsetting (i.e., extracting or changing the spectra matrix or extra data) can be sped up considerably if the required parts of the <code>hyperSpec</code> object are extracted beforehand.
 This is somewhat similar to model fitting in <code>R</code> in general: many model fitting functions in <code>R</code> are much faster if the formula interface is avoided and the appropriate <code class="sourceCode r">data.frame</code>s or matrices are handed over directly.</p>
 <div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
@@ -2357,7 +2357,7 @@ This is somewhat similar to model fitting in <code>R</code> in general: many mod
   <span class="va">tmp</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">tmp.matrix</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.016   0.000   0.017</span></code></pre></div>
+<span class="co">#&gt;   0.018   0.000   0.018</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="additional-packages">
