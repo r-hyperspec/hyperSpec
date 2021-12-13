@@ -210,6 +210,7 @@ Collate:
     'trellis.factor.key.R'
     'vandermonde.R'
     'wl.R'
+    'wl_fix_unit_name.R'
     'wl_convert_units.R'
     'wl_sort.R'
     'write_txt_long.R'
