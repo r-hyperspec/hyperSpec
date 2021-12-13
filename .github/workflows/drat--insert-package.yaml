@@ -1,3 +1,11 @@
+# READ-ONLY FILE
+#
+# Original file resides in r-hyperspec/pkg-skelton.
+# DO NOT EDIT in any other repo as these changes will be overwritten.
+# Edit at r-hyperspec/pkg-skelton, then push there and
+# this file will be deployed to the other repos.
+#
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # NOTE 1:
 # This script automatically detects the repository in which it is run.
@@ -25,10 +33,15 @@ on:
     branches:
       - develop
 
+      # - auto-update
+      - auto-update-test
+
 name: Insert package (drat)
 
 jobs:
   drat:
+    if: ${{ github.event.head_commit.message }} != "Automated file update from pkg-skeleton"
+
     runs-on: ${{ matrix.config.os }}
 
     name: "drat: ${{ matrix.config.os }} (R-${{ matrix.config.r }})"
@@ -37,16 +50,22 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        - {os: ubuntu-18.04,   r: 'release', rspm: "https://packagemanager.rstudio.com/cran/__linux__/bionic/latest"}
+           - {os: ubuntu-latest,   r: 'release'}
+           # - {os: macOS-latest,   r: 'release'}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: ${{ matrix.config.rspm }}
       REPO: ${{ github.event.repository.name }}
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      CACHE_VERSION: 1
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Info
+        run: |
+          echo "GitHub actor: ${{ github.actor }}"
 
       - uses: r-lib/actions/setup-r@master
         with:
@@ -62,13 +81,13 @@ jobs:
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
         shell: Rscript {0}
 
-      - name: Cache R packages
+      - name: Restore R package cache
         # if: runner.os != 'Windows'
         uses: actions/cache@v2
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-${CACHE_VERSION}-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-${CACHE_VERSION}-
 
       - name: Install system dependencies
         if: runner.os == 'Linux'
@@ -87,8 +106,8 @@ jobs:
       - name: Roxygenize
         shell: Rscript {0}
         run: |
-          devtools::document(roclets = c('rd', 'collate', 'namespace'))
-          devtools::document(roclets = c('vignette'))
+          roxygen2::roxygenize()
+
 
       - name: Build source package
         shell: Rscript {0}
@@ -106,8 +125,7 @@ jobs:
         run: |
           git config --global url."https://${TOKEN}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
 
-          # CUST update the name of the local repo "bot"
-          git config --global user.email "${REPO}_Deploy_Bot@example.com"
+          git config --global user.email "$actions@github.com"
           git config --global user.name "${REPO} Deploy Bot"
 
       - name: Drat -- clone r-hyperspec/pkg-repo
@@ -142,5 +160,5 @@ jobs:
           # .tar.gz files are globally blocked (git ignored) by git,
           # must add manually and force it
           git add -f *.tar.gz
-          git commit -m "Automated deploy from ${REPO}" #CUST
+          git commit -m "Automated deploy from ${REPO}"
           git push origin gh-pages

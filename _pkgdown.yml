@@ -2,6 +2,7 @@
 # -------------------------------------------------------------------------
 
 template:
+  # bootstrap: 5
   params:
     bootswatch: cerulean
     noindex: false

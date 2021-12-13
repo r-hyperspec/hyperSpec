@@ -1,3 +1,10 @@
+# READ-ONLY FILE
+#
+# Original file resides in r-hyperspec/pkg-skelton.
+# DO NOT EDIT in any other repo as these changes will be overwritten.
+# Edit at r-hyperspec/pkg-skelton, then push there and
+# this file will be deployed to the other repos.
+#
 on:
   push:
     branches:
@@ -5,6 +12,9 @@ on:
       - main
       - master
       - develop
+
+      # - auto-update
+      - auto-update-test
 
   pull_request:
     branches:
@@ -55,10 +65,11 @@ jobs:
       - name: Roxygenize
         run: |
           # Vignettes are not needed for coverage tests
-          devtools::document(roclets = c('rd', 'collate', 'namespace'))
+          roclets <- roxygen2::load_options()$roclets
+          roclets <- roclets[!roclets %in% "vignette"]
+          devtools::document(roclets = roclets)
         shell: Rscript {0}
 
       - name: Test coverage
         run: covr::codecov()
         shell: Rscript {0}
-
