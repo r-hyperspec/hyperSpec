@@ -12,7 +12,7 @@
 #'          spc.label.wlonly
 #'          spc.point.default
 #'          spc.point.max
-#'          spc.point.min
+#'          locate_spc_point_min
 #'          locate_spc_point_parabola_max
 #'
 #' @details
@@ -30,7 +30,7 @@
 #'   uses the clicked wavelength together with its spectral intensity;
 #' - [spc.point.max()]
 #'   the point with the highest intensity in the wavelength window;
-#' - [spc.point.min()]
+#' - [locate_spc_point_min()]
 #'   the point with the lowest intensity in the wavelength window;
 #' - [locate_spc_point_parabola_max()]
 #'   maximum of a parabola fit through the point with highest intensity
@@ -149,7 +149,7 @@
 #' ## looking for minima
 #' identify_spc(
 #'   plot(-paracetamol, wl.reverse = TRUE),
-#'   point.fn = spc.point.min, adj = c(1, 0.5)
+#'   point.fn = locate_spc_point_min, adj = c(1, 0.5)
 #' )
 #'
 #' }}
@@ -288,7 +288,7 @@ spc.point.default <- function(wl, spc, wlclick) {
 
 #' @rdname identify_spc
 #' @export
-spc.point.min <- function(wl, spc, wlclick) {
+locate_spc_point_min <- function(wl, spc, wlclick) {
   i <- which.min(spc)
   c(wl = wl[i], spc = spc[i])
 }
