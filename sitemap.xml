@@ -247,6 +247,9 @@
     <loc>/reference/hyperSpec-package.html</loc>
   </url>
   <url>
+    <loc>/reference/identify_spc.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
   </url>
   <url>
@@ -350,9 +353,6 @@
   </url>
   <url>
     <loc>/reference/spc-spline.html</loc>
-  </url>
-  <url>
-    <loc>/reference/spc_identify.html</loc>
   </url>
   <url>
     <loc>/reference/spc_na_approx.html</loc>

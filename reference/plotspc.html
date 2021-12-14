@@ -85,7 +85,7 @@ Calculate appropriate yoffset values for stacking in plotspc()."><!-- mathjax --
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Plotting spectra</h1>
-    <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/HEAD/R/plotspc.R" class="external-link"><code>R/plotspc.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/HEAD/R/calculate_stacked_offsets.R" class="external-link"><code>R/calculate_stacked_offsets.R</code></a></small>
     <div class="hidden name"><code>plotspc.Rd</code></div>
     </div>
 
@@ -160,7 +160,7 @@ accidentally plotting of large numbers of spectra).</p></dd>
 <dd><p>a function to apply to each wavelength in order to calculate
 summary spectra such as mean, min, max, etc.</p></dd>
 <dt>func.args</dt>
-<dd><p><code>list</code> with furter arguments for <code>func</code></p></dd>
+<dd><p><code>list</code> with further arguments for <code>func</code></p></dd>
 <dt>stacked</dt>
 <dd><p>if not <code>NULL</code>, a "stacked" plot is produced, see the
 example. <code>stacked</code> may be <code>TRUE</code> to stack single spectra.  A
@@ -250,7 +250,7 @@ However, this may change in future.</p></dd>
 points</p></dd>
 <dt>wavelengths</dt>
 <dd><p>the wavelengths of the plotted spectral data points</p></dd>
-</dl><p>This can be used together with <code><a href="spc_identify.html">spc.identify()</a></code>.
+</dl><p>This can be used together with <code><a href="identify_spc.html">spc.identify()</a></code>.
 a list containing</p>
 <dl><dt>offsets</dt>
 <dd><p>numeric with the yoffset for each group in <code>stacked</code></p></dd>
