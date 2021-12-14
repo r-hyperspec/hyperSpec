@@ -1,7 +1,10 @@
+#' @title Mark groups in [stats::hclust()] dendrograms
+#'
 #' Groups are marked by colored rectangles as well as by their levels
 #'
 #' The dendrogram should be plotted separately, see the example.
-#' @title Mark groups in [stats::hclust()] dendrograms
+#'
+#'
 #' @param dendrogram the dendrogram
 #' @param groups factor giving the the groups to mark
 #' @param col vector with colors for each group
@@ -13,6 +16,7 @@
 #' @param label side label see example
 #' @param label.right should the side labels be at the right side?
 #' @param ... handed to [graphics::rect()] and [graphics::text()]
+#'
 #' @author Claudia Beleites
 #'
 #' @concept plotting
@@ -26,27 +30,31 @@
 #' par(xpd = TRUE, mar = c(5.1, 4, 4, 3)) # allows plotting into the margin
 #' plot(dend, hang = -1, labels = FALSE)
 #'
-#' ## mark clusters
+#' # mark clusters
 #' clusters <- as.factor(cutree(dend, k = 4))
 #' levels(clusters) <- LETTERS[1:4]
 #' mark_groups_in_dendrogram(dend, clusters, label = "cluster")
 #'
-#' ## mark independent factor
+#' # mark independent factor
 #' mark_groups_in_dendrogram(dend, as.factor(laser[, , 405.36] > 11000),
 #'   pos.marker = -0.02, pos.text = -0.03
 #' )
 #'
-#' ## mark continuous variable: convert it to a factor and omit labels
-#' mark_groups_in_dendrogram(dend, cut(laser[[, , 405.36]], 100), palette_alois(100),
-#'   pos.marker = -.015, text.col = NA,
+#' # mark continuous variable: convert it to a factor and omit labels
+#' mark_groups_in_dendrogram(dend, cut(laser[[, , 405.36]], 100),
+#'   palette_alois(100), pos.marker = -.015, text.col = NA,
 #'   label = expression(I[lambda == 405.36 ~ nm]), label.right = FALSE
 #' )
 #' @importFrom utils head tail
-mark_groups_in_dendrogram <- function(dendrogram, groups, col = seq_along(unique(groups)),
+mark_groups_in_dendrogram <- function(dendrogram, groups,
+                            col = seq_along(unique(groups)),
                             pos.marker = 0,
                             height = 0.025 * max(dendrogram$height),
                             pos.text = -2.5 * height,
-                            border = NA, text.col = "black", label, label.right = TRUE,
+                            border = NA,
+                            text.col = "black",
+                            label,
+                            label.right = TRUE,
                             ...) {
   if (!is.factor(groups)) {
     groups <- as.factor(groups)
