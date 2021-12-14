@@ -1,4 +1,4 @@
-#' @name DEPRECATED-fun
+#' @name DEPRECATED-pooled.cov
 #' @concept deprecated
 #'
 #' @title (DEPRECATED)
@@ -9,7 +9,9 @@
 #' more. You should not use these.
 #' Currently they are present due to back-compatibility reasons and will be
 #' removed in the next release of the package.
-#' Please, use the suggested alternative functions instead.
+#' Please, use the suggested alternative functions instead:
+#'
+#' - [hyperSpec::cov_pooled()]
 #'
 #'
 #' @param ... arguments to [hyperSpec::cov_pooled()]
