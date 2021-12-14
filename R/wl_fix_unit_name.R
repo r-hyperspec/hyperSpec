@@ -5,8 +5,8 @@
 #' can be used as a standardized argument value for other \pkg{hyperSpec}
 #' functions, e.g., [wl_convert_units()].
 #'
-#' **Note:** This function is usually used internally in other \pkg{hyperSpec}
-#'           functions.
+#' **Note:** This function is only intended to be used internally in
+#'           \pkg{hyperSpec} package.
 #'
 #' @param unit (sting):
 #'        A name, abbreviation or shot description of unit for wavelength axis.
