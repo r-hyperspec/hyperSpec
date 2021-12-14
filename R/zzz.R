@@ -18,6 +18,14 @@
     "The correct reference is given by:\n",
     '   citation("', desc$Package, '")\n\n',
     "The project's website:\n   ", first_url, "\n\n",
+
+    "IMPORTANT! ",
+    "Existing users of 'hyperSpec' will find that many functions have been ",
+    "renamed in favor of more consistent names or moved to other packages. ",
+    "To help you update your workflows, the list of the renamed functions and ",
+    "moved functions resides in the NEWS file in hyperSpec's documentation: \n",
+    'help(package = "hyperSpec")',
+
     sep = ""
   )
 }
