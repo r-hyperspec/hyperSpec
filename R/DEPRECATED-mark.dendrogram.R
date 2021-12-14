@@ -11,7 +11,7 @@
 #' removed in the next release of the package.
 #' Please, use the suggested alternative functions instead:
 #'
-#' - [hyperSpec:: mark_groups_in_dendrogram()]
+#' - [hyperSpec::mark_groups_in_dendrogram()]
 #'
 #'
 #' @param ... arguments to [hyperSpec::mark_groups_in_dendrogram()].
@@ -20,7 +20,7 @@
 #' @export
 mark.dendrogram <- function(...) {
   hySpc_deprecated("mark_groups_in_dendrogram")
-   mark_groups_in_dendrogram(...)
+  mark_groups_in_dendrogram(...)
 }
 
 
