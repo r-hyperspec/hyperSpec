@@ -46,6 +46,7 @@
      `spc.bin()`             | `spc_bin()`                      |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.fit.poly()`        | `spc_fit_poly()`                 |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.fit.poly.below()`  | `spc_fit_poly_below()`           |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
+     `spc.identify()`        | `identify_spc()`                 |  #40
      `spc.loess()`           | `spc_loess()`                    |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.NA.approx()`       | `spc_na_approx()`                |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.rubberband()`      | `spc_rubberband()`               |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301

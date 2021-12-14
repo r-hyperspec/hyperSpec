@@ -108,7 +108,7 @@
 #'
 #' \item{wavelengths}{the wavelengths of the plotted spectral data points}
 #'
-#' This can be used together with [spc.identify()].
+#' This can be used together with [identify_spc()].
 #'
 #' @author C. Beleites
 #'
@@ -559,7 +559,7 @@ plotspc <- function(object,
     }
   }
 
-  ## return some values that are needed by spc.identify
+  ## return some values that are needed by identify_spc
   invisible(list(
     x = rep(unlist(x), each = nrow(spc)),
     y = spc,

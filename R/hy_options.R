@@ -19,7 +19,7 @@
 #' Currently, the following options are defined:
 #' \tabular{llll}{
 #' **Name**          \tab **Default Value (range)**      \tab **Description**                               \tab **Used by**\cr
-#' debuglevel           \tab 0 (1L 2L 3L)                      \tab amount of debugging information produced         \tab [spc.identify()] [map.identify()]\cr
+#' debuglevel           \tab 0 (1L 2L 3L)                      \tab amount of debugging information produced         \tab [identify_spc()] [map.identify()]\cr
 #'                      \tab                                   \tab                                                  \tab various file import functions\cr
 #'                      \tab                                   \tab                                                  \tab [spc_fit_poly_below()]\cr
 #' gc                   \tab FALSE                             \tab triggers frequent calling of gc ()               \tab [read.ENVI()], `new ("hyperSpec")`\cr

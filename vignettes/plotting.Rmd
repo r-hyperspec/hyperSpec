@@ -1385,19 +1385,19 @@ if (require(rgl)) {
 
 # Interactive Graphics {#interactive-plots}
 
-Package **hyperSpec** offers basic interaction, `spc.identify()`{.r} for spectra plots, and `map.identify()`{.r} and `map.sel.poly()`{.r} for maps.
+Package **hyperSpec** offers basic interaction, `identify_spc()`{.r} for spectra plots, and `map.identify()`{.r} and `map.sel.poly()`{.r} for maps.
 The first two identify points in spectra plots and map plots, respectively.
 Function `map.sel.poly()`{.r} selects the part of a `hyperSpec`{.r} object that lies inside the user defined polygon.
 
 
-## `spc.identify()`{.r} Finding Out Wavelength, Intensity and Spectrum {#sec:spc.identify}
+## `identify_spc()`{.r} Finding Out Wavelength, Intensity and Spectrum {#sec:identify_spc}
 
-Function `spc.identify()`{.r} allows to measure points in graphics produced by `plotspc()`{.r}.
+Function `identify_spc()`{.r} allows to measure points in graphics produced by `plotspc()`{.r}.
 It works correctly with reversed and cut wavelength axes.
 
 
 ```{r eval=FALSE}
-spc.identify(plotspc(paracetamol, wl.range = c(600 ~ 1800, 2800 ~ 3200), xoffset = 800))
+identify_spc(plotspc(paracetamol, wl.range = c(600 ~ 1800, 2800 ~ 3200), xoffset = 800))
 ```
 
 The result is a data.frame with the indices of the spectra, the wavelength, and its intensity.
