@@ -34,9 +34,11 @@ setMethod("cov", signature = signature(x = "hyperSpec", y = "missing"), .cov_h_)
 #' @rdname cov
 #'
 #' @param ... Ignored.
-#' @param regularize
+#' @param regularize (numeric):
 #'        Regularization of the covariance matrix.
 #'        Set `0` to switch off.
+#'        Default is `1e-5 * max(abs(cov_p))`, where `cov_p` is a pooled
+#'        covariance matrix before regularization.
 #'
 #' [cov_pooled()] calculates pooled covariance like, e.g., in LDA.
 #' @param groups Factor indicating the groups.
@@ -47,7 +49,7 @@ setMethod("cov", signature = signature(x = "hyperSpec", y = "missing"), .cov_h_)
 #' pcov <- cov_pooled(faux_cell, faux_cell$region)
 #' plot(pcov$means)
 #' image(pcov$COV)
-cov_pooled <- function(x, groups, ..., regularize = 1e-5 * max(abs(cov_p))) {
+cov_pooled <- function(x, groups, ..., regularize = NULL) {
   assert_hyperSpec(x)
   validObject(x)
 
@@ -63,10 +65,11 @@ cov_pooled <- function(x, groups, ..., regularize = 1e-5 * max(abs(cov_p))) {
   cov_p <- cov(x@data$spc - means@data$spc[as.numeric(groups), , drop = FALSE])
 
   # regularization
+  if (is.null(regularize)) regularize <- 1e-5 * max(abs(cov_p))
   cov_p <- cov_p + diag(regularize, nrow(cov_p))
 
   # Return:
-  list(COV = COV, means = means)
+  list(COV = cov_p, means = means)
 }
 
 # Unit tests -----------------------------------------------------------------
@@ -78,15 +81,19 @@ hySpc.testthat::test(.cov_h_) <- function() {
   obj <- cov(faux_cell)
 
   # Properties
-  expect_true(is.matrix(obj))
-  expect_type(obj, "double")
-  expect_equal(dim(obj), c(n_wl, n_wl))
+  test_that("properties of cov()", {
+    expect_true(is.matrix(obj))
+    expect_type(obj, "double")
+    expect_equal(dim(obj), c(n_wl, n_wl))
+  })
 
   # Contents
-  expect_equivalent(obj[1, 1],   cov(faux_cell[[, ,  1, wl.index = TRUE]]))
-  expect_equivalent(obj[9, 9],   cov(faux_cell[[, ,  9, wl.index = TRUE]]))
-  expect_equivalent(obj[20, 20], cov(faux_cell[[, , 20, wl.index = TRUE]]))
-  expect_equivalent(obj[50, 50], cov(faux_cell[[, , 50, wl.index = TRUE]]))
+  test_that("contents of cov()", {
+    expect_equivalent(obj[1, 1],   cov(faux_cell[[, ,  1, wl.index = TRUE]]))
+    expect_equivalent(obj[9, 9],   cov(faux_cell[[, ,  9, wl.index = TRUE]]))
+    expect_equivalent(obj[20, 20], cov(faux_cell[[, , 20, wl.index = TRUE]]))
+    expect_equivalent(obj[50, 50], cov(faux_cell[[, , 50, wl.index = TRUE]]))
+  })
 }
 
 
@@ -98,35 +105,42 @@ hySpc.testthat::test(cov_pooled) <- function() {
   n_wl <- nwl(faux_cell)
   n_means <- length(unique(faux_cell$region))
 
-  expect_true(is.list(obj))
-  expect_equal(names(obj), c("COV", "means"))
+  test_that("cov_pooled() object", {
+
+    expect_true(is.list(obj))
+    expect_equal(names(obj), c("COV", "means"))
+  })
 
   # $means
-  expect_s4_class(obj$means, "hyperSpec")
-  expect_equal(nrow(obj$means), n_means)
-  expect_equal(nwl(obj$means), n_wl)
+  test_that("cov_pooled()$means", {
+    expect_s4_class(obj$means, "hyperSpec")
+    expect_equal(nrow(obj$means), n_means)
+    expect_equal(nwl(obj$means), n_wl)
 
-  expect_equivalent(
-    tapply(faux_cell$spc[, 1], faux_cell$region, mean),
-    obj$means$spc[, 1]
-  )
-  expect_equivalent(
-    tapply(faux_cell$spc[, 9], faux_cell$region, mean),
-    obj$means$spc[, 9]
-  )
-  expect_equivalent(
-    tapply(faux_cell$spc[, 20], faux_cell$region, mean),
-    obj$means$spc[, 20]
-  )
-  expect_equivalent(
-    tapply(faux_cell$spc[, 50], faux_cell$region, mean),
-    obj$means$spc[, 50]
-  )
+    expect_equivalent(
+      tapply(faux_cell$spc[, 1], faux_cell$region, mean),
+      obj$means$spc[, 1]
+    )
+    expect_equivalent(
+      tapply(faux_cell$spc[, 9], faux_cell$region, mean),
+      obj$means$spc[, 9]
+    )
+    expect_equivalent(
+      tapply(faux_cell$spc[, 20], faux_cell$region, mean),
+      obj$means$spc[, 20]
+    )
+    expect_equivalent(
+      tapply(faux_cell$spc[, 50], faux_cell$region, mean),
+      obj$means$spc[, 50]
+    )
+  })
 
   # $COV
-  expect_true(is.matrix(obj$COV))
-  expect_equal(dim(obj$COV), c(n_wl, n_wl))
+  test_that("cov_pooled()$COV", {
+    expect_true(is.matrix(obj$COV))
+    expect_equal(dim(obj$COV), c(n_wl, n_wl))
 
-  # FIXME: the contents of covariance matrix must be tested
-
+    # FIXME: the contents (values) of covariance matrix must be tested too
+    #
+  })
 }
