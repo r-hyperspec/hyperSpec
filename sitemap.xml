@@ -67,6 +67,9 @@
     <loc>/reference/DEPRECATED-isample.html</loc>
   </url>
   <url>
+    <loc>/reference/DEPRECATED-markpeak.html</loc>
+  </url>
+  <url>
     <loc>/reference/DEPRECATED-options.html</loc>
   </url>
   <url>
@@ -280,7 +283,7 @@
     <loc>/reference/mark.dendrogram.html</loc>
   </url>
   <url>
-    <loc>/reference/markpeak.html</loc>
+    <loc>/reference/mark_peak.html</loc>
   </url>
   <url>
     <loc>/reference/math.html</loc>
