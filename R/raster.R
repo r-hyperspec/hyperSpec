@@ -2,7 +2,7 @@
 #' @description
 #' `makeraster()` fits the data to the specified raster.
 #'
-#' `fitraster()` tries different raster parameter and returns the raster that
+#' `raster_fit()` tries different raster parameter and returns the raster that
 #' covers most of the `x` values: The differences between the values of `x` are
 #' calculated (possible step sizes). For each of those step sizes, different
 #' points are tried (until all points have been  covered by a raster) and the
@@ -79,7 +79,7 @@ makeraster <- function(x, startx, d, newlevels, tol = 0.1) {
 #'
 #' @examples
 #'
-#' raster <- fitraster(x)
+#' raster <- raster_fit(x)
 #' raster
 #' plot(x)
 #' abline(h = raster$levels, col = "#00000040")
@@ -93,7 +93,7 @@ makeraster <- function(x, startx, d, newlevels, tol = 0.1) {
 #' points(which(onraster), raster$x[onraster], col = "blue", pch = 20)
 #'
 #' x <- c(sample(1:20, 10), (0:5) + 0.45)
-#' raster <- fitraster(x)
+#' raster <- raster_fit(x)
 #' raster
 #' plot(x)
 #' abline(h = raster$levels, col = "#00000040")
@@ -105,7 +105,7 @@ makeraster <- function(x, startx, d, newlevels, tol = 0.1) {
 #' ## points actually on the raster
 #' onraster <- raster$x %in% raster$levels
 #' points(which(onraster), raster$x[onraster], col = "blue", pch = 20)
-fitraster <- function(x, tol = 0.1) {
+raster_fit <- function(x, tol = 0.1) {
   levels <- sort(unique(x))
 
   if (length(levels) == 1L) {
