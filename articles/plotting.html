@@ -1376,17 +1376,17 @@ Figure 9.1: A snapshot of an <strong>rgl</strong> plot.
 <h1 id="interactive-plots">
 <span class="header-section-number">10</span> Interactive Graphics<a class="anchor" aria-label="anchor" href="#interactive-plots"></a>
 </h1>
-<p>Package <strong>hyperSpec</strong> offers basic interaction, <code class="sourceCode r"><span class="kw">spc.identify</span>()</code> for spectra plots, and <code class="sourceCode r"><span class="kw">map.identify</span>()</code> and <code class="sourceCode r"><span class="kw">map.sel.poly</span>()</code> for maps.
+<p>Package <strong>hyperSpec</strong> offers basic interaction, <code class="sourceCode r"><span class="kw">identify_spc</span>()</code> for spectra plots, and <code class="sourceCode r"><span class="kw">map.identify</span>()</code> and <code class="sourceCode r"><span class="kw">map.sel.poly</span>()</code> for maps.
 The first two identify points in spectra plots and map plots, respectively.
 Function <code class="sourceCode r"><span class="kw">map.sel.poly</span>()</code> selects the part of a <code class="sourceCode r">hyperSpec</code> object that lies inside the user defined polygon.</p>
 <div class="section level2">
-<h2 id="sec:spc-identify">
-<span class="header-section-number">10.1</span> <code class="sourceCode r"><span class="kw">spc.identify</span>()</code> Finding Out Wavelength, Intensity and Spectrum<a class="anchor" aria-label="anchor" href="#sec:spc-identify"></a>
+<h2 id="sec:identify_spc">
+<span class="header-section-number">10.1</span> <code class="sourceCode r"><span class="kw">identify_spc</span>()</code> Finding Out Wavelength, Intensity and Spectrum<a class="anchor" aria-label="anchor" href="#sec:identify_spc"></a>
 </h2>
-<p>Function <code class="sourceCode r"><span class="kw">spc.identify</span>()</code> allows to measure points in graphics produced by <code class="sourceCode r"><span class="kw">plotspc</span>()</code>.
+<p>Function <code class="sourceCode r"><span class="kw">identify_spc</span>()</code> allows to measure points in graphics produced by <code class="sourceCode r"><span class="kw">plotspc</span>()</code>.
 It works correctly with reversed and cut wavelength axes.</p>
 <div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/identify_spc.html">spc.identify</a></span><span class="op">(</span><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">paracetamol</span>, wl.range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">600</span> <span class="op">~</span> <span class="fl">1800</span>, <span class="fl">2800</span> <span class="op">~</span> <span class="fl">3200</span><span class="op">)</span>, xoffset <span class="op">=</span> <span class="fl">800</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="../reference/identify_spc.html">identify_spc</a></span><span class="op">(</span><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">paracetamol</span>, wl.range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">600</span> <span class="op">~</span> <span class="fl">1800</span>, <span class="fl">2800</span> <span class="op">~</span> <span class="fl">3200</span><span class="op">)</span>, xoffset <span class="op">=</span> <span class="fl">800</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>The result is a data.frame with the indices of the spectra, the wavelength, and its intensity.</p>
 </div>
 <div class="section level2">

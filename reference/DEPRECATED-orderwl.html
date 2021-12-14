@@ -159,10 +159,10 @@ rearranged accordingly.</p>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="dim.html">nwl</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span><span class="op">)</span>, <span class="va">spc</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span>, type <span class="op">=</span> <span class="st">"b"</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">spc</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             1        2        3        4        5        1        2        3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 2.167146 4.854934 2.427309 3.358197 7.218538 2.167146 4.854934 2.427309</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             4        5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 3.358197 7.218538</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               1        2        3        4        5          1        2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.1901602 5.163508 2.859483 4.545322 7.420141 -0.1901602 5.163508</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             3        4        5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 2.859483 4.545322 7.420141</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">spc_sorted</span> <span class="op">&lt;-</span> <span class="fu">orderwl</span><span class="op">(</span><span class="va">spc</span><span class="op">)</span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Function 'orderwl' is deprecated. </span>
@@ -170,10 +170,10 @@ rearranged accordingly.</p>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="dim.html">nwl</a></span><span class="op">(</span><span class="va">spc_sorted</span><span class="op">)</span><span class="op">)</span>, <span class="va">spc_sorted</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span>
 <span class="r-plt img"><img src="DEPRECATED-orderwl-3.png" alt="" width="466" height="288"></span>
 <span class="r-in"><span class="va">spc_sorted</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             1        1        2        2        3        3        4        4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 2.167146 2.167146 4.854934 4.854934 2.427309 2.427309 3.358197 3.358197</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             5        5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 7.218538 7.218538</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               1          1        2        2        3        3        4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.1901602 -0.1901602 5.163508 5.163508 2.859483 2.859483 4.545322</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             4        5        5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 4.545322 7.420141 7.420141</span>
 </code></pre></div>
     </div>
   </div>
