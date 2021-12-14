@@ -6,7 +6,7 @@
 #' `x` values: The differences between the values of `x` are calculated (possible step
 #' sizes). For each of those step sizes, different points are tried (until all points have been
 #' covered by a raster) and the parameter combination leading to the best coverage (i.e. most points
-#' on the grid) ist used.
+#' on the grid) is not used.
 #'
 #' Note that only differences between the sorted values of x are considered as step size.
 #' @param x numeric to be fitted with a raster

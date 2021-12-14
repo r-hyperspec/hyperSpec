@@ -5,7 +5,7 @@
 #' Function [spc.identify()] allows to identify the spectrum and the wavelength
 #' of a point in a plot produced by [plotspc()].
 #'
-#' @rdname spc_identify
+#' @rdname identify_spc
 #'
 #' @aliases spc.identify
 #'          spc.label.default
@@ -267,7 +267,7 @@ spc.identify <- function(x, y = NULL,
 
 # Function -------------------------------------------------------------------
 
-#' @rdname spc_identify
+#' @rdname identify_spc
 #'
 #' @param wl The wavelength to label.
 #' @param spc The intensity to label.
@@ -279,21 +279,21 @@ spc.point.max <- function(wl, spc, wlclick) {
   c(wl = wl[i], spc = spc[i])
 }
 
-#' @rdname spc_identify
+#' @rdname identify_spc
 #' @export
 spc.point.default <- function(wl, spc, wlclick) {
   i <- round(approx(wl, seq_along(wl), wlclick, rule = 2)$y)
   c(wl = wl[], spc = spc[i])
 }
 
-#' @rdname spc_identify
+#' @rdname identify_spc
 #' @export
 spc.point.min <- function(wl, spc, wlclick) {
   i <- which.min(spc)
   c(wl = wl[i], spc = spc[i])
 }
 
-#' @rdname spc_identify
+#' @rdname identify_spc
 #' @export
 spc.point.sqr <- function(wl, spc, wlclick, delta = 1L) {
   i <- which.max(spc)
@@ -318,7 +318,7 @@ spc.point.sqr <- function(wl, spc, wlclick, delta = 1L) {
 
 # Function -------------------------------------------------------------------
 
-#' @rdname spc_identify
+#' @rdname identify_spc
 #'
 #' @param ispc If a selection of spectra was plotted, their indices can be
 #'        given in `ispc`. In this case `ispc[i]` is returned rather than `i`.
@@ -329,7 +329,7 @@ spc.label.default <- function(ispc, wl, spc, digits = 3) {
   sprintf(" %i, %s ", ispc, format(wl, digits = digits))
 }
 
-#' @rdname spc_identify
+#' @rdname identify_spc
 #' @export
 spc.label.wlonly <- function(ispc, wl, spc, digits = 3) {
   sprintf(" %s ", format(wl, digits = digits))

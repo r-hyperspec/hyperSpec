@@ -45,7 +45,7 @@
 #'        accidentally plotting of large numbers of spectra).
 #' @param func a function to apply to each wavelength in order to calculate
 #'        summary spectra such as mean, min, max, etc.
-#' @param func.args `list` with furter arguments for `func`
+#' @param func.args `list` with further arguments for `func`
 #' @param add if `TRUE`, the output is added to the existing plot
 #' @param bty see [graphics::par()]
 #' @param col see [graphics::par()]. `col` might be a vector giving individual

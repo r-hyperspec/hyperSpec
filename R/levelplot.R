@@ -100,7 +100,7 @@ setMethod("levelplot",
 #'   legend?
 #' @param contour,useRaster see  [lattice::levelplot()]
 #'
-#' @include plotmap.R
+#' @include plot_map.R
 #' @importFrom lattice levelplot
 #' @export
 #'
