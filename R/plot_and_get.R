@@ -4,7 +4,7 @@
 #' [grid::grid.locator()]). Polygon will be drawn closed.
 #'
 #' `map.sel.poly` is a convenience wrapper for [plotmap()], `sel.poly`,
-#' and [sp::point.in.polygon()]. For custiomized plotting, the plot can be produced by
+#' and [sp::point.in.polygon()]. For customized plotting, the plot can be produced by
 #' [plotmap()], [plotvoronoi()] or [levelplot()], and the result of
 #' that plot command handed over to `map.sel.poly`, see the example below.
 #'

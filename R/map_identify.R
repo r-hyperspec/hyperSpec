@@ -1,5 +1,5 @@
 #' @aliases levelplot,hyperSpec,missing-method
-#' @include plotmap.R
+#' @include plot_map.R
 #' @rdname levelplot
 #'
 #' @export
