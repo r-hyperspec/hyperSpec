@@ -1826,7 +1826,7 @@ See the [plotting](#list-of-vignettes) vignette.
 
 name  | default value (range)  | description | used by
 ----- | :---:                  |-------------| -----
-`debuglevel`           | `0`{.r} (`1L`{.r}, `2L`{.r}) | Amount of debugging information produced | `spc.identify()`{.r}, `map.identify()`{.r}, `spc_rubberband()`{.r},<br> various file import functions.
+`debuglevel`           | `0`{.r} (`1L`{.r}, `2L`{.r}) | Amount of debugging information produced | `identify_spc()`{.r}, `map.identify()`{.r}, `spc_rubberband()`{.r},<br> various file import functions.
 `gc`                   | `FALSE`{.r} | Triggers frequent calling of `gc()`{.r} | `read.ENVI()`{.r}, <br>\newline`new("hyperSpec")`{.r}
 `tolerance`            | `sqrt(.Machine$.double.eps)`{.r} | Tolerance for numerical comparisons   | File import functions (removing empty spectra), `normalize01()`{.r}
 `wl.tolerance`         | `sqrt(.Machine$.double.eps)`{.r} | Tolerance for comparisons of the wavelength axis | `rbind()`{.r}, `rbind2()`{.r}, `bind("r", ...)`{.r}, `all.equal()`{.r}, `collapse()`{.r}
