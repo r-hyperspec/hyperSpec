@@ -9,7 +9,7 @@
 #'
 #' @aliases identify_spc
 #'          spc.label.default
-#'          spc.label.wlonly
+#'          format_label_wl_only
 #'          locate_spc_point_clicked
 #'          locate_spc_point_max
 #'          locate_spc_point_min
@@ -48,7 +48,7 @@
 #' available:
 #'  \tabular{ll}{
 #'  [spc.label.default()] \tab spectrum number, wavelength \cr
-#'  [spc.label.wlonly()]  \tab wavelength \cr
+#'  [format_label_wl_only()]  \tab wavelength \cr
 #' }
 #'
 #' `formatter` functions receive the number of the spectrum `ispc`,
@@ -143,7 +143,7 @@
 #'   xoffset = 1100,
 #'   wl.range = c(600 ~ 1700, 2900 ~ 3150)
 #' ),
-#' formatter = spc.label.wlonly
+#' formatter = format_label_wl_only
 #' )
 #'
 #' ## looking for minima
@@ -331,6 +331,6 @@ spc.label.default <- function(ispc, wl, spc, digits = 3) {
 
 #' @rdname identify_spc
 #' @export
-spc.label.wlonly <- function(ispc, wl, spc, digits = 3) {
+format_label_wl_only <- function(ispc, wl, spc, digits = 3) {
   sprintf(" %s ", format(wl, digits = digits))
 }
