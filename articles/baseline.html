@@ -124,7 +124,7 @@
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 data-toc-skip class="date">2021-12-13</h4>
+            <h4 data-toc-skip class="date">2021-12-14</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/HEAD/vignettes/baseline.Rmd" class="external-link"><code>vignettes/baseline.Rmd</code></a></small>
       <div class="hidden name"><code>baseline.Rmd</code></div>
@@ -289,10 +289,10 @@ Thus one should also consider requiring more support points than the default val
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/system.time.html" class="external-link">system.time</a></span><span class="op">(</span><span class="fu"><a href="../reference/baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span>, <span class="cn">NULL</span>, npts.min <span class="op">=</span> <span class="fl">20</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.005   0.000   0.004</span>
+<span class="co">#&gt;   0.004   0.000   0.003</span>
 <span class="fu"><a href="https://rdrr.io/r/base/system.time.html" class="external-link">system.time</a></span><span class="op">(</span><span class="fu"><a href="../reference/baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">min</span> <span class="op">~</span> <span class="fl">700</span>, <span class="fl">1700</span> <span class="op">~</span> <span class="va">max</span><span class="op">)</span><span class="op">]</span>, <span class="cn">NULL</span>, npts.min <span class="op">=</span> <span class="fl">20</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.005   0.000   0.006</span></code></pre></div>
+<span class="co">#&gt;   0.004   0.000   0.005</span></code></pre></div>
 <p>The choice of the spectral range in <code class="sourceCode r">fit.to</code> influences the resulting baselines to a certain extent, as becomes clear from figure <a href="#fig:spectralrange">2.3</a>.</p>
 </div>
 <div class="section level2">
@@ -461,7 +461,7 @@ Figure 3.4: Rubberband baselines for the paracetamol spectrum after bendin: corr
 <span class="co">#&gt;  collate  en_US.UTF-8</span>
 <span class="co">#&gt;  ctype    en_US.UTF-8</span>
 <span class="co">#&gt;  tz       UTC</span>
-<span class="co">#&gt;  date     2021-12-13</span>
+<span class="co">#&gt;  date     2021-12-14</span>
 <span class="co">#&gt;  pandoc   2.7.3 @ /usr/local/bin/ (via rmarkdown)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span></span>
@@ -483,7 +483,7 @@ Figure 3.4: Rubberband baselines for the paracetamol spectrum after bendin: corr
 <span class="co">#&gt;  ggplot2        * 3.3.5        <span style="color: #555555;">2021-06-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  glue             1.5.1        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  gtable           0.3.0        <span style="color: #555555;">2019-03-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2021-12-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
+<span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2021-12-14</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
 <span class="co">#&gt;  hySpc.testthat   <span style="color: #BB00BB; font-weight: bold;">0.2.1.9000  </span> <span style="color: #555555;">2021-12-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
 <span class="co">#&gt;  isoband          0.2.5        <span style="color: #555555;">2021-07-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  jpeg             0.1-9        <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>

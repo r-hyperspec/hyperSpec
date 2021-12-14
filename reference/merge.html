@@ -150,21 +150,21 @@ of the class of the first (<code>x</code>) object.</p>
 <span class="r-in"><span class="op">)</span></span>
 <span class="r-in"><span class="va">tmp</span><span class="op">$</span><span class="va">.</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         x     y region.x .nx region.y .ny spc.1 spc.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  -11.55 -4.77   matrix   1     &lt;NA&gt;  NA    92    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  -10.55 -4.77   matrix   2     &lt;NA&gt;  NA   159    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   -9.55 -4.77   matrix   3     &lt;NA&gt;  NA    57    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   -8.55 -4.77   matrix   4     &lt;NA&gt;  NA   164    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   -7.55 -4.77   matrix   5   matrix   1    16    16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   -6.55 -4.77   matrix   6   matrix   2    10    10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   -5.55 -4.77   matrix   7   matrix   3    23    23</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   -4.55 -4.77   matrix   8   matrix   4    77    77</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   -3.55 -4.77   matrix   9   matrix   5    45    45</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  -2.55 -4.77   matrix  10   matrix   6    48    48</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  -1.55 -4.77     &lt;NA&gt;  NA   matrix   7    NA   199</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  -0.55 -4.77     &lt;NA&gt;  NA   matrix   8    NA   202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13   0.45 -4.77     &lt;NA&gt;  NA   matrix   9    NA   152</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14   1.45 -4.77     &lt;NA&gt;  NA   matrix  10    NA    76</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15   2.45 -4.77     &lt;NA&gt;  NA   matrix  11    NA   114</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  -11.55 -4.77   matrix   1     &lt;NA&gt;  NA     6    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  -10.55 -4.77   matrix   2     &lt;NA&gt;  NA   125    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   -9.55 -4.77   matrix   3     &lt;NA&gt;  NA   153    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   -8.55 -4.77   matrix   4     &lt;NA&gt;  NA   133    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   -7.55 -4.77   matrix   5   matrix   1     5     5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   -6.55 -4.77   matrix   6   matrix   2     8     8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   -5.55 -4.77   matrix   7   matrix   3   102   102</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   -4.55 -4.77   matrix   8   matrix   4   147   147</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   -3.55 -4.77   matrix   9   matrix   5    85    85</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  -2.55 -4.77   matrix  10   matrix   6    28    28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11  -1.55 -4.77     &lt;NA&gt;  NA   matrix   7    NA   170</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12  -0.55 -4.77     &lt;NA&gt;  NA   matrix   8    NA    74</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13   0.45 -4.77     &lt;NA&gt;  NA   matrix   9    NA   145</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14   1.45 -4.77     &lt;NA&gt;  NA   matrix  10    NA   103</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15   2.45 -4.77     &lt;NA&gt;  NA   matrix  11    NA   169</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="wl.html">wl</a></span><span class="op">(</span><span class="va">tmp</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 610 610</span>
@@ -180,16 +180,16 @@ of the class of the first (<code>x</code>) object.</p>
 <span class="r-in"><span class="va">merged</span> <span class="op">&lt;-</span> <span class="fu">merge</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">7</span>, , <span class="fl">610</span> <span class="op">~</span> <span class="fl">620</span><span class="op">]</span>, <span class="va">faux_cell</span><span class="op">[</span><span class="fl">5</span><span class="op">:</span><span class="fl">10</span>, , <span class="fl">615</span> <span class="op">~</span> <span class="fl">625</span><span class="op">]</span>, all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">merged</span><span class="op">$</span><span class="va">.</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         x     y region .nx .ny spc.1 spc.2 spc.3 spc.4 spc.5 spc.6 spc.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  -11.55 -4.77 matrix   1  NA    92    77    76    NA    NA    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  -10.55 -4.77 matrix   2  NA   159   173   174    NA    NA    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   -9.55 -4.77 matrix   3  NA    57    63    50    NA    NA    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   -8.55 -4.77 matrix   4  NA   164   157   169    NA    NA    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   -7.55 -4.77 matrix   5   1    16    19    13    19    13    17    15</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   -6.55 -4.77 matrix   6   2    10    12     9    12     9    13    11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   -5.55 -4.77 matrix   7   3    23    32    35    32    35    32    34</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   -4.55 -4.77 matrix  NA   4    NA    NA    NA    65    63    73    66</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   -3.55 -4.77 matrix  NA   5    NA    NA    NA    44    54    51    55</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  -2.55 -4.77 matrix  NA   6    NA    NA    NA    64    61    70    61</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  -11.55 -4.77 matrix   1  NA     6     6    10    NA    NA    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  -10.55 -4.77 matrix   2  NA   125   125   117    NA    NA    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   -9.55 -4.77 matrix   3  NA   153   172   142    NA    NA    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   -8.55 -4.77 matrix   4  NA   133   119   110    NA    NA    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   -7.55 -4.77 matrix   5   1     5     8     6     8     6    10     6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   -6.55 -4.77 matrix   6   2     8     9    10     9    10     7     9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   -5.55 -4.77 matrix   7   3   102   113   107   113   107   114   102</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   -4.55 -4.77 matrix  NA   4    NA    NA    NA   144   136   113   138</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   -3.55 -4.77 matrix  NA   5    NA    NA    NA   103    83    95   108</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  -2.55 -4.77 matrix  NA   6    NA    NA    NA    33    41    34    29</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">merged</span> <span class="op">&lt;-</span> <span class="fu"><a href="apply.html">apply</a></span><span class="op">(</span><span class="va">merged</span>, <span class="fl">1</span>, <span class="va">approxfun</span>,</span>
 <span class="r-in">  wl <span class="op">=</span> <span class="fu"><a href="wl.html">wl</a></span><span class="op">(</span><span class="va">merged</span><span class="op">)</span>, new.wl <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="fu"><a href="wl.html">wl</a></span><span class="op">(</span><span class="va">merged</span><span class="op">)</span><span class="op">)</span>,</span>
@@ -197,16 +197,16 @@ of the class of the first (<code>x</code>) object.</p>
 <span class="r-in"><span class="op">)</span></span>
 <span class="r-in"><span class="va">merged</span><span class="op">$</span><span class="va">.</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         x     y region .nx .ny spc.1 spc.2 spc.3 spc.4 spc.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  -11.55 -4.77 matrix   1  NA    92    77    76    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  -10.55 -4.77 matrix   2  NA   159   173   174    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   -9.55 -4.77 matrix   3  NA    57    63    50    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   -8.55 -4.77 matrix   4  NA   164   157   169    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   -7.55 -4.77 matrix   5   1    16    19    13    17    15</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   -6.55 -4.77 matrix   6   2    10    12     9    13    11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   -5.55 -4.77 matrix   7   3    23    32    35    32    34</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   -4.55 -4.77 matrix  NA   4    NA    65    63    73    66</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   -3.55 -4.77 matrix  NA   5    NA    44    54    51    55</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  -2.55 -4.77 matrix  NA   6    NA    64    61    70    61</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  -11.55 -4.77 matrix   1  NA     6     6    10    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  -10.55 -4.77 matrix   2  NA   125   125   117    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   -9.55 -4.77 matrix   3  NA   153   172   142    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   -8.55 -4.77 matrix   4  NA   133   119   110    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   -7.55 -4.77 matrix   5   1     5     8     6    10     6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   -6.55 -4.77 matrix   6   2     8     9    10     7     9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   -5.55 -4.77 matrix   7   3   102   113   107   114   102</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   -4.55 -4.77 matrix  NA   4    NA   144   136   113   138</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   -3.55 -4.77 matrix  NA   5    NA   103    83    95   108</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  -2.55 -4.77 matrix  NA   6    NA    33    41    34    29</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## merging data.frame into hyperSpec object =&gt; hyperSpec object</span></span>
 <span class="r-in"><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>filename <span class="op">=</span> <span class="fu"><a href="sample.html">sample</a></span><span class="op">(</span><span class="va">flu</span><span class="op">$</span><span class="va">filename</span>, <span class="fl">4</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, cpred <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>

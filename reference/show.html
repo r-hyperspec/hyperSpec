@@ -192,14 +192,14 @@ the smallest and the largest values.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1. x: x position [numeric] -11.55 -10.55 ... 22.45 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    2. y: y position [numeric] -4.77 -4.77 ... 19.23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3. region:  [factor] matrix matrix ... matrix </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] 77 178 ... 91 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] 17 133 ... 17 </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">print</span><span class="op">(</span><span class="va">faux_cell</span>, range <span class="op">=</span> <span class="cn">TRUE</span>, include <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data:  (875 rows x 4 columns)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1. x: x position [numeric] range  -11.55 -10.55 ... 22.45 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    2. y: y position [numeric] range  -4.77 -3.77 ... 19.23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3. region:  [factor] range  cell    matrix  nucleus </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] range  0 1 ... 459 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] range  0 1 ... 463 </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># The difference between range = TRUE and FALSE</span></span>
 <span class="r-in"><span class="co"># is evident only when data is not sorted.</span></span>
@@ -210,14 +210,14 @@ the smallest and the largest values.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1. x: x position [numeric] 18.45 1.45 ... -8.55 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    2. y: y position [numeric] 18.23 14.23 ... 2.23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3. region:  [factor] matrix matrix ... matrix </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] 79 83 ... 170 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] 68 31 ... 108 </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">print</span><span class="op">(</span><span class="va">faux_cell_2</span>, range <span class="op">=</span> <span class="cn">TRUE</span>, include <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data:  (875 rows x 4 columns)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1. x: x position [numeric] range  -11.55 -10.55 ... 22.45 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    2. y: y position [numeric] range  -4.77 -3.77 ... 19.23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3. region:  [factor] range  cell    matrix  nucleus </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] range  0 1 ... 459 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] range  0 1 ... 463 </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># summary()</span></span>
 <span class="r-in"><span class="fu">summary</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span>
@@ -230,7 +230,7 @@ the smallest and the largest values.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1. x: x position [numeric] range  -11.55 -10.55 ... 22.45 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    2. y: y position [numeric] range  -4.77 -3.77 ... 19.23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3. region:  [factor] range  cell    matrix  nucleus </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] range  0 1 ... 459 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] range  0 1 ... 463 </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">summary</span><span class="op">(</span><span class="va">faux_cell</span>, include <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"wl"</span>, <span class="st">"data"</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> wavelength: Delta * tilde(nu)/cm^-1 [numeric] 602 606 ... 1798 </span>
@@ -238,7 +238,7 @@ the smallest and the largest values.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1. x: x position [numeric] range  -11.55 -10.55 ... 22.45 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    2. y: y position [numeric] range  -4.77 -3.77 ... 19.23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3. region:  [factor] range  cell    matrix  nucleus </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] range  0 1 ... 459 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] range  0 1 ... 463 </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">as.character</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "hyperSpec object"                                                        </span>
@@ -250,7 +250,7 @@ the smallest and the largest values.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "   1. x: x position [numeric] -11.55 -10.55 ... 22.45 "                  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [8] "   2. y: y position [numeric] -4.77 -4.77 ... 19.23 "                    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "   3. region:  [factor] matrix matrix ... matrix "                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "   4. spc: intensity (arbitrary units) [matrix, array300] 77 178 ... 91 "</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "   4. spc: intensity (arbitrary units) [matrix, array300] 17 133 ... 17 "</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">as.character</span><span class="op">(</span><span class="va">faux_cell</span>, include <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"wl"</span>, <span class="st">"data"</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "wavelength: Delta * tilde(nu)/cm^-1 [numeric] 602 606 ... 1798 "         </span>
@@ -258,7 +258,7 @@ the smallest and the largest values.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3] "   1. x: x position [numeric] -11.55 -10.55 ... 22.45 "                  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4] "   2. y: y position [numeric] -4.77 -4.77 ... 19.23 "                    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5] "   3. region:  [factor] matrix matrix ... matrix "                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [6] "   4. spc: intensity (arbitrary units) [matrix, array300] 77 178 ... 91 "</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [6] "   4. spc: intensity (arbitrary units) [matrix, array300] 17 133 ... 17 "</span>
 </code></pre></div>
     </div>
   </div>

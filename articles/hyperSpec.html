@@ -124,7 +124,7 @@
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 data-toc-skip class="date">2021-12-13</h4>
+            <h4 data-toc-skip class="date">2021-12-14</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/HEAD/vignettes/hyperSpec.Rmd" class="external-link"><code>vignettes/hyperSpec.Rmd</code></a></small>
       <div class="hidden name"><code>hyperSpec.Rmd</code></div>
@@ -2343,7 +2343,7 @@ Please refer to the documentation of the respective functions for details about 
   <span class="op">}</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.056   0.003   0.059</span></code></pre></div>
+<span class="co">#&gt;   0.065   0.002   0.068</span></code></pre></div>
 <p>Calculations that involve a lot of subsetting (i.e., extracting or changing the spectra matrix or extra data) can be sped up considerably if the required parts of the <code>hyperSpec</code> object are extracted beforehand.
 This is somewhat similar to model fitting in <code>R</code> in general: many model fitting functions in <code>R</code> are much faster if the formula interface is avoided and the appropriate <code class="sourceCode r">data.frame</code>s or matrices are handed over directly.</p>
 <div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
@@ -2357,7 +2357,7 @@ This is somewhat similar to model fitting in <code>R</code> in general: many mod
   <span class="va">tmp</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">tmp.matrix</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.018   0.000   0.018</span></code></pre></div>
+<span class="co">#&gt;   0.019   0.000   0.018</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="additional-packages">
@@ -2394,7 +2394,7 @@ The memory consumption of <code class="sourceCode r"><span class="kw">read.txt.R
 <span class="co">#&gt;  collate  en_US.UTF-8</span>
 <span class="co">#&gt;  ctype    en_US.UTF-8</span>
 <span class="co">#&gt;  tz       UTC</span>
-<span class="co">#&gt;  date     2021-12-13</span>
+<span class="co">#&gt;  date     2021-12-14</span>
 <span class="co">#&gt;  pandoc   2.7.3 @ /usr/local/bin/ (via rmarkdown)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span></span>
@@ -2416,7 +2416,7 @@ The memory consumption of <code class="sourceCode r"><span class="kw">read.txt.R
 <span class="co">#&gt;  ggplot2        * 3.3.5        <span style="color: #555555;">2021-06-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  glue             1.5.1        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  gtable           0.3.0        <span style="color: #555555;">2019-03-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2021-12-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
+<span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2021-12-14</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
 <span class="co">#&gt;  hySpc.testthat   <span style="color: #BB00BB; font-weight: bold;">0.2.1.9000  </span> <span style="color: #555555;">2021-12-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
 <span class="co">#&gt;  isoband          0.2.5        <span style="color: #555555;">2021-07-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  jpeg             0.1-9        <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
