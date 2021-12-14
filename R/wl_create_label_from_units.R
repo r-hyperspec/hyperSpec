@@ -11,6 +11,8 @@
 #' @param greek (logical):
 #'        Should Greek symbols be preferred in the output expression?
 #' @param on_failure (string):
+#'        **Note:** This argument is still **experimental** and is only
+#'        intended to be used internally in \pkg{hyperSpec}.
 #'        The type of behavior in case unrecognized value of `unit` is passed:
 #' - `"fail"` -- the code is stopped with an error message.
 #' - `"warn"` -- a warning is issued and the value of `unit` is converted to an
@@ -19,6 +21,7 @@
 #'               as an output and no error nor warning is issued.
 #' - `"pass as-is"` -- the same as `"pass"`, just output is not converted into
 #'               an expression.
+#'
 #' @param null_ok (logical):
 #'        Should value `NULL` be accepted as `unit`.
 #'        This argument is passed to [.wl_fix_unit_name()].
