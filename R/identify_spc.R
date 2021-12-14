@@ -8,12 +8,12 @@
 #' @rdname identify_spc
 #'
 #' @aliases identify_spc
-#'          spc.label.default
-#'          spc.label.wlonly
-#'          spc.point.default
-#'          spc.point.max
-#'          spc.point.min
-#'          spc.point.sqr
+#'          format_label_ispc_wl
+#'          format_label_wl_only
+#'          locate_spc_point_clicked
+#'          locate_spc_point_max
+#'          locate_spc_point_min
+#'          locate_spc_point_parabola_max
 #'
 #' @details
 #' Function [identify_spc()] first finds the spectrum with a point closest
@@ -26,13 +26,13 @@
 #' label maxima (or minima) without demanding too precise clicks. Currently,
 #' the following functions to determine the precise point:
 #'
-#' - [spc.point.default()]
+#' - [locate_spc_point_clicked()]
 #'   uses the clicked wavelength together with its spectral intensity;
-#' - [spc.point.max()]
+#' - [locate_spc_point_max()]
 #'   the point with the highest intensity in the wavelength window;
-#' - [spc.point.min()]
+#' - [locate_spc_point_min()]
 #'   the point with the lowest intensity in the wavelength window;
-#' - [spc.point.sqr()]
+#' - [locate_spc_point_parabola_max()]
 #'   maximum of a parabola fit through the point with highest intensity
 #'   and the two surrounding points.
 #'
@@ -47,8 +47,8 @@
 #' using [text()][graphics::text()]. Currently, the following `formatter`s are
 #' available:
 #'  \tabular{ll}{
-#'  [spc.label.default()] \tab spectrum number, wavelength \cr
-#'  [spc.label.wlonly()]  \tab wavelength \cr
+#'  [format_label_ispc_wl()] \tab spectrum number, wavelength \cr
+#'  [format_label_wl_only()]  \tab wavelength \cr
 #' }
 #'
 #' `formatter` functions receive the number of the spectrum `ispc`,
@@ -96,7 +96,7 @@
 #'             If `FALSE`, the resulting data.frame will have a row of `NA`s
 #'             instead.
 #'
-#' @param delta `spc.point.sqr` fits the parabola in the window wlclick
+#' @param delta `locate_spc_point_parabola_max` fits the parabola in the window wlclick
 #'   \eqn{\pm}{+-} delta points.
 #'
 #' @return [identify_spc()] returnsa `data.frame` with columns:
@@ -143,13 +143,13 @@
 #'   xoffset = 1100,
 #'   wl.range = c(600 ~ 1700, 2900 ~ 3150)
 #' ),
-#' formatter = spc.label.wlonly
+#' formatter = format_label_wl_only
 #' )
 #'
 #' ## looking for minima
 #' identify_spc(
 #'   plot(-paracetamol, wl.reverse = TRUE),
-#'   point.fn = spc.point.min, adj = c(1, 0.5)
+#'   point.fn = locate_spc_point_min, adj = c(1, 0.5)
 #' )
 #'
 #' }}
@@ -158,8 +158,8 @@ identify_spc <- function(x, y = NULL,
                          ispc = NULL,
                          tol.wl = diff(range(x)) / 200,
                          tol.spc = diff(range(y)) / 50,
-                         point.fn = spc.point.max, # function to find the maximum
-                         formatter = spc.label.default, # NULL: suppress labels
+                         point.fn = locate_spc_point_max, # function to find the maximum
+                         formatter = format_label_ispc_wl, # NULL: suppress labels
                          ...,
                          cex = 0.7,
                          adj = c(0, 0.5),
@@ -274,28 +274,28 @@ identify_spc <- function(x, y = NULL,
 #' @param wlclick The clicked wavelength.
 #'
 #' @export
-spc.point.max <- function(wl, spc, wlclick) {
+locate_spc_point_max <- function(wl, spc, wlclick) {
   i <- which.max(spc)
   c(wl = wl[i], spc = spc[i])
 }
 
 #' @rdname identify_spc
 #' @export
-spc.point.default <- function(wl, spc, wlclick) {
+locate_spc_point_clicked <- function(wl, spc, wlclick) {
   i <- round(approx(wl, seq_along(wl), wlclick, rule = 2)$y)
   c(wl = wl[], spc = spc[i])
 }
 
 #' @rdname identify_spc
 #' @export
-spc.point.min <- function(wl, spc, wlclick) {
+locate_spc_point_min <- function(wl, spc, wlclick) {
   i <- which.min(spc)
   c(wl = wl[i], spc = spc[i])
 }
 
 #' @rdname identify_spc
 #' @export
-spc.point.sqr <- function(wl, spc, wlclick, delta = 1L) {
+locate_spc_point_parabola_max <- function(wl, spc, wlclick, delta = 1L) {
   i <- which.max(spc)
 
   ## points (wl [i], spc [i])
@@ -325,12 +325,12 @@ spc.point.sqr <- function(wl, spc, wlclick, delta = 1L) {
 #' @param digits How many digits of the wavelength should be displayed?
 #'
 #' @export
-spc.label.default <- function(ispc, wl, spc, digits = 3) {
+format_label_ispc_wl <- function(ispc, wl, spc, digits = 3) {
   sprintf(" %i, %s ", ispc, format(wl, digits = digits))
 }
 
 #' @rdname identify_spc
 #' @export
-spc.label.wlonly <- function(ispc, wl, spc, digits = 3) {
+format_label_wl_only <- function(ispc, wl, spc, digits = 3) {
   sprintf(" %s ", format(wl, digits = digits))
 }
