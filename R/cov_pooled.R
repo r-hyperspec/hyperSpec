@@ -10,11 +10,11 @@
 #'
 #' @rdname cov
 #'
-#' @param x `hyperSpec` object
-#' @param y not supported
+#' @param x `hyperSpec` object.
+#' @param y Not supported.
 #' @param use,method handed to [stats::cov()]
 #'
-#' @return covariance matrix of size `nwl(x)` x `nwl(x)`
+#' @return Covariance `matrix` of size `nwl(x)` x `nwl(x)`.
 #'
 #' @concept stats
 #'
@@ -33,19 +33,21 @@ setMethod("cov", signature = signature(x = "hyperSpec", y = "missing"), .cov_h_)
 
 #' @rdname cov
 #'
-#' @param ... ignored
-#' @param regularize regularization of the covariance matrix.
+#' @param ... Ignored.
+#' @param regularize
+#'        Regularization of the covariance matrix.
 #'        Set `0` to switch off.
 #'
-#' [cov_pooled()] calculates pooled covariance like e.g. in LDA.
-#' @param groups factor indicating the groups
+#' [cov_pooled()] calculates pooled covariance like, e.g., in LDA.
+#' @param groups Factor indicating the groups.
 #'
 #' @export
+#'
 #' @examples
 #' pcov <- cov_pooled(faux_cell, faux_cell$region)
 #' plot(pcov$means)
 #' image(pcov$COV)
-cov_pooled <- function(x, groups, ..., regularize = 1e-5 * max(abs(COV))) {
+cov_pooled <- function(x, groups, ..., regularize = 1e-5 * max(abs(cov_p))) {
   assert_hyperSpec(x)
   validObject(x)
 
@@ -58,15 +60,13 @@ cov_pooled <- function(x, groups, ..., regularize = 1e-5 * max(abs(COV))) {
 
   means <- aggregate(x, groups, "mean") # TODO: speed up?
 
-  COV <- cov(x@data$spc - means@data$spc[as.numeric(groups), , drop = FALSE])
+  cov_p <- cov(x@data$spc - means@data$spc[as.numeric(groups), , drop = FALSE])
 
-  ## regularization
-  COV <- COV + diag(regularize, nrow(COV))
+  # regularization
+  cov_p <- cov_p + diag(regularize, nrow(cov_p))
 
-  list(
-    COV = COV,
-    means = means
-  )
+  # Return:
+  list(COV = COV, means = means)
 }
 
 # Unit tests -----------------------------------------------------------------
