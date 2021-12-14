@@ -1,6 +1,6 @@
 #' @title Find an evenly spaced grid for x
 #' @description
-#' `makeraster()` fits the data to the specified raster.
+#' `raster_make()` fits the data to the specified raster.
 #'
 #' `raster_fit()` tries different raster parameter and returns the raster that
 #' covers most of the `x` values: The differences between the values of `x` are
@@ -33,7 +33,7 @@
 #'
 #' @examples
 #' x <- c(sample(1:20, 10), (0:5) + 0.5)
-#' raster <- makeraster(x, x[1], 2)
+#' raster <- raster_make(x, x[1], 2)
 #' raster
 #' plot(x)
 #' abline(h = raster$levels, col = "#00000040")
@@ -45,7 +45,7 @@
 #' ## points actually on the raster
 #' onraster <- raster$x %in% raster$levels
 #' points(which(onraster), raster$x[onraster], col = "blue", pch = 20)
-makeraster <- function(x, startx, d, newlevels, tol = 0.1) {
+raster_make <- function(x, startx, d, newlevels, tol = 0.1) {
   if (missing(newlevels)) {
     # make sure to cover the whole data range + 1 point
     newlevels <- c(
@@ -72,7 +72,7 @@ makeraster <- function(x, startx, d, newlevels, tol = 0.1) {
   )
 }
 
-#' @rdname makeraster
+#' @rdname raster_make
 #' @export
 #'
 #' @concept manipulation
@@ -129,7 +129,7 @@ raster_fit <- function(x, tol = 0.1) {
       # cat ("startx: ", startx, "\n")
 
       # cat ("fit: ", c (startx, d), "\n")
-      raster <- makeraster(x, startx, d, tol = tol)
+      raster <- raster_make(x, startx, d, tol = tol)
       tmp <- sum(raster$x %in% raster$levels, na.rm = TRUE)
       # cat ("     ", tmp, "\n")
       if (tmp > max.covered) {
