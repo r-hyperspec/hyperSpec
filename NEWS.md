@@ -47,8 +47,14 @@
      `spc.fit.poly()`        | `spc_fit_poly()`                 |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.fit.poly.below()`  | `spc_fit_poly_below()`           |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.identify()`        | `identify_spc()`                 |  #40
+     `spc.label.default()`   | `format_label_ispc_wl()`         |  #39
+     `spc.label.wlonly()`    | `format_label_wl_only()`         |  #39
      `spc.loess()`           | `spc_loess()`                    |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.NA.approx()`       | `spc_na_approx()`                |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
+     `spc.point.default()`   | `locate_spc_point_clicked()`     |  #46
+     `spc.point.max()`       | `locate_spc_point_max()`         |  #46
+     `spc.point.min()`       | `locate_spc_point_min()`         |  #46
+     `spc.point.sqr()`       | `locate_spc_point_parabola_max()`|  #46
      `spc.rubberband()`      | `spc_rubberband()`               |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.smooth.spline()`   | `spc_smooth_spline()`            |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `wl.eval()`             | `wl_eval()`                      |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#309
