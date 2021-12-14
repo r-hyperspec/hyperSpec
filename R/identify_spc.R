@@ -2,12 +2,12 @@
 
 #' Identifying spectra and spectral data points
 #'
-#' Function [spc.identify()] allows to identify the spectrum and the wavelength
+#' Function [identify_spc()] allows identifing the spectrum and the wavelength
 #' of a point in a plot produced by [plotspc()].
 #'
 #' @rdname identify_spc
 #'
-#' @aliases spc.identify
+#' @aliases identify_spc
 #'          spc.label.default
 #'          spc.label.wlonly
 #'          spc.point.default
@@ -16,7 +16,7 @@
 #'          spc.point.sqr
 #'
 #' @details
-#' Function [spc.identify()] first finds the spectrum with a point closest
+#' Function [identify_spc()] first finds the spectrum with a point closest
 #' to the clicked  position (see [locator()][graphics::locator()]).
 #' The distance to the clicked  point is evaluated relative to the size
 #' of the tolerance window.
@@ -61,7 +61,7 @@
 #' be switched of by `warn = FALSE`. In that case, the click will produce
 #' a row of `NA`s in the resulting data.frame.
 #'
-#' [spc.identify()] uses option `debuglevel` to determine whether debugging
+#' [identify_spc()] uses option `debuglevel` to determine whether debugging
 #' output  should be produced.
 #' - `debuglevel == 2` will plot the tolerance window for every clicked point,
 #' - `debuglevel == 1` will plot the tolerance window only if no data point was
@@ -99,7 +99,7 @@
 #' @param delta `spc.point.sqr` fits the parabola in the window wlclick
 #'   \eqn{\pm}{+-} delta points.
 #'
-#' @return [spc.identify()] returnsa `data.frame` with columns:
+#' @return [identify_spc()] returnsa `data.frame` with columns:
 #'  \item{ispc}{spectra indices of the identified points, i.e. the rows of the
 #'               `hyperSpec` object that was  plotted.
 #'
@@ -129,7 +129,7 @@
 #' ispc <- sample(nrow(laser), 10)
 #' ispc
 #'
-#' identified <- spc.identify(plotspc(laser[ispc]))
+#' identified <- identify_spc(plotspc(laser[ispc]))
 #'
 #' ## convert to the "real" spectra indices
 #' ispc[identified$ispc]
@@ -137,9 +137,9 @@
 #' identified$spc
 #'
 #' ## allow the labels to be plotted into the plot margin
-#' spc.identify(plotspc(laser[ispc]), ispc = ispc, xpd = NA)
+#' identify_spc(plotspc(laser[ispc]), ispc = ispc, xpd = NA)
 #'
-#' spc.identify(plotspc(paracetamol,
+#' identify_spc(plotspc(paracetamol,
 #'   xoffset = 1100,
 #'   wl.range = c(600 ~ 1700, 2900 ~ 3150)
 #' ),
@@ -147,13 +147,13 @@
 #' )
 #'
 #' ## looking for minima
-#' spc.identify(
+#' identify_spc(
 #'   plot(-paracetamol, wl.reverse = TRUE),
 #'   point.fn = spc.point.min, adj = c(1, 0.5)
 #' )
 #'
 #' }}
-spc.identify <- function(x, y = NULL,
+identify_spc <- function(x, y = NULL,
                          wavelengths = NULL,
                          ispc = NULL,
                          tol.wl = diff(range(x)) / 200,
@@ -166,7 +166,7 @@ spc.identify <- function(x, y = NULL,
                          srt = 90, # for the label text
                          warn = TRUE) {
   if (!interactive()) {
-    stop("spc.identify works only on interactive graphics devices.")
+    stop("identify_spc works only on interactive graphics devices.")
   }
 
   if (is.list(x)) {
