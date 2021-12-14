@@ -82,7 +82,7 @@ wl_create_label_from_units <- function(unit, greek = FALSE,
           warning(
             msg, "\n",
             "So it will be converted to an expression and ",
-            "returned as the output."
+            "returned as function's output."
           )
           as.expression(unit)
         },
