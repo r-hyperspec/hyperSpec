@@ -8,7 +8,7 @@
 #' @rdname identify_spc
 #'
 #' @aliases identify_spc
-#'          spc.label.default
+#'          format_label_ispc_wl
 #'          format_label_wl_only
 #'          locate_spc_point_clicked
 #'          locate_spc_point_max
@@ -47,7 +47,7 @@
 #' using [text()][graphics::text()]. Currently, the following `formatter`s are
 #' available:
 #'  \tabular{ll}{
-#'  [spc.label.default()] \tab spectrum number, wavelength \cr
+#'  [format_label_ispc_wl()] \tab spectrum number, wavelength \cr
 #'  [format_label_wl_only()]  \tab wavelength \cr
 #' }
 #'
@@ -159,7 +159,7 @@ identify_spc <- function(x, y = NULL,
                          tol.wl = diff(range(x)) / 200,
                          tol.spc = diff(range(y)) / 50,
                          point.fn = locate_spc_point_max, # function to find the maximum
-                         formatter = spc.label.default, # NULL: suppress labels
+                         formatter = format_label_ispc_wl, # NULL: suppress labels
                          ...,
                          cex = 0.7,
                          adj = c(0, 0.5),
@@ -325,7 +325,7 @@ locate_spc_point_parabola_max <- function(wl, spc, wlclick, delta = 1L) {
 #' @param digits How many digits of the wavelength should be displayed?
 #'
 #' @export
-spc.label.default <- function(ispc, wl, spc, digits = 3) {
+format_label_ispc_wl <- function(ispc, wl, spc, digits = 3) {
   sprintf(" %i, %s ", ispc, format(wl, digits = digits))
 }
 
