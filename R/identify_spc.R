@@ -13,7 +13,7 @@
 #'          spc.point.default
 #'          spc.point.max
 #'          spc.point.min
-#'          spc.point.sqr
+#'          locate_spc_point_parabola_max
 #'
 #' @details
 #' Function [identify_spc()] first finds the spectrum with a point closest
@@ -32,7 +32,7 @@
 #'   the point with the highest intensity in the wavelength window;
 #' - [spc.point.min()]
 #'   the point with the lowest intensity in the wavelength window;
-#' - [spc.point.sqr()]
+#' - [locate_spc_point_parabola_max()]
 #'   maximum of a parabola fit through the point with highest intensity
 #'   and the two surrounding points.
 #'
@@ -96,7 +96,7 @@
 #'             If `FALSE`, the resulting data.frame will have a row of `NA`s
 #'             instead.
 #'
-#' @param delta `spc.point.sqr` fits the parabola in the window wlclick
+#' @param delta `locate_spc_point_parabola_max` fits the parabola in the window wlclick
 #'   \eqn{\pm}{+-} delta points.
 #'
 #' @return [identify_spc()] returnsa `data.frame` with columns:
@@ -295,7 +295,7 @@ spc.point.min <- function(wl, spc, wlclick) {
 
 #' @rdname identify_spc
 #' @export
-spc.point.sqr <- function(wl, spc, wlclick, delta = 1L) {
+locate_spc_point_parabola_max <- function(wl, spc, wlclick, delta = 1L) {
   i <- which.max(spc)
 
   ## points (wl [i], spc [i])
