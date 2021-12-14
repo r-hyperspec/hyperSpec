@@ -58,9 +58,6 @@
     <loc>/reference/DEPRECATED-fix_spc_colnames.html</loc>
   </url>
   <url>
-    <loc>/reference/DEPRECATED-fun.html</loc>
-  </url>
-  <url>
     <loc>/reference/DEPRECATED-ggplot2.html</loc>
   </url>
   <url>
@@ -77,6 +74,12 @@
   </url>
   <url>
     <loc>/reference/DEPRECATED-pearson.dist.html</loc>
+  </url>
+  <url>
+    <loc>/reference/DEPRECATED-pooled.cov.html</loc>
+  </url>
+  <url>
+    <loc>/reference/DEPRECATED-raster.html</loc>
   </url>
   <url>
     <loc>/reference/DEPRECATED-read-ini.html</loc>
@@ -271,9 +274,6 @@
     <loc>/reference/levelplot.html</loc>
   </url>
   <url>
-    <loc>/reference/makeraster.html</loc>
-  </url>
-  <url>
     <loc>/reference/map-sel-poly.html</loc>
   </url>
   <url>
@@ -323,6 +323,9 @@
   </url>
   <url>
     <loc>/reference/quickdf.html</loc>
+  </url>
+  <url>
+    <loc>/reference/raster_make.html</loc>
   </url>
   <url>
     <loc>/reference/rbind.fill.html</loc>
