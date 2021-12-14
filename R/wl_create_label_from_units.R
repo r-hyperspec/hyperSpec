@@ -36,8 +36,8 @@
 #'
 #' wl_create_label_from_units("1/cm", greek = TRUE)
 #'
-wl_create_label_from_units <- function(unit, greek = FALSE,
-                                       on_failure = "warn", null_ok = FALSE) {
+wl_create_label_from_units <- function(unit, greek = FALSE, null_ok = FALSE,
+                                       on_failure = "warn") {
 
   if (missing(unit)) stop("argument \"unit\" is missing")
   on_failure <- match.arg(tolower(on_failure), c("fail", "warn", "pass", "pass as-is"))
