@@ -11,7 +11,7 @@
 #'          spc.label.default
 #'          spc.label.wlonly
 #'          spc.point.default
-#'          spc.point.max
+#'          locate_spc_point_max
 #'          locate_spc_point_min
 #'          locate_spc_point_parabola_max
 #'
@@ -28,7 +28,7 @@
 #'
 #' - [spc.point.default()]
 #'   uses the clicked wavelength together with its spectral intensity;
-#' - [spc.point.max()]
+#' - [locate_spc_point_max()]
 #'   the point with the highest intensity in the wavelength window;
 #' - [locate_spc_point_min()]
 #'   the point with the lowest intensity in the wavelength window;
@@ -158,7 +158,7 @@ identify_spc <- function(x, y = NULL,
                          ispc = NULL,
                          tol.wl = diff(range(x)) / 200,
                          tol.spc = diff(range(y)) / 50,
-                         point.fn = spc.point.max, # function to find the maximum
+                         point.fn = locate_spc_point_max, # function to find the maximum
                          formatter = spc.label.default, # NULL: suppress labels
                          ...,
                          cex = 0.7,
@@ -274,7 +274,7 @@ identify_spc <- function(x, y = NULL,
 #' @param wlclick The clicked wavelength.
 #'
 #' @export
-spc.point.max <- function(wl, spc, wlclick) {
+locate_spc_point_max <- function(wl, spc, wlclick) {
   i <- which.max(spc)
   c(wl = wl[i], spc = spc[i])
 }
