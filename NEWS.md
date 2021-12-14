@@ -36,6 +36,7 @@
      `hy.getOptions()`       | `hy_get_options()`               |  #21
      `hy.setOptions()`       | `hy_set_options()`               |  #21
      `makeraster()`          | `raster_make()`                  |  #47
+     `mark.dendrogram()`     | `mark_groups_in_dendrogram()`    |  #43
      `markpeak()`            | `mark_peak()`                    |  #44
      `matlab.dark.palette()` | `palette_matlab_dark()`          |  cbeleites/hyperSpec#299, cbeleites/hyperSpec#299, @sangttruong
      `matlab.palette()`      | `palette_matlab()`               |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#299, @sangttruong
