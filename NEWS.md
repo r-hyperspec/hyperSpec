@@ -39,6 +39,7 @@
      `mergeextra()`          | `merge_data()`                   |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#302
      `orderwl()`             | `wl_sort()`                      |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#309
      `pearson.dist()`        | `dist_pearson()`                 |  #19
+     `pooled.cov()`          | `cov_pooled()`                   |  #51
      `spc.bin()`             | `spc_bin()`                      |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.fit.poly()`        | `spc_fit_poly()`                 |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.fit.poly.below()`  | `spc_fit_poly_below()`           |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301

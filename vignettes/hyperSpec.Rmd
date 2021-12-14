@@ -737,10 +737,10 @@ More information about converting existing data into `hyperSpec` objects can be 
 \mFun{rmmvnorm}
 If package **mvtnorm**[`r cite_pkg("mvtnorm")`] is available, multivariate normally distributed spectra can be generated from mean and covariance matrix using `rmmvnorm()`{.r} (Fig. \@ref(fig:sim-spc)).
 Note that the package **hyperSpec** function's name has an additional "m": it already takes care of multiple groups.
-Mean spectra and pooled covariance matrix can be calculated using `pooled.cov()`{.r}\mFun{pooled.cov}:
+Mean spectra and pooled covariance matrix can be calculated using `cov_pooled()`{.r}\mFun{cov_pooled}:
 
 ```{r}
-pcov <- pooled.cov(faux_cell, faux_cell$region)
+pcov <- cov_pooled(faux_cell, faux_cell$region)
 rnd  <- rmmvnorm(rep(10, 3), mean = pcov$mean, sigma = pcov$COV)
 ```
 
