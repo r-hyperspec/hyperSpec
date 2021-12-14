@@ -37,15 +37,15 @@ setMethod("cov", signature = signature(x = "hyperSpec", y = "missing"), .cov_h_)
 #' @param regularize regularization of the covariance matrix.
 #'        Set `0` to switch off.
 #'
-#' [pooled.cov()] calculates pooled covariance like e.g. in LDA.
+#' [cov_pooled()] calculates pooled covariance like e.g. in LDA.
 #' @param groups factor indicating the groups
 #'
 #' @export
 #' @examples
-#' pcov <- pooled.cov(faux_cell, faux_cell$region)
+#' pcov <- cov_pooled(faux_cell, faux_cell$region)
 #' plot(pcov$means)
 #' image(pcov$COV)
-pooled.cov <- function(x, groups, ..., regularize = 1e-5 * max(abs(COV))) {
+cov_pooled <- function(x, groups, ..., regularize = 1e-5 * max(abs(COV))) {
   assert_hyperSpec(x)
   validObject(x)
 

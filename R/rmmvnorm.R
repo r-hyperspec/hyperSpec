@@ -72,7 +72,7 @@ setGeneric("rmmvnorm", .rmmvnorm)
 #' @concept data generation
 #' @seealso [mvtnorm::rmvnorm()]
 #'
-#' [hyperSpec::cov()] and [hyperSpec::pooled.cov()] about calculating covariance
+#' [hyperSpec::cov()] and [hyperSpec::cov_pooled()] about calculating covariance
 #' of `hyperSpec` objects.
 #'
 #' @export
@@ -81,7 +81,7 @@ setGeneric("rmmvnorm", .rmmvnorm)
 #' ## multiple groups, common covariance matrix
 #'
 #' if (require("mvtnorm")) {
-#'   pcov <- pooled.cov(faux_cell, faux_cell$region)
+#'   pcov <- cov_pooled(faux_cell, faux_cell$region)
 #'   rnd <- rmmvnorm(rep(10, 3), mean = pcov$mean, sigma = pcov$COV)
 #'   plot(rnd, col = rnd$.group)
 #' }
