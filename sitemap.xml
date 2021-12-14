@@ -67,6 +67,9 @@
     <loc>/reference/DEPRECATED-isample.html</loc>
   </url>
   <url>
+    <loc>/reference/DEPRECATED-mark.dendrogram.html</loc>
+  </url>
+  <url>
     <loc>/reference/DEPRECATED-markpeak.html</loc>
   </url>
   <url>
@@ -283,7 +286,7 @@
     <loc>/reference/map-sel-poly.html</loc>
   </url>
   <url>
-    <loc>/reference/mark.dendrogram.html</loc>
+    <loc>/reference/mark_groups_in_dendrogram.html</loc>
   </url>
   <url>
     <loc>/reference/mark_peak.html</loc>
