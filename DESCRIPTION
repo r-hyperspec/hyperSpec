@@ -168,6 +168,7 @@ Collate:
     'paracetamol.R'
     'laser.R'
     'hyperspec-package.R'
+    'identify_spc.R'
     'labels.R'
     'plotmap.R'
     'levelplot.R'
@@ -199,7 +200,6 @@ Collate:
     'show.R'
     'spc_bin.R'
     'spc_fix_colnames.R'
-    'spc_identify.R'
     'spc_loess.R'
     'spc_na_approx.R'
     'spc_spline.R'
@@ -216,4 +216,3 @@ Collate:
     'write_txt_long.R'
     'write_txt_wide.R'
     'zzz.R'
-
