@@ -19,7 +19,7 @@
 #' @concept plotting tools
 #'
 #' @export
-#' @rdname mark.dendrogram
+#' @rdname mark_groups_in_dendrogram
 #' @examples
 #'
 #' dend <- hclust(dist_pearson(laser[[]]))
@@ -29,20 +29,20 @@
 #' ## mark clusters
 #' clusters <- as.factor(cutree(dend, k = 4))
 #' levels(clusters) <- LETTERS[1:4]
-#' mark.dendrogram(dend, clusters, label = "cluster")
+#' mark_groups_in_dendrogram(dend, clusters, label = "cluster")
 #'
 #' ## mark independent factor
-#' mark.dendrogram(dend, as.factor(laser[, , 405.36] > 11000),
+#' mark_groups_in_dendrogram(dend, as.factor(laser[, , 405.36] > 11000),
 #'   pos.marker = -0.02, pos.text = -0.03
 #' )
 #'
 #' ## mark continuous variable: convert it to a factor and omit labels
-#' mark.dendrogram(dend, cut(laser[[, , 405.36]], 100), palette_alois(100),
+#' mark_groups_in_dendrogram(dend, cut(laser[[, , 405.36]], 100), palette_alois(100),
 #'   pos.marker = -.015, text.col = NA,
 #'   label = expression(I[lambda == 405.36 ~ nm]), label.right = FALSE
 #' )
 #' @importFrom utils head tail
-mark.dendrogram <- function(dendrogram, groups, col = seq_along(unique(groups)),
+mark_groups_in_dendrogram <- function(dendrogram, groups, col = seq_along(unique(groups)),
                             pos.marker = 0,
                             height = 0.025 * max(dendrogram$height),
                             pos.text = -2.5 * height,
