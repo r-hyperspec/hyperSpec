@@ -346,7 +346,7 @@ spe.showcalpoints <- function(filename, xaxis = "file", acc2avg = F, cts_sec = F
     return("")
   }
 
-  markpeak(spc, wl_convert_units(
+  mark_peak(spc, wl_convert_units(
     from   = hdr$xCalInputUnit,
     to     = .wl_fix_unit_name(xaxis),
     x      = hdr$xCalValues,
