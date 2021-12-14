@@ -10,7 +10,7 @@
 #' @aliases identify_spc
 #'          spc.label.default
 #'          spc.label.wlonly
-#'          spc.point.default
+#'          locate_spc_point_clicked
 #'          locate_spc_point_max
 #'          locate_spc_point_min
 #'          locate_spc_point_parabola_max
@@ -26,7 +26,7 @@
 #' label maxima (or minima) without demanding too precise clicks. Currently,
 #' the following functions to determine the precise point:
 #'
-#' - [spc.point.default()]
+#' - [locate_spc_point_clicked()]
 #'   uses the clicked wavelength together with its spectral intensity;
 #' - [locate_spc_point_max()]
 #'   the point with the highest intensity in the wavelength window;
@@ -281,7 +281,7 @@ locate_spc_point_max <- function(wl, spc, wlclick) {
 
 #' @rdname identify_spc
 #' @export
-spc.point.default <- function(wl, spc, wlclick) {
+locate_spc_point_clicked <- function(wl, spc, wlclick) {
   i <- round(approx(wl, seq_along(wl), wlclick, rule = 2)$y)
   c(wl = wl[], spc = spc[i])
 }
