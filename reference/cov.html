@@ -99,29 +99,32 @@
   method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"pearson"</span>, <span class="st">"kendall"</span>, <span class="st">"spearman"</span><span class="op">)</span>
 <span class="op">)</span>
 
-<span class="fu">pooled.cov</span><span class="op">(</span><span class="va">x</span>, <span class="va">groups</span>, <span class="va">...</span>, regularize <span class="op">=</span> <span class="fl">1e-05</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="va">COV</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<span class="fu">cov_pooled</span><span class="op">(</span><span class="va">x</span>, <span class="va">groups</span>, <span class="va">...</span>, regularize <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
-<dd><p><code>hyperSpec</code> object</p></dd>
+<dd><p><code>hyperSpec</code> object.</p></dd>
 <dt>y</dt>
-<dd><p>not supported</p></dd>
+<dd><p>Not supported.</p></dd>
 <dt>use, method</dt>
 <dd><p>handed to <code><a href="https://rdrr.io/r/stats/cor.html" class="external-link">stats::cov()</a></code></p></dd>
 <dt>groups</dt>
-<dd><p>factor indicating the groups</p></dd>
+<dd><p>Factor indicating the groups.</p></dd>
 <dt>...</dt>
-<dd><p>ignored</p></dd>
+<dd><p>Ignored.</p></dd>
 <dt>regularize</dt>
-<dd><p>regularization of the covariance matrix.
-Set <code>0</code> to switch off.</p>
-<p><code>pooled.cov()</code> calculates pooled covariance like e.g. in LDA.</p></dd>
+<dd><p>(numeric):
+Regularization of the covariance matrix.
+Set <code>0</code> to switch off.
+Default is <code>1e-5 * max(abs(cov_p))</code>, where <code>cov_p</code> is a pooled
+covariance matrix before regularization.</p>
+<p><code>cov_pooled()</code> calculates pooled covariance like, e.g., in LDA.</p></dd>
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>covariance matrix of size <code>nwl(x)</code> x <code>nwl(x)</code></p>
+    <p>Covariance <code>matrix</code> of size <code>nwl(x)</code> x <code>nwl(x)</code>.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -136,7 +139,7 @@ Set <code>0</code> to switch off.</p>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/image.html" class="external-link">image</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">cov</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-plt img"><img src="cov-1.png" alt="" width="466" height="288"></span>
-<span class="r-in"><span class="va">pcov</span> <span class="op">&lt;-</span> <span class="fu">pooled.cov</span><span class="op">(</span><span class="va">faux_cell</span>, <span class="va">faux_cell</span><span class="op">$</span><span class="va">region</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">pcov</span> <span class="op">&lt;-</span> <span class="fu">cov_pooled</span><span class="op">(</span><span class="va">faux_cell</span>, <span class="va">faux_cell</span><span class="op">$</span><span class="va">region</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">pcov</span><span class="op">$</span><span class="va">means</span><span class="op">)</span></span>
 <span class="r-plt img"><img src="cov-2.png" alt="" width="466" height="288"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/image.html" class="external-link">image</a></span><span class="op">(</span><span class="va">pcov</span><span class="op">$</span><span class="va">COV</span><span class="op">)</span></span>

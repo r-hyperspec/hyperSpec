@@ -1214,9 +1214,9 @@ intensity axis label in <code class="sourceCode r"><span class="op">$</span>spc<
 
 <p>If package <strong>mvtnorm</strong><span class="citation">[<a href="#ref-R-mvtnorm" role="doc-biblioref">1</a>,<a href="#ref-mvtnorm2009" role="doc-biblioref">2</a>]</span> is available, multivariate normally distributed spectra can be generated from mean and covariance matrix using <code class="sourceCode r"><span class="kw">rmmvnorm</span>()</code> (Fig. <a href="#fig:sim-spc">4.1</a>).
 Note that the package <strong>hyperSpec</strong> function’s name has an additional “m”: it already takes care of multiple groups.
-Mean spectra and pooled covariance matrix can be calculated using <code class="sourceCode r"><span class="kw">pooled.cov</span>()</code>:</p>
+Mean spectra and pooled covariance matrix can be calculated using <code class="sourceCode r"><span class="kw">cov_pooled</span>()</code>:</p>
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pcov</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/cov.html">pooled.cov</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="va">faux_cell</span><span class="op">$</span><span class="va">region</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">pcov</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/cov.html">cov_pooled</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="va">faux_cell</span><span class="op">$</span><span class="va">region</span><span class="op">)</span>
 <span class="va">rnd</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/rmmvnorm.html">rmmvnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span>, mean <span class="op">=</span> <span class="va">pcov</span><span class="op">$</span><span class="va">mean</span>, sigma <span class="op">=</span> <span class="va">pcov</span><span class="op">$</span><span class="va">COV</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cluster.cols</span> <span class="op">&lt;-</span> <span class="va">palette_colorblind</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">7</span>, <span class="fl">4</span><span class="op">)</span><span class="op">]</span>
@@ -2343,7 +2343,7 @@ Please refer to the documentation of the respective functions for details about 
   <span class="op">}</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.067   0.002   0.069</span></code></pre></div>
+<span class="co">#&gt;   0.053   0.002   0.054</span></code></pre></div>
 <p>Calculations that involve a lot of subsetting (i.e., extracting or changing the spectra matrix or extra data) can be sped up considerably if the required parts of the <code>hyperSpec</code> object are extracted beforehand.
 This is somewhat similar to model fitting in <code>R</code> in general: many model fitting functions in <code>R</code> are much faster if the formula interface is avoided and the appropriate <code class="sourceCode r">data.frame</code>s or matrices are handed over directly.</p>
 <div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
@@ -2357,7 +2357,7 @@ This is somewhat similar to model fitting in <code>R</code> in general: many mod
   <span class="va">tmp</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">tmp.matrix</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.021   0.000   0.022</span></code></pre></div>
+<span class="co">#&gt;   0.018   0.000   0.018</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="additional-packages">
