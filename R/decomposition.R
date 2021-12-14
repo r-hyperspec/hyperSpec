@@ -19,7 +19,7 @@
 #' `decomposition` (also setting `scores = FALSE`), the spectra
 #' matrix is replaced by `x`. Moreover, all columns of `object@@data`
 #' that did not contain the same value for all spectra are set to `NA`.
-#' Thus, for the resulting `hyperSpec` object, [plotspc()] and
+#' Thus, for the resulting `hyperSpec` object, [plot_spc()] and
 #' related functions are meaningful. [hyperSpec::plotmap()] cannot be
 #' applied as the loadings are not laterally resolved.
 #'

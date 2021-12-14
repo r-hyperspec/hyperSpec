@@ -39,7 +39,7 @@ setGeneric("plot")
 
   switch(tolower(y),
     spectra = ,
-    spc = plotspc(x, ...),
+    spc = plot_spc(x, ...),
     spc_mean_sd = ,
     spcmeansd = {
       dots <- modifyList(
@@ -47,7 +47,7 @@ setGeneric("plot")
         dots
       )
 
-      do.call(plotspc, dots)
+      do.call(plot_spc, dots)
     },
     spc_prctile = ,
     spc_prctl_3 = ,
@@ -58,7 +58,7 @@ setGeneric("plot")
         dots
       )
 
-      do.call(plotspc, dots)
+      do.call(plot_spc, dots)
     },
     spc_prctl_5 = ,
     spc_prctile_5 = ,
@@ -71,7 +71,7 @@ setGeneric("plot")
         dots
       )
 
-      do.call(plotspc, dots)
+      do.call(plot_spc, dots)
     },
     map = plotmap(x, ...),
     voronoi = plotvoronoi(x, ...),
@@ -87,7 +87,7 @@ setGeneric("plot")
 }
 
 .plot_h_ <- function(x, y, ...) {
-  plotspc(x, ...)
+  plot_spc(x, ...)
 }
 
 
@@ -95,7 +95,7 @@ setGeneric("plot")
 #' Plot `hyperSpec` objects
 #'
 #' @description
-#' The `plot` method for `hyperSpec` objects is a switchyard to [plotspc()],
+#' The `plot` method for `hyperSpec` objects is a switchyard to [plot_spc()],
 #' [plotmap()], and [plotc()]. The function also supplies some convenient
 #' abbreviations for frequently used plots (see 'Details').
 #'
@@ -105,7 +105,7 @@ setGeneric("plot")
 #'
 #' \describe{
 #'
-#'    \item{"spc" or nothing}{calls [plotspc()] to produce a spectra plot.}
+#'    \item{"spc" or nothing}{calls [plot_spc()] to produce a spectra plot.}
 #'
 #'    \item{"spcmeansd"}{plots mean spectrum +/- one standard deviation}
 #'
@@ -154,7 +154,7 @@ setGeneric("plot")
 #' @author C. Beleites
 #'
 #' @seealso
-#' [plotspc()] for spectra plots (intensity over wavelength),
+#' [plot_spc()] for spectra plots (intensity over wavelength),
 #'
 #' [plotmap()] for plotting maps, i.e. color coded summary value on two
 #' (usually spatial) dimensions.
@@ -183,7 +183,7 @@ setGeneric("plot")
 #' plot(spc, "spcprctile")
 #' plot(spc, "spcmeansd")
 #'
-#' ### Use plotspc() as a default plot function.
+#' ### Use plot_spc() as a default plot function.
 setMethod("plot", signature(x = "hyperSpec", y = "missing"), .plot_h_)
 
 ### allow choice of plot type by second argument:

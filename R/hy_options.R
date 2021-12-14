@@ -27,7 +27,7 @@
 #' file.keep.name       \tab TRUE                              \tab always create filename column                    \tab various file import functions\cr
 #' tolerance            \tab `sqrt (.Machine$double.eps)` \tab tolerance for numerical comparisons              \tab [normalize01()], file import: `file.remove.emptyspc`\cr
 #' wl.tolerance         \tab `sqrt (.Machine$double.eps)` \tab tolerance for comparisons of the wavelength axis \tab [all.equal()], [collapse()], [rbind()]\cr
-#' plot.spc.nmax        \tab 25                                \tab number of spectra to be plotted by default       \tab [plotspc()]\cr
+#' plot.spc.nmax        \tab 25                                \tab number of spectra to be plotted by default       \tab [plot_spc()]\cr
 #' ggplot.spc.nmax      \tab 10                                \tab                                                  \tab [`qplotspc()`](https://r-hyperspec.github.io/hySpc.ggplot2/reference/qplotspc.html)\cr
 #' }
 #'
