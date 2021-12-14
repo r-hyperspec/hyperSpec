@@ -1,6 +1,6 @@
 ### ------------------------------------------------------------------------ ~
 ###
-###  plotspc - Plots spectra of hyperSpec object
+###  plot_spc - Plots spectra of hyperSpec object
 ###
 ###  convenient plot interface for plotting spectra
 ###
@@ -26,8 +26,8 @@
 #' [plotrix::axis.break()] is used to produce break marks for cut
 #' wavelength axes.
 #'
-#' @name plotspc
-#' @rdname plotspc
+#' @name plot_spc
+#' @rdname plot_spc
 #'
 #' @param object `hyperSpec` object.
 #' @param wl.range The wavelength range to be plotted.
@@ -99,7 +99,7 @@
 #'        off if `yoffset` is not 0.
 #' @param debuglevel if > 0, additional debug output is produced, see
 #'        [hyperSpec::options()] for details.
-#' @return `plotspc` invisibly returns a list with:
+#' @return `plot_spc` invisibly returns a list with:
 #'
 #' \item{x}{the abscissa coordinates of the plotted spectral data points}
 #'
@@ -134,25 +134,25 @@
 #' @export
 #'
 #' @examples
-#' plotspc(flu)
+#' plot_spc(flu)
 #'
 #' ## Artificial example to show wavelength axis cutting
-#' plotspc(faux_cell[sample(nrow(faux_cell), 50)],
+#' plot_spc(faux_cell[sample(nrow(faux_cell), 50)],
 #'   wl.range = list(600 ~ 650, 1000 ~ 1100, 1600 ~ 1700),
 #'   xoffset = c(0, 300, 450)
 #' )
 #'
-#' plotspc(faux_cell[sample(nrow(faux_cell), 50)],
+#' plot_spc(faux_cell[sample(nrow(faux_cell), 50)],
 #'   wl.range = list(600 ~ 650, 1000 ~ 1100, 1600 ~ 1700),
 #'   xoffset = c(300, 450)
 #' )
 #'
 #' ## some journals publish Raman spectra backwards
-#' plotspc(faux_cell[sample(nrow(faux_cell), 50)], wl.reverse = TRUE)
+#' plot_spc(faux_cell[sample(nrow(faux_cell), 50)], wl.reverse = TRUE)
 #'
-#' plotspc(laser[(0:4) * 20 + 1, , ], stacked = TRUE)
+#' plot_spc(laser[(0:4) * 20 + 1, , ], stacked = TRUE)
 #'
-#' plotspc(laser,
+#' plot_spc(laser,
 #'   func = mean_pm_sd,
 #'   col = c(NA, "red", "black"), lines.args = list(lwd = 2),
 #'   fill = c(1, NA, 1),
@@ -168,7 +168,7 @@
 #'
 #' fc_mean_pm_sd <- aggregate(faux_cell, faux_cell$region, mean_pm_sd)
 #' plot(fc_mean_pm_sd, col = palette_matlab(3), fill = ".aggregate", stacked = ".aggregate")
-plotspc <- function(object,
+plot_spc <- function(object,
                     ## what wavelengths to plot
                     wl.range = TRUE, wl.index = FALSE, wl.reverse = FALSE,
                     ## what spectra to plot
@@ -570,8 +570,8 @@ plotspc <- function(object,
 
 # Unit tests -----------------------------------------------------------------
 
-hySpc.testthat::test(plotspc) <- function() {
-  context("plotspc")
+hySpc.testthat::test(plot_spc) <- function() {
+  context("plot_spc")
 
   test_that("BARBITURATES are plotted", {
     expect_silent(
@@ -579,7 +579,7 @@ hySpc.testthat::test(plotspc) <- function() {
     )
 
     expect_silent(
-      plotspc(
+      plot_spc(
         spc,
         col = palette_matlab_dark(3),
         stacked = TRUE,
@@ -594,16 +594,16 @@ hySpc.testthat::test(plotspc) <- function() {
 
 #' Y offsets for stacked plots
 #'
-#' Calculate appropriate `yoffset` values for stacking in [hyperSpec::plotspc()].
+#' Calculate appropriate `yoffset` values for stacking in [hyperSpec::plot_spc()].
 #'
-#' Usually, the `stacked` argument of [hyperSpec::plotspc()] will do fine, but
+#' Usually, the `stacked` argument of [hyperSpec::plot_spc()] will do fine, but
 #' if you need fine control over the stacking, you may calculate the y offsets
 #' yourself.
 #'
 #' Empty levels of the stacking factor are dropped (as no stacking offset can
 #' be calculated in that case.)
 #'
-#' @rdname plotspc
+#' @rdname plot_spc
 #'
 #' @param x `hyperSpec` object.
 #' @param min.zero If `TRUE`, the lesser of zero and the minimum intensity of
@@ -620,7 +620,7 @@ hySpc.testthat::test(plotspc) <- function() {
 #'
 #' @author C. Beleites
 #'
-#' @seealso [hyperSpec::plotspc()]
+#' @seealso [hyperSpec::plot_spc()]
 #'
 #'
 #' @concept plotting
@@ -814,7 +814,7 @@ hySpc.testthat::test(.cut.ticks) <- function() {
   context(".cut.ticks")
 
   ## bugfix:
-  ## plotspc(paracetamol, wl.range = c(min ~ 1800, 2800 ~ max), xoffset = 900)
+  ## plot_spc(paracetamol, wl.range = c(min ~ 1800, 2800 ~ max), xoffset = 900)
   ## had 2600 1/cm label printed in low wavelength range
   test_that("labels not too far outside wl.range", {
     expect_equal(

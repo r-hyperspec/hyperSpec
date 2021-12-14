@@ -45,7 +45,7 @@
 #'
 #' # Plot mean spectra
 #' fc_groups <- aggregate(faux_cell, faux_cell$region, mean_pm_sd)
-#' plotspc(fc_groups,
+#' plot_spc(fc_groups,
 #'   stacked = ".aggregate",
 #'   col = c("red", "green", "blue"), fill = ".aggregate"
 #' )

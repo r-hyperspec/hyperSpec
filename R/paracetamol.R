@@ -15,7 +15,7 @@
 #' paracetamol
 #'
 #' plot(paracetamol)
-#' plotspc(paracetamol, c(min ~ 1750, 2800 ~ max),
+#' plot_spc(paracetamol, c(min ~ 1750, 2800 ~ max),
 #'   xoffset = 800,
 #'   wl.reverse = TRUE
 #' )

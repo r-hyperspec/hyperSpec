@@ -3,7 +3,7 @@
 #' Identifying spectra and spectral data points
 #'
 #' Function [identify_spc()] allows identifing the spectrum and the wavelength
-#' of a point in a plot produced by [plotspc()].
+#' of a point in a plot produced by [plot_spc()].
 #'
 #' @rdname identify_spc
 #'
@@ -74,7 +74,7 @@
 #' not clipped. As a dirty shortcut, `xpd = NA` may help.
 #'
 #'
-#' @param x either the abscissa coordinates or the list returned by [plotspc()]
+#' @param x either the abscissa coordinates or the list returned by [plot_spc()]
 #'
 #' @param y the ordinate values. Giving `y` will override any values from `x$y`.
 #' @param wavelengths the wavelengths for the data points.
@@ -113,7 +113,7 @@
 #'
 #' @seealso
 #' - [graphics::locator()];
-#' - [plotspc()];
+#' - [plot_spc()];
 #' - ['hyperSpec' options()][hyperSpec::options];
 #' - [map.identify()], [map.sel.poly()]
 #'
@@ -129,7 +129,7 @@
 #' ispc <- sample(nrow(laser), 10)
 #' ispc
 #'
-#' identified <- identify_spc(plotspc(laser[ispc]))
+#' identified <- identify_spc(plot_spc(laser[ispc]))
 #'
 #' ## convert to the "real" spectra indices
 #' ispc[identified$ispc]
@@ -137,9 +137,9 @@
 #' identified$spc
 #'
 #' ## allow the labels to be plotted into the plot margin
-#' identify_spc(plotspc(laser[ispc]), ispc = ispc, xpd = NA)
+#' identify_spc(plot_spc(laser[ispc]), ispc = ispc, xpd = NA)
 #'
-#' identify_spc(plotspc(paracetamol,
+#' identify_spc(plot_spc(paracetamol,
 #'   xoffset = 1100,
 #'   wl.range = c(600 ~ 1700, 2900 ~ 3150)
 #' ),

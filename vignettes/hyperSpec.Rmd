@@ -496,7 +496,7 @@ To specify several wavelength ranges, use a list containing the formulas and vec
 wl2i(flu, c(min ~ 406.5, max - 2i ~ max))
 ```
 
-This mechanism also works for the wavelength arguments of `[]`, `[[]]`, and `plotspc()`{.r}.
+This mechanism also works for the wavelength arguments of `[]`, `[[]]`, and `plot_spc()`{.r}.
 
 
 
@@ -1832,7 +1832,7 @@ name  | default value (range)  | description | used by
 `wl.tolerance`         | `sqrt(.Machine$.double.eps)`{.r} | Tolerance for comparisons of the wavelength axis | `rbind()`{.r}, `rbind2()`{.r}, `bind("r", ...)`{.r}, `all.equal()`{.r}, `collapse()`{.r}
 `file.remove.emptyspc` | `TRUE`{.r} | Automatic removing of empty spectra                         | File import functions, see [fileio](#list-of-vignettes)
 `file.keep.name`       | `TRUE`{.r} | Automatic recording of file name in column `filename`{.r}   | File import functions, see [fileio](#list-of-vignettes)
-`plot.spc.nmax`        | `25`{.r}   | Number of spectra to be plotted by default                  | `plotspc()`{.r}
+`plot.spc.nmax`        | `25`{.r}   | Number of spectra to be plotted by default                  | `plot_spc()`{.r}
 `ggplot.spc.nmax`      | `10`{.r}   |                                                             | `qplotspc()`{.r}
 
 <!-- ----------------------------------------------------------------------- -->
