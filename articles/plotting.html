@@ -123,7 +123,7 @@
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 data-toc-skip class="date">2021-12-14</h4>
+            <h4 data-toc-skip class="date">2021-12-15</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/HEAD/vignettes/plotting.Rmd" class="external-link"><code>vignettes/plotting.Rmd</code></a></small>
       <div class="hidden name"><code>plotting.Rmd</code></div>
@@ -195,9 +195,9 @@ Throughout the documentation of the package, the following terms are used:</p>
 <dd>main switchyard for most plotting tasks.
 More details in section <a href="#fun-plot">2</a>.
 </dd>
-<dt><strong><code class="sourceCode r"><span class="kw">plotspc</span>()</code></strong></dt>
+<dt><strong><code class="sourceCode r"><span class="kw">plot_spc</span>()</code></strong></dt>
 <dd>plots spectra.
-More details in sections <a href="#exm-plotspc">1.1</a>, <a href="#arg-spc">2.1</a>, and <a href="#fun-plotspc">3</a>.
+More details in sections <a href="#exm-plot-spc">1.1</a>, <a href="#arg-spc">2.1</a>, and <a href="#fun-plot-spc">3</a>.
 </dd>
 <dt><strong><code class="sourceCode r"><span class="kw">plotc</span>()</code></strong></dt>
 <dd>calibration plot, time series, depth profile.
@@ -229,15 +229,15 @@ More details in sections <a href="#exm-plotvoronoi">1.6</a>, and <a href="#arg-v
 </p>
 </div>
 <div class="section level2">
-<h2 id="exm-plotspc">
-<span class="header-section-number">1.1</span> Function <code class="sourceCode r"><span class="kw">plotspc</span>()</code><a class="anchor" aria-label="anchor" href="#exm-plotspc"></a>
+<h2 id="exm-plot-spc">
+<span class="header-section-number">1.1</span> Function <code class="sourceCode r"><span class="kw">plot_spc</span>()</code><a class="anchor" aria-label="anchor" href="#exm-plot-spc"></a>
 </h2>
-<p>Function <code class="sourceCode r"><span class="kw">plotspc</span>()</code> plots the spectra (Fig. <a href="#fig:plotspc">1.1</a>), i.e., the intensities (<code class="sourceCode r"><span class="op">$</span>spc</code>) over the wavelengths (<code class="sourceCode r"><span class="op">@</span>wavelength</code>).</p>
+<p>Function <code class="sourceCode r"><span class="kw">plot_spc</span>()</code> plots the spectra (Fig. <a href="#fig:plot-spc">1.1</a>), i.e., the intensities (<code class="sourceCode r"><span class="op">$</span>spc</code>) over the wavelengths (<code class="sourceCode r"><span class="op">@</span>wavelength</code>).</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="../reference/plot_spc.html">plot_spc</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:plotspc"></span>
-<img src="plotting_files/figure-html/plotspc-1.png" alt="Spectra in dataset `flu`.  "><p class="caption">
+<span style="display:block;" id="fig:plot-spc"></span>
+<img src="plotting_files/figure-html/plot-spc-1.png" alt="Spectra in dataset `flu`.  "><p class="caption">
 Figure 1.1: Spectra in dataset <code>flu</code>.
 </p>
 </div>
@@ -332,12 +332,12 @@ All further arguments are handed over to the function actually producing the plo
 <h2 id="arg-spc">
 <span class="header-section-number">2.1</span> Argument <code class="sourceCode r"><span class="st">"spc"</span></code><a class="anchor" aria-label="anchor" href="#arg-spc"></a>
 </h2>
-<p>Command <code class="sourceCode r"><span class="kw">plot</span>(x, <span class="st">"spc"</span>)</code> is equivalent to <code class="sourceCode r"><span class="kw">plotspc</span>(flu)</code> (Fig. <a href="#fig:plotspcflu">2.1</a>).</p>
+<p>Command <code class="sourceCode r"><span class="kw">plot</span>(x, <span class="st">"spc"</span>)</code> is equivalent to <code class="sourceCode r"><span class="kw">plot_spc</span>(flu)</code> (Fig. <a href="#fig:plot-spcflu">2.1</a>).</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="va">flu</span>, <span class="st">"spc"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:plotspcflu"></span>
-<img src="plotting_files/figure-html/plotspcflu-1.png" alt="All spectra of dataset `flu`.  "><p class="caption">
+<span style="display:block;" id="fig:plot-spcflu"></span>
+<img src="plotting_files/figure-html/plot-spcflu-1.png" alt="All spectra of dataset `flu`.  "><p class="caption">
 Figure 2.1: All spectra of dataset <code>flu</code>.
 </p>
 </div>
@@ -492,18 +492,18 @@ Figure 2.10: Voronoi plot: alternative R syntax.
 </div>
 </div>
 <div class="section level1">
-<h1 id="fun-plotspc">
-<span class="header-section-number">3</span> Customized Plots of Spectra: <code class="sourceCode r"><span class="kw">plotspc</span>()</code><a class="anchor" aria-label="anchor" href="#fun-plotspc"></a>
+<h1 id="fun-plot-spc">
+<span class="header-section-number">3</span> Customized Plots of Spectra: <code class="sourceCode r"><span class="kw">plot_spc</span>()</code><a class="anchor" aria-label="anchor" href="#fun-plot-spc"></a>
 </h1>
-<!-- \mFun{`plotspc()`{.r}} -->
-<p>Function <code class="sourceCode r"><span class="kw">plotspc</span>()</code> offers a variety of parameters for customized plots.</p>
+<!-- \mFun{`plot_spc()`{.r}} -->
+<p>Function <code class="sourceCode r"><span class="kw">plot_spc</span>()</code> offers a variety of parameters for customized plots.</p>
 <div class="section level2">
 <h2 id="plot-particular-wavelength-range">
 <span class="header-section-number">3.1</span> Plot Particular Wavelength Range<a class="anchor" aria-label="anchor" href="#plot-particular-wavelength-range"></a>
 </h2>
 <p>If only one wavelength range is needed (Fig. <a href="#fig:wavelength">3.1</a>), the extract command is handiest.</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">700</span> <span class="op">~</span> <span class="fl">1200</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="../reference/plot_spc.html">plot_spc</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">700</span> <span class="op">~</span> <span class="fl">1200</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:wavelength"></span>
 <img src="plotting_files/figure-html/wavelength-1.png" alt="Plot of wavelength (wavenumber) range from 700 to 1200 $cm^{-1}.$  "><p class="caption">
@@ -522,7 +522,7 @@ For more details refer to <code class="sourceCode r"><span class="kw">vignette</
 Cut the wavelength axis appropriately with <code class="sourceCode r">xoffset =<span class="st"> </span><span class="dv">750</span></code>.
 If available, the package package <strong>plotrix</strong><span class="citation">[<a href="#ref-R-plotrix" role="doc-biblioref">4</a>,<a href="#ref-plotrix2006" role="doc-biblioref">5</a>]</span> is used to produce the cut mark.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">paracetamol</span>,
+<code class="sourceCode R"><span class="fu"><a href="../reference/plot_spc.html">plot_spc</a></span><span class="op">(</span><span class="va">paracetamol</span>,
   wl.range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">300</span> <span class="op">~</span> <span class="fl">1800</span>, <span class="fl">2800</span> <span class="op">~</span> <span class="va">max</span><span class="op">)</span>,
   xoffset <span class="op">=</span> <span class="fl">750</span>
 <span class="op">)</span></code></pre></div>
@@ -539,7 +539,7 @@ Figure 3.2: Plot of several wavelength (wavenumber) ranges.
 </h2>
 <p>To create a plot with reversed abscissa (Fig. <a href="#fig:abscissa">3.3</a>), use <code class="sourceCode r">wl.reverse =<span class="st"> </span><span class="ot">TRUE</span></code></p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">paracetamol</span>, wl.reverse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="../reference/plot_spc.html">plot_spc</a></span><span class="op">(</span><span class="va">paracetamol</span>, wl.reverse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:abscissa"></span>
 <img src="plotting_files/figure-html/abscissa-1.png" alt="Plot with reversed/descending wavelength (wavenumber) range.  "><p class="caption">
@@ -553,7 +553,7 @@ Figure 3.3: Plot with reversed/descending wavelength (wavenumber) range.
 </h2>
 <p>To have different colours of spectra (Fig. <a href="#fig:colours">3.4</a>), use <code class="sourceCode r">col =<span class="st"> </span>vector_of_colours</code>.</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">flu</span>, col <span class="op">=</span> <span class="fu"><a href="../reference/palettes.html">palette_matlab_dark</a></span><span class="op">(</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="../reference/plot_spc.html">plot_spc</a></span><span class="op">(</span><span class="va">flu</span>, col <span class="op">=</span> <span class="fu"><a href="../reference/palettes.html">palette_matlab_dark</a></span><span class="op">(</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:colours"></span>
 <img src="plotting_files/figure-html/colours-1.png" alt="Spectra plotted in different colours.  "><p class="caption">
@@ -567,7 +567,7 @@ Figure 3.4: Spectra plotted in different colours.
 </h2>
 <p>To plot dots instead of lines (Fig. <a href="#fig:dots">3.5</a>), use, e.g., <code class="sourceCode r">lines.args =<span class="st"> </span><span class="kw">list</span> (<span class="dt">pch =</span> <span class="dv">20</span>, <span class="dt">type =</span> <span class="st">"p"</span>)</code></p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">2800</span> <span class="op">~</span> <span class="fl">3200</span><span class="op">]</span>,
+<code class="sourceCode R"><span class="fu"><a href="../reference/plot_spc.html">plot_spc</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">2800</span> <span class="op">~</span> <span class="fl">3200</span><span class="op">]</span>,
   lines.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>pch <span class="op">=</span> <span class="fl">20</span>, type <span class="op">=</span> <span class="st">"p"</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -597,8 +597,8 @@ Figure 3.6: An example of mass spectrum.
 </h2>
 <p>To plot additional spectra onto an existing plot (Fig. <a href="#fig:add">3.7</a>), use <code class="sourceCode r">add =<span class="st"> </span><span class="ot">TRUE</span></code></p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">30</span>, , <span class="op">]</span><span class="op">)</span>
-<span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">35</span>, , <span class="op">]</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="../reference/plot_spc.html">plot_spc</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">30</span>, , <span class="op">]</span><span class="op">)</span>
+<span class="fu"><a href="../reference/plot_spc.html">plot_spc</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">35</span>, , <span class="op">]</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:add"></span>
 <img src="plotting_files/figure-html/add-1.png" alt="A spectrum added to an existing plot.  "><p class="caption">
@@ -611,9 +611,9 @@ Figure 3.7: A spectrum added to an existing plot.
 <span class="header-section-number">3.8</span> Plot Summary Characteristics<a class="anchor" aria-label="anchor" href="#plot-summary-characteristics"></a>
 </h2>
 <p>Argument <code class="sourceCode r">func</code> may be used to calculate summary characteristics before plotting.
-To plot, e.g., the standard deviation of the spectra, use <code class="sourceCode r"><span class="kw">plotspc</span>(..., <span class="dt">func =</span> sd)</code> (Fig. <a href="#fig:sd">3.8</a>).</p>
+To plot, e.g., the standard deviation of the spectra, use <code class="sourceCode r"><span class="kw">plot_spc</span>(..., <span class="dt">func =</span> sd)</code> (Fig. <a href="#fig:sd">3.8</a>).</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">faux_cell_preproc</span>, func <span class="op">=</span> <span class="va">sd</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="../reference/plot_spc.html">plot_spc</a></span><span class="op">(</span><span class="va">faux_cell_preproc</span>, func <span class="op">=</span> <span class="va">sd</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:sd"></span>
 <img src="plotting_files/figure-html/sd-1.png" alt="A spectrum of summary statistics calculated via `func` parameter.
@@ -630,7 +630,7 @@ In the example, the standard deviation is used.
 <p>To plot a different line at zero intensity <span class="math inline">\((I = 0)\)</span>, argument <code class="sourceCode r">zeroline</code> may be used (Fig. <a href="#fig:diffline">3.9</a>).
 Argument <code class="sourceCode r">zeroline</code> takes a list with parameters that are passed to function <code class="sourceCode r"><span class="kw">abline</span>()</code>, <code class="sourceCode r"><span class="ot">NA</span></code> suppresses the line.</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">paracetamol</span>,
+<code class="sourceCode R"><span class="fu"><a href="../reference/plot_spc.html">plot_spc</a></span><span class="op">(</span><span class="va">paracetamol</span>,
   zeroline <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -644,7 +644,7 @@ Figure 3.9: Spectrum with added zero-intensity line.
 <h2 id="adding-annotations-to-a-spectra-plot">
 <span class="header-section-number">3.10</span> Adding Annotations to a Spectra Plot<a class="anchor" aria-label="anchor" href="#adding-annotations-to-a-spectra-plot"></a>
 </h2>
-<p>Function <code class="sourceCode r"><span class="kw">plotspc</span>()</code> uses base graphics.
+<p>Function <code class="sourceCode r"><span class="kw">plot_spc</span>()</code> uses base graphics.
 After plotting the spectra, more content may be added to the graphic by <code class="sourceCode r"><span class="kw">abline</span>()</code>, <code class="sourceCode r"><span class="kw">lines</span>()</code>, <code class="sourceCode r"><span class="kw">points</span>()</code>, etc. (Fig. <a href="#fig:add-line">3.10</a>).</p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="va">laser</span>, <span class="st">"spcmeansd"</span><span class="op">)</span>
@@ -669,7 +669,7 @@ Figure 3.10: A summary spectrum with annotation lines.
 </h3>
 <p>To stack spectra, use <code class="sourceCode r">stacked =<span class="st"> </span><span class="ot">TRUE</span></code> (Fig. <a href="#fig:stacked1">3.11</a>).</p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/plot_spc.html">plot_spc</a></span><span class="op">(</span>
   <span class="va">cluster_means</span>,
   col <span class="op">=</span> <span class="va">cluster_cols</span>,
   stacked <span class="op">=</span> <span class="cn">TRUE</span>
@@ -711,7 +711,7 @@ Figure 3.12: Stacked summary spectra (mean <span class="math inline">\(\pm\)</sp
 </h3>
 <p>Stacking values can also be given manually as numeric values in <code class="sourceCode r">yoffset</code> (Fig. <a href="#fig:stacked3">3.13</a>).</p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/plot_spc.html">plot_spc</a></span><span class="op">(</span>
   <span class="va">cluster_meansd</span>,
   yoffset <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">2</span>, each <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>,
   col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="va">cluster_cols</span>, each <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
@@ -746,7 +746,7 @@ Figure 3.14: Dense-stacked spectra.
 <h3 id="elaborate-example">
 <span class="header-section-number">3.11.5</span> Elaborate Example<a class="anchor" aria-label="anchor" href="#elaborate-example"></a>
 </h3>
-<p>Function <code class="sourceCode r"><span class="kw">plotspc</span>()</code> allows fine grained customization of almost all aspects of the plot (see example in Fig. <a href="#fig:stacked5">3.15</a>).
+<p>Function <code class="sourceCode r"><span class="kw">plot_spc</span>()</code> allows fine grained customization of almost all aspects of the plot (see example in Fig. <a href="#fig:stacked5">3.15</a>).
 This is possible by giving arguments to the functions that actually perform the plotting <code class="sourceCode r"><span class="kw">plot</span>()</code> for setting up the plot area, <code class="sourceCode r"><span class="kw">lines</span>()</code> for the plotting of the lines, <code class="sourceCode r"><span class="kw">axis</span>()</code> for the axes, etc.
 The arguments for these functions should be given in lists as <code class="sourceCode r">plot.args</code>, <code class="sourceCode r">lines.args</code>, <code class="sourceCode r">axis.args</code>, etc.</p>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
@@ -1383,10 +1383,10 @@ Function <code class="sourceCode r"><span class="kw">map.sel.poly</span>()</code
 <h2 id="sec:identify_spc">
 <span class="header-section-number">10.1</span> <code class="sourceCode r"><span class="kw">identify_spc</span>()</code> Finding Out Wavelength, Intensity and Spectrum<a class="anchor" aria-label="anchor" href="#sec:identify_spc"></a>
 </h2>
-<p>Function <code class="sourceCode r"><span class="kw">identify_spc</span>()</code> allows to measure points in graphics produced by <code class="sourceCode r"><span class="kw">plotspc</span>()</code>.
+<p>Function <code class="sourceCode r"><span class="kw">identify_spc</span>()</code> allows to measure points in graphics produced by <code class="sourceCode r"><span class="kw">plot_spc</span>()</code>.
 It works correctly with reversed and cut wavelength axes.</p>
 <div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/identify_spc.html">identify_spc</a></span><span class="op">(</span><span class="fu"><a href="../reference/plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">paracetamol</span>, wl.range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">600</span> <span class="op">~</span> <span class="fl">1800</span>, <span class="fl">2800</span> <span class="op">~</span> <span class="fl">3200</span><span class="op">)</span>, xoffset <span class="op">=</span> <span class="fl">800</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="../reference/identify_spc.html">identify_spc</a></span><span class="op">(</span><span class="fu"><a href="../reference/plot_spc.html">plot_spc</a></span><span class="op">(</span><span class="va">paracetamol</span>, wl.range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">600</span> <span class="op">~</span> <span class="fl">1800</span>, <span class="fl">2800</span> <span class="op">~</span> <span class="fl">3200</span><span class="op">)</span>, xoffset <span class="op">=</span> <span class="fl">800</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>The result is a data.frame with the indices of the spectra, the wavelength, and its intensity.</p>
 </div>
 <div class="section level2">
@@ -1409,7 +1409,7 @@ It works correctly with reversed and cut wavelength axes.</p>
 <h2 id="sec:identify-other">
 <span class="header-section-number">10.4</span> Related Functions Provided by Base Graphics and <strong><em>lattice</em></strong><a class="anchor" aria-label="anchor" href="#sec:identify-other"></a>
 </h2>
-<p>For base graphics (as produced by <code class="sourceCode r"><span class="kw">plotspc</span>()</code>), <code class="sourceCode r"><span class="kw">locator</span>()</code> may be useful as well.
+<p>For base graphics (as produced by <code class="sourceCode r"><span class="kw">plot_spc</span>()</code>), <code class="sourceCode r"><span class="kw">locator</span>()</code> may be useful as well.
 It returns the clicked coordinates. Note that these are <em>not</em> transformed according to <code>xoffset</code> &amp; Co.</p>
 <p>For lattice graphics, <code class="sourceCode r"><span class="kw">grid.locator</span>()</code> may be used instead.
 If it is not called in the panel function, a preceding call to <code class="sourceCode r"><span class="kw">trellis.focus</span>()</code> is needed:</p>
@@ -1450,7 +1450,7 @@ The same holds for package <strong>ggplot2</strong> graphics.</p>
 <span class="co">#&gt;  collate  en_US.UTF-8</span>
 <span class="co">#&gt;  ctype    en_US.UTF-8</span>
 <span class="co">#&gt;  tz       UTC</span>
-<span class="co">#&gt;  date     2021-12-14</span>
+<span class="co">#&gt;  date     2021-12-15</span>
 <span class="co">#&gt;  pandoc   2.7.3 @ /usr/local/bin/ (via rmarkdown)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span></span>
@@ -1472,7 +1472,7 @@ The same holds for package <strong>ggplot2</strong> graphics.</p>
 <span class="co">#&gt;  ggplot2        * 3.3.5        <span style="color: #555555;">2021-06-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  glue             1.5.1        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  gtable           0.3.0        <span style="color: #555555;">2019-03-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2021-12-14</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
+<span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2021-12-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
 <span class="co">#&gt;  hySpc.testthat   <span style="color: #BB00BB; font-weight: bold;">0.2.1.9000  </span> <span style="color: #555555;">2021-12-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
 <span class="co">#&gt;  isoband          0.2.5        <span style="color: #555555;">2021-07-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  jpeg             0.1-9        <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>

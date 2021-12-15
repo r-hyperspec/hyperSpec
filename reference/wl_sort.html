@@ -123,16 +123,16 @@ rearranged accordingly.</p>
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="co">## Example 1: different drawing order in plotspc</span></span>
+<span class="r-in"><span class="co">## Example 1: different drawing order in plot_spc</span></span>
 <span class="r-in"><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu"><a href="initialize.html">new</a></span><span class="op">(</span><span class="st">"hyperSpec"</span>, spc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, ncol <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">spc</span>, <span class="va">spc</span> <span class="op">+</span> <span class="fl">.5</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu"><a href="plot_spc.html">plot_spc</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/text.html" class="external-link">text</a></span><span class="op">(</span><span class="fu"><a href="wl.html">wl</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span>, <span class="va">spc</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span>, <span class="fu"><a href="show.html">as.character</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"darkred"</span><span class="op">)</span></span>
 <span class="r-plt img"><img src="wl_sort-1.png" alt="" width="466" height="288"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">spc_sorted</span> <span class="op">&lt;-</span> <span class="fu">wl_sort</span><span class="op">(</span><span class="va">spc</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="plotspc.html">plotspc</a></span><span class="op">(</span><span class="va">spc_sorted</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu"><a href="plot_spc.html">plot_spc</a></span><span class="op">(</span><span class="va">spc_sorted</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/text.html" class="external-link">text</a></span><span class="op">(</span><span class="fu"><a href="wl.html">wl</a></span><span class="op">(</span><span class="va">spc_sorted</span><span class="op">)</span>, <span class="va">spc_sorted</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span>, <span class="fu"><a href="show.html">as.character</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"darkred"</span><span class="op">)</span></span>
 <span class="r-plt img"><img src="wl_sort-2.png" alt="" width="466" height="288"></span>
 <span class="r-in"></span>
