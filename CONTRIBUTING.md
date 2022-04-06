@@ -1,10 +1,12 @@
+# Contributor Guidelines
+
 :+1::tada: First off, thanks for taking the time to contribute! :tada::+1:
 
 The following is a set of guidelines for contributing to the `R` package `hyperSpec`.
 
 ## Code Licensing
 
-We are in the (slow) process of transitioning the license of the **hyperspec** project to [MIT] (see https://github.com/r-hyperspec/hySpc.skeleton/issues/8).
+We are in the (slow) process of transitioning the license of the **hyperspec** project to [MIT](https://github.com/r-hyperspec/hySpc.skeleton/issues/8).
 By contributing, you understand and agree that your work becomes the part of the **hyperSpec** project and you grant permission to the **hyperSpec** project to  license your contribution under the [GNU GPL v3](https://github.com/r-hyperspec/hyperSpec/blob/master/LICENSE) or a compatible license and/or under the [MIT license](https://opensource.org/licenses/MIT) or a compatible license.
 
 
