@@ -34,7 +34,7 @@ rearranged accordingly."><!-- mathjax --><script src="https://cdnjs.cloudflare.c
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav"><li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-book"></span>
      
      
@@ -52,7 +52,7 @@ rearranged accordingly."><!-- mathjax --><script src="https://cdnjs.cloudflare.c
   <a href="../articles/hyperSpec.html">Get started</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -159,10 +159,10 @@ rearranged accordingly.</p>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="dim.html">nwl</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span><span class="op">)</span>, <span class="va">spc</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span>, type <span class="op">=</span> <span class="st">"b"</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">spc</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             1         2        3        4        5        1         2        3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 3.273145 0.2421674 4.116439 3.252164 6.387484 3.273145 0.2421674 4.116439</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             4        5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 3.252164 6.387484</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             1        2          3        4        5        1        2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 1.140281 1.954973 -0.1820541 2.154975 2.654268 1.140281 1.954973</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               3        4        5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.1820541 2.154975 2.654268</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">spc_sorted</span> <span class="op">&lt;-</span> <span class="fu">orderwl</span><span class="op">(</span><span class="va">spc</span><span class="op">)</span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Function 'orderwl' is deprecated. </span>
@@ -170,10 +170,10 @@ rearranged accordingly.</p>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="dim.html">nwl</a></span><span class="op">(</span><span class="va">spc_sorted</span><span class="op">)</span><span class="op">)</span>, <span class="va">spc_sorted</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span>
 <span class="r-plt img"><img src="DEPRECATED-orderwl-3.png" alt="" width="466" height="288"></span>
 <span class="r-in"><span class="va">spc_sorted</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             1        1         2         2        3        3        4        4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 3.273145 3.273145 0.2421674 0.2421674 4.116439 4.116439 3.252164 3.252164</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             5        5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 6.387484 6.387484</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             1        1        2        2          3          3        4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 1.140281 1.140281 1.954973 1.954973 -0.1820541 -0.1820541 2.154975</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             4        5        5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 2.154975 2.654268 2.654268</span>
 </code></pre></div>
     </div>
   </div>
@@ -188,7 +188,7 @@ rearranged accordingly.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer></div>

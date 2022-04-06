@@ -41,7 +41,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-book"></span>
      
      
@@ -61,7 +61,7 @@
   <a href="../articles/hyperSpec.html">Get started</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -125,7 +125,7 @@
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 data-toc-skip class="date">2021-12-15</h4>
+            <h4 data-toc-skip class="date">2022-04-06</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/HEAD/vignettes/laser.Rmd" class="external-link"><code>vignettes/laser.Rmd</code></a></small>
       <div class="hidden name"><code>laser.Rmd</code></div>
@@ -137,10 +137,10 @@
 <pre><code><span class="co">#&gt; tweaking rgl</span></code></pre>
 <!-- ======================================================================= -->
 <!-- ======================================================================= -->
-<div class="section level1">
-<h1 id="introduction">
+<div class="section level2">
+<h2 id="introduction">
 <span class="header-section-number">1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
-</h1>
+</h2>
 <!-- ======================================================================= -->
 <!-- ======================================================================= -->
 <p>This data set consists of a time series of 84 spectra of an unstable laser emission at 405 nm recorded during ca. 1.5 h.</p>
@@ -153,10 +153,10 @@ There is no Raman scattering involved in this data, but the Raman software recor
 <li>How to display time series data as 3d and false colour image of intensity as function of time and wavelength.</li>
 </ul>
 </div>
-<div class="section level1">
-<h1 id="loading-the-data-and-preprocessing">
+<div class="section level2">
+<h2 id="loading-the-data-and-preprocessing">
 <span class="header-section-number">2</span> Loading the Data and Preprocessing<a class="anchor" aria-label="anchor" href="#loading-the-data-and-preprocessing"></a>
-</h1>
+</h2>
 <p>Load the <strong>hyperSpec</strong> package.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-hyperspec.github.io/hyperSpec" class="external-link">hyperSpec</a></span><span class="op">)</span></code></pre></div>
@@ -237,10 +237,10 @@ Figure 2.3: The spectra with wavelength axis.
 <span class="co">#&gt;    36 data points / spectrum</span></code></pre></div>
 <p>This version of <code class="sourceCode r">laser</code> datasets is shipped with package <strong>hyperSpec</strong>.</p>
 </div>
-<div class="section level1">
-<h1 id="inspecting-the-time-dependency-of-the-laser-emission">
+<div class="section level2">
+<h2 id="inspecting-the-time-dependency-of-the-laser-emission">
 <span class="header-section-number">3</span> Inspecting the Time Dependency of the Laser Emission<a class="anchor" aria-label="anchor" href="#inspecting-the-time-dependency-of-the-laser-emission"></a>
-</h1>
+</h2>
 <p>The maxima of the different emission lines encountered during this measurement are at 405.0, 405.1, 405.3, and 405.4 nm (fig. <a href="#fig:markspc">3.1</a>).</p>
 <p>Alternatively they can be extracted from the graph using <code class="sourceCode r"><span class="kw">locator</span>()</code> which reads out the coordinates of the points the user clicks with the mouse (use middle or right click to end the input):</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
@@ -280,10 +280,10 @@ Figure 3.3: The time series plots can also be conditioned on <code class="source
 </p>
 </div>
 </div>
-<div class="section level1">
-<h1 id="sec:plotmat">
+<div class="section level2">
+<h2 id="sec:plotmat">
 <span class="header-section-number">4</span> False-Colour Plot of the Spectral Intensity Over Wavelength and Time<a class="anchor" aria-label="anchor" href="#sec:plotmat"></a>
-</h1>
+</h2>
 <p>Package <strong>hyperSpec</strong> supplies functions to draw the spectral matrix using package <strong>lattice</strong>’s <code class="sourceCode r"><span class="kw">levelplot</span>()</code>.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="va">laser</span>, <span class="st">"mat"</span>, contour <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="st">"#00000060"</span><span class="op">)</span></code></pre></div>
@@ -308,10 +308,10 @@ The ordinate of the plot may be any extra data column, here <code class="sourceC
 </p>
 </div>
 </div>
-<div class="section level1">
-<h1 id="sec:3d-plot-spectral">
+<div class="section level2">
+<h2 id="sec:3d-plot-spectral">
 <span class="header-section-number">5</span> A 3D Plot of the Spectral Intensity Over Wavelength and Time<a class="anchor" aria-label="anchor" href="#sec:3d-plot-spectral"></a>
-</h1>
+</h2>
 <p>Class <code class="sourceCode r">hyperSpec</code> objects can be drawn with package <strong>rgl</strong><span class="citation">[<a href="#ref-R-rgl" role="doc-biblioref">1</a>]</span>:</p>
 <p>Package <strong>rgl</strong>’s function <code class="sourceCode r"><span class="kw">persp3d</span>()</code> plots a surface in 3d defined by points in x, y, and z.
 Handing over the appropriate data columns of the <code class="sourceCode r">hyperSpec</code> object is easy (fig. <a href="#fig:laser3d">5.1</a>).</p>
@@ -342,82 +342,82 @@ Figure 5.1: The 3d plot of the laser data.
 </p>
 </div>
 </div>
-<div class="section level1 unnumbered">
-<h1 id="session-info">Session Info<a class="anchor" aria-label="anchor" href="#session-info"></a>
-</h1>
+<div class="section level2">
+<h2 id="session-info">Session Info<a class="anchor" aria-label="anchor" href="#session-info"></a>
+</h2>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html" class="external-link">session_info</a></span><span class="op">(</span><span class="st">"hyperSpec"</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────────────────────────</span></span>
 <span class="co">#&gt;  <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span></span>
-<span class="co">#&gt;  version  R version 4.1.2 (2021-11-01)</span>
-<span class="co">#&gt;  os       macOS Catalina 10.15.7</span>
+<span class="co">#&gt;  version  R version 4.1.3 (2022-03-10)</span>
+<span class="co">#&gt;  os       macOS Big Sur/Monterey 10.16</span>
 <span class="co">#&gt;  system   x86_64, darwin17.0</span>
 <span class="co">#&gt;  ui       X11</span>
 <span class="co">#&gt;  language en</span>
 <span class="co">#&gt;  collate  en_US.UTF-8</span>
 <span class="co">#&gt;  ctype    en_US.UTF-8</span>
 <span class="co">#&gt;  tz       UTC</span>
-<span class="co">#&gt;  date     2021-12-15</span>
+<span class="co">#&gt;  date     2022-04-06</span>
 <span class="co">#&gt;  pandoc   2.7.3 @ /usr/local/bin/ (via rmarkdown)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span></span>
 <span class="co">#&gt;  <span style="color: #555555; font-style: italic;">package       </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version     </span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span>
 <span class="co">#&gt;  brio             1.1.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  callr            3.7.0        <span style="color: #555555;">2021-04-20</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  cli              3.1.0        <span style="color: #555555;">2021-10-27</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  colorspace       2.0-2        <span style="color: #555555;">2021-06-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  crayon           1.4.2        <span style="color: #555555;">2021-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  desc             1.4.0        <span style="color: #555555;">2021-09-28</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  cli              3.2.0        <span style="color: #555555;">2022-02-14</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  colorspace       2.0-3        <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  crayon           1.5.1        <span style="color: #555555;">2022-03-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  desc             1.4.1        <span style="color: #555555;">2022-03-06</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  diffobj          0.3.5        <span style="color: #555555;">2021-10-05</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  digest           0.6.29       <span style="color: #555555;">2021-12-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  dplyr            1.0.7        <span style="color: #555555;">2021-06-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  dplyr            1.0.8        <span style="color: #555555;">2022-02-08</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  ellipsis         0.3.2        <span style="color: #555555;">2021-04-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  evaluate         0.14         <span style="color: #555555;">2019-05-28</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  fansi            0.5.0        <span style="color: #555555;">2021-05-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  evaluate         0.15         <span style="color: #555555;">2022-02-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  fansi            1.0.3        <span style="color: #555555;">2022-03-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  farver           2.1.0        <span style="color: #555555;">2021-02-28</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  generics         0.1.1        <span style="color: #555555;">2021-10-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  generics         0.1.2        <span style="color: #555555;">2022-01-31</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  ggplot2        * 3.3.5        <span style="color: #555555;">2021-06-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  glue             1.5.1        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  glue             1.6.2        <span style="color: #555555;">2022-02-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  gtable           0.3.0        <span style="color: #555555;">2019-03-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2021-12-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
-<span class="co">#&gt;  hySpc.testthat   <span style="color: #BB00BB; font-weight: bold;">0.2.1.9000  </span> <span style="color: #555555;">2021-12-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
+<span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2022-04-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
+<span class="co">#&gt;  hySpc.testthat   <span style="color: #BB00BB; font-weight: bold;">0.2.1.9000  </span> <span style="color: #555555;">2022-04-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
 <span class="co">#&gt;  isoband          0.2.5        <span style="color: #555555;">2021-07-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  jpeg             0.1-9        <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  jsonlite         1.7.2        <span style="color: #555555;">2020-12-09</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  jsonlite         1.8.0        <span style="color: #555555;">2022-02-22</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  labeling         0.4.2        <span style="color: #555555;">2020-10-20</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  lattice        * 0.20-45      <span style="color: #555555;">2021-09-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  lattice        * 0.20-45      <span style="color: #555555;">2021-09-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.3)</span></span>
 <span class="co">#&gt;  latticeExtra     0.6-29       <span style="color: #555555;">2019-12-19</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  lazyeval         0.2.2        <span style="color: #555555;">2019-03-15</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  lifecycle        1.0.1        <span style="color: #555555;">2021-09-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  magrittr         2.0.1        <span style="color: #555555;">2020-11-17</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  MASS             7.3-54       <span style="color: #555555;">2021-05-03</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
-<span class="co">#&gt;  Matrix           1.3-4        <span style="color: #555555;">2021-06-01</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
-<span class="co">#&gt;  mgcv             1.8-38       <span style="color: #555555;">2021-10-06</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  magrittr         2.0.3        <span style="color: #555555;">2022-03-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  MASS             7.3-55       <span style="color: #555555;">2022-01-16</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.3)</span></span>
+<span class="co">#&gt;  Matrix           1.4-0        <span style="color: #555555;">2021-12-08</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.3)</span></span>
+<span class="co">#&gt;  mgcv             1.8-39       <span style="color: #555555;">2022-02-24</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.3)</span></span>
 <span class="co">#&gt;  munsell          0.5.0        <span style="color: #555555;">2018-06-12</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  nlme             3.1-153      <span style="color: #555555;">2021-09-07</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
-<span class="co">#&gt;  pillar           1.6.4        <span style="color: #555555;">2021-10-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  nlme             3.1-155      <span style="color: #555555;">2022-01-16</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.3)</span></span>
+<span class="co">#&gt;  pillar           1.7.0        <span style="color: #555555;">2022-02-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  pkgconfig        2.0.3        <span style="color: #555555;">2019-09-22</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  pkgload          1.2.4        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  png              0.1-7        <span style="color: #555555;">2013-12-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  praise           1.0.0        <span style="color: #555555;">2015-08-11</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  processx         3.5.2        <span style="color: #555555;">2021-04-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  processx         3.5.3        <span style="color: #555555;">2022-03-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  ps               1.6.0        <span style="color: #555555;">2021-02-28</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  purrr            0.3.4        <span style="color: #555555;">2020-04-17</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  R6               2.5.1        <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  RColorBrewer     1.1-2        <span style="color: #555555;">2014-12-07</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  RColorBrewer     1.1-3        <span style="color: #555555;">2022-04-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  rematch2         2.1.2        <span style="color: #555555;">2020-05-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  rlang            0.4.12       <span style="color: #555555;">2021-10-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  rprojroot        2.0.2        <span style="color: #555555;">2020-11-15</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  rlang            1.0.2        <span style="color: #555555;">2022-03-04</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  rprojroot        2.0.3        <span style="color: #555555;">2022-04-02</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  rstudioapi       0.13         <span style="color: #555555;">2020-11-12</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  scales           1.1.1        <span style="color: #555555;">2020-05-11</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  testthat         3.1.1        <span style="color: #555555;">2021-12-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  testthat         3.1.3        <span style="color: #555555;">2022-03-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  tibble           3.1.6        <span style="color: #555555;">2021-11-07</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  tidyselect       1.1.1        <span style="color: #555555;">2021-04-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  tidyselect       1.1.2        <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  utf8             1.2.2        <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  vctrs            0.3.8        <span style="color: #555555;">2021-04-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  vctrs            0.4.0        <span style="color: #555555;">2022-03-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  viridisLite      0.4.0        <span style="color: #555555;">2021-04-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  waldo            0.3.1        <span style="color: #555555;">2021-09-14</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  withr            2.4.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  waldo            0.4.0        <span style="color: #555555;">2022-03-16</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  withr            2.5.0        <span style="color: #555555;">2022-03-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  xml2             1.3.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #555555;"> [1] /Users/runner/work/_temp/Library</span></span>
@@ -425,9 +425,9 @@ Figure 5.1: The 3d plot of the laser data.
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
 </div>
-<div class="section level1 unnumbered">
-<h1 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
-</h1>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
 <div id="refs" class="references">
 <div id="ref-R-rgl">
 <p>[1] D. Adler, D. Murdoch, Rgl: 3D visualization using opengl, 2021. <a href="https://CRAN.R-project.org/package=rgl" class="external-link">https://CRAN.R-project.org/package=rgl</a>.</p>
@@ -453,7 +453,7 @@ Figure 5.1: The 3d plot of the laser data.
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>

@@ -41,7 +41,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-book"></span>
      
      
@@ -61,7 +61,7 @@
   <a href="../articles/hyperSpec.html">Get started</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -124,7 +124,7 @@
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 data-toc-skip class="date">2021-12-15</h4>
+            <h4 data-toc-skip class="date">2022-04-06</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/HEAD/vignettes/hyperSpec.Rmd" class="external-link"><code>vignettes/hyperSpec.Rmd</code></a></small>
       <div class="hidden name"><code>hyperSpec.Rmd</code></div>
@@ -192,18 +192,18 @@ Vignettes in other packages:
 </ul>
 </div>
 <!-- ======================================================================= -->
-<div class="section level1">
-<h1 id="things-to-know-about-hyperspec">
+<div class="section level2">
+<h2 id="things-to-know-about-hyperspec">
 <span class="header-section-number">1</span> Things to Know About <strong><em>hyperSpec</em></strong><a class="anchor" aria-label="anchor" href="#things-to-know-about-hyperspec"></a>
-</h1>
+</h2>
 <p>Package <strong>hyperSpec</strong> is a <code>R</code> package that allows convenient handling of  hyperspectral data sets, i.e., data sets combining spectra with further data on a per-spectrum basis.
 The spectra can be anything that is recorded over a common discretized axis.
 This vignette gives an introduction on basic working techniques using the <code>R</code> package package <strong>hyperSpec</strong>.
 This is done mostly from a spectroscopic point of view: rather than going through the functions provided by package <strong>hyperSpec</strong>, it is organized by spectroscopic tasks.</p>
-<div class="section level2">
-<h2 id="terms-notations-used-here">
+<div class="section level3">
+<h3 id="terms-notations-used-here">
 <span class="header-section-number">1.1</span> Terms &amp; Notations Used Here<a class="anchor" aria-label="anchor" href="#terms-notations-used-here"></a>
-</h2>
+</h3>
 <p>Throughout the documentation of the package, the following terms are used:</p>
 <dl>
 <dt>
@@ -226,10 +226,10 @@ spatial information (spectral images, maps, or profiles), temporal information (
 In this vignette, the notation <code class="sourceCode r"><span class="op">@</span>xxx</code> will thus mean <em>“slot xxx of an object”</em>.
 Likewise, named elements of a <code>list</code> and columns of a <code>data.frame</code> are accessed by the  <code class="sourceCode r"><span class="op">$</span></code> operator, and <code class="sourceCode r"><span class="op">$</span>xxx</code> will be used for <em>“column xxx”</em>, and as an abbreviation for <em>“column xxx of the <code>data.frame</code> in slot data of the object”</em> (the structure of <code>hyperSpec</code> objects is discussed in section <a href="#sec:structure-chy">1.2</a>).</p>
 </div>
-<div class="section level2">
-<h2 id="sec:structure-chy">
+<div class="section level3">
+<h3 id="sec:structure-chy">
 <span class="header-section-number">1.2</span> The Structure of <strong><em>hyperSpec</em></strong> Objects<a class="anchor" aria-label="anchor" href="#sec:structure-chy"></a>
-</h2>
+</h3>
 <p><code>hyperSpec</code> objects are defined using an S4 class. It contains the following slots:</p>
 <ul>
 <li>
@@ -253,10 +253,10 @@ They are accessed by their names which must be the same for columns of <code cla
 The elements of the list may be anything suitable for axis annotations, i.e., they should be either character strings or expressions for “pretty” axis annotations (see, e.g., Figure <a href="#fig:loess-kl">5.7</a>).
 To get familiar with expressions for axis annotation, see <code><a href="https://rdrr.io/r/grDevices/plotmath.html" class="external-link">?plotmath</a></code> and <code class="sourceCode r"><span class="kw">demo</span>(plotmath)</code>.</p>
 </div>
-<div class="section level2">
-<h2 id="data-sets">
+<div class="section level3">
+<h3 id="data-sets">
 <span class="header-section-number">1.3</span> Data Sets<a class="anchor" aria-label="anchor" href="#data-sets"></a>
-</h2>
+</h3>
 <p>Package <strong>hyperSpec</strong> comes with several data sets:</p>
 <table class="table">
 <colgroup>
@@ -300,10 +300,10 @@ In addition, <a href="#list-of-vignettes"><code>laser</code></a> and <a href="#l
 It does not give a complete reference on particular functions.
 It is therefore recommended to look up the methods in the <code>R</code> help system using <code class="sourceCode r">?command</code>.</p>
 </div>
-<div class="section level2">
-<h2 id="options">
+<div class="section level3">
+<h3 id="options">
 <span class="header-section-number">1.4</span> Options<a class="anchor" aria-label="anchor" href="#options"></a>
-</h2>
+</h3>
 <p>
 
 
@@ -312,10 +312,10 @@ The values of the options are retrieved with <code class="sourceCode r"><span cl
 Table <a href="#tab:options">9.1</a> gives an overview of the options. You should not worry about these at the start of your exploration of <strong>hyperSpec</strong>.</p>
 </div>
 </div>
-<div class="section level1">
-<h1 id="info-hyperspec-objs">
+<div class="section level2">
+<h2 id="info-hyperspec-objs">
 <span class="header-section-number">2</span> Obtaining Basic Information about <strong><em>hyperSpec</em></strong> Objects<a class="anchor" aria-label="anchor" href="#info-hyperspec-objs"></a>
-</h1>
+</h2>
 
 <p>Any of <code class="sourceCode r"><span class="kw">print</span>()</code>, <code class="sourceCode r"><span class="kw">show</span>()</code> or <code class="sourceCode r"><span class="kw">summary</span>()</code> provides an overview of the object (the output of each is identical):</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -348,10 +348,10 @@ These details can be directly obtained by</p>
 <p>Likewise, <code class="sourceCode r"><span class="kw">rownames</span>()</code> returns the names assigned to the spectra, and <code class="sourceCode r"><span class="kw">dimnames</span>()</code> yields a list of these three vectors (including also the column names of <code class="sourceCode r"><span class="op">$</span>spc</code>).
 The column names of the spectra matrix contain the wavelengths as a character vector, while <code class="sourceCode r"><span class="kw">wl</span>()</code> (see section <a href="#sec:wavel-axis-conv">3.6.4</a>) returns the numeric vector of wavelengths.</p>
 </div>
-<div class="section level1">
-<h1 id="sec:access-parts">
+<div class="section level2">
+<h2 id="sec:access-parts">
 <span class="header-section-number">3</span> Accessing &amp; Manipulating <strong><em>hyperSpec</em></strong> Objects<a class="anchor" aria-label="anchor" href="#sec:access-parts"></a>
-</h1>
+</h2>
 <!-- If you edit the general description here or the getters/setters tables below, please make the corresponding changes in Extract.R where the same material is used to create the Rd files. Unfortunately the material is not formatted exactly the same in each place so you have to do more than simple cut and paste. -->
 <p>While the parts of the <code>hyperSpec</code> object can be accessed directly, it is good practice to use the functions provided by the package to handle the objects rather than accessing the slots directly.
 This also ensures that proper (i.e. <em>valid</em>) objects are returned.
@@ -373,10 +373,10 @@ To modify a <code>hyperSpec</code> object, the corresponding functions are <code
 <li>If there is only one index given, e.g. <code class="sourceCode r">x[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</code>, it refers to the row index <code>i</code>. Likewise if there are only two indices given they refer to <code>i</code> and <code>j</code>.</li>
 <li>See <a href="#sec:square-brack-replace">3.5.1</a> and <a href="#sec:accessing-extra-data">3.4</a> for even more ways to specify the indices.</li>
 </ul>
-<div class="section level2">
-<h2 id="sec:getters">
+<div class="section level3">
+<h3 id="sec:getters">
 <span class="header-section-number">3.1</span> Summary of Extraction Functions for <strong><em>hyperSpec</em></strong> Objects (getters)<a class="anchor" aria-label="anchor" href="#sec:getters"></a>
-</h2>
+</h3>
 <p>Table <a href="#tab:getters">3.1</a> shows the main functions that can be used with class <code>hyperSpec</code> to access the object (“getters”).</p>
 <!-- ---------------------------------------------------------------------- -->
 <table class="table">
@@ -440,10 +440,10 @@ To modify a <code>hyperSpec</code> object, the corresponding functions are <code
 <!-- ---------------------------------------------------------------------- --><p>One can see that there are several ways to get the spectral data: <code class="sourceCode r">x<span class="op">$</span>spc</code>, <code class="sourceCode r">x[[]]</code>, <code class="sourceCode r">x<span class="op">$</span>..</code>.
 The first two forms return a matrix, while the last returns a <code>data.frame</code>.</p>
 </div>
-<div class="section level2">
-<h2 id="sec:setters">
+<div class="section level3">
+<h3 id="sec:setters">
 <span class="header-section-number">3.2</span> Summary of Replacement Functions for <strong><em>hyperSpec</em></strong> Objects (setters)<a class="anchor" aria-label="anchor" href="#sec:setters"></a>
-</h2>
+</h3>
 <p>Table <a href="#tab:setters">3.2</a> shows the main functions that can be used with class <code>hyperSpec</code> to modify the object (“setters”).</p>
 <!-- ---------------------------------------------------------------------- -->
 <table class="table">
@@ -495,10 +495,10 @@ The first two forms return a matrix, while the last returns a <code>data.frame</
 </table>
 <!-- ---------------------------------------------------------------------- --><p>For more details on <code>[]&lt;-</code>, <code>[[]]&lt;-</code>, and <code>$&lt;-</code>, see <a href="#sec:square-brack-replace">3.5.1</a> and <a href="#sec:accessing-extra-data">3.4</a>.</p>
 </div>
-<div class="section level2">
-<h2 id="sec:select-delete-spectra">
+<div class="section level3">
+<h3 id="sec:select-delete-spectra">
 <span class="header-section-number">3.3</span> Selecting and Deleting Spectra<a class="anchor" aria-label="anchor" href="#sec:select-delete-spectra"></a>
-</h2>
+</h3>
 <p>The extraction function <code>[]</code> takes the spectra (rows) as the first argument (For detailed help: see <code class="sourceCode r">?<span class="st">"["</span></code>).
 It may be a vector giving the indices of the spectra to extract (select), a vector with negative indices indicating, which spectra should be deleted, or a vector of logical values.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
@@ -529,10 +529,10 @@ Figure 3.2: An example with <code>[]</code> operator and negative indices.
 Figure 3.3: An example with <code>[]</code> operator and logical indices.
 </p>
 </div>
-<div class="section level3">
-<h3 id="sec:random-samples">
+<div class="section level4">
+<h4 id="sec:random-samples">
 <span class="header-section-number">3.3.1</span> Random Samples<a class="anchor" aria-label="anchor" href="#sec:random-samples"></a>
-</h3>
+</h4>
 
 <p>A random subset of spectra can be conveniently selected by <code class="sourceCode r"><span class="kw">sample</span>()</code>:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
@@ -547,10 +547,10 @@ Figure 3.3: An example with <code>[]</code> operator and logical indices.
 <code class="sourceCode R"><span class="fu"><a href="../reference/sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="fl">3</span>, index <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; [1] 183 797 279</span></code></pre></div>
 </div>
-<div class="section level3">
-<h3 id="sec:seq">
+<div class="section level4">
+<h4 id="sec:seq">
 <span class="header-section-number">3.3.2</span> Sequences<a class="anchor" aria-label="anchor" href="#sec:seq"></a>
-</h3>
+</h4>
 
 <p>Sequences of every n<sup>th</sup> spectrum or the like can be retrieved with <code class="sourceCode r"><span class="kw">seq</span>()</code>:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
@@ -564,10 +564,10 @@ Figure 3.3: An example with <code>[]</code> operator and logical indices.
 <p>Here, indices may be requested using <code class="sourceCode r">index =<span class="st"> </span><span class="ot">TRUE</span></code>.</p>
 </div>
 </div>
-<div class="section level2">
-<h2 id="sec:accessing-extra-data">
+<div class="section level3">
+<h3 id="sec:accessing-extra-data">
 <span class="header-section-number">3.4</span> Selecting Extra Data Columns<a class="anchor" aria-label="anchor" href="#sec:accessing-extra-data"></a>
-</h2>
+</h3>
 <p>The second argument of the extraction functions <code>[]</code> and <code>[[]]</code> specifies the extra data columns.
 They can be given like any column specification for a <code class="sourceCode r">data.frame</code>, i.e., numeric, logical, or by a vector of the column names. However, since there is intrinsic order the column names of a <code>hyperSpec</code> object, using the column names is safest:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
@@ -833,14 +833,14 @@ They can be given like any column specification for a <code class="sourceCode r"
 <code class="sourceCode R"><span class="va">flu</span><span class="op">$</span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, label <span class="op">=</span> <span class="st">"sample no."</span><span class="op">)</span></code></pre></div>
 <p>This function will append new columns, if necessary.</p>
 </div>
-<div class="section level2">
-<h2 id="double-square-brackets">
-<span class="header-section-number">3.5</span> More on the <code>[[]]</code> and <code>[[]]&lt;-</code><a class="anchor" aria-label="anchor" href="#double-square-brackets"></a>
-</h2>
 <div class="section level3">
-<h3 id="sec:square-brack-replace">
-<span class="header-section-number">3.5.1</span> Operators: Accessing Single Elements of the Spectra Matrix<a class="anchor" aria-label="anchor" href="#sec:square-brack-replace"></a>
+<h3 id="double-square-brackets">
+<span class="header-section-number">3.5</span> More on the <code>[[]]</code> and <code>[[]]&lt;-</code><a class="anchor" aria-label="anchor" href="#double-square-brackets"></a>
 </h3>
+<div class="section level4">
+<h4 id="sec:square-brack-replace">
+<span class="header-section-number">3.5.1</span> Operators: Accessing Single Elements of the Spectra Matrix<a class="anchor" aria-label="anchor" href="#sec:square-brack-replace"></a>
+</h4>
 <p>Operator <code>[[]]</code> works mostly analogous to <code>[]</code>.
 In addition, however, these two functions also accept index matrices of size <span class="math inline">\(n × 2\)</span>.
 In this case, a vector of values from the spectra matrix is returned.</p>
@@ -860,17 +860,17 @@ In this case, a vector of values from the spectra matrix is returned.</p>
 <p>Operator <code>[[]]&lt;-</code> also accepts index matrices of size <span class="math inline">\(n × 2\)</span>.</p>
 </div>
 </div>
-<div class="section level2">
-<h2 id="sec:wavelength-axis">
+<div class="section level3">
+<h3 id="sec:wavelength-axis">
 <span class="header-section-number">3.6</span> Wavelengths<a class="anchor" aria-label="anchor" href="#sec:wavelength-axis"></a>
-</h2>
+</h3>
 <p>
 
 </p>
-<div class="section level3">
-<h3 id="sec:wavelength-indices">
+<div class="section level4">
+<h4 id="sec:wavelength-indices">
 <span class="header-section-number">3.6.1</span> Converting Wavelengths to Indices and Vice Versa<a class="anchor" aria-label="anchor" href="#sec:wavelength-indices"></a>
-</h3>
+</h4>
 
 <p>Spectra in package <strong>hyperSpec</strong> always have discrete wavelength axes, and are stored in a matrix with each column corresponding to one wavelength.
 Two functions are provided to convert the respective column indices into wavelengths and vice versa: <code class="sourceCode r"><span class="kw">i2wl</span>()</code> and <code class="sourceCode r"><span class="kw">wl2i</span>()</code>.
@@ -917,10 +917,10 @@ The imaginary part is added to the index calculated from the wavelength in the r
 <span class="co">#&gt; [1]   1   2   3   4 179 180 181</span></code></pre></div>
 <p>This mechanism also works for the wavelength arguments of <code>[]</code>, <code>[[]]</code>, and <code class="sourceCode r"><span class="kw">plot_spc</span>()</code>.</p>
 </div>
-<div class="section level3">
-<h3 id="selecting-wavelength-ranges">
+<div class="section level4">
+<h4 id="selecting-wavelength-ranges">
 <span class="header-section-number">3.6.2</span> Selecting Wavelength Ranges<a class="anchor" aria-label="anchor" href="#selecting-wavelength-ranges"></a>
-</h3>
+</h4>
 <p>Wavelength ranges can easily be selected using <code>[]</code>’s third argument (Fig. <a href="#fig:paracetamol">3.4</a>).</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">2800</span> <span class="op">~</span> <span class="fl">3200</span><span class="op">]</span><span class="op">)</span></code></pre></div>
@@ -942,10 +942,10 @@ Figure 3.5: Spectra of <code>paracetamol</code>: from 2800<sup>th</sup> to 3200<
 </div>
 <p>Section <a href="#sec:wavelength-indices">3.6.1</a> delves into the different possibilities of specifying wavelengths.</p>
 </div>
-<div class="section level3">
-<h3 id="sec:del-wavelengths">
+<div class="section level4">
+<h4 id="sec:del-wavelengths">
 <span class="header-section-number">3.6.3</span> Deleting Wavelength Ranges<a class="anchor" aria-label="anchor" href="#sec:del-wavelengths"></a>
-</h3>
+</h4>
 <p>Deleting wavelength ranges may be accomplished using negative index vectors together with <code class="sourceCode r">wl.index =<span class="st"> </span><span class="ot">TRUE</span></code>.</p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="op">-</span><span class="op">(</span><span class="fl">500</span><span class="op">:</span><span class="fl">1000</span><span class="op">)</span>, wl.index <span class="op">=</span> <span class="cn">TRUE</span><span class="op">]</span><span class="op">)</span></code></pre></div>
@@ -969,10 +969,10 @@ Figure 3.7: Spectra of <code>paracetamol</code> with range from 1750 to 2800 cm<
 <p>It is possible to produce a plot of this data where the cut range is actually omitted and the wavelength axis is optionally cut in order to save space.
 For details see the <a href="#list-of-vignettes">plotting</a> vignette.</p>
 </div>
-<div class="section level3">
-<h3 id="sec:wavel-axis-conv">
+<div class="section level4">
+<h4 id="sec:wavel-axis-conv">
 <span class="header-section-number">3.6.4</span> Changing the Wavelength Axis<a class="anchor" aria-label="anchor" href="#sec:wavel-axis-conv"></a>
-</h3>
+</h4>
 <p>
 
 Sometimes wavelength axes need to be transformed, e.g., converting from wavelengths to frequencies.
@@ -1005,10 +1005,10 @@ As the wavelengths are in nanometers, and the frequencies are easiest expressed 
 <code class="sourceCode R"><span class="fu"><a href="../reference/wl.html">wl</a></span><span class="op">(</span><span class="va">laser</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>wl <span class="op">=</span> <span class="va">frequencies</span>, label <span class="op">=</span> <span class="st">"f / THz"</span><span class="op">)</span></code></pre></div>
 <p>see <code>?wl&lt;-</code> for more information.</p>
 </div>
-<div class="section level3">
-<h3 id="sec:wl-sort">
+<div class="section level4">
+<h4 id="sec:wl-sort">
 <span class="header-section-number">3.6.5</span> Ordering the Wavelength Axis<a class="anchor" aria-label="anchor" href="#sec:wl-sort"></a>
-</h3>
+</h4>
 
 <p>If the wavelength axis of an object needs reordering (e.g., after <code class="sourceCode r"><span class="kw">collapse</span>()</code>), <code class="sourceCode r"><span class="kw">wl_sort</span>()</code> can be used:</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
@@ -1029,10 +1029,10 @@ As the wavelengths are in nanometers, and the frequencies are easiest expressed 
 <span class="co">#&gt; [53] 133.05 140.90 147.00 158.85 160.90</span></code></pre></div>
 </div>
 </div>
-<div class="section level2">
-<h2 id="sec:conv-long-form">
+<div class="section level3">
+<h3 id="sec:conv-long-form">
 <span class="header-section-number">3.7</span> Conversion to Long- and Wide-Format <code class="sourceCode r">data.frame</code>s<a class="anchor" aria-label="anchor" href="#sec:conv-long-form"></a>
-</h2>
+</h3>
 
 <p>Function <code class="sourceCode r"><span class="kw">as.data.frame</span>()</code> extracts the <code class="sourceCode r"><span class="op">@</span>data</code> slot as a <code class="sourceCode r">data.frame</code>:</p>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
@@ -1128,10 +1128,10 @@ Function <code class="sourceCode r"><span class="kw">as.long.df</span>()</code> 
 <span class="co">#&gt; 1.3       406.5  34.419 rawdata/flu1.txt 0.05 1</span>
 <span class="co">#&gt; 2.3       406.5  69.582 rawdata/flu2.txt 0.10 2</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="sec:conv-matrix">
+<div class="section level3">
+<h3 id="sec:conv-matrix">
 <span class="header-section-number">3.8</span> Conversion to Matrix<a class="anchor" aria-label="anchor" href="#sec:conv-matrix"></a>
-</h2>
+</h3>
 
 <p>To obtain the spectral data as a matrix, simply use the <code>[[]]</code> extractor:</p>
 <div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
@@ -1162,17 +1162,17 @@ Function <code class="sourceCode r"><span class="kw">as.long.df</span>()</code> 
 <span class="co">#&gt; 3 rawdata/flu3.txt 106.194   110.186 113.249</span></code></pre></div>
 </div>
 </div>
-<div class="section level1">
-<h1 id="sec:create">
+<div class="section level2">
+<h2 id="sec:create">
 <span class="header-section-number">4</span> Creating a <strong><em>hyperSpec</em></strong> Object, Data Import and Export<a class="anchor" aria-label="anchor" href="#sec:create"></a>
-</h1>
+</h2>
 <p>Package <strong>hyperSpec</strong> comes with filters for a variety of file formats.
 These are discussed in detail in a separate <a href="#list-of-vignettes">fileio</a> vignette.
 Here we just mention a couple of basic operations.</p>
-<div class="section level2">
-<h2 id="creating-a-hyperspec-object-from-spectra-matrix-and-wavelength-vector">
+<div class="section level3">
+<h3 id="creating-a-hyperspec-object-from-spectra-matrix-and-wavelength-vector">
 <span class="header-section-number">4.1</span> Creating a <code>hyperSpec</code> Object from Spectra Matrix and Wavelength Vector<a class="anchor" aria-label="anchor" href="#creating-a-hyperspec-object-from-spectra-matrix-and-wavelength-vector"></a>
-</h2>
+</h3>
 <p>If the data is in <code>R</code>’s workspace, a <code>hyperSpec</code> object is created by:</p>
 <div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/initialize.html">new</a></span><span class="op">(</span><span class="st">"hyperSpec"</span>, spc <span class="op">=</span> <span class="va">spectra.matrix</span>, wavelength <span class="op">=</span> <span class="va">wavelength.vector</span>, data <span class="op">=</span> <span class="va">extra.data</span><span class="op">)</span></code></pre></div>
@@ -1207,10 +1207,10 @@ intensity axis label in <code class="sourceCode r"><span class="op">$</span>spc<
 </table>
 <p>More information about converting existing data into <code>hyperSpec</code> objects can be found in the <a href="#list-of-vignettes">fileio</a> vignette.</p>
 </div>
-<div class="section level2">
-<h2 id="creating-random-spectra">
+<div class="section level3">
+<h3 id="creating-random-spectra">
 <span class="header-section-number">4.2</span> Creating Random Spectra<a class="anchor" aria-label="anchor" href="#creating-random-spectra"></a>
-</h2>
+</h3>
 
 <p>If package <strong>mvtnorm</strong><span class="citation">[<a href="#ref-R-mvtnorm" role="doc-biblioref">1</a>,<a href="#ref-mvtnorm2009" role="doc-biblioref">2</a>]</span> is available, multivariate normally distributed spectra can be generated from mean and covariance matrix using <code class="sourceCode r"><span class="kw">rmmvnorm</span>()</code> (Fig. <a href="#fig:sim-spc">4.1</a>).
 Note that the package <strong>hyperSpec</strong> function’s name has an additional “m”: it already takes care of multiple groups.
@@ -1229,20 +1229,20 @@ Figure 4.1: Multivariate normally distributed random spectra generated with <cod
 </div>
 </div>
 </div>
-<div class="section level1">
-<h1 id="spectral-pre-processing">
-<span class="header-section-number">5</span> Spectral Pre-Processing<a class="anchor" aria-label="anchor" href="#spectral-pre-processing"></a>
-</h1>
 <div class="section level2">
-<h2 id="cutting-the-spectral-range">
-<span class="header-section-number">5.1</span> Cutting the Spectral Range<a class="anchor" aria-label="anchor" href="#cutting-the-spectral-range"></a>
+<h2 id="spectral-pre-processing">
+<span class="header-section-number">5</span> Spectral Pre-Processing<a class="anchor" aria-label="anchor" href="#spectral-pre-processing"></a>
 </h2>
+<div class="section level3">
+<h3 id="cutting-the-spectral-range">
+<span class="header-section-number">5.1</span> Cutting the Spectral Range<a class="anchor" aria-label="anchor" href="#cutting-the-spectral-range"></a>
+</h3>
 <p>Please refer to Table <a href="#tab:getters">3.1</a>, Table <a href="#tab:setters">3.2</a> and Section <a href="#sec:wavelength-axis">3.6</a> for information and examples of cutting the spectral range.</p>
 </div>
-<div class="section level2">
-<h2 id="sec:shifting-spectra">
+<div class="section level3">
+<h3 id="sec:shifting-spectra">
 <span class="header-section-number">5.2</span> Shifting Spectra<a class="anchor" aria-label="anchor" href="#sec:shifting-spectra"></a>
-</h2>
+</h3>
 <p>Sometimes, spectra need to be aligned along the spectral axis.</p>
 <p>In general, two options are available for shifting spectra along the wavelength axis.</p>
 <ol style="list-style-type: decimal">
@@ -1314,10 +1314,10 @@ Detail view of the phenylalanine band: shifting by <code class="sourceCode r">wl
   <span class="va">tmp</span><span class="op">[</span><span class="va">i</span>, <span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">interpolate</span><span class="op">(</span><span class="va">tmp</span><span class="op">[</span><span class="va">i</span>, <span class="op">]</span>, <span class="va">shifts</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, wl <span class="op">=</span> <span class="fu"><a href="../reference/wl.html">wl</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span><span class="op">)</span>
 <span class="op">}</span>
 <span class="va">faux_cell</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">tmp</span></code></pre></div>
-<div class="section level3">
-<h3 id="sec:calculating-shift">
+<div class="section level4">
+<h4 id="sec:calculating-shift">
 <span class="header-section-number">5.2.1</span> Calculating the Shift<a class="anchor" aria-label="anchor" href="#sec:calculating-shift"></a>
-</h3>
+</h4>
 <p>Often, the shift in the spectra is determined by aligning a particular signal.
 This strategy works best with spectrally oversampled data that allows accurate determination of the signal position.</p>
 <p>For the <code class="sourceCode r">faux_cell</code> data, let’s use the maximum of the peak around 1200 cm<sup>-1</sup>.
@@ -1378,14 +1378,14 @@ This was expected, as the spectra are hardly or not oversampled, but are very si
 <span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
-<div class="section level2">
-<h2 id="removing-bad-data">
-<span class="header-section-number">5.3</span> Removing Bad Data<a class="anchor" aria-label="anchor" href="#removing-bad-data"></a>
-</h2>
 <div class="section level3">
-<h3 id="sec:bad-spectra">
-<span class="header-section-number">5.3.1</span> Bad Spectra<a class="anchor" aria-label="anchor" href="#sec:bad-spectra"></a>
+<h3 id="removing-bad-data">
+<span class="header-section-number">5.3</span> Removing Bad Data<a class="anchor" aria-label="anchor" href="#removing-bad-data"></a>
 </h3>
+<div class="section level4">
+<h4 id="sec:bad-spectra">
+<span class="header-section-number">5.3.1</span> Bad Spectra<a class="anchor" aria-label="anchor" href="#sec:bad-spectra"></a>
+</h4>
 <p>Occasionally, one may want to remove spectra because of too low or too high signal.
 E.g., for infrared spectra one may state that the absorbance maximum should be, say, between 0.1 and 1.
 Class <code>hyperSpec</code>’s comparison operators return a logical matrix of the size of the spectra that is suitable for later indexing:</p>
@@ -1395,10 +1395,10 @@ Class <code>hyperSpec</code>’s comparison operators return a logical matrix of
 <span class="va">low_int</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/apply.html">apply</a></span><span class="op">(</span><span class="va">ir_spc</span>, <span class="fl">1</span>, <span class="va">max</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">0.1</span> <span class="co"># the maximum should be at least 0.1</span>
 <span class="va">ir_spc</span> <span class="op">&lt;-</span> <span class="va">ir_spc</span><span class="op">[</span><span class="op">!</span><span class="va">high_int</span> <span class="op">&amp;</span> <span class="op">!</span><span class="va">low_int</span><span class="op">]</span></code></pre></div>
 </div>
-<div class="section level3">
-<h3 id="removing-spectra-outside-mean-pm-n-standard-deviations">
+<div class="section level4">
+<h4 id="removing-spectra-outside-mean-pm-n-standard-deviations">
 <span class="header-section-number">5.3.2</span> Removing Spectra Outside Mean <span class="math inline">\(\pm\)</span> <span class="math inline">\(n\)</span> Standard Deviations<a class="anchor" aria-label="anchor" href="#removing-spectra-outside-mean-pm-n-standard-deviations"></a>
-</h3>
+</h4>
 <div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mean_sd_filter</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">n</span> <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">x</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
@@ -1420,10 +1420,10 @@ Figure 5.4: Filtering data: mean <span class="math inline">\(\pm\)</span> sd fil
 </p>
 </div>
 </div>
-<div class="section level3">
-<h3 id="sec:bad-data-points">
+<div class="section level4">
+<h4 id="sec:bad-data-points">
 <span class="header-section-number">5.3.3</span> Bad Data Points<a class="anchor" aria-label="anchor" href="#sec:bad-data-points"></a>
-</h3>
+</h4>
 <p>Assume the data occasionally has a detector readout of 0:</p>
 <div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">spc</span> <span class="op">&lt;-</span> <span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, , <span class="va">min</span> <span class="op">~</span> <span class="va">min</span> <span class="op">+</span> <span class="fl">15i</span><span class="op">]</span>
@@ -1479,10 +1479,10 @@ Figure 5.5: Filtering data: remove bad points.
 </p>
 </div>
 </div>
-<div class="section level3">
-<h3 id="sec:spikes-raman-spectra">
+<div class="section level4">
+<h4 id="sec:spikes-raman-spectra">
 <span class="header-section-number">5.3.4</span> Spikes in Raman Spectra<a class="anchor" aria-label="anchor" href="#sec:spikes-raman-spectra"></a>
-</h3>
+</h4>
 <p>Correction of cosmic spikes is not a part of <code>hyperSpec</code> package, but can be addressed with algorithms presented in these papers:</p>
 <ul>
 <li><a href="https://chemrxiv.org/articles/A_Simple_Algorithm_for_Despiking_Raman_Spectra/5993011/2" class="external-link">A Simple Algorithm for Despiking Raman Spectra</a></li>
@@ -1490,10 +1490,10 @@ Figure 5.5: Filtering data: remove bad points.
 </ul>
 </div>
 </div>
-<div class="section level2">
-<h2 id="smoothing-interpolation">
+<div class="section level3">
+<h3 id="smoothing-interpolation">
 <span class="header-section-number">5.4</span> Smoothing Interpolation<a class="anchor" aria-label="anchor" href="#smoothing-interpolation"></a>
-</h2>
+</h3>
 
 <p>Spectra acquired by grating instruments are frequently interpolated onto a new wavelength axis, e.g., because the unequal data point spacing should be removed.
 Also, the spectra can be smoothed: reducing the spectral resolution allows to increase the signal to noise ratio.
@@ -1533,19 +1533,19 @@ This corresponds to a spectral resolution of about 4 cm<sup>-1</sup>, and the de
 The original spectrum had 4064 data points with unequal data point spacing (between 0 and 1.4 cm<sup>-1</sup>).
 The interpolated spectrum has 902 data points.</p>
 </div>
-<div class="section level2">
-<h2 id="background-correction">
+<div class="section level3">
+<h3 id="background-correction">
 <span class="header-section-number">5.5</span> Background Correction<a class="anchor" aria-label="anchor" href="#background-correction"></a>
-</h2>
+</h3>
 
 <p>To subtract a background spectrum of each of the spectra in an object, use:</p>
 <div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/sweep.html">sweep</a></span><span class="op">(</span><span class="va">spectra</span>, <span class="fl">2</span>, <span class="va">background.spectrum</span>, <span class="st">"-"</span><span class="op">)</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="offset-correction">
+<div class="section level3">
+<h3 id="offset-correction">
 <span class="header-section-number">5.6</span> Offset Correction<a class="anchor" aria-label="anchor" href="#offset-correction"></a>
-</h2>
+</h3>
 
 <p>Calculate the offsets and adjust the spectra accordingly:</p>
 <div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
@@ -1555,10 +1555,10 @@ The interpolated spectrum has 902 data points.</p>
 <div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">faux_cell_offset_corrected</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sweep.html">sweep</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="fl">1</span>, <span class="va">min</span>, <span class="st">"-"</span><span class="op">)</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="baseline-correction">
+<div class="section level3">
+<h3 id="baseline-correction">
 <span class="header-section-number">5.7</span> Baseline Correction<a class="anchor" aria-label="anchor" href="#baseline-correction"></a>
-</h2>
+</h3>
 <p>Package <strong>hyperSpec</strong> comes with two functions to fit polynomial baselines.</p>
 
 <p>Functions <code class="sourceCode r"><span class="kw">spc_fit_poly_below</span>()</code>, <code class="sourceCode r"><span class="kw">spc_fit_poly</span>()</code> fit a polynomial baseline of the given order.
@@ -1614,21 +1614,21 @@ the first spectrum of <code class="sourceCode r">faux_cell</code> after baseline
 <div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/rm.html" class="external-link">rm</a></span><span class="op">(</span><span class="va">bl</span>, <span class="va">faux_cell</span><span class="op">)</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="intensity-calibration">
-<span class="header-section-number">5.8</span> Intensity Calibration<a class="anchor" aria-label="anchor" href="#intensity-calibration"></a>
-</h2>
 <div class="section level3">
-<h3 id="correcting-by-a-constant-e--g--readout-bias">
-<span class="header-section-number">5.8.1</span> Correcting by a Constant, e. g. Readout Bias<a class="anchor" aria-label="anchor" href="#correcting-by-a-constant-e--g--readout-bias"></a>
+<h3 id="intensity-calibration">
+<span class="header-section-number">5.8</span> Intensity Calibration<a class="anchor" aria-label="anchor" href="#intensity-calibration"></a>
 </h3>
+<div class="section level4">
+<h4 id="correcting-by-a-constant-e--g--readout-bias">
+<span class="header-section-number">5.8.1</span> Correcting by a Constant, e. g. Readout Bias<a class="anchor" aria-label="anchor" href="#correcting-by-a-constant-e--g--readout-bias"></a>
+</h4>
 <p>CCD cameras often operate with a bias, causing a constant value for each pixel.
 Such a constant can be immediately subtracted: <code class="sourceCode r">spectra <span class="op">-</span><span class="st"> </span>constant</code>.</p>
 </div>
-<div class="section level3">
-<h3 id="correcting-wavelength-dependence">
+<div class="section level4">
+<h4 id="correcting-wavelength-dependence">
 <span class="header-section-number">5.8.2</span> Correcting Wavelength Dependence<a class="anchor" aria-label="anchor" href="#correcting-wavelength-dependence"></a>
-</h3>
+</h4>
 
 <p>For each of the wavelengths the same correction needs to be applied to all spectra.</p>
 <ol style="list-style-type: decimal">
@@ -1645,10 +1645,10 @@ They are subtracted:</p>
 </li>
 </ol>
 </div>
-<div class="section level3">
-<h3 id="spectra-dependent-correction">
+<div class="section level4">
+<h4 id="spectra-dependent-correction">
 <span class="header-section-number">5.8.3</span> Spectra Dependent Correction<a class="anchor" aria-label="anchor" href="#spectra-dependent-correction"></a>
-</h3>
+</h4>
 
 <p>If the correction depends on the spectra (e. g. due to inhomogeneous illumination while collecting imaging data, differing optical path length, etc.), the <code class="sourceCode r">MARGIN</code> of the <code class="sourceCode r"><span class="kw">sweep</span>()</code> function needs to be 1 or <code class="sourceCode r">SPC</code>:</p>
 <ol style="list-style-type: decimal">
@@ -1665,10 +1665,10 @@ They are subtracted:</p>
 </ol>
 </div>
 </div>
-<div class="section level2">
-<h2 id="normalization">
+<div class="section level3">
+<h3 id="normalization">
 <span class="header-section-number">5.9</span> Normalization<a class="anchor" aria-label="anchor" href="#normalization"></a>
-</h2>
+</h3>
 
 <p>Again, <code class="sourceCode r"><span class="kw">sweep</span>()</code> is the function of choice.
 E.g., for area normalization, use:</p>
@@ -1699,10 +1699,10 @@ You may calculate the factors using only a certain wavelength range, thereby nor
 <code class="sourceCode R"><span class="va">faux_cell_tmp</span> <span class="op">&lt;-</span> <span class="va">faux_cell</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowMeans</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1600</span> <span class="op">~</span> <span class="fl">1700</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <p>For minimum-maximum-normalization, first do an offset- or baseline correction, then normalize using <code class="sourceCode r"><span class="kw">max</span>()</code>.</p>
 </div>
-<div class="section level2">
-<h2 id="centering-and-variance-scaling-the-spectra">
+<div class="section level3">
+<h3 id="centering-and-variance-scaling-the-spectra">
 <span class="header-section-number">5.10</span> Centering and Variance Scaling the Spectra<a class="anchor" aria-label="anchor" href="#centering-and-variance-scaling-the-spectra"></a>
-</h2>
+</h3>
 
 <p>Centering means that the mean spectrum is subtracted from each of the spectra.
 Many data analysis techniques, like principal component analysis, partial least squares, etc., work much better on centered data.
@@ -1738,10 +1738,10 @@ Figure 5.11: The summary spectra of <code>faux_cell</code> with 5<sup>th</sup> p
 </div>
 <p>See section the appendices for some tips to speed up these calculations.</p>
 </div>
-<div class="section level2">
-<h2 id="multiplicative-scatter-correction">
+<div class="section level3">
+<h3 id="multiplicative-scatter-correction">
 <span class="header-section-number">5.11</span> Multiplicative Scatter Correction<a class="anchor" aria-label="anchor" href="#multiplicative-scatter-correction"></a>
-</h2>
+</h3>
 
 <p>Multiplicative scatter correction (MSC) can be done using <code class="sourceCode r"><span class="kw">msc</span>()</code> from package package <strong>pls</strong> <span class="citation">[<a href="#ref-R-pls" role="doc-biblioref">5</a>]</span>.
 It operates on the spectra matrix:</p>
@@ -1750,10 +1750,10 @@ It operates on the spectra matrix:</p>
 <span class="va">faux_cell_msc</span> <span class="op">&lt;-</span> <span class="va">faux_cell</span>
 <span class="va">faux_cell_msc</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pls/man/msc.html" class="external-link">msc</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="spectral-arithmetic">
+<div class="section level3">
+<h3 id="spectral-arithmetic">
 <span class="header-section-number">5.12</span> Spectral Arithmetic<a class="anchor" aria-label="anchor" href="#spectral-arithmetic"></a>
-</h2>
+</h3>
 
 <p>Basic mathematical functions are defined for <code>hyperSpec</code> objects.
 You may convert spectra to their log:</p>
@@ -1771,18 +1771,18 @@ Thus they all need either a scalar, or a matrix (or <code>hyperSpec</code> objec
 See <code>?Arith</code> for more details.</p>
 </div>
 </div>
-<div class="section level1">
-<h1 id="data-analysis">
-<span class="header-section-number">6</span> Data Analysis<a class="anchor" aria-label="anchor" href="#data-analysis"></a>
-</h1>
 <div class="section level2">
-<h2 id="sec:pca">
-<span class="header-section-number">6.1</span> Principal Component Analysis with <code class="sourceCode r"><span class="kw">prcomp</span>()</code><a class="anchor" aria-label="anchor" href="#sec:pca"></a>
+<h2 id="data-analysis">
+<span class="header-section-number">6</span> Data Analysis<a class="anchor" aria-label="anchor" href="#data-analysis"></a>
 </h2>
 <div class="section level3">
-<h3 id="carrying-out-pca">
-<span class="header-section-number">6.1.1</span> Carrying out PCA<a class="anchor" aria-label="anchor" href="#carrying-out-pca"></a>
+<h3 id="sec:pca">
+<span class="header-section-number">6.1</span> Principal Component Analysis with <code class="sourceCode r"><span class="kw">prcomp</span>()</code><a class="anchor" aria-label="anchor" href="#sec:pca"></a>
 </h3>
+<div class="section level4">
+<h4 id="carrying-out-pca">
+<span class="header-section-number">6.1.1</span> Carrying out PCA<a class="anchor" aria-label="anchor" href="#carrying-out-pca"></a>
+</h4>
 
 <p>The <code class="sourceCode r"><span class="op">$</span>.</code> notation is handy, if a data analysis function expects a <code class="sourceCode r">data.frame</code>, as <code class="sourceCode r"><span class="kw">prcomp</span>()</code> does.
 The column names can then be used in the formula:</p>
@@ -1793,10 +1793,10 @@ In that case, the conversion is done automatically so the following gives the sa
 <div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pca</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/prcomp.html" class="external-link">prcomp</a></span><span class="op">(</span><span class="op">~</span><span class="va">spc</span>, data <span class="op">=</span> <span class="va">faux_cell</span>, center <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
 </div>
-<div class="section level3">
-<h3 id="plotting-the-results-of-pca">
+<div class="section level4">
+<h4 id="plotting-the-results-of-pca">
 <span class="header-section-number">6.1.2</span> Plotting the Results of PCA<a class="anchor" aria-label="anchor" href="#plotting-the-results-of-pca"></a>
-</h3>
+</h4>
 <p>The results of such a  decomposition can be put back into <code>hyperSpec</code> objects.
 This conveniently allows one to use the regular <code>hyperSpec</code> plotting functions, e.g., the loading-like spectra, or score maps, see Figures <a href="#fig:pca-load">6.1</a> and <a href="#fig:pca-score">6.2</a>.</p>
 <div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
@@ -1868,10 +1868,10 @@ Figure 6.2: The third score map.
 </p>
 </div>
 </div>
-<div class="section level3">
-<h3 id="sec:pca-as-noise">
+<div class="section level4">
+<h4 id="sec:pca-as-noise">
 <span class="header-section-number">6.1.3</span> PCA as Noise Filter<a class="anchor" aria-label="anchor" href="#sec:pca-as-noise"></a>
-</h3>
+</h4>
 <p>Principal component analysis is sometimes used as a noise filtering technique.
 The idea is that the relevant differences are captured in the first few components while the higher components contain noise only.
 Thus the spectra are reconstructed using only the first <span class="math inline">\(p\)</span> components.</p>
@@ -1904,10 +1904,10 @@ This kind of noise reduction may influence further modeling of the data.
 Mathematically speaking, the rank of the new 875 <span class="math inline">\(×\)</span> 300 spectra matrix is only 10.</p>
 </div>
 </div>
-<div class="section level2">
-<h2 id="HCA">
+<div class="section level3">
+<h3 id="HCA">
 <span class="header-section-number">6.2</span> Hierarchical Cluster Analysis<a class="anchor" aria-label="anchor" href="#HCA"></a>
-</h2>
+</h3>
 
 <p>Some <code>R</code> functions expect their input data in a matrix, including those related to HCA.
 Conveniently, the <code class="sourceCode r">[[]]</code> extraction function returns a matrix.</p>
@@ -1942,10 +1942,10 @@ Figure 6.4: The results of the cluster analysis: the map of the 3 clusters.
 </p>
 </div>
 </div>
-<div class="section level2">
-<h2 id="calculating-group-wise-sum-characteristics-e--g--cluster-mean-spectra">
+<div class="section level3">
+<h3 id="calculating-group-wise-sum-characteristics-e--g--cluster-mean-spectra">
 <span class="header-section-number">6.3</span> Calculating Group-Wise Sum Characteristics, e. g. Cluster Mean Spectra<a class="anchor" aria-label="anchor" href="#calculating-group-wise-sum-characteristics-e--g--cluster-mean-spectra"></a>
-</h2>
+</h3>
 
 <p>Function <code class="sourceCode r"><span class="kw">aggregate</span>()</code> applies the function given in <code class="sourceCode r">FUN</code> to each of the groups of spectra specified in <code class="sourceCode r">by</code>.</p>
 <p>So we may plot the cluster mean spectra:</p>
@@ -1960,14 +1960,14 @@ Figure 6.5: The results of the cluster analysis: the the mean spectra.
 </div>
 </div>
 </div>
-<div class="section level1">
-<h1 id="sec:combine">
-<span class="header-section-number">7</span> Combining and Splitting <code>hyperSpec</code> Objects<a class="anchor" aria-label="anchor" href="#sec:combine"></a>
-</h1>
 <div class="section level2">
-<h2 id="sec:bind">
-<span class="header-section-number">7.1</span> Binding Objects Together<a class="anchor" aria-label="anchor" href="#sec:bind"></a>
+<h2 id="sec:combine">
+<span class="header-section-number">7</span> Combining and Splitting <code>hyperSpec</code> Objects<a class="anchor" aria-label="anchor" href="#sec:combine"></a>
 </h2>
+<div class="section level3">
+<h3 id="sec:bind">
+<span class="header-section-number">7.1</span> Binding Objects Together<a class="anchor" aria-label="anchor" href="#sec:bind"></a>
+</h3>
 
 <p>Class <code>hyperspec</code> objects can be bound together, either by columns (<code class="sourceCode r"><span class="kw">cbind</span>()</code>) to append a new spectral range or by row (<code class="sourceCode r"><span class="kw">rbind</span>()</code>) to append new spectra:</p>
 <div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
@@ -1989,10 +1989,10 @@ respectively.</p>
 
 <p>For binding row-wise (<code class="sourceCode r"><span class="kw">rbind</span>()</code>), <code class="sourceCode r"><span class="kw">collapse</span>()</code> is more flexible and faster as well.</p>
 </div>
-<div class="section level2">
-<h2 id="sec:collapse">
+<div class="section level3">
+<h3 id="sec:collapse">
 <span class="header-section-number">7.2</span> Binding Objects that Do not Share the Same Extra Data and/or Wavelength Axis<a class="anchor" aria-label="anchor" href="#sec:collapse"></a>
-</h2>
+</h3>
 
 <p>Function <code class="sourceCode r"><span class="kw">collapse</span>()</code> combines objects that should be bound together by row, but they do not share the columns and/or spectral range.
 The resulting object has all columns from all input objects, and all wavelengths from the input objects.
@@ -2014,10 +2014,10 @@ This can be obtained in the second step:</p>
 <span class="co">#&gt; [2,]    NA   618 10151    NA  5040    NA   910  8200 10989   NA 770</span>
 <span class="co">#&gt; [3,]   638    NA    NA 10722  5253   966    NA  8709 10899   NA  NA</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="sec:merge">
+<div class="section level3">
+<h3 id="sec:merge">
 <span class="header-section-number">7.3</span> Binding Objects that Do not Share the Same Spectra<a class="anchor" aria-label="anchor" href="#sec:merge"></a>
-</h2>
+</h3>
 
 <p>Function <code class="sourceCode r"><span class="kw">merge</span>()</code> adds a new spectral range (like <code class="sourceCode r"><span class="kw">cbind</span>()</code>), but works also if spectra are missing in one of the objects.
 The arguments <code class="sourceCode r">by</code>, <code class="sourceCode r">by.x</code>, and <code class="sourceCode r">by.y</code> specify which columns should be used to decide which spectra are the same.
@@ -2114,10 +2114,10 @@ This already defaults to the mean, but we need <code class="sourceCode r">na.rm 
 <span class="co">#&gt; 9   -3.55 -4.77 matrix           1  NA   5    NA     0     0     0     1</span>
 <span class="co">#&gt; 10  -2.55 -4.77 matrix           1  NA   6    NA   122   129   135   119</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="sec:merge-df">
+<div class="section level3">
+<h3 id="sec:merge-df">
 <span class="header-section-number">7.4</span> Merging Extra Data to Objects That Do Not (Necessarily) Share the Same Spectra<a class="anchor" aria-label="anchor" href="#sec:merge-df"></a>
-</h2>
+</h3>
 <p>Assume we obtained duplicate reference measurements for some of the concentrations in <code class="sourceCode r">flu</code>:</p>
 <div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">flu.ref</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>
@@ -2163,10 +2163,10 @@ E. g., if to preserver all spectra of flu, use <code class="sourceCode r">all.x 
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="fu"><a href="../reference/merge.html">merge</a></span><span class="op">(</span><span class="va">flu.ref</span>, <span class="va">flu</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] "data.frame"</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="splitting-an-object-and-binding-a-list-of-hyperspec-objects">
+<div class="section level3">
+<h3 id="splitting-an-object-and-binding-a-list-of-hyperspec-objects">
 <span class="header-section-number">7.5</span> Splitting an Object, and Binding a List of <code>hyperSpec</code> Objects<a class="anchor" aria-label="anchor" href="#splitting-an-object-and-binding-a-list-of-hyperspec-objects"></a>
-</h2>
+</h3>
 
 <p>A <code>hyperSpec</code> object may also be split into a list of <code>hyperSpec</code> objects:</p>
 <div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
@@ -2213,10 +2213,10 @@ Another, similar way to combine a number of <code>hyperSpec</code> objects with 
 <span class="co">#&gt;   cell matrix </span>
 <span class="co">#&gt;     38    682</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="factor-columns-in-hyperspec-objects-dropping-factor-levels-that-are-not-needed">
+<div class="section level3">
+<h3 id="factor-columns-in-hyperspec-objects-dropping-factor-levels-that-are-not-needed">
 <span class="header-section-number">7.6</span> Factor Columns in <code>hyperSpec</code> Objects: Dropping Factor Levels That Are Not Needed<a class="anchor" aria-label="anchor" href="#factor-columns-in-hyperspec-objects-dropping-factor-levels-that-are-not-needed"></a>
-</h2>
+</h3>
 
 <p>For subsections of <code>hyperSpec</code> objects that do not contain all levels of a factor column, <code class="sourceCode r"><span class="kw">droplevels</span>()</code> drops the “unpopulated” levels:</p>
 <div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
@@ -2233,21 +2233,21 @@ Another, similar way to combine a number of <code>hyperSpec</code> objects with 
 <span class="co">#&gt;     50</span></code></pre></div>
 </div>
 </div>
-<div class="section level1">
-<h1 id="plotting-hyperspec">
+<div class="section level2">
+<h2 id="plotting-hyperspec">
 <span class="header-section-number">8</span> Plotting<a class="anchor" aria-label="anchor" href="#plotting-hyperspec"></a>
-</h1>
+</h2>
 <p>Package <strong>hyperSpec</strong> offers a variety of possibilities to plot spectra, spectral maps, the spectra matrix, time series, depth profiles, etc.
 See the <a href="#list-of-vignettes">plotting</a> vignette.</p>
 
 </div>
-<div class="section level1">
-<h1 id="appendices">
+<div class="section level2">
+<h2 id="appendices">
 <span class="header-section-number">9</span> Appendices<a class="anchor" aria-label="anchor" href="#appendices"></a>
-</h1>
-<div class="section level2 unnumbered">
-<h2 id="package-options">Package Options<a class="anchor" aria-label="anchor" href="#package-options"></a>
 </h2>
+<div class="section level3">
+<h3 id="package-options">Package Options<a class="anchor" aria-label="anchor" href="#package-options"></a>
+</h3>
 <!-- ----------------------------------------------------------------------- -->
 <table class="table">
 <caption>
@@ -2329,9 +2329,9 @@ Please refer to the documentation of the respective functions for details about 
 </table>
 <!-- ----------------------------------------------------------------------- -->
 </div>
-<div class="section level2 unnumbered">
-<h2 id="sec:speed-considerations">Speed and Memory Considerations<a class="anchor" aria-label="anchor" href="#sec:speed-considerations"></a>
-</h2>
+<div class="section level3">
+<h3 id="sec:speed-considerations">Speed and Memory Considerations<a class="anchor" aria-label="anchor" href="#sec:speed-considerations"></a>
+</h3>
 <p>While most of package <strong>hyperSpec</strong>’s functions work at a decent speed for interactive sessions (of course depending on the size of the object), iterated (repeated) calculations as for bootstrapping or iterated cross validation may ask for special speed considerations.</p>
 <p>As an example, consider the code for shifting the spectra:</p>
 <div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
@@ -2343,7 +2343,7 @@ Please refer to the documentation of the respective functions for details about 
   <span class="op">}</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.053   0.002   0.054</span></code></pre></div>
+<span class="co">#&gt;   0.058   0.003   0.061</span></code></pre></div>
 <p>Calculations that involve a lot of subsetting (i.e., extracting or changing the spectra matrix or extra data) can be sped up considerably if the required parts of the <code>hyperSpec</code> object are extracted beforehand.
 This is somewhat similar to model fitting in <code>R</code> in general: many model fitting functions in <code>R</code> are much faster if the formula interface is avoided and the appropriate <code class="sourceCode r">data.frame</code>s or matrices are handed over directly.</p>
 <div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
@@ -2357,18 +2357,18 @@ This is somewhat similar to model fitting in <code>R</code> in general: many mod
   <span class="va">tmp</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">tmp.matrix</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   0.017   0.000   0.017</span></code></pre></div>
+<span class="co">#&gt;   0.018   0.000   0.018</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="additional-packages">
+<div class="section level3">
+<h3 id="additional-packages">
 <span class="header-section-number">9.1</span> Additional Packages<a class="anchor" aria-label="anchor" href="#additional-packages"></a>
-</h2>
+</h3>
 <p>Package <strong>matrixStats</strong><span class="citation">[<a href="#ref-R-matrixStats" role="doc-biblioref">6</a>]</span> implements fast functions to calculate summary statistics for each row or each column of a matrix.</p>
 </div>
-<div class="section level2">
-<h2 id="memory-usage">
+<div class="section level3">
+<h3 id="memory-usage">
 <span class="header-section-number">9.2</span> Memory Usage<a class="anchor" aria-label="anchor" href="#memory-usage"></a>
-</h2>
+</h3>
 <p>In general, it is not recommended to work with variables that are more than approximately a third of the available RAM in size.
 Particularly the import of raw spectroscopic data can consume large amounts of memory.
 At certain points, package <strong>hyperSpec</strong> provides switches that allow working with data sets that are actually close to this memory limit.</p>
@@ -2379,82 +2379,82 @@ In addition, frequent calls to <code class="sourceCode r"><span class="kw">gc</s
 The same behaviour is triggered in <code class="sourceCode r"><span class="kw">read.ENVI</span>()</code> and its derivatives (<code>read.ENVI.</code><em><code>Manufacturer</code></em><code class="sourceCode r">()</code>).
 The memory consumption of <code class="sourceCode r"><span class="kw">read.txt.Renishaw</span>()</code> can be lowered by importing the data in chunks (argument <code class="sourceCode r">nlines</code>).</p>
 </div>
-<div class="section level2 unnumbered">
-<h2 id="session-info">Session Info<a class="anchor" aria-label="anchor" href="#session-info"></a>
-</h2>
+<div class="section level3">
+<h3 id="session-info">Session Info<a class="anchor" aria-label="anchor" href="#session-info"></a>
+</h3>
 <div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html" class="external-link">session_info</a></span><span class="op">(</span><span class="st">"hyperSpec"</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────────────────────────</span></span>
 <span class="co">#&gt;  <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span></span>
-<span class="co">#&gt;  version  R version 4.1.2 (2021-11-01)</span>
-<span class="co">#&gt;  os       macOS Catalina 10.15.7</span>
+<span class="co">#&gt;  version  R version 4.1.3 (2022-03-10)</span>
+<span class="co">#&gt;  os       macOS Big Sur/Monterey 10.16</span>
 <span class="co">#&gt;  system   x86_64, darwin17.0</span>
 <span class="co">#&gt;  ui       X11</span>
 <span class="co">#&gt;  language en</span>
 <span class="co">#&gt;  collate  en_US.UTF-8</span>
 <span class="co">#&gt;  ctype    en_US.UTF-8</span>
 <span class="co">#&gt;  tz       UTC</span>
-<span class="co">#&gt;  date     2021-12-15</span>
+<span class="co">#&gt;  date     2022-04-06</span>
 <span class="co">#&gt;  pandoc   2.7.3 @ /usr/local/bin/ (via rmarkdown)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span></span>
 <span class="co">#&gt;  <span style="color: #555555; font-style: italic;">package       </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version     </span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span>
 <span class="co">#&gt;  brio             1.1.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  callr            3.7.0        <span style="color: #555555;">2021-04-20</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  cli              3.1.0        <span style="color: #555555;">2021-10-27</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  colorspace     * 2.0-2        <span style="color: #555555;">2021-06-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  crayon           1.4.2        <span style="color: #555555;">2021-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  desc             1.4.0        <span style="color: #555555;">2021-09-28</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  cli              3.2.0        <span style="color: #555555;">2022-02-14</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  colorspace     * 2.0-3        <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  crayon           1.5.1        <span style="color: #555555;">2022-03-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  desc             1.4.1        <span style="color: #555555;">2022-03-06</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  diffobj          0.3.5        <span style="color: #555555;">2021-10-05</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  digest           0.6.29       <span style="color: #555555;">2021-12-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  dplyr            1.0.7        <span style="color: #555555;">2021-06-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  dplyr            1.0.8        <span style="color: #555555;">2022-02-08</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  ellipsis         0.3.2        <span style="color: #555555;">2021-04-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  evaluate         0.14         <span style="color: #555555;">2019-05-28</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  fansi            0.5.0        <span style="color: #555555;">2021-05-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  evaluate         0.15         <span style="color: #555555;">2022-02-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  fansi            1.0.3        <span style="color: #555555;">2022-03-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  farver           2.1.0        <span style="color: #555555;">2021-02-28</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  generics         0.1.1        <span style="color: #555555;">2021-10-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  generics         0.1.2        <span style="color: #555555;">2022-01-31</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  ggplot2        * 3.3.5        <span style="color: #555555;">2021-06-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  glue             1.5.1        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  glue             1.6.2        <span style="color: #555555;">2022-02-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  gtable           0.3.0        <span style="color: #555555;">2019-03-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2021-12-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
-<span class="co">#&gt;  hySpc.testthat   <span style="color: #BB00BB; font-weight: bold;">0.2.1.9000  </span> <span style="color: #555555;">2021-12-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
+<span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2022-04-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
+<span class="co">#&gt;  hySpc.testthat   <span style="color: #BB00BB; font-weight: bold;">0.2.1.9000  </span> <span style="color: #555555;">2022-04-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
 <span class="co">#&gt;  isoband          0.2.5        <span style="color: #555555;">2021-07-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  jpeg             0.1-9        <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  jsonlite         1.7.2        <span style="color: #555555;">2020-12-09</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  jsonlite         1.8.0        <span style="color: #555555;">2022-02-22</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  labeling         0.4.2        <span style="color: #555555;">2020-10-20</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  lattice        * 0.20-45      <span style="color: #555555;">2021-09-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  lattice        * 0.20-45      <span style="color: #555555;">2021-09-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.3)</span></span>
 <span class="co">#&gt;  latticeExtra     0.6-29       <span style="color: #555555;">2019-12-19</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  lazyeval         0.2.2        <span style="color: #555555;">2019-03-15</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  lifecycle        1.0.1        <span style="color: #555555;">2021-09-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  magrittr         2.0.1        <span style="color: #555555;">2020-11-17</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  MASS             7.3-54       <span style="color: #555555;">2021-05-03</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
-<span class="co">#&gt;  Matrix           1.3-4        <span style="color: #555555;">2021-06-01</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
-<span class="co">#&gt;  mgcv             1.8-38       <span style="color: #555555;">2021-10-06</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  magrittr         2.0.3        <span style="color: #555555;">2022-03-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  MASS             7.3-55       <span style="color: #555555;">2022-01-16</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.3)</span></span>
+<span class="co">#&gt;  Matrix           1.4-0        <span style="color: #555555;">2021-12-08</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.3)</span></span>
+<span class="co">#&gt;  mgcv             1.8-39       <span style="color: #555555;">2022-02-24</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.3)</span></span>
 <span class="co">#&gt;  munsell          0.5.0        <span style="color: #555555;">2018-06-12</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  nlme             3.1-153      <span style="color: #555555;">2021-09-07</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
-<span class="co">#&gt;  pillar           1.6.4        <span style="color: #555555;">2021-10-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  nlme             3.1-155      <span style="color: #555555;">2022-01-16</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.3)</span></span>
+<span class="co">#&gt;  pillar           1.7.0        <span style="color: #555555;">2022-02-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  pkgconfig        2.0.3        <span style="color: #555555;">2019-09-22</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  pkgload          1.2.4        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  png              0.1-7        <span style="color: #555555;">2013-12-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  praise           1.0.0        <span style="color: #555555;">2015-08-11</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  processx         3.5.2        <span style="color: #555555;">2021-04-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  processx         3.5.3        <span style="color: #555555;">2022-03-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  ps               1.6.0        <span style="color: #555555;">2021-02-28</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  purrr            0.3.4        <span style="color: #555555;">2020-04-17</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  R6               2.5.1        <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  RColorBrewer     1.1-2        <span style="color: #555555;">2014-12-07</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  RColorBrewer     1.1-3        <span style="color: #555555;">2022-04-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  rematch2         2.1.2        <span style="color: #555555;">2020-05-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  rlang            0.4.12       <span style="color: #555555;">2021-10-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  rprojroot        2.0.2        <span style="color: #555555;">2020-11-15</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  rlang            1.0.2        <span style="color: #555555;">2022-03-04</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  rprojroot        2.0.3        <span style="color: #555555;">2022-04-02</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  rstudioapi       0.13         <span style="color: #555555;">2020-11-12</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  scales           1.1.1        <span style="color: #555555;">2020-05-11</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  testthat         3.1.1        <span style="color: #555555;">2021-12-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  testthat         3.1.3        <span style="color: #555555;">2022-03-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  tibble           3.1.6        <span style="color: #555555;">2021-11-07</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  tidyselect       1.1.1        <span style="color: #555555;">2021-04-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  tidyselect       1.1.2        <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  utf8             1.2.2        <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  vctrs            0.3.8        <span style="color: #555555;">2021-04-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  vctrs            0.4.0        <span style="color: #555555;">2022-03-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  viridisLite      0.4.0        <span style="color: #555555;">2021-04-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  waldo            0.3.1        <span style="color: #555555;">2021-09-14</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  withr            2.4.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  waldo            0.4.0        <span style="color: #555555;">2022-03-16</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  withr            2.5.0        <span style="color: #555555;">2022-03-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  xml2             1.3.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #555555;"> [1] /Users/runner/work/_temp/Library</span></span>
@@ -2463,9 +2463,9 @@ The memory consumption of <code class="sourceCode r"><span class="kw">read.txt.R
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
 </div>
 </div>
-<div class="section level1 unnumbered">
-<h1 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
-</h1>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
 <div id="refs" class="references">
 <div id="ref-R-mvtnorm">
 <p>[1] A. Genz, F. Bretz, T. Miwa, X. Mi, T. Hothorn, Mvtnorm: Multivariate normal and t distributions, 2021. <a href="http://mvtnorm.R-forge.R-project.org" class="external-link">http://mvtnorm.R-forge.R-project.org</a>.</p>
@@ -2514,7 +2514,7 @@ Make sure to work on a copy of the spectra matrix, as that is much faster than r
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>

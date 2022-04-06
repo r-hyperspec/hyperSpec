@@ -41,7 +41,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-book"></span>
      
      
@@ -61,7 +61,7 @@
   <a href="../articles/hyperSpec.html">Get started</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -124,7 +124,7 @@
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 data-toc-skip class="date">2021-12-15</h4>
+            <h4 data-toc-skip class="date">2022-04-06</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/HEAD/vignettes/fileio.Rmd" class="external-link"><code>vignettes/fileio.Rmd</code></a></small>
       <div class="hidden name"><code>fileio.Rmd</code></div>
@@ -197,10 +197,10 @@ To run the code examples, create a folder named “fileio” in your working dir
 <!-- This chunk inserts common info about all the vignettes --><hr>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-hyperspec.github.io/hyperSpec" class="external-link">hyperSpec</a></span><span class="op">)</span></code></pre></div>
-<div class="section level1">
-<h1 id="introduction">
+<div class="section level2">
+<h2 id="introduction">
 <span class="header-section-number">1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
-</h1>
+</h2>
 <p>This document describes how to import files containing spectra into <code class="sourceCode r">hyperSpec</code> objects, as well as exporting<code>hyperSpec</code> objects as files.</p>
 <p>The most basic funtion to create <code class="sourceCode r">hyperSpec</code> objects is <code class="sourceCode r"><span class="kw">new</span>(<span class="st">"hyperSpec"</span>)</code> (section <a href="#sec:new">2</a>).
 It makes a <code class="sourceCode r">hyperSpec</code> object from data already in R’s workspace.
@@ -214,10 +214,10 @@ In general, the naming convention is the data format followed by the manufacture
 <!-- ======================================================================= -->
 <p>Overview lists of the directly supported file formats are in the appendix: sorted by file format (<!--appendix --><a href="#sec:format">9.1</a><!--, p. \pageref{sec:format}-->), manufacturer (<!--appendix --><a href="#sec:manufacturer">9.2</a><!--, p. \pageref{sec:manufacturer}-->), and by spectroscopy (<!--appendix --><a href="#sec:spectroscopy">9.3</a><!--, p. \pageref{sec:spectroscopy}-->).</p>
 </div>
-<div class="section level1">
-<h1 id="sec:new">
+<div class="section level2">
+<h2 id="sec:new">
 <span class="header-section-number">2</span> Creating a <code class="sourceCode r">hyperSpec</code> object with <code class="sourceCode r"><span class="kw">new</span>()</code><a class="anchor" aria-label="anchor" href="#sec:new"></a>
-</h1>
+</h2>
 <!-- ======================================================================= -->
 <!-- ======================================================================= -->
 <p>
@@ -260,18 +260,18 @@ and the spectral intensity axis label in <code class="sourceCode r"><span class=
 We suggest wrapping the code to import the data and the line joining it into a <code class="sourceCode r">hyperSpec</code> object by a user-created import function.
 Users are more than welcome to contribute such import code to package <strong>hyperSpec</strong>.
 Secion <a href="#sec:writing-Import">8</a><!--, (p. \pageref{sec:writing-Import})--> discusses examples of custom import functions.</p>
-<div class="section level2">
-<h2 id="import-spectra-matrix">
+<div class="section level3">
+<h3 id="import-spectra-matrix">
 <span class="header-section-number">2.1</span> Creating a <code class="sourceCode r">hyperSpec</code> Object from a Data Matrix (Spectra Matrix)<a class="anchor" aria-label="anchor" href="#import-spectra-matrix"></a>
-</h2>
+</h3>
 <p>As spectra matrices are the internal format of <code class="sourceCode r">hyperSpec</code>, the constructor can directly be used:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/initialize.html">new</a></span><span class="op">(</span><span class="st">"hyperSpec"</span>, <span class="va">spc</span>, <span class="va">wavelength</span>, <span class="va">data</span>, <span class="va">labels</span><span class="op">)</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="import-spectra-array">
+<div class="section level3">
+<h3 id="import-spectra-array">
 <span class="header-section-number">2.2</span> Creating a <code class="sourceCode r">hyperSpec</code> Object from a Data Cube (Spectra Array)<a class="anchor" aria-label="anchor" href="#import-spectra-array"></a>
-</h2>
+</h3>
 <p>Roberto Moscetti asked how to convert a hyperspectral data cube into a <code class="sourceCode r">hyperSpec</code> object:</p>
 <blockquote>
 <p>The problem is that I have a hypercube with the following dimensions: 67 × 41 × 256
@@ -314,15 +314,15 @@ Note that this should be accounted for in the decreasing order of the original <
 <!-- ======================================================================= -->
 </div>
 </div>
-<div class="section level1">
-<h1 id="io-options">
+<div class="section level2">
+<h2 id="io-options">
 <span class="header-section-number">3</span> General Behaviour of File Import Functions: Options <code>file.keep.name</code> and <code>file.remove.emptyspc</code><a class="anchor" aria-label="anchor" href="#io-options"></a>
-</h1>
+</h2>
 </div>
-<div class="section level1">
-<h1 id="sec:read-mult-files">
+<div class="section level2">
+<h2 id="sec:read-mult-files">
 <span class="header-section-number">4</span> Reading Multiple Files into One <code>hyperSpec</code> Object<a class="anchor" aria-label="anchor" href="#sec:read-mult-files"></a>
-</h1>
+</h2>
 <p>Many of the function described below will work on one file, even though derived functions such as <code class="sourceCode r"><span class="kw">read.spc.KaiserMap</span>()</code> (see section <a href="#sec:read-spc-KaiserMap">7.5.2</a><!--, p. \pageref{sec:read-spc-KaiserMap}-->) may take care of measurements consisting of multiple files.</p>
 <p>Usually, the most convenient way to import multiple files into one <code class="sourceCode r">hyperSpec</code> object is reading all files into a list of <code class="sourceCode r">hyperSpec</code> objects, and then <code class="sourceCode r"><span class="kw">collapse</span>()</code>ing this list into a single <code class="sourceCode r">hyperSpec</code> object:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -338,10 +338,10 @@ Note that this should be accounted for in the decreasing order of the original <
 Users may gain speed and memory by using the internal workhorse functions for the file import.
 In that case, please contact the package maintainer (<a href="https://github.com/r-hyperspec/hyperSpec/issues" target="_blank" class="external-link"><strong>hyperSpec</strong>’s GitHub repository</a>) for advise (contributions to package <strong>hyperSpec</strong> are welcome and all authors are listed appropriately in the function help page’s author section).</p>
 </div>
-<div class="section level1">
-<h1 id="sec:ascii">
+<div class="section level2">
+<h2 id="sec:ascii">
 <span class="header-section-number">5</span> ASCII Files<a class="anchor" aria-label="anchor" href="#sec:ascii"></a>
-</h1>
+</h2>
 <!-- {#sec:ascii} {#sec:read-txt-long} {#sec:read-txt-wide} -->
 <p>
 </p>
@@ -359,10 +359,10 @@ Function <code class="sourceCode r"><span class="kw">scan</span>()</code> import
 If the data does not contain a header or is not important and can safely be skipped, it may want to import the data using <code class="sourceCode r"><span class="kw">scan</span>()</code>.</p>
 <p>Note that R allows the use a variety of compressed file formats directly as ASCII files (for example, see section <a href="#sec:read-txt-Renishaw">7.6</a><!-- on p. \pageref{sec:read-txt-Renishaw}-->).
 Also, both <code class="sourceCode r"><span class="kw">read.txt.long</span>()</code> and <code class="sourceCode r"><span class="kw">read.txt.wide</span>()</code> accept connections instead of file names.</p>
-<div class="section level2">
-<h2 id="sec:ascii-files-cols">
+<div class="section level3">
+<h3 id="sec:ascii-files-cols">
 <span class="header-section-number">5.1</span> ASCII Files with Samples in Columns<a class="anchor" aria-label="anchor" href="#sec:ascii-files-cols"></a>
-</h2>
+</h3>
 <p>
 
 
@@ -398,10 +398,10 @@ Import is straightforward, and just the spectra matrix needs to be transposed to
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="va">triazine</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <p>Witec also saves ASCII data with spectra in columns (Export <span class="math inline">\(\rightarrow\)</span> Table), see <a href="#sec:read-txt-Witec">7.9</a>.</p>
 </div>
-<div class="section level2">
-<h2 id="sec:aes-nist">
+<div class="section level3">
+<h3 id="sec:aes-nist">
 <span class="header-section-number">5.2</span> Basic Atomic Spectra from NIST Tables<a class="anchor" aria-label="anchor" href="#sec:aes-nist"></a>
-</h2>
+</h3>
 <p>
 
 
@@ -452,28 +452,28 @@ emission spectra see <a href="http://physics.nist.gov/PhysRefData/Handbook/perio
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/collapse.html">collapse</a></span><span class="op">(</span><span class="va">Hg.AES</span><span class="op">)</span>, lines.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span>, col <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="further-ascii-formats">
+<div class="section level3">
+<h3 id="further-ascii-formats">
 <span class="header-section-number">5.3</span> Further ASCII Formats<a class="anchor" aria-label="anchor" href="#further-ascii-formats"></a>
-</h2>
+</h3>
 <p>Further import filters are provided for manufacturer/software specific ASCII formats, see table <a href="#sec:format">9.1</a><!-- (p. \pageref{sec:format})--> and section <a href="#sec:manuf-spec-import">7.1</a><!--(p. \pageref{sec:manuf-spec-import})-->.</p>
 </div>
-<div class="section level2">
-<h2 id="ascii-export">
+<div class="section level3">
+<h3 id="ascii-export">
 <span class="header-section-number">5.4</span> ASCII Export<a class="anchor" aria-label="anchor" href="#ascii-export"></a>
-</h2>
+</h3>
 <p>ASCII export can be done in wide and long format using <code class="sourceCode r"><span class="kw">write_txt_long</span>()</code> and <code class="sourceCode r"><span class="kw">write_txt_wide</span>()</code>.
 If you need a specific header or footer, use R’s functions for writing files: <code class="sourceCode r"><span class="kw">write.table</span>()</code>, <code class="sourceCode r"><span class="kw">write</span>()</code>, <code class="sourceCode r"><span class="kw">cat</span>()</code> and so on offer fine-grained control of writing ASCII files.</p>
 </div>
 </div>
-<div class="section level1">
-<h1 id="sec:binary-file-formats">
-<span class="header-section-number">6</span> Binary File Formats<a class="anchor" aria-label="anchor" href="#sec:binary-file-formats"></a>
-</h1>
 <div class="section level2">
-<h2 id="sec:readMat">
-<span class="header-section-number">6.1</span> Matlab Files<a class="anchor" aria-label="anchor" href="#sec:readMat"></a>
+<h2 id="sec:binary-file-formats">
+<span class="header-section-number">6</span> Binary File Formats<a class="anchor" aria-label="anchor" href="#sec:binary-file-formats"></a>
 </h2>
+<div class="section level3">
+<h3 id="sec:readMat">
+<span class="header-section-number">6.1</span> Matlab Files<a class="anchor" aria-label="anchor" href="#sec:readMat"></a>
+</h3>
 <p></p>
 <p>Matlab files can be read and written using the package <strong>R.matlab</strong>, which is available at CRAN and can be installed by <code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"R.matlab"</span>)</code>.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
@@ -493,10 +493,10 @@ It can be installed from omegahat:</p>
 The variables in the <code>.mat</code> file are appropriately named elements of the list.
 The <code class="sourceCode r">hyperSpec</code> object can be created using <code class="sourceCode r"><span class="kw">new</span>()</code>, see section <a href="#sec:new">2</a><!-- (p. \pageref{sec:new})-->.</p>
 <p>Again, users probably want to wrap the import of their Matlab files into a function.</p>
-<div class="section level3">
-<h3 id="sec:writing-matlab-files">
+<div class="section level4">
+<h4 id="sec:writing-matlab-files">
 <span class="header-section-number">6.1.1</span> Matlab Export<a class="anchor" aria-label="anchor" href="#sec:writing-matlab-files"></a>
-</h3>
+</h4>
 <p>package <strong>R.matlab</strong>’s function <code class="sourceCode r"><span class="kw">writeMat</span>()</code> can be used to write R objects into <code>.mat</code> files.
 To save an <code class="sourceCode r">hyperSpec</code> object <code class="sourceCode r">x</code> for use in Matlab, you most likely want to save:</p>
 <ul>
@@ -510,10 +510,10 @@ To save an <code class="sourceCode r">hyperSpec</code> object <code class="sourc
 <p>However, it may be convenient to transform the saved data according to how it is needed in Matlab.
 The functions <code class="sourceCode r"><span class="kw">as.long.df</span>()</code> and <code class="sourceCode r"><span class="kw">as.wide.df</span>()</code> may prove useful for reshaping the data.</p>
 </div>
-<div class="section level3">
-<h3 id="sec:read-mat-Cytospec">
+<div class="section level4">
+<h4 id="sec:read-mat-Cytospec">
 <span class="header-section-number">6.1.2</span> Import of Matlab Files Written by Cytospec<a class="anchor" aria-label="anchor" href="#sec:read-mat-Cytospec"></a>
-</h3>
+</h4>
 <p></p>
 <p>A custom import function for <code>.mat</code> files written by <a href="http://www.cytospec.com/" target="_blank" class="external-link">Cytospec</a> is available:</p>
 <p>Note that Cytospec files can contain multiple versions of the data, the so-called blocks.
@@ -537,10 +537,10 @@ Please use <code class="sourceCode r"><span class="kw">read.mat.Cytospec</span>(
 </div>
 </div>
 </div>
-<div class="section level2">
-<h2 id="sec:read-ENVI">
+<div class="section level3">
+<h3 id="sec:read-ENVI">
 <span class="header-section-number">6.2</span> ENVI Files<a class="anchor" aria-label="anchor" href="#sec:read-ENVI"></a>
-</h2>
+</h3>
 <p>    
    
 </p>
@@ -555,17 +555,17 @@ The help page gives details on what elements the list should contain, see also t
 <code class="sourceCode R"><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/DEPRECATED-read.ENVI.html">read.ENVI</a></span><span class="op">(</span><span class="st">"fileio/ENVI/example2.img"</span><span class="op">)</span>
 <span class="va">spc</span></code></pre></div>
 <p>Please see also the manufacturer specific notes in section <a href="#sec:manuf-spec-import">7.1</a><!--, p. \pageref{sec:manuf-spec-import}-->.</p>
-<div class="section level3">
-<h3 id="sec:envi-export">
+<div class="section level4">
+<h4 id="sec:envi-export">
 <span class="header-section-number">6.2.1</span> ENVI Export<a class="anchor" aria-label="anchor" href="#sec:envi-export"></a>
-</h3>
+</h4>
 <p>Use package package <strong>caTools</strong> or package <strong>rgdal</strong> with GDAL for writing ENVI files.</p>
 </div>
 </div>
-<div class="section level2">
-<h2 id="sec:read-spc">
+<div class="section level3">
+<h3 id="sec:read-spc">
 <span class="header-section-number">6.3</span> <code>spc</code> Files<a class="anchor" aria-label="anchor" href="#sec:read-spc"></a>
-</h2>
+</h3>
 <p>
 
 
@@ -647,33 +647,33 @@ Function <code class="sourceCode r"><span class="kw">collapse</span>()</code> ma
 <span class="va">barbiturates</span></code></pre></div>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">barbiturates</span><span class="op">[[</span>, , <span class="fl">25</span> <span class="op">~</span> <span class="fl">30</span><span class="op">]</span><span class="op">]</span></code></pre></div>
-<div class="section level3">
-<h3 id="deriving-manufacturer-specific-import-filters">
+<div class="section level4">
+<h4 id="deriving-manufacturer-specific-import-filters">
 <span class="header-section-number">6.3.1</span> Deriving Manufacturer Specific Import Filters<a class="anchor" aria-label="anchor" href="#deriving-manufacturer-specific-import-filters"></a>
-</h3>
+</h4>
 <p>Please note that future changes inside the read.spc function is likely to occur.
 However, if you just post-process the <code class="sourceCode r">hyperSpec</code> object returned by <code class="sourceCode r"><span class="kw">read.spc</span>()</code>, you should be fine.</p>
 </div>
 </div>
 </div>
-<div class="section level1">
-<h1 id="manufacturer-specific-discussion-of-file-import">
-<span class="header-section-number">7</span> Manufacturer-Specific Discussion of File Import<a class="anchor" aria-label="anchor" href="#manufacturer-specific-discussion-of-file-import"></a>
-</h1>
 <div class="section level2">
-<h2 id="sec:manuf-spec-import">
-<span class="header-section-number">7.1</span> Manufacturer Specific Import Functions<a class="anchor" aria-label="anchor" href="#sec:manuf-spec-import"></a>
+<h2 id="manufacturer-specific-discussion-of-file-import">
+<span class="header-section-number">7</span> Manufacturer-Specific Discussion of File Import<a class="anchor" aria-label="anchor" href="#manufacturer-specific-discussion-of-file-import"></a>
 </h2>
+<div class="section level3">
+<h3 id="sec:manuf-spec-import">
+<span class="header-section-number">7.1</span> Manufacturer Specific Import Functions<a class="anchor" aria-label="anchor" href="#sec:manuf-spec-import"></a>
+</h3>
 <p>Many spectrometer manufacturers provide a function to export their spectra into ASCII files.
 The functions discussed above are written in a very general way and are highly customizable.
 We recommend wrapping these calls with the appropriate settings for the spectra format in an import function.
 Please consider contributing such import filters to package <strong>hyperSpec</strong>: send us the documented code (for details, see the box at the beginning of this document).
 If there is any format not mentioned in this document (even without the need of new converters), please let me know (details again in the box at the beginning of this document).</p>
 </div>
-<div class="section level2">
-<h2 id="sec:read-ENVI-Bruker">
+<div class="section level3">
+<h3 id="sec:read-ENVI-Bruker">
 <span class="header-section-number">7.2</span> Bruker FT-IR Imaging<a class="anchor" aria-label="anchor" href="#sec:read-ENVI-Bruker"></a>
-</h2>
+</h3>
 <p>
 
 
@@ -696,10 +696,10 @@ The lateral coordinates can be set up by specifying origin and pixel size for <s
 For details, please see the help page.</p>
 <p>The proprietary file format of the Opus software is not yet supported.</p>
 </div>
-<div class="section level2">
-<h2 id="sec:read-ENVI-Nicolet">
+<div class="section level3">
+<h3 id="sec:read-ENVI-Nicolet">
 <span class="header-section-number">7.3</span> Nicolet FT-IR Imaging<a class="anchor" aria-label="anchor" href="#sec:read-ENVI-Nicolet"></a>
-</h2>
+</h3>
 <p>
 
 
@@ -716,10 +716,10 @@ Alternatively, the correct offset and pixel size values may be given as function
 <code class="sourceCode R"><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/DEPRECATED-read.ENVI.html">read.ENVI.Nicolet</a></span><span class="op">(</span><span class="st">"fileio/ENVI/example2.img"</span>, nicolet.correction <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">spc</span> <span class="co">## dummy sample with all intensities zero</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="sec:varianagilent-ft-ir">
+<div class="section level3">
+<h3 id="sec:varianagilent-ft-ir">
 <span class="header-section-number">7.4</span> Varian/Agilent FT-IR Imaging<a class="anchor" aria-label="anchor" href="#sec:varianagilent-ft-ir"></a>
-</h2>
+</h3>
 <p>
 
 
@@ -729,10 +729,10 @@ Alternatively, the correct offset and pixel size values may be given as function
 </p>
 <p>Agilent (Varian) uses a variant of ENVI (with binary header).</p>
 </div>
-<div class="section level2">
-<h2 id="sec:Kaiser">
+<div class="section level3">
+<h3 id="sec:Kaiser">
 <span class="header-section-number">7.5</span> Kaiser Optical Systems Raman<a class="anchor" aria-label="anchor" href="#sec:Kaiser"></a>
-</h2>
+</h3>
 <p>
 
 
@@ -747,10 +747,10 @@ We found working with .spc files the best option.</p>
 <p>Hologram usually interpolates the spectra to an evenly spaced wavelength (or <span class="math inline">\(\Delta\tilde\nu\)</span>) axis unless the spectra are saved in a by-pixel manner.
 In this case, the full spectra consist of two files with consecutive file names: one for the low and one for the high wavenumber region.
 See the example for <code>.spc</code> import.</p>
-<div class="section level3">
-<h3 id="sec:KaiserASCII">
+<div class="section level4">
+<h4 id="sec:KaiserASCII">
 <span class="header-section-number">7.5.1</span> Kaiser Optical Systems ASCII Files<a class="anchor" aria-label="anchor" href="#sec:KaiserASCII"></a>
-</h3>
+</h4>
 <p>
 
 
@@ -778,10 +778,10 @@ This may be a problem for certain conversion functions (<code class="sourceCode 
 <span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/initialize.html">new</a></span><span class="op">(</span><span class="st">"hyperSpec"</span>, spc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span>, wavelength <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">wl</span><span class="op">)</span><span class="op">)</span>
 <span class="va">spc</span></code></pre></div>
 </div>
-<div class="section level3">
-<h3 id="sec:read-spc-KaiserMap">
+<div class="section level4">
+<h4 id="sec:read-spc-KaiserMap">
 <span class="header-section-number">7.5.2</span> Kaiser Optical Systems Raman Maps<a class="anchor" aria-label="anchor" href="#sec:read-spc-KaiserMap"></a>
-</h3>
+</h4>
 <p>
 
 
@@ -804,10 +804,10 @@ Thus, a file name pattern is difficult to give, and a vector of file names is us
 <span class="va">spc</span></code></pre></div>
 </div>
 </div>
-<div class="section level2">
-<h2 id="sec:read-txt-Renishaw">
+<div class="section level3">
+<h3 id="sec:read-txt-Renishaw">
 <span class="header-section-number">7.6</span> Renishaw Raman<a class="anchor" aria-label="anchor" href="#sec:read-txt-Renishaw"></a>
-</h2>
+</h3>
 <p>
 
 
@@ -819,10 +819,10 @@ This program can produce a long ASCII format, <code>.spc</code>, or <code>.jdx</
 Also, an evenly spaced wavelength axis was produced, although this was de-selected in the converter.
 We, therefore, recommend using the ASCII format.
 Otherwise the import using <code class="sourceCode r"><span class="kw">read.spc</span>()</code> worked.</p>
-<div class="section level3">
-<h3 id="sec:read-txt-Renishaw-ASCII">
+<div class="section level4">
+<h4 id="sec:read-txt-Renishaw-ASCII">
 <span class="header-section-number">7.6.1</span> Renishaw ASCII data<a class="anchor" aria-label="anchor" href="#sec:read-txt-Renishaw-ASCII"></a>
-</h3>
+</h4>
 <p>
 
 
@@ -882,10 +882,10 @@ Supported types are:</p>
 <span class="fu"><a href="../reference/DEPRECATED-read.txt.Renishaw.html">read.zip.Renishaw</a></span><span class="op">(</span><span class="st">"fileio/txt.Renishaw/chondro.zip"</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
-<div class="section level2">
-<h2 id="sec:read-txt-Horiba">
+<div class="section level3">
+<h3 id="sec:read-txt-Horiba">
 <span class="header-section-number">7.7</span> Horiba / Jobin Yvon (e.g. LabRAM)<a class="anchor" aria-label="anchor" href="#sec:read-txt-Horiba"></a>
-</h2>
+</h3>
 <p>
 
 
@@ -928,10 +928,10 @@ These spectra are by removed by default if option <code class="sourceCode r">fil
 <span class="va">spc</span>
 <span class="fu"><a href="https://rdrr.io/r/base/rm.html" class="external-link">rm</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="sec:read-asc-Andor">
+<div class="section level3">
+<h3 id="sec:read-asc-Andor">
 <span class="header-section-number">7.8</span> Andor Solis<a class="anchor" aria-label="anchor" href="#sec:read-asc-Andor"></a>
-</h2>
+</h3>
 <p>
 
 </p>
@@ -939,10 +939,10 @@ These spectra are by removed by default if option <code class="sourceCode r">fil
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/DEPRECATED-read.asc.Andor.html">read.asc.Andor</a></span><span class="op">(</span><span class="st">"fileio/asc.Andor/ASCII-Andor-Solis.asc"</span><span class="op">)</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="sec:read-txt-Witec">
+<div class="section level3">
+<h3 id="sec:read-txt-Witec">
 <span class="header-section-number">7.9</span> Witec<a class="anchor" aria-label="anchor" href="#sec:read-txt-Witec"></a>
-</h2>
+</h3>
 <p>
 
 
@@ -994,18 +994,18 @@ As for the other Witec functions, it is possible to read image data by selecting
 Line scans and z-stacks should be read as single spectra.</p>
 </div>
 </div>
-<div class="section level1">
-<h1 id="sec:writing-Import">
+<div class="section level2">
+<h2 id="sec:writing-Import">
 <span class="header-section-number">8</span> Writing Your Own Import Function<a class="anchor" aria-label="anchor" href="#sec:writing-Import"></a>
-</h1>
+</h2>
 <p>This section gives examples of how to write import functions.
 The first example implements an import filter for an ASCII file format, basically from scratch.
 The second example shows how to implement
 more details for an already existing import filter.</p>
-<div class="section level2">
-<h2 id="sec:read-txt-PerkinElmer">
+<div class="section level3">
+<h3 id="sec:read-txt-PerkinElmer">
 <span class="header-section-number">8.1</span> A new ASCII Import Function: <code>read.txt.PerkinElmer</code><a class="anchor" aria-label="anchor" href="#sec:read-txt-PerkinElmer"></a>
-</h2>
+</h3>
 <p>
 
 
@@ -1096,10 +1096,10 @@ The spectra are always in a data column called <code class="sourceCode r">spc</c
 <p>The <strong>hyperSpec</strong> package does not export this function: while it is already useful for importing files, it is not general enough to work immediately with new data, e.g., completely ignoring the file header.
 Thus information like the excitation wavelength is lost.</p>
 </div>
-<div class="section level2">
-<h2 id="deriving-a-more-specific-function-read-envi-nicolet">
+<div class="section level3">
+<h3 id="deriving-a-more-specific-function-read-envi-nicolet">
 <span class="header-section-number">8.2</span> Deriving a More Specific Function: <code class="sourceCode r"><span class="kw">read.ENVI.Nicolet</span>()</code><a class="anchor" aria-label="anchor" href="#deriving-a-more-specific-function-read-envi-nicolet"></a>
-</h2>
+</h3>
 <p>
 
 
@@ -1219,24 +1219,24 @@ The resulting <code class="sourceCode r">hyperSpec</code> object is post-process
   <span class="va">spc</span>
 <span class="op">}</span></code></pre>
 </div>
-<div class="section level2">
-<h2 id="deriving-import-filters-for-spc-files">
+<div class="section level3">
+<h3 id="deriving-import-filters-for-spc-files">
 <span class="header-section-number">8.3</span> Deriving Import Filters for <code>spc</code> Files<a class="anchor" aria-label="anchor" href="#deriving-import-filters-for-spc-files"></a>
-</h2>
+</h3>
 <p>Please note that future changes inside the <code class="sourceCode r"><span class="kw">read.spc</span>()</code> function are likely to occur.
 However, if you just post-process the <code class="sourceCode r">hyperSpec</code> object returned by <code class="sourceCode r"><span class="kw">read.spc</span>()</code>, you should be fine.</p>
 </div>
 </div>
-<div class="section level1">
-<h1 id="appendix-a">
-<span class="header-section-number">9</span> <strong>Appendix A:</strong> File Import Functions<a class="anchor" aria-label="anchor" href="#appendix-a"></a>
-</h1>
-<!-- ======================================================================= -->
-<!-- ======================================================================= -->
 <div class="section level2">
-<h2 id="sec:format">
-<span class="header-section-number">9.1</span> File Import Functions by Format<a class="anchor" aria-label="anchor" href="#sec:format"></a>
+<h2 id="appendix-a">
+<span class="header-section-number">9</span> <strong>Appendix A:</strong> File Import Functions<a class="anchor" aria-label="anchor" href="#appendix-a"></a>
 </h2>
+<!-- ======================================================================= -->
+<!-- ======================================================================= -->
+<div class="section level3">
+<h3 id="sec:format">
+<span class="header-section-number">9.1</span> File Import Functions by Format<a class="anchor" aria-label="anchor" href="#sec:format"></a>
+</h3>
 <table class="table">
 <thead><tr>
 <th style="text-align:left;">
@@ -2157,10 +2157,10 @@ Export Table in 3 separate files (Header, X-Axis, Y-Axis)
 </tbody>
 </table>
 </div>
-<div class="section level2">
-<h2 id="sec:manufacturer">
+<div class="section level3">
+<h3 id="sec:manufacturer">
 <span class="header-section-number">9.2</span> File Import Functions by Manufacturer<a class="anchor" aria-label="anchor" href="#sec:manufacturer"></a>
-</h2>
+</h3>
 <table class="table">
 <thead><tr>
 <th style="text-align:left;">
@@ -3066,10 +3066,10 @@ matrix
 </tbody>
 </table>
 </div>
-<div class="section level2">
-<h2 id="sec:spectroscopy">
+<div class="section level3">
+<h3 id="sec:spectroscopy">
 <span class="header-section-number">9.3</span> File Import Functions by Spectroscopy<a class="anchor" aria-label="anchor" href="#sec:spectroscopy"></a>
-</h2>
+</h3>
 <table class="table">
 <thead><tr>
 <th style="text-align:left;">
@@ -3941,59 +3941,59 @@ matrix
 </table>
 </div>
 </div>
-<div class="section level1 unnumbered">
-<h1 id="session-info">Session Info<a class="anchor" aria-label="anchor" href="#session-info"></a>
-</h1>
+<div class="section level2">
+<h2 id="session-info">Session Info<a class="anchor" aria-label="anchor" href="#session-info"></a>
+</h2>
 <div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html" class="external-link">session_info</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────────────────────────</span></span>
 <span class="co">#&gt;  <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span></span>
-<span class="co">#&gt;  version  R version 4.1.2 (2021-11-01)</span>
-<span class="co">#&gt;  os       macOS Catalina 10.15.7</span>
+<span class="co">#&gt;  version  R version 4.1.3 (2022-03-10)</span>
+<span class="co">#&gt;  os       macOS Big Sur/Monterey 10.16</span>
 <span class="co">#&gt;  system   x86_64, darwin17.0</span>
 <span class="co">#&gt;  ui       X11</span>
 <span class="co">#&gt;  language en</span>
 <span class="co">#&gt;  collate  en_US.UTF-8</span>
 <span class="co">#&gt;  ctype    en_US.UTF-8</span>
 <span class="co">#&gt;  tz       UTC</span>
-<span class="co">#&gt;  date     2021-12-15</span>
+<span class="co">#&gt;  date     2022-04-06</span>
 <span class="co">#&gt;  pandoc   2.7.3 @ /usr/local/bin/ (via rmarkdown)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span></span>
 <span class="co">#&gt;  <span style="color: #555555; font-style: italic;">package       </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version     </span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span>
-<span class="co">#&gt;  backports        1.4.1        <span style="color: #555555;">2021-12-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
-<span class="co">#&gt;  bookdown         0.24         <span style="color: #555555;">2021-09-02</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  bookdown         0.25         <span style="color: #555555;">2022-03-16</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  brio             1.1.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  bslib            0.3.1        <span style="color: #555555;">2021-10-06</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  cli              3.1.0        <span style="color: #555555;">2021-10-27</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  colorspace       2.0-2        <span style="color: #555555;">2021-06-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  crayon           1.4.2        <span style="color: #555555;">2021-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  cli              3.2.0        <span style="color: #555555;">2022-02-14</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  colorspace       2.0-3        <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  crayon           1.5.1        <span style="color: #555555;">2022-03-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  digest           0.6.29       <span style="color: #555555;">2021-12-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  dplyr            1.0.7        <span style="color: #555555;">2021-06-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  dplyr            1.0.8        <span style="color: #555555;">2022-02-08</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  ellipsis         0.3.2        <span style="color: #555555;">2021-04-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  evaluate         0.14         <span style="color: #555555;">2019-05-28</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  fansi            0.5.0        <span style="color: #555555;">2021-05-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  evaluate         0.15         <span style="color: #555555;">2022-02-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  fansi            1.0.3        <span style="color: #555555;">2022-03-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  fastmap          1.1.0        <span style="color: #555555;">2021-01-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  generics         0.1.1        <span style="color: #555555;">2021-10-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  generics         0.1.2        <span style="color: #555555;">2022-01-31</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  ggplot2        * 3.3.5        <span style="color: #555555;">2021-06-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  glue             1.5.1        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  glue             1.6.2        <span style="color: #555555;">2022-02-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  gtable           0.3.0        <span style="color: #555555;">2019-03-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  highr            0.9          <span style="color: #555555;">2021-04-16</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  htmltools        0.5.2        <span style="color: #555555;">2021-08-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  httr             1.4.2        <span style="color: #555555;">2020-07-20</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2021-12-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
-<span class="co">#&gt;  hySpc.testthat   <span style="color: #BB00BB; font-weight: bold;">0.2.1.9000  </span> <span style="color: #555555;">2021-12-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
+<span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2022-04-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
+<span class="co">#&gt;  hySpc.testthat   <span style="color: #BB00BB; font-weight: bold;">0.2.1.9000  </span> <span style="color: #555555;">2022-04-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
 <span class="co">#&gt;  jpeg             0.1-9        <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  jquerylib        0.1.4        <span style="color: #555555;">2021-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  jsonlite         1.7.2        <span style="color: #555555;">2020-12-09</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  jsonlite         1.8.0        <span style="color: #555555;">2022-02-22</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  kableExtra       1.3.4        <span style="color: #555555;">2021-02-20</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  knitr            1.36         <span style="color: #555555;">2021-09-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  lattice        * 0.20-45      <span style="color: #555555;">2021-09-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  knitr            1.38         <span style="color: #555555;">2022-03-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  lattice        * 0.20-45      <span style="color: #555555;">2021-09-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.3)</span></span>
 <span class="co">#&gt;  latticeExtra     0.6-29       <span style="color: #555555;">2019-12-19</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  lazyeval         0.2.2        <span style="color: #555555;">2019-03-15</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  lifecycle        1.0.1        <span style="color: #555555;">2021-09-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  magrittr         2.0.1        <span style="color: #555555;">2020-11-17</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  magrittr         2.0.3        <span style="color: #555555;">2022-03-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  munsell          0.5.0        <span style="color: #555555;">2018-06-12</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  pillar           1.6.4        <span style="color: #555555;">2021-10-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  pillar           1.7.0        <span style="color: #555555;">2022-02-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  pkgconfig        2.0.3        <span style="color: #555555;">2019-09-22</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  png              0.1-7        <span style="color: #555555;">2013-12-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  purrr            0.3.4        <span style="color: #555555;">2020-04-17</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
@@ -4003,31 +4003,31 @@ matrix
 <span class="co">#&gt;  R.oo             1.24.0       <span style="color: #555555;">2020-08-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  R.utils          2.11.0       <span style="color: #555555;">2021-09-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  R6               2.5.1        <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  RColorBrewer     1.1-2        <span style="color: #555555;">2014-12-07</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  RColorBrewer     1.1-3        <span style="color: #555555;">2022-04-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  rematch2         2.1.2        <span style="color: #555555;">2020-05-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  rlang            0.4.12       <span style="color: #555555;">2021-10-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  rmarkdown        2.11         <span style="color: #555555;">2021-09-14</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  rlang            1.0.2        <span style="color: #555555;">2022-03-04</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  rmarkdown        2.13         <span style="color: #555555;">2022-03-10</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  rstudioapi       0.13         <span style="color: #555555;">2020-11-12</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  rvest            1.0.2        <span style="color: #555555;">2021-10-16</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  sass             0.4.0        <span style="color: #555555;">2021-05-12</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  sass             0.4.1        <span style="color: #555555;">2022-03-23</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  scales           1.1.1        <span style="color: #555555;">2020-05-11</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  sessioninfo      1.2.2        <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  stringi          1.7.6        <span style="color: #555555;">2021-11-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  stringr          1.4.0        <span style="color: #555555;">2019-02-10</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  styler           1.6.2        <span style="color: #555555;">2021-09-23</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  svglite          2.0.0        <span style="color: #555555;">2021-02-20</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  systemfonts      1.0.3        <span style="color: #555555;">2021-10-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
-<span class="co">#&gt;  testthat         3.1.1        <span style="color: #555555;">2021-12-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  styler           1.7.0        <span style="color: #555555;">2022-03-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  svglite          2.1.0        <span style="color: #555555;">2022-02-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  systemfonts      1.0.4        <span style="color: #555555;">2022-02-11</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  testthat         3.1.3        <span style="color: #555555;">2022-03-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  tibble           3.1.6        <span style="color: #555555;">2021-11-07</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  tidyselect       1.1.1        <span style="color: #555555;">2021-04-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  tidyselect       1.1.2        <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  utf8             1.2.2        <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  vctrs            0.3.8        <span style="color: #555555;">2021-04-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  vctrs            0.4.0        <span style="color: #555555;">2022-03-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  viridisLite      0.4.0        <span style="color: #555555;">2021-04-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">#&gt;  webshot          0.5.2        <span style="color: #555555;">2019-11-22</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  withr            2.4.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  xfun             0.29         <span style="color: #555555;">2021-12-14</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  withr            2.5.0        <span style="color: #555555;">2022-03-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">#&gt;  xfun             0.30         <span style="color: #555555;">2022-03-02</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt;  xml2             1.3.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">#&gt;  yaml             2.2.1        <span style="color: #555555;">2020-02-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">#&gt;  yaml             2.3.5        <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #555555;"> [1] /Users/runner/work/_temp/Library</span></span>
 <span class="co">#&gt; <span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Versions/4.1/Resources/library</span></span>
@@ -4035,9 +4035,9 @@ matrix
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
 
 </div>
-<div class="section level1 unnumbered">
-<h1 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
-</h1>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
 <div id="refs" class="references">
 <div id="ref-Galactic1997">
 <p>[1] Universal data format specification, Galactic Industries Corp., 1997. <a href="http://ftirsearch.com/features/converters/gspc_udf.zip" class="external-link">http://ftirsearch.com/features/converters/gspc_udf.zip</a>.</p>
@@ -4063,7 +4063,7 @@ matrix
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
