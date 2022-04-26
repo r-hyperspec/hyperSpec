@@ -899,7 +899,7 @@ hySpc.testthat::test(read.spc) <- function() {
 
 split.string <- function(x, separator, trim.blank = TRUE, remove.empty = TRUE) {
   pos <- gregexpr(separator, x)
-  if (length(pos) == 1 && pos[[1]] == -1) {
+  if (length(pos) == 1 & pos[[1]][[1]] == -1) { # -1 means no match
     return(x)
   }
 
