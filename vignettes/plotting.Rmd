@@ -173,9 +173,9 @@ Package **hyperSpec** comes with 6 major predefined plotting functions:
 :  main switchyard for most plotting tasks.
    More details in section \@ref(fun-plot).
 
-**`plotspc()`{.r}**
+**`plot_spc()`{.r}**
 :  plots spectra.
-   More details in sections \@ref(exm-plotspc), \@ref(arg-spc), and \@ref(fun-plotspc).
+   More details in sections \@ref(exm-plot-spc), \@ref(arg-spc), and \@ref(fun-plot-spc).
 
 **`plotc()`{.r}**
 :  calibration plot, time series, depth profile.
@@ -212,16 +212,16 @@ Therefore, in loops, functions, R Markdown chunks, etc. lattice objects need to 
 
 
 
-## Function `plotspc()`{.r} {#exm-plotspc}
+## Function `plot_spc()`{.r} {#exm-plot-spc}
 
-Function `plotspc()`{.r} plots the spectra (Fig. \@ref(fig:plotspc)), i.e., the intensities (`$spc`{.r}) over the wavelengths (`@wavelength`{.r}).
+Function `plot_spc()`{.r} plots the spectra (Fig. \@ref(fig:plot-spc)), i.e., the intensities (`$spc`{.r}) over the wavelengths (`@wavelength`{.r}).
 
 ```{r include=FALSE}
 CAPTION = "Spectra in dataset `flu`.  "
 ```
 
-```{r plotspc, fig.cap=CAPTION}
-plotspc(flu)
+```{r plot-spc, fig.cap=CAPTION}
+plot_spc(flu)
 ```
 
 
@@ -305,13 +305,13 @@ All further arguments are handed over to the function actually producing the plo
 
 ## Argument `"spc"`{.r} {#arg-spc}
 
-Command `plot(x, "spc")`{.r} is equivalent to `plotspc(flu)`{.r} (Fig. \@ref(fig:plotspcflu)).
+Command `plot(x, "spc")`{.r} is equivalent to `plot_spc(flu)`{.r} (Fig. \@ref(fig:plot-spcflu)).
 
 ```{r include=FALSE}
 CAPTION = "All spectra of dataset `flu`.  "
 ```
 
-```{r plotspcflu, fig.cap=CAPTION}
+```{r plot-spcflu, fig.cap=CAPTION}
 plot(flu, "spc")
 ```
 
@@ -462,9 +462,9 @@ See `?plotvoronoi`{.r} and `?latticeExtra::panel.voronoi`{.r}.
 
 
 
-# Customized Plots of Spectra: `plotspc()`{.r} {#fun-plotspc}
-<!-- \mFun{`plotspc()`{.r}} -->
-Function `plotspc()`{.r} offers a variety of parameters for customized plots.
+# Customized Plots of Spectra: `plot_spc()`{.r} {#fun-plot-spc}
+<!-- \mFun{`plot_spc()`{.r}} -->
+Function `plot_spc()`{.r} offers a variety of parameters for customized plots.
 
 
 ## Plot Particular Wavelength Range
@@ -476,7 +476,7 @@ CAPTION = "Plot of wavelength (wavenumber) range from 700 to 1200 $cm^{-1}.$  "
 ```
 
 ```{r wavelength, fig.cap=CAPTION}
-plotspc(paracetamol[, , 700 ~ 1200])
+plot_spc(paracetamol[, , 700 ~ 1200])
 ```
 Numbers connected with the tilde (`~`) are interpreted as having the same units as the wavelengths.
 If `wl.range`{.r} already contains indices use `wl.index = TRUE`{.r}.
@@ -494,7 +494,7 @@ CAPTION = "Plot of several wavelength (wavenumber) ranges.  "
 ```
 
 ```{r wavelength-2, fig.cap=CAPTION}
-plotspc(paracetamol,
+plot_spc(paracetamol,
   wl.range = c(300 ~ 1800, 2800 ~ max),
   xoffset = 750
 )
@@ -510,7 +510,7 @@ CAPTION = "Plot with reversed/descending wavelength (wavenumber) range.  "
 ```
 
 ```{r abscissa, fig.cap=CAPTION}
-plotspc(paracetamol, wl.reverse = TRUE)
+plot_spc(paracetamol, wl.reverse = TRUE)
 ```
 
 
@@ -523,7 +523,7 @@ CAPTION = "Spectra plotted in different colours.  "
 ```
 
 ```{r colours, fig.cap=CAPTION}
-plotspc(flu, col = palette_matlab_dark(6))
+plot_spc(flu, col = palette_matlab_dark(6))
 ```
 
 ## Plot Dots Instead of Lines
@@ -535,7 +535,7 @@ CAPTION = "Spectrum with dots instead of lines.  "
 ```
 
 ```{r dots, fig.cap=CAPTION}
-plotspc(paracetamol[, , 2800 ~ 3200],
+plot_spc(paracetamol[, , 2800 ~ 3200],
   lines.args = list(pch = 20, type = "p")
 )
 ```
@@ -563,15 +563,15 @@ CAPTION = "A spectrum added to an existing plot.  "
 ```
 
 ```{r add, fig.cap=CAPTION}
-plotspc(faux_cell[30, , ])
-plotspc(faux_cell[35, , ], add = TRUE, col = "blue")
+plot_spc(faux_cell[30, , ])
+plot_spc(faux_cell[35, , ], add = TRUE, col = "blue")
 ```
 
 
 ## Plot Summary Characteristics
 
 Argument `func`{.r} may be used to calculate summary characteristics before plotting.
-To plot, e.g., the standard deviation of the spectra, use `plotspc(..., func = sd)`{.r} (Fig. \@ref(fig:sd)).
+To plot, e.g., the standard deviation of the spectra, use `plot_spc(..., func = sd)`{.r} (Fig. \@ref(fig:sd)).
 
 ```{r include=FALSE}
 CAPTION = "A spectrum of summary statistics calculated via `func` parameter.
@@ -579,7 +579,7 @@ In the example, the standard deviation is used.  "
 ```
 
 ```{r sd, fig.cap=CAPTION}
-plotspc(faux_cell_preproc, func = sd)
+plot_spc(faux_cell_preproc, func = sd)
 ```
 
 ## Plot Different Line at $I = 0$
@@ -593,7 +593,7 @@ CAPTION = "Spectrum with added zero-intensity line.  "
 ```
 
 ```{r diffline, fig.cap=CAPTION}
-plotspc(paracetamol,
+plot_spc(paracetamol,
   zeroline = list(col = "red")
 )
 ```
@@ -601,7 +601,7 @@ plotspc(paracetamol,
 
 ## Adding Annotations to a Spectra Plot
 
-Function `plotspc()`{.r} uses base graphics.
+Function `plot_spc()`{.r} uses base graphics.
 After plotting the spectra, more content may be added to the graphic by `abline()`{.r}, `lines()`{.r}, `points()`{.r}, etc. (Fig. \@ref(fig:add-line)).
 
 ```{r include=FALSE}
@@ -628,7 +628,7 @@ CAPTION = "Stacked spectra of means.  "
 ```
 
 ```{r stacked1, fig.cap=CAPTION}
-plotspc(
+plot_spc(
   cluster_means,
   col = cluster_cols,
   stacked = TRUE
@@ -688,7 +688,7 @@ CAPTION = "Stacked spectra with customized y offset.  "
 ```
 
 ```{r stacked3, fig.cap=CAPTION}
-plotspc(
+plot_spc(
   cluster_meansd,
   yoffset = rep(0:2, each = 3),
   col = rep(cluster_cols, each = 3)
@@ -716,7 +716,7 @@ plot(cluster_means,
 
 ### Elaborate Example
 
-Function `plotspc()`{.r} allows fine grained customization of almost all aspects of the plot (see example in Fig. \@ref(fig:stacked5)).
+Function `plot_spc()`{.r} allows fine grained customization of almost all aspects of the plot (see example in Fig. \@ref(fig:stacked5)).
 This is possible by giving arguments to the functions that actually perform the plotting `plot()`{.r} for setting up the plot area, `lines()`{.r} for the plotting of the lines, `axis()`{.r} for the axes, etc.
 The arguments for these functions should be given in lists as `plot.args`{.r}, `lines.args`{.r}, `axis.args`{.r}, etc.
 
@@ -1300,10 +1300,10 @@ CAPTION = "Unevenly spaced measurement grid: example IV.  "
 ```
 
 ```{r uneven-IV, fig.cap=CAPTION}
-rx <- makeraster(uneven$x, startx = -11.55, d = 1, tol = 0.3)
+rx <- raster_make(uneven$x, startx = -11.55, d = 1, tol = 0.3)
 uneven$x <- rx$x
 
-ry <- makeraster(uneven$y, startx = -4.77, d = 1, tol = 0.3)
+ry <- raster_make(uneven$y, startx = -4.77, d = 1, tol = 0.3)
 uneven$y <- ry$x
 
 plotmap(uneven)
@@ -1385,19 +1385,19 @@ if (require(rgl)) {
 
 # Interactive Graphics {#interactive-plots}
 
-Package **hyperSpec** offers basic interaction, `spc.identify()`{.r} for spectra plots, and `map.identify()`{.r} and `map.sel.poly()`{.r} for maps.
+Package **hyperSpec** offers basic interaction, `identify_spc()`{.r} for spectra plots, and `map.identify()`{.r} and `map.sel.poly()`{.r} for maps.
 The first two identify points in spectra plots and map plots, respectively.
 Function `map.sel.poly()`{.r} selects the part of a `hyperSpec`{.r} object that lies inside the user defined polygon.
 
 
-## `spc.identify()`{.r} Finding Out Wavelength, Intensity and Spectrum {#sec:spc.identify}
+## `identify_spc()`{.r} Finding Out Wavelength, Intensity and Spectrum {#sec:identify_spc}
 
-Function `spc.identify()`{.r} allows to measure points in graphics produced by `plotspc()`{.r}.
+Function `identify_spc()`{.r} allows to measure points in graphics produced by `plot_spc()`{.r}.
 It works correctly with reversed and cut wavelength axes.
 
 
 ```{r eval=FALSE}
-spc.identify(plotspc(paracetamol, wl.range = c(600 ~ 1800, 2800 ~ 3200), xoffset = 800))
+identify_spc(plot_spc(paracetamol, wl.range = c(600 ~ 1800, 2800 ~ 3200), xoffset = 800))
 ```
 
 The result is a data.frame with the indices of the spectra, the wavelength, and its intensity.
@@ -1423,7 +1423,7 @@ map.sel.poly(faux_cell[ , , 1200])
 
 ## Related Functions Provided by Base Graphics and **_lattice_** {#sec:identify-other}
 
-For base graphics (as produced by `plotspc()`{.r}), `locator()`{.r} may be useful as well.
+For base graphics (as produced by `plot_spc()`{.r}), `locator()`{.r} may be useful as well.
 It returns the clicked coordinates. Note that these are *not* transformed according to `xoffset` & Co.
 
 For lattice graphics, `grid.locator()`{.r} may be used instead.

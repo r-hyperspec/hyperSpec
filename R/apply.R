@@ -183,7 +183,7 @@
 #' @examples
 #'
 #'
-#' plotspc(apply(faux_cell, 2, range))
+#' plot_spc(apply(faux_cell, 2, range))
 #'
 #' avg_flu <- apply(flu, 1, mean,
 #'   label.spc = expression(bar(I)),

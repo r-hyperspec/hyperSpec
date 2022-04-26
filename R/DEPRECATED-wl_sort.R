@@ -28,15 +28,15 @@
 #' @seealso [base::sort()]
 #' @examples
 #'
-#' ## Example 1: different drawing order in plotspc
+#' ## Example 1: different drawing order in plot_spc
 #' spc <- new("hyperSpec", spc = matrix(rnorm(5) + 1:5, ncol = 5))
 #' spc <- cbind(spc, spc + .5)
 #'
-#' plotspc(spc)
+#' plot_spc(spc)
 #' text(wl(spc), spc[[]], as.character(1:10), col = "darkred")
 #'
 #' spc_sorted <- orderwl(spc)
-#' plotspc(spc_sorted)
+#' plot_spc(spc_sorted)
 #' text(wl(spc_sorted), spc_sorted[[]], as.character(1:10), col = "darkred")
 #'
 #' ## Example 2

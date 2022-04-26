@@ -16,8 +16,8 @@
 #' @export
 #' @examples
 #' plot(faux_cell[7])
-#' markpeak(faux_cell[7], 1662)
-markpeak <- function(spc, xpos, col = "red") {
+#' mark_peak(faux_cell[7], 1662)
+mark_peak <- function(spc, xpos, col = "red") {
   assert_hyperSpec(spc)
   validObject(spc)
 

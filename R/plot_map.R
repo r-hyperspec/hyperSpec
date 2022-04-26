@@ -40,7 +40,7 @@
 #' the same order as the points were clicked. Also, multiple clicks on the same point are returned
 #' as multiple entries with the same index.
 #'
-#' `map.identify` uses option `debuglevel` similar to [spc.identify()]:
+#' `map.identify` uses option `debuglevel` similar to [identify_spc()]:
 #' `debuglevel == 1` will plot the tolerance window if no data point was inside (and
 #' additionally labels the point) while `debuglevel == 2` will always plot the tolerance
 #' window.

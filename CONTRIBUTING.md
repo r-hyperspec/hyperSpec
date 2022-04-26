@@ -1,10 +1,12 @@
+# Contributor Guidelines
+
 :+1::tada: First off, thanks for taking the time to contribute! :tada::+1:
 
 The following is a set of guidelines for contributing to the `R` package `hyperSpec`.
 
 ## Code Licensing
 
-We are in the (slow) process of transitioning the license of the **hyperspec** project to [MIT] (see https://github.com/r-hyperspec/hySpc.skeleton/issues/8).
+We are in the (slow) process of transitioning the license of the **hyperspec** project to [MIT](https://github.com/r-hyperspec/hySpc.skeleton/issues/8).
 By contributing, you understand and agree that your work becomes the part of the **hyperSpec** project and you grant permission to the **hyperSpec** project to  license your contribution under the [GNU GPL v3](https://github.com/r-hyperspec/hyperSpec/blob/master/LICENSE) or a compatible license and/or under the [MIT license](https://opensource.org/licenses/MIT) or a compatible license.
 
 
@@ -63,6 +65,7 @@ By contributing, you understand and agree that your work becomes the part of the
 * Mention of the software `R` should be formatted with backticks.
 * Sourced files should make vignette authors' life easier, and should not contain anything important to end users/readers.
 * The first code block should start with `rm(list = ls())` to ensure a clean, reproducible workspace.
+* NEED TO DISCUSS: formatting of code blocks. Could use `tidy = TRUE` as one option.
 * If you need to leave a note in a vignette, please use this [method](https://github.com/cbeleites/hyperSpec/pull/147#issuecomment-646685392).
 * Figure sizes are largely standardized, via the hook defined in `vignette-default-settings.R`.  See the discussion there.
 

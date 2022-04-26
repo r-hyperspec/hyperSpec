@@ -30,20 +30,33 @@
      `.fix_spc_colnames()`   | `.spc_fix_colnames()`            |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `alois.palette()`       | `palette_alois()`                |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#299, @sangttruong 
      `chk.hy()`              | `assert_hyperSpec()`             |  #34
+     `fitraster()`           | `raster_fit()`                   |  #47
      `guess.wavelength()`    | `extract_numbers()`              |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#309
      `hy.getOption()`        | `hy_get_option()`                |  #21
      `hy.getOptions()`       | `hy_get_options()`               |  #21
      `hy.setOptions()`       | `hy_set_options()`               |  #21
+     `makeraster()`          | `raster_make()`                  |  #47
+     `mark.dendrogram()`     | `mark_groups_in_dendrogram()`    |  #43
+     `markpeak()`            | `mark_peak()`                    |  #44
      `matlab.dark.palette()` | `palette_matlab_dark()`          |  cbeleites/hyperSpec#299, cbeleites/hyperSpec#299, @sangttruong
      `matlab.palette()`      | `palette_matlab()`               |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#299, @sangttruong
      `mergeextra()`          | `merge_data()`                   |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#302
      `orderwl()`             | `wl_sort()`                      |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#309
      `pearson.dist()`        | `dist_pearson()`                 |  #19
+     `plotspc()`             | `plot_spc()`                     |  #48
+     `pooled.cov()`          | `cov_pooled()`                   |  #51
      `spc.bin()`             | `spc_bin()`                      |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.fit.poly()`        | `spc_fit_poly()`                 |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.fit.poly.below()`  | `spc_fit_poly_below()`           |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
+     `spc.identify()`        | `identify_spc()`                 |  #40
+     `spc.label.default()`   | `format_label_ispc_wl()`         |  #39
+     `spc.label.wlonly()`    | `format_label_wl_only()`         |  #39
      `spc.loess()`           | `spc_loess()`                    |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.NA.approx()`       | `spc_na_approx()`                |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
+     `spc.point.default()`   | `locate_spc_point_clicked()`     |  #46
+     `spc.point.max()`       | `locate_spc_point_max()`         |  #46
+     `spc.point.min()`       | `locate_spc_point_min()`         |  #46
+     `spc.point.sqr()`       | `locate_spc_point_parabola_max()`|  #46
      `spc.rubberband()`      | `spc_rubberband()`               |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.smooth.spline()`   | `spc_smooth_spline()`            |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `wl.eval()`             | `wl_eval()`                      |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#309
@@ -66,6 +79,7 @@
 * The default output of function `summary()` was changed (@GegznaV, cbeleites/hyperSpec#211).
 * New color palette `palette_colorblind` introduced (@bryanhanson).
 * Function `sample()` gains new argument `index`; `sample(..., index = TRUE)` replaced function `isample()` (@GegznaV, #17).
+* New function `wl_create_label_from_units()` that creates labels for wavelength axis (@GegznaV).
 
 
 ## Non-User-Facing Changes from 0.99 Series

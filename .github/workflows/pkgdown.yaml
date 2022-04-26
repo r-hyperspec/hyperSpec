@@ -1,3 +1,11 @@
+# READ-ONLY FILE
+#
+# Original file resides in r-hyperspec/pkg-skelton.
+# DO NOT EDIT in any other repo as these changes will be overwritten.
+# Edit at r-hyperspec/pkg-skelton, then push there and
+# this file will be deployed to the other repos.
+#
+
 on:
   push:
     branches:
@@ -6,6 +14,11 @@ on:
       - master
       - develop
 
+      # - auto-update
+      - auto-update-test
+
+    tags: ['*']
+
 name: Website (pkgdown)
 
 jobs:
@@ -13,16 +26,17 @@ jobs:
     runs-on: macOS-latest
 
     env:
-      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-
 
     steps:
       - uses: actions/checkout@v2
 
-      - uses: r-lib/actions/setup-r@v1
-
       - uses: r-lib/actions/setup-pandoc@v1
+
+      - uses: r-lib/actions/setup-r@v1
+        with:
+          use-public-rspm: true
+          r-version: 'release'
 
       - name: Query dependencies
         run: |
@@ -56,7 +70,7 @@ jobs:
 
       - name: Deploy package
         run: |
-          git config --local user.name "GitHub Actions"
-          git config --local user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
           Rscript -e 'pkgdown::deploy_to_branch(new_process = FALSE)'
 

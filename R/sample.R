@@ -17,7 +17,7 @@
 
 #' Sample or permute rows of `hyperSpec`, `data.frame`, or `matrix`
 #'
-#' [hyperSprc::sample()] takes a random sample (drawn with or  without
+#' [hyperSpec::sample()] takes a random sample (drawn with or  without
 #' replacement) of rows from the object `x`.
 #'
 #' @name sample

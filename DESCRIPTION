@@ -5,7 +5,6 @@ Title: Work with Hyperspectral Data, i.e. Spectra + Meta Information (Spatial,
     Time, Concentration, ...)
 Version: 0.200.0.9000
 Date: 2021-07-15
-Maintainer: Claudia Beleites <Claudia.Beleites@chemometrix.gmbh>
 Authors@R: c(
     person("Claudia",   "Beleites",  role = c("aut", "cre", "dtc"), email = "Claudia.Beleites@chemometrix.gmbh", comment = c(ORCID = "0000-0003-1626-154X")),
     person("Alois",     "Bonifacio", role = c("ctb", "dtc")),
@@ -20,7 +19,7 @@ Authors@R: c(
     person("Roman",     "Kiselev",   role = "aut"),
     person("Sebastian", "Mellor",    role = "ctb"),
     person("Erick",     "Oduniyi",   role = "aut"),
-    person("Valter",    "Sergo",     role = "aut")    
+    person("Valter",    "Sergo",     role = "aut")
     )
 Description: Comfortable ways to work with hyperspectral data sets,
     i.e. spatially or time-resolved spectra, or spectra with any other kind
@@ -80,6 +79,8 @@ URL:
     https://github.com/r-hyperspec/hyperSpec
 BugReports: https://github.com/r-hyperspec/hyperSpec/issues
 VignetteBuilder: knitr
+RoxygenNote: 7.1.2
+Roxygen: list(markdown = TRUE)
 Collate:
     'hy_validate.R'
     'hyperspec-class.R'
@@ -97,6 +98,15 @@ Collate:
     'DEPRECATED-ggplot2.R'
     'DEPRECATED-hy_options.R'
     'DEPRECATED-isample.R'
+    'mark_groups_in_dendrogram.R'
+    'DEPRECATED-mark.dendrogram.R'
+    'mark_peak.R'
+    'DEPRECATED-markpeak.R'
+    'raster.R'
+    'DEPRECATED-plotspc.R'
+    'cov_pooled.R'
+    'DEPRECATED-pooled.cov.R'
+    'DEPRECATED-raster.R'
     'DEPRECATED-read.ENVI.R'
     'DEPRECATED-read.ENVI.HySpex.R'
     'DEPRECATED-read.ENVI.Nicolet.R'
@@ -117,6 +127,8 @@ Collate:
     'DEPRECATED-read.txt.long.R'
     'DEPRECATED-read.txt.wide.R'
     'DEPRECATED-scan.R'
+    'identify_spc.R'
+    'DEPRECATED-spc.identify.R'
     'DEPRECATED-spc_bin.R'
     'spc_fit_poly.R'
     'DEPRECATED-spc_fit_poly.R'
@@ -142,10 +154,9 @@ Collate:
     'as_hyperSpec.R'
     'barbiturates.R'
     'bind.R'
+    'calculate_stacked_offsets.R'
     'colMeans.R'
     'collapse.R'
-    'constants-units.R'
-    'cov_pooled.R'
     'decomposition.R'
     'dim.R'
     'dimnames.R'
@@ -169,13 +180,9 @@ Collate:
     'laser.R'
     'hyperspec-package.R'
     'labels.R'
-    'plotmap.R'
+    'plot_map.R'
     'levelplot.R'
-    'makeraster.R'
     'map_identify.R'
-    'map_sel_poly.R'
-    'mark_dendrogram.R'
-    'mark_peak.R'
     'mean_sd.R'
     'merge.R'
     'mergeextra.R'
@@ -183,10 +190,10 @@ Collate:
     'palette_colorblind.R'
     'palette_matlab.R'
     'plot.R'
-    'plotc.R'
-    'plotmat.R'
-    'plotspc.R'
-    'plotvoronoi.R'
+    'plot_and_get.R'
+    'plot_c.R'
+    'plot_mat.R'
+    'plot_voronoi.R'
     'quantile.R'
     'rbind.fill.R'
     'read_txt_long.R'
@@ -199,20 +206,19 @@ Collate:
     'show.R'
     'spc_bin.R'
     'spc_fix_colnames.R'
-    'spc_identify.R'
     'spc_loess.R'
     'spc_na_approx.R'
     'spc_spline.R'
     'split.R'
     'subset.R'
     'sweep.R'
-    'trellis.factor.key.R'
+    'trellis_factor_key.R'
     'vandermonde.R'
     'wl.R'
+    'wl_fix_unit_name.R'
     'wl_convert_units.R'
+    'wl_create_label_from_units.R'
     'wl_sort.R'
     'write_txt_long.R'
     'write_txt_wide.R'
     'zzz.R'
-RoxygenNote: 7.1.1
-Roxygen: list(markdown = TRUE)
