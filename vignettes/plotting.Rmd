@@ -30,7 +30,7 @@ vignette: >
     % \VignetteKeyword{plotting}
     % \VignetteKeyword{hyperSpec}
     % \VignettePackage{hyperSpec}
-    % \VignetteDepends{latticeExtra, tripack, deldir, rgl, ggplot2, sessioninfo}
+    % \VignetteDepends{latticeExtra, deldir, rgl, ggplot2, sessioninfo}
     % \VignetteDepends{styler}
     % \VignetteEngine{knitr::rmarkdown}
     % \VignetteEncoding{UTF-8}
@@ -56,7 +56,6 @@ library(hyperSpec)
 library(latticeExtra)
 library(deldir)
 library(ggplot2)
-library(tripack)
 # library(rgl)
 
 # Functions ------------------------------------------------------------------
@@ -81,8 +80,7 @@ knitr::write_bib(
     "rgl",
     "ggplot2",
     "plotrix",
-    "deldir",
-    "tripack"
+    "deldir"
   ),
   file = "resources/plotting-pkg.bib",
   prefix = "R-"
@@ -142,9 +140,6 @@ par(mar = c(4.1, 4.1, 1, .6))
 
 set.seed(2020)
 ```
-
-
-Besides, package **tripack**[`r cite_pkg("tripack")`] is mentioned, but not used in this vignette.
 
 
 # Preliminary Calculations {-}
@@ -1196,9 +1191,6 @@ levelplot(
 
 Fig. \@ref(fig:voronoi-2) shows an example of a Voronoi plot.
 Voronoi uses `panel.voronoi()`{.r} from package **latticeExtra**[`r cite_pkg("latticeExtra")`].
-The tesselation is calculated by default using package **deldir**[`r cite_pkg("deldir")`], but package **tripack**[`r cite_pkg("tripack")`] can also be used.
-Package **tripack** seems to be faster in general, but may "hang" with certain data sets (particularly regular grids with missing spectra as in this example).
-Furthermore, it is not FOSS (free and open-source software), so users are kindly asked to review package **tripack**'s license before using it.
 
 
 ```{r include=FALSE}
