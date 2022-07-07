@@ -54,7 +54,6 @@ Suggests:
     caTools,
     colorspace,
     covr,
-    deldir,
     digest,
     kableExtra,
     knitr,
