@@ -24,15 +24,11 @@
 #'
 #' `levelplot` plots the spectra matrix.
 #'
-#' `plotvoronoi` calls `plotmap` with different default settings, namely the panel
-#' function defaults to [latticeExtra::panel.voronoi()].
-#' [latticeExtra::panel.voronoi()] depends on either of the packages \pkg{tripack} or \pkg{deldir}
+#' `plotvoronoi` calls `plotmap` with different default settings, namely the
+#' panel function defaults to [latticeExtra::panel.voronoi()].
+#' [latticeExtra::panel.voronoi()] depends on either of the packages \pkg{interp} or \pkg{deldir}
 #' being installed. For further information, please consult the help page of
-#' [latticeExtra::panel.voronoi()].  On the [faux_cell()] data set, `plotmap`
-#' is roughly 5 times faster than `plotvoronoi` using \pkg{tripack}, and ca. 15 times faster than
-#' `plotvoronoi` using \pkg{deldir}. Package \pkg{tripack}, however, is free only for non-commercial
-#' use. Also, it seems that \pkg{tripack} version hang (R running at full CPU power, but not responding
-#' nor finishing the calculation) for certain data sets. In this case, `mix = TRUE` may help.
+#' [latticeExtra::panel.voronoi()].
 #'
 #' `map.identify()` calls `plotmap()` and `plotvoronoi()`, respectively and waits for
 #' (left) mouse clicks on points. Other mouse clicks end the input.
@@ -98,9 +94,6 @@
 #' # Voronoi plots
 #' smpl <- sample(faux_cell, 300)
 #' plotmap(smpl, region ~ x * y)
-#' if (require(tripack)) {
-#'   plotvoronoi(smpl, region ~ x * y)
-#' }
 #' @importFrom utils modifyList
 plotmap <- function(object, model = spc ~ x * y,
                     func = mean, func.args = list(), ...) {
