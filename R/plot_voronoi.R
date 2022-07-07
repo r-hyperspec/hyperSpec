@@ -11,13 +11,10 @@
 
 #' @rdname levelplot
 #'
-#' @param use.tripack Whether package \pkg{tripack} should be used for
-#'        calculating the Voronoi polygons. If `FALSE`, package \pkg{deldir}
-#'        is used instead.
-#'        See details.
-#' @param mix For Voronoi plots using package \pkg{tripack}, I experienced
-#'        errors if the data was spatially ordered. Randomly rearranging the
-#'        rows of the hyperSpec object circumvents this problem.
+#' @param use.tripack (DEPRECATED) See [latticeExtra::panel.voronoi] for
+#'        details.
+#' @param mix (DEPRECATED) This argument is deprecated due to deprecation of
+#'        argument `use.tripack`.
 #'
 #'
 #' @seealso [latticeExtra::panel.voronoi()]
@@ -39,18 +36,20 @@ plotvoronoi <- function(object, model = spc ~ x * y,
     stop("package latticeExtra is needed for Voronoi plots.")
   }
 
-  if (use.tripack) {
-    if (!requireNamespace("tripack")) {
-      stop("package tripack requested but not available.")
-    }
-  } else {
-    if (!requireNamespace("deldir")) {
-      stop("package deldir requested but not available.")
-    }
+  if (!(use.tripack == FALSE)) {
+    warning(paste0(
+      "Argument 'use.tripack' is deprecated and ignored. ",
+      "See ?latticeExtra::panel.voronoi ",
+      "for more details."
+    ))
   }
 
-  if (use.tripack && mix) {
-    object@data <- object@data[sample(nrow(object)), ]
+  if (!(mix == FALSE)) {
+    warning(paste0(
+      "Argument 'mix' is deprecated and ignored die to deprecation of ",
+      "'use.tripack'. ",
+      "On deprecation of 'use.tripack', see ?latticeExtra::panel.voronoi "
+    ))
   }
 
   dots <- modifyList(
@@ -61,8 +60,7 @@ plotvoronoi <- function(object, model = spc ~ x * y,
       prepanel = prepanel.default.levelplot,
       pch = 19, cex = .25,
       col.symbol = "#00000020",
-      border = "#00000020",
-      use.tripack = use.tripack
+      border = "#00000020"
     ),
     list(...)
   )
