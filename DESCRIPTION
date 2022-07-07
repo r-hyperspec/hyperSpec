@@ -72,7 +72,6 @@ Suggests:
     sp,
     styler,
     tibble,
-    tripack,
     vdiffr (>= 1.0.0)
 URL: 
     https://r-hyperspec.github.io/hyperSpec,
