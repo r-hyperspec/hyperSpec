@@ -41,7 +41,7 @@ Depends:
 Imports:
     dplyr,
     hySpc.testthat,
-    latticeExtra,
+    latticeExtra (>= 0.6-30),
     lazyeval,
     methods,
     rlang,
