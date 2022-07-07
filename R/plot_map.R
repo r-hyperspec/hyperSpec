@@ -10,11 +10,12 @@
 
 #' Plot a map and identify/select spectra in the map
 #'
-#' [lattice::levelplot()] functions for hyperSpec objects.  An image or map of a summary
-#' value of each spectrum is plotted. Spectra may be identified by mouse click.
+#' [lattice::levelplot()] functions for hyperSpec objects.
+#' An image or map of a summary value of each spectrum is plotted.
+#' Spectra may be identified by mouse click.
 #'
-#' The `model` can contain the special column name `.wavelength` to specify the wavelength
-#' axis.
+#' The `model` can contain the special column name `.wavelength` to specify
+#' the wavelength axis.
 #'
 #' `plotmap`, `map.identify`, and the `levelplot` methods internally use the same
 #' gateway function to [lattice::levelplot()]. Thus `transform.factor` can be used
@@ -25,15 +26,15 @@
 #'
 #' `plotvoronoi` calls `plotmap` with different default settings, namely the panel
 #' function defaults to [latticeExtra::panel.voronoi()].
-#' [latticeExtra::panel.voronoi()] depends on either of the packages 'tripack' or 'deldir'
+#' [latticeExtra::panel.voronoi()] depends on either of the packages \pkg{tripack} or \pkg{deldir}
 #' being installed. For further information, please consult the help page of
 #' [latticeExtra::panel.voronoi()].  On the [faux_cell()] data set, `plotmap`
-#' is roughly 5 times faster than `plotvoronoi` using tripack, and ca. 15 times faster than
-#' `plotvoronoi` using deldir. Package tripack, however, is free only for non-commercial
-#' use. Also, it seems that tripack version hang (R running at full CPU power, but not responding
+#' is roughly 5 times faster than `plotvoronoi` using \pkg{tripack}, and ca. 15 times faster than
+#' `plotvoronoi` using \pkg{deldir}. Package \pkg{tripack}, however, is free only for non-commercial
+#' use. Also, it seems that \pkg{tripack} version hang (R running at full CPU power, but not responding
 #' nor finishing the calculation) for certain data sets. In this case, `mix = TRUE` may help.
 #'
-#' `map.identify` calls `plotmap` and `plotvoronoi`, respectively and waits for
+#' `map.identify()` calls `plotmap()` and `plotvoronoi()`, respectively and waits for
 #' (left) mouse clicks on points. Other mouse clicks end the input.
 #'
 #' Unlike [lattice::panel.identify()], the indices returned by `map.identify` are in
