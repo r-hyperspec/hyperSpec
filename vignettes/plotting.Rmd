@@ -30,7 +30,7 @@ vignette: >
     % \VignetteKeyword{plotting}
     % \VignetteKeyword{hyperSpec}
     % \VignettePackage{hyperSpec}
-    % \VignetteDepends{latticeExtra, deldir, rgl, ggplot2, sessioninfo}
+    % \VignetteDepends{latticeExtra, rgl, ggplot2, sessioninfo}
     % \VignetteDepends{styler}
     % \VignetteEngine{knitr::rmarkdown}
     % \VignetteEncoding{UTF-8}
@@ -54,7 +54,6 @@ rm(list = ls(all.names = TRUE))
 # Packages -------------------------------------------------------------------
 library(hyperSpec)
 library(latticeExtra)
-library(deldir)
 library(ggplot2)
 # library(rgl)
 
@@ -79,8 +78,7 @@ knitr::write_bib(
     "latticeExtra",
     "rgl",
     "ggplot2",
-    "plotrix",
-    "deldir"
+    "plotrix"
   ),
   file = "resources/plotting-pkg.bib",
   prefix = "R-"
@@ -112,7 +110,7 @@ All spectra used in this manual are installed automatically with package **hyper
 ```{r check-required, echo=FALSE, results='tex', eval=FALSE}
 msg <- function(...) system(sprintf("echo '%s'", paste(...)))
 
-required.pkgs <- c("latticeExtra", "deldir", "rgl", "ggplot2")
+required.pkgs <- c("latticeExtra", "rgl", "ggplot2")
 
 dummies <- check.req.pkg("latticeExtra",
   griderrors = "panel.levelplot.points",
@@ -122,9 +120,7 @@ for (i in seq_along(dummies)) {
   eval(dummies[[i]])
 }
 
-check.req.pkg("deldir", hynsgrid = "plotvoronoi")
-
-for (p in required.pkgs [!required.pkgs %in% c("latticeExtra", "deldir")]) {
+for (p in required.pkgs [!required.pkgs %in% c("latticeExtra")]) {
   check.req.pkg(p, donothing = "")
 }
 ```
@@ -132,7 +128,6 @@ for (p in required.pkgs [!required.pkgs %in% c("latticeExtra", "deldir")]) {
 ```{r packages}
 library(hyperSpec)
 library(latticeExtra)
-library(deldir)
 library(ggplot2)
 # library(rgl)
 
