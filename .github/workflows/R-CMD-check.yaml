@@ -40,7 +40,6 @@ jobs:
       R_KEEP_PKG_SOURCE: yes
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       CACHE_VERSION: 1
-      RGL_USE_NULL: true
 
     steps:
       - uses: actions/checkout@v2
