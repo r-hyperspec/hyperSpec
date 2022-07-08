@@ -46,7 +46,7 @@ plotvoronoi <- function(object, model = spc ~ x * y,
 
   if (!(mix == FALSE)) {
     warning(paste0(
-      "Argument 'mix' is deprecated and ignored die to deprecation of ",
+      "Argument 'mix' is deprecated and ignored due to deprecation of ",
       "'use.tripack'. ",
       "On deprecation of 'use.tripack', see ?latticeExtra::panel.voronoi "
     ))
