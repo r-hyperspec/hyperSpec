@@ -31,25 +31,25 @@
 #' @export
 #'
 plotvoronoi <- function(object, model = spc ~ x * y,
-                        use.tripack = FALSE, mix = FALSE, ...) {
+                        use.tripack = "DEPRECATED", mix = "DEPRECATED", ...) {
   if (!requireNamespace("latticeExtra")) {
     stop("package latticeExtra is needed for Voronoi plots.")
   }
 
-  if (!(use.tripack == FALSE)) {
-    warning(paste0(
+  if (!missing(use.tripack)) {
+    warning(
       "Argument 'use.tripack' is deprecated and ignored. ",
       "See ?latticeExtra::panel.voronoi ",
       "for more details."
-    ))
+    )
   }
 
-  if (!(mix == FALSE)) {
-    warning(paste0(
+  if (!missing(mix)) {
+    warning(
       "Argument 'mix' is deprecated and ignored due to deprecation of ",
       "'use.tripack'. ",
       "On deprecation of 'use.tripack', see ?latticeExtra::panel.voronoi "
-    ))
+    )
   }
 
   dots <- modifyList(
@@ -65,4 +65,36 @@ plotvoronoi <- function(object, model = spc ~ x * y,
     list(...)
   )
   do.call(plotmap, dots)
+}
+
+# Unit tests -----------------------------------------------------------------
+
+hySpc.testthat::test(plotvoronoi) <- function() {
+  context("plotvoronoi")
+
+  test_that("plotvoronoi() produces no errors or warnings", {
+    # Just check that no errors occur
+    expect_silent(plotvoronoi(faux_cell, region ~ y * x))
+
+  })
+
+  test_that("plotvoronoi() produces warnings", {
+    # Test deprecated arguments
+    expect_warning(
+      plotvoronoi(faux_cell, region ~ y * x, use.tripack = FALSE),
+      "Argument 'use.tripack' is deprecated and ignored."
+    )
+    expect_warning(
+      plotvoronoi(faux_cell, region ~ y * x, use.tripack = TRUE),
+      "Argument 'use.tripack' is deprecated and ignored."
+    )
+    expect_warning(
+      plotvoronoi(faux_cell, region ~ y * x, mix = FALSE),
+      "Argument 'mix' is deprecated and ignored."
+    )
+    expect_warning(
+      plotvoronoi(faux_cell, region ~ y * x, mix = TRUE),
+      "Argument 'mix' is deprecated and ignored."
+    )
+  })
 }
