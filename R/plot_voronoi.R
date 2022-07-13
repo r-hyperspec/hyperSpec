@@ -36,7 +36,7 @@ plotvoronoi <- function(object, model = spc ~ x * y,
     stop("package latticeExtra is needed for Voronoi plots.")
   }
 
-  if (!(use.tripack == FALSE)) {
+  if (!missing(use.tripack)) {
     warning(paste0(
       "Argument 'use.tripack' is deprecated and ignored. ",
       "See ?latticeExtra::panel.voronoi ",
@@ -44,7 +44,7 @@ plotvoronoi <- function(object, model = spc ~ x * y,
     ))
   }
 
-  if (!(mix == FALSE)) {
+  if (!missing(mix)) {
     warning(paste0(
       "Argument 'mix' is deprecated and ignored due to deprecation of ",
       "'use.tripack'. ",
