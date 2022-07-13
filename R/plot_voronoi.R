@@ -37,19 +37,19 @@ plotvoronoi <- function(object, model = spc ~ x * y,
   }
 
   if (!missing(use.tripack)) {
-    warning(paste0(
+    warning(
       "Argument 'use.tripack' is deprecated and ignored. ",
       "See ?latticeExtra::panel.voronoi ",
       "for more details."
-    ))
+    )
   }
 
   if (!missing(mix)) {
-    warning(paste0(
+    warning(
       "Argument 'mix' is deprecated and ignored due to deprecation of ",
       "'use.tripack'. ",
       "On deprecation of 'use.tripack', see ?latticeExtra::panel.voronoi "
-    ))
+    )
   }
 
   dots <- modifyList(
