@@ -285,7 +285,7 @@ Function `plotvoronoi()`{.r} is a special version of `plotmap()`{.r} that produc
 CAPTION = "Voronoi diagram: an example with `faux_cell` dataset.  "
 ```
 
-```{r voronoi, fig.cap=CAPTION, eval=FALSE}
+```{r voronoi, fig.cap=CAPTION}
 plotvoronoi(sample(faux_cell, 300), region ~ x * y)
 ```
 
@@ -449,7 +449,7 @@ Use `plot(x, "voronoi")`{.r} for a Voronoi plot (Fig. \@ref(fig:plotvoronoi)).
 CAPTION = "Voronoi plot: alternative R syntax.  "
 ```
 
-```{r plotvoronoi, fig.cap=CAPTION, eval=FALSE}
+```{r plotvoronoi, fig.cap=CAPTION}
 plot(sample(faux_cell[ , , 1200], 300), "voronoi")
 ```
 
