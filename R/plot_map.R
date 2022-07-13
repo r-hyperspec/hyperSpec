@@ -94,6 +94,8 @@
 #' # Voronoi plots
 #' smpl <- sample(faux_cell, 300)
 #' plotmap(smpl, region ~ x * y)
+#'
+#' plotvoronoi(smpl, region ~ x * y)
 #' @importFrom utils modifyList
 plotmap <- function(object, model = spc ~ x * y,
                     func = mean, func.args = list(), ...) {
