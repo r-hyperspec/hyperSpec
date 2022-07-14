@@ -91,6 +91,7 @@ hySpc.testthat::test(hy_get_options) <- function() {
 #'
 #' @param name the name of the option
 hy_get_option <- function(name) {
+  if (missing(name)) stop("Argument 'name' is missing.")
   .options[[name]]
 }
 
@@ -194,5 +195,9 @@ hySpc.testthat::test(hy_set_options) <- function() {
     tmp.a <- hy_get_options()
     expect_warning(tmp.b <- hy_set_options(1))
     expect_equal(tmp.a, tmp.b)
+  })
+
+  test_that("hy_get_option() fails with no arguments", {
+    expect_error(hy_get_option(), "Argument 'name' is missing.")
   })
 }
