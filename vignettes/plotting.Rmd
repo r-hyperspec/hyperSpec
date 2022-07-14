@@ -1260,7 +1260,7 @@ CAPTION = "Unevenly spaced measurement grid: example II.  "
 ```
 
 ```{r uneven-II, fig.cap=CAPTION}
-plotvoronoi(uneven)
+plotvoronoi(uneven, backend = "deldir")
 ```
 
 

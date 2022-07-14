@@ -42,7 +42,7 @@ wc <- function(file, flags = c("lines", "words", "bytes")) {
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   output <- try(system2("wc", args = "--help", stdout = TRUE, stderr = TRUE), silent = TRUE)
-  if (class(output) == "try-error") {
+  if (inherits(output, "try-error")) {
     return(NULL)
   }
 
