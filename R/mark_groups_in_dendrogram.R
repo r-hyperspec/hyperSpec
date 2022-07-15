@@ -1,9 +1,9 @@
 #' @title Mark groups in [stats::hclust()] dendrograms
 #'
+#' @description
 #' Groups are marked by colored rectangles as well as by their levels
 #'
 #' The dendrogram should be plotted separately, see the example.
-#'
 #'
 #' @param dendrogram the dendrogram
 #' @param groups factor giving the the groups to mark

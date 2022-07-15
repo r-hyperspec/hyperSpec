@@ -4,7 +4,6 @@
 #' @title (DEPRECATED)
 #'        Wavelength binning
 #'
-#'
 #' @description
 #'
 #' These \pkg{hyperSpec} functions are **deprecated** and not maintained any

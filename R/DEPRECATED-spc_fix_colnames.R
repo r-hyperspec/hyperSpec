@@ -4,7 +4,6 @@
 #' @title (DEPRECATED)
 #'        Ensure that the spectra matrix has the wavelengths in column names
 #'
-#'
 #' @description
 #' These \pkg{hyperSpec} functions are **deprecated** and not maintained any
 #' more. You should not use these.
