@@ -50,7 +50,9 @@ hy.setOptions <- function(...) {
 hySpc.testthat::test(hy.setOptions) <- function() {
   context("hy.setOptions")
 
-  test_that("deprecated",  expect_warning(hy.getOption(), "deprecated"))
+  test_that("deprecated",
+    expect_error(expect_warning(hy.getOption(), "deprecated"))
+  )
   test_that("deprecated",  expect_warning(hy.getOptions(), "deprecated"))
   test_that("deprecated",  expect_warning(hy.setOptions(), "deprecated"))
 

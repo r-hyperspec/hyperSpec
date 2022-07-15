@@ -240,7 +240,6 @@ hySpc.testthat::test(.plot) <- function() {
 
     plot_map       <- plot(hy_map, "map")
     plot_voronoi_1 <- plot(hy_map, "voronoi")
-    plot_voronoi_2 <- plot(hy_map, "voronoi", use.tripack = TRUE, mix = TRUE)
 
     # Perform tests ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -251,7 +250,6 @@ hySpc.testthat::test(.plot) <- function() {
 
     expect_silent(plot_map)
     expect_silent(plot_voronoi_1)
-    expect_silent(plot_voronoi_2)
 
     # Visual tests
     vdiffr::expect_doppelganger("plot-c", plot_c)
@@ -268,7 +266,6 @@ hySpc.testthat::test(.plot) <- function() {
 
     vdiffr::expect_doppelganger("plot-map", plot_map)
     vdiffr::expect_doppelganger("plot-voronoi-01", plot_voronoi_1)
-    vdiffr::expect_doppelganger("plot-voronoi-02", plot_voronoi_2)
   })
 
 

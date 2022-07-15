@@ -11,13 +11,10 @@
 
 #' @rdname levelplot
 #'
-#' @param use.tripack Whether package \pkg{tripack} should be used for
-#'        calculating the Voronoi polygons. If `FALSE`, package \pkg{deldir}
-#'        is used instead.
-#'        See details.
-#' @param mix For Voronoi plots using package \pkg{tripack}, I experienced
-#'        errors if the data was spatially ordered. Randomly rearranging the
-#'        rows of the hyperSpec object circumvents this problem.
+#' @param use.tripack (DEPRECATED) See [latticeExtra::panel.voronoi] for
+#'        details.
+#' @param mix (DEPRECATED) This argument is deprecated due to deprecation of
+#'        argument `use.tripack`.
 #'
 #'
 #' @seealso [latticeExtra::panel.voronoi()]
@@ -34,23 +31,25 @@
 #' @export
 #'
 plotvoronoi <- function(object, model = spc ~ x * y,
-                        use.tripack = FALSE, mix = FALSE, ...) {
+                        use.tripack = "DEPRECATED", mix = "DEPRECATED", ...) {
   if (!requireNamespace("latticeExtra")) {
     stop("package latticeExtra is needed for Voronoi plots.")
   }
 
-  if (use.tripack) {
-    if (!requireNamespace("tripack")) {
-      stop("package tripack requested but not available.")
-    }
-  } else {
-    if (!requireNamespace("deldir")) {
-      stop("package deldir requested but not available.")
-    }
+  if (!missing(use.tripack)) {
+    warning(
+      "Argument 'use.tripack' is deprecated and ignored. ",
+      "See ?latticeExtra::panel.voronoi ",
+      "for more details."
+    )
   }
 
-  if (use.tripack && mix) {
-    object@data <- object@data[sample(nrow(object)), ]
+  if (!missing(mix)) {
+    warning(
+      "Argument 'mix' is deprecated and ignored due to deprecation of ",
+      "'use.tripack'. ",
+      "On deprecation of 'use.tripack', see ?latticeExtra::panel.voronoi "
+    )
   }
 
   dots <- modifyList(
@@ -61,10 +60,41 @@ plotvoronoi <- function(object, model = spc ~ x * y,
       prepanel = prepanel.default.levelplot,
       pch = 19, cex = .25,
       col.symbol = "#00000020",
-      border = "#00000020",
-      use.tripack = use.tripack
+      border = "#00000020"
     ),
     list(...)
   )
   do.call(plotmap, dots)
+}
+
+# Unit tests -----------------------------------------------------------------
+
+hySpc.testthat::test(plotvoronoi) <- function() {
+  context("plotvoronoi")
+
+  test_that("plotvoronoi() produces no errors or warnings", {
+    # Just check that no errors occur
+    expect_silent(plotvoronoi(faux_cell, region ~ y * x))
+
+  })
+
+  test_that("plotvoronoi() produces warnings", {
+    # Test deprecated arguments
+    expect_warning(
+      plotvoronoi(faux_cell, region ~ y * x, use.tripack = FALSE),
+      "Argument 'use.tripack' is deprecated and ignored."
+    )
+    expect_warning(
+      plotvoronoi(faux_cell, region ~ y * x, use.tripack = TRUE),
+      "Argument 'use.tripack' is deprecated and ignored."
+    )
+    expect_warning(
+      plotvoronoi(faux_cell, region ~ y * x, mix = FALSE),
+      "Argument 'mix' is deprecated and ignored."
+    )
+    expect_warning(
+      plotvoronoi(faux_cell, region ~ y * x, mix = TRUE),
+      "Argument 'mix' is deprecated and ignored."
+    )
+  })
 }

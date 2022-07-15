@@ -41,11 +41,10 @@ Depends:
 Imports:
     dplyr,
     hySpc.testthat,
-    latticeExtra,
+    latticeExtra (>= 0.6-30),
     lazyeval,
     methods,
     rlang,
-    testthat (>= 3.0.0),
     utils,
     xml2
 Suggests:
@@ -72,14 +71,13 @@ Suggests:
     sp,
     styler,
     tibble,
-    tripack,
     vdiffr (>= 1.0.0)
 URL: 
     https://r-hyperspec.github.io/hyperSpec,
     https://github.com/r-hyperspec/hyperSpec
 BugReports: https://github.com/r-hyperspec/hyperSpec/issues
 VignetteBuilder: knitr
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0
 Roxygen: list(markdown = TRUE)
 Collate:
     'hy_validate.R'
