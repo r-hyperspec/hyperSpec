@@ -106,50 +106,65 @@ should be used as the alternatives.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">read.spc</span><span class="op">(</span>
-  <span class="va">filename</span>,
-  keys.hdr2data <span class="op">=</span> <span class="cn">FALSE</span>,
-  keys.log2data <span class="op">=</span> <span class="cn">FALSE</span>,
-  log.txt <span class="op">=</span> <span class="cn">TRUE</span>,
-  log.bin <span class="op">=</span> <span class="cn">FALSE</span>,
-  log.disk <span class="op">=</span> <span class="cn">FALSE</span>,
-  hdr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,
-  no.object <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read.spc</span><span class="op">(</span></span>
+<span>  <span class="va">filename</span>,</span>
+<span>  keys.hdr2data <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  keys.log2data <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  log.txt <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  log.bin <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  log.disk <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  hdr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  no.object <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>filename</dt>
 <dd><p>The complete file name of the <code>.spc</code> file.</p></dd>
+
+
 <dt>keys.hdr2data, keys.log2data</dt>
 <dd><p>character vectors with the names of parameters in the <code>.spc</code>
 file's log block (log2xxx) or header (hdr2xxx) that should go into the extra data (yyy2data) of
 the returned hyperSpec object.</p>
 <p>All header fields specified in the <code>.spc</code> file format specification (see
 below) are imported and can be referred to by their de-capitalized names.</p></dd>
+
+
 <dt>log.txt</dt>
 <dd><p>Should the text part of the <code>.spc</code> file's log block be read?</p></dd>
+
+
 <dt>log.bin, log.disk</dt>
 <dd><p>Should the normal and on-disk binary parts of the
 <code>.spc</code> file's log block be read?  If so, they will be put as raw vectors
 into the hyperSpec object's log.</p></dd>
+
+
 <dt>hdr</dt>
 <dd><p>A list with fileheader fields that overwrite the settings of
 actual file's header.</p>
 <p>Use with care, and look into the source code for detailed insight on the
 elements of this list.</p></dd>
+
+
 <dt>no.object</dt>
 <dd><p>If <code>TRUE</code>, a list with wavelengths, spectra, labels,
 log and data are returned instead of a hyperSpec object.</p>
 <p>This parameter will likely be subject to change in future - use with care.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>If the file contains multiple spectra with individual wavelength
+    
+
+<p>If the file contains multiple spectra with individual wavelength
 axes, <code>read.spc</code> returns a list of hyperSpec objects.  Otherwise the
-result is a hyperSpec object.
-<code>read.spc.KaiserMap</code> returns a hyperSpec object with data columns x,
+result is a hyperSpec object.</p>
+
+
+<p><code>read.spc.KaiserMap</code> returns a hyperSpec object with data columns x,
 y, and z containing the stage position as recorded in the <code>.spc</code> files'
 log.</p>
     </div>
@@ -173,22 +188,22 @@ files.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="co">## get the sample .spc files from ftirsearch.com (see above)</span></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="co"># single spectrum</span></span>
-<span class="r-in"><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu">read.spc</span><span class="op">(</span><span class="st">"BENZENE.SPC"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># multi-spectra .spc file with common wavelength axis</span></span>
-<span class="r-in"><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu">read.spc</span><span class="op">(</span><span class="st">"IG_MULTI.SPC"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">spc</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># multi-spectra .spc file with individual wavelength axes</span></span>
-<span class="r-in"><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu">read.spc</span><span class="op">(</span><span class="st">"BARBITUATES.SPC"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">spc</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, lines.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## get the sample .spc files from ftirsearch.com (see above)</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># single spectrum</span></span></span>
+<span class="r-in"><span><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu">read.spc</span><span class="op">(</span><span class="st">"BENZENE.SPC"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># multi-spectra .spc file with common wavelength axis</span></span></span>
+<span class="r-in"><span><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu">read.spc</span><span class="op">(</span><span class="st">"IG_MULTI.SPC"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">spc</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># multi-spectra .spc file with individual wavelength axes</span></span></span>
+<span class="r-in"><span><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu">read.spc</span><span class="op">(</span><span class="st">"BARBITUATES.SPC"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">spc</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, lines.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -203,7 +218,7 @@ files.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

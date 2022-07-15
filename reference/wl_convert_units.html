@@ -93,13 +93,13 @@ nm, \(cm^{-1}\), eV, THz and Raman shift."><!-- mathjax --><script src="https://
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">wl_convert_units</span><span class="op">(</span><span class="va">x</span>, <span class="va">from</span>, <span class="va">to</span>, ref_wl <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
-
-<span class="co"># S3 method for default</span>
-<span class="fu">wl_convert_units</span><span class="op">(</span><span class="va">x</span>, <span class="va">from</span>, <span class="va">to</span>, ref_wl <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
-
-<span class="co"># S3 method for hyperSpec</span>
-<span class="fu">wl_convert_units</span><span class="op">(</span><span class="va">x</span>, <span class="va">from</span>, <span class="va">to</span>, ref_wl <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">wl_convert_units</span><span class="op">(</span><span class="va">x</span>, <span class="va">from</span>, <span class="va">to</span>, ref_wl <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for default</span></span>
+<span><span class="fu">wl_convert_units</span><span class="op">(</span><span class="va">x</span>, <span class="va">from</span>, <span class="va">to</span>, ref_wl <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for hyperSpec</span></span>
+<span><span class="fu">wl_convert_units</span><span class="op">(</span><span class="va">x</span>, <span class="va">from</span>, <span class="va">to</span>, ref_wl <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -107,18 +107,27 @@ nm, \(cm^{-1}\), eV, THz and Raman shift."><!-- mathjax --><script src="https://
     <dl><dt>x</dt>
 <dd><p>Data to be converted.
 Either a <code>hyperSpec</code> object or a numeric or integer vector.</p></dd>
+
+
 <dt>from</dt>
 <dd><p>(character): Source units. E.g. "nm", "1/cm", "eV", "tHz",
 "Raman shift".</p></dd>
+
+
 <dt>to</dt>
 <dd><p>(character): Destination units.</p></dd>
+
+
 <dt>ref_wl</dt>
 <dd><p>(numeric): Laser/Reference wavelength
 (required for work with Raman shift).</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Object of the same class as input <code>x</code>.</p>
+    
+
+<p>Object of the same class as input <code>x</code>.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -132,9 +141,9 @@ Either a <code>hyperSpec</code> object or a numeric or integer vector.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">wl_convert_units</span><span class="op">(</span><span class="fl">3200</span>, <span class="st">"Raman shift"</span>, <span class="st">"nm"</span>, ref_wl <span class="op">=</span> <span class="fl">785.04</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">wl_convert_units</span><span class="op">(</span><span class="fl">3200</span>, <span class="st">"Raman shift"</span>, <span class="st">"nm"</span>, ref_wl <span class="op">=</span> <span class="fl">785.04</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1048.415</span>
-<span class="r-in"><span class="fu">wl_convert_units</span><span class="op">(</span><span class="fl">785</span>, <span class="st">"nm"</span>, <span class="st">"invcm"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">wl_convert_units</span><span class="op">(</span><span class="fl">785</span>, <span class="st">"nm"</span>, <span class="st">"invcm"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 12738.85</span>
 </code></pre></div>
     </div>
@@ -150,7 +159,7 @@ Either a <code>hyperSpec</code> object or a numeric or integer vector.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

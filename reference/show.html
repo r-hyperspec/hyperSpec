@@ -93,33 +93,37 @@ and show a basic summary of a <code>hyperSpec</code> object.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S4 method for hyperSpec</span>
-<span class="fu">show</span><span class="op">(</span><span class="va">object</span><span class="op">)</span>
-
-<span class="co"># S4 method for hyperSpec</span>
-<span class="fu">print</span><span class="op">(</span><span class="va">x</span>, range <span class="op">=</span> <span class="cn">FALSE</span>, include <span class="op">=</span> <span class="st">"main"</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for hyperSpec</span>
-<span class="fu">summary</span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span>, include <span class="op">=</span> <span class="st">"all"</span>, range <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-
-<span class="co"># S4 method for hyperSpec</span>
-<span class="fu">as.character</span><span class="op">(</span>
-  <span class="va">x</span>,
-  digits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/R.matlab/man/Non-documented_objects.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"digits"</span><span class="op">)</span>,
-  range <span class="op">=</span> <span class="cn">FALSE</span>,
-  max.print <span class="op">=</span> <span class="fl">5</span>,
-  shorten.to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,
-  include <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"all"</span>, <span class="st">"main"</span>, <span class="st">"wl"</span>, <span class="st">"data"</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu">show</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu">print</span><span class="op">(</span><span class="va">x</span>, range <span class="op">=</span> <span class="cn">FALSE</span>, include <span class="op">=</span> <span class="st">"main"</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu">summary</span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span>, include <span class="op">=</span> <span class="st">"all"</span>, range <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu">as.character</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  digits <span class="op">=</span> <span class="fu"><a href="https://henrikbengtsson.github.io/R.utils/reference/Non-documented_objects.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"digits"</span><span class="op">)</span>,</span>
+<span>  range <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  max.print <span class="op">=</span> <span class="fl">5</span>,</span>
+<span>  shorten.to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>  include <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"all"</span>, <span class="st">"main"</span>, <span class="st">"wl"</span>, <span class="st">"data"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object, x</dt>
 <dd><p>A <code>hyperSpec</code> object.</p></dd>
+
+
 <dt>range</dt>
 <dd><p>Should the values be indicated as a range (from the smallest to
 the largest value) rather than as first and last elements?</p></dd>
+
+
 <dt>include</dt>
 <dd><p>Character vector that contains at least one (but usually
 several) of <code>"all"</code>, <code>"main"</code>,<code>"wl"</code>, or <code>"data"</code>:</p><ul><li><p><code>"all"</code>: the same as <code>c("main", "wl", "data")</code>.</p></li>
@@ -128,21 +132,32 @@ rows an columns in <code>@data</code> field of <code>hyperSpec</code> object.</p
 <li><p><code>"wl"</code>: the output includes the summary of <code>@wavelength</code> field.</p></li>
 <li><p><code>"data</code>: the output includes the summary of each column in <code>@data</code> field.</p></li>
 </ul></dd>
+
+
 <dt>...</dt>
 <dd><p><code>print()</code> and <code>summary()</code> hand further arguments to
 <code>as.character()</code>.</p></dd>
+
+
 <dt>digits</dt>
 <dd><p>Number of digits handed over to <code>format</code>.</p></dd>
+
+
 <dt>max.print</dt>
 <dd><p>Maximum number of elements to be printed (of a variable).</p></dd>
+
+
 <dt>shorten.to</dt>
 <dd><p>If a vector is longer than <code>max.print</code>, only the
 first <code>shorten.to[1]</code> and the last <code>shorten.to[2]</code> elements are
 printed.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>After printing:</p><ul><li><p><code>show()</code> invisibly returns <code>NULL</code>,</p></li>
+    
+
+<p>After printing:</p><ul><li><p><code>show()</code> invisibly returns <code>NULL</code>,</p></li>
 <li><p><code>print()</code> and <code>summary()</code> invisibly returns <code>x</code>.</p></li>
 </ul><p>Function <code>as.character()</code> returns a character vector with summary of
 <code>hyperSpec</code>.</p>
@@ -167,60 +182,60 @@ the smallest and the largest values.</p></li>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># show()</span></span>
-<span class="r-in"><span class="va">faux_cell</span> <span class="co"># Implicitly prints the object. The same as show(faux_cell)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># show()</span></span></span>
+<span class="r-in"><span><span class="va">faux_cell</span> <span class="co"># Implicitly prints the object. The same as show(faux_cell)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    875 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    300 data points / spectrum</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">show</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">show</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    875 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    300 data points / spectrum</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># print()</span></span>
-<span class="r-in"><span class="fu">print</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># print()</span></span></span>
+<span class="r-in"><span><span class="fu">print</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    875 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    300 data points / spectrum</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">print</span><span class="op">(</span><span class="va">faux_cell</span>, include <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">print</span><span class="op">(</span><span class="va">faux_cell</span>, include <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data:  (875 rows x 4 columns)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1. x: x position [numeric] -11.55 -10.55 ... 22.45 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    2. y: y position [numeric] -4.77 -4.77 ... 19.23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3. region:  [factor] matrix matrix ... matrix </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] 82 183 ... 177 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">print</span><span class="op">(</span><span class="va">faux_cell</span>, range <span class="op">=</span> <span class="cn">TRUE</span>, include <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] 111 79 ... 45 </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">print</span><span class="op">(</span><span class="va">faux_cell</span>, range <span class="op">=</span> <span class="cn">TRUE</span>, include <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data:  (875 rows x 4 columns)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1. x: x position [numeric] range  -11.55 -10.55 ... 22.45 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    2. y: y position [numeric] range  -4.77 -3.77 ... 19.23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3. region:  [factor] range  cell    matrix  nucleus </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] range  0 1 ... 456 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># The difference between range = TRUE and FALSE</span></span>
-<span class="r-in"><span class="co"># is evident only when data is not sorted.</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">faux_cell_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">print</span><span class="op">(</span><span class="va">faux_cell_2</span>, include <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] range  0 1 ... 461 </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># The difference between range = TRUE and FALSE</span></span></span>
+<span class="r-in"><span><span class="co"># is evident only when data is not sorted.</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">faux_cell_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="sample.html">sample</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">print</span><span class="op">(</span><span class="va">faux_cell_2</span>, include <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data:  (875 rows x 4 columns)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1. x: x position [numeric] 18.45 1.45 ... -8.55 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    2. y: y position [numeric] 18.23 14.23 ... 2.23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3. region:  [factor] matrix matrix ... matrix </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] 104 198 ... 168 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">print</span><span class="op">(</span><span class="va">faux_cell_2</span>, range <span class="op">=</span> <span class="cn">TRUE</span>, include <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] 160 203 ... 18 </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">print</span><span class="op">(</span><span class="va">faux_cell_2</span>, range <span class="op">=</span> <span class="cn">TRUE</span>, include <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data:  (875 rows x 4 columns)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1. x: x position [numeric] range  -11.55 -10.55 ... 22.45 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    2. y: y position [numeric] range  -4.77 -3.77 ... 19.23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3. region:  [factor] range  cell    matrix  nucleus </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] range  0 1 ... 456 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># summary()</span></span>
-<span class="r-in"><span class="fu">summary</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] range  0 1 ... 461 </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># summary()</span></span></span>
+<span class="r-in"><span><span class="fu">summary</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    875 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4 data columns</span>
@@ -230,35 +245,35 @@ the smallest and the largest values.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1. x: x position [numeric] range  -11.55 -10.55 ... 22.45 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    2. y: y position [numeric] range  -4.77 -3.77 ... 19.23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3. region:  [factor] range  cell    matrix  nucleus </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] range  0 1 ... 456 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">summary</span><span class="op">(</span><span class="va">faux_cell</span>, include <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"wl"</span>, <span class="st">"data"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] range  0 1 ... 461 </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">summary</span><span class="op">(</span><span class="va">faux_cell</span>, include <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"wl"</span>, <span class="st">"data"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> wavelength: Delta * tilde(nu)/cm^-1 [numeric] 602 606 ... 1798 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data:  (875 rows x 4 columns)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1. x: x position [numeric] range  -11.55 -10.55 ... 22.45 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    2. y: y position [numeric] range  -4.77 -3.77 ... 19.23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3. region:  [factor] range  cell    matrix  nucleus </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] range  0 1 ... 456 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">as.character</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "hyperSpec object"                                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [2] "   875 spectra"                                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "   4 data columns"                                                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "   300 data points / spectrum"                                            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "wavelength: Delta * tilde(nu)/cm^-1 [numeric] 602 606 ... 1798 "          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "data:  (875 rows x 4 columns)"                                            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "   1. x: x position [numeric] -11.55 -10.55 ... 22.45 "                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] "   2. y: y position [numeric] -4.77 -4.77 ... 19.23 "                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "   3. region:  [factor] matrix matrix ... matrix "                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "   4. spc: intensity (arbitrary units) [matrix, array300] 82 183 ... 177 "</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">as.character</span><span class="op">(</span><span class="va">faux_cell</span>, include <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"wl"</span>, <span class="st">"data"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "wavelength: Delta * tilde(nu)/cm^-1 [numeric] 602 606 ... 1798 "          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2] "data:  (875 rows x 4 columns)"                                            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3] "   1. x: x position [numeric] -11.55 -10.55 ... 22.45 "                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4] "   2. y: y position [numeric] -4.77 -4.77 ... 19.23 "                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [5] "   3. region:  [factor] matrix matrix ... matrix "                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [6] "   4. spc: intensity (arbitrary units) [matrix, array300] 82 183 ... 177 "</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4. spc: intensity (arbitrary units) [matrix, array300] range  0 1 ... 461 </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">as.character</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "hyperSpec object"                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2] "   875 spectra"                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "   4 data columns"                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "   300 data points / spectrum"                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "wavelength: Delta * tilde(nu)/cm^-1 [numeric] 602 606 ... 1798 "         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "data:  (875 rows x 4 columns)"                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "   1. x: x position [numeric] -11.55 -10.55 ... 22.45 "                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] "   2. y: y position [numeric] -4.77 -4.77 ... 19.23 "                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "   3. region:  [factor] matrix matrix ... matrix "                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "   4. spc: intensity (arbitrary units) [matrix, array300] 111 79 ... 45 "</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">as.character</span><span class="op">(</span><span class="va">faux_cell</span>, include <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"wl"</span>, <span class="st">"data"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "wavelength: Delta * tilde(nu)/cm^-1 [numeric] 602 606 ... 1798 "         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2] "data:  (875 rows x 4 columns)"                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3] "   1. x: x position [numeric] -11.55 -10.55 ... 22.45 "                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4] "   2. y: y position [numeric] -4.77 -4.77 ... 19.23 "                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5] "   3. region:  [factor] matrix matrix ... matrix "                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [6] "   4. spc: intensity (arbitrary units) [matrix, array300] 111 79 ... 45 "</span>
 </code></pre></div>
     </div>
   </div>
@@ -273,7 +288,7 @@ the smallest and the largest values.</p></li>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

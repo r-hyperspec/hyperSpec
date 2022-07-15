@@ -95,27 +95,36 @@ spectral resolution can be reduced.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">spc_bin</span><span class="op">(</span><span class="va">spc</span>, by <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"reduction factor needed"</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">spc_bin</span><span class="op">(</span><span class="va">spc</span>, by <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"reduction factor needed"</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>spc</dt>
 <dd><p>The <code>hyperSpec</code> object.</p></dd>
+
+
 <dt>by</dt>
 <dd><p>Reduction factor.</p></dd>
+
+
 <dt>na.rm</dt>
 <dd><p>decides about the treatment of <code>NA</code>s:</p><ul><li><p>if <code>FALSE</code> or <code>0</code>, the binning is done using <code>na.rm = FALSE</code>,</p></li>
 <li><p>if <code>TRUE</code> or <code>1</code>, the binning is done using <code>na.rm = TRUE</code>,</p></li>
 <li><p>if <code>2</code>, the binning is done using <code>na.rm = FALSE</code>, and resulting <code>NA</code>s are
 corrected with <code>mean(..., na.rm = TRUE)</code>. See section "Details".</p></li>
 </ul></dd>
+
+
 <dt>...</dt>
 <dd><p>Ignored.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A <code><a href="hyperSpec-class.html">hyperSpec</a></code> object with
+    
+
+<p>A <code><a href="hyperSpec-class.html">hyperSpec</a></code> object with
 <code>ceiling(nwl(spc)/by)</code> data points per spectrum.</p>
     </div>
     <div id="details">
@@ -132,16 +141,16 @@ faster than <code>na.rm = TRUE</code>.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu">spc_bin</span><span class="op">(</span><span class="va">flu</span>, <span class="fl">5</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu">spc_bin</span><span class="op">(</span><span class="va">flu</span>, <span class="fl">5</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Last data point averages only 1 point.</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">flu</span><span class="op">[</span><span class="fl">1</span>, , <span class="fl">425</span><span class="op">:</span><span class="fl">475</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">spc</span><span class="op">[</span><span class="fl">1</span>, , <span class="fl">425</span><span class="op">:</span><span class="fl">475</span><span class="op">]</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">flu</span><span class="op">[</span><span class="fl">1</span>, , <span class="fl">425</span><span class="op">:</span><span class="fl">475</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">spc</span><span class="op">[</span><span class="fl">1</span>, , <span class="fl">425</span><span class="op">:</span><span class="fl">475</span><span class="op">]</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="spc-bin-1.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="dim.html">nwl</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="dim.html">nwl</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 181</span>
-<span class="r-in"><span class="fu"><a href="dim.html">nwl</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="dim.html">nwl</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 37</span>
 </code></pre></div>
     </div>
@@ -157,7 +166,7 @@ faster than <code>na.rm = TRUE</code>.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

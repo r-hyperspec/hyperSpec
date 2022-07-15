@@ -95,48 +95,67 @@ into new <code>hyperSpec</code> objects.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">decomposition</span><span class="op">(</span>
-  <span class="va">object</span>,
-  <span class="va">x</span>,
-  wavelength <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>,
-  <span class="va">label.wavelength</span>,
-  <span class="va">label.spc</span>,
-  scores <span class="op">=</span> <span class="cn">TRUE</span>,
-  retain.columns <span class="op">=</span> <span class="cn">FALSE</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">decomposition</span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  <span class="va">x</span>,</span>
+<span>  wavelength <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  <span class="va">label.wavelength</span>,</span>
+<span>  <span class="va">label.spc</span>,</span>
+<span>  scores <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  retain.columns <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>A <code>hyperSpec</code> object.</p></dd>
+
+
 <dt>x</dt>
 <dd><p>matrix with the new content for <code>object@data$spc</code>.</p>
 <p>Its size must correspond to rows (for <code>scores</code>) and to either columns
 or rows (for <code>loadings</code>) of <code>object</code>.</p></dd>
+
+
 <dt>wavelength</dt>
 <dd><p>for a scores-like <code>x</code>: the new <code>object@wavelength</code>.</p></dd>
+
+
 <dt>label.wavelength</dt>
 <dd><p>The new label for the wavelength axis (if <code>x</code>
 is scores-like). If not given, the label of <code>object</code> is kept.</p></dd>
+
+
 <dt>label.spc</dt>
 <dd><p>The new label for the spectra matrix. If not given, the
 label of <code>object</code> is kept.</p></dd>
+
+
 <dt>scores</dt>
 <dd><p>is <code>x</code> a scores-like matrix?</p></dd>
+
+
 <dt>retain.columns</dt>
 <dd><p>for loading-like decompostition (i.e. <code>x</code> holds
 loadings, pure component spectra or the like), the data columns need
 special attention.</p>
 <p>Columns with different values across the rows will be set to <code>NA</code> if
 <code>retain.columns</code> is <code>TRUE</code>, otherwise they will be deleted.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>ignored.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A <code>hyperSpec</code> object, updated according to <code>x</code></p>
+    
+
+<p>A <code>hyperSpec</code> object, updated according to <code>x</code></p>
+
+
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -179,17 +198,17 @@ Squares Regression.</p></div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">pca</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/prcomp.html" class="external-link">prcomp</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">pca.loadings</span> <span class="op">&lt;-</span> <span class="fu">decomposition</span><span class="op">(</span><span class="va">flu</span>, <span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span><span class="va">pca</span><span class="op">$</span><span class="va">rotation</span><span class="op">)</span>, scores <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">pca.center</span> <span class="op">&lt;-</span> <span class="fu">decomposition</span><span class="op">(</span><span class="va">flu</span>, <span class="va">pca</span><span class="op">$</span><span class="va">center</span>, scores <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">pca.scores</span> <span class="op">&lt;-</span> <span class="fu">decomposition</span><span class="op">(</span><span class="va">flu</span>, <span class="va">pca</span><span class="op">$</span><span class="va">x</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">pca.center</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">pca</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/prcomp.html" class="external-link">prcomp</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">pca.loadings</span> <span class="op">&lt;-</span> <span class="fu">decomposition</span><span class="op">(</span><span class="va">flu</span>, <span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span><span class="va">pca</span><span class="op">$</span><span class="va">rotation</span><span class="op">)</span>, scores <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pca.center</span> <span class="op">&lt;-</span> <span class="fu">decomposition</span><span class="op">(</span><span class="va">flu</span>, <span class="va">pca</span><span class="op">$</span><span class="va">center</span>, scores <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pca.scores</span> <span class="op">&lt;-</span> <span class="fu">decomposition</span><span class="op">(</span><span class="va">flu</span>, <span class="va">pca</span><span class="op">$</span><span class="va">x</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">pca.center</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="decomposition-1.png" alt="" width="466" height="288"></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">pca.loadings</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"gray50"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">pca.loadings</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"gray50"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="decomposition-2.png" alt="" width="466" height="288"></span>
-<span class="r-in"><span class="fu"><a href="plotc.html">plotc</a></span><span class="op">(</span><span class="va">pca.scores</span>, groups <span class="op">=</span> <span class="va">.wavelength</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="plotc.html">plotc</a></span><span class="op">(</span><span class="va">pca.scores</span>, groups <span class="op">=</span> <span class="va">.wavelength</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="decomposition-3.png" alt="" width="466" height="288"></span>
 </code></pre></div>
     </div>
@@ -205,7 +224,7 @@ Squares Regression.</p></div>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

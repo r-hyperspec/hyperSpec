@@ -93,16 +93,16 @@ objects.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">as.hyperSpec</span><span class="op">(</span><span class="va">X</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for matrix</span>
-<span class="fu">as.hyperSpec</span><span class="op">(</span><span class="va">X</span>, wl <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for data.frame</span>
-<span class="fu">as.hyperSpec</span><span class="op">(</span><span class="va">X</span>, spc <span class="op">=</span> <span class="cn">NULL</span>, wl <span class="op">=</span> <span class="cn">NULL</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">X</span>, <span class="st">"labels"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for hyperSpec</span>
-<span class="fu">as.hyperSpec</span><span class="op">(</span><span class="va">X</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">as.hyperSpec</span><span class="op">(</span><span class="va">X</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for matrix</span></span>
+<span><span class="fu">as.hyperSpec</span><span class="op">(</span><span class="va">X</span>, wl <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for data.frame</span></span>
+<span><span class="fu">as.hyperSpec</span><span class="op">(</span><span class="va">X</span>, spc <span class="op">=</span> <span class="cn">NULL</span>, wl <span class="op">=</span> <span class="cn">NULL</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">X</span>, <span class="st">"labels"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu">as.hyperSpec</span><span class="op">(</span><span class="va">X</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -111,19 +111,30 @@ objects.</p>
 <dd><p>the object to convert. If <code>X</code> is:</p><ul><li><p>a <code>matrix</code>, it is assumed to contain the spectra matrix,</p></li>
 <li><p>a <code>data.frame</code>, it is assumed to contain extra data.</p></li>
 </ul></dd>
+
+
 <dt>...</dt>
 <dd><p>additional parameters that should be handed over to
 <code>new("hyperSpec")</code> (initialize).</p></dd>
+
+
 <dt>wl</dt>
 <dd><p>wavelength vector. Defaults to guessing from the column names in <code>X</code>.</p></dd>
+
+
 <dt>spc</dt>
 <dd><p>spectra matrix.</p></dd>
+
+
 <dt>labels</dt>
 <dd><p>list with labels.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>hyperSpec object</p>
+    
+
+<p>hyperSpec object</p>
     </div>
     <div id="note">
     <h2>Note</h2>
@@ -139,11 +150,11 @@ object with 0 wavelengths. To get the old behaviour, use
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">flu</span><span class="op">[[</span>, , <span class="fl">400</span> <span class="op">~</span> <span class="fl">410</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">(</span><span class="va">wl</span> <span class="op">&lt;-</span> <span class="fu"><a href="dimnames.html">colnames</a></span><span class="op">(</span><span class="va">tmp</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">flu</span><span class="op">[[</span>, , <span class="fl">400</span> <span class="op">~</span> <span class="fl">410</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">(</span><span class="va">wl</span> <span class="op">&lt;-</span> <span class="fu"><a href="dimnames.html">colnames</a></span><span class="op">(</span><span class="va">tmp</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "X405"   "X405.5" "X406"   "X406.5" "X407"   "X407.5" "X408"   "X408.5"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "X409"   "X409.5" "X410"  </span>
-<span class="r-in"><span class="fu"><a href="extract_numbers.html">extract_numbers</a></span><span class="op">(</span><span class="va">wl</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="extract_numbers.html">extract_numbers</a></span><span class="op">(</span><span class="va">wl</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 405.0 405.5 406.0 406.5 407.0 407.5 408.0 408.5 409.0 409.5 410.0</span>
 </code></pre></div>
     </div>
@@ -159,7 +170,7 @@ object with 0 wavelengths. To get the old behaviour, use
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

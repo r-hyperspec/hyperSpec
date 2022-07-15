@@ -91,35 +91,50 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S4 method for hyperSpec</span>
-<span class="fu"><a href="https://rdrr.io/r/base/labels.html" class="external-link">labels</a></span><span class="op">(</span><span class="va">object</span>, which <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/bquote.html" class="external-link">bquote</a></span><span class="op">(</span><span class="op">)</span>, drop <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span>, use.colnames <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/labels.html" class="external-link">labels</a></span><span class="op">(</span><span class="va">object</span>, which <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">value</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/labels.html" class="external-link">labels</a></span><span class="op">(</span><span class="va">object</span>, which <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/bquote.html" class="external-link">bquote</a></span><span class="op">(</span><span class="op">)</span>, drop <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span>, use.colnames <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/labels.html" class="external-link">labels</a></span><span class="op">(</span><span class="va">object</span>, which <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">value</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>a <code>hyperSpec</code> object</p></dd>
+
+
 <dt>which</dt>
 <dd><p>numeric or character to specify the label(s)</p></dd>
+
+
 <dt>drop</dt>
 <dd><p>if the result would be a list with only one element, should the
 element be returned instead?</p></dd>
+
+
 <dt>...</dt>
 <dd><p>ignored</p></dd>
+
+
 <dt>use.colnames</dt>
 <dd><p>should missing labels be replaced by column names of
 the extra data?</p></dd>
+
+
 <dt>value</dt>
 <dd><p>the new label(s)</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>labels</code> returns a list of labels.  If <code>drop</code> is
+    
+
+<p><code>labels</code> returns a list of labels.  If <code>drop</code> is
 <code>TRUE</code> and the list contains only one element, the element is
-returned instead.
-<code>labels&lt;-</code> returns a <code>hyperSpec</code> object.</p>
+returned instead.</p>
+
+
+<p><code>labels&lt;-</code> returns a <code>hyperSpec</code> object.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -143,8 +158,8 @@ each of the entries specified by <code>which</code>.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/labels.html" class="external-link">labels</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/labels.html" class="external-link">labels</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $x</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> expression("x position")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -160,8 +175,8 @@ each of the entries specified by <code>which</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $.wavelength</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> expression(Delta * tilde(nu)/cm^-1)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/labels.html" class="external-link">labels</a></span><span class="op">(</span><span class="va">flu</span>, <span class="st">"c"</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="st">"/"</span><span class="op">(</span><span class="st">"c"</span>, <span class="st">"mg / l"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/labels.html" class="external-link">labels</a></span><span class="op">(</span><span class="va">flu</span>, <span class="st">"c"</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="st">"/"</span><span class="op">(</span><span class="st">"c"</span>, <span class="st">"mg / l"</span><span class="op">)</span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -176,7 +191,7 @@ each of the entries specified by <code>which</code>.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

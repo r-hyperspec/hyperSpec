@@ -91,20 +91,25 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S4 method for hyperSpec</span>
-<span class="fu"><a href="https://rdrr.io/r/base/droplevels.html" class="external-link">droplevels</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/droplevels.html" class="external-link">droplevels</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>hyperSpec object</p></dd>
+
+
 <dt>...</dt>
 <dd><p>handed to <code><a href="https://rdrr.io/r/base/droplevels.html" class="external-link">base::droplevels.data.frame()</a></code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>hyperSpec object with unused levels of all factors in <code>@data</code> dropped.</p>
+    
+
+<p>hyperSpec object with unused levels of all factors in <code>@data</code> dropped.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -113,10 +118,10 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">region</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">region</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] matrix matrix matrix</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Levels: cell matrix nucleus</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/droplevels.html" class="external-link">droplevels</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span><span class="op">$</span><span class="va">region</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/droplevels.html" class="external-link">droplevels</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span><span class="op">$</span><span class="va">region</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] matrix matrix matrix</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Levels: matrix</span>
 </code></pre></div>
@@ -133,7 +138,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

@@ -93,25 +93,30 @@ matrices, or merges additional extra data into a <code>hyperSpec</code> object.<
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S4 method for hyperSpec,hyperSpec</span>
-<span class="fu">merge</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for hyperSpec,data.frame</span>
-<span class="fu">merge</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for data.frame,hyperSpec</span>
-<span class="fu">merge</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S4 method for hyperSpec,hyperSpec</span></span>
+<span><span class="fu">merge</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for hyperSpec,data.frame</span></span>
+<span><span class="fu">merge</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for data.frame,hyperSpec</span></span>
+<span><span class="fu">merge</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>a <code>hyperSpec</code> object or <code>data.frame</code></p></dd>
+
+
 <dt>y</dt>
 <dd><p>a <code>hyperSpec</code> object or <code>data.frame</code>
 (including derived classes like <code>tibble</code>)</p></dd>
+
+
 <dt>...</dt>
 <dd><p>handed to <code><a href="https://rdrr.io/r/base/merge.html" class="external-link">base::merge.data.frame()</a></code></p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -135,8 +140,8 @@ of the class of the first (<code>x</code>) object.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="fu">merge</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, , <span class="fl">600</span><span class="op">]</span>, <span class="va">faux_cell</span><span class="op">[</span><span class="fl">5</span><span class="op">:</span><span class="fl">15</span>, , <span class="fl">600</span><span class="op">]</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">.</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">merge</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, , <span class="fl">600</span><span class="op">]</span>, <span class="va">faux_cell</span><span class="op">[</span><span class="fl">5</span><span class="op">:</span><span class="fl">15</span>, , <span class="fl">600</span><span class="op">]</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">.</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       x     y region.x .nx region.y .ny spc.1 spc.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 -2.55 -4.77   matrix  10   matrix   6    NA    NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 -3.55 -4.77   matrix   9   matrix   5    NA    NA</span>
@@ -144,89 +149,89 @@ of the class of the first (<code>x</code>) object.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4 -5.55 -4.77   matrix   7   matrix   3    NA    NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5 -6.55 -4.77   matrix   6   matrix   2    NA    NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6 -7.55 -4.77   matrix   5   matrix   1    NA    NA</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">merge</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, , <span class="fl">610</span><span class="op">]</span>, <span class="va">faux_cell</span><span class="op">[</span><span class="fl">5</span><span class="op">:</span><span class="fl">15</span>, , <span class="fl">610</span><span class="op">]</span>,</span>
-<span class="r-in">  by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span>, all <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="va">tmp</span><span class="op">$</span><span class="va">.</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">merge</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, , <span class="fl">610</span><span class="op">]</span>, <span class="va">faux_cell</span><span class="op">[</span><span class="fl">5</span><span class="op">:</span><span class="fl">15</span>, , <span class="fl">610</span><span class="op">]</span>,</span></span>
+<span class="r-in"><span>  by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span>, all <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">tmp</span><span class="op">$</span><span class="va">.</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         x     y region.x .nx region.y .ny spc.1 spc.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  -11.55 -4.77   matrix   1     &lt;NA&gt;  NA   106    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  -10.55 -4.77   matrix   2     &lt;NA&gt;  NA   162    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   -9.55 -4.77   matrix   3     &lt;NA&gt;  NA    30    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   -8.55 -4.77   matrix   4     &lt;NA&gt;  NA    82    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   -7.55 -4.77   matrix   5   matrix   1    77    77</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   -6.55 -4.77   matrix   6   matrix   2   149   149</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   -5.55 -4.77   matrix   7   matrix   3    91    91</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   -4.55 -4.77   matrix   8   matrix   4    53    53</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   -3.55 -4.77   matrix   9   matrix   5   116   116</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  -2.55 -4.77   matrix  10   matrix   6   173   173</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  -1.55 -4.77     &lt;NA&gt;  NA   matrix   7    NA    61</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  -0.55 -4.77     &lt;NA&gt;  NA   matrix   8    NA   158</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13   0.45 -4.77     &lt;NA&gt;  NA   matrix   9    NA   162</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14   1.45 -4.77     &lt;NA&gt;  NA   matrix  10    NA    14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15   2.45 -4.77     &lt;NA&gt;  NA   matrix  11    NA     8</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="wl.html">wl</a></span><span class="op">(</span><span class="va">tmp</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  -11.55 -4.77   matrix   1     &lt;NA&gt;  NA   122    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  -10.55 -4.77   matrix   2     &lt;NA&gt;  NA    94    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   -9.55 -4.77   matrix   3     &lt;NA&gt;  NA   150    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   -8.55 -4.77   matrix   4     &lt;NA&gt;  NA    48    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   -7.55 -4.77   matrix   5   matrix   1    75    75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   -6.55 -4.77   matrix   6   matrix   2    98    98</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   -5.55 -4.77   matrix   7   matrix   3    66    66</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   -4.55 -4.77   matrix   8   matrix   4   152   152</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   -3.55 -4.77   matrix   9   matrix   5   182   182</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  -2.55 -4.77   matrix  10   matrix   6    29    29</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11  -1.55 -4.77     &lt;NA&gt;  NA   matrix   7    NA   117</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12  -0.55 -4.77     &lt;NA&gt;  NA   matrix   8    NA   167</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13   0.45 -4.77     &lt;NA&gt;  NA   matrix   9    NA    10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14   1.45 -4.77     &lt;NA&gt;  NA   matrix  10    NA   152</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15   2.45 -4.77     &lt;NA&gt;  NA   matrix  11    NA    76</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="wl.html">wl</a></span><span class="op">(</span><span class="va">tmp</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 610 610</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## remove duplicated wavelengths:</span></span>
-<span class="r-in"><span class="va">approxfun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">y</span>, <span class="va">wl</span>, <span class="va">new.wl</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/stats/approxfun.html" class="external-link">approx</a></span><span class="op">(</span><span class="va">wl</span>, <span class="va">y</span>, <span class="va">new.wl</span>,</span>
-<span class="r-in">    method <span class="op">=</span> <span class="st">"constant"</span>,</span>
-<span class="r-in">    ties <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in">  <span class="op">)</span><span class="op">$</span><span class="va">y</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">merged</span> <span class="op">&lt;-</span> <span class="fu">merge</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">7</span>, , <span class="fl">610</span> <span class="op">~</span> <span class="fl">620</span><span class="op">]</span>, <span class="va">faux_cell</span><span class="op">[</span><span class="fl">5</span><span class="op">:</span><span class="fl">10</span>, , <span class="fl">615</span> <span class="op">~</span> <span class="fl">625</span><span class="op">]</span>, all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">merged</span><span class="op">$</span><span class="va">.</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## remove duplicated wavelengths:</span></span></span>
+<span class="r-in"><span><span class="va">approxfun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">y</span>, <span class="va">wl</span>, <span class="va">new.wl</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/stats/approxfun.html" class="external-link">approx</a></span><span class="op">(</span><span class="va">wl</span>, <span class="va">y</span>, <span class="va">new.wl</span>,</span></span>
+<span class="r-in"><span>    method <span class="op">=</span> <span class="st">"constant"</span>,</span></span>
+<span class="r-in"><span>    ties <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span><span class="op">$</span><span class="va">y</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">merged</span> <span class="op">&lt;-</span> <span class="fu">merge</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">7</span>, , <span class="fl">610</span> <span class="op">~</span> <span class="fl">620</span><span class="op">]</span>, <span class="va">faux_cell</span><span class="op">[</span><span class="fl">5</span><span class="op">:</span><span class="fl">10</span>, , <span class="fl">615</span> <span class="op">~</span> <span class="fl">625</span><span class="op">]</span>, all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">merged</span><span class="op">$</span><span class="va">.</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         x     y region .nx .ny spc.1 spc.2 spc.3 spc.4 spc.5 spc.6 spc.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  -11.55 -4.77 matrix   1  NA   106    90    89    NA    NA    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  -10.55 -4.77 matrix   2  NA   162   195   162    NA    NA    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   -9.55 -4.77 matrix   3  NA    30    29    34    NA    NA    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   -8.55 -4.77 matrix   4  NA    82    83    93    NA    NA    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   -7.55 -4.77 matrix   5   1    77    88    85    88    85    90    81</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   -6.55 -4.77 matrix   6   2   149   146   159   146   159   165   136</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   -5.55 -4.77 matrix   7   3    91    97   108    97   108    95   120</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   -4.55 -4.77 matrix  NA   4    NA    NA    NA    43    40    35    30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   -3.55 -4.77 matrix  NA   5    NA    NA    NA   106   145   125    98</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  -2.55 -4.77 matrix  NA   6    NA    NA    NA   166   170   175   168</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">merged</span> <span class="op">&lt;-</span> <span class="fu"><a href="apply.html">apply</a></span><span class="op">(</span><span class="va">merged</span>, <span class="fl">1</span>, <span class="va">approxfun</span>,</span>
-<span class="r-in">  wl <span class="op">=</span> <span class="fu"><a href="wl.html">wl</a></span><span class="op">(</span><span class="va">merged</span><span class="op">)</span>, new.wl <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="fu"><a href="wl.html">wl</a></span><span class="op">(</span><span class="va">merged</span><span class="op">)</span><span class="op">)</span>,</span>
-<span class="r-in">  new.wavelength <span class="op">=</span> <span class="st">"new.wl"</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="va">merged</span><span class="op">$</span><span class="va">.</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  -11.55 -4.77 matrix   1  NA   122   112    99    NA    NA    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  -10.55 -4.77 matrix   2  NA    94    81    75    NA    NA    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   -9.55 -4.77 matrix   3  NA   150   152   134    NA    NA    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   -8.55 -4.77 matrix   4  NA    48    52    48    NA    NA    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   -7.55 -4.77 matrix   5   1    75    68    69    68    69    64    58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   -6.55 -4.77 matrix   6   2    98   102    95   102    95   102    98</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   -5.55 -4.77 matrix   7   3    66    64    65    64    65    67    65</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   -4.55 -4.77 matrix  NA   4    NA    NA    NA   157   136   145   123</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   -3.55 -4.77 matrix  NA   5    NA    NA    NA   188   189   229   182</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  -2.55 -4.77 matrix  NA   6    NA    NA    NA    22    28    31    23</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">merged</span> <span class="op">&lt;-</span> <span class="fu"><a href="apply.html">apply</a></span><span class="op">(</span><span class="va">merged</span>, <span class="fl">1</span>, <span class="va">approxfun</span>,</span></span>
+<span class="r-in"><span>  wl <span class="op">=</span> <span class="fu"><a href="wl.html">wl</a></span><span class="op">(</span><span class="va">merged</span><span class="op">)</span>, new.wl <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="fu"><a href="wl.html">wl</a></span><span class="op">(</span><span class="va">merged</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  new.wavelength <span class="op">=</span> <span class="st">"new.wl"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">merged</span><span class="op">$</span><span class="va">.</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         x     y region .nx .ny spc.1 spc.2 spc.3 spc.4 spc.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  -11.55 -4.77 matrix   1  NA   106    90    89    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  -10.55 -4.77 matrix   2  NA   162   195   162    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   -9.55 -4.77 matrix   3  NA    30    29    34    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   -8.55 -4.77 matrix   4  NA    82    83    93    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   -7.55 -4.77 matrix   5   1    77    88    85    90    81</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   -6.55 -4.77 matrix   6   2   149   146   159   165   136</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   -5.55 -4.77 matrix   7   3    91    97   108    95   120</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   -4.55 -4.77 matrix  NA   4    NA    43    40    35    30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   -3.55 -4.77 matrix  NA   5    NA   106   145   125    98</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  -2.55 -4.77 matrix  NA   6    NA   166   170   175   168</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## merging data.frame into hyperSpec object =&gt; hyperSpec object</span></span>
-<span class="r-in"><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>filename <span class="op">=</span> <span class="fu"><a href="sample.html">sample</a></span><span class="op">(</span><span class="va">flu</span><span class="op">$</span><span class="va">filename</span>, <span class="fl">4</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, cpred <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">y</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  -11.55 -4.77 matrix   1  NA   122   112    99    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  -10.55 -4.77 matrix   2  NA    94    81    75    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   -9.55 -4.77 matrix   3  NA   150   152   134    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   -8.55 -4.77 matrix   4  NA    48    52    48    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   -7.55 -4.77 matrix   5   1    75    68    69    64    58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   -6.55 -4.77 matrix   6   2    98   102    95   102    98</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   -5.55 -4.77 matrix   7   3    66    64    65    67    65</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   -4.55 -4.77 matrix  NA   4    NA   157   136   145   123</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   -3.55 -4.77 matrix  NA   5    NA   188   189   229   182</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  -2.55 -4.77 matrix  NA   6    NA    22    28    31    23</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## merging data.frame into hyperSpec object =&gt; hyperSpec object</span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>filename <span class="op">=</span> <span class="fu"><a href="sample.html">sample</a></span><span class="op">(</span><span class="va">flu</span><span class="op">$</span><span class="va">filename</span>, <span class="fl">4</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, cpred <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">y</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           filename cpred</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 rawdata/flu2.txt     1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 rawdata/flu3.txt     2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3 rawdata/flu1.txt     3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4 rawdata/flu2.txt     4</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">merge</span><span class="op">(</span><span class="va">flu</span>, <span class="va">y</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">tmp</span><span class="op">$</span><span class="va">..</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">merge</span><span class="op">(</span><span class="va">flu</span>, <span class="va">y</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">tmp</span><span class="op">$</span><span class="va">..</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           filename    c cpred</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 rawdata/flu1.txt 0.05     3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 rawdata/flu2.txt 0.10     1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3 rawdata/flu2.txt 0.10     4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4 rawdata/flu3.txt 0.15     2</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## merging hyperSpec object into data.frame =&gt; data.frame</span></span>
-<span class="r-in"><span class="fu">merge</span><span class="op">(</span><span class="va">y</span>, <span class="va">flu</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## merging hyperSpec object into data.frame =&gt; data.frame</span></span></span>
+<span class="r-in"><span><span class="fu">merge</span><span class="op">(</span><span class="va">y</span>, <span class="va">flu</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           filename cpred   spc.405 spc.405.5   spc.406 spc.406.5   spc.407</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 rawdata/flu1.txt     3  27.15000  32.34467  33.37867  34.41933  36.53133</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 rawdata/flu2.txt     1  66.80133  63.71533  66.71200  69.58233  72.52967</span>
@@ -376,7 +381,7 @@ of the class of the first (<code>x</code>) object.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

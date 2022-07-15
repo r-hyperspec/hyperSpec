@@ -91,28 +91,35 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S4 method for hyperSpec</span>
-<span class="fu">scale</span><span class="op">(</span><span class="va">x</span>, center <span class="op">=</span> <span class="cn">TRUE</span>, scale <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu">scale</span><span class="op">(</span><span class="va">x</span>, center <span class="op">=</span> <span class="cn">TRUE</span>, scale <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>the <code>hyperSpec</code> object</p></dd>
+
+
 <dt>center</dt>
 <dd><p>if <code>TRUE</code>, the data is centered to <code>colMeans(x)</code>, <code>FALSE</code>
 suppresses centering. Alternatively, an object that can be converted to numeric of length
 <code>nwl(x)</code> by <code><a href="https://rdrr.io/r/base/matrix.html" class="external-link">base::as.matrix()</a></code> (e.g. hyperSpec object containing 1 spectrum) can
 specify the center spectrum.</p></dd>
+
+
 <dt>scale</dt>
 <dd><p>if <code>TRUE</code>, the data is scaled to have unit variance at each wavelength,
 <code>FALSE</code> suppresses scaling. Alternatively, an object that can be converted to numeric of
 length <code>nwl(x)</code> by <code><a href="https://rdrr.io/r/base/matrix.html" class="external-link">base::as.matrix()</a></code> (e.g. hyperSpec object containing 1 spectrum)
 can specify the center spectrum.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>the centered &amp; scaled <code>hyperSpec</code> object</p>
+    
+
+<p>the centered &amp; scaled <code>hyperSpec</code> object</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -130,24 +137,24 @@ can specify the center spectrum.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="co">## mean center &amp; variance scale</span></span>
-<span class="r-in"><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">scale</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="st">"spcmeansd"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="sample.html">sample</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="fl">5</span><span class="op">)</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## mean center &amp; variance scale</span></span></span>
+<span class="r-in"><span><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">scale</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="st">"spcmeansd"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="sample.html">sample</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="fl">5</span><span class="op">)</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="scale-1.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## mean center only</span></span>
-<span class="r-in"><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">scale</span><span class="op">(</span><span class="va">faux_cell</span>, scale <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="st">"spcmeansd"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="sample.html">sample</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="fl">5</span><span class="op">)</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## mean center only</span></span></span>
+<span class="r-in"><span><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">scale</span><span class="op">(</span><span class="va">faux_cell</span>, scale <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="st">"spcmeansd"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="sample.html">sample</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="fl">5</span><span class="op">)</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, col <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="scale-2.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## custom center</span></span>
-<span class="r-in"><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu"><a href="sweep.html">sweep</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="fl">1</span>, <span class="va">mean</span>, <span class="va">`/`</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="st">"spcmeansd"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## custom center</span></span></span>
+<span class="r-in"><span><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu"><a href="sweep.html">sweep</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="fl">1</span>, <span class="va">mean</span>, <span class="va">`/`</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="st">"spcmeansd"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="scale-3.png" alt="" width="466" height="288"></span>
-<span class="r-in"><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">scale</span><span class="op">(</span><span class="va">tmp</span>, center <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="fl">.05</span><span class="op">)</span>, scale <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">scale</span><span class="op">(</span><span class="va">tmp</span>, center <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="fl">.05</span><span class="op">)</span>, scale <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -162,7 +169,7 @@ can specify the center spectrum.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

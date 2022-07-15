@@ -85,7 +85,6 @@
     </div>
 
 <div id="contributor-guidelines" class="section level1">
-
 <p><span class="emoji" data-emoji="+1">👍</span><span class="emoji" data-emoji="tada">🎉</span> First off, thanks for taking the time to contribute! <span class="emoji" data-emoji="tada">🎉</span><span class="emoji" data-emoji="+1">👍</span></p>
 <p>The following is a set of guidelines for contributing to the <code>R</code> package <code>hyperSpec</code>.</p>
 <div class="section level2">
@@ -102,8 +101,7 @@
 <div class="section level2">
 <h2 id="color-use-vignettes--perhaps-examples">Color Use (Vignettes &amp; Perhaps Examples)<a class="anchor" aria-label="anchor" href="#color-use-vignettes--perhaps-examples"></a></h2>
 <ul><li>There is a built-in colorblind friendly qualitative palette <code>palette_colorblind</code>; please use whenever possible.</li>
-<li>These next two palettes are also colorblind-friendly:
-<ul><li>For a diverging palette, please use <code>colorspace::diverging_hcl(n, palette = "Blue-Red2")</code>.</li>
+<li>These next two palettes are also colorblind-friendly:<ul><li>For a diverging palette, please use <code>colorspace::diverging_hcl(n, palette = "Blue-Red2")</code>.</li>
 <li>For a sequential palette, please use <code>colorspace::sequential_hcl(n, palette = "viridis")</code>.</li>
 </ul></li>
 </ul></div>
@@ -111,12 +109,9 @@
 <h2 id="code-and-documentation-style-guide">Code and Documentation Style Guide<a class="anchor" aria-label="anchor" href="#code-and-documentation-style-guide"></a></h2>
 <ul><li>This project adheres to the <a href="https://style.tidyverse.org/" class="external-link">Tidyverse styleguide</a>.</li>
 <li>This guide applies both to the code and the <a href="https://style.tidyverse.org/documentation.html" class="external-link"><code>roxygen2</code> documentation</a>.<br></li>
-<li>The documentation is written in markdown
-<ul><li>Whenever touching a function, please take the time to check its documentation. Large parts have been converted automatically from LaTeX, and may still need some manual polishing.</li>
-</ul></li>
+<li>The documentation is written in markdown<ul><li>Whenever touching a function, please take the time to check its documentation. Large parts have been converted automatically from LaTeX, and may still need some manual polishing.</li></ul></li>
 <li>Use package <a href="http://styler.r-lib.org/" class="external-link">styler</a> with RStudio add-in to easily re-style your code to comply with the guidelines.</li>
-<li>When appropriate, prefer this naming scheme for the internal functions – <code>.&lt;generic&gt;_&lt;x&gt;&lt;y&gt;&lt;...&gt;</code> with <code>&lt;x&gt;</code>, <code>&lt;y&gt;</code>, etc. the first, second and later parameter/operand:
-<ul><li>_ … missing</li>
+<li>When appropriate, prefer this naming scheme for the internal functions – <code>.&lt;generic&gt;_&lt;x&gt;&lt;y&gt;&lt;...&gt;</code> with <code>&lt;x&gt;</code>, <code>&lt;y&gt;</code>, etc. the first, second and later parameter/operand:<ul><li>_ … missing</li>
 <li>a … array</li>
 <li>d … data frame</li>
 <li>f … formula</li>
@@ -177,9 +172,7 @@
 <div class="section level3">
 <h3 id="pull-requests">Pull Requests<a class="anchor" aria-label="anchor" href="#pull-requests"></a></h3>
 <p>Open a pull request via GitHub interface to let others see your work and review it. It is a collaborative tool, so we encourage you to open a <a href="https://github.blog/2019-02-14-introducing-draft-pull-requests/" class="external-link">‘draft pull request’</a> as soon as you start working on your part. This provides a place for the community to discuss your work and correct it as you go. Once your part is completed, change the status to “Ready for review”.</p>
-<blockquote>
-<p>The project maintainer may want to merge your pull request when your work is usable, even before it is 100% complete. In such a case, the branch must be deleted and a new one created off the <code>develop</code> branch. You can use the same name for it to indicate that this is a continuation. It will be merged, as usual, via a new pull request. This may seem to be an overhead at first glance, but it leads to a faster integration and makes the the pull requests smaller and less overwhelming.</p>
-</blockquote>
+<blockquote><p>The project maintainer may want to merge your pull request when your work is usable, even before it is 100% complete. In such a case, the branch must be deleted and a new one created off the <code>develop</code> branch. You can use the same name for it to indicate that this is a continuation. It will be merged, as usual, via a new pull request. This may seem to be an overhead at first glance, but it leads to a faster integration and makes the the pull requests smaller and less overwhelming.</p></blockquote>
 <p>The merged support branches <a href="https://ardalis.com/why-delete-old-git-branches" class="external-link">should be deleted - they’re clutter</a>. If you want to keep their name for reference, just apply a <code>git tag</code> after the merge. Never reuse merged branches, <a href="https://stackoverflow.com/a/29319178" class="external-link">it can lead to problems</a>.</p>
 </div>
 <div class="section level3">
@@ -236,7 +229,7 @@ This is important since <strong>pkgdown</strong> uses the <code>.9000</code> to 
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

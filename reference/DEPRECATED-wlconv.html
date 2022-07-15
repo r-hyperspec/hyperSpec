@@ -110,63 +110,74 @@ Please, use the suggested alternative functions instead.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">wlconv</span><span class="op">(</span><span class="va">points</span>, <span class="va">src</span>, <span class="va">dst</span>, laser <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
-
-<span class="fu">nm2raman</span><span class="op">(</span><span class="va">x</span>, <span class="va">laser</span><span class="op">)</span>
-
-<span class="fu">nm2invcm</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">nm2ev</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">nm2freq</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">invcm2raman</span><span class="op">(</span><span class="va">x</span>, <span class="va">laser</span><span class="op">)</span>
-
-<span class="fu">invcm2nm</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">invcm2ev</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">invcm2freq</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">raman2invcm</span><span class="op">(</span><span class="va">x</span>, <span class="va">laser</span><span class="op">)</span>
-
-<span class="fu">raman2nm</span><span class="op">(</span><span class="va">x</span>, <span class="va">laser</span><span class="op">)</span>
-
-<span class="fu">raman2ev</span><span class="op">(</span><span class="va">x</span>, <span class="va">laser</span><span class="op">)</span>
-
-<span class="fu">raman2freq</span><span class="op">(</span><span class="va">x</span>, <span class="va">laser</span><span class="op">)</span>
-
-<span class="fu">ev2raman</span><span class="op">(</span><span class="va">x</span>, <span class="va">laser</span><span class="op">)</span>
-
-<span class="fu">ev2invcm</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">ev2nm</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">ev2freq</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">freq2nm</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">freq2invcm</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">freq2ev</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">freq2raman</span><span class="op">(</span><span class="va">x</span>, <span class="va">laser</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">wlconv</span><span class="op">(</span><span class="va">points</span>, <span class="va">src</span>, <span class="va">dst</span>, laser <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">nm2raman</span><span class="op">(</span><span class="va">x</span>, <span class="va">laser</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">nm2invcm</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">nm2ev</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">nm2freq</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">invcm2raman</span><span class="op">(</span><span class="va">x</span>, <span class="va">laser</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">invcm2nm</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">invcm2ev</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">invcm2freq</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">raman2invcm</span><span class="op">(</span><span class="va">x</span>, <span class="va">laser</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">raman2nm</span><span class="op">(</span><span class="va">x</span>, <span class="va">laser</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">raman2ev</span><span class="op">(</span><span class="va">x</span>, <span class="va">laser</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">raman2freq</span><span class="op">(</span><span class="va">x</span>, <span class="va">laser</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">ev2raman</span><span class="op">(</span><span class="va">x</span>, <span class="va">laser</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">ev2invcm</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">ev2nm</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">ev2freq</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">freq2nm</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">freq2invcm</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">freq2ev</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">freq2raman</span><span class="op">(</span><span class="va">x</span>, <span class="va">laser</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>points</dt>
 <dd><p>data for conversion</p></dd>
+
+
 <dt>src</dt>
 <dd><p>source unit</p></dd>
+
+
 <dt>dst</dt>
 <dd><p>destination unit</p></dd>
+
+
 <dt>laser</dt>
 <dd><p>laser wavelength (required for work with Raman shift)</p></dd>
+
+
 <dt>x</dt>
 <dd><p>wavelength points for conversion</p></dd>
+
+
 <dt>...</dt>
 <dd><p>ignored</p></dd>
+
 </dl></div>
     <div id="functions">
     <h2>Functions</h2>
@@ -199,13 +210,13 @@ Please, use the suggested alternative functions instead.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">wlconv</span><span class="op">(</span><span class="fl">3200</span>, <span class="st">"Raman shift"</span>, <span class="st">"nm"</span>, laser <span class="op">=</span> <span class="fl">785.04</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">wlconv</span><span class="op">(</span><span class="fl">3200</span>, <span class="st">"Raman shift"</span>, <span class="st">"nm"</span>, laser <span class="op">=</span> <span class="fl">785.04</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Function 'wlconv' is deprecated. </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Use function 'wl_convert_units' instead.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Function 'f' is deprecated. </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Use function 'wl_convert_units' instead.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1048.415</span>
-<span class="r-in"><span class="fu">wlconv</span><span class="op">(</span><span class="fl">785</span>, <span class="st">"nm"</span>, <span class="st">"invcm"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">wlconv</span><span class="op">(</span><span class="fl">785</span>, <span class="st">"nm"</span>, <span class="st">"invcm"</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Function 'wlconv' is deprecated. </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Use function 'wl_convert_units' instead.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Function 'f' is deprecated. </span>
@@ -225,7 +236,7 @@ Please, use the suggested alternative functions instead.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

@@ -98,30 +98,35 @@ See section "Details".</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S4 method for hyperSpec</span>
-<span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-
-<span class="co"># S4 method for hyperSpec</span>
-<span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-
-<span class="fu">nwl</span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-
-<span class="co"># S4 method for hyperSpec</span>
-<span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-
-<span class="co"># S4 method for hyperSpec</span>
-<span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">nwl</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>a <code>hyperSpec</code> object</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow()</a></code>, <code><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol()</a></code>, <code>nwl()</code>, and <code><a href="https://rdrr.io/r/base/length.html" class="external-link">length()</a></code> return an <code>integer</code>.
-<code><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim()</a></code> returns a vector of length 3.</p>
+    
+
+<p><code><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow()</a></code>, <code><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol()</a></code>, <code>nwl()</code>, and <code><a href="https://rdrr.io/r/base/length.html" class="external-link">length()</a></code> return an <code>integer</code>.</p>
+
+
+<p><code><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim()</a></code> returns a vector of length 3.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -151,20 +156,20 @@ returns a sequence to index each spectrum.</p></li>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 4</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 875</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">nwl</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">nwl</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 300</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> nrow ncol  nwl </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  875    4  300 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 875</span>
 </code></pre></div>
     </div>
@@ -180,7 +185,7 @@ returns a sequence to index each spectrum.</p></li>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

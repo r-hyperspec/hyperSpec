@@ -95,30 +95,41 @@ of the wavelengths of a <code>hyperSpec</code> object.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">vanderMonde</span><span class="op">(</span><span class="va">x</span>, <span class="va">order</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for hyperSpec</span>
-<span class="fu">vanderMonde</span><span class="op">(</span><span class="va">x</span>, <span class="va">order</span>, <span class="va">...</span>, normalize.wl <span class="op">=</span> <span class="va">normalize01</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">vanderMonde</span><span class="op">(</span><span class="va">x</span>, <span class="va">order</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu">vanderMonde</span><span class="op">(</span><span class="va">x</span>, <span class="va">order</span>, <span class="va">...</span>, normalize.wl <span class="op">=</span> <span class="va">normalize01</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>object to evaluate the polynomial on</p></dd>
+
+
 <dt>order</dt>
 <dd><p>of the polynomial</p></dd>
+
+
 <dt>...</dt>
 <dd><p>hyperSpec method: further arguments to <code><a href="decomposition.html">decomposition()</a></code></p></dd>
+
+
 <dt>normalize.wl</dt>
 <dd><p>function to transform the wavelengths before evaluating
 the polynomial (or other function). <code><a href="normalize01.html">normalize01()</a></code> maps
 the wavelength range to the interval [0, 1]. Use <code><a href="https://rdrr.io/r/base/AsIs.html" class="external-link">base::I()</a></code> to
 turn off.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Vandermonde matrix
-<code>hyperSpec</code> method: hyperSpec object containing Vandermonde matrix
+    
+
+<p>Vandermonde matrix</p>
+
+
+<p><code>hyperSpec</code> method: hyperSpec object containing Vandermonde matrix
 as spectra and an additional column <code>$.vdm.order</code> giving the order
 of each spectrum (term).</p>
     </div>
@@ -139,9 +150,9 @@ example.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu">vanderMonde</span><span class="op">(</span><span class="va">flu</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu">vanderMonde</span><span class="op">(</span><span class="va">flu</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="vanderMonde-1.png" alt="" width="466" height="288"></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu">vanderMonde</span><span class="op">(</span><span class="va">flu</span>, <span class="fl">2</span>, normalize.wl <span class="op">=</span> <span class="va">I</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu">vanderMonde</span><span class="op">(</span><span class="va">flu</span>, <span class="fl">2</span>, normalize.wl <span class="op">=</span> <span class="va">I</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="vanderMonde-2.png" alt="" width="466" height="288"></span>
 </code></pre></div>
     </div>
@@ -157,7 +168,7 @@ example.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

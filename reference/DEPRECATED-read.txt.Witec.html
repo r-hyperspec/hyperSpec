@@ -102,68 +102,91 @@ should be used as the alternatives.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">read.txt.Witec</span><span class="op">(</span>
-  file <span class="op">=</span> <span class="cn">NULL</span>,
-  points.per.line <span class="op">=</span> <span class="cn">NULL</span>,
-  lines.per.image <span class="op">=</span> <span class="cn">NULL</span>,
-  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"single"</span>, <span class="st">"map"</span><span class="op">)</span>,
-  hdr.label <span class="op">=</span> <span class="cn">FALSE</span>,
-  hdr.units <span class="op">=</span> <span class="cn">FALSE</span>,
-  encoding <span class="op">=</span> <span class="st">"unknown"</span>,
-  <span class="va">...</span>,
-  quiet <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span>
-
-<span class="fu">read.dat.Witec</span><span class="op">(</span>
-  filex <span class="op">=</span> <span class="cn">NULL</span>,
-  filey <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">sub</a></span><span class="op">(</span><span class="st">"-x"</span>, <span class="st">"-y"</span>, <span class="va">filex</span><span class="op">)</span>,
-  points.per.line <span class="op">=</span> <span class="cn">NULL</span>,
-  lines.per.image <span class="op">=</span> <span class="cn">NULL</span>,
-  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"single"</span>, <span class="st">"map"</span><span class="op">)</span>,
-  encoding <span class="op">=</span> <span class="st">"unknown"</span>,
-  <span class="va">...</span>,
-  quiet <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"debuglevel"</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">1L</span>
-<span class="op">)</span>
-
-<span class="fu">read.txt.Witec.Graph</span><span class="op">(</span>
-  headerfile <span class="op">=</span> <span class="cn">NULL</span>,
-  filex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"Header"</span>, <span class="st">"X-Axis"</span>, <span class="va">headerfile</span><span class="op">)</span>,
-  filey <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"Header"</span>, <span class="st">"Y-Axis"</span>, <span class="va">headerfile</span><span class="op">)</span>,
-  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"single"</span>, <span class="st">"map"</span><span class="op">)</span>,
-  encoding <span class="op">=</span> <span class="st">"unknown"</span>,
-  <span class="va">...</span>,
-  quiet <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read.txt.Witec</span><span class="op">(</span></span>
+<span>  file <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  points.per.line <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  lines.per.image <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"single"</span>, <span class="st">"map"</span><span class="op">)</span>,</span>
+<span>  hdr.label <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  hdr.units <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  encoding <span class="op">=</span> <span class="st">"unknown"</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read.dat.Witec</span><span class="op">(</span></span>
+<span>  filex <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  filey <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">sub</a></span><span class="op">(</span><span class="st">"-x"</span>, <span class="st">"-y"</span>, <span class="va">filex</span><span class="op">)</span>,</span>
+<span>  points.per.line <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  lines.per.image <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"single"</span>, <span class="st">"map"</span><span class="op">)</span>,</span>
+<span>  encoding <span class="op">=</span> <span class="st">"unknown"</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"debuglevel"</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">1L</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read.txt.Witec.Graph</span><span class="op">(</span></span>
+<span>  headerfile <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  filex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"Header"</span>, <span class="st">"X-Axis"</span>, <span class="va">headerfile</span><span class="op">)</span>,</span>
+<span>  filey <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"Header"</span>, <span class="st">"Y-Axis"</span>, <span class="va">headerfile</span><span class="op">)</span>,</span>
+<span>  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"single"</span>, <span class="st">"map"</span><span class="op">)</span>,</span>
+<span>  encoding <span class="op">=</span> <span class="st">"unknown"</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>file</dt>
 <dd><p>filename or connection to ASCII file</p></dd>
+
+
 <dt>points.per.line</dt>
 <dd><p>number of spectra in x direction of the map</p></dd>
+
+
 <dt>lines.per.image</dt>
 <dd><p>number of spectra in y direction</p></dd>
+
+
 <dt>type</dt>
 <dd><p>type of spectra: <code>single</code> for single spectra (including time series), <code>map</code> for imaging data.</p></dd>
+
+
 <dt>hdr.label</dt>
 <dd><p>WITec Project exports the spectra names (contain information of map position or number of spectra) within the <code>file</code>.</p></dd>
+
+
 <dt>hdr.units</dt>
 <dd><p>WITec Project exports the spectra units within the <code>file</code>.</p></dd>
+
+
 <dt>encoding</dt>
 <dd><p>character encoding, see <code><a href="https://rdrr.io/r/base/readLines.html" class="external-link">base::readLines()</a></code></p></dd>
+
+
 <dt>..., quiet</dt>
 <dd><p>handed to <code><a href="https://rdrr.io/r/base/scan.html" class="external-link">base::scan()</a></code></p></dd>
+
+
 <dt>filex</dt>
 <dd><p>filename wavelength axis file</p></dd>
+
+
 <dt>filey</dt>
 <dd><p>filename intensity file</p></dd>
+
+
 <dt>headerfile</dt>
 <dd><p>filename or connection to ASCII file with header information</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a hyperSpec object</p>
+    
+
+<p>a hyperSpec object</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -194,7 +217,7 @@ files with x and y data.</p></li>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

@@ -95,24 +95,29 @@ is better suited for plotting lines on white background.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">palette_matlab</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">palette_matlab_dark</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">palette_alois</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">palette_matlab</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">palette_matlab_dark</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">palette_alois</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>n</dt>
 <dd><p>the number of colors to be in the palette.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>further arguments are handed to <code><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">grDevices::rainbow()</a></code>
 (<code>palette_alois</code>: <code><a href="https://rdrr.io/r/grDevices/colorRamp.html" class="external-link">grDevices::colorRampPalette()</a></code>).</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A vector containing the color values in the form <code>"#rrbbggaa"</code>.</p>
+    
+
+<p>A vector containing the color values in the form <code>"#rrbbggaa"</code>.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -125,43 +130,43 @@ is better suited for plotting lines on white background.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># Matlab dark palette</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/pie.html" class="external-link">pie</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">12</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu">palette_matlab</span><span class="op">(</span><span class="fl">12</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Matlab dark palette</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/pie.html" class="external-link">pie</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">12</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu">palette_matlab</span><span class="op">(</span><span class="fl">12</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="palettes-1.png" alt="" width="466" height="288"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">flu</span>, col <span class="op">=</span> <span class="fu">palette_matlab</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">flu</span>, col <span class="op">=</span> <span class="fu">palette_matlab</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="palettes-2.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="levelplot.html">plotmap</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span>, col.regions <span class="op">=</span> <span class="fu">palette_matlab</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="levelplot.html">plotmap</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span>, col.regions <span class="op">=</span> <span class="fu">palette_matlab</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>device support for raster images unknown, ignoring 'raster=TRUE'</span>
 <span class="r-plt img"><img src="palettes-3.png" alt="" width="466" height="288"></span>
-<span class="r-in"><span class="co"># Matlab dark palette</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/pie.html" class="external-link">pie</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">12</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu">palette_matlab_dark</span><span class="op">(</span><span class="fl">12</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co"># Matlab dark palette</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/pie.html" class="external-link">pie</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">12</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu">palette_matlab_dark</span><span class="op">(</span><span class="fl">12</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="palettes-4.png" alt="" width="466" height="288"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">flu</span>, col <span class="op">=</span> <span class="fu">palette_matlab_dark</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">flu</span>, col <span class="op">=</span> <span class="fu">palette_matlab_dark</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="palettes-5.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="levelplot.html">plotmap</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span>, col.regions <span class="op">=</span> <span class="fu">palette_matlab_dark</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="levelplot.html">plotmap</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span>, col.regions <span class="op">=</span> <span class="fu">palette_matlab_dark</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>device support for raster images unknown, ignoring 'raster=TRUE'</span>
 <span class="r-plt img"><img src="palettes-6.png" alt="" width="466" height="288"></span>
-<span class="r-in"><span class="co"># Alois palette</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/pie.html" class="external-link">pie</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">12</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu">palette_alois</span><span class="op">(</span><span class="fl">12</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co"># Alois palette</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/pie.html" class="external-link">pie</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">12</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu">palette_alois</span><span class="op">(</span><span class="fl">12</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="palettes-7.png" alt="" width="466" height="288"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">flu</span>, col <span class="op">=</span> <span class="fu">palette_alois</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">flu</span>, col <span class="op">=</span> <span class="fu">palette_alois</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="palettes-8.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="levelplot.html">plotmap</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span>, col.regions <span class="op">=</span> <span class="fu">palette_alois</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="levelplot.html">plotmap</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span>, col.regions <span class="op">=</span> <span class="fu">palette_alois</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>device support for raster images unknown, ignoring 'raster=TRUE'</span>
 <span class="r-plt img"><img src="palettes-9.png" alt="" width="466" height="288"></span>
 </code></pre></div>
@@ -178,7 +183,7 @@ is better suited for plotting lines on white background.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

@@ -112,31 +112,40 @@ performed by <code><a href="https://rdrr.io/r/stats/smooth.spline.html" class="e
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">spc.NA.approx</span><span class="op">(</span>
-  <span class="va">spc</span>,
-  neighbours <span class="op">=</span> <span class="fl">1</span>,
-  w <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span> <span class="op">*</span> <span class="va">neighbours</span><span class="op">)</span>,
-  df <span class="op">=</span> <span class="fl">1</span> <span class="op">+</span> <span class="va">.Machine</span><span class="op">$</span><span class="va">double.eps</span>,
-  spar <span class="op">=</span> <span class="cn">NULL</span>,
-  debuglevel <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"debuglevel"</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">spc.NA.approx</span><span class="op">(</span></span>
+<span>  <span class="va">spc</span>,</span>
+<span>  neighbours <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  w <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span> <span class="op">*</span> <span class="va">neighbours</span><span class="op">)</span>,</span>
+<span>  df <span class="op">=</span> <span class="fl">1</span> <span class="op">+</span> <span class="va">.Machine</span><span class="op">$</span><span class="va">double.eps</span>,</span>
+<span>  spar <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  debuglevel <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"debuglevel"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>spc</dt>
 <dd><p>hyperSpec object with spectra matrix containing <code>NA</code>s</p></dd>
+
+
 <dt>neighbours</dt>
 <dd><p>how many neighbour data points should be used to fit the
 line</p></dd>
+
+
 <dt>w, df, spar</dt>
 <dd><p>see <code><a href="https://rdrr.io/r/stats/smooth.spline.html" class="external-link">stats::smooth.spline()</a></code></p></dd>
+
+
 <dt>debuglevel</dt>
 <dd><p>see <code><a href="https://rdrr.io/r/base/options.html" class="external-link">options()</a></code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>hyperSpec object</p>
+    
+
+<p>hyperSpec object</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -145,8 +154,8 @@ line</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">fluNA</span> <span class="op">&lt;-</span> <span class="fu">hyperSpec</span><span class="fu">:::</span><span class="va">fluNA</span></span>
-<span class="r-in"><span class="fu">spc.NA.approx</span><span class="op">(</span><span class="va">fluNA</span><span class="op">[</span>, , <span class="va">min</span> <span class="op">~</span> <span class="fl">410</span><span class="op">]</span>, debuglevel <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">fluNA</span> <span class="op">&lt;-</span> <span class="fu">hyperSpec</span><span class="fu">:::</span><span class="va">fluNA</span></span></span>
+<span class="r-in"><span><span class="fu">spc.NA.approx</span><span class="op">(</span><span class="va">fluNA</span><span class="op">[</span>, , <span class="va">min</span> <span class="op">~</span> <span class="fl">410</span><span class="op">]</span>, debuglevel <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Function 'spc.NA.approx' is deprecated. </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Use function 'spc_na_approx' instead.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Spectra containing only NAs found. They will not be approximated.</span>
@@ -155,7 +164,7 @@ line</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    6 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    11 data points / spectrum</span>
-<span class="r-in"><span class="fu">spc.NA.approx</span><span class="op">(</span><span class="va">fluNA</span><span class="op">[</span><span class="fl">1</span>, , <span class="va">min</span> <span class="op">~</span> <span class="fl">410</span><span class="op">]</span>, debuglevel <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">spc.NA.approx</span><span class="op">(</span><span class="va">fluNA</span><span class="op">[</span><span class="fl">1</span>, , <span class="va">min</span> <span class="op">~</span> <span class="fl">410</span><span class="op">]</span>, debuglevel <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Function 'spc.NA.approx' is deprecated. </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Use function 'spc_na_approx' instead.</span>
 <span class="r-plt img"><img src="DEPRECATED-spc.NA.approx-2.png" alt="" width="466" height="288"></span>
@@ -163,7 +172,7 @@ line</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    11 data points / spectrum</span>
-<span class="r-in"><span class="fu">spc.NA.approx</span><span class="op">(</span><span class="va">fluNA</span><span class="op">[</span><span class="fl">4</span>, , <span class="va">min</span> <span class="op">~</span> <span class="fl">410</span><span class="op">]</span>, neighbours <span class="op">=</span> <span class="fl">3</span>, df <span class="op">=</span> <span class="fl">4</span>, debuglevel <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">spc.NA.approx</span><span class="op">(</span><span class="va">fluNA</span><span class="op">[</span><span class="fl">4</span>, , <span class="va">min</span> <span class="op">~</span> <span class="fl">410</span><span class="op">]</span>, neighbours <span class="op">=</span> <span class="fl">3</span>, df <span class="op">=</span> <span class="fl">4</span>, debuglevel <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Function 'spc.NA.approx' is deprecated. </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Use function 'spc_na_approx' instead.</span>
 <span class="r-plt img"><img src="DEPRECATED-spc.NA.approx-3.png" alt="" width="466" height="288"></span>
@@ -185,7 +194,7 @@ line</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

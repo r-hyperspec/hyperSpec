@@ -91,29 +91,40 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">wl</span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-
-<span class="fu">wl</span><span class="op">(</span><span class="va">x</span>, label <span class="op">=</span> <span class="cn">NULL</span>, digits <span class="op">=</span> <span class="fl">6</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">value</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">wl</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">wl</span><span class="op">(</span><span class="va">x</span>, label <span class="op">=</span> <span class="cn">NULL</span>, digits <span class="op">=</span> <span class="fl">6</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">value</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p><code>hyperSpec</code> object</p></dd>
+
+
 <dt>label</dt>
 <dd><p>The label for the new wavelength axis. See <a href="initialize.html">initialize</a>
 for details.</p></dd>
+
+
 <dt>digits</dt>
 <dd><p>handed to <code><a href="https://rdrr.io/r/base/Round.html" class="external-link">base::signif()</a></code>. See details.</p></dd>
+
+
 <dt>value</dt>
 <dd><p>either a numeric containing the new wavelength vector, or a
 list with <code>value$wl</code> containing the new wavelength vector and
 <code>value$label</code> holding the corresponding <code>label</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a numeric vector
-<code>hyperSpec</code> object</p>
+    
+
+<p>a numeric vector</p>
+
+
+<p><code>hyperSpec</code> object</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -149,31 +160,31 @@ for spectral binning use <code><a href="spc-bin.html">spc_bin()</a></code>.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="fu">wl</span><span class="op">(</span><span class="va">laser</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">wl</span><span class="op">(</span><span class="va">laser</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 404.5828 404.6181 404.6534 404.6887 404.7240 404.7592 404.7945 404.8298</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9] 404.8651 404.9004 404.9357 404.9710 405.0063 405.0416 405.0768 405.1121</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [17] 405.1474 405.1827 405.2180 405.2532 405.2885 405.3238 405.3591 405.3944</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [25] 405.4296 405.4649 405.5002 405.5355 405.5707 405.6060 405.6413 405.6765</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [33] 405.7118 405.7471 405.7823 405.8176</span>
-<span class="r-in"><span class="co"># convert from wavelength to frequency</span></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">laser</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co"># convert from wavelength to frequency</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">laser</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="wl-1.png" alt="" width="466" height="288"></span>
-<span class="r-in"><span class="fu">wl</span><span class="op">(</span><span class="va">laser</span>, <span class="st">"f / Hz"</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fl">2.998e8</span> <span class="op">*</span> <span class="fu">wl</span><span class="op">(</span><span class="va">laser</span><span class="op">)</span> <span class="op">*</span> <span class="fl">1e9</span></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">laser</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">wl</span><span class="op">(</span><span class="va">laser</span>, <span class="st">"f / Hz"</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fl">2.998e8</span> <span class="op">*</span> <span class="fu">wl</span><span class="op">(</span><span class="va">laser</span><span class="op">)</span> <span class="op">*</span> <span class="fl">1e9</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">laser</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="wl-2.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># convert from Raman shift to wavelength</span></span>
-<span class="r-in"><span class="co"># excitation was at 785 nm</span></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># convert from Raman shift to wavelength</span></span></span>
+<span class="r-in"><span><span class="co"># excitation was at 785 nm</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="wl-3.png" alt="" width="466" height="288"></span>
-<span class="r-in"><span class="fu">wl</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span class="r-in">  wl <span class="op">=</span> <span class="fl">1e7</span> <span class="op">/</span> <span class="op">(</span><span class="fl">1e7</span> <span class="op">/</span> <span class="fl">785</span> <span class="op">-</span> <span class="fu">wl</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span><span class="op">)</span>,</span>
-<span class="r-in">  label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="va">lambda</span> <span class="op">/</span> <span class="va">nm</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">wl</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  wl <span class="op">=</span> <span class="fl">1e7</span> <span class="op">/</span> <span class="op">(</span><span class="fl">1e7</span> <span class="op">/</span> <span class="fl">785</span> <span class="op">-</span> <span class="fu">wl</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="va">lambda</span> <span class="op">/</span> <span class="va">nm</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="wl-4.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -188,7 +199,7 @@ for spectral binning use <code><a href="spc-bin.html">spc_bin()</a></code>.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

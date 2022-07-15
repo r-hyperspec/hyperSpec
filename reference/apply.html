@@ -91,23 +91,25 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S4 method for hyperSpec</span>
-<span class="fu">apply</span><span class="op">(</span>
-  <span class="va">X</span>,
-  <span class="va">MARGIN</span>,
-  <span class="va">FUN</span>,
-  <span class="va">...</span>,
-  label.wl <span class="op">=</span> <span class="cn">NULL</span>,
-  label.spc <span class="op">=</span> <span class="cn">NULL</span>,
-  new.wavelength <span class="op">=</span> <span class="cn">NULL</span>,
-  <span class="va">simplify</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu">apply</span><span class="op">(</span></span>
+<span>  <span class="va">X</span>,</span>
+<span>  <span class="va">MARGIN</span>,</span>
+<span>  <span class="va">FUN</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  label.wl <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  label.spc <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  new.wavelength <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">simplify</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>X, spc</dt>
 <dd><p>a <code>hyperSpec</code> object</p></dd>
+
+
 <dt>MARGIN</dt>
 <dd><p>The subscript which the function will be applied over.</p><ul><li><p><code>1</code> indicates rows (<code>FUN</code> is applied to each spectrum),</p></li>
 <li><p><code>2</code> indicates columns (<code>FUN</code> is applied to each wavelength),</p></li>
@@ -117,23 +119,36 @@ functions are already defined for hyperSpec objects (see
 <code><a href="math.html">Math()</a></code>).</p></li>
 </ul><p>If <code>MARGIN</code> is missing, the whole spectra matrix is handed to
 <code>FUN</code>, see also the examples.</p></dd>
+
+
 <dt>FUN</dt>
 <dd><p>function to compute the summary statistics</p></dd>
+
+
 <dt>...</dt>
 <dd><p>further arguments passed to <code>FUN</code></p></dd>
+
+
 <dt>label.wl, label.spc</dt>
 <dd><p>new labels for wavelength and spectral intensity
 axes</p></dd>
+
+
 <dt>new.wavelength</dt>
 <dd><p>for <code>MARGIN = 2</code>: numeric vector or name of the
 argument in ... that is to be used (character) as wavelength axis of
 the resulting object.</p></dd>
+
+
 <dt>simplify</dt>
 <dd><p>ignored: apply for hyperSpec results are always simplified</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A <code>hyperSpec</code> object</p>
+    
+
+<p>A <code>hyperSpec</code> object</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -158,22 +173,22 @@ the <code>hyperSpec</code> object: <code><a href="aggregate.html">aggregate()</a
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="plot_spc.html">plot_spc</a></span><span class="op">(</span><span class="fu">apply</span><span class="op">(</span><span class="va">faux_cell</span>, <span class="fl">2</span>, <span class="va">range</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot_spc.html">plot_spc</a></span><span class="op">(</span><span class="fu">apply</span><span class="op">(</span><span class="va">faux_cell</span>, <span class="fl">2</span>, <span class="va">range</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="apply-1.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">avg_flu</span> <span class="op">&lt;-</span> <span class="fu">apply</span><span class="op">(</span><span class="va">flu</span>, <span class="fl">1</span>, <span class="va">mean</span>,</span>
-<span class="r-in">  label.spc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grDevices/plotmath.html" class="external-link">bar</a></span><span class="op">(</span><span class="va">I</span><span class="op">)</span><span class="op">)</span>,</span>
-<span class="r-in">  new.wavelength <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="fu"><a href="wl.html">wl</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="va">avg_flu</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">avg_flu</span> <span class="op">&lt;-</span> <span class="fu">apply</span><span class="op">(</span><span class="va">flu</span>, <span class="fl">1</span>, <span class="va">mean</span>,</span></span>
+<span class="r-in"><span>  label.spc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="fu">bar</span><span class="op">(</span><span class="va">I</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  new.wavelength <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="fu"><a href="wl.html">wl</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">avg_flu</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    6 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1 data points / spectrum</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">flu</span><span class="op">[[</span>, , <span class="fl">405</span><span class="op">:</span><span class="fl">407</span><span class="op">]</span><span class="op">]</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">flu</span><span class="op">[[</span>, , <span class="fl">405</span><span class="op">:</span><span class="fl">407</span><span class="op">]</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            405       406       407</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  27.15000  33.37867  36.53133</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  66.80133  66.71200  72.52967</span>
@@ -181,7 +196,7 @@ the <code>hyperSpec</code> object: <code><a href="aggregate.html">aggregate()</a
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 130.66367 143.79767 152.13267</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 167.26667 177.47067 189.75233</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6,] 198.43033 215.78500 232.52800</span>
-<span class="r-in"><span class="fu">apply</span><span class="op">(</span><span class="va">flu</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="st">"*"</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">[[</span>, , <span class="fl">405</span><span class="op">:</span><span class="fl">407</span><span class="op">]</span><span class="op">]</span></span>
+<span class="r-in"><span><span class="fu">apply</span><span class="op">(</span><span class="va">flu</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="st">"*"</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">[[</span>, , <span class="fl">405</span><span class="op">:</span><span class="fl">407</span><span class="op">]</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]       [,3]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  -27.15000  -33.37867  -36.53133</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  -66.80133  -66.71200  -72.52967</span>
@@ -189,9 +204,9 @@ the <code>hyperSpec</code> object: <code><a href="aggregate.html">aggregate()</a
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,] -130.66367 -143.79767 -152.13267</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5,] -167.26667 -177.47067 -189.75233</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6,] -198.43033 -215.78500 -232.52800</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## without MARGIN the whole matrix is handed to FUN</span></span>
-<span class="r-in"><span class="fu">apply</span><span class="op">(</span><span class="va">flu</span><span class="op">[</span>, , <span class="fl">405</span><span class="op">:</span><span class="fl">407</span><span class="op">]</span>, , <span class="va">print</span><span class="op">)</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## without MARGIN the whole matrix is handed to FUN</span></span></span>
+<span class="r-in"><span><span class="fu">apply</span><span class="op">(</span><span class="va">flu</span><span class="op">[</span>, , <span class="fl">405</span><span class="op">:</span><span class="fl">407</span><span class="op">]</span>, , <span class="va">print</span><span class="op">)</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            405       406       407</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  27.15000  33.37867  36.53133</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  66.80133  66.71200  72.52967</span>
@@ -206,10 +221,10 @@ the <code>hyperSpec</code> object: <code><a href="aggregate.html">aggregate()</a
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 130.66367 143.79767 152.13267</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 167.26667 177.47067 189.75233</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6,] 198.43033 215.78500 232.52800</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## whereas MARGIN = 1 : 2 leads to FUN being called</span></span>
-<span class="r-in"><span class="co">## for each element separately</span></span>
-<span class="r-in"><span class="fu">apply</span><span class="op">(</span><span class="va">flu</span><span class="op">[</span>, , <span class="fl">405</span><span class="op">:</span><span class="fl">407</span><span class="op">]</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="va">print</span><span class="op">)</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## whereas MARGIN = 1 : 2 leads to FUN being called</span></span></span>
+<span class="r-in"><span><span class="co">## for each element separately</span></span></span>
+<span class="r-in"><span><span class="fu">apply</span><span class="op">(</span><span class="va">flu</span><span class="op">[</span>, , <span class="fl">405</span><span class="op">:</span><span class="fl">407</span><span class="op">]</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="va">print</span><span class="op">)</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 27.15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 66.80133</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 93.14433</span>
@@ -249,7 +264,7 @@ the <code>hyperSpec</code> object: <code><a href="aggregate.html">aggregate()</a
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

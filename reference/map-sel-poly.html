@@ -93,27 +93,38 @@ grid::grid.locator()). Polygon will be drawn closed."><!-- mathjax --><script sr
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">map.sel.poly</span><span class="op">(</span><span class="va">data</span>, pch <span class="op">=</span> <span class="fl">19</span>, size <span class="op">=</span> <span class="fl">0.3</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">sel.poly</span><span class="op">(</span>pch <span class="op">=</span> <span class="fl">19</span>, size <span class="op">=</span> <span class="fl">0.3</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">map.sel.poly</span><span class="op">(</span><span class="va">data</span>, pch <span class="op">=</span> <span class="fl">19</span>, size <span class="op">=</span> <span class="fl">0.3</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">sel.poly</span><span class="op">(</span>pch <span class="op">=</span> <span class="fl">19</span>, size <span class="op">=</span> <span class="fl">0.3</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>data</dt>
 <dd><p>hyperSpec object for plotting map or list returned by <code><a href="levelplot.html">plotmap()</a></code></p></dd>
+
+
 <dt>pch</dt>
 <dd><p>symbol to display the points of the polygon for <code>sel.poly()</code></p></dd>
+
+
 <dt>size</dt>
 <dd><p>size for polygon point symbol for <code>sel.poly()</code></p></dd>
+
+
 <dt>...</dt>
 <dd><p>further arguments for <code><a href="https://rdrr.io/r/grid/grid.points.html" class="external-link">grid::grid.points()</a></code> and
 <code><a href="https://rdrr.io/r/grid/grid.lines.html" class="external-link">grid::grid.lines()</a></code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>map.sel.poly</code>: array of indices for points within the selected polygon
-<code>sel.poly</code>: n x 2 matrix with the corner points of the polygon</p>
+    
+
+<p><code>map.sel.poly</code>: array of indices for points within the selected polygon</p>
+
+
+<p><code>sel.poly</code>: n x 2 matrix with the corner points of the polygon</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -150,7 +161,7 @@ that plot command handed over to <code>map.sel.poly</code>, see the example belo
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

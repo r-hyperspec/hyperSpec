@@ -91,61 +91,82 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">spc_fit_poly</span><span class="op">(</span>
-  <span class="va">fit.to</span>,
-  apply.to <span class="op">=</span> <span class="cn">NULL</span>,
-  poly.order <span class="op">=</span> <span class="fl">1</span>,
-  offset.wl <span class="op">=</span> <span class="op">!</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">apply.to</span><span class="op">)</span><span class="op">)</span>
-<span class="op">)</span>
-
-<span class="fu">spc_fit_poly_below</span><span class="op">(</span>
-  <span class="va">fit.to</span>,
-  apply.to <span class="op">=</span> <span class="va">fit.to</span>,
-  poly.order <span class="op">=</span> <span class="fl">1</span>,
-  npts.min <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="dim.html">nwl</a></span><span class="op">(</span><span class="va">fit.to</span><span class="op">)</span> <span class="op">*</span> <span class="fl">0.05</span><span class="op">)</span>, <span class="fl">3</span> <span class="op">*</span> <span class="op">(</span><span class="va">poly.order</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span>,
-  noise <span class="op">=</span> <span class="fl">0</span>,
-  offset.wl <span class="op">=</span> <span class="cn">FALSE</span>,
-  max.iter <span class="op">=</span> <span class="fu"><a href="dim.html">nwl</a></span><span class="op">(</span><span class="va">fit.to</span><span class="op">)</span>,
-  stop.on.increase <span class="op">=</span> <span class="cn">FALSE</span>,
-  debuglevel <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"debuglevel"</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">spc_fit_poly</span><span class="op">(</span></span>
+<span>  <span class="va">fit.to</span>,</span>
+<span>  apply.to <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  poly.order <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  offset.wl <span class="op">=</span> <span class="op">!</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">apply.to</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">spc_fit_poly_below</span><span class="op">(</span></span>
+<span>  <span class="va">fit.to</span>,</span>
+<span>  apply.to <span class="op">=</span> <span class="va">fit.to</span>,</span>
+<span>  poly.order <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  npts.min <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="dim.html">nwl</a></span><span class="op">(</span><span class="va">fit.to</span><span class="op">)</span> <span class="op">*</span> <span class="fl">0.05</span><span class="op">)</span>, <span class="fl">3</span> <span class="op">*</span> <span class="op">(</span><span class="va">poly.order</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  noise <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  offset.wl <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  max.iter <span class="op">=</span> <span class="fu"><a href="dim.html">nwl</a></span><span class="op">(</span><span class="va">fit.to</span><span class="op">)</span>,</span>
+<span>  stop.on.increase <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  debuglevel <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"debuglevel"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>fit.to</dt>
 <dd><p><code>hyperSpec</code> object on which the baselines are fitted</p></dd>
+
+
 <dt>apply.to</dt>
 <dd><p><code>hyperSpec</code> object on which the baselines are evaluted
 If <code>NULL</code>, a <code>hyperSpec</code> object containing the polynomial
 coefficients rather than evaluted baselines is returned.</p></dd>
+
+
 <dt>poly.order</dt>
 <dd><p>order of the polynomial to be used</p></dd>
+
+
 <dt>offset.wl</dt>
 <dd><p>should the wavelength range be mapped to -&gt; [0, delta wl]?
 This enhances numerical stability.</p></dd>
+
+
 <dt>npts.min</dt>
 <dd><p>minimal number of points used for fitting the polynomial</p></dd>
+
+
 <dt>noise</dt>
 <dd><p>noise level to be considered during the fit. It may be given as
 one value for all the spectra, or for each spectrum separately.</p></dd>
+
+
 <dt>max.iter</dt>
 <dd><p>stop at the latest after so many iterations.</p></dd>
+
+
 <dt>stop.on.increase</dt>
 <dd><p>additional stopping rule: stop if the number of
 support points would increase, regardless whether <code>npts.min</code> was reached or
 not.</p></dd>
+
+
 <dt>debuglevel</dt>
 <dd><p>additional output: <code>1</code> shows <code>npts.min</code>,
 <code>2</code> plots support points for the final baseline of 1st spectrum,
 <code>3</code> plots support points for 1st spectrum, <code>4</code> plots support
 points for all spectra.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>hyperSpec</code> object containing the baselines in the spectra
+    
+
+<p><code>hyperSpec</code> object containing the baselines in the spectra
 matrix, either as polynomial coefficients or as polynomials evaluted on
 the spectral range of <code>apply.to</code></p>
+
+
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -172,56 +193,53 @@ For details, see the <code><a href="../articles/baseline.html">vignette("baselin
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"baseline"</span>, package <span class="op">=</span> <span class="st">"hyperSpec"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">spc</span> <span class="op">&lt;-</span> <span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span></span>
-<span class="r-in"><span class="va">baselines</span> <span class="op">&lt;-</span> <span class="fu">spc_fit_poly</span><span class="op">(</span><span class="va">spc</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">625</span> <span class="op">~</span> <span class="fl">640</span>, <span class="fl">1785</span> <span class="op">~</span> <span class="fl">1800</span><span class="op">)</span><span class="op">]</span>, <span class="va">spc</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">spc</span> <span class="op">-</span> <span class="va">baselines</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"baseline"</span>, package <span class="op">=</span> <span class="st">"hyperSpec"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">spc</span> <span class="op">&lt;-</span> <span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">baselines</span> <span class="op">&lt;-</span> <span class="fu">spc_fit_poly</span><span class="op">(</span><span class="va">spc</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">625</span> <span class="op">~</span> <span class="fl">640</span>, <span class="fl">1785</span> <span class="op">~</span> <span class="fl">1800</span><span class="op">)</span><span class="op">]</span>, <span class="va">spc</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">spc</span> <span class="op">-</span> <span class="va">baselines</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="baselines-1.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">baselines</span> <span class="op">&lt;-</span> <span class="fu">spc_fit_poly_below</span><span class="op">(</span><span class="va">spc</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">spc</span> <span class="op">-</span> <span class="va">baselines</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">baselines</span> <span class="op">&lt;-</span> <span class="fu">spc_fit_poly_below</span><span class="op">(</span><span class="va">spc</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">spc</span> <span class="op">-</span> <span class="va">baselines</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="baselines-2.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">spc_fit_poly_below</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>, debuglevel <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">spc_fit_poly_below</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>, debuglevel <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Fitting with npts.min = 15</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      1:    35 support points, noise = 0.0,   4 iterations</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      2:    28 support points, noise = 0.0,   4 iterations</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      3:    17 support points, noise = 0.0,   5 iterations</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      1:    33 support points, noise = 0.0,   4 iterations</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      2:    16 support points, noise = 0.0,   5 iterations</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      3:    36 support points, noise = 0.0,   4 iterations</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    300 data points / spectrum</span>
-<span class="r-in"><span class="fu">spc_fit_poly_below</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>, debuglevel <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">spc_fit_poly_below</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>, debuglevel <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Fitting with npts.min = 15</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> start: 300 support points</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      1:    35 support points, noise = 0.0,   4 iterations</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      2:    28 support points, noise = 0.0,   4 iterations</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      3:    17 support points, noise = 0.0,   5 iterations</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      1:    33 support points, noise = 0.0,   4 iterations</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      2:    16 support points, noise = 0.0,   5 iterations</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      3:    36 support points, noise = 0.0,   4 iterations</span>
 <span class="r-plt img"><img src="baselines-3.png" alt="" width="466" height="288"></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    300 data points / spectrum</span>
-<span class="r-in"><span class="fu">spc_fit_poly_below</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>,</span>
-<span class="r-in">  debuglevel <span class="op">=</span> <span class="fl">3</span>,</span>
-<span class="r-in">  noise <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowMeans</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">spc_fit_poly_below</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>,</span></span>
+<span class="r-in"><span>  debuglevel <span class="op">=</span> <span class="fl">3</span>,</span></span>
+<span class="r-in"><span>  noise <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowMeans</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Fitting with npts.min = 15</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> start: 300 support points</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration 1: 263 support points</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration 2: 235 support points</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration 3: 227 support points</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration 4: 222 support points</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration 5: 220 support points</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration 6: 218 support points</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration 7: 217 support points</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration 8: 217 support points</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      1:   217 support points, noise = 10.1,   8 iterations</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      2:   202 support points, noise = 13.8,   7 iterations</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      3:   214 support points, noise = 6.8,   5 iterations</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration 1: 257 support points</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration 2: 232 support points</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration 3: 220 support points</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration 4: 218 support points</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Iteration 5: 218 support points</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      1:   218 support points, noise = 10.6,   5 iterations</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      2:   210 support points, noise = 10.2,   6 iterations</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> spectrum      3:   202 support points, noise = 12.4,   7 iterations</span>
 <span class="r-plt img"><img src="baselines-4.png" alt="" width="466" height="288"></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 spectra</span>
@@ -241,7 +259,7 @@ For details, see the <code><a href="../articles/baseline.html">vignette("baselin
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

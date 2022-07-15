@@ -95,7 +95,7 @@ share common <strong><code>hySpc.</code><em>something</em></strong> package name
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">hy_attach</span><span class="op">(</span>exclude <span class="op">=</span> <span class="st">"hySpc.testthat"</span>, <span class="va">...</span>, quiet <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">hy_attach</span><span class="op">(</span>exclude <span class="op">=</span> <span class="st">"hySpc.testthat"</span>, <span class="va">...</span>, quiet <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -104,8 +104,12 @@ share common <strong><code>hySpc.</code><em>something</em></strong> package name
 <dd><p>Character vector with the names of the packages that should
 <strong>not</strong> be explicitly loaded. If they are already loaded and/or
 attached, they will <em>not</em> be unloaded or detached.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Further parameters to <code><a href="https://rdrr.io/r/base/library.html" class="external-link">base::library()</a></code>.</p></dd>
+
+
 <dt>quiet</dt>
 <dd><p>(<code>TRUE</code>|<code>NA</code>|<code>FALSE</code>) Controls the verbosity of messages:</p><ul><li><p><code>FALSE</code>: no messages will be printed to the console.</p></li>
 <li><p><code>NA</code> (default): short message with the names of <code>hySpc.*</code> packages to
@@ -113,10 +117,13 @@ load and attach will be printed, but package startup messages will be
 suppressed.</p></li>
 <li><p><code>TRUE</code>: both short and package startup messages will be printed.</p></li>
 </ul></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Invisibly returns a list with the output of <code><a href="https://rdrr.io/r/base/library.html" class="external-link">base::library()</a></code> for
+    
+
+<p>Invisibly returns a list with the output of <code><a href="https://rdrr.io/r/base/library.html" class="external-link">base::library()</a></code> for
 each <em>R hyperSpec</em> family package that was loaded and attached.</p>
     </div>
     <div id="see-also">
@@ -130,12 +137,12 @@ each <em>R hyperSpec</em> family package that was loaded and attached.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu">hyperSpec</span><span class="fu">::</span><span class="fu">hy_attach</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">hyperSpec</span><span class="fu">::</span><span class="fu">hy_attach</span><span class="op">(</span>quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu">hyperSpec</span><span class="fu">::</span><span class="fu">hy_attach</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">hyperSpec</span><span class="fu">::</span><span class="fu">hy_attach</span><span class="op">(</span>quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -150,7 +157,7 @@ each <em>R hyperSpec</em> family package that was loaded and attached.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

@@ -95,30 +95,38 @@ As an alias, function <code>new_hyperSpec()</code> can be used.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S4 method for hyperSpec</span>
-<span class="fu">initialize</span><span class="op">(</span><span class="va">.Object</span>, spc <span class="op">=</span> <span class="cn">NULL</span>, data <span class="op">=</span> <span class="cn">NULL</span>, wavelength <span class="op">=</span> <span class="cn">NULL</span>, labels <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
-
-<span class="fu">new_hyperSpec</span><span class="op">(</span>spc <span class="op">=</span> <span class="cn">NULL</span>, data <span class="op">=</span> <span class="cn">NULL</span>, wavelength <span class="op">=</span> <span class="cn">NULL</span>, labels <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu">initialize</span><span class="op">(</span><span class="va">.Object</span>, spc <span class="op">=</span> <span class="cn">NULL</span>, data <span class="op">=</span> <span class="cn">NULL</span>, wavelength <span class="op">=</span> <span class="cn">NULL</span>, labels <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">new_hyperSpec</span><span class="op">(</span>spc <span class="op">=</span> <span class="cn">NULL</span>, data <span class="op">=</span> <span class="cn">NULL</span>, wavelength <span class="op">=</span> <span class="cn">NULL</span>, labels <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>.Object</dt>
 <dd><p>the new <code>hyperSpec</code> object.</p></dd>
+
+
 <dt>spc</dt>
 <dd><p>the spectra matrix. <code>spc</code> does not need to be a matrix, it is
 converted explicitly by <code>I(as.matrix(spc))</code>.</p></dd>
+
+
 <dt>data</dt>
 <dd><p><code>data.frame</code>, possibly with the spectra in <code>data$spc</code>, and
 further variates in more columns.  A matrix can be entered as <em>one</em>
 column of a data frame by: <code>data.frame(spc = I(as.matrix(spc)))</code>.</p>
 <p>However, it will usually be more convenient if the spectra are given
 in <code>spc</code>.</p></dd>
+
+
 <dt>wavelength</dt>
 <dd><p>The wavelengths corresponding to the columns of <code>data</code>.
 If no wavelengths are given, an appropriate vector is derived from the
 column names of <code>data$spc</code>. If this is not possible, <code>1:ncol(data$spc)</code>
 is used instead.</p></dd>
+
+
 <dt>labels</dt>
 <dd><p>A <code>list</code> containing the labels for the columns of the <code>data</code>
 slot of the <code>hyperSpec</code> object and for the wavelength (in
@@ -126,6 +134,7 @@ slot of the <code>hyperSpec</code> object and for the wavelength (in
 text-drawing functions (see <code><a href="https://rdrr.io/r/grDevices/plotmath.html" class="external-link">grDevices::plotmath()</a></code>).</p>
 <p>If <code>label</code> is not given, a list containing <code>NULL</code> for each of the columns
 of <code>data</code> and <code>wavelength</code> is used.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -148,66 +157,66 @@ out of memory.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="fu">new</span><span class="op">(</span><span class="st">"hyperSpec"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">new</span><span class="op">(</span><span class="st">"hyperSpec"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    0 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    0 data points / spectrum</span>
-<span class="r-in"><span class="fu">new_hyperSpec</span><span class="op">(</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">new_hyperSpec</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    0 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    0 data points / spectrum</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">new</span><span class="op">(</span><span class="st">"hyperSpec"</span>, spc <span class="op">=</span> <span class="va">spc</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">spc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">new</span><span class="op">(</span><span class="st">"hyperSpec"</span>, spc <span class="op">=</span> <span class="va">spc</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4 data points / spectrum</span>
-<span class="r-in"><span class="fu">new_hyperSpec</span><span class="op">(</span>spc <span class="op">=</span> <span class="va">spc</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">new_hyperSpec</span><span class="op">(</span>spc <span class="op">=</span> <span class="va">spc</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4 data points / spectrum</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">new</span><span class="op">(</span><span class="st">"hyperSpec"</span>,</span>
-<span class="r-in">  data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span>,</span>
-<span class="r-in">  spc <span class="op">=</span> <span class="va">spc</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">new</span><span class="op">(</span><span class="st">"hyperSpec"</span>,</span></span>
+<span class="r-in"><span>  data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  spc <span class="op">=</span> <span class="va">spc</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    2 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4 data points / spectrum</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="dimnames.html">colnames</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fl">600</span><span class="op">:</span><span class="fl">603</span></span>
-<span class="r-in"><span class="fu">new</span><span class="op">(</span><span class="st">"hyperSpec"</span>, spc <span class="op">=</span> <span class="va">spc</span><span class="op">)</span> <span class="co"># wavelength taken from colnames (spc)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="dimnames.html">colnames</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fl">600</span><span class="op">:</span><span class="fl">603</span></span></span>
+<span class="r-in"><span><span class="fu">new</span><span class="op">(</span><span class="st">"hyperSpec"</span>, spc <span class="op">=</span> <span class="va">spc</span><span class="op">)</span> <span class="co"># wavelength taken from colnames (spc)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4 data points / spectrum</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># given wavelengths precede over colnames of spc</span></span>
-<span class="r-in"><span class="fu">new</span><span class="op">(</span><span class="st">"hyperSpec"</span>, spc <span class="op">=</span> <span class="va">spc</span>, wavelength <span class="op">=</span> <span class="fl">700</span><span class="op">:</span><span class="fl">703</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># given wavelengths precede over colnames of spc</span></span></span>
+<span class="r-in"><span><span class="fu">new</span><span class="op">(</span><span class="st">"hyperSpec"</span>, spc <span class="op">=</span> <span class="va">spc</span>, wavelength <span class="op">=</span> <span class="fl">700</span><span class="op">:</span><span class="fl">703</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4 data points / spectrum</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># specifying labels</span></span>
-<span class="r-in"><span class="va">h</span> <span class="op">&lt;-</span> <span class="fu">new</span><span class="op">(</span><span class="st">"hyperSpec"</span>,</span>
-<span class="r-in">  spc <span class="op">=</span> <span class="va">spc</span>, data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>pos <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>,</span>
-<span class="r-in">  label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span class="r-in">    spc <span class="op">=</span> <span class="st">"I / a.u."</span>,</span>
-<span class="r-in">    .wavelength <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tilde.html" class="external-link">tilde</a></span><span class="op">(</span><span class="va">nu</span><span class="op">)</span> <span class="op">/</span> <span class="va">cm</span><span class="op">^</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>,</span>
-<span class="r-in">    pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="st">"/"</span><span class="op">(</span><span class="va">x</span>, <span class="va">mu</span> <span class="op">*</span> <span class="va">m</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in">  <span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># specifying labels</span></span></span>
+<span class="r-in"><span><span class="va">h</span> <span class="op">&lt;-</span> <span class="fu">new</span><span class="op">(</span><span class="st">"hyperSpec"</span>,</span></span>
+<span class="r-in"><span>  spc <span class="op">=</span> <span class="va">spc</span>, data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>pos <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    spc <span class="op">=</span> <span class="st">"I / a.u."</span>,</span></span>
+<span class="r-in"><span>    .wavelength <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="fu">tilde</span><span class="op">(</span><span class="va">nu</span><span class="op">)</span> <span class="op">/</span> <span class="va">cm</span><span class="op">^</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="st">"/"</span><span class="op">(</span><span class="va">x</span>, <span class="va">mu</span> <span class="op">*</span> <span class="va">m</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="initialize-1.png" alt="" width="466" height="288"></span>
-<span class="r-in"><span class="fu"><a href="plotc.html">plotc</a></span><span class="op">(</span><span class="va">h</span>, <span class="va">spc</span> <span class="op">~</span> <span class="va">pos</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="plotc.html">plotc</a></span><span class="op">(</span><span class="va">h</span>, <span class="va">spc</span> <span class="op">~</span> <span class="va">pos</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Intensity at first wavelengh only is used.</span>
 <span class="r-plt img"><img src="initialize-2.png" alt="" width="466" height="288"></span>
 </code></pre></div>
@@ -224,7 +233,7 @@ out of memory.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

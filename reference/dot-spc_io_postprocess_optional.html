@@ -91,36 +91,49 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">.spc_io_postprocess_optional</span><span class="op">(</span>
-  <span class="va">spc</span>,
-  <span class="va">filename</span>,
-  <span class="va">...</span>,
-  file.remove.emptyspc <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"file.remove.emptyspc"</span><span class="op">)</span>,
-  file.keep.name <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"file.keep.name"</span><span class="op">)</span>,
-  tolerance <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"tolerance"</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">.spc_io_postprocess_optional</span><span class="op">(</span></span>
+<span>  <span class="va">spc</span>,</span>
+<span>  <span class="va">filename</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  file.remove.emptyspc <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"file.remove.emptyspc"</span><span class="op">)</span>,</span>
+<span>  file.keep.name <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"file.keep.name"</span><span class="op">)</span>,</span>
+<span>  tolerance <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"tolerance"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>spc</dt>
 <dd><p><code>hyperSpec</code> object for file import post-processing.</p></dd>
+
+
 <dt>filename</dt>
 <dd><p>filename(s) to become extra data column of <code>spc</code>.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>(ignored).</p></dd>
+
+
 <dt>file.remove.emptyspc</dt>
 <dd><p>should empty (all <code>NA</code> or all <code>0</code>) spectra be
 removed?</p></dd>
+
+
 <dt>file.keep.name</dt>
 <dd><p>should file names be kept and put into <code>spc$filename</code>?</p></dd>
+
+
 <dt>tolerance</dt>
 <dd><p>intensities in +/- <code>tolerance</code> are considered <code>0</code> for
 <code>file.remove.emptyspc = TRUE</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>hyperSpec</code> object.</p>
+    
+
+<p><code>hyperSpec</code> object.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -145,7 +158,7 @@ ensure the same behavior.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

@@ -91,7 +91,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="va">barbiturates</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="va">barbiturates</span></span></code></pre></div>
     </div>
 
     <div id="format">
@@ -111,8 +111,8 @@ example data from Thermo Galactic's spc file format specification.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">barbiturates</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">barbiturates</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1 spectra</span>
@@ -143,25 +143,25 @@ example data from Thermo Galactic's spc file format specification.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    22 data points / spectrum</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">barbiturates</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">barbiturates</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 5</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">barb</span> <span class="op">&lt;-</span> <span class="fu"><a href="collapse.html">collapse</a></span><span class="op">(</span><span class="va">barbiturates</span>, collapse.equal <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">barb</span> <span class="op">&lt;-</span> <span class="fu"><a href="wl_sort.html">wl_sort</a></span><span class="op">(</span><span class="va">barb</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">barb</span>,</span>
-<span class="r-in">  lines.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span>,</span>
-<span class="r-in">  col <span class="op">=</span> <span class="fu"><a href="palettes.html">palette_matlab_dark</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span>, stacked <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span class="r-in">  stacked.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>add.factor <span class="op">=</span> <span class="fl">.2</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">barb</span> <span class="op">&lt;-</span> <span class="fu"><a href="collapse.html">collapse</a></span><span class="op">(</span><span class="va">barbiturates</span>, collapse.equal <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">barb</span> <span class="op">&lt;-</span> <span class="fu"><a href="wl_sort.html">wl_sort</a></span><span class="op">(</span><span class="va">barb</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">barb</span>,</span></span>
+<span class="r-in"><span>  lines.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  col <span class="op">=</span> <span class="fu"><a href="palettes.html">palette_matlab_dark</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span>, stacked <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>  stacked.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>add.factor <span class="op">=</span> <span class="fl">.2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="barbiturates-1.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="http://latticeextra.r-forge.r-project.org/" class="external-link">latticeExtra</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/levelplot.html" class="external-link">levelplot</a></span><span class="op">(</span><span class="va">spc</span> <span class="op">~</span> <span class="va">.wavelength</span> <span class="op">*</span> <span class="va">z</span>, <span class="fu"><a href="math.html">log</a></span><span class="op">(</span><span class="va">barb</span><span class="op">)</span>,</span>
-<span class="r-in">    panel <span class="op">=</span> <span class="va">panel.levelplot.points</span>,</span>
-<span class="r-in">    cex <span class="op">=</span> <span class="fl">0.3</span>, col <span class="op">=</span> <span class="st">"#00000000"</span>, col.regions <span class="op">=</span> <span class="fu"><a href="palettes.html">palette_matlab</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span></span>
-<span class="r-in">  <span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="http://latticeextra.r-forge.r-project.org/" class="external-link">latticeExtra</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/levelplot.html" class="external-link">levelplot</a></span><span class="op">(</span><span class="va">spc</span> <span class="op">~</span> <span class="va">.wavelength</span> <span class="op">*</span> <span class="va">z</span>, <span class="fu"><a href="math.html">log</a></span><span class="op">(</span><span class="va">barb</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    panel <span class="op">=</span> <span class="va">panel.levelplot.points</span>,</span></span>
+<span class="r-in"><span>    cex <span class="op">=</span> <span class="fl">0.3</span>, col <span class="op">=</span> <span class="st">"#00000000"</span>, col.regions <span class="op">=</span> <span class="fu"><a href="palettes.html">palette_matlab</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: latticeExtra</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: ‘latticeExtra’</span>
@@ -170,10 +170,10 @@ example data from Thermo Galactic's spc file format specification.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     layer</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>device support for raster images unknown, ignoring 'raster=TRUE'</span>
 <span class="r-plt img"><img src="barbiturates-2.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="plotc.html">plotc</a></span><span class="op">(</span><span class="fu"><a href="apply.html">apply</a></span><span class="op">(</span><span class="va">barb</span><span class="op">[</span>, , <span class="fl">42.9</span> <span class="op">~</span> <span class="fl">43.2</span><span class="op">]</span>, <span class="fl">1</span>, <span class="va">sum</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, <span class="va">spc</span> <span class="op">~</span> <span class="va">z</span>,</span>
-<span class="r-in">  panel <span class="op">=</span> <span class="va">panel.lines</span>, ylab <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="va">I</span><span class="op">[</span><span class="va">m</span> <span class="op">/</span> <span class="va">z</span> <span class="op">==</span> <span class="fl">43</span><span class="op">]</span> <span class="op">/</span> <span class="st">"a.u."</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plotc.html">plotc</a></span><span class="op">(</span><span class="fu"><a href="apply.html">apply</a></span><span class="op">(</span><span class="va">barb</span><span class="op">[</span>, , <span class="fl">42.9</span> <span class="op">~</span> <span class="fl">43.2</span><span class="op">]</span>, <span class="fl">1</span>, <span class="va">sum</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, <span class="va">spc</span> <span class="op">~</span> <span class="va">z</span>,</span></span>
+<span class="r-in"><span>  panel <span class="op">=</span> <span class="va">panel.lines</span>, ylab <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="va">I</span><span class="op">[</span><span class="va">m</span> <span class="op">/</span> <span class="va">z</span> <span class="op">==</span> <span class="fl">43</span><span class="op">]</span> <span class="op">/</span> <span class="st">"a.u."</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="barbiturates-3.png" alt="" width="466" height="288"></span>
 </code></pre></div>
     </div>
@@ -189,7 +189,7 @@ example data from Thermo Galactic's spc file format specification.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

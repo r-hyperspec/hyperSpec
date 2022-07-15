@@ -190,42 +190,53 @@ to <span class="pkg">hyperSpec</span>. An example is in the “flu” vignette (
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">read.txt.long</span><span class="op">(</span>
-  file <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"file is required"</span><span class="op">)</span>,
-  cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>.wavelength <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="va">lambda</span><span class="op">/</span><span class="va">nm</span><span class="op">)</span>, spc <span class="op">=</span> <span class="st">"I / a.u."</span><span class="op">)</span>,
-  header <span class="op">=</span> <span class="cn">TRUE</span>,
-  <span class="va">...</span>
-<span class="op">)</span>
-
-<span class="fu">read.txt.wide</span><span class="op">(</span>
-  file <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"file is required"</span><span class="op">)</span>,
-  cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>spc <span class="op">=</span> <span class="st">"I / a.u."</span>, .wavelength <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="va">lambda</span><span class="op">/</span><span class="va">nm</span><span class="op">)</span><span class="op">)</span>,
-  sep <span class="op">=</span> <span class="st">"\t"</span>,
-  row.names <span class="op">=</span> <span class="cn">NULL</span>,
-  check.names <span class="op">=</span> <span class="cn">FALSE</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read.txt.long</span><span class="op">(</span></span>
+<span>  file <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"file is required"</span><span class="op">)</span>,</span>
+<span>  cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>.wavelength <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="va">lambda</span><span class="op">/</span><span class="va">nm</span><span class="op">)</span>, spc <span class="op">=</span> <span class="st">"I / a.u."</span><span class="op">)</span>,</span>
+<span>  header <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read.txt.wide</span><span class="op">(</span></span>
+<span>  file <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"file is required"</span><span class="op">)</span>,</span>
+<span>  cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>spc <span class="op">=</span> <span class="st">"I / a.u."</span>, .wavelength <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="va">lambda</span><span class="op">/</span><span class="va">nm</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  sep <span class="op">=</span> <span class="st">"\t"</span>,</span>
+<span>  row.names <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  check.names <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>file</dt>
 <dd><p>filename or connection</p></dd>
+
+
 <dt>cols</dt>
 <dd><p>the column names specifying the column order.</p>
 <p>For data import, a list with elements <code>colname = label</code>; for export a
 character vector with the colnames.  Use <code>wavelength</code> to specify the
 wavelengths.</p></dd>
+
+
 <dt>header</dt>
 <dd><p>the file has (shall have) a header line.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>arguments handed to <code><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">utils::read.table()</a></code>.</p></dd>
+
+
 <dt>sep, row.names</dt>
 <dd><p>have their usual meaning (see
 <code><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">utils::read.table()</a></code>), but different default values.</p></dd>
+
+
 <dt>check.names</dt>
 <dd><p>handed to <code><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">utils::read.table()</a></code>. Make sure this is
 <code>FALSE</code>, if the column names of the spectra are the wavelength values.</p></dd>
+
 </dl></div>
     <div id="see-also">
     <h2>See also</h2>
@@ -244,27 +255,27 @@ wavelengths.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"fileio"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## export &amp; import matlab files</span></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/HenrikBengtsson/R.matlab" class="external-link">R.matlab</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in">  <span class="co"># export to matlab file</span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/R.matlab/man/writeMat.html" class="external-link">writeMat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/test.mat"</span><span class="op">)</span>,</span>
-<span class="r-in">    x <span class="op">=</span> <span class="va">flu</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span>, wavelength <span class="op">=</span> <span class="va">flu</span><span class="op">@</span><span class="va">wavelength</span>,</span>
-<span class="r-in">    label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">flu</span><span class="op">@</span><span class="va">label</span>, <span class="va">as.character</span><span class="op">)</span></span>
-<span class="r-in">  <span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in">  <span class="co"># reading a matlab file</span></span>
-<span class="r-in">  <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/R.matlab/man/readMat.html" class="external-link">readMat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/test.mat"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu"><a href="show.html">print</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
-<span class="r-in">  <span class="va">mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="initialize.html">new</a></span><span class="op">(</span><span class="st">"hyperSpec"</span>,</span>
-<span class="r-in">    spc <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">x</span>,</span>
-<span class="r-in">    wavelength <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">wavelength</span><span class="op">)</span>,</span>
-<span class="r-in">    label <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">label</span><span class="op">[</span>, , <span class="fl">1</span><span class="op">]</span></span>
-<span class="r-in">  <span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"fileio"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## export &amp; import matlab files</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/HenrikBengtsson/R.matlab" class="external-link">R.matlab</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="co"># export to matlab file</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/R.matlab/man/writeMat.html" class="external-link">writeMat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/test.mat"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    x <span class="op">=</span> <span class="va">flu</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span>, wavelength <span class="op">=</span> <span class="va">flu</span><span class="op">@</span><span class="va">wavelength</span>,</span></span>
+<span class="r-in"><span>    label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">flu</span><span class="op">@</span><span class="va">label</span>, <span class="va">as.character</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="co"># reading a matlab file</span></span></span>
+<span class="r-in"><span>  <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/R.matlab/man/readMat.html" class="external-link">readMat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/test.mat"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="show.html">print</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="initialize.html">new</a></span><span class="op">(</span><span class="st">"hyperSpec"</span>,</span></span>
+<span class="r-in"><span>    spc <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">x</span>,</span></span>
+<span class="r-in"><span>    wavelength <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">wavelength</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    label <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">label</span><span class="op">[</span>, , <span class="fl">1</span><span class="op">]</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: R.matlab</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> R.matlab v3.6.2 (2018-09-26) successfully loaded. See ?R.matlab for help.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
@@ -479,7 +490,7 @@ wavelengths.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"header")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"header")$description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "MATLAB 5.0 MAT-file, Platform: unix, Software: R v4.1.3, Created on: Wed Apr  6 10:50:16 2022                               "</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "MATLAB 5.0 MAT-file, Platform: unix, Software: R v4.2.1, Created on: Fri Jul 15 11:07:20 2022                               "</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"header")$version</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "5"</span>
@@ -487,54 +498,54 @@ wavelengths.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"header")$endian</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "little"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## ascii export &amp; import</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="write_txt.html">write_txt_long</a></span><span class="op">(</span><span class="va">flu</span>,</span>
-<span class="r-in">  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/flu.txt"</span><span class="op">)</span>,</span>
-<span class="r-in">  cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".wavelength"</span>, <span class="st">"spc"</span>, <span class="st">"c"</span><span class="op">)</span>,</span>
-<span class="r-in">  order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"c"</span>, <span class="st">".wavelength"</span><span class="op">)</span>,</span>
-<span class="r-in">  decreasing <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">read.txt.long</span><span class="op">(</span></span>
-<span class="r-in">  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/flu.txt"</span><span class="op">)</span>,</span>
-<span class="r-in">  cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span class="r-in">    .wavelength <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="va">lambda</span> <span class="op">/</span> <span class="va">nm</span><span class="op">)</span>,</span>
-<span class="r-in">    spc <span class="op">=</span> <span class="st">"I / a.u"</span>, c <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="st">"/"</span><span class="op">(</span><span class="va">c</span>, <span class="op">(</span><span class="va">mg</span> <span class="op">/</span> <span class="va">l</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in">  <span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## ascii export &amp; import</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="write_txt.html">write_txt_long</a></span><span class="op">(</span><span class="va">flu</span>,</span></span>
+<span class="r-in"><span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/flu.txt"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".wavelength"</span>, <span class="st">"spc"</span>, <span class="st">"c"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"c"</span>, <span class="st">".wavelength"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  decreasing <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">read.txt.long</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/flu.txt"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    .wavelength <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="va">lambda</span> <span class="op">/</span> <span class="va">nm</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    spc <span class="op">=</span> <span class="st">"I / a.u"</span>, c <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="st">"/"</span><span class="op">(</span><span class="va">c</span>, <span class="op">(</span><span class="va">mg</span> <span class="op">/</span> <span class="va">l</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Function 'read.txt.long' is deprecated. </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Use function 'read_txt_long' instead.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    6 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    181 data points / spectrum</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="write_txt.html">write_txt_wide</a></span><span class="op">(</span><span class="va">flu</span>,</span>
-<span class="r-in">  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/flu.txt"</span><span class="op">)</span>,</span>
-<span class="r-in">  cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"c"</span>, <span class="st">"spc"</span><span class="op">)</span>,</span>
-<span class="r-in">  col.labels <span class="op">=</span> <span class="cn">TRUE</span>, header.lines <span class="op">=</span> <span class="fl">2</span>, row.names <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="write_txt.html">write_txt_wide</a></span><span class="op">(</span><span class="va">flu</span>,</span>
-<span class="r-in">  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/flu.txt"</span><span class="op">)</span>,</span>
-<span class="r-in">  col.labels <span class="op">=</span> <span class="cn">FALSE</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">read.txt.wide</span><span class="op">(</span></span>
-<span class="r-in">  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/flu.txt"</span><span class="op">)</span>,</span>
-<span class="r-in">  <span class="co"># give columns in same order as they are in the file</span></span>
-<span class="r-in">  cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span class="r-in">    spc <span class="op">=</span> <span class="st">"I / a.u"</span>,</span>
-<span class="r-in">    c <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="st">"/"</span><span class="op">(</span><span class="st">"c"</span>, <span class="st">"mg/l"</span><span class="op">)</span><span class="op">)</span>,</span>
-<span class="r-in">    filename <span class="op">=</span> <span class="st">"filename"</span>,</span>
-<span class="r-in">    <span class="co"># plus wavelength label last</span></span>
-<span class="r-in">    .wavelength <span class="op">=</span> <span class="st">"lambda / nm"</span></span>
-<span class="r-in">  <span class="op">)</span>,</span>
-<span class="r-in">  header <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="write_txt.html">write_txt_wide</a></span><span class="op">(</span><span class="va">flu</span>,</span></span>
+<span class="r-in"><span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/flu.txt"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"c"</span>, <span class="st">"spc"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  col.labels <span class="op">=</span> <span class="cn">TRUE</span>, header.lines <span class="op">=</span> <span class="fl">2</span>, row.names <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="write_txt.html">write_txt_wide</a></span><span class="op">(</span><span class="va">flu</span>,</span></span>
+<span class="r-in"><span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/flu.txt"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  col.labels <span class="op">=</span> <span class="cn">FALSE</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">read.txt.wide</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/flu.txt"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  <span class="co"># give columns in same order as they are in the file</span></span></span>
+<span class="r-in"><span>  cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    spc <span class="op">=</span> <span class="st">"I / a.u"</span>,</span></span>
+<span class="r-in"><span>    c <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="st">"/"</span><span class="op">(</span><span class="st">"c"</span>, <span class="st">"mg/l"</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    filename <span class="op">=</span> <span class="st">"filename"</span>,</span></span>
+<span class="r-in"><span>    <span class="co"># plus wavelength label last</span></span></span>
+<span class="r-in"><span>    .wavelength <span class="op">=</span> <span class="st">"lambda / nm"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  header <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Function 'read.txt.wide' is deprecated. </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Use function 'read_txt_wide' instead.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>$filename already exists. =&gt; Skipping file.keep.name</span>
@@ -556,7 +567,7 @@ wavelengths.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

@@ -91,32 +91,43 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">plotmat</span><span class="op">(</span>
-  <span class="va">object</span>,
-  y <span class="op">=</span> <span class="st">".row"</span>,
-  <span class="va">ylab</span>,
-  col <span class="op">=</span> <span class="fu"><a href="palettes.html">palette_alois</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span>,
-  <span class="va">...</span>,
-  contour <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">plotmat</span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  y <span class="op">=</span> <span class="st">".row"</span>,</span>
+<span>  <span class="va">ylab</span>,</span>
+<span>  col <span class="op">=</span> <span class="fu"><a href="palettes.html">palette_alois</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  contour <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>hyperSpec object</p></dd>
+
+
 <dt>y</dt>
 <dd><p>character giving the name of the extra data column to label the y axis.</p></dd>
+
+
 <dt>ylab</dt>
 <dd><p>y axis label, defaults to <code>"row"</code> and the label of the extra data column used
 for the y axis, respectively.</p></dd>
+
+
 <dt>col</dt>
 <dd><p>see  <code><a href="https://rdrr.io/r/graphics/image.html" class="external-link">graphics::image()</a></code></p></dd>
+
+
 <dt>...</dt>
 <dd><p>further parameters for <code><a href="https://rdrr.io/r/graphics/image.html" class="external-link">graphics::image()</a></code></p></dd>
+
+
 <dt>contour</dt>
 <dd><p>should <code><a href="https://rdrr.io/r/graphics/contour.html" class="external-link">graphics::contour()</a></code> be called instead of
 <code><a href="https://rdrr.io/r/graphics/image.html" class="external-link">graphics::image()</a></code>?</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -134,21 +145,21 @@ The right margin is set to at least 5 lines.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">plotmat</span><span class="op">(</span><span class="va">laser</span>, col <span class="op">=</span> <span class="fu"><a href="palettes.html">palette_alois</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">plotmat</span><span class="op">(</span><span class="va">laser</span>, col <span class="op">=</span> <span class="fu"><a href="palettes.html">palette_alois</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plotmat-1.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">laser</span>, <span class="st">"mat"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">plotmat</span><span class="op">(</span><span class="va">laser</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">plotmat</span><span class="op">(</span><span class="va">laser</span>, contour <span class="op">=</span> <span class="cn">TRUE</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">laser</span>, <span class="st">"mat"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">plotmat</span><span class="op">(</span><span class="va">laser</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">plotmat</span><span class="op">(</span><span class="va">laser</span>, contour <span class="op">=</span> <span class="cn">TRUE</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plotmat-2.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## use different y axis labels</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">plotmat</span><span class="op">(</span><span class="va">laser</span>, <span class="st">"t"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## use different y axis labels</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">plotmat</span><span class="op">(</span><span class="va">laser</span>, <span class="st">"t"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plotmat-3.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">plotmat</span><span class="op">(</span><span class="va">laser</span>, <span class="va">laser</span><span class="op">$</span><span class="va">t</span> <span class="op">/</span> <span class="fl">3600</span>, ylab <span class="op">=</span> <span class="st">"t / h"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">plotmat</span><span class="op">(</span><span class="va">laser</span>, <span class="va">laser</span><span class="op">$</span><span class="va">t</span> <span class="op">/</span> <span class="fl">3600</span>, ylab <span class="op">=</span> <span class="st">"t / h"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plotmat-4.png" alt="" width="466" height="288"></span>
 </code></pre></div>
     </div>
@@ -164,7 +175,7 @@ The right margin is set to at least 5 lines.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

@@ -91,29 +91,36 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">wl_eval</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, normalize.wl <span class="op">=</span> <span class="va">I</span><span class="op">)</span>
-
-<span class="co"># S3 method for hyperSpec</span>
-<span class="fu">wl_eval</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, normalize.wl <span class="op">=</span> <span class="va">I</span><span class="op">)</span>
-
-<span class="co"># S3 method for numeric</span>
-<span class="fu">wl_eval</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, normalize.wl <span class="op">=</span> <span class="va">I</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">wl_eval</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, normalize.wl <span class="op">=</span> <span class="va">I</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for hyperSpec</span></span>
+<span><span class="fu">wl_eval</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, normalize.wl <span class="op">=</span> <span class="va">I</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for numeric</span></span>
+<span><span class="fu">wl_eval</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, normalize.wl <span class="op">=</span> <span class="va">I</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>either <code>hyperSpec</code> object or numeric vector.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>expressions to be evaluated.</p></dd>
+
+
 <dt>normalize.wl</dt>
 <dd><p>function to transform the wavelengths before evaluating
 the polynomial (or  other function). Use <code><a href="normalize01.html">normalize01()</a></code> to map
 the wavelength range to the interval [0, 1].</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>hyperSpec</code> object containing one spectrum for each expression.</p>
+    
+
+<p><code>hyperSpec</code> object containing one spectrum for each expression.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -130,13 +137,13 @@ the function.</p></li>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu">wl_eval</span><span class="op">(</span><span class="va">laser</span>, exp <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="op">-</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu">wl_eval</span><span class="op">(</span><span class="va">laser</span>, exp <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="op">-</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="wl_eval-1.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu">wl_eval</span><span class="op">(</span><span class="fl">1000</span><span class="op">:</span><span class="fl">4000</span>, y <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fl">1</span> <span class="op">/</span> <span class="fu"><a href="math.html">log</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu">wl_eval</span><span class="op">(</span><span class="fl">1000</span><span class="op">:</span><span class="fl">4000</span>, y <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fl">1</span> <span class="op">/</span> <span class="fu"><a href="math.html">log</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="wl_eval-2.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu">wl_eval</span><span class="op">(</span><span class="fl">300</span><span class="op">:</span><span class="fl">550</span>, y2 <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">*</span> <span class="fl">2</span>, y3 <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">*</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu">wl_eval</span><span class="op">(</span><span class="fl">300</span><span class="op">:</span><span class="fl">550</span>, y2 <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">*</span> <span class="fl">2</span>, y3 <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">*</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="wl_eval-3.png" alt="" width="466" height="288"></span>
 </code></pre></div>
     </div>
@@ -152,7 +159,7 @@ the function.</p></li>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

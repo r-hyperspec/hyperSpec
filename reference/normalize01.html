@@ -95,30 +95,37 @@ subsequently dividing by the maximum. If all elements of <code>x</code> are equa
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">normalize01</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for matrix</span>
-<span class="fu">normalize01</span><span class="op">(</span><span class="va">x</span>, tolerance <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"tolerance"</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co"># S4 method for numeric</span>
-<span class="fu">normalize01</span><span class="op">(</span><span class="va">x</span>, tolerance <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"tolerance"</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co"># S4 method for hyperSpec</span>
-<span class="fu">normalize01</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">normalize01</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for matrix</span></span>
+<span><span class="fu">normalize01</span><span class="op">(</span><span class="va">x</span>, tolerance <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"tolerance"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for numeric</span></span>
+<span><span class="fu">normalize01</span><span class="op">(</span><span class="va">x</span>, tolerance <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"tolerance"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu">normalize01</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>Object (e.g., vector) with values to transform.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>additional parameters such as <code>tolerance</code> handed down.</p></dd>
+
+
 <dt>tolerance</dt>
 <dd><p>Tolerance level for determining what is 0 and 1.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>object (e.g., vector) with <code>x</code> values mapped to the interval [0, 1].</p>
+    
+
+<p>object (e.g., vector) with <code>x</code> values mapped to the interval [0, 1].</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -141,7 +148,7 @@ subsequently dividing by the maximum. If all elements of <code>x</code> are equa
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

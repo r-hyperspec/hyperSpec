@@ -97,12 +97,14 @@ organization <a href="https://r-hyperspec.github.io/" class="external-link"><str
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">hy_list_available_hySpc_packages</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">hy_list_available_hySpc_packages</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="value">
     <h2>Value</h2>
-    <p>Character vector with the names of the packages.</p>
+    
+
+<p>Character vector with the names of the packages.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -114,11 +116,12 @@ Then, on how to set your GitHub PAT, see sections "10.1.2 How to get a PAT?",
 "10.2.1 Call an R function to store your credentials", and (if you need more
 information) others on this chapter
 https://happygitwithr.com/credential-caching.htm and set PAT.
-Then use this code:</p><div class="sourceCode r"><pre><code><span class="co"># install.packages("gh")</span>
-<span class="va">gh_api_response</span> <span class="op">&lt;-</span> <span class="fu">gh</span><span class="fu">::</span><span class="fu"><a href="https://gh.r-lib.org/reference/gh.html" class="external-link">gh</a></span><span class="op">(</span><span class="st">"GET /users/r-hyperspec/repos?per_page=100"</span><span class="op">)</span>
-<span class="va">repo_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">vapply</a></span><span class="op">(</span><span class="va">gh_api_response</span>, <span class="st">"[["</span>, <span class="st">""</span>, <span class="st">"name"</span><span class="op">)</span>
-<span class="va">package_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grep</a></span><span class="op">(</span><span class="st">"^hyperSpec|^hySpc[.]"</span>, <span class="va">repo_names</span>, value <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="va">package_names</span></code></pre><p></p></div>
+Then use this code:</p>
+<p></p><div class="sourceCode r"><pre><code><span><span class="co"># install.packages("gh")</span></span>
+<span><span class="va">gh_api_response</span> <span class="op">&lt;-</span> <span class="fu">gh</span><span class="fu">::</span><span class="fu"><a href="https://gh.r-lib.org/reference/gh.html" class="external-link">gh</a></span><span class="op">(</span><span class="st">"GET /users/r-hyperspec/repos?per_page=100"</span><span class="op">)</span></span>
+<span><span class="va">repo_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">vapply</a></span><span class="op">(</span><span class="va">gh_api_response</span>, <span class="st">"[["</span>, <span class="st">""</span>, <span class="st">"name"</span><span class="op">)</span></span>
+<span><span class="va">package_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grep</a></span><span class="op">(</span><span class="st">"^hyperSpec|^hySpc[.]"</span>, <span class="va">repo_names</span>, value <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">package_names</span></span></code></pre><p></p></div>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -141,7 +144,7 @@ Then use this code:</p><div class="sourceCode r"><pre><code><span class="co"># i
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

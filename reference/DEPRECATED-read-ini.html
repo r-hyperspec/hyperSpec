@@ -102,33 +102,39 @@ should be used as the alternatives.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">read.ini</span><span class="op">(</span>
-  con <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"Connection con needed."</span><span class="op">)</span>,
-  skip <span class="op">=</span> <span class="cn">NULL</span>,
-  encoding <span class="op">=</span> <span class="st">"unknown"</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read.ini</span><span class="op">(</span></span>
+<span>  con <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"Connection con needed."</span><span class="op">)</span>,</span>
+<span>  skip <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  encoding <span class="op">=</span> <span class="st">"unknown"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>con</dt>
 <dd><p>connection or file name</p></dd>
+
+
 <dt>skip</dt>
 <dd><p>number of lines to skip before first <code>[section]</code> starts</p></dd>
+
+
 <dt>encoding</dt>
 <dd><p>see <code><a href="https://rdrr.io/r/base/readLines.html" class="external-link">base::readLines()</a></code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a list with one element per section in the .ini file, each containing a list with elements
+    
+
+<p>a list with one element per section in the .ini file, each containing a list with elements
 for the key-value-pairs.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
-    <p><code>read.ini</code> reads ini files of the form</p><div class="sourceCode"><pre><code>[section]
-key = value
-</code></pre></div>
-
+    <p><code>read.ini</code> reads ini files of the form</p>
+<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1"></a>[section]</span>
+<span id="cb1-2"><a href="#cb1-2"></a>key =<span class="st"> </span>value</span></code></pre><p></p></div>
 <p>into a list.</p>
 <p><code>read.ini</code> sanitizes the element names and tries to convert scalars and comma separated
 numeric vectors to numeric.</p>
@@ -150,7 +156,7 @@ numeric vectors to numeric.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

@@ -128,28 +128,36 @@ Arith(e1, e2)
     <h2>Arguments</h2>
     <dl><dt>e1, e2</dt>
 <dd><p>or</p></dd>
+
+
 <dt>x, y</dt>
 <dd><p>either two <code>hyperSpec</code> objects or</p>
 <p>one <code>hyperSpec</code> object and  matrix of same size as <code>x[[]]</code> or</p>
 <p>a vector which length equaling either the number of rows or the number of
 wavelengths of the <code>hyperSpec</code> object, or</p>
 <p>a scalar (numeric of length 1).</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>hyperSpec</code> object with the new spectra matrix.
-If the <code>e2</code> is a <code>hyperSpec</code> object, its extra data columns will be dropped
+    
+
+<p><code>hyperSpec</code> object with the new spectra matrix.</p>
+
+
+<p>If the <code>e2</code> is a <code>hyperSpec</code> object, its extra data columns will be dropped
 silently.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
-    <p>You can use these operators in different ways:</p><div class="sourceCode"><pre><code><span class="va">e1</span> <span class="op">+</span> <span class="va">e2</span>
-
-<span class="fu">`+`</span><span class="op">(</span><span class="va">e1</span>, <span class="va">e2</span><span class="op">)</span>
-
-<span class="va">x</span> 
-
-<span class="op">-</span><span class="va">x</span></code></pre></div>
+    <p>You can use these operators in different ways:</p><div class="sourceCode"><pre><code><span></span>
+<span><span class="va">e1</span> <span class="op">+</span> <span class="va">e2</span></span>
+<span></span>
+<span><span class="fu">`+`</span><span class="op">(</span><span class="va">e1</span>, <span class="va">e2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">x</span> </span>
+<span></span>
+<span><span class="op">-</span><span class="va">x</span> </span></code></pre></div>
 
 <p>The arithmetical operators <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>^</code>, <code>%%</code>, <code>%/%</code>, and
 <code>%*%</code> work on the  spectra matrix of the <code>hyperSpec</code> object. They have their
@@ -177,24 +185,24 @@ and Math2 groups) working on hyperSpec objects.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">flu</span> <span class="op">+</span> <span class="va">flu</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">flu</span> <span class="op">+</span> <span class="va">flu</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    6 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    181 data points / spectrum</span>
-<span class="r-in"><span class="fl">1</span> <span class="op">/</span> <span class="va">flu</span></span>
+<span class="r-in"><span><span class="fl">1</span> <span class="op">/</span> <span class="va">flu</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    6 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    181 data points / spectrum</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="op">(</span><span class="va">flu</span> <span class="op">+</span> <span class="va">flu</span> <span class="op">-</span> <span class="fl">2</span> <span class="op">*</span> <span class="va">flu</span><span class="op">)</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="op">(</span><span class="va">flu</span> <span class="op">+</span> <span class="va">flu</span> <span class="op">-</span> <span class="fl">2</span> <span class="op">*</span> <span class="va">flu</span><span class="op">)</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
-<span class="r-in"><span class="op">-</span><span class="va">flu</span></span>
+<span class="r-in"><span><span class="op">-</span><span class="va">flu</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    6 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    181 data points / spectrum</span>
-<span class="r-in"><span class="va">flu</span> <span class="op">/</span> <span class="va">flu</span><span class="op">$</span><span class="va">c</span></span>
+<span class="r-in"><span><span class="va">flu</span> <span class="op">/</span> <span class="va">flu</span><span class="op">$</span><span class="va">c</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    6 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 data columns</span>
@@ -213,7 +221,7 @@ and Math2 groups) working on hyperSpec objects.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

@@ -114,47 +114,64 @@ PEAK TABLEs.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">read.jdx</span><span class="op">(</span>
-  filename <span class="op">=</span> <span class="cn">NULL</span>,
-  encoding <span class="op">=</span> <span class="st">""</span>,
-  header <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,
-  keys.hdr2data <span class="op">=</span> <span class="cn">FALSE</span>,
-  <span class="va">...</span>,
-  NA.symbols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NA"</span>, <span class="st">"N/A"</span>, <span class="st">"N.A."</span><span class="op">)</span>,
-  collapse.multi <span class="op">=</span> <span class="cn">TRUE</span>,
-  wl.tolerance <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"wl.tolerance"</span><span class="op">)</span>,
-  collapse.equal <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read.jdx</span><span class="op">(</span></span>
+<span>  filename <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  encoding <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  header <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  keys.hdr2data <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  NA.symbols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NA"</span>, <span class="st">"N/A"</span>, <span class="st">"N.A."</span><span class="op">)</span>,</span>
+<span>  collapse.multi <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  wl.tolerance <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"wl.tolerance"</span><span class="op">)</span>,</span>
+<span>  collapse.equal <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>filename</dt>
 <dd><p>file name and path of the .jdx file</p></dd>
+
+
 <dt>encoding</dt>
 <dd><p>encoding of the JCAMP-DX file (used by <code><a href="https://rdrr.io/r/base/readLines.html" class="external-link">base::readLines()</a></code>)</p></dd>
+
+
 <dt>header</dt>
 <dd><p>list with manually set header values</p></dd>
+
+
 <dt>keys.hdr2data</dt>
 <dd><p>index vector indicating which header entries should be
 transferred into the extra data. Usually a character vector of labels
 (lowercase, without and dashes, blanks, underscores). If <code>TRUE</code>, all
 header entries are read.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>further parameters handed to the data import function, e.g.</p><table class="table table"><tr><td>parameter</td><td>meaning</td><td>default</td></tr><tr><td><code>xtol</code></td><td>tolerance for checking calculated x values against checkpoints at beginning of line</td><td>XFACTOR</td></tr><tr><td><code>ytol</code></td><td>tolerance for checking Y values against MINY and MAXY</td><td>YFACTOR</td></tr></table></dd>
+
+
 <dt>NA.symbols</dt>
 <dd><p>character vector of text values that should be converted
 to <code>NA</code></p></dd>
+
+
 <dt>collapse.multi</dt>
 <dd><p>should hyperSpec objects from multispectra files be
 collapsed into one hyperSpec object (if <code>FALSE</code>, a list of hyperSpec
 objects is returned).</p></dd>
+
+
 <dt>wl.tolerance, collapse.equal</dt>
 <dd><p>see <a href="collapse.html">collapse</a></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>hyperSpec object</p>
+    
+
+<p>hyperSpec object</p>
     </div>
     <div id="note">
     <h2>Note</h2>
@@ -178,7 +195,7 @@ notice.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

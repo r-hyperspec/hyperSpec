@@ -112,79 +112,100 @@ special entries in the header file.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">read.ENVI</span><span class="op">(</span>
-  file <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"read.ENVI: file name needed"</span><span class="op">)</span>,
-  headerfile <span class="op">=</span> <span class="cn">NULL</span>,
-  header <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,
-  keys.hdr2data <span class="op">=</span> <span class="cn">FALSE</span>,
-  x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">1</span>,
-  y <span class="op">=</span> <span class="va">x</span>,
-  wavelength <span class="op">=</span> <span class="cn">NULL</span>,
-  label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,
-  block.lines.skip <span class="op">=</span> <span class="fl">0</span>,
-  block.lines.size <span class="op">=</span> <span class="cn">NULL</span>,
-  <span class="va">...</span>,
-  pull.header.lines <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span>
-
-<span class="fu">read.ENVI.HySpex</span><span class="op">(</span>
-  file <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"read.ENVI.HySpex: file name needed"</span><span class="op">)</span>,
-  headerfile <span class="op">=</span> <span class="cn">NULL</span>,
-  header <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,
-  keys.hdr2data <span class="op">=</span> <span class="cn">NULL</span>,
-  <span class="va">...</span>
-<span class="op">)</span>
-
-<span class="fu">read.ENVI.Nicolet</span><span class="op">(</span>
-  file <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"read.ENVI: file name needed"</span><span class="op">)</span>,
-  headerfile <span class="op">=</span> <span class="cn">NULL</span>,
-  header <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,
-  <span class="va">...</span>,
-  x <span class="op">=</span> <span class="cn">NA</span>,
-  y <span class="op">=</span> <span class="cn">NA</span>,
-  nicolet.correction <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read.ENVI</span><span class="op">(</span></span>
+<span>  file <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"read.ENVI: file name needed"</span><span class="op">)</span>,</span>
+<span>  headerfile <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  header <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  keys.hdr2data <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">1</span>,</span>
+<span>  y <span class="op">=</span> <span class="va">x</span>,</span>
+<span>  wavelength <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  block.lines.skip <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  block.lines.size <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  pull.header.lines <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read.ENVI.HySpex</span><span class="op">(</span></span>
+<span>  file <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"read.ENVI.HySpex: file name needed"</span><span class="op">)</span>,</span>
+<span>  headerfile <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  header <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  keys.hdr2data <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read.ENVI.Nicolet</span><span class="op">(</span></span>
+<span>  file <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"read.ENVI: file name needed"</span><span class="op">)</span>,</span>
+<span>  headerfile <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  header <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  x <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  y <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  nicolet.correction <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>file</dt>
 <dd><p>complete name of the binary file</p></dd>
+
+
 <dt>headerfile</dt>
 <dd><p>name of the ASCII header file. If <code>NULL</code>, the name
 of the header file is guessed by looking for a second file with the same
 basename as <code>file</code> but <code>hdr</code> or <code>HDR</code> suffix.</p></dd>
+
+
 <dt>header</dt>
 <dd><p>list with header information, see details. Overwrites information extracted from the header file.</p></dd>
+
+
 <dt>keys.hdr2data</dt>
 <dd><p>determines which fields of the header file should be
 put into the extra data. Defaults to none.</p>
 <p>To specify certain entries, give character vectors containing the lowercase
 names of the header file entries.</p></dd>
+
+
 <dt>x, y</dt>
 <dd><p>vectors of form c(offset, step size) for the position vectors,
 see details.</p></dd>
+
+
 <dt>wavelength, label</dt>
 <dd><p>lists that overwrite the respective information
 from the ENVI header file. These data is then handed to
 <code><a href="initialize.html">initialize()</a></code></p></dd>
+
+
 <dt>block.lines.skip, block.lines.size</dt>
 <dd><p>BIL and BIP ENVI files may be read in blocks of lines:
 skip the first <code>block.lines.skip</code> lines, then read a block of <code>block.lines.size</code>
 lines. If <code>block.lines.NULL</code>, the whole file is read.
 Blocks are silently truncated at the end of the file (more precisely: to <code>header$lines</code>).</p></dd>
+
+
 <dt>...</dt>
 <dd><p>currently unused by <code>read.ENVI</code>,
 <code>read.ENVI.Nicolet</code> hands those arguements over to <code>read.ENVI</code></p></dd>
+
+
 <dt>pull.header.lines</dt>
 <dd><p>(internal) flag whether multi-line header entries grouped by curly
 braces should be pulled into one line each.</p></dd>
+
+
 <dt>nicolet.correction</dt>
 <dd><p>see details</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a <code>hyperSpec</code> object</p>
+    
+
+<p>a <code>hyperSpec</code> object</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -244,7 +265,7 @@ Base64, ROC AUC, etc.. R package version 1.9.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

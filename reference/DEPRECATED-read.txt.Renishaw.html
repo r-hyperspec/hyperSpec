@@ -102,44 +102,57 @@ should be used as the alternatives.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">read.txt.Renishaw</span><span class="op">(</span>
-  file <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"file is required"</span><span class="op">)</span>,
-  data <span class="op">=</span> <span class="st">"xyspc"</span>,
-  nlines <span class="op">=</span> <span class="fl">0</span>,
-  nspc <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span>
-
-<span class="fu">read.zip.Renishaw</span><span class="op">(</span>
-  file <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"filename is required"</span><span class="op">)</span>,
-  txt.file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">sub</a></span><span class="op">(</span><span class="st">"[.]zip"</span>, <span class="st">".txt"</span>, <span class="fu"><a href="https://rdrr.io/r/base/basename.html" class="external-link">basename</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span><span class="op">)</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read.txt.Renishaw</span><span class="op">(</span></span>
+<span>  file <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"file is required"</span><span class="op">)</span>,</span>
+<span>  data <span class="op">=</span> <span class="st">"xyspc"</span>,</span>
+<span>  nlines <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  nspc <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read.zip.Renishaw</span><span class="op">(</span></span>
+<span>  file <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"filename is required"</span><span class="op">)</span>,</span>
+<span>  txt.file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">sub</a></span><span class="op">(</span><span class="st">"[.]zip"</span>, <span class="st">".txt"</span>, <span class="fu"><a href="https://rdrr.io/r/base/basename.html" class="external-link">basename</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>file</dt>
 <dd><p>file name or connection</p></dd>
+
+
 <dt>data</dt>
 <dd><p>type of file, one of "spc", "xyspc", "zspc", "depth", "ts", see
 details.</p></dd>
+
+
 <dt>nlines</dt>
 <dd><p>number of lines to read in each chunk, if 0 or less read
 whole file at once.</p>
 <p><code>nlines</code> must cover at least one complete spectrum,i.e. <code>nlines</code>
 must be at least the number of data points per spectrum. Reasonable
 values start at <code>1e6</code>.</p></dd>
+
+
 <dt>nspc</dt>
 <dd><p>number of spectra in the file</p></dd>
+
+
 <dt>txt.file</dt>
 <dd><p>name of the .txt file in the .zip archive. Defaults to zip
 file's name with suffix .txt instead of .zip</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Arguments for <code>read.txt.Renishaw</code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>the <code>hyperSpec</code> object</p>
+    
+
+<p>the <code>hyperSpec</code> object</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -176,7 +189,7 @@ not given, <code>read.txt.Renishaw()</code> tries to guess it by using <code><a 
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

@@ -1,5 +1,5 @@
 pandoc: 2.7.3
-pkgdown: 2.0.2
+pkgdown: 2.0.5
 pkgdown_sha: ~
 articles:
   baseline: baseline.html
@@ -8,5 +8,5 @@ articles:
   hyperSpec: hyperSpec.html
   laser: laser.html
   plotting: plotting.html
-last_built: 2022-04-06T10:49Z
+last_built: 2022-07-15T11:06Z
 

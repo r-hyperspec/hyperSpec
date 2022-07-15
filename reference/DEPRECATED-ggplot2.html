@@ -102,136 +102,189 @@ should be used as alternatives to plot <code>hyperSpec</code> objects with <span
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">qplotspc</span><span class="op">(</span>
-  <span class="va">x</span>,
-  wl.range <span class="op">=</span> <span class="cn">TRUE</span>,
-  <span class="va">...</span>,
-  mapping <span class="op">=</span> <span class="fu">aes_string</span><span class="op">(</span>x <span class="op">=</span> <span class="st">".wavelength"</span>, y <span class="op">=</span> <span class="st">"spc"</span>, group <span class="op">=</span> <span class="st">".rownames"</span><span class="op">)</span>,
-  spc.nmax <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"ggplot.spc.nmax"</span><span class="op">)</span>,
-  map.lineonly <span class="op">=</span> <span class="cn">FALSE</span>,
-  debuglevel <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"debuglevel"</span><span class="op">)</span>
-<span class="op">)</span>
-
-<span class="fu">qplotmap</span><span class="op">(</span>
-  <span class="va">object</span>,
-  mapping <span class="op">=</span> <span class="fu">aes_string</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"x"</span>, y <span class="op">=</span> <span class="st">"y"</span>, fill <span class="op">=</span> <span class="st">"spc"</span><span class="op">)</span>,
-  <span class="va">...</span>,
-  func <span class="op">=</span> <span class="va">mean</span>,
-  func.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,
-  map.tileonly <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-
-<span class="fu">qplotc</span><span class="op">(</span>
-  <span class="va">object</span>,
-  mapping <span class="op">=</span> <span class="fu">aes_string</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"c"</span>, y <span class="op">=</span> <span class="st">"spc"</span><span class="op">)</span>,
-  <span class="va">...</span>,
-  func <span class="op">=</span> <span class="cn">NULL</span>,
-  func.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,
-  map.pointonly <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-
-<span class="fu">qplotmixmap</span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">legendright</span><span class="op">(</span><span class="va">p</span>, <span class="va">l</span>, legend.width <span class="op">=</span> <span class="fl">8</span>, legend.unit <span class="op">=</span> <span class="st">"lines"</span><span class="op">)</span>
-
-<span class="fu">qmixtile</span><span class="op">(</span>
-  <span class="va">object</span>,
-  purecol <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"pure component colors needed."</span><span class="op">)</span>,
-  mapping <span class="op">=</span> <span class="fu">aes_string</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"x"</span>, y <span class="op">=</span> <span class="st">"y"</span>, fill <span class="op">=</span> <span class="st">"spc"</span><span class="op">)</span>,
-  <span class="va">...</span>,
-  map.tileonly <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-
-<span class="fu">normalize.colrange</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, legend <span class="op">=</span> <span class="cn">FALSE</span>, n <span class="op">=</span> <span class="fl">100</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">normalize.range</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, legend <span class="op">=</span> <span class="cn">FALSE</span>, n <span class="op">=</span> <span class="fl">100</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">normalize.null</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, legend <span class="op">=</span> <span class="cn">FALSE</span>, n <span class="op">=</span> <span class="fl">100</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">normalize.minmax</span><span class="op">(</span><span class="va">x</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">1</span>, legend <span class="op">=</span> <span class="cn">FALSE</span>, n <span class="op">=</span> <span class="fl">100</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">qmixlegend</span><span class="op">(</span>
-  <span class="va">x</span>,
-  <span class="va">purecol</span>,
-  dx <span class="op">=</span> <span class="fl">0.33</span>,
-  ny <span class="op">=</span> <span class="fl">100</span>,
-  labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">purecol</span><span class="op">)</span>,
-  normalize <span class="op">=</span> <span class="va">normalize.colrange</span>,
-  <span class="va">...</span>
-<span class="op">)</span>
-
-<span class="fu">colmix.rgb</span><span class="op">(</span>
-  <span class="va">x</span>,
-  <span class="va">purecol</span>,
-  against <span class="op">=</span> <span class="fl">1</span>,
-  sub <span class="op">=</span> <span class="cn">TRUE</span>,
-  normalize <span class="op">=</span> <span class="va">normalize.colrange</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">qplotspc</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  wl.range <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  mapping <span class="op">=</span> <span class="fu">aes_string</span><span class="op">(</span>x <span class="op">=</span> <span class="st">".wavelength"</span>, y <span class="op">=</span> <span class="st">"spc"</span>, group <span class="op">=</span> <span class="st">".rownames"</span><span class="op">)</span>,</span>
+<span>  spc.nmax <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"ggplot.spc.nmax"</span><span class="op">)</span>,</span>
+<span>  map.lineonly <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  debuglevel <span class="op">=</span> <span class="fu"><a href="options.html">hy_get_option</a></span><span class="op">(</span><span class="st">"debuglevel"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">qplotmap</span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  mapping <span class="op">=</span> <span class="fu">aes_string</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"x"</span>, y <span class="op">=</span> <span class="st">"y"</span>, fill <span class="op">=</span> <span class="st">"spc"</span><span class="op">)</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  func <span class="op">=</span> <span class="va">mean</span>,</span>
+<span>  func.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  map.tileonly <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">qplotc</span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  mapping <span class="op">=</span> <span class="fu">aes_string</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"c"</span>, y <span class="op">=</span> <span class="st">"spc"</span><span class="op">)</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  func <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  func.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  map.pointonly <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">qplotmixmap</span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">legendright</span><span class="op">(</span><span class="va">p</span>, <span class="va">l</span>, legend.width <span class="op">=</span> <span class="fl">8</span>, legend.unit <span class="op">=</span> <span class="st">"lines"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">qmixtile</span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  purecol <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a></span><span class="op">(</span><span class="st">"pure component colors needed."</span><span class="op">)</span>,</span>
+<span>  mapping <span class="op">=</span> <span class="fu">aes_string</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"x"</span>, y <span class="op">=</span> <span class="st">"y"</span>, fill <span class="op">=</span> <span class="st">"spc"</span><span class="op">)</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  map.tileonly <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">normalize.colrange</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, legend <span class="op">=</span> <span class="cn">FALSE</span>, n <span class="op">=</span> <span class="fl">100</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">normalize.range</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, legend <span class="op">=</span> <span class="cn">FALSE</span>, n <span class="op">=</span> <span class="fl">100</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">normalize.null</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, legend <span class="op">=</span> <span class="cn">FALSE</span>, n <span class="op">=</span> <span class="fl">100</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">normalize.minmax</span><span class="op">(</span><span class="va">x</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">1</span>, legend <span class="op">=</span> <span class="cn">FALSE</span>, n <span class="op">=</span> <span class="fl">100</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">qmixlegend</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  <span class="va">purecol</span>,</span>
+<span>  dx <span class="op">=</span> <span class="fl">0.33</span>,</span>
+<span>  ny <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>  labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">purecol</span><span class="op">)</span>,</span>
+<span>  normalize <span class="op">=</span> <span class="va">normalize.colrange</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">colmix.rgb</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  <span class="va">purecol</span>,</span>
+<span>  against <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  sub <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  normalize <span class="op">=</span> <span class="va">normalize.colrange</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>matrix with component intensities in columns</p></dd>
+
+
 <dt>wl.range</dt>
 <dd><p>wavelength ranges to plot</p></dd>
+
+
 <dt>...</dt>
 <dd><p><code>qmixtile</code>: handed to <code>colmix.rgb()</code></p>
 <p><code>qmixlegend()</code> and <code>colmix.rgb()</code> hand further arguments to the
 <code>normalize</code> function</p></dd>
+
+
 <dt>mapping</dt>
 <dd><p>see <code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">ggplot2::geom_tile()</a></code></p></dd>
+
+
 <dt>spc.nmax</dt>
 <dd><p>maximum number of spectra to plot</p></dd>
+
+
 <dt>map.lineonly</dt>
 <dd><p>if <code>TRUE</code>, <code>mapping</code> will be handed to
 <code><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">ggplot2::geom_line()</a></code> instead of <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot2::ggplot()</a></code>.</p></dd>
+
+
 <dt>debuglevel</dt>
 <dd><p>if &gt; 0, additional debug output is produced</p></dd>
+
+
 <dt>object</dt>
 <dd><p>matrix to be plotted with mixed colour channels</p></dd>
+
+
 <dt>func</dt>
 <dd><p>function to summarize the wavelengths, if <code>NULL</code>, only the first
 wavelength is used</p></dd>
+
+
 <dt>func.args</dt>
 <dd><p>arguments to <code>func</code></p></dd>
+
+
 <dt>map.tileonly</dt>
 <dd><p>if <code>TRUE</code>, <code>mapping</code> will be handed to
 <code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">ggplot2::geom_tile()</a></code> instead of <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot2::ggplot()</a></code>.</p></dd>
+
+
 <dt>map.pointonly</dt>
 <dd><p>if <code>TRUE</code>, <code>mapping</code> will be handed to
 <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">ggplot2::geom_point()</a></code> instead of <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot2::ggplot()</a></code>.</p></dd>
+
+
 <dt>p</dt>
 <dd><p>plot object</p></dd>
+
+
 <dt>l</dt>
 <dd><p>legend object</p></dd>
+
+
 <dt>legend.width, legend.unit</dt>
 <dd><p>size of legend part</p></dd>
+
+
 <dt>purecol</dt>
 <dd><p>pure component colours, names determine legend labels</p></dd>
+
+
 <dt>na.rm</dt>
 <dd><p>see <code><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">base::min()</a></code></p></dd>
+
+
 <dt>legend</dt>
 <dd><p>should a legend be produced instead of normalized values?</p></dd>
+
+
 <dt>n</dt>
 <dd><p>of colours to produce in legend</p></dd>
+
+
 <dt>min</dt>
 <dd><p>numeric with value corresponding to "lowest" colour for each column</p></dd>
+
+
 <dt>max</dt>
 <dd><p>numeric with value corresponding to "hightest" colour for each column</p></dd>
+
+
 <dt>dx</dt>
 <dd><p>width of label bar</p></dd>
+
+
 <dt>ny</dt>
 <dd><p>number of colours in legend</p></dd>
+
+
 <dt>labels</dt>
 <dd><p>component names</p></dd>
+
+
 <dt>normalize</dt>
 <dd><p>function to normalize the values.</p></dd>
+
+
 <dt>against</dt>
 <dd><p>value to mix against (for <code>sub = TRUE</code> only, 1 = white, 0 = black)</p></dd>
+
+
 <dt>sub</dt>
 <dd><p>subtractive color mixing?</p></dd>
+
 </dl></div>
     <div id="author">
     <h2>Author</h2>
@@ -240,27 +293,27 @@ wavelength is used</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">qplotspc</span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">qplotspc</span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Function 'qplotspc' is deprecated. </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Use function 'qplotspc' from package 'hySpc.ggplot2' instead.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> https://r-hyperspec.github.io/hySpc.ggplot2</span>
 <span class="r-plt img"><img src="DEPRECATED-ggplot2-1.png" alt="" width="466" height="288"></span>
-<span class="r-in"><span class="fu">qplotmap</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">qplotmap</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fl">1200</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Function 'qplotmap' is deprecated. </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Use function 'qplotmap' from package 'hySpc.ggplot2' instead.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> https://r-hyperspec.github.io/hySpc.ggplot2</span>
 <span class="r-plt img"><img src="DEPRECATED-ggplot2-2.png" alt="" width="466" height="288"></span>
-<span class="r-in"><span class="fu">qplotc</span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">qplotc</span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Function 'qplotc' is deprecated. </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Use function 'qplotc' from package 'hySpc.ggplot2' instead.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> https://r-hyperspec.github.io/hySpc.ggplot2</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Intensity at first wavelengh only is used.</span>
 <span class="r-plt img"><img src="DEPRECATED-ggplot2-3.png" alt="" width="466" height="288"></span>
-<span class="r-in"><span class="va">faux_cell</span> <span class="op">&lt;-</span> <span class="va">faux_cell</span> <span class="op">-</span> <span class="fu"><a href="baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">qplotmixmap</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">800</span>, <span class="fl">1200</span>, <span class="fl">1500</span><span class="op">)</span><span class="op">]</span>,</span>
-<span class="r-in">  purecol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>A <span class="op">=</span> <span class="st">"green4"</span>, B <span class="op">=</span> <span class="st">"yellow"</span>, C <span class="op">=</span> <span class="st">"royalblue"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">faux_cell</span> <span class="op">&lt;-</span> <span class="va">faux_cell</span> <span class="op">-</span> <span class="fu"><a href="baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">qplotmixmap</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">800</span>, <span class="fl">1200</span>, <span class="fl">1500</span><span class="op">)</span><span class="op">]</span>,</span></span>
+<span class="r-in"><span>  purecol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>A <span class="op">=</span> <span class="st">"green4"</span>, B <span class="op">=</span> <span class="st">"yellow"</span>, C <span class="op">=</span> <span class="st">"royalblue"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Function 'qplotmixmap' is deprecated. </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Use function 'qplotmixmap' from package 'hySpc.ggplot2' instead.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> https://r-hyperspec.github.io/hySpc.ggplot2</span>
@@ -280,7 +333,7 @@ wavelength is used</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

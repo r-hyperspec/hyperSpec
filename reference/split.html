@@ -93,23 +93,30 @@ hyperSpec objects according to the groups given by f."><!-- mathjax --><script s
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S4 method for hyperSpec</span>
-<span class="fu">split</span><span class="op">(</span><span class="va">x</span>, <span class="va">f</span>, drop <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu">split</span><span class="op">(</span><span class="va">x</span>, <span class="va">f</span>, drop <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>the <code>hyperSpec</code> object</p></dd>
+
+
 <dt>f</dt>
 <dd><p>a factor giving the grouping (or a variable that can be converted
 into a factor by <code>as.factor</code>)</p></dd>
+
+
 <dt>drop</dt>
 <dd><p>if <code>TRUE</code>, levels of<code>f</code> that do not occur are dropped.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A list of <code>hyperSpec</code> objects.</p>
+    
+
+<p>A list of <code>hyperSpec</code> objects.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -127,18 +134,18 @@ into a factor by <code>as.factor</code>)</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">dist</span> <span class="op">&lt;-</span> <span class="fu"><a href="dist_pearson.html">dist_pearson</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dend</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span><span class="va">dist</span>, method <span class="op">=</span> <span class="st">"ward"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">dist</span> <span class="op">&lt;-</span> <span class="fu"><a href="dist_pearson.html">dist_pearson</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dend</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span><span class="va">dist</span>, method <span class="op">=</span> <span class="st">"ward"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> The "ward" method has been renamed to "ward.D"; note new "ward.D2"</span>
-<span class="r-in"><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cutree.html" class="external-link">cutree</a></span><span class="op">(</span><span class="va">dend</span>, h <span class="op">=</span> <span class="fl">0.15</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">region</span> <span class="op">&lt;-</span> <span class="fu">split</span><span class="op">(</span><span class="va">faux_cell</span>, <span class="va">z</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">region</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 51</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># difference in cluster mean spectra</span></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="apply.html">apply</a></span><span class="op">(</span><span class="va">region</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, <span class="fl">2</span>, <span class="va">mean</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="apply.html">apply</a></span><span class="op">(</span><span class="va">region</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, <span class="fl">2</span>, <span class="va">mean</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cutree.html" class="external-link">cutree</a></span><span class="op">(</span><span class="va">dend</span>, h <span class="op">=</span> <span class="fl">0.15</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">region</span> <span class="op">&lt;-</span> <span class="fu">split</span><span class="op">(</span><span class="va">faux_cell</span>, <span class="va">z</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">region</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 52</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># difference in cluster mean spectra</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="apply.html">apply</a></span><span class="op">(</span><span class="va">region</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, <span class="fl">2</span>, <span class="va">mean</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="apply.html">apply</a></span><span class="op">(</span><span class="va">region</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, <span class="fl">2</span>, <span class="va">mean</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="split-1.png" alt="" width="466" height="288"></span>
 </code></pre></div>
     </div>
@@ -154,7 +161,7 @@ into a factor by <code>as.factor</code>)</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

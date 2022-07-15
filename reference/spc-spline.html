@@ -91,21 +91,28 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">spc_smooth_spline</span><span class="op">(</span><span class="va">spc</span>, newx <span class="op">=</span> <span class="fu"><a href="wl.html">wl</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">spc_smooth_spline</span><span class="op">(</span><span class="va">spc</span>, newx <span class="op">=</span> <span class="fu"><a href="wl.html">wl</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>spc</dt>
 <dd><p><code>hyperSpec</code> object</p></dd>
+
+
 <dt>newx</dt>
 <dd><p>wavelength axis to interpolate on</p></dd>
+
+
 <dt>...</dt>
 <dd><p>further parameters handed to <code><a href="https://rdrr.io/r/stats/smooth.spline.html" class="external-link">stats::smooth.spline()</a></code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>hyperSpec</code> object containing smoothed spectra</p>
+    
+
+<p><code>hyperSpec</code> object containing smoothed spectra</p>
     </div>
     <div id="note">
     <h2>Note</h2>
@@ -123,16 +130,16 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">2200</span> <span class="op">~</span> <span class="va">max</span><span class="op">]</span></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">p</span>, col <span class="op">=</span> <span class="st">"gray"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">smooth</span> <span class="op">&lt;-</span> <span class="fu">spc_smooth_spline</span><span class="op">(</span><span class="va">p</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2200</span> <span class="op">~</span> <span class="fl">2400</span>, <span class="fl">2500</span> <span class="op">~</span> <span class="fl">2825</span>, <span class="fl">3150</span> <span class="op">~</span> <span class="va">max</span><span class="op">)</span><span class="op">]</span>,</span>
-<span class="r-in">  <span class="fu"><a href="wl.html">wl</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">2200</span> <span class="op">~</span> <span class="va">max</span><span class="op">]</span><span class="op">)</span>,</span>
-<span class="r-in">  df <span class="op">=</span> <span class="fl">4</span>, spar <span class="op">=</span> <span class="fl">1</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">smooth</span>, col <span class="op">=</span> <span class="st">"red"</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">2200</span> <span class="op">~</span> <span class="va">max</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">p</span>, col <span class="op">=</span> <span class="st">"gray"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">smooth</span> <span class="op">&lt;-</span> <span class="fu">spc_smooth_spline</span><span class="op">(</span><span class="va">p</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2200</span> <span class="op">~</span> <span class="fl">2400</span>, <span class="fl">2500</span> <span class="op">~</span> <span class="fl">2825</span>, <span class="fl">3150</span> <span class="op">~</span> <span class="va">max</span><span class="op">)</span><span class="op">]</span>,</span></span>
+<span class="r-in"><span>  <span class="fu"><a href="wl.html">wl</a></span><span class="op">(</span><span class="va">paracetamol</span><span class="op">[</span>, , <span class="fl">2200</span> <span class="op">~</span> <span class="va">max</span><span class="op">]</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  df <span class="op">=</span> <span class="fl">4</span>, spar <span class="op">=</span> <span class="fl">1</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">smooth</span>, col <span class="op">=</span> <span class="st">"red"</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="spc-spline-1.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">p</span> <span class="op">-</span> <span class="va">smooth</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="va">p</span> <span class="op">-</span> <span class="va">smooth</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="spc-spline-2.png" alt="" width="466" height="288"></span>
 </code></pre></div>
     </div>
@@ -148,7 +155,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

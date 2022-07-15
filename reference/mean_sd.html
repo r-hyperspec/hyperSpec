@@ -93,61 +93,86 @@ standard deviation, respectively.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S4 method for numeric</span>
-<span class="fu">mean_sd</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for matrix</span>
-<span class="fu">mean_sd</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for hyperSpec</span>
-<span class="fu">mean_sd</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for numeric</span>
-<span class="fu">mean_pm_sd</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for matrix</span>
-<span class="fu">mean_pm_sd</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for hyperSpec</span>
-<span class="fu">mean_pm_sd</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for hyperSpec</span>
-<span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for hyperSpec</span>
-<span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">x</span>, probs <span class="op">=</span> <span class="fu"><a href="seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0.5</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, names <span class="op">=</span> <span class="st">"num"</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S4 method for numeric</span></span>
+<span><span class="fu">mean_sd</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for matrix</span></span>
+<span><span class="fu">mean_sd</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu">mean_sd</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for numeric</span></span>
+<span><span class="fu">mean_pm_sd</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for matrix</span></span>
+<span><span class="fu">mean_pm_sd</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu">mean_pm_sd</span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">x</span>, probs <span class="op">=</span> <span class="fu"><a href="seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0.5</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, names <span class="op">=</span> <span class="st">"num"</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>a numeric vector</p></dd>
+
+
 <dt>na.rm</dt>
 <dd><p>handed to <code><a href="https://rdrr.io/r/base/mean.html" class="external-link">base::mean()</a></code> and <code><a href="https://rdrr.io/r/stats/sd.html" class="external-link">stats::sd()</a></code></p></dd>
+
+
 <dt>...</dt>
 <dd><p>ignored (needed to make function generic)</p></dd>
+
+
 <dt>probs</dt>
 <dd><p>the quantiles, see <code><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">stats::quantile()</a></code></p></dd>
+
+
 <dt>names</dt>
 <dd><p><code>"pretty"</code> results in percentages (like <code><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">stats::quantile()</a></code>'s
 <code>names = TRUE</code>), <code>"num"</code> results in the row names being <code>as.character(probs)</code>
 (good for ggplot2 getting the order of the quantiles right). Otherwise, no
 names are assigned.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>mean_sd</code> returns a vector with two values (mean and standard
-deviation) of <code>x</code>.
-<code>mean_sd (matrix)</code> returns a matrix with the mean spectrum in the first row and the standard deviation in the 2nd.
-<code>mean_sd</code> returns a hyperSpec object with the mean spectrum in the first row and the standard deviation in the 2nd.
-<code>mean_pm_sd</code> returns a vector with 3 values: mean - 1 sd, mean, mean + 1 sd
-<code>mean_pm_sd (matrix)</code> returns a matrix containing mean - sd, mean,
-and mean + sd rows.
-For hyperSpec objects, <code>mean_pm_sd</code> returns a hyperSpec object
-containing mean - sd, mean, and mean + sd spectra.
-For hyperSpec object, <code>mean</code> returns a hyperSpec object containing
-the mean spectrum.
-For <code>hyperSpec</code> object, <code><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile()</a></code> returns a <code>hyperSpec</code> object
+    
+
+<p><code>mean_sd</code> returns a vector with two values (mean and standard
+deviation) of <code>x</code>.</p>
+
+
+<p><code>mean_sd (matrix)</code> returns a matrix with the mean spectrum in the first row and the standard deviation in the 2nd.</p>
+
+
+<p><code>mean_sd</code> returns a hyperSpec object with the mean spectrum in the first row and the standard deviation in the 2nd.</p>
+
+
+<p><code>mean_pm_sd</code> returns a vector with 3 values: mean - 1 sd, mean, mean + 1 sd</p>
+
+
+<p><code>mean_pm_sd (matrix)</code> returns a matrix containing mean - sd, mean,
+and mean + sd rows.</p>
+
+
+<p>For hyperSpec objects, <code>mean_pm_sd</code> returns a hyperSpec object
+containing mean - sd, mean, and mean + sd spectra.</p>
+
+
+<p>For hyperSpec object, <code>mean</code> returns a hyperSpec object containing
+the mean spectrum.</p>
+
+
+<p>For <code>hyperSpec</code> object, <code><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile()</a></code> returns a <code>hyperSpec</code> object
 containing the respective quantile spectra.</p>
     </div>
     <div id="details">
@@ -167,14 +192,14 @@ containing the respective quantile spectra.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="fu">mean_sd</span><span class="op">(</span><span class="va">flu</span><span class="op">[</span>, , <span class="fl">405</span> <span class="op">~</span> <span class="fl">410</span><span class="op">]</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">mean_sd</span><span class="op">(</span><span class="va">flu</span><span class="op">[</span>, , <span class="fl">405</span> <span class="op">~</span> <span class="fl">410</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    2 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    11 data points / spectrum</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">mean_sd</span><span class="op">(</span><span class="va">flu</span><span class="op">$</span><span class="va">spc</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">mean_sd</span><span class="op">(</span><span class="va">flu</span><span class="op">$</span><span class="va">spc</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            405     405.5       406     406.5       407     407.5       408</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> mean 113.90939 120.08039 123.88961 128.63661 132.78711 138.26267 142.52667</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> sd    63.95161  66.68462  68.53711  71.32635  73.27403  76.26193  79.05704</span>
@@ -244,18 +269,18 @@ containing the respective quantile spectra.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           492    492.5      493     493.5       494     494.5       495</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> mean 186.5108 183.8356 180.6879 178.78053 175.72864 173.40081 170.52147</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> sd   102.6725 101.4147  99.9830  98.97507  97.29897  95.44527  93.76262</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">mean_sd</span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">mean_sd</span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    2 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    181 data points / spectrum</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">mean_pm_sd</span><span class="op">(</span><span class="va">flu</span><span class="op">$</span><span class="va">c</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">mean_pm_sd</span><span class="op">(</span><span class="va">flu</span><span class="op">$</span><span class="va">c</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> mean.minus.sd          mean  mean.plus.sd </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    0.08145857    0.17500000    0.26854143 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">mean_pm_sd</span><span class="op">(</span><span class="va">flu</span><span class="op">$</span><span class="va">spc</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">mean_pm_sd</span><span class="op">(</span><span class="va">flu</span><span class="op">$</span><span class="va">spc</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                 405     405.5      406     406.5       407     407.5       408</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> mean - sd  49.95778  53.39577  55.3525  57.31027  59.51308  62.00074  63.46963</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> mean      113.90939 120.08039 123.8896 128.63661 132.78711 138.26267 142.52667</span>
@@ -360,32 +385,32 @@ containing the respective quantile spectra.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> mean - sd  82.42095  80.70487  79.80546  78.42967  77.95554  76.75885</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> mean      183.83564 180.68786 178.78053 175.72864 173.40081 170.52147</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> mean + sd 285.25032 280.67086 277.75559 273.02761 268.84607 264.28409</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">mean_pm_sd</span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">mean_pm_sd</span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    181 data points / spectrum</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mean_sd-1.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mean_sd-2.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">flu_quantiles</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="dimnames.html">rownames</a></span><span class="op">(</span><span class="va">flu_quantiles</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">flu_quantiles</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">flu</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="dimnames.html">rownames</a></span><span class="op">(</span><span class="va">flu_quantiles</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "0"   "0.5" "1"  </span>
-<span class="r-in"><span class="va">flu_quantiles</span><span class="op">$</span><span class="va">..</span></span>
+<span class="r-in"><span><span class="va">flu_quantiles</span><span class="op">$</span><span class="va">..</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     filename  c</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0       &lt;NA&gt; NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.5     &lt;NA&gt; NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1       &lt;NA&gt; NA</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">flu_pretty_quantiles</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">flu</span>, names <span class="op">=</span> <span class="st">"pretty"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="dimnames.html">rownames</a></span><span class="op">(</span><span class="va">flu_pretty_quantiles</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">flu_pretty_quantiles</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">flu</span>, names <span class="op">=</span> <span class="st">"pretty"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="dimnames.html">rownames</a></span><span class="op">(</span><span class="va">flu_pretty_quantiles</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "  0 %" " 50 %" "100 %"</span>
-<span class="r-in"><span class="va">flu_pretty_quantiles</span><span class="op">$</span><span class="va">..</span></span>
+<span class="r-in"><span><span class="va">flu_pretty_quantiles</span><span class="op">$</span><span class="va">..</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       filename  c</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   0 %     &lt;NA&gt; NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  50 %     &lt;NA&gt; NA</span>
@@ -404,7 +429,7 @@ containing the respective quantile spectra.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

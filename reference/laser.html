@@ -108,30 +108,30 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">laser</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">laser</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hyperSpec object</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    84 spectra</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    3 data columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    36 data points / spectrum</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"blue"</span>, <span class="st">"darkgreen"</span>, <span class="st">"red"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">wl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">405.0</span>, <span class="fl">405.1</span>, <span class="fl">405.3</span>, <span class="fl">405.4</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="plot_spc.html">plot_spc</a></span><span class="op">(</span><span class="va">laser</span>, axis.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>at <span class="op">=</span> <span class="fu"><a href="seq.html">seq</a></span><span class="op">(</span><span class="fl">404.5</span>, <span class="fl">405.8</span>, <span class="fl">.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_along</a></span><span class="op">(</span><span class="va">wl</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span>v <span class="op">=</span> <span class="va">wl</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, col <span class="op">=</span> <span class="va">cols</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, lwd <span class="op">=</span> <span class="fl">2</span>, lty <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"blue"</span>, <span class="st">"darkgreen"</span>, <span class="st">"red"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">wl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">405.0</span>, <span class="fl">405.1</span>, <span class="fl">405.3</span>, <span class="fl">405.4</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plot_spc.html">plot_spc</a></span><span class="op">(</span><span class="va">laser</span>, axis.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>at <span class="op">=</span> <span class="fu"><a href="seq.html">seq</a></span><span class="op">(</span><span class="fl">404.5</span>, <span class="fl">405.8</span>, <span class="fl">.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_along</a></span><span class="op">(</span><span class="va">wl</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span>v <span class="op">=</span> <span class="va">wl</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, col <span class="op">=</span> <span class="va">cols</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, lwd <span class="op">=</span> <span class="fl">2</span>, lty <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-plt img"><img src="laser-1.png" alt="" width="466" height="288"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="plotc.html">plotc</a></span><span class="op">(</span><span class="va">laser</span><span class="op">[</span>, , <span class="va">wl</span><span class="op">]</span>, <span class="va">spc</span> <span class="op">~</span> <span class="va">t</span>,</span>
-<span class="r-in">  groups <span class="op">=</span> <span class="va">.wavelength</span>, type <span class="op">=</span> <span class="st">"b"</span>,</span>
-<span class="r-in">  col <span class="op">=</span> <span class="va">cols</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="plotc.html">plotc</a></span><span class="op">(</span><span class="va">laser</span><span class="op">[</span>, , <span class="va">wl</span><span class="op">]</span>, <span class="va">spc</span> <span class="op">~</span> <span class="va">t</span>,</span></span>
+<span class="r-in"><span>  groups <span class="op">=</span> <span class="va">.wavelength</span>, type <span class="op">=</span> <span class="st">"b"</span>,</span></span>
+<span class="r-in"><span>  col <span class="op">=</span> <span class="va">cols</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="laser-2.png" alt="" width="466" height="288"></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"laser"</span>, package <span class="op">=</span> <span class="st">"hyperSpec"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"laser"</span>, package <span class="op">=</span> <span class="st">"hyperSpec"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -146,7 +146,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

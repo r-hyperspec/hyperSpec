@@ -114,44 +114,55 @@ always empty.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">read.spe</span><span class="op">(</span>
-  <span class="va">filename</span>,
-  xaxis <span class="op">=</span> <span class="st">"file"</span>,
-  acc2avg <span class="op">=</span> <span class="cn">F</span>,
-  cts_sec <span class="op">=</span> <span class="cn">F</span>,
-  keys.hdr2data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"exposure_sec"</span>, <span class="st">"LaserWavelen"</span>, <span class="st">"accumulCount"</span>, <span class="st">"numFrames"</span>,
-    <span class="st">"darkSubtracted"</span><span class="op">)</span>
-<span class="op">)</span>
-
-<span class="fu">spe.showcalpoints</span><span class="op">(</span><span class="va">filename</span>, xaxis <span class="op">=</span> <span class="st">"file"</span>, acc2avg <span class="op">=</span> <span class="cn">F</span>, cts_sec <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read.spe</span><span class="op">(</span></span>
+<span>  <span class="va">filename</span>,</span>
+<span>  xaxis <span class="op">=</span> <span class="st">"file"</span>,</span>
+<span>  acc2avg <span class="op">=</span> <span class="cn">F</span>,</span>
+<span>  cts_sec <span class="op">=</span> <span class="cn">F</span>,</span>
+<span>  keys.hdr2data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"exposure_sec"</span>, <span class="st">"LaserWavelen"</span>, <span class="st">"accumulCount"</span>, <span class="st">"numFrames"</span>,</span>
+<span>    <span class="st">"darkSubtracted"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">spe.showcalpoints</span><span class="op">(</span><span class="va">filename</span>, xaxis <span class="op">=</span> <span class="st">"file"</span>, acc2avg <span class="op">=</span> <span class="cn">F</span>, cts_sec <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>filename</dt>
 <dd><p>Name of the SPE file to read data from</p></dd>
+
+
 <dt>xaxis</dt>
 <dd><p>Units of x-axis, e.g., <em>"file"</em>, <em>"px"</em>, <em>"nm"</em>, <em>"energy"</em>,
 <em>"raman"</em>, <em>...</em>
 <code>read.spe</code> function automatically checks if the x-calibration data are
 available and uses them (if possible) to reconstruct the xaxis
 in the selected units.</p></dd>
+
+
 <dt>acc2avg</dt>
 <dd><p>whether to divide the actual data set by the number of
 accumulations, thus transforming <em>accumulated</em> spectra to
 <em>averaged</em> spectra. WinSpec does not do this automatically, so the
 spectral intensity is always proportional to the number of accumulations.
 The flag <code>@data$averaged</code> is automatically set to <code>TRUE</code>.</p></dd>
+
+
 <dt>cts_sec</dt>
 <dd><p>whether to divide the actual data set by the exposure time,
 thus going to count per second unit.</p></dd>
+
+
 <dt>keys.hdr2data</dt>
 <dd><p>Which metadata from the file header should be saved to
 the <code>Data</code> slot of a newly created hyperSpec object</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>hyperSpec object</p>
+    
+
+<p>hyperSpec object</p>
     </div>
     <div id="functions">
     <h2>Functions</h2>
@@ -176,7 +187,7 @@ calibration points stored inside of it (x-axis calibration)</p></li>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>
