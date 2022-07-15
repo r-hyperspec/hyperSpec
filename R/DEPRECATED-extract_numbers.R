@@ -4,7 +4,6 @@
 #' @title (DEPRECATED)
 #'        Guess wavelengths from character vector
 #'
-#'
 #' @description
 #'
 #' These \pkg{hyperSpec} functions are **deprecated** and not maintained any
