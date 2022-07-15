@@ -129,8 +129,8 @@ And the current names could be deprecated.
 ```{block, type="redbox", echo=TRUE}
 **Supported File Formats**
 
-From now on, all import functions have names starting with `read.\*()`.
-All functions previously named `scan.\*()` have been renamed accordingly.
+From now on, all import functions have names starting with `read.*()`.
+All functions previously named `scan.*()` have been renamed accordingly.
 
 Package **hyperSpec** supports several file formats relevant for different types of spectroscopy.
 This file format is naturally only a subset of the file formats produced by different spectroscopic equipment.
