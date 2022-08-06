@@ -1454,7 +1454,7 @@ CAPTION <- "The third score map.  "
 ```
 
 ```{r pca-score, fig.cap = CAPTION, sq.fig = TRUE}
-plotmap(scores[, , 3], col.regions = diverging_hcl(20, palette = "Blue-Red2"))
+plot_map(scores[, , 3], col.regions = diverging_hcl(20, palette = "Blue-Red2"))
 ```
 
 
@@ -1545,7 +1545,7 @@ CAPTION <- "The results of the cluster analysis: the map of the 3 clusters.  "
 ```
 
 ```{r clust-map, fig.cap = CAPTION, sq.fig = TRUE}
-plotmap(faux_cell, region ~ x * y, col.regions = cluster.cols)
+plot_map(faux_cell, region ~ x * y, col.regions = cluster.cols)
 ```
 
 

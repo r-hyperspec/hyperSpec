@@ -6,7 +6,7 @@ setGeneric("levelplot", package = "lattice")
 ### --------------------------------------------------------------------------~
 ###  levelplot.R - everything that has to do with levelplot-like plotting:
 ###
-###  levelplot is used by plotmap, plotvoronoi
+###  levelplot is used by plot_map, plotvoronoi
 ###
 ### --------------------------------------------------------------------------~
 
@@ -126,9 +126,9 @@ hySpc.testthat::test(.levelplot) <- function() {
     expect_silent(levelplot(laser, contour = TRUE, col = "#00000080"))
 
     ## applying a function before plotting
-    expect_silent(plotmap(faux_cell, func = max, col.regions = gray(seq(0, 1, 0.05))))
+    expect_silent(plot_map(faux_cell, func = max, col.regions = gray(seq(0, 1, 0.05))))
 
-    expect_silent(plotmap(faux_cell, region ~ x * y, transform.factor = FALSE))
-    expect_silent(plotmap(faux_cell, region ~ x * y, col.regions = gray(seq(0, 1, 0.05))))
+    expect_silent(plot_map(faux_cell, region ~ x * y, transform.factor = FALSE))
+    expect_silent(plot_map(faux_cell, region ~ x * y, col.regions = gray(seq(0, 1, 0.05))))
   })
 }

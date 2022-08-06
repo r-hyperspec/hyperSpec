@@ -20,14 +20,14 @@
 #' matrix is replaced by `x`. Moreover, all columns of `object@@data`
 #' that did not contain the same value for all spectra are set to `NA`.
 #' Thus, for the resulting `hyperSpec` object, [plot_spc()] and
-#' related functions are meaningful. [hyperSpec::plotmap()] cannot be
+#' related functions are meaningful. [hyperSpec::plot_map()] cannot be
 #' applied as the loadings are not laterally resolved.
 #'
 #' The scores matrix needs to have the same number of rows as `object` has
 #' spectra. If such a matrix is given, `decomposition` will replace the
 #' spectra matrix is replaced by `x` and `object@@wavelength` by
 #' `wavelength`. The information related to each of the spectra is
-#' retained. For such a `hyperSpec` object, [plotmap()] and
+#' retained. For such a `hyperSpec` object, [plot_map()] and
 #' [plot_c()] and the like can be applied. It is also possible to use
 #' the spectra plotting, but the interpretation is not that of the spectrum any
 #' longer.

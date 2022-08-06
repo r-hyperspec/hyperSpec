@@ -51,8 +51,8 @@
 #' hy_map <- generate_hy_map()
 #' hy_map
 #'
-#' plotmap(hy_map)
-#' plotmap(hy_map[, , 8000])
+#' plot_map(hy_map)
+#' plot_map(hy_map[, , 8000])
 NULL
 
 

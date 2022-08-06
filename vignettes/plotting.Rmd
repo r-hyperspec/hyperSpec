@@ -180,13 +180,13 @@ Package **hyperSpec** comes with 6 major predefined plotting functions:
 :  plots the spectra matrix.
    More details in sections \@ref(exm-plotmat), \@ref(arg-mat), and \@ref(fun-plotmat).
 
-**`plotmap()`{.r}**
+**`plot_map()`{.r}**
 :  more specialized version of `levelplot()`{.r} for map or image plots.
-   More details in sections \@ref(exm-plotmap), \@ref(arg-map), and \@ref(fun-plotmap).
-   (`plotmap()`{.r} is a package **lattice** function)
+   More details in sections \@ref(exm-plot-map), \@ref(arg-map), and \@ref(fun-plot-map).
+   (`plot_map()`{.r} is a package **lattice** function)
 
 **`plotvoronoi()`{.r}**
-:  more specialized version of `plotmap()`{.r} that produces Voronoi tesselations.
+:  more specialized version of `plot_map()`{.r} that produces Voronoi tesselations.
    More details in sections \@ref(exm-plotvoronoi), and \@ref(arg-voronoi).
    (`plotvoronoi()`{.r} is a package **lattice** function)
 
@@ -194,8 +194,8 @@ Package **hyperSpec** comes with 6 major predefined plotting functions:
 
 ```{block, type="note", echo=TRUE}
 **NOTE.**
-Functions `plotmap()`{.r}, `plotvoronoi()`{.r}, and `levelplot()`{.r} are package **lattice** functions.
-Therefore, in loops, functions, R Markdown chunks, etc. lattice objects need to be printed explicitly by, e.g., `print(plotmap(object))`{.r}
+Functions `plot_map()`{.r}, `plotvoronoi()`{.r}, and `levelplot()`{.r} are package **lattice** functions.
+Therefore, in loops, functions, R Markdown chunks, etc. lattice objects need to be printed explicitly by, e.g., `print(plot_map(object))`{.r}
 ([R FAQ: Why do lattice/trellis graphics not work?](http://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-do-lattice_002ftrellis-graphics-not-work_003f)).
 ```
 
@@ -258,22 +258,22 @@ levelplot(spc ~ x * y, faux_cell[ , , 1200], aspect = "iso")
 > The following warning is expected: `Only first wavelength is used for plotting`.
 
 
-## Function `plotmap()`{.r} {#exm-plotmap}
+## Function `plot_map()`{.r} {#exm-plot-map}
 
-Function `plotmap()`{.r} is a specialized version of `levelplot()`{.r}.
-It uses a single value (e.g., average intensity or cluster membership) over two data columns (default are `$x`{.r} and `$y`{.r}) to plot a false colour map (Fig. \@ref(fig:plotmap)).
+Function `plot_map()`{.r} is a specialized version of `levelplot()`{.r}.
+It uses a single value (e.g., average intensity or cluster membership) over two data columns (default are `$x`{.r} and `$y`{.r}) to plot a false colour map (Fig. \@ref(fig:plot_map)).
 
 ```{r include=FALSE}
-CAPTION = "False colour map created with `plotmap()`{.r}.  "
+CAPTION = "False colour map created with `plot_map()`{.r}.  "
 ```
 
-```{r plotmap, fig.cap=CAPTION}
-plotmap(faux_cell[ , , 1200])
+```{r plot_map, fig.cap=CAPTION}
+plot_map(faux_cell[ , , 1200])
 ```
 
 ## Function `plotvoronoi()`{.r} {#exm-plotvoronoi}
 
-Function `plotvoronoi()`{.r} is a special version of `plotmap()`{.r} that produces Voronoi diagram of the `hyperSpec` object (Fig. \@ref(fig:voronoi)).
+Function `plotvoronoi()`{.r} is a special version of `plot_map()`{.r} that produces Voronoi diagram of the `hyperSpec` object (Fig. \@ref(fig:voronoi)).
 
 
 ```{r include=FALSE}
@@ -425,7 +425,7 @@ levelplot(spc ~ .wavelength * .row, data = laser)
 
 ## Argument `"map"`{.r}  {#arg-map}
 
-Code `plot(x, "map")`{.r} is equivalent to `plotmap(faux_cell)`{.r} (Fig. \@ref(fig:plotmapcho2)).
+Code `plot(x, "map")`{.r} is equivalent to `plot_map(faux_cell)`{.r} (Fig. \@ref(fig:plotmapcho2)).
 
 ```{r include=FALSE}
 CAPTION = "False color map: alternative R syntax.   "
@@ -958,10 +958,10 @@ plotmat(flu, col = "white", contour = TRUE, add = TRUE)
 
 ## Colour-Coded Points: Special Panel Function
 
-In `levelplot()`{.r}, colour-coded points may be set via special panel function (Fig. \@ref(fig:plotmap-barb)).
+In `levelplot()`{.r}, colour-coded points may be set via special panel function (Fig. \@ref(fig:plot-map-barb)).
 
 
-```{r prep-plotmap-barb}
+```{r prep-plot-map-barb}
 library("latticeExtra")
 
 barb <- collapse(barbiturates)
@@ -972,7 +972,7 @@ barb <- wl_sort(barb)
 CAPTION = "Colour-coded points via special panel function.  "
 ```
 
-```{r plotmap-barb, fig.cap=CAPTION}
+```{r plot-map-barb, fig.cap=CAPTION}
 levelplot(spc ~ .wavelength * z, barb,
   panel = panel.levelplot.points,
   cex = .33, col.symbol = NA,
@@ -981,11 +981,11 @@ levelplot(spc ~ .wavelength * z, barb,
 ```
 
 
-# False-Colour Maps: `plotmap()`{.r} {#fun-plotmap}
+# False-Colour Maps: `plot_map()`{.r} {#fun-plot-map}
 
-## Plotting map {#plotmap}
+## Plotting map {#plot-map}
 
-Function `plotmap()`{.r} is a specialized version of `levelplot()`{.r} (Fig. \@ref(fig:plotmap-clu)).
+Function `plot_map()`{.r} is a specialized version of `levelplot()`{.r} (Fig. \@ref(fig:plot-map-clu)).
 The spectral intensities may be summarized by a function before plotting (default: `mean()`{.r}).
 The same scale is used for x and y axes (`aspect = "iso"`{.r}).
 
@@ -994,35 +994,35 @@ The same scale is used for x and y axes (`aspect = "iso"`{.r}).
 CAPTION = "An example of a false colour map.  "
 ```
 
-```{r plotmap-faux-cell, fig.cap=CAPTION}
-plotmap(faux_cell[ , , 1200])
+```{r plot-map-faux-cell, fig.cap=CAPTION}
+plot_map(faux_cell[ , , 1200])
 ```
 
 
-## Plotting Maps with Manually Specified X and Y Axes {#plotmap-manual-xy}
+## Plotting Maps with Manually Specified X and Y Axes {#plot-map-manual-xy}
 
-Specify the colour-coded variable, abscissa and ordinate as formula: `colour.coded ~ abscissa * ordinate`{.r} (Fig. \@ref(fig:plotmap-yx)).
+Specify the colour-coded variable, abscissa and ordinate as formula: `colour.coded ~ abscissa * ordinate`{.r} (Fig. \@ref(fig:plot-map-yx)).
 
 
 ```{r include=FALSE}
 CAPTION = "False colour map with an explicit specification of x and y axes.  "
 ```
 
-```{r plotmap-yx, fig.cap=CAPTION}
-plotmap(faux_cell[ , , 1200], spc ~ y * x)
+```{r plot-map-yx, fig.cap=CAPTION}
+plot_map(faux_cell[ , , 1200], spc ~ y * x)
 ```
 
 
 ## Discrete Colours
 
-Factor variables may be used for discrete colour coding (Fig. \@ref(fig:plotmap-clu)).
+Factor variables may be used for discrete colour coding (Fig. \@ref(fig:plot-map-clu)).
 
 ```{r include=FALSE}
 CAPTION = "False colour map with colours defined by a factor variable.  "
 ```
 
-```{r plotmap-clu, fig.cap=CAPTION}
-plotmap(faux_cell, region ~ x * y)
+```{r plot-map-clu, fig.cap=CAPTION}
+plot_map(faux_cell, region ~ x * y)
 ```
 
 If the colour-coded variable is a factor, each level gets its own colour, and the legend is labelled accordingly.
@@ -1030,14 +1030,14 @@ If the colour-coded variable is a factor, each level gets its own colour, and th
 
 ## Different Palette
 
-To use a different palette, use argument `col.regions`{.r} (Fig. \@ref(fig:plotmap-col)).
+To use a different palette, use argument `col.regions`{.r} (Fig. \@ref(fig:plot-map-col)).
 
 ```{r include=FALSE}
 CAPTION = "False colour map with non-default colour palette.  "
 ```
 
-```{r plotmap-col, fig.cap=CAPTION}
-plotmap(faux_cell, region ~ x * y, col.regions = cluster_cols)
+```{r plot-map-col, fig.cap=CAPTION}
+plot_map(faux_cell, region ~ x * y, col.regions = cluster_cols)
 ```
 
 
@@ -1058,15 +1058,15 @@ By changing these parameters you can create your own theme for plotting and pass
 
 ## Changed Palette
 
-Fig. \@ref(fig:plotmap-col-default) uses a customized **lattice** theme.
+Fig. \@ref(fig:plot-map-col-default) uses a customized **lattice** theme.
 
 ```{r include=FALSE}
 CAPTION = "A false-colour map that uses `terrain.colors` palette.   "
 ```
 
-```{r plotmap-col-default, fig.cap=CAPTION}
+```{r plot-map-col-default, fig.cap=CAPTION}
 my_theme$regions$col <- grDevices::terrain.colors
-plotmap(faux_cell[ , , 1200], par.settings = my_theme)
+plot_map(faux_cell[ , , 1200], par.settings = my_theme)
 ```
 
 It is possible to **persistently** (i.e. inside of the current R session) set **lattice** parameters, so they would apply to all further plots.
@@ -1106,14 +1106,14 @@ in the [R colour cheatsheet](https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/
 
 ## Defined Wavelengths
 
-A map of the average intensity at particular wavelengths can be plotted if the wavelengths of interested are explicitly extracted (Fig. \@ref(fig:plotmap-wave)).
+A map of the average intensity at particular wavelengths can be plotted if the wavelengths of interested are explicitly extracted (Fig. \@ref(fig:plot-map-wave)).
 
 ```{r include=FALSE}
 CAPTION = "A map of average intensity at explicitly indicated wavelengths.  "
 ```
 
-```{r plotmap-wave, fig.cap=CAPTION}
-plotmap(
+```{r plot-map-wave, fig.cap=CAPTION}
+plot_map(
   faux_cell_preproc[, , c(800, 1500)],
   col.regions = palette_matlab
 )
@@ -1122,14 +1122,14 @@ plotmap(
 
 ## Conditioning
 
-Logical conditions may be used to create subplots (Fig. \@ref(fig:plotmap-pca)).
+Logical conditions may be used to create subplots (Fig. \@ref(fig:plot-map-pca)).
 
 ```{r include=FALSE}
 CAPTION = "Subplots created by logical conditions.  "
 ```
 
-```{r plotmap-pca, fig.cap=CAPTION}
-plotmap(
+```{r plot-map-pca, fig.cap=CAPTION}
+plot_map(
   faux_cell[ , , 1500],
   spc ~ y * x | x > 5,
   col.regions = palette_matlab(20)
@@ -1139,18 +1139,18 @@ plotmap(
 
 ## Conditioning on `.wavelength`{.r}
 
-Function `plotmap()`{.r} automatically applies the function in `func`{.r} before plotting.
+Function `plot_map()`{.r} automatically applies the function in `func`{.r} before plotting.
 Argument `func`{.r} defaults to function `mean()`{.r}.
 In order to suppress this, use `func = NULL`{.r}.
 This allows conditioning on the wavelengths.
 
-Fig. \@ref(fig:plotmap-pca2) demonstrates an example to plot the maps of principal components scores.
+Fig. \@ref(fig:plot-map-pca2) demonstrates an example to plot the maps of principal components scores.
 
 ```{r include=FALSE}
 CAPTION = "The maps of the scores of the first two principal components (I).  "
 ```
 
-```{r plotmap-pca2, fig.cap=CAPTION}
+```{r plot-map-pca2, fig.cap=CAPTION}
 pca <- prcomp(~spc, data = faux_cell_preproc$.)
 
 scores <- decomposition(faux_cell, pca$x,
@@ -1158,7 +1158,7 @@ scores <- decomposition(faux_cell, pca$x,
   label.spc = "score /  a.u."
 )
 
-plotmap(
+plot_map(
   scores[, , 1:3],
   spc ~ y * x | as.factor(.wavelength),
   func = NULL,
@@ -1166,13 +1166,13 @@ plotmap(
 )
 ```
 
-Alternatively, use `levelplot()`{.r} directly (Fig. \@ref(fig:plotmap-pca3)).
+Alternatively, use `levelplot()`{.r} directly (Fig. \@ref(fig:plot-map-pca3)).
 
 ```{r include=FALSE}
 CAPTION = "The maps of the scores of the first two principal components (II).  "
 ```
 
-```{r plotmap-pca3, fig.cap=CAPTION}
+```{r plot-map-pca3, fig.cap=CAPTION}
 levelplot(
   spc ~ y * x | as.factor(.wavelength),
   scores[, , 1:3],
@@ -1222,7 +1222,7 @@ CAPTION = "Marks of missing spectra in a false-colour map.  "
 ```
 
 ```{r missing, fig.cap=CAPTION}
-plotmap(sample(faux_cell[, , 1200], length(faux_cell) - 20),
+plot_map(sample(faux_cell[, , 1200], length(faux_cell) - 20),
   col.regions = palette_matlab(20),
   col = "black",
   panel = mark.missing
@@ -1232,7 +1232,7 @@ plotmap(sample(faux_cell[, , 1200], length(faux_cell) - 20),
 
 ## Unevenly Spaced Measurement Grid
 
-The panel function used by `plotmap()`{.r} defaults to `panel.levelplot.raster()`{.r} which assumes an evenly spaced measurement grid.
+The panel function used by `plot_map()`{.r} defaults to `panel.levelplot.raster()`{.r} which assumes an evenly spaced measurement grid.
 Even if the spectra are measured on a nominally evenly spaced grid, the actual stage position may slightly vary due to positioning inaccuracy and some manufacturers (e.g., Kaiser) record the position reported by the stage rather than the position requested by the stage control.
 This leads to weird-looking output with holes, and possibly wrong columns (Fig. \@ref(fig:uneven-I)).
 
@@ -1248,7 +1248,7 @@ Note warnings `values are not equispaced; output may be wrong`."
 ```
 
 ```{r uneven-I, fig.cap=CAPTION}
-plotmap(uneven)
+plot_map(uneven)
 ```
 The symptom of this situation are warnings about values in x and/or y not being equispaced; and that the output, therefore, may be wrong.
 
@@ -1271,7 +1271,7 @@ CAPTION = "Unevenly spaced measurement grid: example III.  "
 ```
 
 ```{r uneven-III, fig.cap=CAPTION}
-plotmap(
+plot_map(
   uneven,
   panel = panel.levelplot.points,
   cex = 0.75,
@@ -1293,7 +1293,7 @@ uneven$x <- rx$x
 ry <- raster_make(uneven$y, startx = -4.77, d = 1, tol = 0.3)
 uneven$y <- ry$x
 
-plotmap(uneven)
+plot_map(uneven)
 ```
 
 
@@ -1431,8 +1431,8 @@ Note that the returned indices correspond to the plotted object.
 
 ## No Output Is Produced {#sec:no-output-produced}
 
-Methods `plotmap`{.r}, `plotvoronoi`{.r}, `levelplot`{.r}, and `plot_c`{.r} use package **lattice** functions.
-Therefore, in loops, functions, Sweave, R Markdown chunks, etc. the lattice object needs to be printed explicitly by `print(plotmap(object))`{.r}
+Methods `plot_map`{.r}, `plotvoronoi`{.r}, `levelplot`{.r}, and `plot_c`{.r} use package **lattice** functions.
+Therefore, in loops, functions, Sweave, R Markdown chunks, etc. the lattice object needs to be printed explicitly by `print(plot_map(object))`{.r}
 ([R FAQ: Why do lattice/trellis graphics not work?](http://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-do-lattice_002ftrellis-graphics-not-work_003f)).
 The same holds for package **ggplot2** graphics.
 

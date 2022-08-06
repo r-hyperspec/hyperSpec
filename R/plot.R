@@ -73,7 +73,7 @@ setGeneric("plot")
 
       do.call(plot_spc, dots)
     },
-    map = plotmap(x, ...),
+    map = plot_map(x, ...),
     voronoi = plotvoronoi(x, ...),
     matrix = ,
     mat = plotmat(x, ...),
@@ -96,7 +96,7 @@ setGeneric("plot")
 #'
 #' @description
 #' The `plot` method for `hyperSpec` objects is a switchyard to [plot_spc()],
-#' [plotmap()], and [plot_c()]. The function also supplies some convenient
+#' [plot_map()], and [plot_c()]. The function also supplies some convenient
 #' abbreviations for frequently used plots (see 'Details').
 #'
 #'
@@ -118,7 +118,7 @@ setGeneric("plot")
 #'    \item{"spcprctl5"}{like `"spcprctile"`, but additionally the 5th and
 #'    95th percentile spectra are plotted.}
 #'
-#'    \item{"map"}{calls [plotmap()] to produce a map plot.}
+#'    \item{"map"}{calls [plot_map()] to produce a map plot.}
 #'
 #'    \item{"voronoi"}{calls [plotvoronoi()] to produce a Voronoi plot
 #'    (tessellated plot, like "map" for hyperSpec objects with
@@ -156,7 +156,7 @@ setGeneric("plot")
 #' @seealso
 #' [plot_spc()] for spectra plots (intensity over wavelength),
 #'
-#' [plotmap()] for plotting maps, i.e. color coded summary value on two
+#' [plot_map()] for plotting maps, i.e. color coded summary value on two
 #' (usually spatial) dimensions.
 #'
 #' [plot_c()]

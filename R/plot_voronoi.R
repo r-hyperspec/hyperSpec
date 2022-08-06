@@ -64,7 +64,7 @@ plotvoronoi <- function(object, model = spc ~ x * y,
     ),
     list(...)
   )
-  do.call(plotmap, dots)
+  do.call(plot_map, dots)
 }
 
 # Unit tests -----------------------------------------------------------------
