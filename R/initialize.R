@@ -25,7 +25,12 @@
 #'  new,hyperSpec-method
 #'  new_hyperSpec
 #'
-#' @param .Object A new `hyperSpec` object.
+#' @param spc (`matrix` or convertible to `matrix`)  \cr
+#'        A spectra matrix with spectra in rows and wavelength intensities in
+#'        columns.
+#'
+#'  The `spc` does not need to be an R `matrix`, but must be an object
+#'  convertible to a matrix via `I(as.matrix(spc))`.
 #'
 #' @param data (`data.frame`)  \cr
 #'        A `data.frame` with extra (non-spectroscopic) data in columns.
@@ -35,13 +40,6 @@
 #'        `data.frame(spc = I(as.matrix(spc)))`.
 #'        However, it will usually be more convenient if the spectra are given
 #'        via argument `spc`.)
-#'
-#' @param spc (`matrix` or convertible to `matrix`)  \cr
-#'        A spectra matrix with spectra in rows and wavelength intensities in
-#'        columns.
-#'
-#'  The `spc` does not need to be an R `matrix`, but must be an object
-#'  convertible to a matrix via `I(as.matrix(spc))`.
 #'
 #' @param wavelength (numeric vector)  \cr
 #'        The wavelengths corresponding to the columns of `spc`.
@@ -66,6 +64,9 @@
 #'       If option `gc` is `TRUE`, the initialization will have frequent calls
 #'       to [base::gc()], which can help to avoid swapping or running out of
 #'       memory. The default value of `gc` can be set via [hy_set_options()].
+#'
+#' @param .Object A new `hyperSpec` object.
+#'
 #'
 #' @author C.Beleites, V. Gegzna
 #' @seealso
