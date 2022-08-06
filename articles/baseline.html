@@ -116,15 +116,15 @@
             <address class="author_afil">
       <ol style="list-style-type: decimal">
 <li>DIA Raman Spectroscopy Group, University of Trieste/Italy (2005–2008)</li>
-      <li>Spectroscopy <span class="math inline">\(\cdot\)</span> Imaging, IPHT, Jena/Germany (2008–2017)</li>
-      <li>ÖPV, JKI, Berlin/Germany (2017–2019)</li>
-      <li>Arbeitskreis Lebensmittelmikrobiologie und Biotechnologie, Hamburg University, Hamburg/Germany (2019 – 2020)</li>
-      <li>Chemometric Consulting and Chemometrix GmbH, Wölfersheim/Germany (since 2016)</li>
-      </ol>
+<li>Spectroscopy <span class="math inline">\(\cdot\)</span> Imaging, IPHT, Jena/Germany (2008–2017)</li>
+<li>ÖPV, JKI, Berlin/Germany (2017–2019)</li>
+<li>Arbeitskreis Lebensmittelmikrobiologie und Biotechnologie, Hamburg University, Hamburg/Germany (2019 – 2020)</li>
+<li>Chemometric Consulting and Chemometrix GmbH, Wölfersheim/Germany (since 2016)</li>
+</ol>
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 data-toc-skip class="date">2022-07-16</h4>
+            <h4 data-toc-skip class="date">2022-08-06</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/HEAD/vignettes/baseline.Rmd" class="external-link"><code>vignettes/baseline.Rmd</code></a></small>
       <div class="hidden name"><code>baseline.Rmd</code></div>
@@ -133,25 +133,25 @@
 
     
     
-<div class="section level2">
+<div class="section level2" number="1">
 <h2 id="sec:introduction">
 <span class="header-section-number">1</span> Introduction<a class="anchor" aria-label="anchor" href="#sec:introduction"></a>
 </h2>
 <p>This document discusses baseline correction methods that can be used with package <strong>hyperSpec</strong>.
-Package <strong>hyperSpec</strong> provides two fitting functions for polynomial baselines, <code class="sourceCode r"><span class="kw">spc_fit_poly</span>()</code> and <code class="sourceCode r"><span class="kw">spc_fit_poly_below</span>()</code>.
-Another possibility is <code class="sourceCode r"><span class="kw">spc_rubberband</span>()</code>, a “rubberband” method that determines support points by finding the convex hull of each spectrum.
+Package <strong>hyperSpec</strong> provides two fitting functions for polynomial baselines, <code class="sourceCode r"><span class="fu">spc_fit_poly</span>()</code> and <code class="sourceCode r"><span class="fu">spc_fit_poly_below</span>()</code>.
+Another possibility is <code class="sourceCode r"><span class="fu">spc_rubberband</span>()</code>, a “rubberband” method that determines support points by finding the convex hull of each spectrum.
 The baselines are then piecewise linear or (smoothing) splines through the support points.</p>
 <p>Please note that a specialized package for baseline fitting, package <strong>baseline</strong><span class="citation">[<a href="#ref-R-baseline" role="doc-biblioref">1</a>,<a href="#ref-baseline2010" role="doc-biblioref">2</a>]</span>, exists that provides many more methods to fit baselines to spectroscopic data.
-Using package <strong>baseline</strong> with <code class="sourceCode r">hyperSpec</code> objects is demonstrated in <code class="sourceCode r"><span class="kw">vignette</span> (<span class="st">"hyperspec"</span>)</code>.</p>
+Using package <strong>baseline</strong> with <code class="sourceCode r">hyperSpec</code> objects is demonstrated in <code class="sourceCode r"><span class="fu">vignette</span> (<span class="st">"hyperspec"</span>)</code>.</p>
 </div>
-<div class="section level2">
+<div class="section level2" number="2">
 <h2 id="sec:polynomial-baselines">
 <span class="header-section-number">2</span> Polynomial Baselines<a class="anchor" aria-label="anchor" href="#sec:polynomial-baselines"></a>
 </h2>
 <p>In contrast to many other programs that provide baseline correction methods, package <strong>hyperSpec</strong>’s polynomial baseline functions do least squares fits.
 However, the baselines can be forced through particular points, if this behaviour is needed.</p>
-<p>The main difference between the two functions is that <code class="sourceCode r"><span class="kw">spc_fit_poly</span>()</code> returns a least squares fit through the complete spectrum that is given in <code class="sourceCode r">fit.to</code> whereas <code class="sourceCode r"><span class="kw">spc_fit_poly_below</span>()</code> tries to find appropriate spectral regions to fit the baseline to.</p>
-<div class="section level3">
+<p>The main difference between the two functions is that <code class="sourceCode r"><span class="fu">spc_fit_poly</span>()</code> returns a least squares fit through the complete spectrum that is given in <code class="sourceCode r">fit.to</code> whereas <code class="sourceCode r"><span class="fu">spc_fit_poly_below</span>()</code> tries to find appropriate spectral regions to fit the baseline to.</p>
+<div class="section level3" number="2.1">
 <h3 id="syntax-and-parameters">
 <span class="header-section-number">2.1</span> Syntax and Parameters<a class="anchor" aria-label="anchor" href="#syntax-and-parameters"></a>
 </h3>
@@ -164,27 +164,27 @@ However, the baselines can be forced through particular points, if this behaviou
 <strong><code class="sourceCode r">fit.to</code>:</strong> <code class="sourceCode r">hyperSpec</code> object with the spectra whose baselines are to be fitted.</li>
 <li>
 <strong><code class="sourceCode r">apply.to</code>:</strong> <code class="sourceCode r">hyperSpec</code> object giving the spectral range, on which the baselines should be evaluated.
-If <code class="sourceCode r"><span class="kw">apply</span>()</code> is <code class="sourceCode r"><span class="ot">NULL</span></code>, a <code class="sourceCode r">hyperSpec</code> object with the polynomial coefficients is returned instead of evaluated baselines.</li>
+If <code class="sourceCode r"><span class="fu">apply</span>()</code> is <code class="sourceCode r"><span class="cn">NULL</span></code>, a <code class="sourceCode r">hyperSpec</code> object with the polynomial coefficients is returned instead of evaluated baselines.</li>
 <li>
 <strong><code class="sourceCode r">poly.order</code>:</strong> polynomial order of the baselines.</li>
 <li>
 <strong><code class="sourceCode r">npts.min</code>:</strong> minimal number of data points per spectrum to be used for the fit.
-Argument <code class="sourceCode r">npts.min</code> defaults to the larger of 3 times (<code class="sourceCode r">poly.order <span class="op">+</span><span class="st"> </span><span class="dv">1</span></code>) or <span class="math inline">\(\frac{1}{20th}\)</span> of the number of data points per spectrum.
-If <code class="sourceCode r">npts.min</code> <span class="math inline">\(\leq\)</span> <code>poly.order</code>, a warning is issued and <code class="sourceCode r">npts.min &lt;-<span class="st"> </span>poly.order <span class="op">+</span><span class="st"> </span><span class="dv">1</span></code> is used.</li>
+Argument <code class="sourceCode r">npts.min</code> defaults to the larger of 3 times (<code class="sourceCode r">poly.order <span class="sc">+</span> <span class="dv">1</span></code>) or <span class="math inline">\(\frac{1}{20th}\)</span> of the number of data points per spectrum.
+If <code class="sourceCode r">npts.min</code> <span class="math inline">\(\leq\)</span> <code>poly.order</code>, a warning is issued and <code class="sourceCode r">npts.min <span class="ot">&lt;-</span> poly.order <span class="sc">+</span> <span class="dv">1</span></code> is used.</li>
 <li>
 <strong><code class="sourceCode r">noise</code>:</strong> a vector giving the amount of noise, see below.</li>
 </ul>
 </div>
-<div class="section level3">
+<div class="section level3" number="2.2">
 <h3 id="general-use">
 <span class="header-section-number">2.2</span> General Use<a class="anchor" aria-label="anchor" href="#general-use"></a>
 </h3>
 <p>Both functions fit the polynomial to the spectral range given in <code class="sourceCode r">hyperSpec</code> object <code class="sourceCode r">fit.to</code>.
-If <code class="sourceCode r">apply.to</code> is not <code class="sourceCode r"><span class="ot">NULL</span></code>, the polynomials are evaluated on the spectral range of <code class="sourceCode r">apply.to</code>.
+If <code class="sourceCode r">apply.to</code> is not <code class="sourceCode r"><span class="cn">NULL</span></code>, the polynomials are evaluated on the spectral range of <code class="sourceCode r">apply.to</code>.
 Otherwise, the polynomial coefficients are returned.</p>
-<p>Subtracting the baseline is up to the user, it is easily done as <code class="sourceCode r">hyperSpec</code> provides the <code class="sourceCode r"><span class="op">-</span></code> (minus) operator.</p>
+<p>Subtracting the baseline is up to the user, it is easily done as <code class="sourceCode r">hyperSpec</code> provides the <code class="sourceCode r"><span class="sc">-</span></code> (minus) operator.</p>
 </div>
-<div class="section level3">
+<div class="section level3" number="2.3">
 <h3 id="sec:fitt-polyn-basel">
 <span class="header-section-number">2.3</span> Fitting Polynomial Baselines Using Least Squares<a class="anchor" aria-label="anchor" href="#sec:fitt-polyn-basel"></a>
 </h3>
@@ -215,19 +215,19 @@ If the signal to noise ratio is not ideal, wavelengths that work fine for one sp
 </div>
 <p>However, if the signal to noise ratio is not ideal, a polynomial with <span class="math inline">\(n + 1\)</span> supporting points (i.e. with zero degrees of freedom) is subject to a considerable amount of noise.
 If on the other hand, more data points consisting of baseline only are available, the uncertainty on the polynomial can be reduced by a least squares fit.</p>
-<p>Both <code class="sourceCode r"><span class="kw">spc_fit_poly</span>()</code> and <code class="sourceCode r"><span class="kw">spc_fit_poly_below</span>()</code> therefore provide least squares fitting for the polynomial.</p>
-<p>Function <code class="sourceCode r"><span class="kw">spc_fit_poly</span>()</code> fits to the whole spectral region of <code class="sourceCode r">fit.to</code>.
+<p>Both <code class="sourceCode r"><span class="fu">spc_fit_poly</span>()</code> and <code class="sourceCode r"><span class="fu">spc_fit_poly_below</span>()</code> therefore provide least squares fitting for the polynomial.</p>
+<p>Function <code class="sourceCode r"><span class="fu">spc_fit_poly</span>()</code> fits to the whole spectral region of <code class="sourceCode r">fit.to</code>.
 Thus, for baseline fitting the spectra need to be cut to appropriate wavelength ranges that do not contain any signal.</p>
-<p>In order to speed up calculations, the least squares fit is done by using the Vandermonde matrix and solving the equation system by <code class="sourceCode r"><span class="kw">qr.solve</span>()</code>.</p>
+<p>In order to speed up calculations, the least squares fit is done by using the Vandermonde matrix and solving the equation system by <code class="sourceCode r"><span class="fu">qr.solve</span>()</code>.</p>
 <p>This fit is not weighted.
 A spectral region with many data points therefore has greater influence on the resulting baseline than a region with just a few data points.
 It is up to the user to decide whether this should be corrected for by selecting appropriate numbers of data points (e.g. by using replicates of the shorter spectral region).</p>
 </div>
-<div class="section level3">
+<div class="section level3" number="2.4">
 <h3 id="sec:autofit-baseline">
 <span class="header-section-number">2.4</span> The Mechanism of Automatically Fitting the Baseline in <code>spc_fit_poly_below()</code><a class="anchor" aria-label="anchor" href="#sec:autofit-baseline"></a>
 </h3>
-<p>Function <code class="sourceCode r"><span class="kw">spc_fit_poly_below</span>()</code> tries to automatically find appropriate spectral regions for baseline fitting.
+<p>Function <code class="sourceCode r"><span class="fu">spc_fit_poly_below</span>()</code> tries to automatically find appropriate spectral regions for baseline fitting.
 This is done by excluding spectral regions that contain signals from the baseline fitting.
 The idea is that all data points that lie above a fitted polynomial (initially through the whole spectrum, then through the remaining parts of the spectrum) will be treated as signal and thus be excluded from the baseline fitting.</p>
 <p>The supporting points for the baseline polynomials are calculated iteratively:</p>
@@ -241,7 +241,7 @@ The idea is that all data points that lie above a fitted polynomial (initially t
 <li>no further points are excluded, or</li>
 <li>the next polynomial would have less than <code class="sourceCode r">npts.min</code> supporting points.</li>
 </ul>
-<p>The baselines and respective supporting points for each iteration of <code class="sourceCode r"><span class="kw">spc_fit_poly_below</span>(chondro_mini[<span class="dv">1</span>], <span class="dt">poly.order =</span> <span class="dv">1</span>)</code> are shown in figure <a href="#fig:iter">2.2</a>.</p>
+<p>The baselines and respective supporting points for each iteration of <code class="sourceCode r"><span class="fu">spc_fit_poly_below</span>(chondro_mini[<span class="dv">1</span>], <span class="at">poly.order =</span> <span class="dv">1</span>)</code> are shown in figure <a href="#fig:iter">2.2</a>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, poly.order <span class="op">=</span> <span class="fl">1</span>, max.iter <span class="op">=</span> <span class="fl">8</span>, npts.min <span class="op">=</span> <span class="fl">2</span>, debuglevel <span class="op">=</span> <span class="fl">3L</span><span class="op">)</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -251,7 +251,7 @@ Figure 2.2: Iterative fitting of the baseline. The dots give the supporting poin
 </p>
 </div>
 </div>
-<div class="section level3">
+<div class="section level3" number="2.5">
 <h3 id="specifying-the-spectral-range">
 <span class="header-section-number">2.5</span> Specifying the Spectral Range<a class="anchor" aria-label="anchor" href="#specifying-the-spectral-range"></a>
 </h3>
@@ -282,20 +282,20 @@ The black baseline is fit to the spectral range 1700 - 1750 <span class="math in
 </p>
 </div>
 <p>It is possible to exclude spectral regions that do not contribute to the baseline from the fitting, while the baseline is used for the whole spectrum.
-This selection of appropriate spectral regions is essential for <code class="sourceCode r"><span class="kw">spc_fit_poly</span>()</code>.
-But also <code class="sourceCode r"><span class="kw">spc_fit_poly_below</span>()</code> can benefit from narrower spectral ranges: the fitting gains speed.
+This selection of appropriate spectral regions is essential for <code class="sourceCode r"><span class="fu">spc_fit_poly</span>()</code>.
+But also <code class="sourceCode r"><span class="fu">spc_fit_poly_below</span>()</code> can benefit from narrower spectral ranges: the fitting gains speed.
 The default value for <code class="sourceCode r">npts.min</code> depends on the number of data points per spectrum.
 Thus one should also consider requiring more support points than the default value suggests.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/system.time.html" class="external-link">system.time</a></span><span class="op">(</span><span class="fu"><a href="../reference/baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span>, <span class="cn">NULL</span>, npts.min <span class="op">=</span> <span class="fl">20</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    user  system elapsed </span></span>
-<span><span class="co">#&gt;   0.003   0.000   0.004</span></span>
+<span><span class="co">#&gt;   0.003   0.000   0.003</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/system.time.html" class="external-link">system.time</a></span><span class="op">(</span><span class="fu"><a href="../reference/baselines.html">spc_fit_poly_below</a></span><span class="op">(</span><span class="va">chondro_mini</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">min</span> <span class="op">~</span> <span class="fl">700</span>, <span class="fl">1700</span> <span class="op">~</span> <span class="va">max</span><span class="op">)</span><span class="op">]</span>, <span class="cn">NULL</span>, npts.min <span class="op">=</span> <span class="fl">20</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    user  system elapsed </span></span>
-<span><span class="co">#&gt;   0.004   0.000   0.004</span></span></code></pre></div>
+<span><span class="co">#&gt;   0.003   0.000   0.003</span></span></code></pre></div>
 <p>The choice of the spectral range in <code class="sourceCode r">fit.to</code> influences the resulting baselines to a certain extent, as becomes clear from figure <a href="#fig:spectralrange">2.3</a>.</p>
 </div>
-<div class="section level3">
+<div class="section level3" number="2.6">
 <h3 id="fitting-polynomials-of-different-orders">
 <span class="header-section-number">2.6</span> Fitting Polynomials of Different Orders<a class="anchor" aria-label="anchor" href="#fitting-polynomials-of-different-orders"></a>
 </h3>
@@ -342,9 +342,9 @@ Figure 2.6: Baseline polynomial fit to the first spectrum of the chondro_mini da
 The dots indicate the points used for the fitting of the polynomial.
 </p>
 </div>
-<p>Figures <a href="#fig:figorder0">2.4</a>, <a href="#fig:figorder1">2.5</a>, <a href="#fig:figorder2">2.6</a> show the resulting baseline polynomial of <code class="sourceCode r"><span class="kw">spc_fit_poly_below</span> (chondro_mini [<span class="dv">1</span>], <span class="dt">poly.order =</span> order)</code> with <code class="sourceCode r">order</code> <span class="math inline">\(=\)</span> 0 to 3 for the first spectrum of the chondro_mini data set.</p>
+<p>Figures <a href="#fig:figorder0">2.4</a>, <a href="#fig:figorder1">2.5</a>, <a href="#fig:figorder2">2.6</a> show the resulting baseline polynomial of <code class="sourceCode r"><span class="fu">spc_fit_poly_below</span> (chondro_mini [<span class="dv">1</span>], <span class="at">poly.order =</span> order)</code> with <code class="sourceCode r">order</code> <span class="math inline">\(=\)</span> 0 to 3 for the first spectrum of the chondro_mini data set.</p>
 </div>
-<div class="section level3">
+<div class="section level3" number="2.7">
 <h3 id="the-noise-level">
 <span class="header-section-number">2.7</span> The Noise Level<a class="anchor" aria-label="anchor" href="#the-noise-level"></a>
 </h3>
@@ -392,11 +392,11 @@ Consider a spectral range consisting only of noise.
 The upper part of figures <a href="#fig:fig3">2.7</a>, <a href="#fig:fig4">2.8</a> illustrate the problem.
 As the baseline fitting algorithm cannot distinguish between noise and real bands appearing above the fitted polynomial, the resulting baseline (black) is too low if the <code class="sourceCode r">noise</code> parameter is not given.</p>
 <p>Setting the noise level to 4 (2 standard deviations), the fitting converges immediately with a much better result.
-The resulting baselines for <code class="sourceCode r"><span class="kw">spc_fit_poly_below</span> (chondro_mini [<span class="dv">1</span>], <span class="dt">poly.order =</span> <span class="dv">1</span>, <span class="dt">noise =</span> <span class="dv">12</span>)</code> of the whole spectrum are shown in the middle and lower part of figure <a href="#fig:fig4">2.8</a>.</p>
+The resulting baselines for <code class="sourceCode r"><span class="fu">spc_fit_poly_below</span> (chondro_mini [<span class="dv">1</span>], <span class="at">poly.order =</span> <span class="dv">1</span>, <span class="at">noise =</span> <span class="dv">12</span>)</code> of the whole spectrum are shown in the middle and lower part of figure <a href="#fig:fig4">2.8</a>.</p>
 <p>The <code class="sourceCode r">noise</code> may be a single value for all spectra, or a vector with the noise level for each of the spectra separately.</p>
 </div>
 </div>
-<div class="section level2">
+<div class="section level2" number="3">
 <h2 id="rubberband-method">
 <span class="header-section-number">3</span> Rubberband Method<a class="anchor" aria-label="anchor" href="#rubberband-method"></a>
 </h2>
@@ -412,7 +412,7 @@ In this case, polynomial baselines often either need high order or residual back
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:rubberband-raw"></span>
 <img src="baseline_files/figure-html/rubberband-raw-1.png" alt="Rubberband baselines for the paracetamol spectrum:`paracetamol`{.r} with the `rubberband()`{.r} fitted baseline.  "><p class="caption">
-Figure 3.1: Rubberband baselines for the paracetamol spectrum:<code class="sourceCode r">paracetamol</code> with the <code class="sourceCode r"><span class="kw">rubberband</span>()</code> fitted baseline.
+Figure 3.1: Rubberband baselines for the paracetamol spectrum:<code class="sourceCode r">paracetamol</code> with the <code class="sourceCode r"><span class="fu">rubberband</span>()</code> fitted baseline.
 </p>
 </div>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
@@ -454,94 +454,97 @@ Figure 3.4: Rubberband baselines for the paracetamol spectrum after bendin: corr
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span></span></span>
 <span><span class="co">#&gt;  version  R version 4.2.1 (2022-06-23)</span></span>
-<span><span class="co">#&gt;  os       macOS Big Sur ... 10.16</span></span>
-<span><span class="co">#&gt;  system   x86_64, darwin17.0</span></span>
+<span><span class="co">#&gt;  os       Ubuntu 20.04.4 LTS</span></span>
+<span><span class="co">#&gt;  system   x86_64, linux-gnu</span></span>
 <span><span class="co">#&gt;  ui       X11</span></span>
 <span><span class="co">#&gt;  language en</span></span>
-<span><span class="co">#&gt;  collate  en_US.UTF-8</span></span>
-<span><span class="co">#&gt;  ctype    en_US.UTF-8</span></span>
+<span><span class="co">#&gt;  collate  C.UTF-8</span></span>
+<span><span class="co">#&gt;  ctype    C.UTF-8</span></span>
 <span><span class="co">#&gt;  tz       UTC</span></span>
-<span><span class="co">#&gt;  date     2022-07-16</span></span>
-<span><span class="co">#&gt;  pandoc   2.7.3 @ /usr/local/bin/ (via rmarkdown)</span></span>
+<span><span class="co">#&gt;  date     2022-08-06</span></span>
+<span><span class="co">#&gt;  pandoc   2.14.2 @ /usr/bin/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">package       </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version     </span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span></span>
-<span><span class="co">#&gt;  brio             1.1.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  callr            3.7.1        <span style="color: #555555;">2022-07-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
-<span><span class="co">#&gt;  cli              3.3.0        <span style="color: #555555;">2022-04-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  colorspace       2.0-3        <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  crayon           1.5.1        <span style="color: #555555;">2022-03-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  deldir           1.0-6        <span style="color: #555555;">2021-10-23</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  desc             1.4.1        <span style="color: #555555;">2022-03-06</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  diffobj          0.3.5        <span style="color: #555555;">2021-10-05</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  digest           0.6.29       <span style="color: #555555;">2021-12-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  dplyr            1.0.9        <span style="color: #555555;">2022-04-28</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  ellipsis         0.3.2        <span style="color: #555555;">2021-04-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  evaluate         0.15         <span style="color: #555555;">2022-02-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  fansi            1.0.3        <span style="color: #555555;">2022-03-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  farver           2.1.1        <span style="color: #555555;">2022-07-06</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  fs               1.5.2        <span style="color: #555555;">2021-12-08</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  generics         0.1.3        <span style="color: #555555;">2022-07-05</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  ggplot2        * 3.3.6        <span style="color: #555555;">2022-05-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  glue             1.6.2        <span style="color: #555555;">2022-02-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  gtable           0.3.0        <span style="color: #555555;">2019-03-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2022-07-16</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
-<span><span class="co">#&gt;  hySpc.testthat   <span style="color: #BB00BB; font-weight: bold;">0.2.1.9000  </span> <span style="color: #555555;">2022-07-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
-<span><span class="co">#&gt;  interp           1.1-3        <span style="color: #555555;">2022-07-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
-<span><span class="co">#&gt;  isoband          0.2.5        <span style="color: #555555;">2021-07-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  jpeg             0.1-9        <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  jsonlite         1.8.0        <span style="color: #555555;">2022-02-22</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  labeling         0.4.2        <span style="color: #555555;">2020-10-20</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  lattice        * 0.20-45      <span style="color: #555555;">2021-09-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
-<span><span class="co">#&gt;  latticeExtra     0.6-30       <span style="color: #555555;">2022-07-04</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  lazyeval         0.2.2        <span style="color: #555555;">2019-03-15</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  lifecycle        1.0.1        <span style="color: #555555;">2021-09-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  magrittr         2.0.3        <span style="color: #555555;">2022-03-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  MASS             7.3-57       <span style="color: #555555;">2022-04-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
-<span><span class="co">#&gt;  Matrix           1.4-1        <span style="color: #555555;">2022-03-23</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
-<span><span class="co">#&gt;  mgcv             1.8-40       <span style="color: #555555;">2022-03-29</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
-<span><span class="co">#&gt;  munsell          0.5.0        <span style="color: #555555;">2018-06-12</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  nlme             3.1-157      <span style="color: #555555;">2022-03-25</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
-<span><span class="co">#&gt;  pillar           1.7.0        <span style="color: #555555;">2022-02-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  pkgconfig        2.0.3        <span style="color: #555555;">2019-09-22</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  pkgload          1.3.0        <span style="color: #555555;">2022-06-27</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  png              0.1-7        <span style="color: #555555;">2013-12-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  praise           1.0.0        <span style="color: #555555;">2015-08-11</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  processx         3.7.0        <span style="color: #555555;">2022-07-07</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  ps               1.7.1        <span style="color: #555555;">2022-06-18</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  purrr            0.3.4        <span style="color: #555555;">2020-04-17</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  R6               2.5.1        <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  RColorBrewer     1.1-3        <span style="color: #555555;">2022-04-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  Rcpp             1.0.9        <span style="color: #555555;">2022-07-08</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  RcppEigen        0.3.3.9.2    <span style="color: #555555;">2022-04-08</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  rematch2         2.1.2        <span style="color: #555555;">2020-05-01</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  rlang            1.0.4        <span style="color: #555555;">2022-07-12</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  rprojroot        2.0.3        <span style="color: #555555;">2022-04-02</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  scales           1.2.0        <span style="color: #555555;">2022-04-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  testthat         3.1.4        <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  tibble           3.1.7        <span style="color: #555555;">2022-05-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  tidyselect       1.1.2        <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  utf8             1.2.2        <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  vctrs            0.4.1        <span style="color: #555555;">2022-04-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  viridisLite      0.4.0        <span style="color: #555555;">2021-04-13</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  waldo            0.4.0        <span style="color: #555555;">2022-03-16</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  withr            2.5.0        <span style="color: #555555;">2022-03-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  xml2             1.3.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  brio             1.1.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  callr            3.7.1        <span style="color: #555555;">2022-07-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  cli              3.3.0        <span style="color: #555555;">2022-04-25</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  colorspace       2.0-3        <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  crayon           1.5.1        <span style="color: #555555;">2022-03-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  deldir           1.0-6        <span style="color: #555555;">2021-10-23</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  desc             1.4.1        <span style="color: #555555;">2022-03-06</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  diffobj          0.3.5        <span style="color: #555555;">2021-10-05</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  digest           0.6.29       <span style="color: #555555;">2021-12-01</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  dplyr            1.0.9        <span style="color: #555555;">2022-04-28</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  ellipsis         0.3.2        <span style="color: #555555;">2021-04-29</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  evaluate         0.15         <span style="color: #555555;">2022-02-18</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  fansi            1.0.3        <span style="color: #555555;">2022-03-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  farver           2.1.1        <span style="color: #555555;">2022-07-06</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  fs               1.5.2        <span style="color: #555555;">2021-12-08</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  generics         0.1.3        <span style="color: #555555;">2022-07-05</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  ggplot2        * 3.3.6        <span style="color: #555555;">2022-05-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  glue             1.6.2        <span style="color: #555555;">2022-02-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  gtable           0.3.0        <span style="color: #555555;">2019-03-25</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2022-08-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
+<span><span class="co">#&gt;  hySpc.testthat   0.2.1        <span style="color: #555555;">2020-06-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  interp           1.1-3        <span style="color: #555555;">2022-07-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  isoband          0.2.5        <span style="color: #555555;">2021-07-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  jpeg             0.1-9        <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  jsonlite         1.8.0        <span style="color: #555555;">2022-02-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  labeling         0.4.2        <span style="color: #555555;">2020-10-20</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  lattice        * 0.20-45      <span style="color: #555555;">2021-09-22</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
+<span><span class="co">#&gt;  latticeExtra     0.6-30       <span style="color: #555555;">2022-07-04</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  lazyeval         0.2.2        <span style="color: #555555;">2019-03-15</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  lifecycle        1.0.1        <span style="color: #555555;">2021-09-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  magrittr         2.0.3        <span style="color: #555555;">2022-03-30</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  MASS             7.3-57       <span style="color: #555555;">2022-04-22</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
+<span><span class="co">#&gt;  Matrix           1.4-1        <span style="color: #555555;">2022-03-23</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
+<span><span class="co">#&gt;  mgcv             1.8-40       <span style="color: #555555;">2022-03-29</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
+<span><span class="co">#&gt;  munsell          0.5.0        <span style="color: #555555;">2018-06-12</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  nlme             3.1-157      <span style="color: #555555;">2022-03-25</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
+<span><span class="co">#&gt;  pillar           1.8.0        <span style="color: #555555;">2022-07-18</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  pkgconfig        2.0.3        <span style="color: #555555;">2019-09-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  pkgload          1.3.0        <span style="color: #555555;">2022-06-27</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  png              0.1-7        <span style="color: #555555;">2013-12-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  praise           1.0.0        <span style="color: #555555;">2015-08-11</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  processx         3.7.0        <span style="color: #555555;">2022-07-07</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  ps               1.7.1        <span style="color: #555555;">2022-06-18</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  purrr            0.3.4        <span style="color: #555555;">2020-04-17</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  R6               2.5.1        <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  RColorBrewer     1.1-3        <span style="color: #555555;">2022-04-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  Rcpp             1.0.9        <span style="color: #555555;">2022-07-08</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  RcppEigen        0.3.3.9.2    <span style="color: #555555;">2022-04-08</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  rematch2         2.1.2        <span style="color: #555555;">2020-05-01</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  rlang            1.0.4        <span style="color: #555555;">2022-07-12</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  rprojroot        2.0.3        <span style="color: #555555;">2022-04-02</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  scales           1.2.0        <span style="color: #555555;">2022-04-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  testthat         3.1.4        <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  tibble           3.1.8        <span style="color: #555555;">2022-07-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  tidyselect       1.1.2        <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  utf8             1.2.2        <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  vctrs            0.4.1        <span style="color: #555555;">2022-04-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  viridisLite      0.4.0        <span style="color: #555555;">2021-04-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  waldo            0.4.0        <span style="color: #555555;">2022-03-16</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  withr            2.5.0        <span style="color: #555555;">2022-03-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  xml2             1.3.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> [1] /Users/runner/work/_temp/Library</span></span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Versions/4.2/Resources/library</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;"> [1] /tmp/RtmpLNyRAt/temp_libpath352c1ae3df08</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;"> [2] /home/runner/work/_temp/Library</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;"> [3] /opt/R/4.2.1/lib/R/library</span></span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────────────────────────</span></span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references">
-<div id="ref-R-baseline">
-<p>[1] K.H. Liland, B.-H. Mevik, Baseline: Baseline correction of spectra, 2022. <a href="https://github.com/khliland/baseline/" class="external-link">https://github.com/khliland/baseline/</a>.</p>
+<div id="refs" class="references csl-bib-body">
+<div id="ref-R-baseline" class="csl-entry">
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">K.H. Liland, B.-H. Mevik, Baseline: Baseline correction of spectra, 2022. <a href="https://github.com/khliland/baseline/" class="external-link">https://github.com/khliland/baseline/</a>.</div>
 </div>
-<div id="ref-baseline2010">
-<p>[2] K.H. Liland, T. Almøy, B.-H. Mevik, Optimal choice of baseline correction for multivariate calibration of spectra, Applied Spectroscopy. 64 (2010) 1007–1016.</p>
+<div id="ref-baseline2010" class="csl-entry">
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">K.H. Liland, T. Almøy, B.-H. Mevik, Optimal choice of baseline correction for multivariate calibration of spectra, Applied Spectroscopy. 64 (2010) 1007–1016.</div>
 </div>
 </div>
 </div>
@@ -564,7 +567,7 @@ Figure 3.4: Rubberband baselines for the paracetamol spectrum after bendin: corr
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
