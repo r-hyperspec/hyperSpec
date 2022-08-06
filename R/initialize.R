@@ -101,7 +101,7 @@
 NULL
 
 
-# Function -------------------------------------------------------------------
+# Functions ------------------------------------------------------------------
 
 #' @include paste_row.R
 #' @noRd
@@ -245,17 +245,14 @@ NULL
   .Object
 }
 
-
-#' @rdname initialize
-setMethod("initialize", "hyperSpec", .initialize)
-
-# Function -------------------------------------------------------------------
-
 #' @rdname initialize
 #' @export
 new_hyperSpec <- function(spc = NULL, data = NULL, wavelength = NULL, labels = NULL) {
   new("hyperSpec", spc = spc, data = data, wavelength = wavelength, labels = labels)
 }
+
+#' @rdname initialize
+setMethod("initialize", "hyperSpec", .initialize)
 
 
 # Unit tests -----------------------------------------------------------------
