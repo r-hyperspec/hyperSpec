@@ -167,10 +167,10 @@ Package **hyperSpec** comes with 6 major predefined plotting functions:
 :  plots spectra.
    More details in sections \@ref(exm-plot-spc), \@ref(arg-spc), and \@ref(fun-plot-spc).
 
-**`plotc()`{.r}**
+**`plot_c()`{.r}**
 :  calibration plot, time series, depth profile.
-   More details in sections \@ref(exm-plotc), \@ref(arg-c), \@ref(arg-ts), \@ref(arg-depth), and \@ref(fun-plotc).
-   (`plotc()`{.r} is a package **lattice** function)
+   More details in sections \@ref(exm-plot-c), \@ref(arg-c), \@ref(arg-ts), \@ref(arg-depth), and \@ref(fun-plot-c).
+   (`plot_c()`{.r} is a package **lattice** function)
 
 **`levelplot()`{.r}**
 :  package **hyperSpec** has a method for package **lattice**[`r cite_pkg("lattice")`] function `levelplot()`{.r}.
@@ -228,16 +228,16 @@ plotmat(flu)
 ```
 
 
-## Function `plotc()`{.r} {#exm-plotc}
+## Function `plot_c()`{.r} {#exm-plot-c}
 
-Function `plotc()`{.r} plots an intensity over a single other data column, e.g., concentration (calibration plot, e.g., Fig. \@ref(fig:plotflu)), depth (depth profile plot), or time (time series plot).
+Function `plot_c()`{.r} plots an intensity over a single other data column, e.g., concentration (calibration plot, e.g., Fig. \@ref(fig:plotflu)), depth (depth profile plot), or time (time series plot).
 
 ```{r include=FALSE}
 CAPTION = "Calibration plot: an intensity over concentration.  "
 ```
 
 ```{r plotflu, fig.cap=CAPTION}
-plotc(flu)
+plot_c(flu)
 ```
 
 > The following warning is expected: `Intensity at first wavelengh only is used.`
@@ -351,7 +351,7 @@ plot(faux_cell_preproc, "spcprctl5")
 
 ## Argument `"c"`{.r} {#arg-c}
 
-Command `plot(x, "c")`{.r} is equivalent to `plotc(flu)`{.r} (Fig. \@ref(fig:plotflu2)).
+Command `plot(x, "c")`{.r} is equivalent to `plot_c(flu)`{.r} (Fig. \@ref(fig:plotflu2)).
 
 ```{r include=FALSE}
 CAPTION = "Calibration plot: spectra intensities over concentration.  "
@@ -364,7 +364,7 @@ plot(flu, "c")
 
 ## Argument `"ts"`{.r} {#arg-ts}
 
-Function `plot(x, "ts")`{.r} plots a time series plot and is equivalent to `plotc(laser, spc ~ t)`{.r} (Fig. \@ref(fig:plotts)).
+Function `plot(x, "ts")`{.r} plots a time series plot and is equivalent to `plot_c(laser, spc ~ t)`{.r} (Fig. \@ref(fig:plotts)).
 
 ```{r include=FALSE}
 CAPTION = "Time series plot: spectra intensities over time.  "
@@ -377,7 +377,7 @@ plot(laser[, , 405], "ts")
 
 ## Argument `"depth"`{.r}  {#arg-depth}
 
-Code `plot(x, "depth")`{.r} plots a depth profile plot and is the same as `plotc(laser, spc ~ z)`{.r} (Fig. \@ref(fig:plotdepth)).
+Code `plot(x, "depth")`{.r} plots a depth profile plot and is the same as `plot_c(laser, spc ~ z)`{.r} (Fig. \@ref(fig:plotdepth)).
 
 ```{r include=FALSE}
 CAPTION = "Depth profile plot.  "
@@ -736,8 +736,8 @@ for (i in 1:3) {
 ```
 
 
-# Calibration, (Depth) Profile, and Time Series Plots: `plotc()`{.r} {#fun-plotc}
-<!-- \mFun{`plotc()`{.r}} -->
+# Calibration, (Depth) Profile, and Time Series Plots: `plot_c()`{.r} {#fun-plot-c}
+<!-- \mFun{`plot_c()`{.r}} -->
 
 ## Intensities over Concentration
 
@@ -748,7 +748,7 @@ CAPTION = "Intensities at 450 nm over concentration.  "
 ```
 
 ```{r lin-cal-1, fig.cap=CAPTION}
-plotc(flu[, , 450])
+plot_c(flu[, , 450])
 ```
 The default is to use the first intensity only.
 
@@ -762,7 +762,7 @@ CAPTION = "The summary (minimum and maximum) of intensities at each measured con
 ```
 
 ```{r lin-cal-3, fig.cap=CAPTION}
-plotc(flu, func = range, groups = .wavelength)
+plot_c(flu, func = range, groups = .wavelength)
 ```
 
 If `func()`{.r} returns more than one value, the different results are accessible by `.wavelength`.
@@ -777,7 +777,7 @@ CAPTION = "Conditioning: several calibration spectra on separate subplots.  "
 ```
 
 ```{r plotc2, fig.cap=CAPTION}
-plotc(flu[, , c(405, 445)], spc ~ c | .wavelength,
+plot_c(flu[, , c(405, 445)], spc ~ c | .wavelength,
   cex = .3, scales = list(alternating = c(1, 1))
 )
 ```
@@ -792,20 +792,20 @@ CAPTION = "Grouping: several calibration spectra on one plot.  "
 ```
 
 ```{r plotc3, fig.cap=CAPTION}
-plotc(flu[, , c(405, 445)], groups = .wavelength)
+plot_c(flu[, , c(405, 445)], groups = .wavelength)
 ```
 
 
 ## Changing Axis Labels (and Other Parameters)
 
-Arguments of **lattice** function `xyplot()`{.r} can be given to `plotc()`{.r} (Fig. \@ref(fig:lin-cal-4)).
+Arguments of **lattice** function `xyplot()`{.r} can be given to `plot_c()`{.r} (Fig. \@ref(fig:lin-cal-4)).
 
 ```{r include=FALSE}
 CAPTION = "Modified axis labels and point characters.  "
 ```
 
 ```{r lin-cal-4, fig.cap=CAPTION}
-plotc(flu[, , 450],
+plot_c(flu[, , 450],
   ylab = expression(I["450 nm"] / a.u.),
   xlim = range(0, flu$c + .01),
   ylim = range(0, flu$spc + 10),
@@ -816,7 +816,7 @@ plotc(flu[, , 450],
 
 ## Adding Things to the Plot: Customized Panel Function
 
-As `plotc()`{.r} uses the package **lattice** function `xyplot()`{.r}, additions to the plot must be made via the panel function (Fig. \@ref(fig:lin-cal-5)).
+As `plot_c()`{.r} uses the package **lattice** function `xyplot()`{.r}, additions to the plot must be made via the panel function (Fig. \@ref(fig:lin-cal-5)).
 
 
 ```{r lincal-panel}
@@ -840,7 +840,7 @@ CAPTION = "Plot that uses a customized paanel function.  "
 ```
 
 ```{r lin-cal-5, fig.cap=CAPTION}
-plotc(flu[, , 405],
+plot_c(flu[, , 405],
   panel = panelcalibration,
   pch = 4, clim = c(0, 0.35), level = .99
 )
@@ -856,7 +856,7 @@ CAPTION = "Plot with abscissae explicitly indicated by model formula.  "
 ```
 
 ```{r plotc4, fig.cap=CAPTION}
-plotc(laser[, , c(405.0063, 405.1121, 405.2885, 405.3591)],
+plot_c(laser[, , c(405.0063, 405.1121, 405.2885, 405.3591)],
   spc ~ t,
   groups = .wavelength,
   type   = "b",
@@ -1431,7 +1431,7 @@ Note that the returned indices correspond to the plotted object.
 
 ## No Output Is Produced {#sec:no-output-produced}
 
-Methods `plotmap`{.r}, `plotvoronoi`{.r}, `levelplot`{.r}, and `plotc`{.r} use package **lattice** functions.
+Methods `plotmap`{.r}, `plotvoronoi`{.r}, `levelplot`{.r}, and `plot_c`{.r} use package **lattice** functions.
 Therefore, in loops, functions, Sweave, R Markdown chunks, etc. the lattice object needs to be printed explicitly by `print(plotmap(object))`{.r}
 ([R FAQ: Why do lattice/trellis graphics not work?](http://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-do-lattice_002ftrellis-graphics-not-work_003f)).
 The same holds for package **ggplot2** graphics.

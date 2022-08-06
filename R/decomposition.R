@@ -28,7 +28,7 @@
 #' spectra matrix is replaced by `x` and `object@@wavelength` by
 #' `wavelength`. The information related to each of the spectra is
 #' retained. For such a `hyperSpec` object, [plotmap()] and
-#' [plotc()] and the like can be applied. It is also possible to use
+#' [plot_c()] and the like can be applied. It is also possible to use
 #' the spectra plotting, but the interpretation is not that of the spectrum any
 #' longer.
 #'
@@ -73,7 +73,7 @@
 #'
 #' plot(pca.center)
 #' plot(pca.loadings, col = c("red", "gray50"))
-#' plotc(pca.scores, groups = .wavelength)
+#' plot_c(pca.scores, groups = .wavelength)
 decomposition <- function(object, x, wavelength = seq_len(ncol(x)),
                           label.wavelength, label.spc,
                           scores = TRUE, retain.columns = FALSE,

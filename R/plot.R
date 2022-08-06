@@ -20,8 +20,8 @@ setGeneric("plot")
   ##    'map'        ... map
   ##    'voronoi'    ... voronoi tiled map
   ##    'mat'        ... spectra matrix
-  ##    'c'          ... concentration: plotc
-  ##    'ts'         ... time series: plotc
+  ##    'c'          ... concentration: plot_c
+  ##    'ts'         ... time series: plot_c
   ##    'depth'      ... concentration or time series
   ##    'spcmeansd'  ... mean spectrum +- 1 standard deviation
   ##    'spcprctile' ... median spectrum , 16th and 84th percentile
@@ -77,11 +77,11 @@ setGeneric("plot")
     voronoi = plotvoronoi(x, ...),
     matrix = ,
     mat = plotmat(x, ...),
-    c = plotc(x, ...),
+    c = plot_c(x, ...),
     t = ,
-    ts = plotc(x, spc ~ t, ...),
+    ts = plot_c(x, spc ~ t, ...),
     z = ,
-    depth = plotc(x, spc ~ z, ...),
+    depth = plot_c(x, spc ~ z, ...),
     stop(paste("y = ", y, "unknown.", collapse = " "))
   )
 }
@@ -96,7 +96,7 @@ setGeneric("plot")
 #'
 #' @description
 #' The `plot` method for `hyperSpec` objects is a switchyard to [plot_spc()],
-#' [plotmap()], and [plotc()]. The function also supplies some convenient
+#' [plotmap()], and [plot_c()]. The function also supplies some convenient
 #' abbreviations for frequently used plots (see 'Details').
 #'
 #'
@@ -127,14 +127,14 @@ setGeneric("plot")
 #'    \item{"mat"}{calls [plotmat()] to produce a plot of the spectra matrix
 #'    (not to be confused with [graphics::matplot()]).}
 #'
-#'    \item{"c"}{calls [plotc()] to produce a calibration (or time series,
+#'    \item{"c"}{calls [plot_c()] to produce a calibration (or time series,
 #'     depth-profile, or the like).}
 #'
 #'    \item{"ts"}{plots a time series: abbreviation for
-#'    [`plotc(x, use.c = "t")`][`plotc()`].}
+#'    [`plot_c(x, use.c = "t")`][`plot_c()`].}
 #'
 #'    \item{"depth"}{plots a depth profile:
-#'     abbreviation for [`plotc(x, use.c = "z")`][`plotc()`].}
+#'     abbreviation for [`plot_c(x, use.c = "z")`][`plot_c()`].}
 #' }
 #'
 #' @name plot-methods
@@ -159,7 +159,7 @@ setGeneric("plot")
 #' [plotmap()] for plotting maps, i.e. color coded summary value on two
 #' (usually spatial) dimensions.
 #'
-#' [plotc()]
+#' [plot_c()]
 #'
 #' [graphics::plot()]
 #' @keywords methods hplot

@@ -301,7 +301,7 @@ CAPTION <- "Spectra intensities at 450 nm. "
 ```
 
 ```{r calplot1, fig.cap=CAPTION}
-plotc(flu[, , 450])
+plot_c(flu[, , 450])
 ```
 
 The square bracket operator extracts parts of a `hyperSpec`{.r} object.
@@ -323,7 +323,7 @@ CAPTION <- "Spectra intensities at 450 nm with updated labels. "
 ```
 
 ```{r calplot2, fig.cap=CAPTION}
-plotc(flu, xlim = range(0, flu$c), ylim = range(0, flu$spc))
+plot_c(flu, xlim = range(0, flu$c), ylim = range(0, flu$spc))
 ```
 
 The actual calibration is a linear model, which can be fitted by the R function `lm()`{.r}.
@@ -405,7 +405,7 @@ panel.ci <- function(x, y, ..., intensity, ci.lwr, ci.upr, ci.col = "#606060") {
   panel.lines(ci.upr, intensity, col = ci.col)
 }
 
-plotc(flu,
+plot_c(flu,
   panel = panel.ci,
   intensity = int$spc, ci.lwr = ci[, 2], ci.upr = ci[, 3]
 )
@@ -455,7 +455,7 @@ panel.predict <-
     panel.xyplot(ci[, 1], intensity, col = pred.col, pch = pred.pch, cex = pred.cex, type = "p")
   }
 
-plotc(flu,
+plot_c(flu,
   groups = type, type = c("l", "p"),
   col = c("black", "black", "#606060", "#606060"),
   pch = c(19, NA, NA, NA),

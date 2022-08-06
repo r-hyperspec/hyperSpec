@@ -1,6 +1,6 @@
 ### --------------------------------------------------------------------------
 ###
-###  plotc - plot timeseries, concentration, ...
+###  plot_c - plot timeseries, concentration, ...
 ###
 ###  C. Beleites
 
@@ -9,7 +9,7 @@
 #' Calibration plots, timeseries plots, and depth-profiles
 #'
 #' Calibration- and timeseries plots, depth-profiles and the like
-#' `plotc` plots intensities of a `hyperSpec` object over another
+#' `plot_c` plots intensities of a `hyperSpec` object over another
 #' dimension such as concentration, time, or a spatial coordinate.
 #'
 #' If `func` is not `NULL`, the summary characteristic is calculated
@@ -49,17 +49,17 @@
 #'
 #'
 #' ## example 1: calibration of fluorescence
-#' plotc(flu) ## gives a warning
+#' plot_c(flu) ## gives a warning
 #'
-#' plotc(flu, func = mean)
-#' plotc(flu, func = range, groups = .wavelength)
+#' plot_c(flu, func = mean)
+#' plot_c(flu, func = range, groups = .wavelength)
 #'
-#' plotc(flu[, , 450], ylab = expression(I["450 nm"] / a.u.))
+#' plot_c(flu[, , 450], ylab = expression(I["450 nm"] / a.u.))
 #'
 #'
 #' calibration <- lm(spc ~ c, data = flu[, , 450]$.)
 #' summary(calibration)
-#' plotc(flu[, , 450], type = c("p", "r"))
+#' plot_c(flu[, , 450], type = c("p", "r"))
 #'
 #' conc <- list(c = seq(from = 0.04, to = 0.31, by = 0.01))
 #' ci <- predict(calibration, newdata = conc, interval = "confidence", level = 0.999)
@@ -72,7 +72,7 @@
 #'   panel.lines(conc, ci.upr, col = ci.col)
 #' }
 #'
-#' plotc(flu[, , 450],
+#' plot_c(flu[, , 450],
 #'   panel = panel.ci,
 #'   conc = conc$c, ci.lwr = ci[, 2], ci.upr = ci[, 3]
 #' )
@@ -86,12 +86,12 @@
 #'   abline(v = wl[i], col = cols[i], lwd = 2)
 #' }
 #'
-#' plotc(laser[, , wl], spc ~ t,
+#' plot_c(laser[, , wl], spc ~ t,
 #'   groups = .wavelength, type = "b",
 #'   col = cols
 #' )
 #' @importFrom utils modifyList
-plotc <- function(object, model = spc ~ c, groups = NULL,
+plot_c <- function(object, model = spc ~ c, groups = NULL,
                   func = NULL, func.args = list(), ...) {
   assert_hyperSpec(object)
   validObject(object)

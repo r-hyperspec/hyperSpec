@@ -42,9 +42,9 @@
 #' hy_profile <- generate_hy_profile()
 #' hy_profile
 #'
-#' plotc(hy_profile, model = spc ~ t)
-#' plotc(hy_profile, model = spc ~ z)
-#' plotc(hy_profile, model = spc ~ c)
+#' plot_c(hy_profile, model = spc ~ t)
+#' plot_c(hy_profile, model = spc ~ z)
+#' plot_c(hy_profile, model = spc ~ c)
 #'
 #'
 #' # Generate hyper-spectral map
