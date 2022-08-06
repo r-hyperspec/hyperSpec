@@ -67,7 +67,7 @@
 #'       to [base::gc()], which can help to avoid swapping or running out of
 #'       memory. The default value of `gc` can be set via [hy_set_options()].
 #'
-#' @author C.Beleites
+#' @author C.Beleites, V. Gegzna
 #' @seealso
 #'
 #' - [methods::new()] for more information on creating and initializing S4 objects.
