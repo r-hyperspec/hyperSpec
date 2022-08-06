@@ -36,15 +36,17 @@
 #' @param ... `hyperSpec` objects to be collapsed into one object.
 #'        Instead of giving several arguments, a list with all objects to be
 #'        collapsed may be given.
+#'
 #' @param wl.tolerance Tolerance to decide which wavelengths are considered
 #'        equal.
+#'
 #' @param collapse.equal Logical indicating whether to try first finding
 #'        groups of spectra with (approximately) equal wavelength axes. If the
 #'        data is known to contain few or no such groups, `collapse()` will be
 #'        faster with this first pass being turned off.
 #'
 #'
-#' @return a hyperSpec object
+#' @return A `hyperSpec` object
 #'
 #'
 #' @seealso [merge()],  [rbind()], and [plyr::rbind.fill()]
@@ -83,9 +85,20 @@ collapse <- function(...,
   wl.tolerance <- .checkpos(wl.tolerance, "wl.tolerance")
   dots <- list(...)
 
-  ## accept also a list of hyperSpec objects
-  if (length(dots) == 1 && is.list(dots[[1]])) {
+  if (length(dots) == 0) {
+    stop("No hyperSpec objects were found in the input of collapse().")
+
+  } else if (length(dots) == 1 && is.list(dots[[1]])) {
+    ## accept also a list of hyperSpec objects
     dots <- dots[[1]]
+
+  }
+
+  if (any(sapply(dots, function(x) !inherits(x, "hyperSpec")))) {
+   stop(
+     "Not all inputs of collapse() are hyperSpec objects: ",
+     "either all inputs must be `hyperSpec` objects ",
+     "or there must be a list with hyperSoec objects only.")
   }
 
   ## check the arguments
@@ -173,6 +186,24 @@ collapse <- function(...,
 
 hySpc.testthat::test(collapse) <- function() {
   context("collapse")
+
+  test_that("Empty collapse() returns error", {
+    expect_error(collapse(), "No hyperSpec objects were found")
+  })
+
+  test_that("wrong collapse() inputs return error", {
+    expect_error(
+      collapse(flu, flu, data.frame()),
+      "Not all inputs of collapse\\(\\) are hyperSpec objects"
+    )
+  })
+
+  test_that("basic collapse() functionality is ok", {
+    expect_silent(collapse(flu, flu))
+    expect_equal(collapse(flu), flu)
+    expect_equal(collapse(list(flu)), flu)
+    expect_equal(collapse(flu, flu), collapse(list(flu, flu)))
+  })
 
   test_that("correctly assembled", {
     new <- do.call(collapse, barbiturates[1:3])
@@ -291,7 +322,6 @@ hySpc.testthat::test(collapse) <- function() {
     )
     expect_true(all(grepl("Mass [AB]", names(wl(tmp)))))
   })
-
 
   test_that("factor behaviour of collapse", {
     a <- faux_cell[faux_cell$region == "nucleus"]
