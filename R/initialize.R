@@ -380,10 +380,19 @@ hySpc.testthat::test(.initialize) <- function() {
   })
 
   test_that("hyperSpec initializes with gc", {
-    expect_silent(hy_obj_1 <- new("hyperSpec", wavelength = 1:100, gc = FALSE))
-    expect_silent(hy_obj_2 <- new("hyperSpec", wavelength = 1:100, gc = TRUE))
-    expect_equal(hy_obj_1, hy_obj_2)
+    expect_silent(hy_obj_1a <- new("hyperSpec", wavelength = 1:100, gc = FALSE))
+    expect_silent(hy_obj_2a <- new("hyperSpec", wavelength = 1:100, gc = TRUE))
+    expect_equal(hy_obj_1a, hy_obj_2a)
+
+    expect_silent(hy_obj_1b <- new("hyperSpec", data.frame(), gc = FALSE))
+    expect_silent(hy_obj_2b <- new("hyperSpec", data.frame(), gc = TRUE))
+    expect_equal(hy_obj_1b, hy_obj_2b)
+
+    expect_silent(hy_obj_1c <- new("hyperSpec", NA, gc = FALSE))
+    expect_silent(hy_obj_2c <- new("hyperSpec", NA, gc = TRUE))
+    expect_equal(hy_obj_1c, hy_obj_2c)
   })
+
 
   test_that('new_hyperSpec() and new("hyperSpec") give identical results', {
     expect_equal(new_hyperSpec(), new("hyperSpec"))
