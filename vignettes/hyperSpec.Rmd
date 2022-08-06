@@ -452,7 +452,7 @@ This yields a vector **`index_of_start : index_of_end`**.
 
 The result of the formula conversion differs from the integer vector conversion in three ways:
 
--  The colon operator for constructing vectors accepts only integer numbers, the tilde (for   formulas) does not have this restriction.
+-  The colon operator for constructing vectors accepts only integer numbers, the tilde (for formulas) does not have this restriction.
 -  If the vector does not take into account the spectral resolution, one may get only every $n$^th^ point or repetitions of the same index:
 
 ```{r wl2ivec}
@@ -843,8 +843,8 @@ tmp <- apply(tmp, 1, function(x, wl, shift) {
 plot(tmp, lines.args = list(type = "b", pch = 19, cex = 0.5), add = TRUE, col = palette_colorblind[3])
 ```
 
-If different spectra need to be offset by different shift, use a loop^[Function `sweep()`{.r} cannot be used here, and while there is the possibility to use sapply or mapply, they are not faster than the for loop in this case.
-Make sure to work on a copy of the spectra matrix, as that is much faster than row-wise extracting and changing the spectra by `[[()`{.r} and `[[<-`{.r}.].
+If different spectra need to be offset by different shift, use a loop^[Function `sweep()`{.r} cannot be used here, and while there is the possibility to use `sapply()`{.r} or `mapply()`{.r}, they are not faster than the for loop in this case.
+Make sure to work on a copy of the spectra matrix, as that is much faster than row-wise extracting and changing the spectra by `[[`{.r} and `[[<-`{.r}.].
 
 ```{r}
 shifts <- rnorm(nrow(faux_cell))
