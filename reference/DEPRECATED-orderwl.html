@@ -164,10 +164,10 @@ rearranged accordingly.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="dim.html">nwl</a></span><span class="op">(</span><span class="va">spc</span><span class="op">)</span><span class="op">)</span>, <span class="va">spc</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span>, type <span class="op">=</span> <span class="st">"b"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">spc</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               1        2        3        4        5          1        2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.8718713 3.586997 3.705679 4.106147 5.804532 -0.8718713 3.586997</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             3        4        5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 3.705679 4.106147 5.804532</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              1        2        3        4        5         1        2        3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.8818755 3.506491 2.560541 3.573039 1.154202 0.8818755 3.506491 2.560541</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             4        5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 3.573039 1.154202</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">spc_sorted</span> <span class="op">&lt;-</span> <span class="fu">orderwl</span><span class="op">(</span><span class="va">spc</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Function 'orderwl' is deprecated. </span>
@@ -175,10 +175,10 @@ rearranged accordingly.</p>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="dim.html">nwl</a></span><span class="op">(</span><span class="va">spc_sorted</span><span class="op">)</span><span class="op">)</span>, <span class="va">spc_sorted</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="DEPRECATED-orderwl-3.png" alt="" width="466" height="288"></span>
 <span class="r-in"><span><span class="va">spc_sorted</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               1          1        2        2        3        3        4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.8718713 -0.8718713 3.586997 3.586997 3.705679 3.705679 4.106147</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             4        5        5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 4.106147 5.804532 5.804532</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              1         1        2        2        3        3        4        4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.8818755 0.8818755 3.506491 3.506491 2.560541 2.560541 3.573039 3.573039</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             5        5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 1.154202 1.154202</span>
 </code></pre></div>
     </div>
   </div>

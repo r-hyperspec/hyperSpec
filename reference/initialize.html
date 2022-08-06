@@ -95,19 +95,15 @@ As an alias, function <code>new_hyperSpec()</code> can be used.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S4 method for hyperSpec</span></span>
-<span><span class="fu">initialize</span><span class="op">(</span><span class="va">.Object</span>, spc <span class="op">=</span> <span class="cn">NULL</span>, data <span class="op">=</span> <span class="cn">NULL</span>, wavelength <span class="op">=</span> <span class="cn">NULL</span>, labels <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">new_hyperSpec</span><span class="op">(</span>spc <span class="op">=</span> <span class="cn">NULL</span>, data <span class="op">=</span> <span class="cn">NULL</span>, wavelength <span class="op">=</span> <span class="cn">NULL</span>, labels <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">new_hyperSpec</span><span class="op">(</span>spc <span class="op">=</span> <span class="cn">NULL</span>, data <span class="op">=</span> <span class="cn">NULL</span>, wavelength <span class="op">=</span> <span class="cn">NULL</span>, labels <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co"># S4 method for hyperSpec</span></span>
+<span><span class="fu">initialize</span><span class="op">(</span><span class="va">.Object</span>, spc <span class="op">=</span> <span class="cn">NULL</span>, data <span class="op">=</span> <span class="cn">NULL</span>, wavelength <span class="op">=</span> <span class="cn">NULL</span>, labels <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>.Object</dt>
-<dd><p>the new <code>hyperSpec</code> object.</p></dd>
-
-
-<dt>spc</dt>
+    <dl><dt>spc</dt>
 <dd><p>the spectra matrix. <code>spc</code> does not need to be a matrix, it is
 converted explicitly by <code>I(as.matrix(spc))</code>.</p></dd>
 
@@ -134,6 +130,10 @@ slot of the <code>hyperSpec</code> object and for the wavelength (in
 text-drawing functions (see <code><a href="https://rdrr.io/r/grDevices/plotmath.html" class="external-link">grDevices::plotmath()</a></code>).</p>
 <p>If <code>label</code> is not given, a list containing <code>NULL</code> for each of the columns
 of <code>data</code> and <code>wavelength</code> is used.</p></dd>
+
+
+<dt>.Object</dt>
+<dd><p>the new <code>hyperSpec</code> object.</p></dd>
 
 </dl></div>
     <div id="details">
