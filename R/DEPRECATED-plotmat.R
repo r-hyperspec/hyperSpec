@@ -30,7 +30,7 @@ hySpc.testthat::test(plotmat) <- function() {
   context("Deprecated functions")
 
   test_that("plotmat() is deprecated", {
-    plot_d <- function() plotmat(faux_cell[, , 1003])
+    plot_d <- function() plotmat(faux_cell)
     expect_warning(vdiffr::expect_doppelganger("plotmat", plot_d), "deprecated")
   })
 }
