@@ -58,13 +58,6 @@ setMethod("as.hyperSpec", "matrix", .as.hyperSpec.matrix)
 .as.hyperSpec.data.frame <- function(X, spc = NULL, wl = NULL,
                                      labels = attr(X, "labels"), ...) {
   if (is.null(wl)) wl <- extract_numbers(X)
-  # TODO: remove after 31.12.2020
-  if (!all(!is.na(extract_numbers(colnames(X))))) {
-    warning(
-      "Method as.hyperSpec(<data.frame>) has changed its behaviour. ",
-      "Use as.hyperSpec(as.matrix(X)) instead."
-    )
-  }
 
   if (is.null(spc)) {
     spc <- matrix(ncol = 0, nrow = nrow(X))
