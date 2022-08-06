@@ -30,30 +30,42 @@
 #'  new,hyperSpec-method
 #'  new_hyperSpec
 #'
-#' @param .Object the new `hyperSpec` object.
+#' @param .Object A new `hyperSpec` object.
 #'
-#' @param data `data.frame`, possibly with the spectra in `data$spc`, and
-#'    further variates in more columns.  A matrix can be entered as *one*
-#'    column of a data frame by: `data.frame(spc = I(as.matrix(spc)))`.
+#' @param data (`data.frame`)  \cr
+#'        A `data.frame` with extra (non-spectroscopic) data in columns.
+#'        The data frame may also contain a special column `spc` with a `matrix`
+#'        of spectroscopic data.
+#'        (Such single column that contains matrix can be created with
+#'        `data.frame(spc = I(as.matrix(spc)))`.
+#'        However, it will usually be more convenient if the spectra are given
+#'        via argument `spc`.)
 #'
-#'    However, it will usually be more convenient if the spectra are given
-#'    in `spc`.
+#' @param spc (`matrix` or convertible to `matrix`)  \cr
+#'        A spectra matrix with spectra in rows and wavelength intensities in
+#'        columns.
 #'
-#' @param spc the spectra matrix. `spc` does not need to be a matrix, it is
-#'    converted explicitly by `I(as.matrix(spc))`.
+#'  The `spc` does not need to be an R `matrix`, but must be an object
+#'  convertible to a matrix via `I(as.matrix(spc))`.
 #'
-#' @param wavelength The wavelengths corresponding to the columns of `data`.
-#'    If no wavelengths are given, an appropriate vector is derived from the
-#'    column names of `data$spc`. If this is not possible, `1:ncol(data$spc)`
-#'    is used instead.
+#' @param wavelength (numeric vector)  \cr
+#'        The wavelengths corresponding to the columns of `spc`.
 #'
-#' @param labels A `list` containing the labels for the columns of the `data`
-#'   slot of the `hyperSpec` object and for the wavelength (in
-#'   `label$.wavelength`). The labels should be given in a form ready for the
-#'   text-drawing functions (see [grDevices::plotmath()]).
+#'  If no wavelengths are given, an appropriate vector is derived from the
+#'  column the column names of `data$spc`. If this is not possible,
+#'  `1:ncol(data$spc)` is used instead.
 #'
-#'   If `label` is not given, a list containing `NULL` for each of the columns
-#'   of `data` and `wavelength` is used.
+#' @param labels A named `list`:
+#' - list's element names should containing one or more names of `data`
+#'   columns as well as special name `.wavelength` for `wavelength`s ).
+#' - list's element values should contain the labels for the indicated
+#'   names usually either in a for of character strings or
+#'   [plotmath][grDevices::plotmath()] expressions.
+#'   (The labels should be given in a form ready
+#'   for the text-drawing functions, see [grDevices::plotmath()]).
+#'
+#' If `label` is not given, a list containing `NULL` for each of the
+#' columns of `data` and `wavelength` is used.
 #'
 #' @author C.Beleites
 #' @seealso
