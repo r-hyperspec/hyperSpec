@@ -30,6 +30,7 @@ hySpc.testthat::test(plotc) <- function() {
   context("Deprecated functions")
 
   test_that("plotc() is deprecated", {
-    expect_error(expect_warning(plotc(), "deprecated"))
+    plot_d <- function() plotc(flu)
+    expect_warning(vdiffr::expect_doppelganger("plotc", plot_d), "deprecated")
   })
 }

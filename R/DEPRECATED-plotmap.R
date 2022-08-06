@@ -30,6 +30,7 @@ hySpc.testthat::test(plotmap) <- function() {
   context("Deprecated functions")
 
   test_that("plotmap() is deprecated", {
-    expect_error(expect_warning(plotmap(), "deprecated"))
+    plot_d <- function() plotmap(faux_cell[, , 1003])
+    expect_warning(vdiffr::expect_doppelganger("plotmap", plot_d), "deprecated")
   })
 }
