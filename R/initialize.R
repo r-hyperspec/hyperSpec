@@ -1,12 +1,107 @@
-### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-###
-###  initialize -- initialization, called by new("hyperSpec", ...)
-###
-###  C. Beleites
-###
-### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#  initialize -- initialization, called by new("hyperSpec", ...)
+#
+#  C. Beleites
+#
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# Function -------------------------------------------------------------------
+#' Create a `hyperSpec` object
+#'
+#' Like other S4 objects, a `hyperSpec` object can be created by [new()].
+#' The `hyperSpec` object is then `initialize`d using the given parameters.
+#' As an alias, function `new_hyperSpec()` can be used.
+#'
+#' If option `gc` is `TRUE` (see [hy_set_options()]), the initialization will
+#' have frequent calls to [gc()], which can help to avoid swapping or running
+#' out of memory.
+#'
+#' @docType methods
+#'
+#' @name initialize
+#' @rdname initialize
+#'
+#' @aliases
+#'  initialize
+#'  initialize,hyperSpec-method
+#'  create
+#'  create,hyperSpec-method
+#'  new
+#'  new,hyperSpec-method
+#'  new_hyperSpec
+#'
+#' @param .Object the new `hyperSpec` object.
+#'
+#' @param data `data.frame`, possibly with the spectra in `data$spc`, and
+#'    further variates in more columns.  A matrix can be entered as *one*
+#'    column of a data frame by: `data.frame(spc = I(as.matrix(spc)))`.
+#'
+#'    However, it will usually be more convenient if the spectra are given
+#'    in `spc`.
+#'
+#' @param spc the spectra matrix. `spc` does not need to be a matrix, it is
+#'    converted explicitly by `I(as.matrix(spc))`.
+#'
+#' @param wavelength The wavelengths corresponding to the columns of `data`.
+#'    If no wavelengths are given, an appropriate vector is derived from the
+#'    column names of `data$spc`. If this is not possible, `1:ncol(data$spc)`
+#'    is used instead.
+#'
+#' @param labels A `list` containing the labels for the columns of the `data`
+#'   slot of the `hyperSpec` object and for the wavelength (in
+#'   `label$.wavelength`). The labels should be given in a form ready for the
+#'   text-drawing functions (see [grDevices::plotmath()]).
+#'
+#'   If `label` is not given, a list containing `NULL` for each of the columns
+#'   of `data` and `wavelength` is used.
+#'
+#' @author C.Beleites
+#' @seealso
+#'
+#' - [methods::new()] for more information on creating and initializing S4 objects.
+#' - [grDevices::plotmath()] on expressions for math annotations as for slot `label`.
+#' - [hy_set_options()]
+#'
+#' @keywords methods datagen
+#' @concept hyperSpec conversion
+#'
+#' @examples
+#'
+#' new("hyperSpec")
+#' new_hyperSpec()
+#'
+#' spc <- matrix(rnorm(12), ncol = 4)
+#' new("hyperSpec", spc = spc)
+#' new_hyperSpec(spc = spc)
+#'
+#' new("hyperSpec",
+#'   data = data.frame(x = letters[1:3]),
+#'   spc = spc
+#' )
+#'
+#' colnames(spc) <- 600:603
+#' new("hyperSpec", spc = spc) # wavelength taken from colnames (spc)
+#'
+#' # given wavelengths precede over colnames of spc
+#' new("hyperSpec", spc = spc, wavelength = 700:703)
+#'
+#' # specifying labels
+#' h <- new("hyperSpec",
+#'   spc = spc, data = data.frame(pos = 1:3),
+#'   label = list(
+#'     spc = "I / a.u.",
+#'     .wavelength = expression(tilde(nu) / cm^-1),
+#'     pos = expression("/"(x, mu * m))
+#'   )
+#' )
+#'
+#' plot(h)
+#' plotc(h, spc ~ pos)
+
+NULL
+
+
+# Functions ------------------------------------------------------------------
 
 #' @include paste_row.R
 #' @noRd
@@ -150,105 +245,14 @@
   .Object
 }
 
-#' Create a `hyperSpec` object
-#'
-#' Like other S4 objects, a `hyperSpec` object can be created by [new()].
-#' The `hyperSpec` object is then `initialize`d using the given parameters.
-#' As an alias, function `new_hyperSpec()` can be used.
-#'
-#' If option `gc` is `TRUE` (see [hy_set_options()]), the initialization will
-#' have frequent calls to [gc()], which can help to avoid swapping or running
-#' out of memory.
-#'
-#' @name initialize
-#' @rdname initialize
-#'
-#' @aliases
-#'  initialize
-#'  initialize,hyperSpec-method
-#'  create
-#'  create,hyperSpec-method
-#'  new
-#'  new,hyperSpec-method
-#'  new_hyperSpec
-#'
-#' @docType methods
-#'
-#' @param .Object the new `hyperSpec` object.
-#'
-#' @param data `data.frame`, possibly with the spectra in `data$spc`, and
-#'    further variates in more columns.  A matrix can be entered as *one*
-#'    column of a data frame by: `data.frame(spc = I(as.matrix(spc)))`.
-#'
-#'    However, it will usually be more convenient if the spectra are given
-#'    in `spc`.
-#'
-#' @param spc the spectra matrix. `spc` does not need to be a matrix, it is
-#'    converted explicitly by `I(as.matrix(spc))`.
-#'
-#' @param wavelength The wavelengths corresponding to the columns of `data`.
-#'    If no wavelengths are given, an appropriate vector is derived from the
-#'    column names of `data$spc`. If this is not possible, `1:ncol(data$spc)`
-#'    is used instead.
-#'
-#' @param labels A `list` containing the labels for the columns of the `data`
-#'   slot of the `hyperSpec` object and for the wavelength (in
-#'   `label$.wavelength`). The labels should be given in a form ready for the
-#'   text-drawing functions (see [grDevices::plotmath()]).
-#'
-#'   If `label` is not given, a list containing `NULL` for each of the columns
-#'   of `data` and `wavelength` is used.
-#'
-#' @author C.Beleites
-#' @seealso
-#'
-#' - [methods::new()] for more information on creating and initializing S4 objects.
-#' - [grDevices::plotmath()] on expressions for math annotations as for slot `label`.
-#' - [hy_set_options()]
-#'
-#' @keywords methods datagen
-#' @concept hyperSpec conversion
-#'
-#' @examples
-#'
-#' new("hyperSpec")
-#' new_hyperSpec()
-#'
-#' spc <- matrix(rnorm(12), ncol = 4)
-#' new("hyperSpec", spc = spc)
-#' new_hyperSpec(spc = spc)
-#'
-#' new("hyperSpec",
-#'   data = data.frame(x = letters[1:3]),
-#'   spc = spc
-#' )
-#'
-#' colnames(spc) <- 600:603
-#' new("hyperSpec", spc = spc) # wavelength taken from colnames (spc)
-#'
-#' # given wavelengths precede over colnames of spc
-#' new("hyperSpec", spc = spc, wavelength = 700:703)
-#'
-#' # specifying labels
-#' h <- new("hyperSpec",
-#'   spc = spc, data = data.frame(pos = 1:3),
-#'   label = list(
-#'     spc = "I / a.u.",
-#'     .wavelength = expression(tilde(nu) / cm^-1),
-#'     pos = expression("/"(x, mu * m))
-#'   )
-#' )
-#'
-#' plot(h)
-#' plotc(h, spc ~ pos)
-setMethod("initialize", "hyperSpec", .initialize)
-
-# Function -------------------------------------------------------------------
 #' @rdname initialize
 #' @export
 new_hyperSpec <- function(spc = NULL, data = NULL, wavelength = NULL, labels = NULL) {
   new("hyperSpec", spc = spc, data = data, wavelength = wavelength, labels = labels)
 }
+
+#' @rdname initialize
+setMethod("initialize", "hyperSpec", .initialize)
 
 
 # Unit tests -----------------------------------------------------------------
