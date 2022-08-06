@@ -85,20 +85,19 @@ collapse <- function(...,
   wl.tolerance <- .checkpos(wl.tolerance, "wl.tolerance")
   dots <- list(...)
 
+  ## accept also a list of hyperSpec objects
+  if (length(dots) == 1 && is.list(dots[[1]])) {
+    dots <- dots[[1]]
+  }
+
   if (length(dots) == 0) {
     stop("No hyperSpec objects were found in the input of collapse().")
 
-  } else if (length(dots) == 1 && is.list(dots[[1]])) {
-    ## accept also a list of hyperSpec objects
-    dots <- dots[[1]]
-
-  }
-
-  if (any(sapply(dots, function(x) !inherits(x, "hyperSpec")))) {
-   stop(
-     "Not all inputs of collapse() are hyperSpec objects: ",
-     "either all inputs must be `hyperSpec` objects ",
-     "or there must be a list with hyperSoec objects only.")
+  } else if (any(sapply(dots, function(x) !inherits(x, "hyperSpec")))) {
+    stop(
+      "Not all inputs of collapse() are hyperSpec objects: ",
+      "either all inputs must be `hyperSpec` objects ",
+      "or there must be a list with hyperSoec objects only.")
   }
 
   ## check the arguments
@@ -188,12 +187,21 @@ hySpc.testthat::test(collapse) <- function() {
   context("collapse")
 
   test_that("Empty collapse() returns error", {
+    # Empty ...
     expect_error(collapse(), "No hyperSpec objects were found")
+    # Empty list
+    expect_error(collapse(list()), "No hyperSpec objects were found")
   })
 
   test_that("wrong collapse() inputs return error", {
+    # ... contains non-hyperSpecs
     expect_error(
       collapse(flu, flu, data.frame()),
+      "Not all inputs of collapse\\(\\) are hyperSpec objects"
+    )
+    # input list contains non-hyperSpecs
+    expect_error(
+      collapse(list(flu, flu, data.frame())),
       "Not all inputs of collapse\\(\\) are hyperSpec objects"
     )
   })
