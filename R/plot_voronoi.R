@@ -1,6 +1,6 @@
 ########################################################################## ~
 ###
-###  plotvoronoi - plot spectral maps with irregular point pattern
+###  plot_voronoi - plot spectral maps with irregular point pattern
 ###
 ###  plots intensity or extra data column over 2 extra data columns
 ###
@@ -30,7 +30,7 @@
 #'
 #' @export
 #'
-plotvoronoi <- function(object, model = spc ~ x * y,
+plot_voronoi <- function(object, model = spc ~ x * y,
                         use.tripack = "DEPRECATED", mix = "DEPRECATED", ...) {
   if (!requireNamespace("latticeExtra")) {
     stop("package latticeExtra is needed for Voronoi plots.")
@@ -69,31 +69,31 @@ plotvoronoi <- function(object, model = spc ~ x * y,
 
 # Unit tests -----------------------------------------------------------------
 
-hySpc.testthat::test(plotvoronoi) <- function() {
-  context("plotvoronoi")
+hySpc.testthat::test(plot_voronoi) <- function() {
+  context("plot_voronoi")
 
-  test_that("plotvoronoi() produces no errors or warnings", {
+  test_that("plot_voronoi() produces no errors or warnings", {
     # Just check that no errors occur
-    expect_silent(plotvoronoi(faux_cell, region ~ y * x))
+    expect_silent(plot_voronoi(faux_cell, region ~ y * x))
 
   })
 
-  test_that("plotvoronoi() produces warnings", {
+  test_that("plot_voronoi() produces warnings", {
     # Test deprecated arguments
     expect_warning(
-      plotvoronoi(faux_cell, region ~ y * x, use.tripack = FALSE),
+      plot_voronoi(faux_cell, region ~ y * x, use.tripack = FALSE),
       "Argument 'use.tripack' is deprecated and ignored."
     )
     expect_warning(
-      plotvoronoi(faux_cell, region ~ y * x, use.tripack = TRUE),
+      plot_voronoi(faux_cell, region ~ y * x, use.tripack = TRUE),
       "Argument 'use.tripack' is deprecated and ignored."
     )
     expect_warning(
-      plotvoronoi(faux_cell, region ~ y * x, mix = FALSE),
+      plot_voronoi(faux_cell, region ~ y * x, mix = FALSE),
       "Argument 'mix' is deprecated and ignored."
     )
     expect_warning(
-      plotvoronoi(faux_cell, region ~ y * x, mix = TRUE),
+      plot_voronoi(faux_cell, region ~ y * x, mix = TRUE),
       "Argument 'mix' is deprecated and ignored."
     )
   })

@@ -37,7 +37,7 @@ map.identify <- function(object, model = spc ~ x * y, voronoi = FALSE, ...,
     dots$mix <- FALSE
     mix <- sample(nrow(object))
     dots$object <- object[mix]
-    lattice <- do.call(plotvoronoi, dots)
+    lattice <- do.call(plot_voronoi, dots)
     mix <- order(mix)
   } else {
     lattice <- do.call(plot_map, dots)

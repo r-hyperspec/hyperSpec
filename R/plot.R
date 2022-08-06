@@ -74,7 +74,7 @@ setGeneric("plot")
       do.call(plot_spc, dots)
     },
     map = plot_map(x, ...),
-    voronoi = plotvoronoi(x, ...),
+    voronoi = plot_voronoi(x, ...),
     matrix = ,
     mat = plot_matrix(x, ...),
     c = plot_c(x, ...),
@@ -120,7 +120,7 @@ setGeneric("plot")
 #'
 #'    \item{"map"}{calls [plot_map()] to produce a map plot.}
 #'
-#'    \item{"voronoi"}{calls [plotvoronoi()] to produce a Voronoi plot
+#'    \item{"voronoi"}{calls [plot_voronoi()] to produce a Voronoi plot
 #'    (tessellated plot, like "map" for hyperSpec objects with
 #'    uneven/non-rectangular grid).}
 #'

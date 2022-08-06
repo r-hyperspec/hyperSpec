@@ -24,13 +24,13 @@
 #'
 #' `levelplot` plots the spectra matrix.
 #'
-#' `plotvoronoi` calls `plot_map` with different default settings, namely the
+#' `plot_voronoi` calls `plot_map` with different default settings, namely the
 #' panel function defaults to [latticeExtra::panel.voronoi()].
 #' [latticeExtra::panel.voronoi()] depends on either of the packages \pkg{interp} or \pkg{deldir}
 #' being installed. For further information, please consult the help page of
 #' [latticeExtra::panel.voronoi()].
 #'
-#' `map.identify()` calls `plot_map()` and `plotvoronoi()`, respectively and waits for
+#' `map.identify()` calls `plot_map()` and `plot_voronoi()`, respectively and waits for
 #' (left) mouse clicks on points. Other mouse clicks end the input.
 #'
 #' Unlike [lattice::panel.identify()], the indices returned by `map.identify` are in
@@ -46,7 +46,7 @@
 #' [map.sel.poly()].
 #'
 #' @rdname levelplot
-#' @aliases plot_map plotvoronoi levelplot,formula,hyperSpec-method
+#' @aliases plot_map plot_voronoi levelplot,formula,hyperSpec-method
 #'   levelplot,hyperSpec,missing-method map.identify
 #' @param object,data the `hyperSpec` object
 #' @param model,x formula specifying the columns of object that are to be
@@ -59,7 +59,7 @@
 #' This can be suppressed manually by setting `func` to NULL. It is automatically suppressed if
 #' `.wavelength` appears in the formula.
 #' @param voronoi Should the plot for identifying spectra by mouse click be
-#'   produced by `plot_map` (default) or `plotvoronoi`?
+#'   produced by `plot_map` (default) or `plot_voronoi`?
 #' @param ... further arguments are passed down the call chain, and finally
 #'   to [lattice::levelplot()]
 #' @return `map.identify` returns a vector of row indices into
@@ -95,7 +95,7 @@
 #' smpl <- sample(faux_cell, 300)
 #' plot_map(smpl, region ~ x * y)
 #'
-#' plotvoronoi(smpl, region ~ x * y)
+#' plot_voronoi(smpl, region ~ x * y)
 #' @importFrom utils modifyList
 plot_map <- function(object, model = spc ~ x * y,
                     func = mean, func.args = list(), ...) {

@@ -114,7 +114,7 @@ required.pkgs <- c("latticeExtra", "rgl", "ggplot2")
 
 dummies <- check.req.pkg("latticeExtra",
   griderrors = "panel.levelplot.points",
-  hynsgrid   = "plotvoronoi"
+  hynsgrid   = "plot_voronoi"
 )
 for (i in seq_along(dummies)) {
   eval(dummies[[i]])
@@ -185,16 +185,16 @@ Package **hyperSpec** comes with 6 major predefined plotting functions:
    More details in sections \@ref(exm-plot-map), \@ref(arg-map), and \@ref(fun-plot-map).
    (`plot_map()`{.r} is a package **lattice** function)
 
-**`plotvoronoi()`{.r}**
+**`plot_voronoi()`{.r}**
 :  more specialized version of `plot_map()`{.r} that produces Voronoi tesselations.
-   More details in sections \@ref(exm-plotvoronoi), and \@ref(arg-voronoi).
-   (`plotvoronoi()`{.r} is a package **lattice** function)
+   More details in sections \@ref(exm-plot-voronoi), and \@ref(arg-voronoi).
+   (`plot_voronoi()`{.r} is a package **lattice** function)
 
 
 
 ```{block, type="note", echo=TRUE}
 **NOTE.**
-Functions `plot_map()`{.r}, `plotvoronoi()`{.r}, and `levelplot()`{.r} are package **lattice** functions.
+Functions `plot_map()`{.r}, `plot_voronoi()`{.r}, and `levelplot()`{.r} are package **lattice** functions.
 Therefore, in loops, functions, R Markdown chunks, etc. lattice objects need to be printed explicitly by, e.g., `print(plot_map(object))`{.r}
 ([R FAQ: Why do lattice/trellis graphics not work?](http://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-do-lattice_002ftrellis-graphics-not-work_003f)).
 ```
@@ -271,9 +271,9 @@ CAPTION = "False colour map created with `plot_map()`{.r}.  "
 plot_map(faux_cell[ , , 1200])
 ```
 
-## Function `plotvoronoi()`{.r} {#exm-plotvoronoi}
+## Function `plot_voronoi()`{.r} {#exm-plot-voronoi}
 
-Function `plotvoronoi()`{.r} is a special version of `plot_map()`{.r} that produces Voronoi diagram of the `hyperSpec` object (Fig. \@ref(fig:voronoi)).
+Function `plot_voronoi()`{.r} is a special version of `plot_map()`{.r} that produces Voronoi diagram of the `hyperSpec` object (Fig. \@ref(fig:voronoi)).
 
 
 ```{r include=FALSE}
@@ -281,7 +281,7 @@ CAPTION = "Voronoi diagram: an example with `faux_cell` dataset.  "
 ```
 
 ```{r voronoi, fig.cap=CAPTION}
-plotvoronoi(sample(faux_cell, 300), region ~ x * y)
+plot_voronoi(sample(faux_cell, 300), region ~ x * y)
 ```
 
 
@@ -438,17 +438,17 @@ plot(faux_cell[ , , 1200], "map")
 
 ## Argument `"voronoi"`{.r}  {#arg-voronoi}
 
-Use `plot(x, "voronoi")`{.r} for a Voronoi plot (Fig. \@ref(fig:plotvoronoi)).
+Use `plot(x, "voronoi")`{.r} for a Voronoi plot (Fig. \@ref(fig:plot_voronoi)).
 
 ```{r include=FALSE}
 CAPTION = "Voronoi plot: alternative R syntax.  "
 ```
 
-```{r plotvoronoi, fig.cap=CAPTION}
+```{r plot_voronoi, fig.cap=CAPTION}
 plot(sample(faux_cell[ , , 1200], 300), "voronoi")
 ```
 
-See `?plotvoronoi`{.r} and `?latticeExtra::panel.voronoi`{.r}.
+See `?plot_voronoi`{.r} and `?latticeExtra::panel.voronoi`{.r}.
 
 
 
@@ -1193,7 +1193,7 @@ CAPTION = "Voronoi plot that uses non-default discrette colour palette.  "
 ```
 
 ```{r voronoi-2, fig.cap=CAPTION}
-plotvoronoi(
+plot_voronoi(
   sample(faux_cell, 300), region ~ x * y,
   col.regions = palette_matlab(20)
 )
@@ -1253,14 +1253,14 @@ plot_map(uneven)
 The symptom of this situation are warnings about values in x and/or y not being equispaced; and that the output, therefore, may be wrong.
 
 
-One possibility to obtain a correct map is using `plotvoronoi()`{.r} instead which will construct a mosaic-like image with the respective "pixel" areas being centred around the actually recorded `$x` and `$y` position (Fig. \@ref(fig:uneven-II)).
+One possibility to obtain a correct map is using `plot_voronoi()`{.r} instead which will construct a mosaic-like image with the respective "pixel" areas being centred around the actually recorded `$x` and `$y` position (Fig. \@ref(fig:uneven-II)).
 
 ```{r include=FALSE}
 CAPTION = "Unevenly spaced measurement grid: example II.  "
 ```
 
 ```{r uneven-II, fig.cap=CAPTION}
-plotvoronoi(uneven, backend = "deldir")
+plot_voronoi(uneven, backend = "deldir")
 ```
 
 
@@ -1431,7 +1431,7 @@ Note that the returned indices correspond to the plotted object.
 
 ## No Output Is Produced {#sec:no-output-produced}
 
-Methods `plot_map`{.r}, `plotvoronoi`{.r}, `levelplot`{.r}, and `plot_c`{.r} use package **lattice** functions.
+Methods `plot_map`{.r}, `plot_voronoi`{.r}, `levelplot`{.r}, and `plot_c`{.r} use package **lattice** functions.
 Therefore, in loops, functions, Sweave, R Markdown chunks, etc. the lattice object needs to be printed explicitly by `print(plot_map(object))`{.r}
 ([R FAQ: Why do lattice/trellis graphics not work?](http://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-do-lattice_002ftrellis-graphics-not-work_003f)).
 The same holds for package **ggplot2** graphics.

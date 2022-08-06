@@ -6,7 +6,7 @@ setGeneric("levelplot", package = "lattice")
 ### --------------------------------------------------------------------------~
 ###  levelplot.R - everything that has to do with levelplot-like plotting:
 ###
-###  levelplot is used by plot_map, plotvoronoi
+###  levelplot is used by plot_map, plot_voronoi
 ###
 ### --------------------------------------------------------------------------~
 
