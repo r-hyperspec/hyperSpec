@@ -87,7 +87,7 @@
 #'
 #' # plot spectra matrix
 #' levelplot(spc ~ .wavelength * t, laser, contour = TRUE, col = "#00000080")
-#' # see also plotmat
+#' # see also plot_matrix
 #'
 #' plot_map(faux_cell, region ~ x * y)
 #'

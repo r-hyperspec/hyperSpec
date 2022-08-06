@@ -76,7 +76,7 @@ setGeneric("plot")
     map = plot_map(x, ...),
     voronoi = plotvoronoi(x, ...),
     matrix = ,
-    mat = plotmat(x, ...),
+    mat = plot_matrix(x, ...),
     c = plot_c(x, ...),
     t = ,
     ts = plot_c(x, spc ~ t, ...),
@@ -124,7 +124,7 @@ setGeneric("plot")
 #'    (tessellated plot, like "map" for hyperSpec objects with
 #'    uneven/non-rectangular grid).}
 #'
-#'    \item{"mat"}{calls [plotmat()] to produce a plot of the spectra matrix
+#'    \item{"mat"}{calls [plot_matrix()] to produce a plot of the spectra matrix
 #'    (not to be confused with [graphics::matplot()]).}
 #'
 #'    \item{"c"}{calls [plot_c()] to produce a calibration (or time series,

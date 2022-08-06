@@ -176,9 +176,9 @@ Package **hyperSpec** comes with 6 major predefined plotting functions:
 :  package **hyperSpec** has a method for package **lattice**[`r cite_pkg("lattice")`] function `levelplot()`{.r}.
    More details in sections \@ref(exm-levelplot), and \@ref(fun-levelplot).
 
-**`plotmat()`{.r}**
+**`plot_matrix()`{.r}**
 :  plots the spectra matrix.
-   More details in sections \@ref(exm-plotmat), \@ref(arg-mat), and \@ref(fun-plotmat).
+   More details in sections \@ref(exm-plot-matrix), \@ref(arg-mat), and \@ref(fun-plot-matrix).
 
 **`plot_map()`{.r}**
 :  more specialized version of `levelplot()`{.r} for map or image plots.
@@ -215,16 +215,16 @@ plot_spc(flu)
 ```
 
 
-## Function `plotmat()`{.r} {#exm-plotmat}
+## Function `plot_matrix()`{.r} {#exm-plot-matrix}
 
-Function `plotmat()`{.r} plots the spectra, i.e., the colour coded intensities (`$spc`{.r}) over the wavelengths (`@wavelength`{.r}) and the row number (Fig. \@ref(fig:plotmat-flu)).
+Function `plot_matrix()`{.r} plots the spectra, i.e., the colour coded intensities (`$spc`{.r}) over the wavelengths (`@wavelength`{.r}) and the row number (Fig. \@ref(fig:plot-matrix-flu)).
 
 ```{r include=FALSE}
 CAPTION = "Matrix of spectra: the colour coded intensities over the wavelengths and the row number.  "
 ```
 
-```{r plotmat-flu, fig.cap=CAPTION}
-plotmat(flu)
+```{r plot-matrix-flu, fig.cap=CAPTION}
+plot_matrix(flu)
 ```
 
 
@@ -400,20 +400,20 @@ plot(depth.profile, "depth")
 
 ## Argument `"mat"`{.r}  {#arg-mat}
 
-Code `plot(x, "mat")`{.r} plots the spectra matrix (Fig. \@ref(fig:plotmat)).
+Code `plot(x, "mat")`{.r} plots the spectra matrix (Fig. \@ref(fig:plot-matrix)).
 
 ```{r include=FALSE}
 CAPTION = "Spectra matrix.  "
 ```
 
-```{r plotmat, fig.cap=CAPTION}
+```{r plot_matrix, fig.cap=CAPTION}
 plot(laser, "mat")
 ```
 
 The code is equivalent to:
 
 ```{r eval=FALSE}
-plotmat(laser)
+plot_matrix(laser)
 ```
 
 A **lattice** alternative is:
@@ -897,7 +897,7 @@ levelplot(region ~ x * y, data = faux_cell)
 
 
 
-# Spectra Matrix: `plotmat()`{.r} {#fun-plotmat}
+# Spectra Matrix: `plot_matrix()`{.r} {#fun-plot-matrix}
 
 It is often useful to plot the spectra against an additional coordinate, e.g., the time for time
 series, the depth for depth profiles, etc.
@@ -919,7 +919,7 @@ plot(laser, "mat", col = heat.colors(20))
 This is the same as:
 
 ```{r plotmat1-a, eval=FALSE, fig.cap=CAPTION, eval=FALSE}
-plotmat(laser, col = heat.colors(20))
+plot_matrix(laser, col = heat.colors(20))
 ```
 
 
@@ -932,13 +932,13 @@ CAPTION = "Spectra matrix with time (in column `t`) on y axis.    "
 ```
 
 ```{r plotmat2, fig.cap=CAPTION}
-plotmat(laser, y = "t")
+plot_matrix(laser, y = "t")
 ```
 
 Alternatively, y values and axis label can be given separately.
 
 ```{r eval=FALSE}
-plotmat(laser, y = laser$t, ylab = labels(laser, "t"))
+plot_matrix(laser, y = laser$t, ylab = labels(laser, "t"))
 ```
 
 
@@ -952,8 +952,8 @@ CAPTION = "Spectra matrix with added contour lines.  "
 ```
 
 ```{r plotmat3, fig.cap=CAPTION}
-plotmat(flu, col = palette_matlab_dark(20))
-plotmat(flu, col = "white", contour = TRUE, add = TRUE)
+plot_matrix(flu, col = palette_matlab_dark(20))
+plot_matrix(flu, col = "white", contour = TRUE, add = TRUE)
 ```
 
 ## Colour-Coded Points: Special Panel Function

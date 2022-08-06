@@ -294,7 +294,7 @@ plot_c(laser[, , wls], spc ~ t | .wavelength, type = "b", cex = 0.3, col = "blac
 ```
 
 
-# False-Colour Plot of the Spectral Intensity Over Wavelength and Time {#sec:plotmat}
+# False-Colour Plot of the Spectral Intensity Over Wavelength and Time {#sec:plot-matrix}
 
 Package **hyperSpec** supplies functions to draw the spectral matrix using package **lattice**'s `levelplot()`{.r}.
 
