@@ -1,20 +1,20 @@
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#
-#  initialize -- initialization, called by new("hyperSpec", ...)
-#
-#  C. Beleites
-#
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #' Create a `hyperSpec` object
 #'
-#' Like other S4 objects, a `hyperSpec` object can be created by [new()].
-#' The `hyperSpec` object is then `initialize`d using the given parameters.
-#' As an alias, function `new_hyperSpec()` can be used.
+#' To create a new `hyperSpec` object, the following functions can be used:
+#' - [new()] (i.e., `new("hyperSpec", ...)`);
+#' - `new_hyperSpec()`.
 #'
 #' If option `gc` is `TRUE` (see [hy_set_options()]), the initialization will
 #' have frequent calls to [gc()], which can help to avoid swapping or running
 #' out of memory.
+#'
+#'
+#' @note
+#'
+#' A `hyperSpec` object is an S4 object, so its initialization is carried out
+#' by calling `new("hyperSpec", ...)`. Function `new_hyperSpec()` is just
+#' a convenience function.
 #'
 #' @docType methods
 #'
