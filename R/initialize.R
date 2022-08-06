@@ -72,7 +72,7 @@
 #'
 #' - [methods::new()] for more information on creating and initializing S4 objects.
 #' - [grDevices::plotmath()] on expressions for math annotations as for slot `label`.
-#' - [hy_set_options()]
+#' - [hy_set_options()] setting `hyperSpec` options.
 #'
 #' @keywords methods datagen
 #' @concept hyperSpec conversion
