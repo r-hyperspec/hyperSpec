@@ -97,7 +97,7 @@ collapse <- function(...,
     stop(
       "Not all inputs of collapse() are hyperSpec objects: ",
       "either all inputs must be `hyperSpec` objects ",
-      "or there must be a list with hyperSoec objects only.")
+      "or there must be a list with hyperSpec objects only.")
   }
 
   ## check the arguments
