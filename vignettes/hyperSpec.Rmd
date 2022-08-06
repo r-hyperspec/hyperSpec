@@ -452,7 +452,7 @@ This yields a vector **`index_of_start : index_of_end`**.
 
 The result of the formula conversion differs from the integer vector conversion in three ways:
 
--  The colon operator for constructing vectors accepts only integer numbers, the tilde (for   formulas) does not have this restriction.
+-  The colon operator for constructing vectors accepts only integer numbers, the tilde (for formulas) does not have this restriction.
 -  If the vector does not take into account the spectral resolution, one may get only every $n$^th^ point or repetitions of the same index:
 
 ```{r wl2ivec}
