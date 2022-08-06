@@ -68,9 +68,9 @@ setMethod("as.hyperSpec", "matrix", .as.hyperSpec.matrix)
 }
 
 #' @rdname as.hyperSpec
-#' @note Note that the behaviour of `as.hyperSpec(X)` was changed when `X` is a
+#' @note Note that the behavior of `as.hyperSpec(X)` was changed when `X` is a
 #' `data.frame`: it now assumes `X` to be extra data, and returns a `hyperSpec`
-#' object with 0 wavelengths. To get the old behaviour, use
+#' object with 0 wavelengths. To get the old behavior, use
 #' `as.hyperSpec(as.matrix(X))`.
 
 setMethod("as.hyperSpec", "data.frame", .as.hyperSpec.data.frame)
