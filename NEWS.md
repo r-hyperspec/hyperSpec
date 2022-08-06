@@ -46,6 +46,7 @@
      `plotspc()`             | `plot_spc()`                     |  #48
      `plotc()`               | `plot_c()`                       |  #48
      `plotmap()`             | `plot_map()`                     |  #48
+     `plotmat()`             | `plot_matrix()`                  |  #48
      `pooled.cov()`          | `cov_pooled()`                   |  #51
      `spc.bin()`             | `spc_bin()`                      |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.fit.poly()`        | `spc_fit_poly()`                 |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
