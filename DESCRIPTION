@@ -100,6 +100,8 @@ Collate:
     'mark_peak.R'
     'DEPRECATED-markpeak.R'
     'raster.R'
+    'DEPRECATED-plotc.R'
+    'DEPRECATED-plotmap.R'
     'DEPRECATED-plotspc.R'
     'cov_pooled.R'
     'DEPRECATED-pooled.cov.R'
