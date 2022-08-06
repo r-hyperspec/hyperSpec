@@ -130,9 +130,9 @@ NULL
   if (!is.null(spc)) {
     if (is.null(dim(spc))) {
       nwl <- length(spc)
-      if (gc) gc()
+      if (gc) base::gc()
       dim(spc) <- c(1, nwl)
-      if (gc) gc()
+      if (gc) base::gc()
     } else {
       nwl <- ncol(spc)
     }
