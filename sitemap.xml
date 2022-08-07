@@ -169,6 +169,9 @@
     <loc>/reference/DEPRECATED-spc.spline.html</loc>
   </url>
   <url>
+    <loc>/reference/DEPRECATED-stacked.offsets.html</loc>
+  </url>
+  <url>
     <loc>/reference/DEPRECATED-textio.html</loc>
   </url>
   <url>
@@ -203,6 +206,9 @@
   </url>
   <url>
     <loc>/reference/bind.html</loc>
+  </url>
+  <url>
+    <loc>/reference/calculate_offsets.html</loc>
   </url>
   <url>
     <loc>/reference/colSums.html</loc>
