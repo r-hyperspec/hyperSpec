@@ -42,6 +42,7 @@
      `matlab.palette()`      | `palette_matlab()`               |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#299, @sangttruong
      `mergeextra()`          | `merge_data()`                   |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#302
      `orderwl()`             | `wl_sort()`                      |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#309
+     `normalize01()`         | `normalize_01()`                 |  #50
      `pearson.dist()`        | `dist_pearson()`                 |  #19
      `plotc()`               | `plot_c()`                       |  #48
      `plotmap()`             | `plot_map()`                     |  #48
