@@ -24,9 +24,13 @@
 #' [graphics::title()] is called explicitly to set up titles and
 #' axis labels. This allows fine-grained customization of the plots.
 #'
-#' If package plotrix is available, its function
+#' If package \pkg{plotrix} is available, its function
 #' [plotrix::axis.break()] is used to produce break marks for cut
 #' wavelength axes.
+#'
+#' Usually, the `stacked` argument of [plot_spc()] will do fine, but
+#' if you need fine control over the stacking, you may calculate the y
+#' offsets yourself. In that case see [`calculete_offsets()`].
 #'
 #' @name plot_spc
 #' @rdname plot_spc
@@ -39,20 +43,21 @@
 #'
 #' The values can be either wavelengths or wavelength indices (according to
 #'   `wl.index`).
-#' @param wl.index if `TRUE`, `wl.range` is considered to give
+#'
+#' @param wl.index If `TRUE`, `wl.range` is considered to give
 #'        column indices into the spectra matrix. Defaults to specifying
 #'        wavelength values rather than indices.
 #' @param wl.reverse if `TRUE`, the wavelength axis is plotted backwards.
-#' @param spc.nmax maximal number of spectra to be plotted (to avoid
+#' @param spc.nmax A maximal number of spectra to be plotted (to avoid
 #'        accidentally plotting of large numbers of spectra).
-#' @param func a function to apply to each wavelength in order to calculate
+#' @param func A function to apply to each wavelength in order to calculate
 #'        summary spectra such as mean, min, max, etc.
 #' @param func.args `list` with further arguments for `func`
-#' @param add if `TRUE`, the output is added to the existing plot
-#' @param bty see [graphics::par()]
-#' @param col see [graphics::par()]. `col` might be a vector giving individual
+#' @param add If `TRUE`, the output is added to the existing plot
+#' @param bty See [graphics::par()]
+#' @param col See [graphics::par()]. `col` might be a vector giving individual
 #'        colors for the spectra.
-#' @param xoffset vector with abscissa offsets for each of the `wl.range`s.
+#' @param xoffset Vector with abscissa offsets for each of the `wl.range`s.
 #'        If it has one element less than there are `wl.range`s, 0 is padded
 #'        at the beginning.
 #'
@@ -60,25 +65,26 @@
 #'        the following parts of the spectra are shifted towards the origin.
 #'        E.g. if `wl.range = list(600 ~ 1800, 2800 ~ 3200)`, `xoffset = 750`
 #'        would result in a reasonable plot. See also the examples.
-#' @param yoffset ordinate offset values for the spectra. May be offsets to
+#' @param yoffset Ordinate offset values for the spectra. May be offsets to
 #'        stack the spectra ([calculate_offsets()]). Either one for all
 #'        spectra, one per spectrum or one per group in `stacked`.
-#' @param nxticks hint how many tick marks the abscissa should have.
-#' @param stacked if not `NULL`, a "stacked" plot is produced, see the
+#' @param nxticks Hint how many tick marks the abscissa should have.
+#' @param stacked If not `NULL`, a "stacked" plot is produced, see the
 #'        example. `stacked` may be `TRUE` to stack single spectra.  A
 #'        numeric or factor is interpreted as giving the grouping, character is
 #'        interpreted as the name of the extra data column that holds the groups.
-#' @param stacked.args a list with further arguments to [calculate_offsets()].
-#' @param fill if not `NULL`, the area between the specified spectra is
+#' @param stacked.args A list with further arguments to [calculate_offsets()].
+#' @param fill If not `NULL`, the area between the specified spectra is
 #'        filled with color `col`. The grouping can be given as factor or
 #'        numeric, or as a character with the name of the extra data column
 #'        to use. If a group contains more than 2 spectra, the first and the
 #'        last are used.
 #'
-#' If `TRUE` spectra n and nrow (spc) - n build a group.
-#' @param fill.col character vector with fill color. Defaults to brightened
+#' If `TRUE` spectra n and nrow(spc) - n build a group.
+#'
+#' @param fill.col Character vector with fill color. Defaults to brightened
 #'        colors from `col`.
-#' @param border character vector with border color. You will need to set the
+#' @param border Character vector with border color. You will need to set the
 #'        line color `col` to `NA` in order see the effect.
 #' @param plot.args `list` with further arguments to [graphics::plot()].
 #' @param axis.args `list` with further arguments for [graphics::axis()].
@@ -86,13 +92,13 @@
 #'        `axis.args$y` those for the ordinate (again as `lists`).
 #' @param title.args list with further arguments to [graphics::title()].
 #'
-#' `title.args` may contain two lists, `$x`, and `$y` to set parameters
+#' `title.args` May contain two lists, `$x`, and `$y` to set parameters
 #'        individually for each axis.
-#' @param lines.args list with further arguments to [graphics::lines()].
+#' @param lines.args List with further arguments to [graphics::lines()].
 #'
 #' `lines.args$type` defaults to `"l"`.
-#' @param break.args list with arguments for [plotrix::axis.break()].
-#' @param polygon.args list with further arguments to [graphics::polygon()],
+#' @param break.args List with arguments for [plotrix::axis.break()].
+#' @param polygon.args List with further arguments to [graphics::polygon()],
 #'        which draws the filled areas.
 #' @param zeroline `NA` or a list with arguments [graphics::abline()], used
 #'        to plot line(s) marking `I = 0`.
@@ -126,6 +132,8 @@
 #'          standard deviation and the like.
 #'
 #' [graphics::identify()] and [graphics::locator()] about interaction with plots.
+#'
+#' [calculate_offsets()]
 #'
 #' @keywords hplot
 #' @concept plotting
@@ -598,28 +606,24 @@ hySpc.testthat::test(plot_spc) <- function() {
 
 #' Y offsets for stacked plots
 #'
-#' Function `calculate_offsets()` calculates appropriate `yoffset` values for
-#' stacking in [hyperSpec::plot_spc()].
-#'
-#' @details
-#' Usually, the `stacked` argument of [hyperSpec::plot_spc()] will do fine, but
-#' if you need fine control over the stacking, you may calculate the y offsets
-#' yourself.
-#'
+#' This function calculates appropriate `yoffset` values for stacking in
+#'  [plot_spc()].
 #' Empty levels of the stacking factor are dropped (as no stacking offset can
 #' be calculated in that case.)
 #'
-#' @rdname plot_spc
+#' @rdname calculate_offsets
 #'
-#' @param x `hyperSpec` object.
+#' @param x A `hyperSpec` object.
 #' @param min.zero If `TRUE`, the lesser of zero and the minimum intensity of
 #'        the spectrum is used as minimum.
-#' @param add.factor,add.sum proportion and absolute amount of space that
+#' @param add.factor,add.sum Proportion and absolute amount of space that
 #'        should be added.
-#' @param .spc for internal use. If given, the ranges are evaluated on `.spc`.
+#' @param .spc *For internal use only.* If given, the ranges are evaluated on `.spc`.
 #'       However, this may change in future.
 #'
-#' @return `calculate_offsets()`returns a list containing:
+#' @inheritParams plot_spc
+#'
+#' @return A list containing:
 #' \item{offsets}{numeric with the yoffset for each group in `stacked`}
 #' \item{groups}{numeric with the group number for each spectrum}
 #' \item{levels}{if `stacked` is a factor, the levels of the groups}
