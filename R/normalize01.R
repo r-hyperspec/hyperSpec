@@ -28,7 +28,7 @@ setGeneric("normalize_01", function(x, ...) standardGeneric("normalize_01"))
 
 # Function -------------------------------------------------------------------
 
-.normalize01_mat <- function(x, tolerance = hy_get_option("tolerance")) {
+.normalize_01_mat <- function(x, tolerance = hy_get_option("tolerance")) {
   m <- apply(x, 1, min)
   x <- sweep(x, 1, m, `-`)
   m <- apply(x, 1, max)
@@ -40,12 +40,12 @@ setGeneric("normalize_01", function(x, ...) standardGeneric("normalize_01"))
 #' @rdname normalize_01
 #' @export
 #'
-setMethod(normalize_01, signature(x = "matrix"), .normalize01_mat)
+setMethod(normalize_01, signature(x = "matrix"), .normalize_01_mat)
 
 
 # Function -------------------------------------------------------------------
 
-.normalize01_num <- function(x, tolerance = hy_get_option("tolerance")) {
+.normalize_01_num <- function(x, tolerance = hy_get_option("tolerance")) {
   x <- x - min(x)
 
   m <- max(x)
@@ -59,12 +59,12 @@ setMethod(normalize_01, signature(x = "matrix"), .normalize01_mat)
 #' @rdname normalize_01
 #' @export
 #'
-setMethod("normalize_01", signature(x = "numeric"), .normalize01_num)
+setMethod("normalize_01", signature(x = "numeric"), .normalize_01_num)
 
 
 # Function -------------------------------------------------------------------
 
-.normalize01_hy <- function(x, ...) {
+.normalize_01_hy <- function(x, ...) {
   validObject(x)
   x@data$spc <- normalize_01(unclass(x@data$spc), ...)
   x
@@ -73,7 +73,7 @@ setMethod("normalize_01", signature(x = "numeric"), .normalize01_num)
 #' @rdname normalize_01
 #' @export
 #'
-setMethod(normalize_01, signature(x = "hyperSpec"), .normalize01_hy)
+setMethod(normalize_01, signature(x = "hyperSpec"), .normalize_01_hy)
 
 
 # Unit tests -----------------------------------------------------------------
