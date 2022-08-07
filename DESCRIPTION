@@ -188,7 +188,7 @@ Collate:
     'mean_sd.R'
     'merge.R'
     'mergeextra.R'
-    'normalize01.R'
+    'normalize_01.R'
     'palette_colorblind.R'
     'palette_matlab.R'
     'plot.R'

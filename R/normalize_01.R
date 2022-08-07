@@ -1,6 +1,4 @@
-# @title normalization for mixed colors
 
-# Set generic ----------------------------------------------------------------
 
 #' Normalize numbers to interval \[0, 1\]
 #'
@@ -23,6 +21,7 @@
 #'
 #' @export
 #'
+# Set generic ----------------------------------------------------------------
 setGeneric("normalize_01", function(x, ...) standardGeneric("normalize_01"))
 
 
