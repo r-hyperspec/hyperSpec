@@ -73,6 +73,9 @@
     <loc>/reference/DEPRECATED-markpeak.html</loc>
   </url>
   <url>
+    <loc>/reference/DEPRECATED-normalize01.html</loc>
+  </url>
+  <url>
     <loc>/reference/DEPRECATED-options.html</loc>
   </url>
   <url>
@@ -319,7 +322,7 @@
     <loc>/reference/merge_data.html</loc>
   </url>
   <url>
-    <loc>/reference/normalize01.html</loc>
+    <loc>/reference/normalize_01.html</loc>
   </url>
   <url>
     <loc>/reference/options.html</loc>

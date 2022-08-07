@@ -98,7 +98,7 @@ of the wavelengths of a <code>hyperSpec</code> object.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">vanderMonde</span><span class="op">(</span><span class="va">x</span>, <span class="va">order</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S4 method for hyperSpec</span></span>
-<span><span class="fu">vanderMonde</span><span class="op">(</span><span class="va">x</span>, <span class="va">order</span>, <span class="va">...</span>, normalize.wl <span class="op">=</span> <span class="va">normalize01</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">vanderMonde</span><span class="op">(</span><span class="va">x</span>, <span class="va">order</span>, <span class="va">...</span>, normalize.wl <span class="op">=</span> <span class="va">normalize_01</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -117,7 +117,7 @@ of the wavelengths of a <code>hyperSpec</code> object.</p>
 
 <dt>normalize.wl</dt>
 <dd><p>function to transform the wavelengths before evaluating
-the polynomial (or other function). <code><a href="normalize01.html">normalize01()</a></code> maps
+the polynomial (or other function). <code><a href="normalize_01.html">normalize_01()</a></code> maps
 the wavelength range to the interval [0, 1]. Use <code><a href="https://rdrr.io/r/base/AsIs.html" class="external-link">base::I()</a></code> to
 turn off.</p></dd>
 
@@ -141,7 +141,7 @@ example.</p>
     <div id="see-also">
     <h2>See also</h2>
     <div class="dont-index"><p><code><a href="wl_eval.html">wl_eval()</a></code> for calculating arbitrary functions of the wavelength</p>
-<p><code><a href="normalize01.html">normalize01()</a></code></p></div>
+<p><code><a href="normalize_01.html">normalize_01()</a></code></p></div>
     </div>
     <div id="author">
     <h2>Author</h2>
