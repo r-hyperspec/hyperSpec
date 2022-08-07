@@ -1,4 +1,5 @@
 #' @name DEPRECATED-normalize01
+#' @aliases normalize01
 #' @concept deprecated
 #'
 #' @title (DEPRECATED)
@@ -14,7 +15,7 @@
 #' - [hyperSpec::normalize_01()]
 #'
 #'
-#' @param ... arguments to [hyperSpec::normalize_01()].
+#' @param x,tolerance,... arguments to [hyperSpec::normalize_01()].
 #'
 #' @export
 # Set generic ----------------------------------------------------------------
