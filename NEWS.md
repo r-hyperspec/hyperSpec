@@ -1,4 +1,4 @@
-# hyperSpec 1.0.0 2021-xx-xx
+# hyperSpec 1.0.0 2022-xx-xx
 
 ## Acknowledgements
 
@@ -43,7 +43,11 @@
      `mergeextra()`          | `merge_data()`                   |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#302
      `orderwl()`             | `wl_sort()`                      |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#309
      `pearson.dist()`        | `dist_pearson()`                 |  #19
+     `plotc()`               | `plot_c()`                       |  #48
+     `plotmap()`             | `plot_map()`                     |  #48
+     `plotmat()`             | `plot_matrix()`                  |  #48
      `plotspc()`             | `plot_spc()`                     |  #48
+     `plotvoronoi()`         | `plot_voronoi()`                 |  #48
      `pooled.cov()`          | `cov_pooled()`                   |  #51
      `spc.bin()`             | `spc_bin()`                      |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.fit.poly()`        | `spc_fit_poly()`                 |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301

@@ -266,7 +266,7 @@ cols <- c("black", "blue", "red", "darkgreen")
 abline(v = wls, col = cols)
 ```
 
-Function `plotc()`{.r} can also be used to plot time-series.
+Function `plot_c()`{.r} can also be used to plot time-series.
 In that case, the abscissa needs to be specified in parameter `use.c`{.r}.
 The collection time is stored in column `$t`{.r} in seconds from start of the measurement, and can be handed over as the column name.
 The resulting time series are shown in figure \@ref(fig:ts).
@@ -278,7 +278,7 @@ The colors in this plot correspond to colors in fig. \\@ref(fig:ts).  "
 ```
 
 ```{r ts, fig.cap=CAPTION, fig.width=7}
-plotc(laser[, , wls], spc ~ t, groups = .wavelength, type = "b", cex = 0.3, col = cols)
+plot_c(laser[, , wls], spc ~ t, groups = .wavelength, type = "b", cex = 0.3, col = cols)
 ```
 
 
@@ -290,11 +290,11 @@ CAPTION <- "The time series plots can also be conditioned on `$.wavelength`{.r}.
 ```
 
 ```{r tsextra, fig.cap=CAPTION, fig.width=7}
-plotc(laser[, , wls], spc ~ t | .wavelength, type = "b", cex = 0.3, col = "black")
+plot_c(laser[, , wls], spc ~ t | .wavelength, type = "b", cex = 0.3, col = "black")
 ```
 
 
-# False-Colour Plot of the Spectral Intensity Over Wavelength and Time {#sec:plotmat}
+# False-Colour Plot of the Spectral Intensity Over Wavelength and Time {#sec:plot-matrix}
 
 Package **hyperSpec** supplies functions to draw the spectral matrix using package **lattice**'s `levelplot()`{.r}.
 

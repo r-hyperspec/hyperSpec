@@ -24,7 +24,7 @@
 #'   abline(v = wl[i], col = cols[i], lwd = 2, lty = 2)
 #' }
 #'
-#' plotc(laser[, , wl], spc ~ t,
+#' plot_c(laser[, , wl], spc ~ t,
 #'   groups = .wavelength, type = "b",
 #'   col = cols
 #' )

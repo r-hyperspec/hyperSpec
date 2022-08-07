@@ -20,5 +20,5 @@
 #'
 #' plot(flu)
 #'
-#' plotc(flu)
+#' plot_c(flu)
 NULL

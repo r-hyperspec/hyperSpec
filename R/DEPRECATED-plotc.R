@@ -1,4 +1,4 @@
-#' @name DEPRECATED-plotspc
+#' @name DEPRECATED-plotc
 #' @concept deprecated
 #'
 #' @title (DEPRECATED)
@@ -11,26 +11,26 @@
 #' removed in the next release of the package.
 #' Please, use the suggested alternative functions instead:
 #'
-#' - [hyperSpec::plot_spc()]
+#' - [hyperSpec::plot_c()]
 #'
 #'
-#' @param ... arguments to [hyperSpec::plot_spc()].
+#' @param ... arguments to [hyperSpec::plot_c()].
 #'
 #' @include raster.R
 #' @export
-plotspc <- function(...) {
-  hySpc_deprecated("plot_spc")
-  plot_spc(...)
+plotc <- function(...) {
+  hySpc_deprecated("plot_c")
+  plot_c(...)
 }
 
 
 # Unit tests -----------------------------------------------------------------
 
-hySpc.testthat::test(plotspc) <- function() {
+hySpc.testthat::test(plotc) <- function() {
   context("Deprecated functions")
 
-  test_that("plotspc() is deprecated", {
-    plot_d <- function() plotspc(flu)
-    expect_warning(vdiffr::expect_doppelganger("plotspc", plot_d), "deprecated")
+  test_that("plotc() is deprecated", {
+    plot_d <- function() plotc(flu)
+    expect_warning(vdiffr::expect_doppelganger("plotc", plot_d), "deprecated")
   })
 }

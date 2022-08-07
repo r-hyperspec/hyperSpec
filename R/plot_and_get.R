@@ -3,14 +3,14 @@
 #' Click the points that should be connected as polygon. Input ends with right click (see
 #' [grid::grid.locator()]). Polygon will be drawn closed.
 #'
-#' `map.sel.poly` is a convenience wrapper for [plotmap()], `sel.poly`,
+#' `map.sel.poly` is a convenience wrapper for [plot_map()], `sel.poly`,
 #' and [sp::point.in.polygon()]. For customized plotting, the plot can be produced by
-#' [plotmap()], [plotvoronoi()] or [levelplot()], and the result of
+#' [plot_map()], [plot_voronoi()] or [levelplot()], and the result of
 #' that plot command handed over to `map.sel.poly`, see the example below.
 #'
 #' If even more customized plotting is required,`sel.poly` should be used (see example).
 #'
-#' @param data hyperSpec object for plotting map or list returned by [plotmap()]
+#' @param data hyperSpec object for plotting map or list returned by [plot_map()]
 #' @param pch symbol to display the points of the polygon for [sel.poly()]
 #' @param size size for polygon point symbol for [sel.poly()]
 #' @param ... further arguments for [grid::grid.points()] and
@@ -33,12 +33,12 @@
 #' ## customized version
 #' data <- sample(faux_cell[, , 1004 - 2i ~ 1004 + 2i], 300)
 #'
-#' plotdata <- plotvoronoi(data, region ~ y * x, col.regions = palette_alois())
+#' plotdata <- plot_voronoi(data, region ~ y * x, col.regions = palette_alois())
 #' print(plotdata)
 #' map.sel.poly(plotdata)
 #'
 #' ## even more customization:
-#' plotvoronoi(data)
+#' plot_voronoi(data)
 #'
 #' ## interactively retrieve polygon
 #' polygon <- sel.poly()
@@ -62,7 +62,7 @@ map.sel.poly <- function(data, pch = 19, size = 0.3, ...) {
 
   if (is(data, "hyperSpec")) {
     ## plot hyperSpec object
-    print(plotmap(data))
+    print(plot_map(data))
     x <- data$x
     y <- data$y
   } else if (is(data, "trellis")) {
@@ -71,7 +71,7 @@ map.sel.poly <- function(data, pch = 19, size = 0.3, ...) {
     x <- data$panel.args.common$x
     y <- data$panel.args.common$y
   } else {
-    stop("data must either be a hyperSpec object or a trellis object as returned by plotmap, plotvoronoi, or levelplot")
+    stop("data must either be a hyperSpec object or a trellis object as returned by plot_map, plot_voronoi, or levelplot")
   }
 
   poly <- sel.poly(pch = pch, size = size, ...)

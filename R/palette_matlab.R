@@ -35,7 +35,7 @@
 #'
 #' plot(flu, col = palette_matlab(nrow(flu)))
 #'
-#' plotmap(faux_cell[, , 1200], col.regions = palette_matlab())
+#' plot_map(faux_cell[, , 1200], col.regions = palette_matlab())
 palette_matlab <- function(n = 100, ...) {
   rev(rainbow(n, start = 0, end = 4 / 6, ...))
 }
@@ -58,7 +58,7 @@ palette_matlab <- function(n = 100, ...) {
 #'
 #' plot(flu, col = palette_matlab_dark(nrow(flu)))
 #'
-#' plotmap(faux_cell[, , 1200], col.regions = palette_matlab_dark())
+#' plot_map(faux_cell[, , 1200], col.regions = palette_matlab_dark())
 palette_matlab_dark <- function(n = 100, ...) {
   pal <- rev(rainbow(n, start = 0, end = 4 / 6, ...))
   pal <- col2rgb(pal)
@@ -85,7 +85,7 @@ palette_matlab_dark <- function(n = 100, ...) {
 #'
 #' plot(flu, col = palette_alois(nrow(flu)))
 #'
-#' plotmap(faux_cell[, , 1200], col.regions = palette_alois())
+#' plot_map(faux_cell[, , 1200], col.regions = palette_alois())
 palette_alois <- function(n = 100, ...) {
   colorRampPalette(c("black", "blue", "cyan", "green", "yellow", "red"), ...)(n)
 }

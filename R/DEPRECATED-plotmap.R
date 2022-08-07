@@ -1,4 +1,4 @@
-#' @name DEPRECATED-plotspc
+#' @name DEPRECATED-plotmap
 #' @concept deprecated
 #'
 #' @title (DEPRECATED)
@@ -11,26 +11,26 @@
 #' removed in the next release of the package.
 #' Please, use the suggested alternative functions instead:
 #'
-#' - [hyperSpec::plot_spc()]
+#' - [hyperSpec::plot_map()]
 #'
 #'
-#' @param ... arguments to [hyperSpec::plot_spc()].
+#' @param ... arguments to [hyperSpec::plot_map()].
 #'
 #' @include raster.R
 #' @export
-plotspc <- function(...) {
-  hySpc_deprecated("plot_spc")
-  plot_spc(...)
+plotmap <- function(...) {
+  hySpc_deprecated("plot_map")
+  plot_map(...)
 }
 
 
 # Unit tests -----------------------------------------------------------------
 
-hySpc.testthat::test(plotspc) <- function() {
+hySpc.testthat::test(plotmap) <- function() {
   context("Deprecated functions")
 
-  test_that("plotspc() is deprecated", {
-    plot_d <- function() plotspc(flu)
-    expect_warning(vdiffr::expect_doppelganger("plotspc", plot_d), "deprecated")
+  test_that("plotmap() is deprecated", {
+    plot_d <- function() plotmap(faux_cell[, , 1003])
+    expect_warning(vdiffr::expect_doppelganger("plotmap", plot_d), "deprecated")
   })
 }
