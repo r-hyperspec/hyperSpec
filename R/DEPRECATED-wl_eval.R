@@ -18,7 +18,7 @@
 #' @param x either `hyperSpec` object or numeric vector.
 #' @param ... expressions to be evaluated.
 #' @param normalize.wl function to transform the wavelengths before evaluating
-#' the polynomial (or  other function). Use [hyperSpec::normalize01()] to map
+#' the polynomial (or  other function). Use [hyperSpec::normalize_01()] to map
 #' the wavelength range to the interval \[0, 1\].
 #' @return `hyperSpec` object containing one spectrum for each expression.
 #'
@@ -28,7 +28,7 @@
 #' @seealso
 #'
 #' - [hyperSpec::vanderMonde()] for polynomials,
-#' - [hyperSpec::normalize01()] to normalize the wavenumbers before evaluating
+#' - [hyperSpec::normalize_01()] to normalize the wavenumbers before evaluating
 #' the function.
 #'
 #' @author C. Beleites, V. Gegzna
