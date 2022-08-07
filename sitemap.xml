@@ -82,7 +82,19 @@
     <loc>/reference/DEPRECATED-pearson.dist.html</loc>
   </url>
   <url>
+    <loc>/reference/DEPRECATED-plotc.html</loc>
+  </url>
+  <url>
+    <loc>/reference/DEPRECATED-plotmap.html</loc>
+  </url>
+  <url>
+    <loc>/reference/DEPRECATED-plotmat.html</loc>
+  </url>
+  <url>
     <loc>/reference/DEPRECATED-plotspc.html</loc>
+  </url>
+  <url>
+    <loc>/reference/DEPRECATED-plotvoronoi.html</loc>
   </url>
   <url>
     <loc>/reference/DEPRECATED-pooled.cov.html</loc>
@@ -325,13 +337,13 @@
     <loc>/reference/plot.html</loc>
   </url>
   <url>
+    <loc>/reference/plot_c.html</loc>
+  </url>
+  <url>
+    <loc>/reference/plot_matrix.html</loc>
+  </url>
+  <url>
     <loc>/reference/plot_spc.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plotc.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plotmat.html</loc>
   </url>
   <url>
     <loc>/reference/quickdf.html</loc>

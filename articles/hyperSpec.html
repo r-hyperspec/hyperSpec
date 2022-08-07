@@ -124,7 +124,7 @@
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 data-toc-skip class="date">2022-08-06</h4>
+            <h4 data-toc-skip class="date">2022-08-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/HEAD/vignettes/hyperSpec.Rmd" class="external-link"><code>vignettes/hyperSpec.Rmd</code></a></small>
       <div class="hidden name"><code>hyperSpec.Rmd</code></div>
@@ -1777,7 +1777,7 @@ Figure 5.1: The first three loadings.
 <span>  <span class="st">"#A9432F"</span>, <span class="st">"#9A2919"</span>, <span class="st">"#8B0000"</span></span>
 <span><span class="op">)</span>, space <span class="op">=</span> <span class="st">"Lab"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/levelplot.html">plotmap</a></span><span class="op">(</span><span class="va">scores</span><span class="op">[</span>, , <span class="fl">3</span><span class="op">]</span>, col.regions <span class="op">=</span> <span class="fu">diverging_hcl</span><span class="op">(</span><span class="fl">20</span>, palette <span class="op">=</span> <span class="st">"Blue-Red2"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/levelplot.html">plot_map</a></span><span class="op">(</span><span class="va">scores</span><span class="op">[</span>, , <span class="fl">3</span><span class="op">]</span>, col.regions <span class="op">=</span> <span class="fu">diverging_hcl</span><span class="op">(</span><span class="fl">20</span>, palette <span class="op">=</span> <span class="st">"Blue-Red2"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:pca-score"></span>
 <img src="hyperSpec_files/figure-html/pca-score-1.png" alt="The third score map.  "><p class="caption">
@@ -1849,7 +1849,7 @@ Figure 5.3: The results of the cluster analysis: the dendrogram.
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html" class="external-link">levels</a></span><span class="op">(</span><span class="va">faux_cell</span><span class="op">$</span><span class="va">region</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"matrix"</span>, <span class="st">"lacuna"</span>, <span class="st">"cell"</span><span class="op">)</span></span></code></pre></div>
 <p>Then the result may be plotted (Figure <a href="#fig:clust-map">5.4</a>):</p>
 <div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/levelplot.html">plotmap</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="va">region</span> <span class="op">~</span> <span class="va">x</span> <span class="op">*</span> <span class="va">y</span>, col.regions <span class="op">=</span> <span class="va">cluster.cols</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/levelplot.html">plot_map</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="va">region</span> <span class="op">~</span> <span class="va">x</span> <span class="op">*</span> <span class="va">y</span>, col.regions <span class="op">=</span> <span class="va">cluster.cols</span><span class="op">)</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:clust-map"></span>
 <img src="hyperSpec_files/figure-html/clust-map-1.png" alt="The results of the cluster analysis: the map of the 3 clusters.  "><p class="caption">
@@ -2249,7 +2249,7 @@ Please refer to the documentation of the respective functions for details about 
 <span>  <span class="op">}</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    user  system elapsed </span></span>
-<span><span class="co">#&gt;   0.062   0.000   0.062</span></span></code></pre></div>
+<span><span class="co">#&gt;   0.046   0.000   0.047</span></span></code></pre></div>
 <p>Calculations that involve a lot of subsetting (i.e., extracting or changing the spectra matrix or extra data) can be sped up considerably if the required parts of the <code>hyperSpec</code> object are extracted beforehand.
 This is somewhat similar to model fitting in <code>R</code> in general: many model fitting functions in <code>R</code> are much faster if the formula interface is avoided and the appropriate <code class="sourceCode r">data.frame</code>s or matrices are handed over directly.</p>
 <div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
@@ -2263,7 +2263,7 @@ This is somewhat similar to model fitting in <code>R</code> in general: many mod
 <span>  <span class="va">tmp</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">tmp.matrix</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    user  system elapsed </span></span>
-<span><span class="co">#&gt;   0.026   0.000   0.027</span></span></code></pre></div>
+<span><span class="co">#&gt;   0.021   0.000   0.020</span></span></code></pre></div>
 </div>
 <div class="section level3" number="8.1">
 <h3 id="additional-packages">
@@ -2299,7 +2299,7 @@ The memory consumption of <code class="sourceCode r"><span class="fu">read.txt.R
 <span><span class="co">#&gt;  collate  C.UTF-8</span></span>
 <span><span class="co">#&gt;  ctype    C.UTF-8</span></span>
 <span><span class="co">#&gt;  tz       UTC</span></span>
-<span><span class="co">#&gt;  date     2022-08-06</span></span>
+<span><span class="co">#&gt;  date     2022-08-07</span></span>
 <span><span class="co">#&gt;  pandoc   2.14.2 @ /usr/bin/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span></span></span>
@@ -2323,7 +2323,7 @@ The memory consumption of <code class="sourceCode r"><span class="fu">read.txt.R
 <span><span class="co">#&gt;  ggplot2        * 3.3.6        <span style="color: #555555;">2022-05-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  glue             1.6.2        <span style="color: #555555;">2022-02-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  gtable           0.3.0        <span style="color: #555555;">2019-03-25</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2022-08-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
+<span><span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2022-08-07</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
 <span><span class="co">#&gt;  hySpc.testthat   0.2.1        <span style="color: #555555;">2020-06-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  interp           1.1-3        <span style="color: #555555;">2022-07-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  isoband          0.2.5        <span style="color: #555555;">2021-07-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
@@ -2366,7 +2366,7 @@ The memory consumption of <code class="sourceCode r"><span class="fu">read.txt.R
 <span><span class="co">#&gt;  withr            2.5.0        <span style="color: #555555;">2022-03-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  xml2             1.3.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> [1] /tmp/Rtmp408ZOR/temp_libpath35592983b8da</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;"> [1] /tmp/RtmpePsh2J/temp_libpath35ce43d1e4bd</span></span></span>
 <span><span class="co">#&gt; <span style="color: #555555;"> [2] /home/runner/work/_temp/Library</span></span></span>
 <span><span class="co">#&gt; <span style="color: #555555;"> [3] /opt/R/4.2.1/lib/R/library</span></span></span>
 <span><span class="co">#&gt; </span></span>

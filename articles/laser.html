@@ -125,7 +125,7 @@
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 data-toc-skip class="date">2022-08-06</h4>
+            <h4 data-toc-skip class="date">2022-08-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/HEAD/vignettes/laser.Rmd" class="external-link"><code>vignettes/laser.Rmd</code></a></small>
       <div class="hidden name"><code>laser.Rmd</code></div>
@@ -256,12 +256,12 @@ Figure 2.3: The spectra with wavelength axis.
 Figure 3.1: The spectral position of the bands in the laser emission time series.
 </p>
 </div>
-<p>Function <code class="sourceCode r"><span class="fu">plotc</span>()</code> can also be used to plot time-series.
+<p>Function <code class="sourceCode r"><span class="fu">plot_c</span>()</code> can also be used to plot time-series.
 In that case, the abscissa needs to be specified in parameter <code class="sourceCode r">use.c</code>.
 The collection time is stored in column <code class="sourceCode r"><span class="sc">$</span>t</code> in seconds from start of the measurement, and can be handed over as the column name.
 The resulting time series are shown in figure <a href="#fig:ts">3.2</a>.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/plotc.html">plotc</a></span><span class="op">(</span><span class="va">laser</span><span class="op">[</span>, , <span class="va">wls</span><span class="op">]</span>, <span class="va">spc</span> <span class="op">~</span> <span class="va">t</span>, groups <span class="op">=</span> <span class="va">.wavelength</span>, type <span class="op">=</span> <span class="st">"b"</span>, cex <span class="op">=</span> <span class="fl">0.3</span>, col <span class="op">=</span> <span class="va">cols</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_c.html">plot_c</a></span><span class="op">(</span><span class="va">laser</span><span class="op">[</span>, , <span class="va">wls</span><span class="op">]</span>, <span class="va">spc</span> <span class="op">~</span> <span class="va">t</span>, groups <span class="op">=</span> <span class="va">.wavelength</span>, type <span class="op">=</span> <span class="st">"b"</span>, cex <span class="op">=</span> <span class="fl">0.3</span>, col <span class="op">=</span> <span class="va">cols</span><span class="op">)</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:ts"></span>
 <img src="laser_files/figure-html/ts-1.png" alt="The time series data.
@@ -272,7 +272,7 @@ The colors in this plot correspond to colors in fig. <a href="#fig:ts">3.2</a>.
 </div>
 <p>Another option is to condition the plot on <span class="math inline">\(\lambda\)</span> <a href="#fig:tsextra">3.3</a>.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/plotc.html">plotc</a></span><span class="op">(</span><span class="va">laser</span><span class="op">[</span>, , <span class="va">wls</span><span class="op">]</span>, <span class="va">spc</span> <span class="op">~</span> <span class="va">t</span> <span class="op">|</span> <span class="va">.wavelength</span>, type <span class="op">=</span> <span class="st">"b"</span>, cex <span class="op">=</span> <span class="fl">0.3</span>, col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_c.html">plot_c</a></span><span class="op">(</span><span class="va">laser</span><span class="op">[</span>, , <span class="va">wls</span><span class="op">]</span>, <span class="va">spc</span> <span class="op">~</span> <span class="va">t</span> <span class="op">|</span> <span class="va">.wavelength</span>, type <span class="op">=</span> <span class="st">"b"</span>, cex <span class="op">=</span> <span class="fl">0.3</span>, col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:tsextra"></span>
 <img src="laser_files/figure-html/tsextra-1.png" alt="The time series plots can also be conditioned on `$.wavelength`{.r}. "><p class="caption">
@@ -281,8 +281,8 @@ Figure 3.3: The time series plots can also be conditioned on <code class="source
 </div>
 </div>
 <div class="section level2" number="4">
-<h2 id="sec:plotmat">
-<span class="header-section-number">4</span> False-Colour Plot of the Spectral Intensity Over Wavelength and Time<a class="anchor" aria-label="anchor" href="#sec:plotmat"></a>
+<h2 id="sec:plot-matrix">
+<span class="header-section-number">4</span> False-Colour Plot of the Spectral Intensity Over Wavelength and Time<a class="anchor" aria-label="anchor" href="#sec:plot-matrix"></a>
 </h2>
 <p>Package <strong>hyperSpec</strong> supplies functions to draw the spectral matrix using package <strong>lattice</strong>’s <code class="sourceCode r"><span class="fu">levelplot</span>()</code>.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
@@ -357,7 +357,7 @@ Figure 5.1: The 3d plot of the laser data.
 <span><span class="co">#&gt;  collate  C.UTF-8</span></span>
 <span><span class="co">#&gt;  ctype    C.UTF-8</span></span>
 <span><span class="co">#&gt;  tz       UTC</span></span>
-<span><span class="co">#&gt;  date     2022-08-06</span></span>
+<span><span class="co">#&gt;  date     2022-08-07</span></span>
 <span><span class="co">#&gt;  pandoc   2.14.2 @ /usr/bin/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span></span></span>
@@ -381,7 +381,7 @@ Figure 5.1: The 3d plot of the laser data.
 <span><span class="co">#&gt;  ggplot2        * 3.3.6        <span style="color: #555555;">2022-05-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  glue             1.6.2        <span style="color: #555555;">2022-02-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  gtable           0.3.0        <span style="color: #555555;">2019-03-25</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2022-08-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
+<span><span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2022-08-07</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
 <span><span class="co">#&gt;  hySpc.testthat   0.2.1        <span style="color: #555555;">2020-06-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  interp           1.1-3        <span style="color: #555555;">2022-07-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  isoband          0.2.5        <span style="color: #555555;">2021-07-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
@@ -424,7 +424,7 @@ Figure 5.1: The 3d plot of the laser data.
 <span><span class="co">#&gt;  withr            2.5.0        <span style="color: #555555;">2022-03-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  xml2             1.3.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> [1] /tmp/Rtmp408ZOR/temp_libpath35592983b8da</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;"> [1] /tmp/RtmpePsh2J/temp_libpath35ce43d1e4bd</span></span></span>
 <span><span class="co">#&gt; <span style="color: #555555;"> [2] /home/runner/work/_temp/Library</span></span></span>
 <span><span class="co">#&gt; <span style="color: #555555;"> [3] /opt/R/4.2.1/lib/R/library</span></span></span>
 <span><span class="co">#&gt; </span></span>
