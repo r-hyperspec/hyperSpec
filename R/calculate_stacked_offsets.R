@@ -59,14 +59,14 @@
 #'        E.g. if `wl.range = list(600 ~ 1800, 2800 ~ 3200)`, `xoffset = 750`
 #'        would result in a reasonable plot. See also the examples.
 #' @param yoffset ordinate offset values for the spectra. May be offsets to
-#'        stack the spectra ([stacked.offsets()]). Either one for all
+#'        stack the spectra ([calculate_offsets()]). Either one for all
 #'        spectra, one per spectrum or one per group in `stacked`.
 #' @param nxticks hint how many tick marks the abscissa should have.
 #' @param stacked if not `NULL`, a "stacked" plot is produced, see the
 #'        example. `stacked` may be `TRUE` to stack single spectra.  A
 #'        numeric or factor is interpreted as giving the grouping, character is
 #'        interpreted as the name of the extra data column that holds the groups.
-#' @param stacked.args a list with further arguments to [stacked.offsets()].
+#' @param stacked.args a list with further arguments to [calculate_offsets()].
 #' @param fill if not `NULL`, the area between the specified spectra is
 #'        filled with color `col`. The grouping can be given as factor or
 #'        numeric, or as a character with the name of the extra data column
@@ -291,7 +291,7 @@ plot_spc <- function(object,
       stacked.args <- modifyList(stacked.args, list(min.zero = TRUE))
     }
 
-    stacked <- do.call(stacked.offsets, stacked.args)
+    stacked <- do.call(calculate_offsets, stacked.args)
     if (all(yoffset == 0)) {
       yoffset <- stacked$offsets[stacked$groups]
     } else if (length(yoffset) == length(unique(stacked$groups))) {
@@ -632,7 +632,7 @@ hySpc.testthat::test(plot_spc) <- function() {
 #'
 #' fc_mean_pm_sd <- aggregate(faux_cell, faux_cell$region, mean_pm_sd)
 #'
-#' offset <- stacked.offsets(fc_mean_pm_sd, ".aggregate")
+#' offset <- calculate_offsets(fc_mean_pm_sd, ".aggregate")
 #' plot(fc_mean_pm_sd,
 #'   fill.col = palette_matlab(3), fill = ".aggregate",
 #'   stacked = ".aggregate"
@@ -648,7 +648,7 @@ hySpc.testthat::test(plot_spc) <- function() {
 #'   lines.args = list(type = "h"), stacked = TRUE,
 #'   stacked.args = list(add.factor = .2)
 #' )
-stacked.offsets <- function(x,
+calculate_offsets <- function(x,
                             stacked = TRUE,
                             min.zero = FALSE,
                             add.factor = 0.05,
@@ -717,12 +717,12 @@ stacked.offsets <- function(x,
 
 # Unit tests -----------------------------------------------------------------
 
-hySpc.testthat::test(stacked.offsets) <- function() {
-  context("stacked.offsets")
+hySpc.testthat::test(calculate_offsets) <- function() {
+  context("calculate_offsets")
 
   test_that("ranges do not overlap", {
     spc <- do.call(collapse, barbiturates[1:3])
-    ofs <- stacked.offsets(spc)
+    ofs <- calculate_offsets(spc)
     spc <- spc + ofs$offsets
     rngs <- apply(spc[[]], 1, range, na.rm = TRUE)
 
@@ -732,13 +732,13 @@ hySpc.testthat::test(stacked.offsets) <- function() {
   test_that("extra space", {
     spc <- new("hyperSpec", spc = matrix(c(0, 0, 2, 1:3), nrow = 3))
 
-    expect_equal(stacked.offsets(spc, add.factor = 0)$offsets, c(0, 1, 1))
-    expect_equal(stacked.offsets(spc, add.factor = 1)$offsets, c(0, 2, 4))
-    expect_equal(stacked.offsets(spc, add.factor = 0, add.sum = 1)$offsets, c(0, 2, 3))
+    expect_equal(calculate_offsets(spc, add.factor = 0)$offsets, c(0, 1, 1))
+    expect_equal(calculate_offsets(spc, add.factor = 1)$offsets, c(0, 2, 4))
+    expect_equal(calculate_offsets(spc, add.factor = 0, add.sum = 1)$offsets, c(0, 2, 3))
   })
 
   test_that("min.zero", {
-    ofs <- stacked.offsets(flu, min.zero = TRUE, add.factor = 0)
+    ofs <- calculate_offsets(flu, min.zero = TRUE, add.factor = 0)
     expect_equal(
       ofs$offsets,
       c(0, cumsum(apply(flu[[-nrow(flu)]], 1, max)))
