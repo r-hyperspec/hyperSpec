@@ -30,7 +30,7 @@
 #'
 #' Usually, the `stacked` argument of [plot_spc()] will do fine, but
 #' if you need fine control over the stacking, you may calculate the y
-#' offsets yourself. In that case see [`calculete_offsets()`].
+#' offsets yourself. In that case see [`calculate_offsets()`].
 #'
 #' @name plot_spc
 #' @rdname plot_spc
