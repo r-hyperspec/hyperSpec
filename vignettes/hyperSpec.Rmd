@@ -1454,7 +1454,7 @@ CAPTION <- "The third score map.  "
 ```
 
 ```{r pca-score, fig.cap = CAPTION, sq.fig = TRUE}
-plotmap(scores[, , 3], col.regions = diverging_hcl(20, palette = "Blue-Red2"))
+plot_map(scores[, , 3], col.regions = diverging_hcl(20, palette = "Blue-Red2"))
 ```
 
 
@@ -1545,7 +1545,7 @@ CAPTION <- "The results of the cluster analysis: the map of the 3 clusters.  "
 ```
 
 ```{r clust-map, fig.cap = CAPTION, sq.fig = TRUE}
-plotmap(faux_cell, region ~ x * y, col.regions = cluster.cols)
+plot_map(faux_cell, region ~ x * y, col.regions = cluster.cols)
 ```
 
 
@@ -1828,7 +1828,7 @@ name  | default value (range)  | description | used by
 ----- | :---:                  |-------------| -----
 `debuglevel`           | `0`{.r} (`1L`{.r}, `2L`{.r}) | Amount of debugging information produced | `identify_spc()`{.r}, `map.identify()`{.r}, `spc_rubberband()`{.r},<br> various file import functions.
 `gc`                   | `FALSE`{.r} | Triggers frequent calling of `gc()`{.r} | `read.ENVI()`{.r}, <br>\newline`new("hyperSpec")`{.r}
-`tolerance`            | `sqrt(.Machine$.double.eps)`{.r} | Tolerance for numerical comparisons   | File import functions (removing empty spectra), `normalize01()`{.r}
+`tolerance`            | `sqrt(.Machine$.double.eps)`{.r} | Tolerance for numerical comparisons   | File import functions (removing empty spectra), `normalize_01()`{.r}
 `wl.tolerance`         | `sqrt(.Machine$.double.eps)`{.r} | Tolerance for comparisons of the wavelength axis | `rbind()`{.r}, `rbind2()`{.r}, `bind("r", ...)`{.r}, `all.equal()`{.r}, `collapse()`{.r}
 `file.remove.emptyspc` | `TRUE`{.r} | Automatic removing of empty spectra                         | File import functions, see [fileio](#list-of-vignettes)
 `file.keep.name`       | `TRUE`{.r} | Automatic recording of file name in column `filename`{.r}   | File import functions, see [fileio](#list-of-vignettes)

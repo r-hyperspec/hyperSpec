@@ -51,7 +51,7 @@
 #' )
 #'
 #' mapcols <- c(cell = "aquamarine", matrix = "aliceblue", nucleus = "dodgerblue")
-#' plotmap(faux_cell, region ~ x * y, col.regions = mapcols)
+#' plot_map(faux_cell, region ~ x * y, col.regions = mapcols)
 #'
 #' # PCA
 #' pca <- prcomp(faux_cell)

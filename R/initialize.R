@@ -112,7 +112,7 @@
 #' )
 #'
 #' plot(h)
-#' plotc(h, spc ~ pos)
+#' plot_c(h, spc ~ pos)
 
 NULL
 

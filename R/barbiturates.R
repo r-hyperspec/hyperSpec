@@ -38,7 +38,7 @@
 #'   )
 #' }
 #'
-#' plotc(apply(barb[, , 42.9 ~ 43.2], 1, sum, na.rm = TRUE), spc ~ z,
+#' plot_c(apply(barb[, , 42.9 ~ 43.2], 1, sum, na.rm = TRUE), spc ~ z,
 #'   panel = panel.lines, ylab = expression(I[m / z == 43] / "a.u.")
 #' )
 "barbiturates"

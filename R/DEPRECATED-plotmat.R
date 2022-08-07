@@ -1,4 +1,4 @@
-#' @name DEPRECATED-plotspc
+#' @name DEPRECATED-plotmat
 #' @concept deprecated
 #'
 #' @title (DEPRECATED)
@@ -11,26 +11,26 @@
 #' removed in the next release of the package.
 #' Please, use the suggested alternative functions instead:
 #'
-#' - [hyperSpec::plot_spc()]
+#' - [hyperSpec::plot_matrix()]
 #'
 #'
-#' @param ... arguments to [hyperSpec::plot_spc()].
+#' @param ... arguments to [hyperSpec::plot_matrix()].
 #'
 #' @include raster.R
 #' @export
-plotspc <- function(...) {
-  hySpc_deprecated("plot_spc")
-  plot_spc(...)
+plotmat <- function(...) {
+  hySpc_deprecated("plot_matrix")
+  plot_matrix(...)
 }
 
 
 # Unit tests -----------------------------------------------------------------
 
-hySpc.testthat::test(plotspc) <- function() {
+hySpc.testthat::test(plotmat) <- function() {
   context("Deprecated functions")
 
-  test_that("plotspc() is deprecated", {
-    plot_d <- function() plotspc(flu)
-    expect_warning(vdiffr::expect_doppelganger("plotspc", plot_d), "deprecated")
+  test_that("plotmat() is deprecated", {
+    plot_d <- function() plotmat(flu[,,440~460])
+    expect_warning(vdiffr::expect_doppelganger("plotmat", plot_d), "deprecated")
   })
 }

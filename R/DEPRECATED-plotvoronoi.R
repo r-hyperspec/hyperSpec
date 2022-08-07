@@ -1,4 +1,4 @@
-#' @name DEPRECATED-plotspc
+#' @name DEPRECATED-plotvoronoi
 #' @concept deprecated
 #'
 #' @title (DEPRECATED)
@@ -11,26 +11,26 @@
 #' removed in the next release of the package.
 #' Please, use the suggested alternative functions instead:
 #'
-#' - [hyperSpec::plot_spc()]
+#' - [hyperSpec::plot_voronoi()]
 #'
 #'
-#' @param ... arguments to [hyperSpec::plot_spc()].
+#' @param ... arguments to [hyperSpec::plot_voronoi()].
 #'
 #' @include raster.R
 #' @export
-plotspc <- function(...) {
-  hySpc_deprecated("plot_spc")
-  plot_spc(...)
+plotvoronoi <- function(...) {
+  hySpc_deprecated("plot_voronoi")
+  plot_voronoi(...)
 }
 
 
 # Unit tests -----------------------------------------------------------------
 
-hySpc.testthat::test(plotspc) <- function() {
+hySpc.testthat::test(plotvoronoi) <- function() {
   context("Deprecated functions")
 
-  test_that("plotspc() is deprecated", {
-    plot_d <- function() plotspc(flu)
-    expect_warning(vdiffr::expect_doppelganger("plotspc", plot_d), "deprecated")
+  test_that("plotvoronoi() is deprecated", {
+    plot_d <- function() plotvoronoi(faux_cell[1:5,,c(1042~1058)])
+    expect_warning(vdiffr::expect_doppelganger("plotvoronoi", plot_d), "deprecated")
   })
 }

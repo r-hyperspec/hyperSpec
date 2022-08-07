@@ -11,20 +11,26 @@
 
 #' Plotting spectra
 #'
-#' Plot spectra of a `hyperSpec` object, i.e. intensity over wavelength.
+#' Function `plot_spc()`
+#' plots spectra of a `hyperSpec` object, i.e. intensity over wavelength.
 #' Instead of the intensity values of the spectra matrix summary values
 #' calculated from these may be used.
 #'
-#' This is `hyperSpec`'s main plotting function for spectra plots.
+#' @details
+#' `plot_spc()` is `hyperSpec`'s main plotting function for spectra plots.
 #'
 #' New plots are created by [graphics::plot()], but the abscissa and
 #' ordinate are drawn separately by [graphics::axis()]. Also,
 #' [graphics::title()] is called explicitly to set up titles and
 #' axis labels. This allows fine-grained customization of the plots.
 #'
-#' If package plotrix is available, its function
+#' If package \pkg{plotrix} is available, its function
 #' [plotrix::axis.break()] is used to produce break marks for cut
 #' wavelength axes.
+#'
+#' Usually, the `stacked` argument of [plot_spc()] will do fine, but
+#' if you need fine control over the stacking, you may calculate the y
+#' offsets yourself. In that case see [`calculate_offsets()`].
 #'
 #' @name plot_spc
 #' @rdname plot_spc
@@ -37,20 +43,21 @@
 #'
 #' The values can be either wavelengths or wavelength indices (according to
 #'   `wl.index`).
-#' @param wl.index if `TRUE`, `wl.range` is considered to give
+#'
+#' @param wl.index If `TRUE`, `wl.range` is considered to give
 #'        column indices into the spectra matrix. Defaults to specifying
 #'        wavelength values rather than indices.
 #' @param wl.reverse if `TRUE`, the wavelength axis is plotted backwards.
-#' @param spc.nmax maximal number of spectra to be plotted (to avoid
+#' @param spc.nmax A maximal number of spectra to be plotted (to avoid
 #'        accidentally plotting of large numbers of spectra).
-#' @param func a function to apply to each wavelength in order to calculate
+#' @param func A function to apply to each wavelength in order to calculate
 #'        summary spectra such as mean, min, max, etc.
 #' @param func.args `list` with further arguments for `func`
-#' @param add if `TRUE`, the output is added to the existing plot
-#' @param bty see [graphics::par()]
-#' @param col see [graphics::par()]. `col` might be a vector giving individual
+#' @param add If `TRUE`, the output is added to the existing plot
+#' @param bty See [graphics::par()]
+#' @param col See [graphics::par()]. `col` might be a vector giving individual
 #'        colors for the spectra.
-#' @param xoffset vector with abscissa offsets for each of the `wl.range`s.
+#' @param xoffset Vector with abscissa offsets for each of the `wl.range`s.
 #'        If it has one element less than there are `wl.range`s, 0 is padded
 #'        at the beginning.
 #'
@@ -58,25 +65,26 @@
 #'        the following parts of the spectra are shifted towards the origin.
 #'        E.g. if `wl.range = list(600 ~ 1800, 2800 ~ 3200)`, `xoffset = 750`
 #'        would result in a reasonable plot. See also the examples.
-#' @param yoffset ordinate offset values for the spectra. May be offsets to
-#'        stack the spectra ([stacked.offsets()]). Either one for all
+#' @param yoffset Ordinate offset values for the spectra. May be offsets to
+#'        stack the spectra ([calculate_offsets()]). Either one for all
 #'        spectra, one per spectrum or one per group in `stacked`.
-#' @param nxticks hint how many tick marks the abscissa should have.
-#' @param stacked if not `NULL`, a "stacked" plot is produced, see the
+#' @param nxticks Hint how many tick marks the abscissa should have.
+#' @param stacked If not `NULL`, a "stacked" plot is produced, see the
 #'        example. `stacked` may be `TRUE` to stack single spectra.  A
 #'        numeric or factor is interpreted as giving the grouping, character is
 #'        interpreted as the name of the extra data column that holds the groups.
-#' @param stacked.args a list with further arguments to [stacked.offsets()].
-#' @param fill if not `NULL`, the area between the specified spectra is
+#' @param stacked.args A list with further arguments to [calculate_offsets()].
+#' @param fill If not `NULL`, the area between the specified spectra is
 #'        filled with color `col`. The grouping can be given as factor or
 #'        numeric, or as a character with the name of the extra data column
 #'        to use. If a group contains more than 2 spectra, the first and the
 #'        last are used.
 #'
-#' If `TRUE` spectra n and nrow (spc) - n build a group.
-#' @param fill.col character vector with fill color. Defaults to brightened
+#' If `TRUE` spectra n and nrow(spc) - n build a group.
+#'
+#' @param fill.col Character vector with fill color. Defaults to brightened
 #'        colors from `col`.
-#' @param border character vector with border color. You will need to set the
+#' @param border Character vector with border color. You will need to set the
 #'        line color `col` to `NA` in order see the effect.
 #' @param plot.args `list` with further arguments to [graphics::plot()].
 #' @param axis.args `list` with further arguments for [graphics::axis()].
@@ -84,13 +92,13 @@
 #'        `axis.args$y` those for the ordinate (again as `lists`).
 #' @param title.args list with further arguments to [graphics::title()].
 #'
-#' `title.args` may contain two lists, `$x`, and `$y` to set parameters
+#' `title.args` May contain two lists, `$x`, and `$y` to set parameters
 #'        individually for each axis.
-#' @param lines.args list with further arguments to [graphics::lines()].
+#' @param lines.args List with further arguments to [graphics::lines()].
 #'
 #' `lines.args$type` defaults to `"l"`.
-#' @param break.args list with arguments for [plotrix::axis.break()].
-#' @param polygon.args list with further arguments to [graphics::polygon()],
+#' @param break.args List with arguments for [plotrix::axis.break()].
+#' @param polygon.args List with further arguments to [graphics::polygon()],
 #'        which draws the filled areas.
 #' @param zeroline `NA` or a list with arguments [graphics::abline()], used
 #'        to plot line(s) marking `I = 0`.
@@ -99,7 +107,9 @@
 #'        off if `yoffset` is not 0.
 #' @param debuglevel if > 0, additional debug output is produced, see
 #'        [hyperSpec::options()] for details.
-#' @return `plot_spc` invisibly returns a list with:
+#'
+#'
+#' @return `plot_spc()` invisibly returns a list with:
 #'
 #' \item{x}{the abscissa coordinates of the plotted spectral data points}
 #'
@@ -122,6 +132,8 @@
 #'          standard deviation and the like.
 #'
 #' [graphics::identify()] and [graphics::locator()] about interaction with plots.
+#'
+#' [calculate_offsets()]
 #'
 #' @keywords hplot
 #' @concept plotting
@@ -291,7 +303,7 @@ plot_spc <- function(object,
       stacked.args <- modifyList(stacked.args, list(min.zero = TRUE))
     }
 
-    stacked <- do.call(stacked.offsets, stacked.args)
+    stacked <- do.call(calculate_offsets, stacked.args)
     if (all(yoffset == 0)) {
       yoffset <- stacked$offsets[stacked$groups]
     } else if (length(yoffset) == length(unique(stacked$groups))) {
@@ -362,7 +374,7 @@ plot_spc <- function(object,
 
     ## x-axis labels & ticks
     if (bty %in% c("o", "l", "c", "u", "]", "x")) {
-      cuts <- .cut.ticks(
+      cuts <- .cut_ticks(
         sapply(wavelengths, min),
         sapply(wavelengths, max),
         xoffset, nxticks
@@ -391,7 +403,7 @@ plot_spc <- function(object,
       if (length(cuts$cut) > 0) {
         if (!requireNamespace("plotrix")) {
           cat("hyperSpec will use its own replacement for plotrix' axis.break\n\n")
-          break.fun <- .axis.break
+          break.fun <- .axis_break
         } else {
           break.fun <- plotrix::axis.break
         }
@@ -594,26 +606,24 @@ hySpc.testthat::test(plot_spc) <- function() {
 
 #' Y offsets for stacked plots
 #'
-#' Calculate appropriate `yoffset` values for stacking in [hyperSpec::plot_spc()].
-#'
-#' Usually, the `stacked` argument of [hyperSpec::plot_spc()] will do fine, but
-#' if you need fine control over the stacking, you may calculate the y offsets
-#' yourself.
-#'
+#' This function calculates appropriate `yoffset` values for stacking in
+#'  [plot_spc()].
 #' Empty levels of the stacking factor are dropped (as no stacking offset can
 #' be calculated in that case.)
 #'
-#' @rdname plot_spc
+#' @rdname calculate_offsets
 #'
-#' @param x `hyperSpec` object.
+#' @param x A `hyperSpec` object.
 #' @param min.zero If `TRUE`, the lesser of zero and the minimum intensity of
 #'        the spectrum is used as minimum.
-#' @param add.factor,add.sum proportion and absolute amount of space that
+#' @param add.factor,add.sum Proportion and absolute amount of space that
 #'        should be added.
-#' @param .spc for internal use. If given, the ranges are evaluated on `.spc`.
+#' @param .spc *For internal use only.* If given, the ranges are evaluated on `.spc`.
 #'       However, this may change in future.
 #'
-#' @return a list containing
+#' @inheritParams plot_spc
+#'
+#' @return A list containing:
 #' \item{offsets}{numeric with the yoffset for each group in `stacked`}
 #' \item{groups}{numeric with the group number for each spectrum}
 #' \item{levels}{if `stacked` is a factor, the levels of the groups}
@@ -632,7 +642,7 @@ hySpc.testthat::test(plot_spc) <- function() {
 #'
 #' fc_mean_pm_sd <- aggregate(faux_cell, faux_cell$region, mean_pm_sd)
 #'
-#' offset <- stacked.offsets(fc_mean_pm_sd, ".aggregate")
+#' offset <- calculate_offsets(fc_mean_pm_sd, ".aggregate")
 #' plot(fc_mean_pm_sd,
 #'   fill.col = palette_matlab(3), fill = ".aggregate",
 #'   stacked = ".aggregate"
@@ -648,14 +658,14 @@ hySpc.testthat::test(plot_spc) <- function() {
 #'   lines.args = list(type = "h"), stacked = TRUE,
 #'   stacked.args = list(add.factor = .2)
 #' )
-stacked.offsets <- function(x,
-                            stacked = TRUE,
-                            min.zero = FALSE,
-                            add.factor = 0.05,
-                            add.sum = 0,
-                            # TODO: # tight = FALSE,
-                            .spc = NULL,
-                            debuglevel = hy_get_option("debuglevel")) {
+calculate_offsets <- function(x,
+                              stacked = TRUE,
+                              min.zero = FALSE,
+                              add.factor = 0.05,
+                              add.sum = 0,
+                              # TODO: # tight = FALSE,
+                              .spc = NULL,
+                              debuglevel = hy_get_option("debuglevel")) {
   lvl <- NULL
 
   if (is.null(.spc)) {
@@ -717,12 +727,12 @@ stacked.offsets <- function(x,
 
 # Unit tests -----------------------------------------------------------------
 
-hySpc.testthat::test(stacked.offsets) <- function() {
-  context("stacked.offsets")
+hySpc.testthat::test(calculate_offsets) <- function() {
+  context("calculate_offsets")
 
   test_that("ranges do not overlap", {
     spc <- do.call(collapse, barbiturates[1:3])
-    ofs <- stacked.offsets(spc)
+    ofs <- calculate_offsets(spc)
     spc <- spc + ofs$offsets
     rngs <- apply(spc[[]], 1, range, na.rm = TRUE)
 
@@ -732,13 +742,13 @@ hySpc.testthat::test(stacked.offsets) <- function() {
   test_that("extra space", {
     spc <- new("hyperSpec", spc = matrix(c(0, 0, 2, 1:3), nrow = 3))
 
-    expect_equal(stacked.offsets(spc, add.factor = 0)$offsets, c(0, 1, 1))
-    expect_equal(stacked.offsets(spc, add.factor = 1)$offsets, c(0, 2, 4))
-    expect_equal(stacked.offsets(spc, add.factor = 0, add.sum = 1)$offsets, c(0, 2, 3))
+    expect_equal(calculate_offsets(spc, add.factor = 0)$offsets, c(0, 1, 1))
+    expect_equal(calculate_offsets(spc, add.factor = 1)$offsets, c(0, 2, 4))
+    expect_equal(calculate_offsets(spc, add.factor = 0, add.sum = 1)$offsets, c(0, 2, 3))
   })
 
   test_that("min.zero", {
-    ofs <- stacked.offsets(flu, min.zero = TRUE, add.factor = 0)
+    ofs <- calculate_offsets(flu, min.zero = TRUE, add.factor = 0)
     expect_equal(
       ofs$offsets,
       c(0, cumsum(apply(flu[[-nrow(flu)]], 1, max)))
@@ -749,14 +759,14 @@ hySpc.testthat::test(stacked.offsets) <- function() {
 
 # Helper functions -----------------------------------------------------------
 
-###  .axis.break - poor man's version of axis.break
-.axis.break <- function(axis = 1, breakpos = NULL, ...) {
+###  .axis_break - poor man's version of axis.break
+.axis_break <- function(axis = 1, breakpos = NULL, ...) {
   mtext("//", at = breakpos, side = axis, padj = -1, adj = 0.5)
 }
 
-### .cut.ticks - pretty tick marks for cut axes
+### .cut_ticks - pretty tick marks for cut axes
 #' @importFrom utils head
-.cut.ticks <- function(start.ranges,
+.cut_ticks <- function(start.ranges,
                        end.ranges,
                        offsets,
                        nticks) {
@@ -810,15 +820,15 @@ hySpc.testthat::test(stacked.offsets) <- function() {
 
 # Unit tests -----------------------------------------------------------------
 
-hySpc.testthat::test(.cut.ticks) <- function() {
-  context(".cut.ticks")
+hySpc.testthat::test(.cut_ticks) <- function() {
+  context(".cut_ticks")
 
   ## bugfix:
   ## plot_spc(paracetamol, wl.range = c(min ~ 1800, 2800 ~ max), xoffset = 900)
   ## had 2600 1/cm label printed in low wavelength range
   test_that("labels not too far outside wl.range", {
     expect_equal(
-      .cut.ticks(
+      .cut_ticks(
         start.ranges = c(96.7865, 2799.86),
         end.ranges = c(1799.95, 3200.07),
         offsets = c(0, 900),
@@ -836,7 +846,7 @@ hySpc.testthat::test(.cut.ticks) <- function() {
     )
 
     expect_equal(
-      .cut.ticks(
+      .cut_ticks(
         start.ranges = c(1, 3, 7),
         end.ranges = c(2, 4, 9),
         nticks = 10,

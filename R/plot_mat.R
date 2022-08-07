@@ -22,20 +22,20 @@
 #' @export
 #'
 #' @examples
-#' plotmat(laser, col = palette_alois(100))
+#' plot_matrix(laser, col = palette_alois(100))
 #'
 #' plot(laser, "mat")
 #'
-#' plotmat(laser)
-#' plotmat(laser, contour = TRUE, add = TRUE)
+#' plot_matrix(laser)
+#' plot_matrix(laser, contour = TRUE, add = TRUE)
 #'
 #' ## use different y axis labels
 #'
-#' plotmat(laser, "t")
+#' plot_matrix(laser, "t")
 #'
-#' plotmat(laser, laser$t / 3600, ylab = "t / h")
+#' plot_matrix(laser, laser$t / 3600, ylab = "t / h")
 #' @importFrom utils modifyList
-plotmat <- function(object, y = ".row", ylab, col = palette_alois(20), ...,
+plot_matrix <- function(object, y = ".row", ylab, col = palette_alois(20), ...,
                     contour = FALSE) {
   assert_hyperSpec(object)
   validObject(object)
@@ -101,15 +101,15 @@ plotmat <- function(object, y = ".row", ylab, col = palette_alois(20), ...,
 }
 
 
-hySpc.testthat::test(plotmat) <- function() {
-  context("plotmat")
+hySpc.testthat::test(plot_matrix) <- function() {
+  context("plot_matrix")
 
   test_that("non-increasing wavelength axis", {
     tmp <- flu
     tmp[[]] <- tmp[[, , max ~ min]]
     tmp@wavelength <- rev(tmp@wavelength)
 
-    expect_silent(plotmat(tmp))
+    expect_silent(plot_matrix(tmp))
   })
 
   ## TODO: vdiffr

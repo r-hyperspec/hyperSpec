@@ -1,4 +1,4 @@
-# hyperSpec 1.0.0 2021-xx-xx
+# hyperSpec 1.0.0 2022-xx-xx
 
 ## Acknowledgements
 
@@ -42,8 +42,13 @@
      `matlab.palette()`      | `palette_matlab()`               |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#299, @sangttruong
      `mergeextra()`          | `merge_data()`                   |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#302
      `orderwl()`             | `wl_sort()`                      |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#309
+     `normalize01()`         | `normalize_01()`                 |  #50
      `pearson.dist()`        | `dist_pearson()`                 |  #19
+     `plotc()`               | `plot_c()`                       |  #48
+     `plotmap()`             | `plot_map()`                     |  #48
+     `plotmat()`             | `plot_matrix()`                  |  #48
      `plotspc()`             | `plot_spc()`                     |  #48
+     `plotvoronoi()`         | `plot_voronoi()`                 |  #48
      `pooled.cov()`          | `cov_pooled()`                   |  #51
      `spc.bin()`             | `spc_bin()`                      |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.fit.poly()`        | `spc_fit_poly()`                 |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
@@ -59,6 +64,7 @@
      `spc.point.sqr()`       | `locate_spc_point_parabola_max()`|  #46
      `spc.rubberband()`      | `spc_rubberband()`               |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
      `spc.smooth.spline()`   | `spc_smooth_spline()`            |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#301
+     `stacked.offsets()`     | `calculate_offsets()`            |  #41
      `wl.eval()`             | `wl_eval()`                      |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#309
      `wlconv()`              | `wl_convert_units()`             |  cbeleites/hyperSpec#208, cbeleites/hyperSpec#309
     - Wavelength unit conversion functions `ev2freq()`, `ev2invcm()`, `ev2nm()`, `ev2raman()`, `freq2ev()`, `freq2invcm()`, `freq2nm()`, `freq2raman()`, `invcm2ev()`, `invcm2freq()`, `invcm2nm()`, `invcm2raman()`, `nm2ev()`, `nm2freq()`, `nm2invcm()`, `nm2raman()`, `raman2ev()`, `raman2freq()`, `raman2invcm()`, `raman2nm()` are deprecated in favor of `wl_convert_units()` (cbeleites/hyperSpec#300).

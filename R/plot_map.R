@@ -1,6 +1,6 @@
 #################################################################################
 ###
-###  plotmap - plot spectral maps
+###  plot_map - plot spectral maps
 ###
 ###  plots intensity or extra data column over 2 extra data columns
 
@@ -17,20 +17,20 @@
 #' The `model` can contain the special column name `.wavelength` to specify
 #' the wavelength axis.
 #'
-#' `plotmap`, `map.identify`, and the `levelplot` methods internally use the same
+#' `plot_map`, `map.identify`, and the `levelplot` methods internally use the same
 #' gateway function to [lattice::levelplot()]. Thus `transform.factor` can be used
 #' with all of them and the panel function defaults to [lattice::panel.levelplot.raster()]
 #' for all three. Two special column names, `.rownames` and `.wavelength` may be used.
 #'
 #' `levelplot` plots the spectra matrix.
 #'
-#' `plotvoronoi` calls `plotmap` with different default settings, namely the
+#' `plot_voronoi` calls `plot_map` with different default settings, namely the
 #' panel function defaults to [latticeExtra::panel.voronoi()].
 #' [latticeExtra::panel.voronoi()] depends on either of the packages \pkg{interp} or \pkg{deldir}
 #' being installed. For further information, please consult the help page of
 #' [latticeExtra::panel.voronoi()].
 #'
-#' `map.identify()` calls `plotmap()` and `plotvoronoi()`, respectively and waits for
+#' `map.identify()` calls `plot_map()` and `plot_voronoi()`, respectively and waits for
 #' (left) mouse clicks on points. Other mouse clicks end the input.
 #'
 #' Unlike [lattice::panel.identify()], the indices returned by `map.identify` are in
@@ -46,12 +46,12 @@
 #' [map.sel.poly()].
 #'
 #' @rdname levelplot
-#' @aliases plotmap plotvoronoi levelplot,formula,hyperSpec-method
+#' @aliases plot_map plot_voronoi levelplot,formula,hyperSpec-method
 #'   levelplot,hyperSpec,missing-method map.identify
 #' @param object,data the `hyperSpec` object
 #' @param model,x formula specifying the columns of object that are to be
 #'   displayed by [lattice::levelplot()]
-#' @param func,func.args Before plotting, `plotmap` applies function
+#' @param func,func.args Before plotting, `plot_map` applies function
 #'   `func` with the arguments given in the list `func.args` to each
 #'   of the spectra. Thus a single summary value is displayed for each of the
 #'   spectra.
@@ -59,7 +59,7 @@
 #' This can be suppressed manually by setting `func` to NULL. It is automatically suppressed if
 #' `.wavelength` appears in the formula.
 #' @param voronoi Should the plot for identifying spectra by mouse click be
-#'   produced by `plotmap` (default) or `plotvoronoi`?
+#'   produced by `plot_map` (default) or `plot_voronoi`?
 #' @param ... further arguments are passed down the call chain, and finally
 #'   to [lattice::levelplot()]
 #' @return `map.identify` returns a vector of row indices into
@@ -83,21 +83,21 @@
 #' }
 #'
 #' levelplot(spc ~ y * x, faux_cell[, , 1003]) # properly rotated
-#' plotmap(faux_cell[, , 1003])
+#' plot_map(faux_cell[, , 1003])
 #'
 #' # plot spectra matrix
 #' levelplot(spc ~ .wavelength * t, laser, contour = TRUE, col = "#00000080")
-#' # see also plotmat
+#' # see also plot_matrix
 #'
-#' plotmap(faux_cell, region ~ x * y)
+#' plot_map(faux_cell, region ~ x * y)
 #'
 #' # Voronoi plots
 #' smpl <- sample(faux_cell, 300)
-#' plotmap(smpl, region ~ x * y)
+#' plot_map(smpl, region ~ x * y)
 #'
-#' plotvoronoi(smpl, region ~ x * y)
+#' plot_voronoi(smpl, region ~ x * y)
 #' @importFrom utils modifyList
-plotmap <- function(object, model = spc ~ x * y,
+plot_map <- function(object, model = spc ~ x * y,
                     func = mean, func.args = list(), ...) {
   assert_hyperSpec(object)
   validObject(object)

@@ -1,8 +1,8 @@
-#' @name DEPRECATED-plotspc
+#' @name DEPRECATED-stacked.offsets
 #' @concept deprecated
 #'
 #' @title (DEPRECATED)
-#'        Plotting spectra
+#'        Calculate y-axis offsets
 #'
 #' @description
 #' These \pkg{hyperSpec} functions are **deprecated** and not maintained any
@@ -11,26 +11,22 @@
 #' removed in the next release of the package.
 #' Please, use the suggested alternative functions instead:
 #'
-#' - [hyperSpec::plot_spc()]
+#' - [hyperSpec::calculate_offsets()]
 #'
 #'
-#' @param ... arguments to [hyperSpec::plot_spc()].
+#' @param ... arguments to [hyperSpec::calculate_offsets()].
 #'
-#' @include raster.R
 #' @export
-plotspc <- function(...) {
-  hySpc_deprecated("plot_spc")
-  plot_spc(...)
+stacked.offsets <- function(...) {
+  hySpc_deprecated("calculate_offsets")
+  calculate_offsets(...)
 }
 
-
 # Unit tests -----------------------------------------------------------------
-
-hySpc.testthat::test(plotspc) <- function() {
+hySpc.testthat::test(stacked.offsets) <- function() {
   context("Deprecated functions")
 
-  test_that("plotspc() is deprecated", {
-    plot_d <- function() plotspc(flu)
-    expect_warning(vdiffr::expect_doppelganger("plotspc", plot_d), "deprecated")
+  test_that("stacked.offsets() is deprecated", {
+    expect_warning(stacked.offsets(flu), "deprecated")
   })
 }
