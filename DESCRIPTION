@@ -140,6 +140,7 @@ Collate:
     'spc_rubberband.R'
     'DEPRECATED-spc_rubberband.R'
     'DEPRECATED-spc_spline.R'
+    'DEPRECATED-stacked.offsets.R'
     'DEPRECATED-wc.R'
     'DEPRECATED-wl_convert_units.R'
     'wl_eval.R'
