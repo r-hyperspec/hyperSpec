@@ -5,7 +5,7 @@
 #' @param x either `hyperSpec` object or numeric vector.
 #' @param ... expressions to be evaluated.
 #' @param normalize.wl function to transform the wavelengths before evaluating
-#' the polynomial (or  other function). Use [hyperSpec::normalize01()] to map
+#' the polynomial (or  other function). Use [hyperSpec::normalize_01()] to map
 #' the wavelength range to the interval \[0, 1\].
 #' @return `hyperSpec` object containing one spectrum for each expression.
 #'
@@ -16,7 +16,7 @@
 #' @seealso
 #'
 #' - [hyperSpec::vanderMonde()] for  polynomials,
-#' - [hyperSpec::normalize01()] to normalize the wavenumbers before evaluating
+#' - [hyperSpec::normalize_01()] to normalize the wavenumbers before evaluating
 #' the function.
 #'
 #' @author C. Beleites, V. Gegzna
@@ -75,7 +75,7 @@ hySpc.testthat::test(wl_eval.hyperSpec) <- function() {
 
   test_that("wl_eval(<hyperSpec>) against manual evaluation", {
     expect_equivalent(
-      wl_eval(flu, function(x) rep(5, length(x)), normalize.wl = normalize01)[[]],
+      wl_eval(flu, function(x) rep(5, length(x)), normalize.wl = normalize_01)[[]],
       matrix(rep(5, nwl(flu)), nrow = 1)
     )
 
@@ -92,17 +92,17 @@ hySpc.testthat::test(wl_eval.hyperSpec) <- function() {
 
   test_that("normalization", {
     expect_equivalent(
-      wl_eval(flu, function(x) rep(5, length(x)), normalize.wl = normalize01)[[]],
+      wl_eval(flu, function(x) rep(5, length(x)), normalize.wl = normalize_01)[[]],
       matrix(rep(5, nwl(flu)), nrow = 1)
     )
 
     expect_equivalent(
-      wl_eval(flu, function(x) x, normalize.wl = normalize01)[[]],
+      wl_eval(flu, function(x) x, normalize.wl = normalize_01)[[]],
       matrix(seq(0, 1, length.out = nwl(flu)), nrow = 1)
     )
 
     expect_equivalent(
-      wl_eval(flu, function(x) exp(x), normalize.wl = normalize01)[[]],
+      wl_eval(flu, function(x) exp(x), normalize.wl = normalize_01)[[]],
       matrix(exp(seq(0, 1, length.out = nwl(flu))), nrow = 1)
     )
   })

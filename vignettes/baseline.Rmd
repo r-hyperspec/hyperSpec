@@ -366,7 +366,7 @@ However, there is possibly some background left between 1200 and 1750 cm^-1^ whe
 This can be corrected by bending the spectrum before applying the rubberband correction (fig. \@ref(fig:rubberband-bent-raw), \@ref(fig:rubberband-bent-corrected)):
 
 ```{r bent-rubberband}
-bend <- 5e4 * wl_eval(paracetamol[, , 175 ~ 1800], function(x) x^2, normalize.wl = normalize01)
+bend <- 5e4 * wl_eval(paracetamol[, , 175 ~ 1800], function(x) x^2, normalize.wl = normalize_01)
 bl <- spc_rubberband(paracetamol[, , 175 ~ 1800] + bend) - bend
 ```
 

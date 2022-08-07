@@ -36,7 +36,7 @@ setGeneric("vanderMonde")
 
 # Function -------------------------------------------------------------------
 
-.vanderMonde <- function(x, order, ..., normalize.wl = normalize01) {
+.vanderMonde <- function(x, order, ..., normalize.wl = normalize_01) {
   validObject(x)
 
   wl <- normalize.wl(x@wavelength)
@@ -51,7 +51,7 @@ setGeneric("vanderMonde")
 #' @rdname vanderMonde
 #'
 #' @param normalize.wl function to transform the wavelengths before evaluating
-#'        the polynomial (or other function). [hyperSpec::normalize01()] maps
+#'        the polynomial (or other function). [hyperSpec::normalize_01()] maps
 #'        the wavelength range to the interval \[0, 1\]. Use [base::I()] to
 #'        turn off.
 #' @param ... hyperSpec method: further arguments to [hyperSpec::decomposition()]
@@ -63,7 +63,7 @@ setGeneric("vanderMonde")
 #' @seealso
 #' [hyperSpec::wl_eval()] for calculating arbitrary functions of the wavelength
 #'
-#' [hyperSpec::normalize01()]
+#' [hyperSpec::normalize_01()]
 #'
 #' @concept data generation
 #'
@@ -88,7 +88,7 @@ hySpc.testthat::test(vanderMonde) <- function() {
   })
 
   test_that("default method doesn't provide normalization", {
-    expect_error(vanderMonde(1, 0, normalize.wl = normalize01))
+    expect_error(vanderMonde(1, 0, normalize.wl = normalize_01))
   })
 
   test_that("hyperSpec objects", {
@@ -99,8 +99,8 @@ hySpc.testthat::test(vanderMonde) <- function() {
     dimnames(tmp$spc) <- NULL
     expect_equal(tmp[[]], t(vanderMonde(wl(paracetamol), 3)))
 
-    tmp <- vanderMonde(paracetamol, 3, normalize.wl = normalize01)
+    tmp <- vanderMonde(paracetamol, 3, normalize.wl = normalize_01)
     dimnames(tmp$spc) <- NULL
-    expect_equal(tmp[[]], t(vanderMonde(normalize01(wl(paracetamol)), 3)))
+    expect_equal(tmp[[]], t(vanderMonde(normalize_01(wl(paracetamol)), 3)))
   })
 }
