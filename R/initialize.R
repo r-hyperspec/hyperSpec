@@ -65,6 +65,9 @@
 #'       to [base::gc()], which can help to avoid swapping or running out of
 #'       memory. The default value of `gc` can be set via [hy_set_options()].
 #'
+#' @param log This parameter is currently **ignored**. It is present due to
+#'        backwards compatibility.
+#'
 #' @param .Object A new `hyperSpec` object.
 #'
 #'
@@ -119,7 +122,8 @@ NULL
 #' @include paste_row.R
 #' @noRd
 .initialize <- function(.Object, spc = NULL, data = NULL, wavelength = NULL,
-                        labels = NULL, gc = hy_get_option("gc")) {
+                        labels = NULL, gc = hy_get_option("gc"),
+                        log = "ignored") {
 
   # Do the small stuff first, so we need not be too careful about copies
 
@@ -261,7 +265,8 @@ NULL
 #' @rdname initialize
 #' @export
 new_hyperSpec <- function(spc = NULL, data = NULL, wavelength = NULL,
-                          labels = NULL, gc = hy_get_option("gc")) {
+                          labels = NULL, gc = hy_get_option("gc"),
+                          log = "ignored") {
   new("hyperSpec", spc = spc, data = data, wavelength = wavelength,
       labels = labels, gc = gc)
 }
