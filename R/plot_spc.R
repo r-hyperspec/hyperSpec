@@ -366,7 +366,7 @@ plot_spc <- function(object,
 
     ## x-axis labels & ticks
     if (bty %in% c("o", "l", "c", "u", "]", "x")) {
-      cuts <- .cut.ticks(
+      cuts <- .cut_ticks(
         sapply(wavelengths, min),
         sapply(wavelengths, max),
         xoffset, nxticks
@@ -395,7 +395,7 @@ plot_spc <- function(object,
       if (length(cuts$cut) > 0) {
         if (!requireNamespace("plotrix")) {
           cat("hyperSpec will use its own replacement for plotrix' axis.break\n\n")
-          break.fun <- .axis.break
+          break.fun <- .axis_break
         } else {
           break.fun <- plotrix::axis.break
         }
@@ -755,14 +755,14 @@ hySpc.testthat::test(calculate_offsets) <- function() {
 
 # Helper functions -----------------------------------------------------------
 
-###  .axis.break - poor man's version of axis.break
-.axis.break <- function(axis = 1, breakpos = NULL, ...) {
+###  .axis_break - poor man's version of axis.break
+.axis_break <- function(axis = 1, breakpos = NULL, ...) {
   mtext("//", at = breakpos, side = axis, padj = -1, adj = 0.5)
 }
 
-### .cut.ticks - pretty tick marks for cut axes
+### .cut_ticks - pretty tick marks for cut axes
 #' @importFrom utils head
-.cut.ticks <- function(start.ranges,
+.cut_ticks <- function(start.ranges,
                        end.ranges,
                        offsets,
                        nticks) {
@@ -816,15 +816,15 @@ hySpc.testthat::test(calculate_offsets) <- function() {
 
 # Unit tests -----------------------------------------------------------------
 
-hySpc.testthat::test(.cut.ticks) <- function() {
-  context(".cut.ticks")
+hySpc.testthat::test(.cut_ticks) <- function() {
+  context(".cut_ticks")
 
   ## bugfix:
   ## plot_spc(paracetamol, wl.range = c(min ~ 1800, 2800 ~ max), xoffset = 900)
   ## had 2600 1/cm label printed in low wavelength range
   test_that("labels not too far outside wl.range", {
     expect_equal(
-      .cut.ticks(
+      .cut_ticks(
         start.ranges = c(96.7865, 2799.86),
         end.ranges = c(1799.95, 3200.07),
         offsets = c(0, 900),
@@ -842,7 +842,7 @@ hySpc.testthat::test(.cut.ticks) <- function() {
     )
 
     expect_equal(
-      .cut.ticks(
+      .cut_ticks(
         start.ranges = c(1, 3, 7),
         end.ranges = c(2, 4, 9),
         nticks = 10,
