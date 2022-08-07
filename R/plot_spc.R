@@ -11,11 +11,13 @@
 
 #' Plotting spectra
 #'
-#' Plot spectra of a `hyperSpec` object, i.e. intensity over wavelength.
+#' Function `plot_spc()`
+#' plots spectra of a `hyperSpec` object, i.e. intensity over wavelength.
 #' Instead of the intensity values of the spectra matrix summary values
 #' calculated from these may be used.
 #'
-#' This is `hyperSpec`'s main plotting function for spectra plots.
+#' @details
+#' `plot_spc()` is `hyperSpec`'s main plotting function for spectra plots.
 #'
 #' New plots are created by [graphics::plot()], but the abscissa and
 #' ordinate are drawn separately by [graphics::axis()]. Also,
@@ -99,7 +101,9 @@
 #'        off if `yoffset` is not 0.
 #' @param debuglevel if > 0, additional debug output is produced, see
 #'        [hyperSpec::options()] for details.
-#' @return `plot_spc` invisibly returns a list with:
+#'
+#'
+#' @return `plot_spc()` invisibly returns a list with:
 #'
 #' \item{x}{the abscissa coordinates of the plotted spectral data points}
 #'
@@ -594,8 +598,10 @@ hySpc.testthat::test(plot_spc) <- function() {
 
 #' Y offsets for stacked plots
 #'
-#' Calculate appropriate `yoffset` values for stacking in [hyperSpec::plot_spc()].
+#' Function `calculate_offsets()` calculates appropriate `yoffset` values for
+#' stacking in [hyperSpec::plot_spc()].
 #'
+#' @details
 #' Usually, the `stacked` argument of [hyperSpec::plot_spc()] will do fine, but
 #' if you need fine control over the stacking, you may calculate the y offsets
 #' yourself.
@@ -613,7 +619,7 @@ hySpc.testthat::test(plot_spc) <- function() {
 #' @param .spc for internal use. If given, the ranges are evaluated on `.spc`.
 #'       However, this may change in future.
 #'
-#' @return a list containing
+#' @return `calculate_offsets()`returns a list containing:
 #' \item{offsets}{numeric with the yoffset for each group in `stacked`}
 #' \item{groups}{numeric with the group number for each spectrum}
 #' \item{levels}{if `stacked` is a factor, the levels of the groups}
@@ -649,13 +655,13 @@ hySpc.testthat::test(plot_spc) <- function() {
 #'   stacked.args = list(add.factor = .2)
 #' )
 calculate_offsets <- function(x,
-                            stacked = TRUE,
-                            min.zero = FALSE,
-                            add.factor = 0.05,
-                            add.sum = 0,
-                            # TODO: # tight = FALSE,
-                            .spc = NULL,
-                            debuglevel = hy_get_option("debuglevel")) {
+                              stacked = TRUE,
+                              min.zero = FALSE,
+                              add.factor = 0.05,
+                              add.sum = 0,
+                              # TODO: # tight = FALSE,
+                              .spc = NULL,
+                              debuglevel = hy_get_option("debuglevel")) {
   lvl <- NULL
 
   if (is.null(.spc)) {
