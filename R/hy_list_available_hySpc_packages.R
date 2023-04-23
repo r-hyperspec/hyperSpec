@@ -16,7 +16,11 @@
       "windows" = "ipconfig",
       "ifconfig" # Other
     )
-  any(grep("(\\d{1,3}[.]){3}(\\d{1,3})$", system(ip_config_cmd, intern = TRUE)))
+  any(grep(
+    "(\\d{1,3}[.]){3}(\\d{1,3})$",
+    system2(ip_config_cmd, stdout = TRUE),
+    useBytes = TRUE
+  ))
 }
 
 
