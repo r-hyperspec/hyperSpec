@@ -37,7 +37,7 @@ name: Publish to pkg-repo (drat)
 
 jobs:
   drat:
-    if: ${{ github.event.head_commit.message }} != "Automated file update from pkg-skeleton"
+    if: ${{ github.event.repository.name }} != "pkg-skeleton"
 
     runs-on: ${{ matrix.config.os }}
 
