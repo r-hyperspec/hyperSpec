@@ -24,7 +24,7 @@
 # Pkgdown
 ^_pkgdown\.yml$
 ^pkgdown$
- ^docs$
+^docs$
 
 
 # Directories
