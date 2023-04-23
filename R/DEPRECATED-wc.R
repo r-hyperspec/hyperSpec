@@ -64,7 +64,7 @@ hySpc.testthat::test(wc) <- function() {
     ## MacOS wc doesn't seem to have the long arguments
     ## since this function is anyways deprecated, it is not worth the hassle
     ## to adapt.
-    skip_on_os("mac")
+    skip_on_os(c("mac", "windows"))
 
     suppressWarnings(res <- wc(tmpfile))
 
