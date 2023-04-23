@@ -225,7 +225,6 @@ hySpc.testthat::test(.plot) <- function() {
 
   # Lattice-based plots
   test_that("lattice-based plot() gives expected output", {
-
     # Data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     expect_silent(hy_spectra <- generate_hy_spectra())
@@ -268,7 +267,6 @@ hySpc.testthat::test(.plot) <- function() {
 
   # Base R based plots
   test_that("base R based plot() gives expected output", {
-
     # Data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     expect_silent(hy_spectra <- generate_hy_spectra())
     expect_silent(hy_profile <- generate_hy_profile())

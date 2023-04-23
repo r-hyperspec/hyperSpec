@@ -26,7 +26,6 @@ hySpc.testthat::test(hy_list_installed_hySpc_packages) <- function() {
   context("hy_list_installed_hySpc_packages")
 
   test_that("hy_list_installed_hySpc_packages() works", {
-
     # First check
     expect_silent(pkgs <- hy_list_installed_hySpc_packages())
     expect_is(pkgs, "character")

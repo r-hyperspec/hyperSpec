@@ -65,7 +65,6 @@
 #'   bg = mapcols[faux_cell$region], col = "black", pch = 21
 #' )
 generate_faux_cell <- function() {
-
   # Check for points inside ellipse
   #
   # An ellipse is a unit circle that is squeezed, rotated and translated

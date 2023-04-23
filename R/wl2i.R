@@ -146,7 +146,6 @@ wl2i <- function(x, wavelength = stop("wavelengths are required."), unlist = TRU
   results <- list()
 
   for (r in seq_along(wavelength)) {
-
     ## ~ sequence vs. scalars and : sequences
     if (is_formula(wavelength[[r]])) {
       from <- f_eval_lhs(wavelength[[r]])

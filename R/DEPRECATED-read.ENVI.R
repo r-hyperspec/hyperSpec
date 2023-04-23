@@ -73,7 +73,6 @@ split.line <- function(x, separator, trim.blank = TRUE) {
 # ...................................................................................................
 
 .read.ENVI.split.header <- function(header, pull.lines = TRUE) {
-
   ## check ENVI at beginning of file
   if (!grepl("ENVI", header[1])) {
     stop("Not an ENVI header (ENVI keyword missing)")

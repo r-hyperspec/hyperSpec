@@ -105,8 +105,7 @@ read.txt.wide <- function(file = stop("file is required"),
   .wavelength <- match(".wavelength", names(cols))
   if (is.na(.wavelength)) {
     cols <- as.list(c(cols, .wavelength = expression(lambda / nm)))
-  } else
-  if (.wavelength != length(cols)) { # .wavelength should be at the end of cols
+  } else  if (.wavelength != length(cols)) { # .wavelength should be at the end of cols
     cols <- cols[c(seq_along(cols)[-.wavelength], .wavelength)]
   }
 

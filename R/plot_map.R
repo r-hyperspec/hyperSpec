@@ -98,7 +98,7 @@
 #' plot_voronoi(smpl, region ~ x * y)
 #' @importFrom utils modifyList
 plot_map <- function(object, model = spc ~ x * y,
-                    func = mean, func.args = list(), ...) {
+                     func = mean, func.args = list(), ...) {
   assert_hyperSpec(object)
   validObject(object)
 

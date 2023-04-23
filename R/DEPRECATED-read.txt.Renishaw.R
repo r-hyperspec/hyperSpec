@@ -57,7 +57,6 @@
 #' @importFrom utils head
 read.txt.Renishaw <- function(file = stop("file is required"),
                               data = "xyspc", nlines = 0, nspc = NULL) {
-
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   deprecated_read_txt()
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

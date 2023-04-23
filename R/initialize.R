@@ -113,7 +113,6 @@
 #'
 #' plot(h)
 #' plot_c(h, spc ~ pos)
-
 NULL
 
 
@@ -124,7 +123,6 @@ NULL
 .initialize <- function(.Object, spc = NULL, data = NULL, wavelength = NULL,
                         labels = NULL, gc = hy_get_option("gc"),
                         log = "ignored") {
-
   # Do the small stuff first, so we need not be too careful about copies
 
   # The wavelength axis
@@ -268,7 +266,7 @@ new_hyperSpec <- function(spc = NULL, data = NULL, wavelength = NULL,
                           labels = NULL, gc = hy_get_option("gc"),
                           log = "ignored") {
   new("hyperSpec", spc = spc, data = data, wavelength = wavelength,
-      labels = labels, gc = gc)
+    labels = labels, gc = gc)
 }
 
 #' @rdname initialize

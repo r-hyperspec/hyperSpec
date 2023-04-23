@@ -30,7 +30,7 @@ hySpc.testthat::test(plotvoronoi) <- function() {
   context("Deprecated functions")
 
   test_that("plotvoronoi() is deprecated", {
-    plot_d <- function() plotvoronoi(faux_cell[1:5,,c(1042~1058)])
+    plot_d <- function() plotvoronoi(faux_cell[1:5, , c(1042 ~ 1058)])
     expect_warning(vdiffr::expect_doppelganger("plotvoronoi", plot_d), "deprecated")
   })
 }

@@ -47,15 +47,15 @@
 #' )
 #' @importFrom utils head tail
 mark_groups_in_dendrogram <- function(dendrogram, groups,
-                            col = seq_along(unique(groups)),
-                            pos.marker = 0,
-                            height = 0.025 * max(dendrogram$height),
-                            pos.text = -2.5 * height,
-                            border = NA,
-                            text.col = "black",
-                            label,
-                            label.right = TRUE,
-                            ...) {
+                                      col = seq_along(unique(groups)),
+                                      pos.marker = 0,
+                                      height = 0.025 * max(dendrogram$height),
+                                      pos.text = -2.5 * height,
+                                      border = NA,
+                                      text.col = "black",
+                                      label,
+                                      label.right = TRUE,
+                                      ...) {
   if (!is.factor(groups)) {
     groups <- as.factor(groups)
   }

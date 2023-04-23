@@ -63,7 +63,7 @@ source("vignette-default-settings.R", encoding = "UTF-8")
 
 # Temporary options ----------------------------------------------------------
 # Change the value of this option in "vignette-default-settings.R"
-show_reviewers_notes = getOption("show_reviewers_notes", TRUE)
+show_reviewers_notes <- getOption("show_reviewers_notes", TRUE)
 ```
 
 
@@ -88,7 +88,7 @@ knitr::write_bib(
 
 ```{r, echo = FALSE, results = "asis"}
 res <- knitr::knit_child("list-of-vignettes.md", quiet = TRUE)
-cat(res, sep = '\n')
+cat(res, sep = "\n")
 ```
 
 # Things to Know About **_hyperSpec_**
@@ -134,7 +134,7 @@ It is then a matrix with zero columns.
 
 ```{r structure, echo = FALSE, fig.cap = CAPTION, out.width = "600"}
 knitr::include_graphics("intro--structure--hyperSpec--objects.png")
-CAPTION = "The structure of the data in a `hyperSpec` object.  In this example the 'extra data' are the `x`, `y` and `c` columns in `@data`."
+CAPTION <- "The structure of the data in a `hyperSpec` object.  In this example the 'extra data' are the `x`, `y` and `c` columns in `@data`."
 ```
 
 Slot `@label`{.r} contains an element for each of the columns in `@data`{.r} plus one holding the label for the wavelength axis, `.wavelength`.
@@ -782,7 +782,7 @@ wl(tmp) <- wl(tmp) - 10
 
 ```{r include = FALSE}
 CAPTION <-
-"Shifting the spectra along the wavelength axis: changing the wavelength values.  "
+  "Shifting the spectra along the wavelength axis: changing the wavelength values.  "
 ```
 
 ```{r shift-wl, fig.cap = CAPTION}
@@ -838,7 +838,7 @@ tmp <- faux_cell[135]
 tmp <- apply(tmp, 1, function(x, wl, shift) {
   spline(wl + shift, x, xout = wl)$y
 },
-  wl = wl(tmp), shift = -0.5
+wl = wl(tmp), shift = -0.5
 )
 plot(tmp, lines.args = list(type = "b", pch = 19, cex = 0.5), add = TRUE, col = palette_colorblind[3])
 ```
@@ -888,7 +888,7 @@ find_max <- function(y, x) {
   X <- cbind(1, X, X^2)
   coef <- qr.solve(X, Y)
 
-  - coef[2] / coef[3] / 2 + x[pos[2]]
+  -coef[2] / coef[3] / 2 + x[pos[2]]
 }
 
 bandpos <- apply(faux_cell[[, , 1190 ~ 1210]], 1, find_max, wl(faux_cell[, , 1190 ~ 1210]))
@@ -1199,11 +1199,11 @@ For each of the wavelengths the same correction needs to be applied to all spect
 1. There might be wavelength dependent offsets (background or dark spectra).
    They are subtracted:
     ```{r eval = FALSE}
-    sweep(spectra, 2, offset.spectrum, "-")
+sweep(spectra, 2, offset.spectrum, "-")
     ```
 2. A multiplicative dependency such as a CCD's photon efficiency:
     ```{r eval = FALSE}
-    sweep(spectra, 2, photon.efficiency, "/")
+sweep(spectra, 2, photon.efficiency, "/")
     ```
 
 
@@ -1214,11 +1214,11 @@ If the correction depends on the spectra (e. g. due to inhomogeneous illuminatio
 
 1.  Pixel dependent offsets are subtracted:
     ```{r eval = FALSE}
-    sweep(spectra, SPC, pixel.offsets, "-")
+sweep(spectra, SPC, pixel.offsets, "-")
     ```
 2.  A multiplicative dependency:
     ```{r eval = FALSE}
-    sweep(spectra, SPC, illumination.factors, "*")
+sweep(spectra, SPC, illumination.factors, "*")
     ```
 
 
@@ -1239,7 +1239,7 @@ If the calculation of the normalization factors is more elaborate, use a two ste
    You may calculate the factors using only a certain wavelength range, thereby normalizing on a  particular band or peak.
 2. Again, sweep the factor off the spectra:
     ```{r eval = FALSE}
-    normalized <- sweep (spectra, 1, factors, "*")
+normalized <- sweep (spectra, 1, factors, "*")
     ```
 
 
@@ -1338,7 +1338,7 @@ Basic mathematical functions are defined for `hyperSpec` objects.
 You may convert spectra to their log:
 
 ```{r eval = FALSE}
-absorbance.spectra = - log10 (transmission.spectra)
+absorbance.spectra <- -log10 (transmission.spectra)
 ```
 
 \mFun{`labels()`{.r}}

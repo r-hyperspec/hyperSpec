@@ -189,4 +189,3 @@ hySpc.testthat::test(wl_create_label_from_units) <- function() {
 
   })
 }
-

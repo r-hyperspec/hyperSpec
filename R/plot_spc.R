@@ -181,26 +181,26 @@
 #' fc_mean_pm_sd <- aggregate(faux_cell, faux_cell$region, mean_pm_sd)
 #' plot(fc_mean_pm_sd, col = palette_matlab(3), fill = ".aggregate", stacked = ".aggregate")
 plot_spc <- function(object,
-                    ## what wavelengths to plot
-                    wl.range = TRUE, wl.index = FALSE, wl.reverse = FALSE,
-                    ## what spectra to plot
-                    spc.nmax = hy_get_option("plot.spc.nmax"),
-                    func = NULL, func.args = list(),
-                    stacked = NULL, stacked.args = list(),
-                    ## plot area
-                    add = FALSE, bty = "l", plot.args = list(),
-                    ## lines
-                    col = "black", lines.args = list(),
-                    ## axes
-                    xoffset = 0, yoffset = 0, nxticks = 10, axis.args = list(),
-                    break.args = list(),
-                    ## title (axis labels)
-                    title.args = list(),
-                    ## parameters for filled regions
-                    fill = NULL, fill.col = NULL, border = NA, polygon.args = list(),
-                    ## line indicating zero intensity
-                    zeroline = list(lty = 2, col = col),
-                    debuglevel = hy_get_option("debuglevel")) {
+                     ## what wavelengths to plot
+                     wl.range = TRUE, wl.index = FALSE, wl.reverse = FALSE,
+                     ## what spectra to plot
+                     spc.nmax = hy_get_option("plot.spc.nmax"),
+                     func = NULL, func.args = list(),
+                     stacked = NULL, stacked.args = list(),
+                     ## plot area
+                     add = FALSE, bty = "l", plot.args = list(),
+                     ## lines
+                     col = "black", lines.args = list(),
+                     ## axes
+                     xoffset = 0, yoffset = 0, nxticks = 10, axis.args = list(),
+                     break.args = list(),
+                     ## title (axis labels)
+                     title.args = list(),
+                     ## parameters for filled regions
+                     fill = NULL, fill.col = NULL, border = NA, polygon.args = list(),
+                     ## line indicating zero intensity
+                     zeroline = list(lty = 2, col = col),
+                     debuglevel = hy_get_option("debuglevel")) {
   force(zeroline) # otherwise stacking messes up colors
 
   assert_hyperSpec(object)

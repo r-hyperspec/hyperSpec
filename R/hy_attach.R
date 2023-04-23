@@ -82,7 +82,6 @@ hySpc.testthat::test(hy_attach) <- function() {
   context("hy_attach")
 
   test_that("hy_attach() works", {
-
     # Check with hyperSpec package only
     installed_pkgs <- row.names(installed.packages())
     exclude_pkgs <- grep("^hySpc[.]", installed_pkgs, value = TRUE)

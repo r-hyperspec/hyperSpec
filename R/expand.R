@@ -13,7 +13,6 @@
 #' @param target.dim target size to expand the vector to for the sweep-shortcuts
 #' @noRd
 .expand <- function(m, target.dim) {
-
   ## vector corresponding to a single row
   if (is.vector(m) & length(m) > 1 & length(m) == target.dim[2]) {
     if (length(m) == target.dim[1]) {

@@ -31,7 +31,7 @@
 #' @export
 #'
 plot_voronoi <- function(object, model = spc ~ x * y,
-                        use.tripack = "DEPRECATED", mix = "DEPRECATED", ...) {
+                         use.tripack = "DEPRECATED", mix = "DEPRECATED", ...) {
   if (!requireNamespace("latticeExtra")) {
     stop("package latticeExtra is needed for Voronoi plots.")
   }

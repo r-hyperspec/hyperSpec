@@ -63,7 +63,7 @@ source("vignette-default-settings.R", encoding = "UTF-8")
 
 # Temporaty options ----------------------------------------------------------
 # Change the value of this option in "vignette-default-settings.R"
-show_reviewers_notes = getOption("show_reviewers_notes", TRUE)
+show_reviewers_notes <- getOption("show_reviewers_notes", TRUE)
 ```
 
 ```{r bib, echo=FALSE, paged.print=FALSE}
@@ -449,8 +449,8 @@ panel.predict <-
     mapply(function(i, lwr, upr, ...) {
       panel.lines(c(lwr, upr), rep(i, 2), ...)
     },
-      intensity, ci[, 2], ci[, 3],
-      MoreArgs = list(col = pred.col)
+    intensity, ci[, 2], ci[, 3],
+    MoreArgs = list(col = pred.col)
     )
     panel.xyplot(ci[, 1], intensity, col = pred.col, pch = pred.pch, cex = pred.cex, type = "p")
   }

@@ -63,7 +63,7 @@ source("vignette-default-settings.R", encoding = "UTF-8")
 
 # Temporaty options ----------------------------------------------------------
 # Change the value of this option in "vignette-default-settings.R"
-show_reviewers_notes = getOption("show_reviewers_notes", TRUE)
+show_reviewers_notes <- getOption("show_reviewers_notes", TRUE)
 ```
 
 ```{r bib, echo=FALSE, paged.print=FALSE}
@@ -387,7 +387,7 @@ if (require(rgl)) {
 ```
 
 ```{r laser3d, echo=FALSE, fig.cap=CAPTION, out.width="400"}
-CAPTION = "The 3d plot of the laser data.  "
+CAPTION <- "The 3d plot of the laser data.  "
 knitr::include_graphics("laser--rgl-3d.png")
 ```
 

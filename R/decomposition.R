@@ -100,7 +100,6 @@ decomposition <- function(object, x, wavelength = seq_len(ncol(x)),
       object@label$.wavelength <- label.wavelength
     }
   } else if (ncol(x) == nwl(object)) {
-
     ## loadings-like object
     spc <- match("spc", colnames(object@data))
 

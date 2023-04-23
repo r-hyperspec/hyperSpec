@@ -48,7 +48,6 @@ read.txt.Witec <- function(file = NULL,
                            encoding = "unknown",
                            ...,
                            quiet = TRUE) {
-
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   deprecated_read_txt()
 
@@ -118,7 +117,6 @@ read.dat.Witec <- function(filex = NULL,
                            encoding = "unknown",
                            ...,
                            quiet = hy_get_option("debuglevel") < 1L) {
-
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   deprecated_read_txt()
 
@@ -172,7 +170,6 @@ read.txt.Witec.Graph <- function(headerfile = NULL,
                                  filey = gsub("Header", "Y-Axis", headerfile),
                                  type = c("single", "map"), encoding = "unknown",
                                  ..., quiet = TRUE) {
-
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   deprecated_read_txt()
 
@@ -301,7 +298,6 @@ hySpc.testthat::test(read.txt.Witec.Graph) <- function() {
 
 ### parsing map information
 .parse.xy <- function(spc, hdr, hdr.label, points.per.line, lines.per.image, ...) {
-
   ## set points.per.line and lines.per.image, if at least one is set unequal NULL
   if (xor(
     !missing(points.per.line) && !is.null(points.per.line),
