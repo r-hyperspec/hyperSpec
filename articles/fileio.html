@@ -124,7 +124,7 @@
 <br><a class="author_email" href="mailto:#"></a><a href="mailto:chemometrie@beleites.de" class="email">chemometrie@beleites.de</a>
       </address>
                   
-            <h4 data-toc-skip class="date">2022-08-07</h4>
+            <h4 data-toc-skip class="date">2023-04-23</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-hyperspec/hyperSpec/blob/HEAD/vignettes/fileio.Rmd" class="external-link"><code>vignettes/fileio.Rmd</code></a></small>
       <div class="hidden name"><code>fileio.Rmd</code></div>
@@ -137,10 +137,13 @@
 <hr>
 <div class="redbox">
 <p>
-<strong>Consistent naming of file import functions in version &gt;= 0.99</strong>
+<strong>Consistent naming of file import functions in version &gt;=
+0.99</strong>
 </p>
 <p>
-From now on, all import functions have names starting with <code>read.*()</code>. All functions previously named <code>scan.*()</code> have been renamed accordingly.
+From now on, all import functions have names starting with
+<code>read.*()</code>. All functions previously named
+<code>scan.*()</code> have been renamed accordingly.
 </p>
 </div>
 <!-- ======================================================================= -->
@@ -150,13 +153,21 @@ From now on, all import functions have names starting with <code>read.*()</code>
 <strong>Supported File Formats</strong>
 </p>
 <p>
-From now on, all import functions have names starting with <code>read.<em>()</em></code>. All functions previously named <code>scan.()</code> have been renamed accordingly.
+From now on, all import functions have names starting with
+<code>read.<em>()</em></code>. All functions previously named
+<code>scan.()</code> have been renamed accordingly.
 </p>
 <p>
-Package <strong>hyperSpec</strong> supports several file formats relevant for different types of spectroscopy. This file format is naturally only a subset of the file formats produced by different spectroscopic equipment.
+Package <strong>hyperSpec</strong> supports several file formats
+relevant for different types of spectroscopy. This file format is
+naturally only a subset of the file formats produced by different
+spectroscopic equipment.
 </p>
 <p>
-If you use package <strong>hyperSpec</strong> with data formats not mentioned in this document, please open a <a href="https://github.com/r-hyperspec/hyperSpec/issues" target="_blank" class="external-link">new issue</a> in <strong>hyperSpec</strong>’s GitHub repository so that this document can be updated. The information should include:
+If you use package <strong>hyperSpec</strong> with data formats not
+mentioned in this document, please open a <a href="https://github.com/r-hyperspec/hyperSpec/issues" target="_blank" class="external-link">new issue</a> in <strong>hyperSpec</strong>’s GitHub
+repository so that this document can be updated. The information should
+include:
 </p>
 <ul>
 <li>
@@ -172,14 +183,17 @@ The “native” file format (including a sample file),
 Description of relevant procedures to convert the file,
 </li>
 <li>
-R code to import the data together with an example file that is read by R,
+R code to import the data together with an example file that is read
+by R,
 </li>
 <li>
 Documentation, particularly the description of the data format.
 </li>
 </ul>
 <p>
-If you need help finding out how to import your data, please search and eventually ask on <a href="http://stackoverflow.com/questions/tagged/r+spectroscopy" target="_blank" class="external-link">Stackexchange</a> with tags <code>[r]</code> and <code>[spectroscopy]</code>.
+If you need help finding out how to import your data, please search
+and eventually ask on <a href="http://stackoverflow.com/questions/tagged/r+spectroscopy" target="_blank" class="external-link">Stackexchange</a> with tags <code>[r]</code> and
+<code>[spectroscopy]</code>.
 </p>
 </div>
 <!-- ======================================================================= -->
@@ -190,7 +204,10 @@ If you need help finding out how to import your data, please search and eventual
 <strong>Reproducing the Examples in this Manual</strong>
 </p>
 <p>
-To run the code examples, create a folder named “fileio” in your working directory and copy the contents of the directory <a href="https://github.com/r-hyperspec/hyperSpec/tree/r-hyperspec/Vignettes/fileio" class="external-link uri">https://github.com/r-hyperspec/hyperSpec/tree/r-hyperspec/Vignettes/fileio</a>. This online directory contains the required datasets (via <code>git-lfs</code>).
+To run the code examples, create a folder named “fileio” in your
+working directory and copy the contents of the directory <a href="https://github.com/r-hyperspec/hyperSpec/tree/r-hyperspec/Vignettes/fileio" class="external-link uri">https://github.com/r-hyperspec/hyperSpec/tree/r-hyperspec/Vignettes/fileio</a>.
+This online directory contains the required datasets (via
+<code>git-lfs</code>).
 </p>
 </div>
 <hr>
@@ -221,8 +238,6 @@ In general, the naming convention is the data format followed by the manufacture
 <!-- ======================================================================= -->
 <!-- ======================================================================= -->
 <p>
-
-
 </p>
 <p>To create a <code class="sourceCode r">hyperSpec</code> object from data in R’s workspace, use:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -364,11 +379,6 @@ Also, both <code class="sourceCode r"><span class="fu">read.txt.long</span>()</c
 <span class="header-section-number">5.1</span> ASCII Files with Samples in Columns<a class="anchor" aria-label="anchor" href="#sec:ascii-files-cols"></a>
 </h3>
 <p>
-
-
-
-
-
 </p>
 <p>Richard Pena asked about importing another ASCII file type:</p>
 <blockquote>
@@ -403,8 +413,6 @@ Import is straightforward, and just the spectra matrix needs to be transposed to
 <span class="header-section-number">5.2</span> Basic Atomic Spectra from NIST Tables<a class="anchor" aria-label="anchor" href="#sec:aes-nist"></a>
 </h3>
 <p>
-
-
 </p>
 <p>The NIST (National Institute of Standards and Technology) has published a data base of basic atomic
 emission spectra see <a href="http://physics.nist.gov/PhysRefData/Handbook/periodictable.htm" class="external-link uri">http://physics.nist.gov/PhysRefData/Handbook/periodictable.htm</a> with emission lines tabulated in ASCII (HTML) files.</p>
@@ -526,13 +534,18 @@ With <code class="sourceCode r">block <span class="ot">=</span> <span class="cn"
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/DEPRECATED-read.mat.Cytospec.html">read.mat.Cytospec</a></span><span class="op">(</span><span class="st">"fileio/mat.cytospec/cytospec.mat"</span>, blocks <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <div class="redbox">
 <p>
-<strong>Function <code class="sourceCode r">read.cytomat</code> is now <em>defunct</em></strong>.
+<strong>Function <code class="sourceCode r">read.cytomat</code> is
+now <em>defunct</em></strong>.
 </p>
 <p>
-Function <code class="sourceCode r"><span class="fu">read.cytomat</span>()</code> has been renamed to <code class="sourceCode r"><span class="fu">read.mat.Cytospec</span>()</code> to be more consistent with the general naming scheme of the file import functions.
+Function <code class="sourceCode r"><span class="fu">read.cytomat</span>()</code> has
+been renamed to <code class="sourceCode r"><span class="fu">read.mat.Cytospec</span>()</code>
+to be more consistent with the general naming scheme of the file import
+functions.
 </p>
 <p>
-Please use <code class="sourceCode r"><span class="fu">read.mat.Cytospec</span>()</code> instead.
+Please use <code class="sourceCode r"><span class="fu">read.mat.Cytospec</span>()</code>
+instead.
 </p>
 </div>
 </div>
@@ -541,8 +554,7 @@ Please use <code class="sourceCode r"><span class="fu">read.mat.Cytospec</span>(
 <h3 id="sec:read-ENVI">
 <span class="header-section-number">6.2</span> ENVI Files<a class="anchor" aria-label="anchor" href="#sec:read-ENVI"></a>
 </h3>
-<p>    
-   
+<p>
 </p>
 <p>ENVI files are binary data accompanied by an ASCII header file.
 Package <strong>hyperSpec</strong>’s function <code class="sourceCode r"><span class="fu">read.ENVI</span>()</code> can be used to import them.
@@ -567,22 +579,6 @@ The help page gives details on what elements the list should contain, see also t
 <span class="header-section-number">6.3</span> <code>spc</code> Files<a class="anchor" aria-label="anchor" href="#sec:read-spc"></a>
 </h3>
 <p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </p>
 <p>Thermo Galactic’s <code>.spc</code> file format can be imported by <code class="sourceCode r"><span class="fu">read.spc</span>()</code>.</p>
 <div class="greenbox">
@@ -590,7 +586,10 @@ The help page gives details on what elements the list should contain, see also t
 <strong>Official File Format Documentation</strong>
 </p>
 <p>
-The specification used to be available at Thermo Scientific. Anyone knowing where it moved please contact me (<a href="https://github.com/r-hyperspec/hyperSpec/issues" target="_blank" class="external-link"><strong>hyperSpec</strong>’s GitHub repository</a>) — I’m looking for a reasonably official website (i.e. at Thermo) rather than some random site with a copy.
+The specification used to be available at Thermo Scientific. Anyone
+knowing where it moved please contact me (<a href="https://github.com/r-hyperspec/hyperSpec/issues" target="_blank" class="external-link"><strong>hyperSpec</strong>’s GitHub repository</a>) —
+I’m looking for a reasonably official website (i.e. at Thermo) rather
+than some random site with a copy.
 </p>
 </div>
 <!-- ======================================================================= -->
@@ -675,10 +674,6 @@ If there is any format not mentioned in this document (even without the need of 
 <span class="header-section-number">7.2</span> Bruker FT-IR Imaging<a class="anchor" aria-label="anchor" href="#sec:read-ENVI-Bruker"></a>
 </h3>
 <p>
-
-
-
-
 </p>
 <p>We use <code class="sourceCode r"><span class="fu">read.ENVI</span>()</code> to import IR-Images collected with a Bruker Hyperion spectrometer with OPUS software.
 As mentioned above, the header files are frequently empty.
@@ -701,10 +696,6 @@ For details, please see the help page.</p>
 <span class="header-section-number">7.3</span> Nicolet FT-IR Imaging<a class="anchor" aria-label="anchor" href="#sec:read-ENVI-Nicolet"></a>
 </h3>
 <p>
-
-
-
-
 </p>
 <p>Also, Nicolet saves imaging data in ENVI files.
 These files use some non-standard keywords in the header file that should reconstruct the lateral coordinates and the wavelength axes and units for wavelength and intensity axis.
@@ -721,11 +712,6 @@ Alternatively, the correct offset and pixel size values may be given as function
 <span class="header-section-number">7.4</span> Varian/Agilent FT-IR Imaging<a class="anchor" aria-label="anchor" href="#sec:varianagilent-ft-ir"></a>
 </h3>
 <p>
-
-
-
-
-
 </p>
 <p>Agilent (Varian) uses a variant of ENVI (with binary header).</p>
 </div>
@@ -734,12 +720,6 @@ Alternatively, the correct offset and pixel size values may be given as function
 <span class="header-section-number">7.5</span> Kaiser Optical Systems Raman<a class="anchor" aria-label="anchor" href="#sec:Kaiser"></a>
 </h3>
 <p>
-
-
-
-
-
-
 </p>
 <p>Spectra obtained using Kaiser’s Hologram software can be saved either in their own <code>.hol</code> format and imported into Matlab (from where the data may be written to a <code>.mat</code> file readable by package <strong>R.matlab</strong>’s <code class="sourceCode r"><span class="fu">readMat</span>()</code>.
 Hologram can also write ASCII files and <code>.spc</code> files.
@@ -752,9 +732,6 @@ See the example for <code>.spc</code> import.</p>
 <span class="header-section-number">7.5.1</span> Kaiser Optical Systems ASCII Files<a class="anchor" aria-label="anchor" href="#sec:KaiserASCII"></a>
 </h4>
 <p>
-
-
-
 </p>
 <p>The ASCII files are long format that can be imported by <code class="sourceCode r"><span class="fu">read.txt.long</span>()</code> (see section <!--\@ref(sec:read-txt-long)--><a href="#sec:ascii">5</a><!--, p. \pageref{sec:read-txt-long}-->).</p>
 <p>We experienced two different problems with these files:</p>
@@ -783,12 +760,6 @@ This may be a problem for certain conversion functions (<code class="sourceCode 
 <span class="header-section-number">7.5.2</span> Kaiser Optical Systems Raman Maps<a class="anchor" aria-label="anchor" href="#sec:read-spc-KaiserMap"></a>
 </h4>
 <p>
-
-
-
-
-
-
 </p>
 <p>package <strong>hyperSpec</strong> provides the function <code class="sourceCode r"><span class="fu">read.spc.KaiserMap</span>()</code> to easily import spatial collections of
 <code>.spc</code> files written by Kaiser’s Hologram software.
@@ -809,9 +780,6 @@ Thus, a file name pattern is difficult to give, and a vector of file names is us
 <span class="header-section-number">7.6</span> Renishaw Raman<a class="anchor" aria-label="anchor" href="#sec:read-txt-Renishaw"></a>
 </h3>
 <p>
-
-
-
 </p>
 <p>Renishaw’s Wire software comes with a file format converter.
 This program can produce a long ASCII format, <code>.spc</code>, or <code>.jdx</code> files.</p>
@@ -824,12 +792,6 @@ Otherwise the import using <code class="sourceCode r"><span class="fu">read.spc<
 <span class="header-section-number">7.6.1</span> Renishaw ASCII data<a class="anchor" aria-label="anchor" href="#sec:read-txt-Renishaw-ASCII"></a>
 </h4>
 <p>
-
-
-
-
-
-
 </p>
 <p>An optimized import function for the ASCII files is available: <code class="sourceCode r"><span class="fu">read.txt.Renishaw</span>()</code>.
 The file may be compressed via gzip, bzip2, xz or lzma.
@@ -887,13 +849,6 @@ Supported types are:</p>
 <span class="header-section-number">7.7</span> Horiba / Jobin Yvon (e.g. LabRAM)<a class="anchor" aria-label="anchor" href="#sec:read-txt-Horiba"></a>
 </h3>
 <p>
-
-
-
-
-
-
-
 </p>
 <p>Horiba’s Labspec software (e. g. LabRAM spectrometers) saves spectra in a wide ASCII format which is read by <code class="sourceCode r"><span class="fu">read.txt.Horiba</span>()</code>, e. g.:</p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
@@ -933,7 +888,6 @@ These spectra are by removed by default if option <code class="sourceCode r">fil
 <span class="header-section-number">7.8</span> Andor Solis<a class="anchor" aria-label="anchor" href="#sec:read-asc-Andor"></a>
 </h3>
 <p>
-
 </p>
 <p>Andor Solis exports ASCII files that can be read with <code class="sourceCode r"><span class="fu">read.asc.Andor</span>()</code>:</p>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
@@ -944,14 +898,6 @@ These spectra are by removed by default if option <code class="sourceCode r">fil
 <span class="header-section-number">7.9</span> Witec<a class="anchor" aria-label="anchor" href="#sec:read-txt-Witec"></a>
 </h3>
 <p>
-
-
-
-
-
-
-
-
 </p>
 <p>The Witec project software supports exporting spectra as Thermo Galactic <code>.spc</code> files.</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
@@ -1007,10 +953,6 @@ more details for an already existing import filter.</p>
 <span class="header-section-number">8.1</span> A new ASCII Import Function: <code>read.txt.PerkinElmer</code><a class="anchor" aria-label="anchor" href="#sec:read-txt-PerkinElmer"></a>
 </h3>
 <p>
-
-
-
-
 </p>
 <p>The raw spectra of the <code class="sourceCode r">flu</code> data set (see also the <a href="#list-of-vignettes">separate vignette</a>) are in PerkinElmer’s ASCII file format, one spectrum per file.</p>
 <p>We need a function that automatically reads all files specified by a pattern, such as <code class="sourceCode r"><span class="sc">*</span>.txt</code>.
@@ -1101,13 +1043,6 @@ Thus information like the excitation wavelength is lost.</p>
 <span class="header-section-number">8.2</span> Deriving a More Specific Function: <code class="sourceCode r"><span class="fu">read.ENVI.Nicolet</span>()</code><a class="anchor" aria-label="anchor" href="#deriving-a-more-specific-function-read-envi-nicolet"></a>
 </h3>
 <p>
-
-
-
-
-
-
-
 </p>
 <p>The function <code class="sourceCode r"><span class="fu">read.ENVI.Nicolet</span>()</code> is an excellent example of a more specific import filter derived from a generic filter for the particular file type.
 Nicolet FT-IR Imaging software saves some non-standard keywords in the header file of the ENVI data.
@@ -3948,92 +3883,92 @@ matrix
 <code class="sourceCode R"><span><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html" class="external-link">session_info</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span></span></span>
-<span><span class="co">#&gt;  version  R version 4.2.1 (2022-06-23)</span></span>
-<span><span class="co">#&gt;  os       Ubuntu 20.04.4 LTS</span></span>
+<span><span class="co">#&gt;  version  R version 4.3.0 (2023-04-21)</span></span>
+<span><span class="co">#&gt;  os       Ubuntu 22.04.2 LTS</span></span>
 <span><span class="co">#&gt;  system   x86_64, linux-gnu</span></span>
 <span><span class="co">#&gt;  ui       X11</span></span>
 <span><span class="co">#&gt;  language en</span></span>
 <span><span class="co">#&gt;  collate  C.UTF-8</span></span>
 <span><span class="co">#&gt;  ctype    C.UTF-8</span></span>
 <span><span class="co">#&gt;  tz       UTC</span></span>
-<span><span class="co">#&gt;  date     2022-08-07</span></span>
-<span><span class="co">#&gt;  pandoc   2.14.2 @ /usr/bin/ (via rmarkdown)</span></span>
+<span><span class="co">#&gt;  date     2023-04-23</span></span>
+<span><span class="co">#&gt;  pandoc   2.19.2 @ /usr/bin/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">package       </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version     </span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span></span>
-<span><span class="co">#&gt;  bookdown         0.27         <span style="color: #555555;">2022-06-14</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  bookdown         0.33         <span style="color: #555555;">2023-03-06</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  brio             1.1.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  bslib            0.4.0        <span style="color: #555555;">2022-07-16</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  cachem           1.0.6        <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  cli              3.3.0        <span style="color: #555555;">2022-04-25</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  colorspace       2.0-3        <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  bslib            0.4.2        <span style="color: #555555;">2022-12-16</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  cachem           1.0.7        <span style="color: #555555;">2023-02-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  cli              3.6.1        <span style="color: #555555;">2023-03-23</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  colorspace       2.1-0        <span style="color: #555555;">2023-01-23</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  deldir           1.0-6        <span style="color: #555555;">2021-10-23</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  digest           0.6.29       <span style="color: #555555;">2021-12-01</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  dplyr            1.0.9        <span style="color: #555555;">2022-04-28</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  evaluate         0.15         <span style="color: #555555;">2022-02-18</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  fansi            1.0.3        <span style="color: #555555;">2022-03-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  fastmap          1.1.0        <span style="color: #555555;">2021-01-25</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  digest           0.6.31       <span style="color: #555555;">2022-12-11</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  dplyr            1.1.2        <span style="color: #555555;">2023-04-20</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  evaluate         0.20         <span style="color: #555555;">2023-01-17</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  fansi            1.0.4        <span style="color: #555555;">2023-01-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  fastmap          1.1.1        <span style="color: #555555;">2023-02-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  generics         0.1.3        <span style="color: #555555;">2022-07-05</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  ggplot2        * 3.3.6        <span style="color: #555555;">2022-05-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  ggplot2        * 3.4.2        <span style="color: #555555;">2023-04-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  glue             1.6.2        <span style="color: #555555;">2022-02-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  gtable           0.3.0        <span style="color: #555555;">2019-03-25</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  highr            0.9          <span style="color: #555555;">2021-04-16</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  htmltools        0.5.3        <span style="color: #555555;">2022-07-18</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  httr             1.4.3        <span style="color: #555555;">2022-05-04</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2022-08-07</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
+<span><span class="co">#&gt;  gtable           0.3.3        <span style="color: #555555;">2023-03-21</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  highr            0.10         <span style="color: #555555;">2022-12-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  htmltools        0.5.5        <span style="color: #555555;">2023-03-23</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  httr             1.4.5        <span style="color: #555555;">2023-02-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  hyperSpec      * <span style="color: #BB00BB; font-weight: bold;">0.200.0.9000</span> <span style="color: #555555;">2023-04-23</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
 <span><span class="co">#&gt;  hySpc.testthat   0.2.1        <span style="color: #555555;">2020-06-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  interp           1.1-3        <span style="color: #555555;">2022-07-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  jpeg             0.1-9        <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  interp           1.1-4        <span style="color: #555555;">2023-03-31</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  jpeg             0.1-10       <span style="color: #555555;">2022-11-29</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  jquerylib        0.1.4        <span style="color: #555555;">2021-04-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  jsonlite         1.8.0        <span style="color: #555555;">2022-02-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  jsonlite         1.8.4        <span style="color: #555555;">2022-12-06</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  kableExtra       1.3.4        <span style="color: #555555;">2021-02-20</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  knitr            1.39         <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  lattice        * 0.20-45      <span style="color: #555555;">2021-09-22</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
+<span><span class="co">#&gt;  knitr            1.42         <span style="color: #555555;">2023-01-25</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  lattice        * 0.21-8       <span style="color: #555555;">2023-04-05</span> <span style="color: #555555;">[4]</span> <span style="color: #555555;">CRAN (R 4.3.0)</span></span></span>
 <span><span class="co">#&gt;  latticeExtra     0.6-30       <span style="color: #555555;">2022-07-04</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  lazyeval         0.2.2        <span style="color: #555555;">2019-03-15</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  lifecycle        1.0.1        <span style="color: #555555;">2021-09-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  lifecycle        1.0.3        <span style="color: #555555;">2022-10-07</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  magrittr         2.0.3        <span style="color: #555555;">2022-03-30</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  munsell          0.5.0        <span style="color: #555555;">2018-06-12</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  pillar           1.8.0        <span style="color: #555555;">2022-07-18</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  pillar           1.9.0        <span style="color: #555555;">2023-03-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  pkgconfig        2.0.3        <span style="color: #555555;">2019-09-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  png              0.1-7        <span style="color: #555555;">2013-12-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  purrr            0.3.4        <span style="color: #555555;">2020-04-17</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  png              0.1-8        <span style="color: #555555;">2022-11-29</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  purrr            1.0.1        <span style="color: #555555;">2023-01-10</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  R.cache          0.16.0       <span style="color: #555555;">2022-07-21</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  R.matlab       * 3.6.2        <span style="color: #555555;">2018-09-27</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  R.matlab       * 3.7.0        <span style="color: #555555;">2022-08-25</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  R.methodsS3      1.8.2        <span style="color: #555555;">2022-06-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  R.oo             1.25.0       <span style="color: #555555;">2022-06-12</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  R.utils          2.12.0       <span style="color: #555555;">2022-06-28</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  R.utils          2.12.2       <span style="color: #555555;">2022-11-11</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  R6               2.5.1        <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  RColorBrewer     1.1-3        <span style="color: #555555;">2022-04-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  Rcpp             1.0.9        <span style="color: #555555;">2022-07-08</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  rematch2         2.1.2        <span style="color: #555555;">2020-05-01</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  rlang            1.0.4        <span style="color: #555555;">2022-07-12</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  rmarkdown        2.14         <span style="color: #555555;">2022-04-25</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  rstudioapi       0.13         <span style="color: #555555;">2020-11-12</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  rvest            1.0.2        <span style="color: #555555;">2021-10-16</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  sass             0.4.2        <span style="color: #555555;">2022-07-16</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  scales           1.2.0        <span style="color: #555555;">2022-04-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  Rcpp             1.0.10       <span style="color: #555555;">2023-01-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  rlang            1.1.0        <span style="color: #555555;">2023-03-14</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  rmarkdown        2.21         <span style="color: #555555;">2023-03-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  rstudioapi       0.14         <span style="color: #555555;">2022-08-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  rvest            1.0.3        <span style="color: #555555;">2022-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  sass             0.4.5        <span style="color: #555555;">2023-01-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  scales           1.2.1        <span style="color: #555555;">2022-08-20</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  sessioninfo      1.2.2        <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  stringi          1.7.8        <span style="color: #555555;">2022-07-11</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  stringr          1.4.0        <span style="color: #555555;">2019-02-10</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  styler           1.7.0        <span style="color: #555555;">2022-03-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  svglite          2.1.0        <span style="color: #555555;">2022-02-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  stringi          1.7.12       <span style="color: #555555;">2023-01-11</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  stringr          1.5.0        <span style="color: #555555;">2022-12-02</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  styler           1.9.1        <span style="color: #555555;">2023-03-04</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  svglite          2.1.1        <span style="color: #555555;">2023-01-10</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  systemfonts      1.0.4        <span style="color: #555555;">2022-02-11</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  testthat         3.1.4        <span style="color: #555555;">2022-04-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  tibble           3.1.8        <span style="color: #555555;">2022-07-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  tidyselect       1.1.2        <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  utf8             1.2.2        <span style="color: #555555;">2021-07-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  vctrs            0.4.1        <span style="color: #555555;">2022-04-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  viridisLite      0.4.0        <span style="color: #555555;">2021-04-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  webshot          0.5.3        <span style="color: #555555;">2022-04-14</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  testthat         3.1.7        <span style="color: #555555;">2023-03-12</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  tibble           3.2.1        <span style="color: #555555;">2023-03-20</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  tidyselect       1.2.0        <span style="color: #555555;">2022-10-10</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  utf8             1.2.3        <span style="color: #555555;">2023-01-31</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  vctrs            0.6.2        <span style="color: #555555;">2023-04-19</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  viridisLite      0.4.1        <span style="color: #555555;">2022-08-22</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  webshot          0.5.4        <span style="color: #555555;">2022-09-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  withr            2.5.0        <span style="color: #555555;">2022-03-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  xfun             0.31         <span style="color: #555555;">2022-05-10</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  xfun             0.39         <span style="color: #555555;">2023-04-20</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  xml2             1.3.3        <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  yaml             2.3.5        <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  yaml             2.3.7        <span style="color: #555555;">2023-01-23</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> [1] /tmp/RtmpVIOjBC/temp_libpath35564e9ba3a6</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;"> [1] /tmp/RtmpmKLfZ5/temp_libpath22dfc4ace16</span></span></span>
 <span><span class="co">#&gt; <span style="color: #555555;"> [2] /home/runner/work/_temp/Library</span></span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> [3] /opt/R/4.2.1/lib/R/library</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;"> [3] /opt/R/4.3.0/lib/R/site-library</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;"> [4] /opt/R/4.3.0/lib/R/library</span></span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────────────────────────</span></span></span></code></pre></div>
 </div>
@@ -4066,7 +4001,7 @@ matrix
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
