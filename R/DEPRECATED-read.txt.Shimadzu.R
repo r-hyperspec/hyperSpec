@@ -133,7 +133,6 @@ read.txt.Shimadzu <- function(filename, encoding = "", quiet = TRUE) {
     specLi <- list() # list of all spectra in current header section
     for (i in 1:(length(pos4Li[[header]]) - 1))
     {
-
       # extract spectra
       start <- pos4Li[[header]][i] + 5 # data starts 5 rows below
       stop <- pos4Li[[header]][i + 1] - 1 # last data row before new Spectrum

@@ -78,12 +78,10 @@
     X@data <- .apply_workhorse(X@data, MARGIN = MARGIN, FUN = FUN, ...)
 
     if (all(MARGIN == 1)) {
-
       ## if the number of data points per spectrum is changed, the wavelength
       ## vector needs to be adapted, too
 
       if (ncol(X@data$spc) != length(X@wavelength)) {
-
         ## only internal functions here: the validation will fail until the wavelength axis is
         ## adjusted
 

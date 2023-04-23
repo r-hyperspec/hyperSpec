@@ -227,7 +227,6 @@ hySpc.testthat::test(rbind.hyperSpec) <- function() {
   })
 
   test_that("rbind.hyperSpec() works", {
-
     # One dataset
     expect_equal(rbind(flu), flu)
 
@@ -255,7 +254,6 @@ hySpc.testthat::test(cbind.hyperSpec) <- function() {
   })
 
   test_that("cbind.hyperSpec() works", {
-
     # One dataset
     expect_equal(cbind(flu), flu)
 

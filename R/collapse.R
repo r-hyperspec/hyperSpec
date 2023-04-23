@@ -490,7 +490,6 @@ hySpc.testthat::test(collapse) <- function() {
 #' @return `data.frame` with information about suitable wavelength bins
 #' @noRd
 .cluster_wavelengths <- function(dots, wl.tolerance) {
-
   # set up data.frame to hold relevant information
   wl.df <- lapply(seq_along(dots), function(i) {
     if (nwl(dots[[i]]) == 0L) {
@@ -567,7 +566,7 @@ hySpc.testthat::test(collapse) <- function() {
   ## this saves one call to wl_sort () later on.
   wl.df$wlcluster <- as.numeric(
     factor(wl.df$wlcluster, levels = unique(wl.df$wlcluster))
-    )
+  )
 
   wl.df
 }

@@ -36,7 +36,7 @@
 #' plot_matrix(laser, laser$t / 3600, ylab = "t / h")
 #' @importFrom utils modifyList
 plot_matrix <- function(object, y = ".row", ylab, col = palette_alois(20), ...,
-                    contour = FALSE) {
+                        contour = FALSE) {
   assert_hyperSpec(object)
   validObject(object)
   object <- wl_sort(object)

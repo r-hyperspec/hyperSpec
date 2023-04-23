@@ -187,7 +187,6 @@ hySpc.testthat::test(.merge) <- function() {
   })
 
   test_that("merging hyperSpec object with data.frame", {
-
     ## y has multiple rows for each x row
     y <- data.frame(filename = rep(flu$filename, 2), cpred = 1:12)
     tmp <- merge(flu, y)

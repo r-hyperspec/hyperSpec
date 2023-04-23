@@ -60,7 +60,6 @@ read.jdx <- function(filename = NULL, encoding = "",
                      collapse.multi = TRUE,
                      wl.tolerance = hy_get_option("wl.tolerance"),
                      collapse.equal = TRUE) {
-
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   hySpc_deprecated(new = "read_jdx()", package = "hySpc.read.jdx")
 
@@ -142,7 +141,6 @@ read.jdx <- function(filename = NULL, encoding = "",
 ### HEADER ------------------------------------------------------------------------------------------
 
 .jdx.readhdr <- function(hdr) {
-
   ## get rid of comments. JCAMP-DX comments start with $$ and go to the end of the line.
   hdr <- hdr[!grepl("^[[:blank:]]*[$][$]", hdr)]
   hdr <- gsub("([[:blank:]][$][$].*)$", "", hdr)
@@ -187,7 +185,6 @@ read.jdx <- function(filename = NULL, encoding = "",
 }
 
 .jdx.processhdr <- function(spc, hdr, keys, ..., ytol = abs(hdr$yfactor), NA.symbols) {
-
   ## hdr$xfactor and $yfactor applied by individual reading functions
 
   ## check Y values
@@ -238,7 +235,6 @@ read.jdx <- function(filename = NULL, encoding = "",
 
 ### DATA FORMATS --------------------------------------------------------------
 .jdx.TABULAR.PAC <- function(hdr, data, ..., xtol = hdr$xfactor) {
-
   ## regexp for numbers including scientific notation
   .PATTERN.number <- "[-+]?[0-9]*[.]?[0-9]*([eE][-+]?[0-9]+)?"
   if (is.null(hdr$firstx)) stop("##FIRSTX= missing.")

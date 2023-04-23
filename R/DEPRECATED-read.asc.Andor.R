@@ -30,7 +30,6 @@
 #' @export
 read.asc.Andor <- function(file = stop("filename or connection needed"),
                            ..., quiet = TRUE, dec = ".", sep = ",") {
-
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   deprecated_read_txt()
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

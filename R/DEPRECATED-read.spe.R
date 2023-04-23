@@ -57,7 +57,6 @@ read.spe <- function(filename, xaxis = "file", acc2avg = F, cts_sec = F,
                        "numFrames",
                        "darkSubtracted"
                      )) {
-
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   deprecated_read_spe()
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -311,7 +310,6 @@ read.spe <- function(filename, xaxis = "file", acc2avg = F, cts_sec = F,
 #' @export
 #'
 spe.showcalpoints <- function(filename, xaxis = "file", acc2avg = F, cts_sec = F) {
-
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   deprecated_read_spe()
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

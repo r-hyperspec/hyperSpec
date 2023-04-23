@@ -92,7 +92,7 @@
 #' )
 #' @importFrom utils modifyList
 plot_c <- function(object, model = spc ~ c, groups = NULL,
-                  func = NULL, func.args = list(), ...) {
+                   func = NULL, func.args = list(), ...) {
   assert_hyperSpec(object)
   validObject(object)
 

@@ -61,8 +61,7 @@
     if (!is.null(dim(x))) {
       paste(if (is.matrix(x) & all(class(x) != "matrix")) {
         " matrix x "
-      } else
-      if (is.array(x) & all(class(x) != "array") & all(class(x) != "matrix")) {
+      } else      if (is.array(x) & all(class(x) != "array") & all(class(x) != "matrix")) {
         " array x "
       },
       paste(dim(x)[-1], collapse = " x "),

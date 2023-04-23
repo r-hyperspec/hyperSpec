@@ -48,7 +48,6 @@ qplotspc <- function(x,
                      spc.nmax = hy_get_option("ggplot.spc.nmax"),
                      map.lineonly = FALSE,
                      debuglevel = hy_get_option("debuglevel")) {
-
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   deprecated_ggplot2(new = "qplotspc")
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
