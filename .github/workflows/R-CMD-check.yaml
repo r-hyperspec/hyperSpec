@@ -4,7 +4,10 @@ on:
     branches: [main, master, develop, release, auto-update-test]
   pull_request:
     branches: [main, master, develop, release]
-
+  schedule:
+    # (see https://crontab.guru)
+    - cron: "5 3 * */2 WED"
+    
 name: R-CMD-check
 
 jobs:
