@@ -2261,7 +2261,7 @@ Please refer to the documentation of the respective functions for details about 
 <span>  <span class="op">}</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    user  system elapsed </span></span>
-<span><span class="co">#&gt;   0.073   0.008   0.085</span></span></code></pre></div>
+<span><span class="co">#&gt;   0.079   0.000   0.079</span></span></code></pre></div>
 <p>Calculations that involve a lot of subsetting (i.e., extracting or changing the spectra matrix or extra data) can be sped up considerably if the required parts of the <code>hyperSpec</code> object are extracted beforehand.
 This is somewhat similar to model fitting in <code>R</code> in general: many model fitting functions in <code>R</code> are much faster if the formula interface is avoided and the appropriate <code class="sourceCode r">data.frame</code>s or matrices are handed over directly.</p>
 <div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
@@ -2275,7 +2275,7 @@ This is somewhat similar to model fitting in <code>R</code> in general: many mod
 <span>  <span class="va">tmp</span><span class="op">[[</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">tmp.matrix</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    user  system elapsed </span></span>
-<span><span class="co">#&gt;   0.029   0.000   0.029</span></span></code></pre></div>
+<span><span class="co">#&gt;   0.031   0.000   0.030</span></span></code></pre></div>
 </div>
 <div class="section level3" number="8.1">
 <h3 id="additional-packages">
@@ -2377,7 +2377,7 @@ The memory consumption of <code class="sourceCode r"><span class="fu">read.txt.R
 <span><span class="co">#&gt;    withr            2.5.0        <span style="color: #555555;">2022-03-03</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;    xml2             1.3.4        <span style="color: #555555;">2023-04-27</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> [1] /tmp/RtmptlQkfp/temp_libpath1aec36e31778</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;"> [1] /tmp/RtmpMU6O22/temp_libpath1afa71e669d2</span></span></span>
 <span><span class="co">#&gt; <span style="color: #555555;"> [2] /home/runner/work/_temp/Library</span></span></span>
 <span><span class="co">#&gt; <span style="color: #555555;"> [3] /opt/R/4.3.0/lib/R/site-library</span></span></span>
 <span><span class="co">#&gt; <span style="color: #555555;"> [4] /opt/R/4.3.0/lib/R/library</span></span></span>
