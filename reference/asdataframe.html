@@ -195,15 +195,15 @@ other functions producing long-format data frames.</p></li>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">as.data.frame</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, , <span class="fl">600</span> <span class="op">~</span> <span class="fl">620</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        x     y region spc.602 spc.606 spc.610 spc.614 spc.618 .row</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -11.55 -4.77 matrix       3       7       7       7       8    1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -10.55 -4.77 matrix      69      66      76      71      74    2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  -9.55 -4.77 matrix      83      93     105     111      91    3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -11.55 -4.77 matrix     178     175     170     166     175    1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -10.55 -4.77 matrix     196     202     186     188     203    2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  -9.55 -4.77 matrix      54      60      56      41      65    3</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">as.matrix</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, , <span class="fl">600</span> <span class="op">~</span> <span class="fl">620</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      602 606 610 614 618</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]   3   7   7   7   8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  69  66  76  71  74</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  83  93 105 111  91</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 178 175 170 166 175</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 196 202 186 188 203</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  54  60  56  41  65</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">c</span> <span class="op">~</span> <span class="va">spc</span>, data <span class="op">=</span> <span class="va">flu</span><span class="op">[</span>, , <span class="fl">450</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
@@ -216,26 +216,26 @@ other functions producing long-format data frames.</p></li>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">as.wide.df</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, , <span class="fl">600</span> <span class="op">~</span> <span class="fl">610</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        x     y region 602 606 610</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -11.55 -4.77 matrix   3   7   7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -10.55 -4.77 matrix  69  66  76</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  -9.55 -4.77 matrix  83  93 105</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  -8.55 -4.77 matrix 202 201 186</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  -7.55 -4.77 matrix 238 180 200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -11.55 -4.77 matrix 178 175 170</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -10.55 -4.77 matrix 196 202 186</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  -9.55 -4.77 matrix  54  60  56</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  -8.55 -4.77 matrix 134 146 138</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  -7.55 -4.77 matrix 159 110 126</span>
 <span class="r-in"><span><span class="fu"><a href="show.html">summary</a></span><span class="op">(</span><span class="fu">as.wide.df</span><span class="op">(</span><span class="va">faux_cell</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, , <span class="fl">600</span> <span class="op">~</span> <span class="fl">610</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        x                y             region       602           606       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :-11.55   Min.   :-4.77   cell   :0   Min.   :  3   Min.   :  7.0  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:-10.55   1st Qu.:-4.77   matrix :5   1st Qu.: 69   1st Qu.: 66.0  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Median : -9.55   Median :-4.77   nucleus:0   Median : 83   Median : 93.0  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   : -9.55   Mean   :-4.77               Mean   :119   Mean   :109.4  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.: -8.55   3rd Qu.:-4.77               3rd Qu.:202   3rd Qu.:180.0  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   : -7.55   Max.   :-4.77               Max.   :238   Max.   :201.0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        x                y             region       602             606       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :-11.55   Min.   :-4.77   cell   :0   Min.   : 54.0   Min.   : 60.0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:-10.55   1st Qu.:-4.77   matrix :5   1st Qu.:134.0   1st Qu.:110.0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Median : -9.55   Median :-4.77   nucleus:0   Median :159.0   Median :146.0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   : -9.55   Mean   :-4.77               Mean   :144.2   Mean   :138.6  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.: -8.55   3rd Qu.:-4.77               3rd Qu.:178.0   3rd Qu.:175.0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   : -7.55   Max.   :-4.77               Max.   :196.0   Max.   :202.0  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       610       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :  7.0  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.: 76.0  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Median :105.0  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   :114.8  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.:186.0  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   :200.0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   : 56.0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:126.0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Median :138.0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   :135.2  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.:170.0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   :186.0  </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">as.long.df</span><span class="op">(</span><span class="va">flu</span><span class="op">[</span>, , <span class="fl">405</span> <span class="op">~</span> <span class="fl">410</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      .wavelength       spc         filename    c</span>
@@ -334,12 +334,12 @@ other functions producing long-format data frames.</p></li>
 <span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">as.t.df</span><span class="op">(</span><span class="fu"><a href="apply.html">apply</a></span><span class="op">(</span><span class="va">faux_cell</span>, <span class="fl">2</span>, <span class="va">mean_pm_sd</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         .wavelength mean.minus.sd     mean mean.plus.sd</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> spc.602         602      38.98193 97.61371     156.2455</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> spc.606         606      39.66843 98.68457     157.7007</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> spc.610         610      39.12904 97.92343     156.7178</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> spc.614         614      39.15584 97.76571     156.3756</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> spc.618         618      39.41647 98.02629     156.6361</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> spc.622         622      39.25432 97.70171     156.1491</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> spc.602         602      42.50010 101.9509     161.4016</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> spc.606         606      43.12488 102.0960     161.0671</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> spc.610         610      43.09134 102.2217     161.3521</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> spc.614         614      42.90209 101.9211     160.9402</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> spc.618         618      43.08454 101.9634     160.8423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> spc.622         622      42.73280 101.7349     160.7369</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.wavelength</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
