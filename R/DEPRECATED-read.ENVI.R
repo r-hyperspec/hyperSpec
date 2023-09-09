@@ -127,8 +127,10 @@ split.line <- function(x, separator, trim.blank = TRUE) {
     header$interleave <- "bsq"
   }
 
-  if (any(is.null(header[c("samples", "lines", "bands", "data type")]) ||
-    is.na(header[c("samples", "lines", "bands", "data type")]))) {
+  if (
+    any(is.null(header[c("samples", "lines", "bands", "data type")])) ||
+    any(  is.na(header[c("samples", "lines", "bands", "data type")]))
+  ) {
     stop(
       "Error in ENVI header (required entry missing or incorrect)\n header: ",
       paste(names(header), " = ", header, collapse = ", ")
