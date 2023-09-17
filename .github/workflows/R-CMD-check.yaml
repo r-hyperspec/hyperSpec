@@ -1,13 +1,13 @@
 on:
   workflow_dispatch:
   push:
-    branches: [main, master, develop, release, auto-update-test]
+    branches: [main, master, develop, release, auto-update-test, update-gha-workflows]
   pull_request:
     branches: [main, master, develop, release]
   schedule:
     # (see https://crontab.guru)
     - cron: "5 3 * */2 WED"
-    
+
 name: R-CMD-check
 
 jobs:
@@ -43,16 +43,16 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
+      - name: Install dependencies (for R-devel)
+        if: matrix.config.r == 'devel'
+        run: |
+          install.packages("vdiffr", type = "source")
+        shell: Rscript {0}
+
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::rcmdcheck, any::devtools, local::.
           needs: check
-
-      - name: Install dependencies (for R-devel)
-        if: matrix.config.r == 'devel'
-        run: |
-          remotes::install_cran("vdiffr", type = "source", force = TRUE)
-        shell: Rscript {0}
 
       - name: Install dependencies (for R-oldrel)
         if: matrix.config.r == 'oldrel' || matrix.config.r == '3.6'
