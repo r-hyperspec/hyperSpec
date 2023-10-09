@@ -8,25 +8,25 @@
 #' @rdname write_txt
 #' @aliases write_txt_long
 #'
-#' @param file Filename or connection.
-#' @param object `hyperSpec` object.
-#' @param cols Column names specifying the column order.
-#' @param order Which columns should be [base::order()]ed? Parameter `order` is
-#'        used as index vector into a `data.frame` with columns given by `cols`.
-#' @param na.last Handed to [base::order()] by `write_txt_long`.
-#' @param quote,sep,col.names,row.names Have their usual meaning
-#'        (see [utils::write.table()]), but different default values.
+#' @param file Filename or connection to write the data.
+#' @param object A `hyperSpec` object to export.
+#' @param cols Column names specifying the order of columns in the output file.
+#' @param order Which columns should be sorted using [base::order()]? The `order`
+#'        parameter is used as an index vector into a `data.frame` with columns
+#'        specified by `cols`.
+#' @param na.last Passed to [base::order()] by `write_txt_long`.
+#' @param quote,sep,col.names,row.names These parameters have their usual meaning
+#'        as used in [utils::write.table()], but with different default values.
 #'
-#' For file import, `row.names` should usually be `NULL` so that the first
-#'        column becomes a extra data column (as opposed to row names of the
-#'        extra data).
-#' @param col.labels Should the column labels be used rather than the
-#'        colnames?
+#' For file import, `row.names` should usually be set to `NULL` so that the first
+#'        column becomes an extra data column (instead of row names of the extra data).
+#'
+#' @param col.labels Should the column labels be used rather than the colnames?
 #' @param append Should the output be appended to an existing file?
-#' @param decreasing logical vector giving the sort order.
-#' @param header.lines Toggle one or two line header (wavelengths in the
+#' @param decreasing A logical vector specifying the sort order for columns.
+#' @param header.lines Toggle one or two-line headers (wavelengths in the
 #'        second header line) for `write_txt_wide`.
-#' @param ... arguments handed to [utils::write.table()].
+#' @param ... Additional arguments passed to [utils::write.table()].
 #'
 #'
 #' @concept io
@@ -39,13 +39,13 @@
 #'
 #' ## Export & import Matlab files
 #' if (require(R.matlab)) {
-#'   # export to matlab file
+#'   # Export to a Matlab file
 #'   writeMat(paste0(tempdir(), "/test.mat"),
 #'     x = flu[[]], wavelength = flu@wavelength,
 #'     label = lapply(flu@label, as.character)
 #'   )
 #'
-#'   # reading a matlab file
+#'   # Read a Matlab file
 #'   data <- readMat(paste0(tempdir(), "/test.mat"))
 #'   print(data)
 #'   mat <- new("hyperSpec",
@@ -86,12 +86,12 @@
 #'
 #' read.txt.wide(
 #'   file = paste0(tempdir(), "/flu.txt"),
-#'   # give columns in same order as they are in the file
+#'   # Give columns in the same order as they are in the file
 #'   cols = list(
 #'     spc = "I / a.u",
 #'     c = expression("/"("c", "mg/l")),
 #'     filename = "filename",
-#'     # plus wavelength label last
+#'     # Plus wavelength label last
 #'     .wavelength = "lambda / nm"
 #'   ),
 #'   header = TRUE
