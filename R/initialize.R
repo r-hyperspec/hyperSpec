@@ -1,15 +1,14 @@
-
-#' Create a `hyperSpec` object
+#' Create a `hyperSpec` Object
 #'
-#' To create a new `hyperSpec` object, the following functions can be used:
+#' To create a new `hyperSpec` object, you can use one of the following functions:
 #' - [new()] (i.e., `new("hyperSpec", ...)`);
 #' - `new_hyperSpec()`.
 #'
 #' @note
 #'
-#' A `hyperSpec` object is an S4 object, so its initialization is carried out
-#' by calling `new("hyperSpec", ...)`. Function `new_hyperSpec()` is just
-#' a convenience function.
+#' A `hyperSpec` object is an S4 object, so its initialization is performed
+#' by calling `new("hyperSpec", ...)`. The function `new_hyperSpec()` is provided
+#' for convenience.
 #'
 #' @docType methods
 #'
@@ -29,30 +28,30 @@
 #'        A spectra matrix with spectra in rows and wavelength intensities in
 #'        columns.
 #'
-#'  The `spc` does not need to be an R `matrix`, but must be an object
+#'  The `spc` does not need to be an R `matrix`, but it must be an object
 #'  convertible to a matrix via `I(as.matrix(spc))`.
 #'
 #' @param data (`data.frame`)  \cr
 #'        A `data.frame` with extra (non-spectroscopic) data in columns.
 #'        The data frame may also contain a special column `spc` with a `matrix`
 #'        of spectroscopic data.
-#'        (Such single column that contains matrix can be created with
+#'        (Such a single column that contains a matrix can be created with
 #'        `data.frame(spc = I(as.matrix(spc)))`.
-#'        However, it will usually be more convenient if the spectra are given
-#'        via argument `spc`.)
+#'        However, it is usually more convenient to provide the spectra
+#'        via the `spc` argument.)
 #'
 #' @param wavelength (numeric vector)  \cr
 #'        The wavelengths corresponding to the columns of `spc`.
 #'
 #'  If no wavelengths are given, an appropriate vector is derived from the
-#'  column the column names of `data$spc`. If this is not possible,
+#'  column names of `data$spc`. If this is not possible,
 #'  `1:ncol(data$spc)` is used instead.
 #'
 #' @param labels A named `list`:
-#' - list's element names should containing one or more names of `data`
-#'   columns as well as special name `.wavelength` for `wavelength`s ).
+#' - list's element names should contain one or more names of `data`
+#'   columns as well as the special name `.wavelength` for `wavelength`s.
 #' - list's element values should contain the labels for the indicated
-#'   names usually either in a for of character strings or
+#'   names, usually in the form of character strings or
 #'   [plotmath][grDevices::plotmath()] expressions.
 #'   (The labels should be given in a form ready
 #'   for the text-drawing functions, see [grDevices::plotmath()]).
@@ -61,24 +60,26 @@
 #' columns of `data` and `wavelength` is used.
 #'
 #' @param gc (logical) \cr Use garbage collection.
-#'       If option `gc` is `TRUE`, the initialization will have frequent calls
-#'       to [base::gc()], which can help to avoid swapping or running out of
-#'       memory. The default value of `gc` can be set via [hy_set_options()].
+#'       If the option `gc` is set to `TRUE`, the initialization will have
+#'       frequent calls to [base::gc()], which can help avoid swapping or
+#'       running out of memory.
+#'       The default value of `gc` can be set via [hy_set_options()].
 #'
 #' @param log This parameter is currently **ignored**. It is present due to
-#'        backwards compatibility.
+#'        backward compatibility.
 #'
 #' @param .Object A new `hyperSpec` object.
 #'
 #'
-#' @author C.Beleites, V. Gegzna
+#' @author C. Beleites, V. Gegzna
 #' @seealso
 #'
 #' - [methods::new()] for more information on creating and initializing S4 objects.
-#' - [grDevices::plotmath()] on expressions for math annotations as for slot `label`.
-#' - [hy_set_options()] setting `hyperSpec` options.
+#' - [grDevices::plotmath()] for expressions used for math annotations as in the `label` slot.
+#' - [hy_set_options()] for setting `hyperSpec` options.
 #'
 #' @keywords methods datagen
+#'
 #' @concept hyperSpec conversion
 #'
 #' @examples
@@ -98,7 +99,7 @@
 #' colnames(spc) <- 600:603
 #' new("hyperSpec", spc = spc) # wavelength taken from colnames (spc)
 #'
-#' # given wavelengths precede over colnames of spc
+#' # given wavelengths take precedence over colnames of spc
 #' new("hyperSpec", spc = spc, wavelength = 700:703)
 #'
 #' # specifying labels
@@ -123,7 +124,7 @@ NULL
 .initialize <- function(.Object, spc = NULL, data = NULL, wavelength = NULL,
                         labels = NULL, gc = hy_get_option("gc"),
                         log = "ignored") {
-  # Do the small stuff first, so we need not be too careful about copies
+  # Handle the small stuff first, so we don't need to be too careful about copies
 
   # The wavelength axis
   if (!is.null(wavelength) && !is.numeric(wavelength)) {
@@ -197,7 +198,7 @@ NULL
   if (gc) base::gc()
 
   if (!is.null(data$spc) && !(is.null(spc))) {
-    warning("Spectra in data are overwritten by argument spc.")
+    warning("Spectra in data are overwritten by the argument spc.")
   }
 
   # Deal with spectra
@@ -216,7 +217,7 @@ NULL
     dim <- dim(spc)
     spc <- suppressWarnings(as.numeric(spc))
     if (all(is.na(spc))) {
-      stop("spectra matrix needs to be numeric or convertable to numeric")
+      stop("spectra matrix needs to be numeric or convertible to numeric")
     } else {
       warning("spectra matrix is converted from ", class(data$spc), " to numeric.")
     }
@@ -227,7 +228,7 @@ NULL
   if (gc) base::gc()
 
   if (!is.null(spc)) {
-    attr(spc, "class") <- "AsIs" # I seems to make more than one copy
+    attr(spc, "class") <- "AsIs" # It seems to make more than one copy
     if (gc) base::gc()
   }
 
@@ -254,7 +255,7 @@ NULL
 
   .Object <- .spc_fix_colnames(.Object) # For consistency with .wl<-
 
-  # Finally: check whether we got a valid hyperSpec object
+  # Finally, check whether we got a valid hyperSpec object
   validObject(.Object)
 
   .Object
