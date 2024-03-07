@@ -7,7 +7,7 @@ on:
   schedule:
     # (see https://crontab.guru)
     - cron: "5 3 * */2 WED"
-    
+
 name: R-CMD-check
 
 jobs:
@@ -47,6 +47,11 @@ jobs:
         with:
           extra-packages: any::rcmdcheck, any::devtools, local::.
           needs: check
+
+      - name: "Install roxygen2==7.2.3"
+        run: |
+          remotes::install_version("roxygen2", "7.2.3")
+        shell: Rscript {0}
 
       - name: Install dependencies (for R-devel)
         if: matrix.config.r == 'devel'
