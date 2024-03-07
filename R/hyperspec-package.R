@@ -11,7 +11,6 @@
 #' `absorbance = f(wavelength)`, stored as a vector of absorbance values for
 #' discrete wavelengths is suitable.
 #'
-#' @docType package
 #' @author C. Beleites
 #'
 #' Maintainer: Claudia Beleites <claudia.beleites@@chemometrix.eu>
@@ -32,4 +31,5 @@
 #' @keywords package
 #' @concept hyperSpec-main
 
-NULL
+"_PACKAGE"
+
