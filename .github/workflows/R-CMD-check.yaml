@@ -45,7 +45,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::rcmdcheck, any::devtools, local::.
+          extra-packages: any::rcmdcheck, any::devtools, any::remotes, local::.
           needs: check
 
       - name: "Install roxygen2==7.2.3"
