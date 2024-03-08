@@ -36,13 +36,13 @@ By contributing, you understand and agree that your work becomes the part of the
 
 * Use package [styler](http://styler.r-lib.org/) with RStudio add-in to easily re-style your code to comply with the guidelines.
 * When appropriate, prefer this naming scheme for the internal functions – `.<generic>_<x><y><...>` with `<x>`, `<y>`, etc. the first, second and later parameter/operand:
-    - _ ... missing
-    - a ... array
-    - d ... data frame
-    - f ... formula
-    - h ... hyperSpec object
-    - m ... matrix
-    - n ... numeric (scalar, vector, or matrix)
+  - _ ... missing
+  - a ... array
+  - d ... data frame
+  - f ... formula
+  - h ... hyperSpec object
+  - m ... matrix
+  - n ... numeric (scalar, vector, or matrix)
 
 * Each new function should be accompanied with appropriate unit tests.
 * If a unit test needs to be disabled temporarily, please use `skip("reason for switching off")`.
@@ -130,22 +130,24 @@ Every commit should be related to one feature only, but the commit should group 
 
 The project adheres to the semantic versioning guidelines, as outlined at https://semver.org/ (Work in progress, see [#123](https://github.com/cbeleites/hyperSpec/issues/123)).
 
-Briefly, the version string has the form `x.y.z` (or `major.minor.patch`), where the major number gets incremeted if a release introduces breaking changes, the minor one after any changes in functionality (new features of bugfixes), and the patch number is increased after any trivial change. If a major or minor number is incremented, all subsequent ones are set to zero.
+Briefly, the version string has the form `x.y.z` (or `major.minor.patch`), where the major number gets incremented if a release introduces breaking changes, the minor one after any changes in functionality (new features of bugfixes), and the patch number is increased after any trivial change. If a major or minor number is incremented, all subsequent ones are set to zero.
 
 The version numbers refer only to commits in the `master` branch, and get incremented in one of two cases:
+
 * during the release preparation, when a `release/x.y.z` branch buds off `develop` and merges into `master`.
 * after a hotfix, which also results in a new commit on `master`.
 * development branches have version `x.x.x.9000` (or `.9001` and so on - but that is rarely needed).  
   This is important since **pkgdown** uses the `.9000` to distinguish between documentation for the released version vs. the development version.
 
 ### Release Process
+
 The process starts when the package is in a stable state that can be released to CRAN (release candidate). First, decide on a new version number `x.y.z` based on the severity of changes. Then:
 
 * Create a `release/x.y.z` branch using `git flow release start <x.y.z>` and push it with `git flow publish`
 * Open a pull request that merges into `master`
 * Update the version number in the `DESCRIPTION` file
 * Verify that the changes are listed in `NEWS.md`
-* Confirm that the package can be built for each plaftorm
+* Confirm that the package can be built for each platform
 * Ensure that all check are passed on the tarballs you build (either on your machine or using CI) with `R CMD check --as-cran <package.tar.gz>`. The checks must pass for `R` versions `R-oldrel`, `R-release`, `R-patched`, and `R-devel`.
 * If any bugs are found, they must be fixed in the very same branch (see [here](https://stackoverflow.com/a/57507373/6029703) for details)
 * Once everything works use `git flow release finish <x.y.z>`. It will merge the release branch into both `master` and `develop`, and will assign a tag to the newly created commit in the `master` branch.
