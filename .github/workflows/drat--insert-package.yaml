@@ -81,6 +81,11 @@ jobs:
           extra-packages: any::drat, any::devtools, local::.
           needs: check
 
+      - name: "Install roxygen2==7.2.3"
+        run: |
+          remotes::install_version("roxygen2", "7.2.3")
+        shell: Rscript {0}
+
       - name: Roxygenize
         shell: Rscript {0}
         run: |
