@@ -199,10 +199,13 @@
 <div class="section level2">
 <h2 id="versioning">Versioning<a class="anchor" aria-label="anchor" href="#versioning"></a></h2>
 <p>The project adheres to the semantic versioning guidelines, as outlined at <a href="https://semver.org/" class="external-link uri">https://semver.org/</a> (Work in progress, see <a href="https://github.com/cbeleites/hyperSpec/issues/123" class="external-link">#123</a>).</p>
-<p>Briefly, the version string has the form <code>x.y.z</code> (or <code>major.minor.patch</code>), where the major number gets incremeted if a release introduces breaking changes, the minor one after any changes in functionality (new features of bugfixes), and the patch number is increased after any trivial change. If a major or minor number is incremented, all subsequent ones are set to zero.</p>
-<p>The version numbers refer only to commits in the <code>master</code> branch, and get incremented in one of two cases: * during the release preparation, when a <code>release/x.y.z</code> branch buds off <code>develop</code> and merges into <code>master</code>. * after a hotfix, which also results in a new commit on <code>master</code>. * development branches have version <code>x.x.x.9000</code> (or <code>.9001</code> and so on - but that is rarely needed).<br>
-This is important since <strong>pkgdown</strong> uses the <code>.9000</code> to distinguish between documentation for the released version vs. the development version.</p>
-<div class="section level3">
+<p>Briefly, the version string has the form <code>x.y.z</code> (or <code>major.minor.patch</code>), where the major number gets incremented if a release introduces breaking changes, the minor one after any changes in functionality (new features of bugfixes), and the patch number is increased after any trivial change. If a major or minor number is incremented, all subsequent ones are set to zero.</p>
+<p>The version numbers refer only to commits in the <code>master</code> branch, and get incremented in one of two cases:</p>
+<ul><li>during the release preparation, when a <code>release/x.y.z</code> branch buds off <code>develop</code> and merges into <code>master</code>.</li>
+<li>after a hotfix, which also results in a new commit on <code>master</code>.</li>
+<li>development branches have version <code>x.x.x.9000</code> (or <code>.9001</code> and so on - but that is rarely needed).<br>
+This is important since <strong>pkgdown</strong> uses the <code>.9000</code> to distinguish between documentation for the released version vs. the development version.</li>
+</ul><div class="section level3">
 <h3 id="release-process">Release Process<a class="anchor" aria-label="anchor" href="#release-process"></a></h3>
 <p>The process starts when the package is in a stable state that can be released to CRAN (release candidate). First, decide on a new version number <code>x.y.z</code> based on the severity of changes. Then:</p>
 <ul><li>Create a <code>release/x.y.z</code> branch using <code>git flow release start &lt;x.y.z&gt;</code> and push it with <code>git flow publish</code>
@@ -212,7 +215,7 @@ This is important since <strong>pkgdown</strong> uses the <code>.9000</code> to 
 <li>Update the version number in the <code>DESCRIPTION</code> file</li>
 <li>Verify that the changes are listed in <code>NEWS.md</code>
 </li>
-<li>Confirm that the package can be built for each plaftorm</li>
+<li>Confirm that the package can be built for each platform</li>
 <li>Ensure that all check are passed on the tarballs you build (either on your machine or using CI) with <code>R CMD check --as-cran &lt;package.tar.gz&gt;</code>. The checks must pass for <code>R</code> versions <code>R-oldrel</code>, <code>R-release</code>, <code>R-patched</code>, and <code>R-devel</code>.</li>
 <li>If any bugs are found, they must be fixed in the very same branch (see <a href="https://stackoverflow.com/a/57507373/6029703" class="external-link">here</a> for details)</li>
 <li>Once everything works use <code>git flow release finish &lt;x.y.z&gt;</code>. It will merge the release branch into both <code>master</code> and <code>develop</code>, and will assign a tag to the newly created commit in the <code>master</code> branch.</li>
