@@ -18,6 +18,5 @@ Package **`hyperSpec`** and it's friends provide a number of vignettes to help y
 * Vignettes in other packages:
     + [Example Workflow for 2D Raman Spectra ](https://r-hyperspec.github.io/hySpc.chondro/articles/hySpc-chondro.html) (`chondro` dataset)
     + [Plotting `hyperSpec` objects with **`ggplot2`**](https://r-hyperspec.github.io/hySpc.ggplot2/articles/hySpc-ggplot2.html)
-    + [Using **`dplyr`** functions with `hyperSpec` objects](https://r-hyperspec.github.io/hySpc.dplyr/articles/hySpc-dplyr.html)
 ```
 <!-- ======================================================================= -->
