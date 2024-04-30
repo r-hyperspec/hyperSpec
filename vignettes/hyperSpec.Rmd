@@ -257,21 +257,22 @@ Table \@ref(tab:getters) shows the main functions that can be used with class `h
 <!-- ---------------------------------------------------------------------- -->
 : **(\#tab:getters)** Getter functions for the slots of `hyperSpec` objects
 
-------------------------------------------- -----------------------------------------------------------------------------------------------------------------------
-**`x[]`{.r}**                               Returns the entire `hyperSpec` object unchanged.
-**`x[i, , ]`{.r}**                          Returns the `hyperSpec` object with selected rows; equivalent to `x[i]`{.r}.
-**`x[, j, ]`{.r}**                          Returns the `hyperSpec` object with empty `x$spc`{.r} slot. If you want the column `j`, `x[["name"]]` returns a `data.frame` containing `j` or `x$name`{.r} returns it as a vector.
-**`x[, , l, wl.index = TRUE/FALSE]`{.r}**   Returns the `hyperSpec` object with selected wavelengths.
-**`x[[]]`{.r}**                             Returns the spectra matrix (`x$spc`{.r}).
-**`x[[i, , ]]`{.r}**                        Returns the spectra matrix (`x$spc`{.r}) with selected rows.
-**`x[[, j, ]]`{.r}**                        Returns a `data.frame`{.r} with the selected columns.  Safest to give `j` as a character string.
-**`x[[, , l, wl.index = TRUE/FALSE]]`{.r}** Returns the spectra matrix (`x$spc`{.r}) with selected wavelengths.
-**`x$name`{.r}**                            Returns the column `name` as a vector.
-**`x$.`{.r}**                               Returns the complete `data.frame`{.r} `x@data`{.r}, with the spectra in column `$spc`{.r}.
-**`x$..`{.r}**                              Returns all the extra data (`x@data`{.r} without `x$spc`{.r}).
-**`wl()`{.r}**                              Returns the wavelengths.
-**`labels()`{.r}**                          Returns the labels.
-------------------------------------------- -----------------------------------------------------------------------------------------------------------------------
+Syntax                                      | Description
+--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------
+**`x[]`{.r}**                               | Returns the entire `hyperSpec` object unchanged.
+**`x[i, , ]`{.r}**                          | Returns the `hyperSpec` object with selected rows; equivalent to `x[i]`{.r}.
+**`x[, j, ]`{.r}**                          | Returns the `hyperSpec` object with empty `x$spc`{.r} slot. If you want the column `j`, `x[["name"]]` returns a `data.frame` containing `j` or `x$name`{.r} returns it as a vector.
+**`x[, , l, wl.index = TRUE/FALSE]`{.r}**   | Returns the `hyperSpec` object with selected wavelengths.
+**`x[[]]`{.r}**                             | Returns the spectra matrix (`x$spc`{.r}).
+**`x[[i, , ]]`{.r}**                        | Returns the spectra matrix (`x$spc`{.r}) with selected rows.
+**`x[[, j, ]]`{.r}**                        | Returns a `data.frame`{.r} with the selected columns.  Safest to give `j` as a character string.
+**`x[[, , l, wl.index = TRUE/FALSE]]`{.r}** | Returns the spectra matrix (`x$spc`{.r}) with selected wavelengths.
+**`x$name`{.r}**                            | Returns the column `name` as a vector.
+**`x$.`{.r}**                               | Returns the complete `data.frame`{.r} `x@data`{.r}, with the spectra in column `$spc`{.r}.
+**`x$..`{.r}**                              | Returns all the extra data (`x@data`{.r} without `x$spc`{.r}).
+**`wl()`{.r}**                              | Returns the wavelengths.
+**`labels()`{.r}**                          | Returns the labels.
+
 
 <!-- ---------------------------------------------------------------------- -->
 
@@ -286,18 +287,22 @@ Table \@ref(tab:setters) shows the main functions that can be used with class `h
 <!-- ---------------------------------------------------------------------- -->
 : **(\#tab:setters)** Setter functions for the slots of `hyperSpec` objects
 
------------------------------------------------ -----------------------------------------------------------------------------------------------------------------------
-**`x[i, ,] <-`{.r}**                            Replaces the specified rows of the `@data`{.r} slot, including `x$spc`{.r} and any extra data columns. Other approaches are probably easier.
-**`x[, j,] <-`{.r}**                            Replaces the specified columns.  Safest to give `j` as a character string.
-**`x[i, j] <-`{.r}**                            Replaces the specified column limited to the specified rows.  Safest to give `j` as a character string.**`x[, , l, wl.index = TRUE/FALSE] <-`{.r}**    Replaces the specified wavelengths.
-**`x[[i, ,]] <-`{.r}**                          Replaces the specified row of `x$spc`{.r}
-**`x[[, j,]] <-`{.r}**                          As `[[]]`{.r} refers to just the spectral data in `x$spc`{.r}, this operation is not valid.  See below.
-**`x[[, , l, wl.index = TRUE/FALSE]] <-`{.r}**  Replaces the intensity values in `x$spc`{.r} for the specified wavelengths.
-**`x[[i, , l, wl.index = TRUE/FALSE]] <-`{.r}** Replaces the intensity values in `x$spc`{.r} for the specified wavelengths limited to the specified rows.
-**`x$.. <-`{.r}**                               Sets the extra data (`x@data`{.r} without touching `x$spc`{.r}). The column names must match exactly in this case.
-**`wl<-`{.r}**                                  Sets the wavelength vector.
-**`labels<-`{.r}**                              Sets the labels.
------------------------------------------------ -----------------------------------------------------------------------------------------------------------------------
+
+
+Syntax                                          | Description
+--------------------------------------------    |-----------------------------------------------------------------------------------------------------------------------
+**`x[i, ,] <-`{.r}**                            |  Replaces the specified rows of the `@data`{.r} slot, including `x$spc`{.r} and any extra data columns. Other approaches are probably easier.
+**`x[, j,] <-`{.r}**                            |  Replaces the specified columns.  Safest to give `j` as a character string.
+**`x[i, j] <-`{.r}**                            |  Replaces the specified column limited to the specified rows.  Safest to give `j` as a character string.
+**`x[, , l, wl.index = TRUE/FALSE] <-`{.r}**    |  Replaces the specified wavelengths.
+**`x[[i, ,]] <-`{.r}**                          |  Replaces the specified row of `x$spc`{.r}
+**`x[[, j,]] <-`{.r}**                          |  As `[[]]`{.r} refers to just the spectral data in `x$spc`{.r}, this operation is not valid.  See below.
+**`x[[, , l, wl.index = TRUE/FALSE]] <-`{.r}**  |  Replaces the intensity values in `x$spc`{.r} for the specified wavelengths.
+**`x[[i, , l, wl.index = TRUE/FALSE]] <-`{.r}** |  Replaces the intensity values in `x$spc`{.r} for the specified wavelengths limited to the specified rows.
+**`x$.. <-`{.r}**                               |  Sets the extra data (`x@data`{.r} without touching `x$spc`{.r}). The column names must match exactly in this case.
+**`wl<-`{.r}**                                  |  Sets the wavelength vector.
+**`labels<-`{.r}**                              |  Sets the labels.
+
 <!-- ---------------------------------------------------------------------- -->
 
 \mFun{`[]<-`, `[[]]<-`, `$<-`}
