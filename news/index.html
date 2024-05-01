@@ -86,31 +86,69 @@
     </div>
 
     <div class="section level2">
-<h2 class="page-header" data-toc-text="1.0.0" id="hyperspec-100-2022-xx-xx">hyperSpec 1.0.0 2022-xx-xx<a class="anchor" aria-label="anchor" href="#hyperspec-100-2022-xx-xx"></a></h2>
+<h2 class="page-header" data-toc-text="0.101.0" id="hyperspec-01010-2024-05-01">hyperSpec 0.101.0 (2024-05-01)<a class="anchor" aria-label="anchor" href="#hyperspec-01010-2024-05-01"></a></h2>
 <div class="section level3">
-<h3 id="acknowledgements-1-0-0">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements-1-0-0"></a></h3>
-<ul><li>The <code>hyperSpec</code> team gratefully acknowledges support from the Google Summer of Code program, which sponsored student Erick Oduniyi during summer 2020. Erick and the team carried out a significant overhaul of <code>hyperSpec</code> which led to this major release.</li>
-</ul></div>
-<div class="section level3">
-<h3 id="user-facing-changes-from-series-1-0-0">User-Facing Changes from 0.99 Series<a class="anchor" aria-label="anchor" href="#user-facing-changes-from-series-1-0-0"></a></h3>
+<h3 id="user-facing-changes-from-previous-versions-0-101-0">User-Facing Changes from Previous Versions<a class="anchor" aria-label="anchor" href="#user-facing-changes-from-previous-versions-0-101-0"></a></h3>
+<div class="section level4">
+<h4 id="repository-0-101-0">Repository<a class="anchor" aria-label="anchor" href="#repository-0-101-0"></a></h4>
 <ul><li>The GitHub repository of this package was moved to <a href="https://github.com/r-hyperspec/hyperSpec" class="external-link uri">https://github.com/r-hyperspec/hyperSpec</a>
 </li>
-<li>Documentation now available in <code>pkgdown</code> sites (<a href="https://r-hyperspec.github.io/" class="external-link uri">https://r-hyperspec.github.io/</a>).</li>
-<li>
+</ul></div>
+<div class="section level4">
+<h4 id="documentation-0-101-0">Documentation<a class="anchor" aria-label="anchor" href="#documentation-0-101-0"></a></h4>
+<ul><li>
 <code>NEWS.md</code> (this file) added so that users can readily see changes that may affect the use of the package.</li>
-<li>Introductory vignette reorganized and enhanced, thanks to Bryan Hanson.</li>
+<li>Vignettes converted to <code>.Rmd</code> and formatted consistently, thanks to <a href="https://github.com/GegznaV" class="external-link">@GegznaV</a>.</li>
+<li>Introductory vignette <code>hyperSpec.Rmd</code> reorganized and enhanced, thanks to Bryan Hanson (<a href="https://github.com/bryanhanson" class="external-link">@bryanhanson</a>).</li>
+<li>Documentation is now available in the form of <code>pkgdown</code> sites at <a href="https://r-hyperspec.github.io/" class="external-link uri">https://r-hyperspec.github.io/</a>
+</li>
+</ul></div>
+<div class="section level4">
+<h4 id="new-functions-and-methods-0-101-0">New Functions and Methods<a class="anchor" aria-label="anchor" href="#new-functions-and-methods-0-101-0"></a></h4>
+<ul><li>New color palette <code>palette_colorblind</code> introduced (<a href="https://github.com/bryanhanson" class="external-link">@bryanhanson</a>).</li>
+<li>New function <code><a href="../reference/hy_browse_homepage.html">hy_browse_homepage()</a></code> opens the homepage of <em>R hyperSpec</em> in a web browser.</li>
+<li>New function <code><a href="../reference/hy_list_available_hySpc_packages.html">hy_list_available_hySpc_packages()</a></code> lists packages, that are available in GitHub organization <code>r-hyperSpec</code>.</li>
+<li>New function <code><a href="../reference/hy_list_installed_hySpc_packages.html">hy_list_installed_hySpc_packages()</a></code> lists and function <code><a href="../reference/hy_attach.html">hy_attach()</a></code> conveniently loads and attaches all installed <strong><code>r-hyperspec</code></strong> family packages (<a href="https://github.com/cbeleites" class="external-link">@cbeleites</a>, <a href="https://github.com/GegznaV" class="external-link">@GegznaV</a>, cbeleites/hyperSpec#219).</li>
+<li>New function <code><a href="../reference/initialize.html">new_hyperSpec()</a></code> that initializes <code>hyperSpec</code> object in a similar way as <code>new("hyperSpec")</code> does but has autocompletion possibilities in RStudio (cbeleites/hyperSpec#283).</li>
+<li>New function <code><a href="../reference/wl_convert_units.html">wl_convert_units()</a></code> (cbeleites/hyperSpec#300).</li>
+<li>New function <code><a href="../reference/wl_create_label_from_units.html">wl_create_label_from_units()</a></code> that creates labels for wavelength axis (<a href="https://github.com/GegznaV" class="external-link">@GegznaV</a>).</li>
+<li>New method <code>as.hyperSpec(&lt;hyperSpec&gt;)</code> (cbeleites/hyperSpec#282).</li>
+</ul></div>
+<div class="section level4">
+<h4 id="changes-0-101-0">Changes<a class="anchor" aria-label="anchor" href="#changes-0-101-0"></a></h4>
+<ul><li>
+<code><a href="../reference/as.hyperSpec.html">as.hyperSpec()</a></code>: The default value of argument <code>wl</code> is now set to <code>wl = NULL</code> (cbeleites/hyperSpec#297).</li>
+<li>
+<code><a href="../reference/as.hyperSpec.html">as.hyperSpec()</a></code>: <code>wl = NULL</code> now means that the default values of wavelengths should be calculated inside the methods of <code><a href="../reference/as.hyperSpec.html">as.hyperSpec()</a></code> (cbeleites/hyperSpec#297).</li>
+<li>Methods <code>show(&lt;hyperSpec&gt;)</code> and <code>print(&lt;hyperSpec&gt;)</code> give more concise default output now (<a href="https://github.com/GegznaV" class="external-link">@GegznaV</a>, cbeleites/hyperSpec#211).</li>
+<li>The default output of method <code>summary(&lt;hyperSpec&gt;)</code> was changed (<a href="https://github.com/GegznaV" class="external-link">@GegznaV</a>, cbeleites/hyperSpec#211).</li>
+<li>Function <code><a href="../reference/DEPRECATED-wl.eval.html">wl.eval()</a></code> is converted into S3 generic. Methods <code>wl.eval(&lt;hyperSpec&gt;)</code> and <code>wl.eval(&lt;numeric&gt;)</code> for numeric vectors were added (cbeleites/hyperSpec#287).</li>
+<li>Function <code><a href="../reference/sample.html">sample()</a></code> gains new argument <code>index</code>; <code>sample(..., index = TRUE)</code> replaced function <code><a href="../reference/DEPRECATED-isample.html">isample()</a></code> (<a href="https://github.com/GegznaV" class="external-link">@GegznaV</a>, <a href="https://github.com/r-hyperspec/hyperSpec/issues/17" class="external-link">#17</a>).</li>
+<li>Function <code><a href="../reference/wl_convert_units.html">wl_convert_units()</a></code> converted into S3 generic. Default and hyperSpec methods were added (<a href="https://github.com/r-hyperspec/hyperSpec/issues/29" class="external-link">#29</a>).</li>
 <li>Dataset <code>faux_cell</code> and function <code><a href="../reference/faux_cell.html">generate_faux_cell()</a></code> replace <code>chondro</code> dataset (cbeleites/hyperSpec#125, cbeleites/hyperSpec#156, cbeleites/hyperSpec#180, cbeleites/hyperSpec#229).</li>
-<li>Portions of <code>hyperSpec</code> were spun out into their own packages for ease of maintenance. <strong>— ELABORATE —</strong>
+</ul></div>
+<div class="section level4">
+<h4 id="bugfixes-0-101-0">Bugfixes<a class="anchor" aria-label="anchor" href="#bugfixes-0-101-0"></a></h4>
+<ul><li>Possibility to initialize <code>hyperSpec</code> object by providing wavelengths only (cbeleites/hyperSpec#288).</li>
+<li>Column names in spectra matrix (<code>$spc</code> column of <code>hyperSpec</code> object) are now returned correctly by functions <code><a href="../reference/DEPRECATED-spc.bin.html">spc.bin()</a></code> (cbeleites/hyperSpec#237), and <code><a href="../reference/DEPRECATED-spc.loess.html">spc.loess()</a></code> (cbeleites/hyperSpec#245</li>
+</ul></div>
+<div class="section level4">
+<h4 id="soft-deprecation-functions-that-will-be-moved-to-other-packages-0-101-0">Soft Deprecation: Functions That Will Be Moved to Other Packages<a class="anchor" aria-label="anchor" href="#soft-deprecation-functions-that-will-be-moved-to-other-packages-0-101-0"></a></h4>
+<p>Portions of package <code>hyperSpec</code> were partitioned into individual packages to facilitate maintenance.</p>
 <ul><li>Dataset <code>chondro</code> was moved to package <strong>hySpc.chondro</strong> (<a href="https://r-hyperspec.github.io/hySpc.chondro/" class="external-link uri">https://r-hyperspec.github.io/hySpc.chondro/</a>).</li>
-<li>Functions <code><a href="../reference/DEPRECATED-ggplot2.html">qplotspc()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">qplotmap()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">qplotc()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">qplotmixmap()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">legendright()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">qmixtile()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">normalize.colrange()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">normalize.range()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">normalize.null()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">normalize.minmax()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">qmixlegend()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">colmix.rgb()</a></code> were deprecated due analogous functionality in package <strong>hySpc.ggplot2</strong> (<a href="https://r-hyperspec.github.io/hySpc.ggplot2/" class="external-link uri">https://r-hyperspec.github.io/hySpc.ggplot2/</a>).</li>
+<li>Functions <code><a href="../reference/DEPRECATED-ggplot2.html">qplotspc()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">qplotmap()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">qplotc()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">qplotmixmap()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">legendright()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">qmixtile()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">normalize.colrange()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">normalize.range()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">normalize.null()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">normalize.minmax()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">qmixlegend()</a></code>, <code><a href="../reference/DEPRECATED-ggplot2.html">colmix.rgb()</a></code> were deprecated due to analogous functionality in package <strong>hySpc.ggplot2</strong> (<a href="https://r-hyperspec.github.io/hySpc.ggplot2/" class="external-link uri">https://r-hyperspec.github.io/hySpc.ggplot2/</a>).</li>
 <li>Functions <code><a href="../reference/DEPRECATED-read.ENVI.html">read.ENVI()</a></code>, <code><a href="../reference/DEPRECATED-read.ENVI.html">read.ENVI.HySpex()</a></code>, <code><a href="../reference/DEPRECATED-read.ENVI.html">read.ENVI.Nicolet()</a></code> were deprecated due to analogous functionality in package <strong>hySpc.read.ENVI</strong> (<a href="https://r-hyperspec.github.io/hySpc.read.ENVI/" class="external-link uri">https://r-hyperspec.github.io/hySpc.read.ENVI/</a>).</li>
 <li>Functions <code><a href="../reference/DEPRECATED-read.spc.html">read.spc()</a></code>, <code><a href="../reference/DEPRECATED-read.spc.Kaiser.html">read.spc.Kaiser()</a></code>, <code><a href="../reference/DEPRECATED-read.spc.Kaiser.html">read.spc.KaiserMap()</a></code>, <code><a href="../reference/DEPRECATED-read.spc.Kaiser.html">read.spc.KaiserLowHigh()</a></code> were deprecated due to analogous functionality in package <strong>hySpc.read.spc</strong> (<a href="https://r-hyperspec.github.io/hySpc.read.spc/" class="external-link uri">https://r-hyperspec.github.io/hySpc.read.spc/</a>).</li>
 <li>Functions <code><a href="../reference/DEPRECATED-read.spe.html">read.spe()</a></code>, <code><a href="../reference/DEPRECATED-read.spe.html">spe.showcalpoints()</a></code> were deprecated due to analogous functionality in package <strong>hySpc.read.spe</strong> (<a href="https://r-hyperspec.github.io/hySpc.read.spe/" class="external-link uri">https://r-hyperspec.github.io/hySpc.read.spe/</a>).</li>
 <li>Functions <code><a href="../reference/DEPRECATED-read.mat.Cytospec.html">read.mat.Cytospec()</a></code>, <code><a href="../reference/DEPRECATED-read.mat.Witec.html">read.mat.Witec()</a></code> were deprecated due to analogous functionality in package <strong>hySpc.read.mat</strong> (<a href="https://r-hyperspec.github.io/hySpc.read.mat/" class="external-link uri">https://r-hyperspec.github.io/hySpc.read.mat/</a>).</li>
 <li>Function <code><a href="../reference/DEPRECATED-read.jdx.html">read.jdx()</a></code> was deprecated due to analogous functionality in package <strong>hySpc.read.jdx</strong> (<a href="https://r-hyperspec.github.io/hySpc.read.jdx/" class="external-link uri">https://r-hyperspec.github.io/hySpc.read.jdx/</a>).</li>
 <li>Functions <code><a href="../reference/DEPRECATED-read.asc.Andor.html">read.asc.Andor()</a></code>, <code><a href="../reference/DEPRECATED-read.asc.PerkinElmer.html">read.asc.PerkinElmer()</a></code>, <code><a href="../reference/DEPRECATED-read.txt.Horiba.html">read.txt.Horiba()</a></code>, <code><a href="../reference/DEPRECATED-read.txt.Horiba.html">read.txt.Horiba.xy()</a></code>, <code><a href="../reference/DEPRECATED-read.txt.Horiba.html">read.txt.Horiba.t()</a></code>, <code><a href="../reference/DEPRECATED-textio.html">read.txt.long()</a></code>, <code><a href="../reference/DEPRECATED-read.txt.Renishaw.html">read.txt.Renishaw()</a></code>, <code><a href="../reference/DEPRECATED-read.txt.Renishaw.html">read.zip.Renishaw()</a></code>, <code><a href="../reference/DEPRECATED-read.txt.Shimadzu.html">read.txt.Shimadzu()</a></code>, <code><a href="../reference/DEPRECATED-textio.html">read.txt.wide()</a></code>, <code><a href="../reference/DEPRECATED-read.txt.Witec.html">read.txt.Witec()</a></code>, <code><a href="../reference/DEPRECATED-read.txt.Witec.html">read.txt.Witec.Graph()</a></code>, <code><a href="../reference/DEPRECATED-read.txt.Witec.html">read.dat.Witec()</a></code>, <code><a href="../reference/DEPRECATED-wc.html">wc()</a></code>, <code><a href="../reference/DEPRECATED-count_lines.html">count_lines()</a></code> were deprecated due analogous functionality in package <strong>hySpc.read.txt</strong> (<a href="https://r-hyperspec.github.io/hySpc.read.txt/" class="external-link uri">https://r-hyperspec.github.io/hySpc.read.txt/</a>).</li>
-<li>The following functions were renamed or replaced by new ones (see table below).</li>
-</ul><table class="table"><colgroup><col width="34%"><col width="43%"><col width="22%"></colgroup><thead><tr class="header"><th>Deprecated function</th>
+</ul></div>
+<div class="section level4">
+<h4 id="soft-deprecation-function-name-standardization-0-101-0">Soft Deprecation: Function Name Standardization<a class="anchor" aria-label="anchor" href="#soft-deprecation-function-name-standardization-0-101-0"></a></h4>
+<p>The names of functions in <code>hyperSpec</code> started to be standardized to (a) have more self-explanatory names which reflect the essence of the functions and (b) to be more in alignment with the Tidyverse style. The following functions were renamed (see the table and the list below). In the current version of package, both old and new functions exist. But gradually the old functions will go through the deprecation phases and finally will be removed in the future versions of the package.</p>
+<ul><li>Wavelength unit conversion functions <code><a href="../reference/DEPRECATED-wlconv.html">ev2freq()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">ev2invcm()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">ev2nm()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">ev2raman()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">freq2ev()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">freq2invcm()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">freq2nm()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">freq2raman()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">invcm2ev()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">invcm2freq()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">invcm2nm()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">invcm2raman()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">nm2ev()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">nm2freq()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">nm2invcm()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">nm2raman()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">raman2ev()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">raman2freq()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">raman2invcm()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">raman2nm()</a></code> are deprecated in favor of <code><a href="../reference/wl_convert_units.html">wl_convert_units()</a></code> (cbeleites/hyperSpec#300).</li>
+</ul><table class="table"><colgroup><col width="34%"><col width="43%"><col width="22%"></colgroup><thead><tr class="header"><th>Function to Deprecate</th>
 <th>New (replacement) function</th>
 <th>Related issues</th>
 </tr></thead><tbody><tr class="odd"><td><code>.fileio.optional()</code></td>
@@ -236,34 +274,21 @@
 </tr><tr class="odd"><td><code><a href="../reference/DEPRECATED-wlconv.html">wlconv()</a></code></td>
 <td><code><a href="../reference/wl_convert_units.html">wl_convert_units()</a></code></td>
 <td>cbeleites/hyperSpec#208, cbeleites/hyperSpec#309</td>
-</tr></tbody></table><ul><li>Wavelength unit conversion functions <code><a href="../reference/DEPRECATED-wlconv.html">ev2freq()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">ev2invcm()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">ev2nm()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">ev2raman()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">freq2ev()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">freq2invcm()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">freq2nm()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">freq2raman()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">invcm2ev()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">invcm2freq()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">invcm2nm()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">invcm2raman()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">nm2ev()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">nm2freq()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">nm2invcm()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">nm2raman()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">raman2ev()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">raman2freq()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">raman2invcm()</a></code>, <code><a href="../reference/DEPRECATED-wlconv.html">raman2nm()</a></code> are deprecated in favor of <code><a href="../reference/wl_convert_units.html">wl_convert_units()</a></code> (cbeleites/hyperSpec#300).</li>
-</ul></li>
-<li>Function <code><a href="../reference/wl_convert_units.html">wl_convert_units()</a></code> converted to S3 generic. Default and hyperSpec methods were added (<a href="https://github.com/r-hyperspec/hyperSpec/issues/29" class="external-link">#29</a>).</li>
-<li>Function <code>spc.NA.linapprox()</code>, which was deprecated for long time, is now completely removed (cbeleites/hyperSpec#239).</li>
-<li>Column names in spectra matrix (<code>$spc</code> column of <code>hyperSpec</code> object) are now returned correctly by functions <code><a href="../reference/DEPRECATED-spc.bin.html">spc.bin()</a></code> (cbeleites/hyperSpec#237), and <code><a href="../reference/DEPRECATED-spc.loess.html">spc.loess()</a></code> (cbeleites/hyperSpec#245).</li>
-<li>New function <code><a href="../reference/hy_list_available_hySpc_packages.html">hy_list_available_hySpc_packages()</a></code> lists packages, that are available in GitHub organization <code>r-hyperSpec</code>.</li>
-<li>New function <code><a href="../reference/hy_browse_homepage.html">hy_browse_homepage()</a></code> opens the homepage of <em>R hyperSpec</em> in a web browser.</li>
-<li>New function <code><a href="../reference/hy_list_installed_hySpc_packages.html">hy_list_installed_hySpc_packages()</a></code> lists and function <code><a href="../reference/hy_attach.html">hy_attach()</a></code> conveniently loads and attaches all installed <strong><code>r-hyperspec</code></strong> family packages (<a href="https://github.com/cbeleites" class="external-link">@cbeleites</a>, <a href="https://github.com/GegznaV" class="external-link">@GegznaV</a>, cbeleites/hyperSpec#219).</li>
-<li>Changes related to function <code><a href="../reference/as.hyperSpec.html">as.hyperSpec()</a></code>:
-<ul><li>New method <code>as.hyperSpec(&lt;hyperSpec&gt;)</code> was created (cbeleites/hyperSpec#282).</li>
-<li>The default value of argument <code>wl</code> is now set to <code>wl = NULL</code> (cbeleites/hyperSpec#297).</li>
-<li>
-<code>wl = NULL</code> now means that the default values of wavelengths should be calculated inside the methods of <code><a href="../reference/as.hyperSpec.html">as.hyperSpec()</a></code> (cbeleites/hyperSpec#297).</li>
-</ul></li>
-<li>Possibility to initialize <code>hyperSpec</code> object by providing wavelengths only (cbeleites/hyperSpec#288).</li>
-<li>Function <code><a href="../reference/DEPRECATED-wl.eval.html">wl.eval()</a></code> is converted into S3 generic. Methods <code>wl.eval(&lt;hyperSpec&gt;)</code> and <code>wl.eval(&lt;numeric&gt;)</code> for numeric vectors were added (cbeleites/hyperSpec#287).</li>
-<li>New function <code><a href="../reference/initialize.html">new_hyperSpec()</a></code> that initializes <code>hyperSpec</code> object in a similar way as <code>new("hyperSpec")</code> does but has autocompletion possibilities in RStudio (cbeleites/hyperSpec#283).</li>
-<li>Functions <code><a href="../reference/show.html">show()</a></code> and <code><a href="../reference/show.html">print()</a></code> give more concise default output now (<a href="https://github.com/GegznaV" class="external-link">@GegznaV</a>, cbeleites/hyperSpec#211).</li>
-<li>The default output of function <code><a href="../reference/show.html">summary()</a></code> was changed (<a href="https://github.com/GegznaV" class="external-link">@GegznaV</a>, cbeleites/hyperSpec#211).</li>
-<li>New color palette <code>palette_colorblind</code> introduced (<a href="https://github.com/bryanhanson" class="external-link">@bryanhanson</a>).</li>
-<li>Function <code><a href="../reference/sample.html">sample()</a></code> gains new argument <code>index</code>; <code>sample(..., index = TRUE)</code> replaced function <code><a href="../reference/DEPRECATED-isample.html">isample()</a></code> (<a href="https://github.com/GegznaV" class="external-link">@GegznaV</a>, <a href="https://github.com/r-hyperspec/hyperSpec/issues/17" class="external-link">#17</a>).</li>
-<li>New function <code><a href="../reference/wl_create_label_from_units.html">wl_create_label_from_units()</a></code> that creates labels for wavelength axis (<a href="https://github.com/GegznaV" class="external-link">@GegznaV</a>).</li>
+</tr></tbody></table></div>
+<div class="section level4">
+<h4 id="defunctremoved-features-0-101-0">Defunct/Removed Features<a class="anchor" aria-label="anchor" href="#defunctremoved-features-0-101-0"></a></h4>
+<ul><li>Function <code>spc.NA.linapprox()</code>, which was deprecated for long time, is now completely removed (cbeleites/hyperSpec#239).</li>
+</ul></div>
+</div>
+<div class="section level3">
+<h3 id="non-user-facing-changes-from-series-0-101-0">Non-User-Facing Changes from 0.99 Series<a class="anchor" aria-label="anchor" href="#non-user-facing-changes-from-series-0-101-0"></a></h3>
+<ul><li>Code style improved to be more aligned with the Tidyverse style.</li>
+<li>Package <strong>hySpc.testthat</strong> is now used for unit testing (cbeleites/hyperSpec#228).</li>
+<li>Unit testing improved to cover more cases.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="non-user-facing-changes-from-series-1-0-0">Non-User-Facing Changes from 0.99 Series<a class="anchor" aria-label="anchor" href="#non-user-facing-changes-from-series-1-0-0"></a></h3>
-<ul><li>Note: this listing is for the benefit of developers, and should summarize significant infrastructure changes.</li>
-<li>Vignettes converted to <code>.Rmd</code> and formatted consistently, thanks to <a href="https://github.com/GegznaV" class="external-link">@GegznaV</a>.</li>
-<li>Package <strong>hySpc.testthat</strong> is now used for unit testing (cbeleites/hyperSpec#228).</li>
+<h3 id="acknowledgements-0-101-0">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements-0-101-0"></a></h3>
+<ul><li>The <code>hyperSpec</code> team gratefully acknowledges support from the Google Summer of Code program, which sponsored student Erick Oduniyi during summer 2020. Erick and the team carried out a significant overhaul of <code>hyperSpec</code> which led to this release.</li>
 </ul></div>
 </div>
   </div>
