@@ -39,6 +39,7 @@
 ^README\.md$
 ^README\.Rmd$
 Makefile
+.tar.gz
 
 
 # Unwanted files

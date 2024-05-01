@@ -1,227 +1,108 @@
 Package: hyperSpec
 Encoding: UTF-8
 Type: Package
-Title: Work with Hyperspectral Data, i.e. Spectra + Meta Information (Spatial,
-    Time, Concentration, ...)
-Version: 0.200.0.9000
-Date: 2021-07-15
+Title: Work with Hyperspectral Data, i.e. Spectra + Meta Information
+        (Spatial, Time, Concentration, ...)
+Version: 0.100.2
+Date: 2024-05-01
+Maintainer: Claudia Beleites <Claudia.Beleites@chemometrix.gmbh>
 Authors@R: c(
-    person("Claudia",   "Beleites",  role = c("aut", "cre", "dtc"), email = "Claudia.Beleites@chemometrix.gmbh", comment = c(ORCID = "0000-0003-1626-154X")),
+    person("Claudia",   "Beleites",  role = c("aut","cre", "dtc"), email = "Claudia.Beleites@chemometrix.gmbh", comment = c(ORCID = "0000-0003-1626-154X")),
+    person("Valter",    "Sergo",     role = c("aut")),
     person("Alois",     "Bonifacio", role = c("ctb", "dtc")),
     person("Marcel",    "Dahms",     role = "ctb"),
     person("Björn",     "Egert",     role = "ctb"),
     person("Simon",     "Fuller",    role = "ctb"),
-    person("Vilmantas", "Gegzna",    role = "aut", comment = c(ORCID = "0000-0002-9500-5167")),
+    person("Vilmantas", "Gegzna",    role = "aut"),
     person("Rustam",    "Guliev",    role = "ctb"),
-    person("Bryan A.",  "Hanson",    role = "aut", comment = c(ORCID = "0000-0003-3536-8246")),
+    person("Bryan A.",  "Hanson",    role = "ctb"),
     person("Michael",   "Hermes",    role = "ctb"),
     person("Martin",    "Kammer",    role = "dtc"),
-    person("Roman",     "Kiselev",   role = "aut"),
-    person("Sebastian", "Mellor",    role = "ctb"),
-    person("Erick",     "Oduniyi",   role = "aut"),
-    person("Valter",    "Sergo",     role = "aut")
+    person("Roman",     "Kiselev",   role = "ctb"),
+    person("Sebastian", "Mellor",    role = "ctb")
     )
-Description: Comfortable ways to work with hyperspectral data sets,
-    i.e. spatially or time-resolved spectra, or spectra with any other kind
+Description: Comfortable ways to work with hyperspectral data sets.
+    I.e. spatially or time-resolved spectra, or spectra with any other kind
     of information associated with each of the spectra. The spectra can be data
     as obtained in XRF, UV/VIS, Fluorescence, AES, NIR, IR, Raman, NMR, MS,
     etc. More generally, any data that is recorded over a discretized variable,
     e.g. absorbance = f(wavelength), stored as a vector of absorbance values
     for discrete wavelengths is suitable.
-License: GPL (>= 3) + file LICENSE
+License: GPL (>= 3)
 LazyLoad: yes
 LazyData: yes
-Additional_repositories: 
-    https://r-hyperspec.github.io/pkg-repo/
-Depends:
-    R (>= 3.6.0),
-    lattice,
-    grid,
-    ggplot2 (>= 2.3.0)
-Imports:
-    dplyr,
-    hySpc.testthat,
-    latticeExtra (>= 0.6-30),
-    lazyeval,
-    methods,
-    rlang,
-    utils,
-    xml2
-Suggests:
-    baseline,
-    bookdown,
-    caTools,
-    colorspace,
-    covr,
-    digest,
-    kableExtra,
-    knitr,
-    MASS,
-    matrixStats,
-    mvtnorm,
-    plotrix,
-    pls,
+Depends: R (>= 3.6.0), lattice, grid, ggplot2 (>= 2.2.0), xml2
+Suggests: 
     R.matlab,
-    reshape,
-    reshape2,
+    deldir,
     rgl,
-    rmarkdown,
-    sessioninfo,
+    plotrix,
     sp,
-    styler,
+    baseline,
+    compiler,
+    inline,
+    Rcpp,
+    MASS,
+    fastcluster,
+    pls,
+    mvtnorm,
+    digest,
+    reshape,
+    devtools,
+    R.rsp,
     tibble,
-    vdiffr (>= 1.0.0)
-URL: 
-    https://r-hyperspec.github.io/hyperSpec,
-    https://github.com/r-hyperspec/hyperSpec
+    knitr,
+    rmarkdown
+Imports: testthat, methods, utils, latticeExtra, lazyeval, dplyr, rlang
+URL: https://r-hyperspec.github.io/hyperSpec/ (documentation),
+        https://github.com/r-hyperspec/hyperSpec (code)
 BugReports: https://github.com/r-hyperspec/hyperSpec/issues
 VignetteBuilder: knitr
-RoxygenNote: 7.2.3
-Roxygen: list(markdown = TRUE)
-Collate:
-    'hy_validate.R'
-    'hyperspec-class.R'
-    'paste_row.R'
-    'expand.R'
-    'Arith.R'
-    'Compare.R'
-    'DEPRECATED-chk.hy.R'
-    'DEPRECATED-count_lines.R'
-    'DEPRECATED-dist_pearson.R'
-    'hy_options.R'
-    'constants-regexps.R'
-    'extract_numbers.R'
-    'DEPRECATED-extract_numbers.R'
-    'DEPRECATED-ggplot2.R'
-    'DEPRECATED-hy_options.R'
-    'DEPRECATED-isample.R'
-    'mark_groups_in_dendrogram.R'
-    'DEPRECATED-mark.dendrogram.R'
-    'mark_peak.R'
-    'DEPRECATED-markpeak.R'
-    'DEPRECATED-normalize01.R'
-    'raster.R'
-    'DEPRECATED-plotc.R'
-    'DEPRECATED-plotmap.R'
-    'DEPRECATED-plotmat.R'
-    'DEPRECATED-plotspc.R'
-    'DEPRECATED-plotvoronoi.R'
-    'cov_pooled.R'
-    'DEPRECATED-pooled.cov.R'
-    'DEPRECATED-raster.R'
-    'DEPRECATED-read.ENVI.R'
-    'DEPRECATED-read.ENVI.HySpex.R'
-    'DEPRECATED-read.ENVI.Nicolet.R'
-    'spc_io_postprocess_optional.R'
-    'DEPRECATED-read.txt.Witec.R'
-    'DEPRECATED-read.asc.Andor.R'
-    'DEPRECATED-read.asc.PerkinElmer.R'
-    'DEPRECATED-read.ini.R'
-    'DEPRECATED-read.jdx.R'
-    'DEPRECATED-read.mat.Cytospec.R'
-    'DEPRECATED-read.mat.Witec.R'
-    'DEPRECATED-read.spc.Kaiser.R'
-    'DEPRECATED-read.spc.R'
-    'DEPRECATED-read.spe.R'
-    'DEPRECATED-read.txt.Horiba.R'
-    'DEPRECATED-read.txt.Renishaw.R'
-    'DEPRECATED-read.txt.Shimadzu.R'
-    'DEPRECATED-read.txt.long.R'
-    'DEPRECATED-read.txt.wide.R'
-    'DEPRECATED-scan.R'
-    'identify_spc.R'
-    'DEPRECATED-spc.identify.R'
-    'DEPRECATED-spc_bin.R'
-    'spc_fit_poly.R'
-    'DEPRECATED-spc_fit_poly.R'
-    'DEPRECATED-spc_fix_colnames.R'
-    'DEPRECATED-spc_loess.R'
-    'DEPRECATED-spc_na_approx.R'
-    'spc_rubberband.R'
-    'DEPRECATED-spc_rubberband.R'
-    'DEPRECATED-spc_spline.R'
-    'DEPRECATED-stacked.offsets.R'
-    'DEPRECATED-wc.R'
-    'DEPRECATED-wl_convert_units.R'
-    'wl_eval.R'
-    'DEPRECATED-wl_eval.R'
-    'DEPRECATED-wl_sort.R'
-    'DEPRECATED-write_txt_long.R'
-    'DEPRECATED-write_txt_wide.R'
-    'Math.R'
-    'Summary.R'
-    'aggregate.R'
-    'all.equal.R'
-    'apply.R'
-    'as.data.frame.R'
-    'as_hyperSpec.R'
-    'barbiturates.R'
-    'bind.R'
-    'colMeans.R'
-    'collapse.R'
-    'decomposition.R'
-    'dim.R'
-    'dimnames.R'
-    'dist_pearson.R'
-    'droplevels.R'
-    'empty.R'
-    'wl2i.R'
-    'extract.R'
-    'initialize.R'
-    'faux_cell.R'
-    'flu.R'
-    'generate-test-data.R'
-    'hy_attach.R'
-    'hy_auto_completion.R'
-    'hy_browse_homepage.R'
-    'hy_deprecation-messages.R'
-    'hy_list_available_hySpc_packages.R'
-    'hy_list_installed_hySpc_packages.R'
-    'hy_paste_names.R'
-    'paracetamol.R'
-    'laser.R'
-    'hyperspec-package.R'
-    'labels.R'
-    'plot_map.R'
-    'levelplot.R'
-    'map_identify.R'
-    'mean_sd.R'
-    'merge.R'
-    'mergeextra.R'
-    'normalize_01.R'
-    'palette_colorblind.R'
-    'palette_matlab.R'
-    'plot.R'
-    'plot_and_get.R'
-    'plot_c.R'
-    'plot_mat.R'
-    'plot_spc.R'
-    'plot_voronoi.R'
-    'quantile.R'
-    'rbind.fill.R'
-    'read_txt_long.R'
-    'read_txt_wide.R'
-    'replace.R'
-    'rmmvnorm.R'
-    'sample.R'
-    'scale.R'
-    'seq.R'
-    'show.R'
-    'spc_bin.R'
-    'spc_fix_colnames.R'
-    'spc_loess.R'
-    'spc_na_approx.R'
-    'spc_spline.R'
-    'split.R'
-    'subset.R'
-    'sweep.R'
-    'trellis_factor_key.R'
-    'vandermonde.R'
-    'wl.R'
-    'wl_fix_unit_name.R'
-    'wl_convert_units.R'
-    'wl_create_label_from_units.R'
-    'wl_sort.R'
-    'write_txt_long.R'
-    'write_txt_wide.R'
-    'zzz.R'
+Collate: 'validate.R' 'hyperspec-class.R' 'unittest.R' 'paste.row.R'
+        'Arith.R' 'Compare.R' 'DollarNames.R' 'Math.R' 'chk.hy.R'
+        'read.txt.wide.R' 'read.txt.long.R' 'options.R' 'wl.R'
+        'fileio.optional.R' 'NEW-functions.R' 'Summary.R' 'aggregate.R'
+        'all.equal.R' 'apply.R' 'as.data.frame.R' 'barbiturates.R'
+        'bind.R' 'call.list.R' 'chondro.R' 'colMeans.R' 'collapse.R'
+        'count_lines.R' 'cov.R' 'decomposition.R' 'deprecated.R'
+        'dim.R' 'dimnames.R' 'droplevels.R' 'empty.R' 'wl2i.R'
+        'extract.R' 'factor2num.R' 'fix_spc_colnames.R' 'flu.R'
+        'getbynames.R' 'regexps.R' 'guesswavelength.R' 'paracetamol.R'
+        'laser.R' 'hyperspec-package.R' 'initialize.R' 'labels.R'
+        'plotmap.R' 'levelplot.R' 'makeraster.R' 'map.identify.R'
+        'map.sel.poly.R' 'mark.dendrogram.R' 'mark.peak.R'
+        'matlab.palette.R' 'mean_sd.R' 'merge.R' 'mvtnorm.R'
+        'normalize01.R' 'orderwl.R' 'pearson.dist.R' 'plot.R' 'plotc.R'
+        'plotmat.R' 'plotspc.R' 'plotvoronoi.R' 'qplot.R'
+        'qplotmixmap.R' 'quantile.R' 'rbind.fill.R' 'read.ENVI.R'
+        'read.ENVI.HySpex.R' 'read.ENVI.Nicolet.R' 'read.txt.Witec.R'
+        'read.asc.Andor.R' 'read.asc.PerkinElmer.R' 'read.ini.R'
+        'read.jdx.R' 'read.mat.Cytospec.R' 'read.mat.Witec.R'
+        'read.spc.Kaiser.R' 'read.spc.R' 'read.spc.Shimadzu.R'
+        'read.spe.R' 'read.txt.Horiba.R' 'read.txt.Renishaw.R'
+        'read.txt.Shimadzu.R' 'replace.R' 'sample.R' 'scale.R' 'seq.R'
+        'show.R' 'spc.NA.approx.R' 'spc.bin.R' 'spc.fit.poly.R'
+        'spc.identify.R' 'spc.loess.R' 'spc.rubberband.R'
+        'spc.spline.R' 'split.R' 'split.string.R' 'splitdots.R'
+        'subset.R' 'sweep.R' 'trellis.factor.key.R' 'units.R'
+        'vandermonde.R' 'wc.R' 'wleval.R' 'write.txt.long.R'
+        'write.txt.wide.R' 'y-pastenames.R' 'zzz.R'
+RoxygenNote: 7.1.1
+NeedsCompilation: no
+Packaged: 2024-05-01 12:42:56 UTC; cb
+Author: Claudia Beleites [aut, cre, dtc]
+    (<https://orcid.org/0000-0003-1626-154X>),
+  Valter Sergo [aut],
+  Alois Bonifacio [ctb, dtc],
+  Marcel Dahms [ctb],
+  Björn Egert [ctb],
+  Simon Fuller [ctb],
+  Vilmantas Gegzna [aut],
+  Rustam Guliev [ctb],
+  Bryan A. Hanson [ctb],
+  Michael Hermes [ctb],
+  Martin Kammer [dtc],
+  Roman Kiselev [ctb],
+  Sebastian Mellor [ctb]
+Repository: CRAN
+Date/Publication: 2021-09-13 13:00:02 UTC
