@@ -5,9 +5,9 @@
 [![CRAN status](https://www.r-pkg.org/badges/version-last-release/hyperSpec)](https://cran.r-project.org/package=hyperSpec)
 [![metacran downloads](https://cranlogs.r-pkg.org/badges/grand-total/hyperSpec)](https://cran.r-project.org/package=hyperSpec)
 [![metacran downloads](https://cranlogs.r-pkg.org/badges/hyperSpec)](https://cran.r-project.org/package=hyperSpec)
-[![R-CMD-check](https://github.com/r-hyperspec/hyperSpec/workflows/R-CMD-check/badge.svg?branch=develop)](https://github.com/r-hyperspec/hyperSpec/actions)
+[![R-CMD-check](https://github.com/r-hyperspec/hyperSpec/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-hyperspec/hyperSpec/actions/workflows/R-CMD-check.yaml)
 [![Codecov](https://codecov.io/gh/r-hyperspec/hyperSpec/branch/develop/graph/badge.svg)](https://codecov.io/gh/r-hyperspec/hyperSpec?branch=develop)
-![Website (pkgdown)](https://github.com/r-hyperspec/hyperSpec/workflows/Website%20(pkgdown)/badge.svg)
+[![Website (pkgdown)](https://github.com/r-hyperspec/hyperSpec/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/r-hyperspec/hyperSpec/actions/workflows/pkgdown.yaml)
 <!-- [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html) -->
 <!-- badges: end -->
 
@@ -21,7 +21,7 @@
 <font color="red" size=4>
 <b>Package `hyperSpec` is under overhaul now.</b>  
 So this website is still under construction and the contents as well as resources are not fully updated yet.  
-The documentation of version `0.100.0` is not present here too.
+The documentation of version <code>0.100.2</code> is not present here either.
 </font>
 </center>
 <br>
@@ -30,7 +30,7 @@ The documentation of version `0.100.0` is not present here too.
 
 [**R**](https://www.r-project.org/) package **hyperSpec** is the main package in the [**`r-hyperspec`**](https://r-hyperspec.github.io/) family of packages.
 The goal of **hyperSpec** (and whole **`r-hyperspec`**) is to make the work with hyperspectral data sets, (i.e. spatially or time-resolved spectra, or spectra with any other kind of information associated with each of the spectra) more comfortable.
-The spectra can be data as obtained during 
+The spectra can be data obtained during 
 [XRF](https://en.wikipedia.org/wiki/X-ray_fluorescence),
 [UV/VIS](https://en.wikipedia.org/wiki/Ultraviolet%E2%80%93visible_spectroscopy), 
 [Fluorescence](https://en.wikipedia.org/wiki/Fluorescence_spectroscopy),
@@ -59,7 +59,7 @@ The documentation of the other **`r-hyperspec`** family packages can be found at
 
 ## Issues, Bug Reports and Feature Requests
 
-Issues, bug reports and feature requests should go [here](https://github.com/r-hyperspec/hyperSpec/issues)!
+Issues, bug reports, and feature requests should go [here](https://github.com/r-hyperspec/hyperSpec/issues)!
 <!-- ---------------------------------------------------------------------- -->
 
 
@@ -96,7 +96,7 @@ remotes::install_github("r-hyperspec/hyperSpec")
 ```
 
 **NOTE 1:**
-Usually, "Windows" users need to download, install and properly configure **Rtools** (see [these instructions](https://cran.r-project.org/bin/windows/Rtools/)) to make the code above work.
+Usually, "Windows" users need to download, install, and properly configure **Rtools** (see [these instructions](https://cran.r-project.org/bin/windows/Rtools/)) to make the code above work.
 
 **NOTE 2:**
 This method will **not** install package's documentation (help pages and vignettes) into your computer.
@@ -115,14 +115,14 @@ So you can either use the [online documentation](https://r-hyperspec.github.io/)
 1. From the **hyperSpec**'s GitHub [repository](https://github.com/r-hyperspec/hyperSpec):
     - If you use Git, `git clone` the branch of interest.
       You may need to fork it before cloning.
-    - Or just chose the branch of interest (1 in Figure below), download a ZIP archive with the code (2, 3) and unzip it on your computer.  
+    - Or just choose the branch of interest (1 in Figure below), download a ZIP archive with the code (2, 3), and unzip it on your computer.  
 ![image](https://user-images.githubusercontent.com/12725868/89338263-ffa1dd00-d6a4-11ea-94c2-fa36ee026691.png)
 
 2. Open the downloaded directory in RStudio (preferably, as an RStudio project).
     - The code below works correctly only if your current working directory coincides with the root of the repository, i.e., if it is in the directory that contains file `README.md`.
     - If you open RStudio project correctly (e.g., by clicking `project.Rproj` icon ![image](https://user-images.githubusercontent.com/12725868/89340903-26621280-d6a9-11ea-8299-0ec5e9cf7e3e.png) in the directory), then the working directory is set correctly by default.
 
-3. In RStudio 'Console' window, run the code (provided below) to:
+3. In the RStudio 'Console' window, run the code (provided below) to:
     a. Install packages **remotes** and **devtools**.
     b. Install **hyperSpec**'s dependencies.
     c. Create **hyperSpec**'s documentation.
@@ -146,7 +146,7 @@ devtools::install(build_vignettes = TRUE)
 ```
 
 **NOTE 1:**
-Usually, "Windows" users need to download, install and properly configure **Rtools** (see [these instructions](https://cran.r-project.org/bin/windows/Rtools/)) to make the code above work.
+Usually, "Windows" users need to download, install, and properly configure **Rtools** (see [these instructions](https://cran.r-project.org/bin/windows/Rtools/)) to make the code above work.
 
 </details>
 
