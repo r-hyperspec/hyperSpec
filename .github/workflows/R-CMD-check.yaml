@@ -43,12 +43,6 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      - name: Install dependencies (for R-devel)
-        if: matrix.config.r == 'devel'
-        run: |
-          remotes::install_cran("vdiffr", type = "source", force = TRUE)
-        shell: Rscript {0}
-
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::rcmdcheck, any::devtools, any::remotes, local::.
@@ -58,21 +52,24 @@ jobs:
         run: |
           remotes::install_version("roxygen2", "7.2.3")
         shell: Rscript {0}
-        needs: setup-r-dependencies
 
       - name: Install dependencies (for R-devel)
         if: matrix.config.r == 'devel'
         run: |
           remotes::install_cran("vdiffr", type = "source", force = TRUE)
         shell: Rscript {0}
-        needs: setup-r-dependencies
+
+      - name: Install dependencies (for R-devel)
+        if: matrix.config.r == 'devel'
+        run: |
+          remotes::install_cran("vdiffr", type = "source", force = TRUE)
+        shell: Rscript {0}
 
       - name: Install dependencies (for R-oldrel)
         if: matrix.config.r == 'oldrel' || matrix.config.r == '3.6'
         run: |
           remotes::install_version("rgl", "0.100.50")
         shell: Rscript {0}
-        needs: setup-r-dependencies
 
       - name: Roxygenize
         run: |
