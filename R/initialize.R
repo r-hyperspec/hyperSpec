@@ -22,7 +22,7 @@
 #'  create,hyperSpec-method
 #'  new
 #'  new,hyperSpec-method
-#'  hyperSpec
+#'  hyperSpec-function
 #'
 #' @param spc (`matrix` or convertible to `matrix`)  \cr
 #'        A spectra matrix with spectra in rows and wavelength intensities in
