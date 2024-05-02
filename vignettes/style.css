@@ -53,9 +53,9 @@ div.yellowbox pre.sourceCode {
 
 
 div.note-t {
-  color:            #D8000C;
+  color:            #D8000C !important;
   border: 5px solid #C8000C;
-  background-color: #FEEF83;
+  background-color: #FEEF8333;
   width:       100%;
   max-width:   650px;
   padding:     10px;
