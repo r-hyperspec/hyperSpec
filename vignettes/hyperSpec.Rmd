@@ -1893,7 +1893,7 @@ In general, it is not recommended to work with variables that are more than appr
 Particularly the import of raw spectroscopic data can consume large amounts of memory.
 At certain points, package **hyperSpec** provides switches that allow working with data sets that are actually close to this memory limit.
 
-\mFun{`new ("hyperSpec")`{.r}, `read.ENVI*()`{.r},`read.txt.Renishaw()`{.r}}
+\mFun{`new("hyperSpec")`{.r}, `read.ENVI*()`{.r},`read.txt.Renishaw()`{.r}}
 \index{options!gc}
 The initialization method `new("hyperSpec", ...)`{.r} takes particular care to avoid unnecessary copies of the spectra matrix.
 In addition, frequent calls to `gc()`{.r} can be requested by `hy_set_option(gc = TRUE)`{.r}.
