@@ -58,6 +58,7 @@ jobs:
         run: |
           remotes::install_version("roxygen2", "7.2.3")
         shell: Rscript {0}
+        needs: setup-r-dependencies
 
       - name: Install dependencies (for R-devel)
         if: matrix.config.r == 'devel'
