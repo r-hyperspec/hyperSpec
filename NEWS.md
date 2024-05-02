@@ -23,7 +23,7 @@
 * New function `hy_browse_homepage()` opens the homepage of *R hyperSpec* in a web browser.
 * New function `hy_list_available_hySpc_packages()` lists packages, that are available in GitHub organization `r-hyperSpec`.
 * New function `hy_list_installed_hySpc_packages()` lists and function `hy_attach()` conveniently loads and attaches all installed **`r-hyperspec`** family packages (@cbeleites, @GegznaV, cbeleites/hyperSpec#219).
-* New function `new_hyperSpec()` that initializes `hyperSpec` object in a similar way as `new("hyperSpec")` does but has autocompletion possibilities in RStudio (cbeleites/hyperSpec#283).
+* New function `hyperSpec()` that initializes `hyperSpec` object in a similar way as `new("hyperSpec")` does but has autocompletion possibilities in RStudio (cbeleites/hyperSpec#283).
 * New function `wl_convert_units()` (cbeleites/hyperSpec#300).
 * New function `wl_create_label_from_units()` that creates labels for wavelength axis (@GegznaV).
 * New method `as.hyperSpec(<hyperSpec>)` (cbeleites/hyperSpec#282).
