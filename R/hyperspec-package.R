@@ -1,4 +1,7 @@
 #' @name hyperSpec-package
+#' @rdname hyperSpec-package
+#' @aliases hyperSpec-package
+#'
 #' @title Package "hyperSpec": interface for hyperspectral datasets
 #' @description
 #' This package gives an interface to handle hyperspectral data sets in R.
@@ -20,13 +23,11 @@
 #' - `package?hyperSpec` for information about the package.
 #' - `class?hyperSpec` for details on the S4 class provided by this package.
 #'
-#' @rdname hyperSpec-package
 #' @include flu.R
 #' @include faux_cell.R
 #' @include laser.R
 #' @include paracetamol.R
 #' @include barbiturates.R
-
 #'
 #' @keywords package
 #' @concept hyperSpec-main
