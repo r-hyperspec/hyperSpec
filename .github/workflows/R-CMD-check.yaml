@@ -59,12 +59,6 @@ jobs:
           remotes::install_cran("vdiffr", type = "source", force = TRUE)
         shell: Rscript {0}
 
-      - name: Install dependencies (for R-devel)
-        if: matrix.config.r == 'devel'
-        run: |
-          remotes::install_cran("vdiffr", type = "source", force = TRUE)
-        shell: Rscript {0}
-
       - name: Install dependencies (for R-oldrel)
         if: matrix.config.r == 'oldrel' || matrix.config.r == '3.6'
         run: |
