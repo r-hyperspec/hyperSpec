@@ -32,6 +32,9 @@ on:
   workflow_dispatch:
   push:
     branches: [develop,  auto-update-test]
+  schedule:
+    # (see https://crontab.guru)
+    - cron: "10 3 * */2 WED"
 
 name: Publish to pkg-repo (drat)
 

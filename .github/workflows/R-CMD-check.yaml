@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
   push:
-    branches: [main, master, develop, release, auto-update-test]
+    branches: [main, master, develop, release, auto-update-test, update-gha-workflows]
   pull_request:
     branches: [main, master, develop, release]
   schedule:
