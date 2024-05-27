@@ -2,12 +2,12 @@
 #'
 #' To create a new `hyperSpec` object, you can use one of the following functions:
 #' - [new()] (i.e., `new("hyperSpec", ...)`);
-#' - `new_hyperSpec()`.
+#' - `hyperSpec()`.
 #'
 #' @note
 #'
 #' A `hyperSpec` object is an S4 object, so its initialization is performed
-#' by calling `new("hyperSpec", ...)`. The function `new_hyperSpec()` is provided
+#' by calling `new("hyperSpec", ...)`. The function `hyperSpec()` is provided
 #' for convenience.
 #'
 #' @docType methods
@@ -22,7 +22,7 @@
 #'  create,hyperSpec-method
 #'  new
 #'  new,hyperSpec-method
-#'  new_hyperSpec
+#'  hyperSpec-function
 #'
 #' @param spc (`matrix` or convertible to `matrix`)  \cr
 #'        A spectra matrix with spectra in rows and wavelength intensities in
@@ -85,11 +85,11 @@
 #' @examples
 #'
 #' new("hyperSpec")
-#' new_hyperSpec()
+#' hyperSpec()
 #'
 #' spc <- matrix(rnorm(12), ncol = 4)
 #' new("hyperSpec", spc = spc)
-#' new_hyperSpec(spc = spc)
+#' hyperSpec(spc = spc)
 #'
 #' new("hyperSpec",
 #'   data = data.frame(x = letters[1:3]),
@@ -263,7 +263,7 @@ NULL
 
 #' @rdname initialize
 #' @export
-new_hyperSpec <- function(spc = NULL, data = NULL, wavelength = NULL,
+hyperSpec <- function(spc = NULL, data = NULL, wavelength = NULL,
                           labels = NULL, gc = hy_get_option("gc"),
                           log = "ignored") {
   new("hyperSpec", spc = spc, data = data, wavelength = wavelength,
@@ -398,11 +398,11 @@ hySpc.testthat::test(.initialize) <- function() {
   })
 
 
-  test_that('new_hyperSpec() and new("hyperSpec") give identical results', {
-    expect_equal(new_hyperSpec(), new("hyperSpec"))
-    expect_equal(new_hyperSpec(spc = 1:4), new("hyperSpec", spc = 1:4))
+  test_that('hyperSpec() and new("hyperSpec") give identical results', {
+    expect_equal(hyperSpec(), new("hyperSpec"))
+    expect_equal(hyperSpec(spc = 1:4), new("hyperSpec", spc = 1:4))
     expect_equal(
-      new_hyperSpec(spc = spc, data = data.frame(x = 11:13)),
+      hyperSpec(spc = spc, data = data.frame(x = 11:13)),
       new("hyperSpec", spc = spc, data = data.frame(x = 11:13))
     )
   })
