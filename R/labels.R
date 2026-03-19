@@ -140,7 +140,8 @@ hySpc.testthat::test(.labels) <- function() {
 #' @examples
 #'
 #' labels(flu, "c") <- expression("/"("c", "mg / l"))
-`labels<-` <- function(object, which = NULL, ..., value) {
+# helper function (similar to .labels for the getter)
+.labels_replace <- function(object, which = NULL, ..., value) {
   assert_hyperSpec(object)
   validObject(object)
 
@@ -162,6 +163,17 @@ hySpc.testthat::test(.labels) <- function() {
   validObject(object)
   object
 }
+
+# generic replacement function
+#' @export
+setGeneric("labels<-", function(object, which = NULL, ..., value) {
+  standardGeneric("labels<-")
+})
+
+setMethod("labels<-", 
+  signature = signature(object = "hyperSpec"), 
+  .labels_replace
+)
 
 
 # Unit tests -----------------------------------------------------------------
