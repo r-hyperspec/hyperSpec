@@ -126,9 +126,11 @@ hySpc.testthat::test(.all.equal) <- function() {
 #'
 #' @concept manipulation
 #'
+#' @method all.equal hyperSpec
 #' @export
-setMethod(
-  "all.equal",
-  signature(target = "hyperSpec", current = "hyperSpec"),
-  .all.equal
-)
+# setMethod(
+#   "all.equal",
+#   signature(target = "hyperSpec", current = "hyperSpec"),
+#   .all.equal
+# )
+all.equal.hyperSpec <- .all.equal
