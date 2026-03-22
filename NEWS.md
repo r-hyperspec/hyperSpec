@@ -1,4 +1,5 @@
-# hyperSpec 0.101.0 (2024-05-01)
+
+# hyperSpec 0.101.0 & 0.200.0.9000 (2024-05-01; development version)
 
 
 ## User-Facing Changes from Previous Versions 
@@ -40,11 +41,17 @@
 * Function `wl_convert_units()` converted into S3 generic. Default and hyperSpec methods were added (#29).
 * Dataset `faux_cell` and function `generate_faux_cell()` replace `chondro` dataset (cbeleites/hyperSpec#125, cbeleites/hyperSpec#156, cbeleites/hyperSpec#180, cbeleites/hyperSpec#229).
 * Documentation aliases have been updated. Now, ?hyperSpec points to the function `hyperSpec()`, and to refer to the package, `package?hyperSpec` should be used (#129).
+* Vignette `hyperSpec.Rmd`: suggested packages (`pls`) are now loaded conditionally so the vignette builds even when they are not installed.
+
 
 ### Bugfixes
 
 * Possibility to initialize `hyperSpec` object by providing wavelengths only (cbeleites/hyperSpec#288).
 * Column names in spectra matrix (`$spc` column of `hyperSpec` object) are now returned correctly by functions `spc.bin()` (cbeleites/hyperSpec#237), and `spc.loess()` (cbeleites/hyperSpec#245
+* `all.equal()` method for `hyperSpec` objects converted from S4 to S3 registration. The S4 `setMethod()` approach for this S3 generic caused roxygen2 (>= 7.3) to crash during documentation generation.
+* `rbind.fill()` (internal): strip the `AsIs` class from matrix columns after data frame assembly. R >= 4.4 introduced `all.equal.AsIs()` which caused spurious class-mismatch failures when comparing `hyperSpec` objects that had been through `rbind` or `collapse`.
+* `wl_create_label_from_units()`: fixed incorrect use of `grep()` where `sub()` was intended, which caused malformed wavelength axis labels for units containing `"_greek"`.
+* `collapse()`: correctly sorts wavelengths in the merged result and preserves expected row order when combining `hyperSpec` objects with differing wavelength axes.
 
 
 ### Soft Deprecation: Functions That Will Be Moved to Other Packages
