@@ -47,9 +47,6 @@ NAMESPACE
 NEWS.html
 README.html
 
-# VSCode files
-.vscode/
-
 # Other/Broad
 *.html
 _tmp/

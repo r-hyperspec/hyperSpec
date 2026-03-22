@@ -9,7 +9,7 @@
 # IDE & editor files
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^\.vscode$
+
 
 # Github
 ^\.github$
