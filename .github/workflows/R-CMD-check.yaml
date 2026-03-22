@@ -33,7 +33,7 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: r-lib/actions/setup-pandoc@v2
 
@@ -45,13 +45,8 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::rcmdcheck, any::devtools, any::remotes, local::.
+          extra-packages: any::rcmdcheck, any::devtools, any::remotes, any::roxygen2, local::.
           needs: check
-
-      - name: "Install roxygen2==7.2.3"
-        run: |
-          remotes::install_version("roxygen2", "7.2.3")
-        shell: Rscript {0}
 
       - name: Install dependencies (for R-devel)
         if: matrix.config.r == 'devel'
