@@ -22,8 +22,21 @@ jobs:
     # Only restrict concurrency for non-PR jobs
     concurrency:
       group: pkgdown-${{ github.event_name != 'pull_request' || github.run_id }}
+
+    # Required for native GitHub Pages deployment
+    # In each repo: Settings > Pages > Source must be set to "GitHub Actions"
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - uses: actions/checkout@v4
@@ -51,10 +64,13 @@ jobs:
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = TRUE)
         shell: Rscript {0}
 
-      - name: Deploy to GitHub pages 🚀
+      - name: Upload Pages artifact
         if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: actions/upload-pages-artifact@v3
         with:
-          clean: false
-          branch: gh-pages
-          folder: docs
+          path: docs
+
+      - name: Deploy to GitHub Pages 🚀
+        if: github.event_name != 'pull_request'
+        id: deployment
+        uses: actions/deploy-pages@v4

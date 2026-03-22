@@ -1,0 +1,15 @@
+# READ-ONLY FILE
+#
+# Original file resides in r-hyperspec/pkg-skeleton.
+# DO NOT EDIT in any other repo as these changes will be overwritten.
+# Edit at r-hyperspec/pkg-skeleton, then push there and
+# this file will be deployed to the other repos.
+
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    labels:
+      - "Type: maintenance"
