@@ -1,0 +1,61 @@
+name: Question / Help
+description: Ask a question or request help using a package.
+title: "[Question]: "
+labels: ["Type: question :question:", "Type: new :new:"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your question!
+        Before opening an issue, please check the
+        [documentation](https://r-hyperspec.github.io/) and existing issues.
+        For general R / spectroscopy questions, consider
+        [Stack Overflow](https://stackoverflow.com/questions/tagged/r+hyperspec) instead.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: What would you like to know, or what are you trying to achieve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: attempted
+    attributes:
+      label: What have you tried?
+      description: Describe what you have already attempted, including any code.
+      render: r
+    validations:
+      required: false
+
+  - type: input
+    id: pkg-version
+    attributes:
+      label: Package version (optional)
+      description: Run `packageVersion("<package-name>")` to get the version.
+      placeholder: "e.g. 0.100.2"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system (optional)
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Other
+    validations:
+      required: false
+
+  - type: textarea
+    id: session-info
+    attributes:
+      label: Session info (optional)
+      description: Paste the output of `sessioninfo::session_info()` if relevant.
+      render: r
+    validations:
+      required: false

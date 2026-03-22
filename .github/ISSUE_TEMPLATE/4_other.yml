@@ -1,0 +1,21 @@
+name: Other / Free form
+description: Anything that does not fit the other templates — feedback, documentation issues, general comments, etc.
+title: ""
+labels: ["Type: new :new:"]
+
+body:
+  - type: textarea
+    id: content
+    attributes:
+      label: Description
+      description: Please describe your issue, suggestion, or comment in as much detail as you like.
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Links, screenshots, or any other information that might help.
+    validations:
+      required: false
