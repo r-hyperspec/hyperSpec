@@ -30,6 +30,7 @@ vignette: >
     % \VignetteIndexEntry{Introduction to Package "hyperSpec"}
     % \VignetteKeyword{hyperSpec}
     % \VignettePackage{hyperSpec}
+    % \VignetteDepends{styler}
     % \VignetteEngine{knitr::rmarkdown}
     % \VignetteEncoding{UTF-8}
 # Citations/References -------------------------------------------------------
@@ -51,9 +52,13 @@ rm(list = ls(all.names = TRUE))
 ```{r setup, include = FALSE}
 # Packages -------------------------------------------------------------------
 library(hyperSpec)
-library(mvtnorm)
-library(pls)
-library(colorspace)
+if (requireNamespace("mvtnorm", quietly = TRUE)) library(mvtnorm)
+if (requireNamespace("pls", quietly = TRUE)) library(pls)
+if (requireNamespace("colorspace", quietly = TRUE)) library(colorspace)
+
+# Check availability of optional packages
+has_baseline <- requireNamespace("baseline", quietly = TRUE)
+has_pls <- requireNamespace("pls", quietly = TRUE)
 
 # Functions ------------------------------------------------------------------
 source("vignette-functions.R", encoding = "UTF-8")
@@ -1151,7 +1156,7 @@ Package package **baseline**[`r cite_pkg("baseline")`] offers many more function
 The `baseline()`{.r} function works on the spectra matrix, which is extracted by `[[]]`.
 The result is a `baseline`{.r} object, but can easily be re-imported into the `hyperSpec` object:
 
-```{r do-bl}
+```{r do-bl, eval = has_baseline}
 corrected <- hyperSpec::faux_cell[1] # start with the unchanged data set
 
 library("baseline")
@@ -1166,7 +1171,7 @@ Fig. \@ref(fig:bl-baseline) and \@ref(fig:bl-baseline-2) show raw data and the r
 CAPTION <- "The first spectrum of `faux_cell`{.r} (raw data) with baseline.  "
 ```
 
-```{r bl-baseline, fig.cap = CAPTION}
+```{r bl-baseline, fig.cap = CAPTION, eval = has_baseline}
 baseline <- corrected
 baseline[[]] <- getBaseline(bl)
 plot(hyperSpec::faux_cell[1], plot.args = list(ylim = range(hyperSpec::faux_cell[1], 0)))
@@ -1180,15 +1185,17 @@ CAPTION <- 'Baseline correction using the **baseline** package:
 the first spectrum of `faux_cell`{.r}  after baseline correction with method "odpolyfi".  '
 ```
 
-```{r bl-baseline-2, fig.cap = CAPTION}
+```{r bl-baseline-2, fig.cap = CAPTION, eval = has_baseline}
 plot(corrected, plot.args = list(ylim = range(hyperSpec::faux_cell[1], 0)))
 ```
 
 
-```{r}
+```{r, include=FALSE}
+rm(list = intersect(c("bl", "faux_cell"), ls()))
+```
+```{r, eval=FALSE}
 rm(bl, faux_cell)
 ```
-
 
 ## Intensity Calibration
 
@@ -1329,6 +1336,10 @@ See section the appendices for some tips to speed up these calculations.
 Multiplicative scatter correction (MSC) can be done using `msc()`{.r} from package **pls** [`r cite_pkg("pls")`].
 It operates on the spectra matrix:
 
+```{r, eval=FALSE, include=FALSE}
+if (requireNamespace("pls", quietly = TRUE)) library(pls)
+```
+
 ```{r msc, eval = FALSE}
 library(pls)
 faux_cell_msc <- faux_cell
@@ -1425,6 +1436,7 @@ loadings <- decomposition(faux_cell, t(pca$rotation),
 )
 loadings[1]$..
 ```
+
 If an extra data column does contain only one unique value, it is retained regardless:
 
 ```{r retain}
