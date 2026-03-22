@@ -296,7 +296,7 @@ hySpc.testthat::test(collapse) <- function() {
 
   test_that("collapsing objects with equal wavelength axes", {
     expect_equivalent(collapse(barbiturates[[1]], barbiturates[[1]]),
-      barbiturates[[1]][c(1, 1)],
+      wl_sort(barbiturates[[1]][c(1, 1)]),
       check.label = TRUE
     )
   })
