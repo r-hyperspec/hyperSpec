@@ -6,6 +6,7 @@
 # this file will be deployed to the other repos.
 #
 on:
+  workflow_dispatch:
   push:
     branches:
       - release
@@ -29,8 +30,13 @@ name: Test coverage
 jobs:
   test-coverage:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - uses: actions/checkout@v4
@@ -56,11 +62,12 @@ jobs:
       - name: Test coverage
         shell: Rscript {0}
         run: |
-          covr::codecov(
+          cov <- covr::package_coverage(
             quiet = FALSE,
             clean = FALSE,
             install_path = file.path(Sys.getenv("RUNNER_TEMP"), "package")
           )
+          covr::to_cobertura(cov)
 
       - name: Show testthat output
         shell: bash
@@ -68,6 +75,13 @@ jobs:
         run: |
           ## --------------------------------------------------------------------
           find ${{ runner.temp }}/package -name 'testthat.Rout*' -exec cat '{}' \; || true
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          files: ./cobertura.xml
+          fail_ci_if_error: false
+          # token: ${{ secrets.CODECOV_TOKEN }}  # required for private repos
 
       - name: Upload test results
         if: failure()

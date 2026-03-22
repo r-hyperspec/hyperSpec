@@ -1,0 +1,120 @@
+name: Bug report
+description: Report a bug or unexpected behavior.
+title: "[Bug]: "
+labels: ["Type: possibly bug :question:", "Type: new :new:"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a bug!
+        Please **search existing issues** first to avoid duplicates.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: "When I call `foo()` with argument `bar`, it ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reprex
+    attributes:
+      label: Minimal reproducible example (reprex)
+      description: |
+        Please provide a [reprex](https://reprex.tidyverse.org/) — a minimal,
+        self-contained R script that consistently reproduces the bug.
+      render: r
+      placeholder: |
+        library(hyperSpec)
+        # your minimal example here
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What actually happened? Include the full error message or warning if there is one.
+    validations:
+      required: true
+
+  - type: input
+    id: pkg-version
+    attributes:
+      label: Package version
+      description: >
+        Run `packageVersion("<package-name>")` to get the version.
+      placeholder: "e.g. 0.100.2"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: r-version
+    attributes:
+      label: R version
+      options:
+        - R devel
+        - R 4.6.x
+        - R 4.5.x
+        - R 4.4.x
+        - R 4.3.x
+        - R 4.2.x
+        - Older
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: session-info
+    attributes:
+      label: Session info
+      description: >
+        Paste the output of `sessioninfo::session_info()` here.
+        This helps identify dependency version conflicts.
+      render: r
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Any other information that might be relevant (screenshots, data files, links to related issues).
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues and this is not a duplicate.
+          required: true
+        - label: I have installed the latest version of the package and the bug still persists.
+          required: true
+        - label: I have included a minimal reproducible example (reprex).
+          required: true
+        - label: I have attached any necessary data files (if applicable).
+          required: false
