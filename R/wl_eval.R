@@ -80,8 +80,8 @@ hySpc.testthat::test(wl_eval.hyperSpec) <- function() {
     )
 
     expect_equivalent(
-      wl_eval(flu, function(x) x),
-      vanderMonde(flu, 1)[2]
+      wl_eval(flu, function(x) x, normalize.wl = normalize_01)[[]],
+      vanderMonde(flu, 1)[2][[]]
     )
 
     expect_equivalent(
@@ -110,8 +110,8 @@ hySpc.testthat::test(wl_eval.hyperSpec) <- function() {
 
   test_that("multiple functions", {
     expect_equivalent(
-      wl_eval(flu, function(x) rep(1, length(x)), function(x) x),
-      vanderMonde(flu, 1)
+      wl_eval(flu, function(x) rep(1, length(x)), function(x) x, normalize.wl = normalize_01)[[]],
+      vanderMonde(flu, 1)[[]]
     )
   })
 
