@@ -14,7 +14,7 @@
 #' [graphics::image()]?
 #'
 #' @author Claudia Beleites
-#' @seealso  [graphics::image()], [graphics::contour()], [hyperSpec::levelplot()]
+#' @seealso  [graphics::image()], [graphics::contour()], [lattice::levelplot()]
 #'
 #' @concept plotting
 #' @concept plot generation
