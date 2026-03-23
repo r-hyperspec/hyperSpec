@@ -48,8 +48,16 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::covr, any::devtools, any::roxygen2
+          extra-packages: any::covr, any::devtools, any::remotes, local::.
           needs: coverage
+
+      # roxygen2 7.3.x parser_setMethod calls methods::getMethod() which fails
+      # in clean Rscript sessions for S4 methods on primitives like [[, [, $.
+      # Pin to 7.2.3 until roxygen2 resolves this.
+      - name: "Install roxygen2 7.2.3"
+        run: |
+          remotes::install_version("roxygen2", "7.2.3")
+        shell: Rscript {0}
 
       - name: Roxygenize
         shell: Rscript {0}
