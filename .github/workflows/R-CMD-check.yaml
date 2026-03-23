@@ -28,9 +28,17 @@ jobs:
           - {os: ubuntu-latest,  r: 'release'}
           - {os: ubuntu-latest,  r: 'oldrel'}
 
+    permissions:
+      contents: read
+
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: ${{ github.ref != 'refs/heads/release' && github.ref != 'refs/heads/main' }}
+
     env:
       R_KEEP_PKG_SOURCE: yes
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - uses: actions/checkout@v4
@@ -45,7 +53,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::rcmdcheck, any::devtools, any::remotes, local::.
+          extra-packages: any::rcmdcheck, any::devtools, local::.
           needs: check
 
       # roxygen2 7.3.x parser_setMethod calls methods::getMethod() which fails
@@ -63,7 +71,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Install dependencies (for R-oldrel)
-        if: matrix.config.r == 'oldrel' || matrix.config.r == '3.6'
+        if: matrix.config.r == '3.6'
         run: |
           remotes::install_version("rgl", "0.100.50")
         shell: Rscript {0}
@@ -76,4 +84,10 @@ jobs:
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
+
+      - name: Show R-CMD-check log as step summary
+        if: always()
+        shell: bash
+        run: |
+          find check -name '00check.log' -exec sh -c 'echo "### $1"; cat "$1"' _ {} \; >> $GITHUB_STEP_SUMMARY || true
 
