@@ -55,7 +55,11 @@ jobs:
       # roxygen2 7.3.x parser_setMethod calls methods::getMethod() which fails
       # in clean Rscript sessions for S4 methods on primitives like [[, [, $.
       # Pin to 7.2.3 until roxygen2 resolves this.
+      # Skip on R-devel: the 7.2.3 binary is ABI-incompatible (SET_GROWABLE_BIT
+      # removed in R-devel), and 7.3.x has the parser_setMethod bug,
+      # so we skip roxygenize on devel entirely.
       - name: "Install roxygen2 7.2.3"
+        if: matrix.config.r != 'devel'
         run: |
           remotes::install_version("roxygen2", "7.2.3")
         shell: Rscript {0}
@@ -72,7 +76,13 @@ jobs:
           remotes::install_version("rgl", "0.100.50")
         shell: Rscript {0}
 
+      - name: Session info
+        run: |
+          sessionInfo()
+        shell: Rscript {0}
+
       - name: Roxygenize
+        if: matrix.config.r != 'devel'
         run: |
           devtools::document()
         shell: Rscript {0}
