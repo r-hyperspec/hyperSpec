@@ -58,11 +58,11 @@
 <polyline points='367.53,550.08 370.70,538.35 ' style='stroke-width: 0.75;' />
 <text x='372.29' y='548.35' style='font-size: 12.00px; font-family: sans;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>n</text>
 <text x='378.96' y='548.35' style='font-size: 12.00px; font-family: sans;' textLength='10.00px' lengthAdjust='spacingAndGlyphs'>m</text>
-<text transform='translate(10.74,297.75) rotate(-90)' style='font-size: 12.00px; font-family: sans;' textLength='3.33px' lengthAdjust='spacingAndGlyphs'>I</text>
+<text transform='translate(10.42,297.75) rotate(-90)' style='font-size: 12.00px; font-family: sans;' textLength='3.33px' lengthAdjust='spacingAndGlyphs'>I</text>
 <text transform='translate(12.96,294.41) rotate(-90)' style='font-size: 8.40px; font-family: sans;' textLength='2.33px' lengthAdjust='spacingAndGlyphs'>f</text>
 <text transform='translate(12.96,292.08) rotate(-90)' style='font-size: 8.40px; font-family: sans;' textLength='1.86px' lengthAdjust='spacingAndGlyphs'>l</text>
-<polyline points='12.47,288.63 0.75,285.46 ' style='stroke-width: 0.75;' />
-<text transform='translate(10.74,283.87) rotate(-90)' style='font-size: 12.00px; font-family: sans;' textLength='20.02px' lengthAdjust='spacingAndGlyphs'>a.u.</text>
+<polyline points='12.16,288.63 0.43,285.46 ' style='stroke-width: 0.75;' />
+<text transform='translate(10.42,283.87) rotate(-90)' style='font-size: 12.00px; font-family: sans;' textLength='20.02px' lengthAdjust='spacingAndGlyphs'>a.u.</text>
 </g>
 <defs>
   <clipPath id='cpNTkuMDR8Njg5Ljc2fDU5LjA0fDUwMi41Ng=='>

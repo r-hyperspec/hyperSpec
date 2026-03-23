@@ -53,10 +53,13 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::rcmdcheck, any::devtools, any::remotes, local::.
+          extra-packages: any::rcmdcheck, any::devtools, local::.
           needs: check
 
-      - name: "Install roxygen2==7.2.3"
+      # roxygen2 7.3.x parser_setMethod calls methods::getMethod() which fails
+      # in clean Rscript sessions for S4 methods on primitives like [[, [, $.
+      # Pin to 7.2.3 until roxygen2 resolves this.
+      - name: "Install roxygen2 7.2.3"
         run: |
           remotes::install_version("roxygen2", "7.2.3")
         shell: Rscript {0}
@@ -68,7 +71,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Install dependencies (for R-oldrel)
-        if: matrix.config.r == 'oldrel' || matrix.config.r == '3.6'
+        if: matrix.config.r == '3.6'
         run: |
           remotes::install_version("rgl", "0.100.50")
         shell: Rscript {0}

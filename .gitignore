@@ -54,3 +54,4 @@ _tmp/
 ### Package-specific ###
 tests/testthat/fileio
 /.vscode
+.positai
