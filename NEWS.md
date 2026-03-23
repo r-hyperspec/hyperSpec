@@ -52,6 +52,8 @@
 * `rbind.fill()` (internal): strip the `AsIs` class from matrix columns after data frame assembly. R >= 4.4 introduced `all.equal.AsIs()` which caused spurious class-mismatch failures when comparing `hyperSpec` objects that had been through `rbind` or `collapse`.
 * `wl_create_label_from_units()`: fixed incorrect use of `grep()` where `sub()` was intended, which caused malformed wavelength axis labels for units containing `"_greek"`.
 * `collapse()`: correctly sorts wavelengths in the merged result and preserves expected row order when combining `hyperSpec` objects with differing wavelength axes.
+* Fixed Rd cross-references for `levelplot()` in `plot_matrix` and `map.sel.poly` documentation to include `lattice` package anchor.
+* Vignette `hyperSpec.Rmd`: suggested packages (`pls`, `baseline`, `mvtnorm`, `colorspace`) are now loaded conditionally so the vignette builds even when they are not installed.
 
 
 ### Soft Deprecation: Functions That Will Be Moved to Other Packages
