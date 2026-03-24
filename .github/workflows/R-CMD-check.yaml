@@ -54,14 +54,21 @@ jobs:
 
       # roxygen2 7.3.x parser_setMethod calls methods::getMethod() which fails
       # in clean Rscript sessions for S4 methods on primitives like [[, [, $.
-      # Pin to 7.2.3 until roxygen2 resolves this.
-      # Skip on R-devel: the 7.2.3 binary is ABI-incompatible (SET_GROWABLE_BIT
-      # removed in R-devel), and 7.3.x has the parser_setMethod bug,
-      # so we skip roxygenize on devel entirely.
+      # Pin to 7.2.3. On R-devel, install from source: the RSPM binary was
+      # compiled against an older R and fails at runtime with:
+      #   "undefined symbol: SET_GROWABLE_BIT"
+      # Compiling from source uses the current R-devel headers (where
+      # SET_GROWABLE_BIT is a static inline), so no external symbol dependency.
       - name: "Install roxygen2 7.2.3"
         if: matrix.config.r != 'devel'
         run: |
           remotes::install_version("roxygen2", "7.2.3")
+        shell: Rscript {0}
+
+      - name: "Install roxygen2 7.2.3 from source (R-devel)"
+        if: matrix.config.r == 'devel'
+        run: |
+          remotes::install_version("roxygen2", "7.2.3", type = "source")
         shell: Rscript {0}
 
       - name: Install dependencies (for R-devel)
@@ -78,11 +85,11 @@ jobs:
 
       - name: Session info
         run: |
+          sessioninfo::session_info()
           sessionInfo()
         shell: Rscript {0}
 
       - name: Roxygenize
-        if: matrix.config.r != 'devel'
         run: |
           devtools::document()
         shell: Rscript {0}
