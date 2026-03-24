@@ -54,22 +54,30 @@ jobs:
 
       # roxygen2 7.3.x parser_setMethod calls methods::getMethod() which fails
       # in clean Rscript sessions for S4 methods on primitives like [[, [, $.
-      # Pin to 7.2.3. On R-devel, install from source: the RSPM binary was
-      # compiled against an older R and fails at runtime with:
-      #   "undefined symbol: SET_GROWABLE_BIT"
-      # Compiling from source uses the current R-devel headers (where
-      # SET_GROWABLE_BIT is a static inline), so no external symbol dependency.
+      # Pin to 7.2.3 for R release/oldrel.
+      #
+      # R-devel workaround:
+      #   roxygen2 7.2.3 cannot run on R-devel 4.6.0: the binary is compiled
+      #   against an older R ABI, and source-compiled 7.2.3 also references
+      #   SET_GROWABLE_BIT which R 4.6.0 no longer exports from libR.so.
+      #   roxygen2 7.3.3 loads fine on R-devel but crashes AFTER deleting
+      #   NAMESPACE (parser_setMethod bug); setup-r-dependencies silently
+      #   swallows that error, leaving NAMESPACE wiped.
+      #   Fix: restore NAMESPACE + man/ from git after setup-r-dependencies,
+      #   strip RoxygenNote from DESCRIPTION (so R CMD build won't re-invoke
+      #   roxygen2 internally), and skip our own roxygenize step on devel.
       - name: "Install roxygen2 7.2.3"
         if: matrix.config.r != 'devel'
         run: |
           remotes::install_version("roxygen2", "7.2.3")
         shell: Rscript {0}
 
-      - name: "Install roxygen2 7.2.3 from source (R-devel)"
+      - name: "Restore NAMESPACE and man/ from git (R-devel)"
         if: matrix.config.r == 'devel'
+        shell: bash
         run: |
-          remotes::install_version("roxygen2", "7.2.3", type = "source")
-        shell: Rscript {0}
+          git checkout HEAD -- NAMESPACE man/
+          sed -i '/^RoxygenNote:/d' DESCRIPTION
 
       - name: Install dependencies (for R-devel)
         if: matrix.config.r == 'devel'
@@ -83,13 +91,9 @@ jobs:
           remotes::install_version("rgl", "0.100.50")
         shell: Rscript {0}
 
-      - name: Session info
-        run: |
-          sessioninfo::session_info()
-          sessionInfo()
-        shell: Rscript {0}
 
       - name: Roxygenize
+        if: matrix.config.r != 'devel'
         run: |
           devtools::document()
         shell: Rscript {0}
