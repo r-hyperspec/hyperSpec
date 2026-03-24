@@ -84,8 +84,11 @@ jobs:
 
       - name: Session info
         run: |
-          print("See full session info in Dependency Setup step logs. ")
-          print("Not all dependencies are shown here.")
+          cat(
+            "NOTE: See full session info in Dependency Setup step logs. \n",
+            "Not all dependencies are listed here.",
+            sep = ""
+          )
           sessioninfo::session_info()
         shell: Rscript {0}
 
