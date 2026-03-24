@@ -296,7 +296,7 @@ hySpc.testthat::test(collapse) <- function() {
 
   test_that("collapsing objects with equal wavelength axes", {
     expect_equivalent(collapse(barbiturates[[1]], barbiturates[[1]]),
-      barbiturates[[1]][c(1, 1)],
+      wl_sort(barbiturates[[1]][c(1, 1)]),
       check.label = TRUE
     )
   })
@@ -353,8 +353,8 @@ hySpc.testthat::test(collapse) <- function() {
     )
 
     tmp <- flu[rep(1:nrow(flu), 2)]
-    tmp[[7:12]] <- NA
-    tmp[[7:12, , 450]] <- flu[[, , 450]]
+    tmp[[1:6]] <- NA
+    tmp[[1:6, , 450]] <- flu[[, , 450]]
     expect_equivalent(collapse(flu[, , 450], flu),
       tmp,
       check.labels = TRUE

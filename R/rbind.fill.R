@@ -206,7 +206,20 @@ rbind.fill <- function(...) {
     }
   }
 
-  quickdf(output)
+  result <- quickdf(output)
+  .strip_AsIs(result, matrixcols)
+}
+
+# Strip AsIs class from matrix columns after rbind.fill construction.
+# I() is needed during assembly to protect matrices in data.frames, but the
+# AsIs class should not persist (R >= 4.4 all.equal.AsIs checks class match).
+.strip_AsIs <- function(df, matrixcols) {
+  for (var in matrixcols) {
+    if (inherits(df[[var]], "AsIs")) {
+      class(df[[var]]) <- setdiff(class(df[[var]]), "AsIs")
+    }
+  }
+  df
 }
 
 .get.or.make.matrix <- function(df, var) {
