@@ -82,9 +82,25 @@ hySpc.testthat::test(hy_attach) <- function() {
   context("hy_attach")
 
   test_that("hy_attach() works", {
+    # This test detaches and re-attaches hyperSpec via library().
+    # Skip when the package is not properly installed (e.g., loaded via load_all).
+    skip_if(
+      !any(file.exists(file.path(.libPaths(), "hyperSpec"))),
+      "hyperSpec not installed in any library (loaded via load_all?)"
+    )
+
     # Check with hyperSpec package only
     installed_pkgs <- row.names(installed.packages())
     exclude_pkgs <- grep("^hySpc[.]", installed_pkgs, value = TRUE)
+
+    # Ensure package is re-attached on exit
+    on.exit({
+      if (!"package:hyperSpec" %in% search()) {
+        suppressWarnings(
+          tryCatch(library(hyperSpec), error = function(e) NULL)
+        )
+      }
+    }, add = TRUE)
 
     # First check
     expect_silent(hyperSpec::hy_attach(exclude_pkgs, quiet = TRUE))

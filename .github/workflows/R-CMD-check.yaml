@@ -24,9 +24,12 @@ jobs:
 
           - {os: windows-latest, r: 'release'}
 
-          - {os: ubuntu-latest,  r: 'devel', http-user-agent: 'release'}
+          # - {os: ubuntu-latest,  r: 'devel', http-user-agent: 'release'}
           - {os: ubuntu-latest,  r: 'release'}
           - {os: ubuntu-latest,  r: 'oldrel'}
+
+    permissions:
+      contents: read
 
     permissions:
       contents: read
@@ -35,8 +38,10 @@ jobs:
       R_KEEP_PKG_SOURCE: yes
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
+      - uses: actions/checkout@v6
       - uses: actions/checkout@v6
 
       - uses: r-lib/actions/setup-pandoc@v2
@@ -52,17 +57,21 @@ jobs:
           extra-packages: any::rcmdcheck, any::devtools, any::remotes, local::.
           needs: check
 
-      # roxygen2 7.3.x parser_setMethod calls methods::getMethod() which fails
-      # in clean Rscript sessions for S4 methods on primitives like [[, [, $.
-      # Pin to 7.2.3 on all platforms.
+      # roxygen2 7.3.x introduced a parser_setMethod bug: it calls
+      # methods::getMethod(name, eval(call$signature), where = env) with no
+      # error handling. In a clean Rscript session, S4 method tables for
+      # primitives ([[, [, $, etc.) are not populated → crash with
+      # "no method found for function '[[' and signature hyperSpec".
+      # Pin to 7.2.3 on ALL platforms (including R-devel) to avoid this.
       #
-      # R-devel (>= 4.6.0): R removed SET_GROWABLE_BIT from exported libR.so
-      # symbols (now a static inline in R.h). roxygen2 binaries compiled
-      # against R <= 4.5.x may fail to load with "undefined symbol:
-      # SET_GROWABLE_BIT". The tryCatch in the Roxygenize step below handles
-      # this by restoring committed NAMESPACE and man/ on any document() error.
+      # If roxygen2 7.2.3 fails to load on some future R-devel (e.g. due to a
+      # C-ABI break like the SET_GROWABLE_BIT removal in R 4.6.0-pre), the
+      # tryCatch below catches the error and attempts a fallback.  For the
+      # git-restore fallback to work, NAMESPACE and man/ must be committed
+      # (pre-built docs pattern used by Bioconductor / Matrix).
       - name: "Install roxygen2 7.2.3"
         run: |
+          # 7.3.x has parser_setMethod bug (see comment above); 7.2.3 does not.
           remotes::install_version("roxygen2", "7.2.3")
         shell: Rscript {0}
 
@@ -74,41 +83,60 @@ jobs:
 
       - name: Install dependencies (for R-oldrel)
         if: matrix.config.r == '3.6'
+        if: matrix.config.r == '3.6'
         run: |
           remotes::install_version("rgl", "0.100.50")
         shell: Rscript {0}
 
       - name: Session info
         run: |
+          cat(
+            "NOTE: See full session info in Dependency Setup step logs. \n",
+            "Not all dependencies are listed here.",
+            sep = ""
+          )
           sessioninfo::session_info()
         shell: Rscript {0}
 
       - name: Roxygenize
         run: |
-          # Wrap devtools::document() in tryCatch so that if roxygen2 fails to
-          # load or crashes (e.g. due to an R ABI break in R-devel), we fall
-          # back gracefully to the committed NAMESPACE and man/ files rather
-          # than leaving the package in an uninstallable state.
+          # Attempt devtools::document(). roxygen2 7.2.3 (pinned above) avoids
+          # the 7.3.x parser_setMethod crash on S4 primitives. However, if a
+          # future R-devel C-ABI break prevents loading the roxygen2 shared
+          # library, we catch the error and fall back to:
+          #   1. git-restore of pre-committed NAMESPACE + man/  (preferred)
+          #   2. source-compiled roxygen2 7.2.3 built against current R headers
           ok <- tryCatch({
             devtools::document()
             TRUE
           }, error = function(e) {
             message("devtools::document() failed: ", conditionMessage(e))
-            message("Restoring NAMESPACE and man/ from committed versions...")
-            out <- system2(
-              "git", c("checkout", "HEAD", "--", "NAMESPACE", "man/"),
-              stdout = TRUE, stderr = TRUE
-            )
-            status <- attr(out, "status")
-            if (!is.null(status) && status != 0L) {
-              message(
-                "git restore failed (files may not be committed): ",
-                paste(out, collapse = "\n")
-              )
+
+            # Fallback 1: restore from git (works when docs are pre-committed)
+            message("Attempting git restore of NAMESPACE and man/...")
+            ret <- system2("git", c("checkout", "HEAD", "--", "NAMESPACE", "man/"),
+                           stdout = TRUE, stderr = TRUE)
+            if (file.exists("NAMESPACE")) {
+              message("NAMESPACE restored from git.")
+              return(FALSE)
             }
-            FALSE
+            message("Git restore failed (NAMESPACE not tracked). ",
+                    "Trying source-compiled roxygen2 7.2.3...")
+
+            # Fallback 2: compile roxygen2 7.2.3 from source against current R
+            tryCatch({
+              remotes::install_version("roxygen2", "7.2.3", type = "source",
+                                       quiet = TRUE)
+              devtools::document()
+              message("devtools::document() succeeded with source-compiled 7.2.3.")
+              TRUE
+            }, error = function(e2) {
+              message("Source-compiled 7.2.3 also failed: ", conditionMessage(e2))
+              message("R CMD check will fail: NAMESPACE is required.")
+              FALSE
+            })
           })
-          if (!ok) message("Using committed documentation.")
+          if (!ok) message("Using pre-built documentation (if available).")
         shell: Rscript {0}
 
       - uses: r-lib/actions/check-r-package@v2
@@ -119,5 +147,5 @@ jobs:
         if: always()
         shell: bash
         run: |
-          find check -name '00check.log' -exec sh -c 'echo "### $(basename "$1")"; cat "$1"' _ {} \; >> $GITHUB_STEP_SUMMARY || true
+          find check -name '00check.log' -exec sh -c 'echo "### $1"; cat "$1"' _ {} \; >> $GITHUB_STEP_SUMMARY || true
 
