@@ -28,12 +28,16 @@ jobs:
           - {os: ubuntu-latest,  r: 'release'}
           - {os: ubuntu-latest,  r: 'oldrel'}
 
+    permissions:
+      contents: read
+
     env:
       R_KEEP_PKG_SOURCE: yes
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - uses: r-lib/actions/setup-pandoc@v2
 
@@ -48,7 +52,16 @@ jobs:
           extra-packages: any::rcmdcheck, any::devtools, any::remotes, local::.
           needs: check
 
-      - name: "Install roxygen2==7.2.3"
+      # roxygen2 7.3.x parser_setMethod calls methods::getMethod() which fails
+      # in clean Rscript sessions for S4 methods on primitives like [[, [, $.
+      # Pin to 7.2.3 on all platforms.
+      #
+      # R-devel (>= 4.6.0): R removed SET_GROWABLE_BIT from exported libR.so
+      # symbols (now a static inline in R.h). roxygen2 binaries compiled
+      # against R <= 4.5.x may fail to load with "undefined symbol:
+      # SET_GROWABLE_BIT". The tryCatch in the Roxygenize step below handles
+      # this by restoring committed NAMESPACE and man/ on any document() error.
+      - name: "Install roxygen2 7.2.3"
         run: |
           remotes::install_version("roxygen2", "7.2.3")
         shell: Rscript {0}
@@ -60,17 +73,51 @@ jobs:
         shell: Rscript {0}
 
       - name: Install dependencies (for R-oldrel)
-        if: matrix.config.r == 'oldrel' || matrix.config.r == '3.6'
+        if: matrix.config.r == '3.6'
         run: |
           remotes::install_version("rgl", "0.100.50")
         shell: Rscript {0}
 
+      - name: Session info
+        run: |
+          sessioninfo::session_info()
+        shell: Rscript {0}
+
       - name: Roxygenize
         run: |
-          devtools::document()
+          # Wrap devtools::document() in tryCatch so that if roxygen2 fails to
+          # load or crashes (e.g. due to an R ABI break in R-devel), we fall
+          # back gracefully to the committed NAMESPACE and man/ files rather
+          # than leaving the package in an uninstallable state.
+          ok <- tryCatch({
+            devtools::document()
+            TRUE
+          }, error = function(e) {
+            message("devtools::document() failed: ", conditionMessage(e))
+            message("Restoring NAMESPACE and man/ from committed versions...")
+            out <- system2(
+              "git", c("checkout", "HEAD", "--", "NAMESPACE", "man/"),
+              stdout = TRUE, stderr = TRUE
+            )
+            status <- attr(out, "status")
+            if (!is.null(status) && status != 0L) {
+              message(
+                "git restore failed (files may not be committed): ",
+                paste(out, collapse = "\n")
+              )
+            }
+            FALSE
+          })
+          if (!ok) message("Using committed documentation.")
         shell: Rscript {0}
 
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
+
+      - name: Show R-CMD-check log as step summary
+        if: always()
+        shell: bash
+        run: |
+          find check -name '00check.log' -exec sh -c 'echo "### $(basename "$1")"; cat "$1"' _ {} \; >> $GITHUB_STEP_SUMMARY || true
 
