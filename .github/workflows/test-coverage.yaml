@@ -85,7 +85,7 @@ jobs:
           find ${{ runner.temp }}/package -name 'testthat.Rout*' -exec cat '{}' \; || true
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           files: ./cobertura.xml
           fail_ci_if_error: false
