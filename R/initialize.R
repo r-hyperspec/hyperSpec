@@ -96,6 +96,9 @@
 #'   spc = spc
 #' )
 #'
+#' # data only, no spectra
+#' new("hyperSpec", data = data.frame(x = 1:5))
+#'
 #' colnames(spc) <- 600:603
 #' new("hyperSpec", spc = spc) # wavelength taken from colnames (spc)
 #'
@@ -203,7 +206,8 @@ NULL
 
   # Deal with spectra
   if (is.null(spc) && is.null(data$spc)) {
-    spc <- structure(numeric(0), .Dim = c(0L, 0L))
+    nrows <- if (!is.null(data)) nrow(data) else 0L
+    spc <- structure(numeric(0), .Dim = c(nrows, 0L))
   }
 
   if (!is.null(spc) && !is.matrix(spc)) {
@@ -397,6 +401,12 @@ hySpc.testthat::test(.initialize) <- function() {
     expect_equal(hy_obj_1c, hy_obj_2c)
   })
 
+  test_that("data only, no spc", {
+    h <- new("hyperSpec", data = data.frame(c = 1:5))
+    expect_equal(dim(h), c(nrow = 5L, ncol = 2L, nwl = 0L))
+    expect_equal(h@wavelength, numeric(0))
+    expect_equal(h$c, 1:5)
+  })
 
   test_that('hyperSpec() and new("hyperSpec") give identical results', {
     expect_equal(hyperSpec(), new("hyperSpec"))

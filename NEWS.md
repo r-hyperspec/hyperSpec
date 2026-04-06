@@ -47,6 +47,7 @@
 ### Bugfixes
 
 * Possibility to initialize `hyperSpec` object by providing wavelengths only (cbeleites/hyperSpec#288).
+* Possibility to initialize `hyperSpec` object providing only `data` without `spc` (cbeleites/hyperSpec#296).
 * Column names in spectra matrix (`$spc` column of `hyperSpec` object) are now returned correctly by functions `spc.bin()` (cbeleites/hyperSpec#237), and `spc.loess()` (cbeleites/hyperSpec#245
 * `all.equal()` method for `hyperSpec` objects converted from S4 to S3 registration. The S4 `setMethod()` approach for this S3 generic caused roxygen2 (>= 7.3) to crash during documentation generation.
 * `rbind.fill()` (internal): strip the `AsIs` class from matrix columns after data frame assembly. R >= 4.4 introduced `all.equal.AsIs()` which caused spurious class-mismatch failures when comparing `hyperSpec` objects that had been through `rbind` or `collapse`.
