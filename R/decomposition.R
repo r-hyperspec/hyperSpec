@@ -52,7 +52,7 @@
 #' @param ... ignored.
 #' @return A `hyperSpec` object, updated according to `x`
 #' @author C. Beleites
-#' @seealso See [%*%] for matrix multiplication of `hyperSpec` objects.
+#' @seealso See \code{\link[base:matmult]{%*%}} for matrix multiplication of `hyperSpec` objects.
 #'
 #'   See e.g. [stats::prcomp()] and [stats::princomp()] for
 #'   principal component analysis, and package `pls` for Partial Least

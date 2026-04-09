@@ -5,7 +5,7 @@
 #'
 #' `map.sel.poly` is a convenience wrapper for [plot_map()], `sel.poly`,
 #' and [sp::point.in.polygon()]. For customized plotting, the plot can be produced by
-#' [plot_map()], [plot_voronoi()] or [levelplot()], and the result of
+#' [plot_map()], [plot_voronoi()] or [lattice::levelplot()], and the result of
 #' that plot command handed over to `map.sel.poly`, see the example below.
 #'
 #' If even more customized plotting is required,`sel.poly` should be used (see example).

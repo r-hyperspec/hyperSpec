@@ -32,9 +32,6 @@ on:
   workflow_dispatch:
   push:
     branches: [develop,  auto-update-test]
-  schedule:
-    # (see https://crontab.guru)
-    - cron: "10 3 * */2 WED"
 
 name: Publish to pkg-repo (drat)
 
@@ -59,9 +56,10 @@ jobs:
       REPO: ${{ github.event.repository.name }}
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       CACHE_VERSION: 1
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: Info
         run: |
@@ -80,11 +78,6 @@ jobs:
         with:
           extra-packages: any::drat, any::devtools, local::.
           needs: check
-
-      - name: "Install roxygen2==7.2.3"
-        run: |
-          remotes::install_version("roxygen2", "7.2.3")
-        shell: Rscript {0}
 
       - name: Roxygenize
         shell: Rscript {0}

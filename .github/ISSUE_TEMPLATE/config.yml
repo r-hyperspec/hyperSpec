@@ -1,0 +1,9 @@
+blank_issues_enabled: true
+
+contact_links:
+  - name: Documentation & vignettes
+    url: https://r-hyperspec.github.io/
+    about: Browse the hyperSpec family documentation site.
+  - name: Stack Overflow
+    url: https://stackoverflow.com/questions/tagged/r+hyperspec
+    about: Ask usage questions on Stack Overflow (tag r + hyperspec).

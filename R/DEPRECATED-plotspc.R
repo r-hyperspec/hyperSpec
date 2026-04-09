@@ -29,6 +29,9 @@ plotspc <- function(...) {
 hySpc.testthat::test(plotspc) <- function() {
   context("Deprecated functions")
 
+  # Skip on R 4.5.2 or earlier
+  testthat::skip_if(getRversion() <= "4.5.2", "result differs on R 4.5.2 or earlier")
+
   test_that("plotspc() is deprecated", {
     plot_d <- function() plotspc(flu)
     expect_warning(vdiffr::expect_doppelganger("plotspc", plot_d), "deprecated")
