@@ -136,4 +136,5 @@ jobs:
           # must add manually and force it
           git add -f *.tar.gz
           git commit -m "Automated deploy from ${REPO}"
+          git pull --rebase origin gh-pages
           git push origin gh-pages
