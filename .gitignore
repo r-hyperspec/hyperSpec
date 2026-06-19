@@ -43,7 +43,6 @@ inst/doc
 
 # Documentation
 man/*.Rd
-NAMESPACE
 NEWS.html
 README.html
 
