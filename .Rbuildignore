@@ -30,7 +30,6 @@
 # Directories
 ^_tmp$
 ^data-raw$
-^\.vscode$
 
 
 # Helper files
@@ -53,6 +52,9 @@ Rplots.pdf
 tests/testthat/fileio
 
 
-
-# AI context files
-^ai-context-.*\.md$
+^\.vscode$
+^src/\.cargo$
+^src/rust/vendor$
+^src/rust/target$
+^src/Makevars$
+^src/Makevars\.win$

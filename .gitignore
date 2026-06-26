@@ -43,7 +43,6 @@ inst/doc
 
 # Documentation
 man/*.Rd
-NAMESPACE
 NEWS.html
 README.html
 
@@ -53,8 +52,6 @@ _tmp/
 
 ### Package-specific ###
 tests/testthat/fileio
-/.vscode
-.positai
-
-# AI context files
-ai-context-*.md
+src/rust/vendor
+src/Makevars
+src/Makevars.win
