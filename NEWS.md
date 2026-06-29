@@ -42,6 +42,7 @@
 * Dataset `faux_cell` and function `generate_faux_cell()` replace `chondro` dataset (cbeleites/hyperSpec#125, cbeleites/hyperSpec#156, cbeleites/hyperSpec#180, cbeleites/hyperSpec#229).
 * Documentation aliases have been updated. Now, ?hyperSpec points to the function `hyperSpec()`, and to refer to the package, `package?hyperSpec` should be used (#129).
 * Vignette `hyperSpec.Rmd`: suggested packages (`pls`) are now loaded conditionally so the vignette builds even when they are not installed.
+* Function `labels<-()` converted into an S4 generic, making it consistent with the existing `labels()` S4 generic (r-hyperspec/hyperSpec#115).
 
 
 ### Bugfixes
