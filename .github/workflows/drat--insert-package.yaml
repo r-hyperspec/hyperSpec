@@ -74,6 +74,12 @@ jobs:
           use-public-rspm: true
           extra-repositories: "https://r-hyperspec.github.io/pkg-repo/"
 
+      # See R-CMD-check.yaml for rationale.
+      - name: Install Rust toolchain (>= 1.85 for edition 2024)
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: "1.85"
+
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::drat, any::devtools, local::.
